@@ -7,3 +7,13 @@ M:\Server\provision\proviion\proviion\obj\Debug\provision.vbproj.GenerateResourc
 M:\Server\provision\proviion\proviion\obj\Debug\proviion.exe
 M:\Server\provision\proviion\proviion\obj\Debug\proviion.xml
 M:\Server\provision\proviion\proviion\obj\Debug\proviion.pdb
+M:\Server\provision\provision\bin\Debug\provision.xml
+M:\Server\provision\provision\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\provision\provision\obj\Debug\provision.vbproj.GenerateResource.Cache
+M:\Server\provision\provision\bin\Debug\ProvDA.exe
+M:\Server\provision\provision\bin\Debug\ProvDA.pdb
+M:\Server\provision\provision\bin\Debug\ProvDA.xml
+M:\Server\provision\provision\obj\Debug\ProvDA.Resources.resources
+M:\Server\provision\provision\obj\Debug\ProvDA.exe
+M:\Server\provision\provision\obj\Debug\ProvDA.xml
+M:\Server\provision\provision\obj\Debug\ProvDA.pdb
