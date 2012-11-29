@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML xmlns="http://www.w3.org/TR/REC-html40" xmlns:o = 
+"urn:schemas-microsoft-com:office:office" xmlns:w = 
+"urn:schemas-microsoft-com:office:word" xmlns:st1 = 
+"urn:schemas-microsoft-com:office:smarttags"><HEAD>
+<META content="text/html; charset=us-ascii" http-equiv=Content-Type>
+<META name=GENERATOR content="MSHTML 8.00.6001.18928"><o:SmartTagType 
+name="City" 
+namespaceuri="urn:schemas-microsoft-com:office:smarttags"></o:SmartTagType><o:SmartTagType 
+name="country-region" 
+namespaceuri="urn:schemas-microsoft-com:office:smarttags"></o:SmartTagType><o:SmartTagType 
+name="place" 
+namespaceuri="urn:schemas-microsoft-com:office:smarttags"></o:SmartTagType><o:SmartTagType 
+name="PersonName" 
+namespaceuri="urn:schemas-microsoft-com:office:smarttags"></o:SmartTagType><!--[if !mso]>
+<STYLE>
+st1\:*{behavior:url(#default#ieooui) }
+</STYLE>
+<![endif]-->
+<STYLE>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p
+	{mso-margin-top-alt:auto;
+	margin-right:0cm;
+	mso-margin-bottom-alt:auto;
+	margin-left:0cm;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:Arial;
+	color:windowtext;}
+@page Section1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;}
+div.Section1
+	{page:Section1;}
+-->
+</STYLE>
+</HEAD>
+<BODY lang=EN-GB link=blue vLink=purple><B>From:</B> Simon 
+Barnett<BR><B>Sent:</B> 01 April 2010 14:24<BR><B>To:</B> 
+carl.richards@dunlopsystems.com<BR><B>Subject:</B> SFDC Project Outline<BR>
+<DIV class=Section1>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Carl 
+--<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Please find below the project 
+outline that we discussed yesterday (Please forward this on to Lucaz too please, 
+as I can&#8217;t find his email address):<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">1...Set-up an IIS 
+Machine:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">This should be at least Windows 
+2003 server, with a reasonable amount of RAM and sisk space availible. Ideally 
+this machine should have no other function on the network, but the server can 
+run on the Priority Machine if required.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">2...Set up the A-records to point 
+to the IIS Machine:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">We need an A-record both on the 
+local domain and with your Internet DNS provider that will be used to connect to 
+the mobile service, eg mobile.dunlop.com. <o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Local DNS should resolve this to 
+the network address of the IIS server. Internet DNS should resolve this name to 
+the external IP address of your firewall. You firewall should be configured to 
+pass traffic on port 8080 to the internal network address of the IIS 
+server.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">After testing remote access to the 
+mobile service can be removed if required.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">3...Configure remote Access to 
+allow configuration:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">We will need to connect to the IIS 
+server to install all the components for the mobile service. Please ensure that 
+we can access the IIS machine from outside the 
+network.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">4...Install Wireless Access in 
+Goods Inwards:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Prior to go live we will need 
+wireless coverage of the area in which the devices are to be used. I'm sure 
+Lacasz can get this organised.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">5...Remote configuration the IIS 
+Machine:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Once the IIS machine is set up I 
+will dial in and install the required services. In the first instance, and for 
+testing <o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">6...Customisation of the PO Label 
+site:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">We will require from yourselves a 
+label design, detailing what elements should be present on the purchase order 
+labels that can be downloaded from the service. Once received we will use these 
+specifications<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">7...Create an Emulation 
+environment (for testing on the PC):<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">For testing I will be providing 
+win 32 builds of the application, to enable you to test the application prior to 
+receipt of the device. The builds will be specific to Dunlop, and will need to 
+be tested against your service, so this phase will start once your server is 
+installed.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">8...Order the 
+device:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">I have spoken to Luscz with 
+regards this, and we are going to source the device. Lucasz is deciding which 
+features he requires and is coming back to me with the relevant 
+paperwork.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">9...Install the emulator build on 
+the device:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Once we are happy with the 
+emulation environment we will load a build image onto the actual 
+device.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">10...Go 
+Live:<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">While the actual go-live date is 
+dependant upon the steps above, when we get past step 5 we should have enough 
+information to schedule the go-live. I will be on-site for this part of the 
+process.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoPlainText><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Any questions or comments please 
+don't hesitate to come back to me on the usual 
+number.<o:p></o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2 face=Arial><SPAN 
+style="FONT-FAMILY: Arial; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P class=MsoNormal><FONT size=2 face=Arial><SPAN 
+style="FONT-FAMILY: Arial; FONT-SIZE: 10pt"><o:p>&nbsp;</o:p></SPAN></FONT></P>
+<P><FONT size=2 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; FONT-SIZE: 10pt">Regards,</SPAN></FONT> 
+<o:p></o:p></P>
+<P style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" 
+class=MsoNormal><st1:PersonName w:st="on"><B><FONT color=#f99d22 size=3 
+face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: #f99d22; FONT-SIZE: 12pt; FONT-WEIGHT: bold" 
+lang=EN-US>Simon Barnett</SPAN></FONT></B></st1:PersonName><B><FONT 
+color=#f99d22 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: #f99d22; FONT-WEIGHT: bold" lang=EN-US> 
+</SPAN></FONT></B><B><FONT color=#f99d22 size=1 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: #f99d22; FONT-SIZE: 7.5pt; FONT-WEIGHT: bold" 
+lang=EN-US>B.Sc. (Hons)<BR></SPAN></FONT></B><B><I><FONT color=#f99d22 size=2 
+face=Verdana><SPAN 
+style="FONT-STYLE: italic; FONT-FAMILY: Verdana; COLOR: #f99d22; FONT-SIZE: 10pt; FONT-WEIGHT: bold" 
+lang=EN-US>Senior Project Manager</SPAN></FONT></I><FONT color=navy><SPAN 
+style="COLOR: navy"><o:p></o:p></SPAN></FONT></B></P>
+<P style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" 
+class=MsoNormal><B><FONT color=navy size=1 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: navy; FONT-SIZE: 8pt; FONT-WEIGHT: bold" 
+lang=EN-US>eMerge Information Technology Ltd<BR></SPAN></FONT></B><B><FONT 
+color=#7f7f7f size=1 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: #7f7f7f; FONT-SIZE: 8pt; FONT-WEIGHT: bold" 
+lang=EN-US>Office:&nbsp;&nbsp; +44 (0)845 230 6740<BR>Fax: +44 (0)845 230 
+6750<BR><st1:City w:st="on"><st1:place w:st="on">Mobile</st1:place></st1:City>: 
++44 (0)7989 389 179<BR></SPAN></FONT></B><B><FONT color=navy size=1 
+face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: navy; FONT-SIZE: 8pt; FONT-WEIGHT: bold" 
+lang=EN-US>Speedwell&nbsp;House - Speedwell Close - <st1:City 
+w:st="on">Chandlers</st1:City> Ford Industrial Estate - <st1:City 
+w:st="on">Chandlers</st1:City> Ford&nbsp;&#8211; Hampshire - SO53&nbsp;4BT - 
+<st1:country-region w:st="on"><st1:place w:st="on">United 
+Kingdom</st1:place></st1:country-region><o:p></o:p></SPAN></FONT></B></P>
+<P style="mso-margin-top-alt: auto; mso-margin-bottom-alt: auto" 
+class=MsoNormal><B><FONT color=navy size=1 face="Times New Roman"><SPAN 
+style="COLOR: navy; FONT-SIZE: 8pt; FONT-WEIGHT: bold" 
+lang=EN-US><BR></SPAN></FONT></B><B><I><FONT color=black size=1 
+face=Verdana><SPAN 
+style="FONT-STYLE: italic; FONT-FAMILY: Verdana; COLOR: black; FONT-SIZE: 8pt; FONT-WEIGHT: bold">eMerge 
+Information Technology &#8211; Future proof your 
+business</SPAN></FONT></I></B><B><FONT color=#7f7f7f face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: #7f7f7f; FONT-WEIGHT: bold"> 
+<BR></SPAN></FONT></B><B><FONT color=#7f7f7f size=1 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: #7f7f7f; FONT-SIZE: 7.5pt; FONT-WEIGHT: bold">This 
+e-mail may contain confidential and/or privileged information. It is for the 
+exclusive use of the intended recipient(s). If you are not the intended 
+recipient(s), you must not use, distribute, copy or take any action in reliance 
+on it, since to do so is strictly prohibited and may be unlawful. If you have 
+received this e-mail in error, please return it to the sender immediately and 
+delete it from your system. E-mail messages are not secure and attachments may 
+contain software viruses which may damage your system. Whilst we have taken 
+every reasonable </SPAN></FONT></B><B><FONT color=gray size=1 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: gray; FONT-SIZE: 7.5pt; FONT-WEIGHT: bold">precaution 
+to minimise this risk, we cannot accept any liability for any damage which you 
+sustain as a result of these factors. You are advised to carry out your own 
+virus checks before opening any attachment. Any views or opinions expressed in 
+this e-mail are solely those of the author and do not represent those of eMerge 
+Information Technology unless otherwise stated.</SPAN></FONT></B><B><FONT 
+color=gray size=1><SPAN 
+style="COLOR: gray; FONT-SIZE: 8pt; FONT-WEIGHT: bold"><BR></SPAN></FONT></B><B><FONT 
+color=gray size=1 face=Verdana><SPAN 
+style="FONT-FAMILY: Verdana; COLOR: gray; FONT-SIZE: 8pt; FONT-WEIGHT: bold">Company 
+No. 4311244 - VAT Reg. No. 781 9288 80</SPAN></FONT><FONT color=navy><SPAN 
+style="COLOR: navy"><o:p></o:p></SPAN></FONT></B></P>
+<P class=MsoNormal><FONT size=3 face="Times New Roman"><SPAN 
+style="FONT-SIZE: 12pt"><o:p>&nbsp;</o:p></SPAN></FONT></P></DIV></BODY></HTML>

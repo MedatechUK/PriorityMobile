@@ -1,0 +1,7 @@
+Any Windows Mobile device with .net and access to the GSM network for GPRS communication is sufficient. Usually you can pressure your service provider into giving you a device more than sufficient for the purpose free with your airtime contract.
+
+Also if you are considering integrating GPS navigation into the device you should make sure that the device has GPS onboard, and has a ~4g memory SSD for maps.
+
+If I were to express a preference, I’d recommend the latest HP Ipaq (which I have previously seen airtime providers throw in with the contract) because of its excellent build quality, sturdy reliability, built in GPS/WiFi/rs820 and nice integral keyboard. 
+
+With that said the service engineer app itself will run quite happily, if somewhat sedately, on the 2003 ipaq I got from ebay for £40 with a £1 SIM card from Tesco, so you really don’t need an overspec device to get started.

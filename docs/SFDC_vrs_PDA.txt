@@ -1,0 +1,12 @@
+an explanation of the differences between our two hand-held solutions: The key difference here is how they connect to and store their data. Our wireless (SFDC) product uses a connect-on-demand model, while our remote (GSM) product uses a burst-on-connection model.  
+
+The wireless SFDC product assumes it will have the availability to connect-on-demand. With that connection in place, the SFDC transactions can query the database in real-time. However, any transaction that occurs where a connection cannot be assumed must use the (GSM) burst-on-connect model, where data snapshots are stored locally on the device. This is true regardless of whether the actual connection occurs when docking at a wired station or when a GSM signal becomes available. 
+
+By way of an example, let us consider a Goods Receiving transaction. The first action is to select a Supplier from the suppliers table. If you do not have connectivity then this must be downloaded to the hand-held prior to the transaction. Next we must specify the warehouse/location that will receive the goods. Without connectivity this must be downloaded to the hand-held prior to the transaction. Next we specify the associated P.O. linked with the supplier already specified. Without connectivity this must be downloaded to the hand-held prior to the transaction. 
+
+Without connect-on-demand all the details of the P.O. would need to be defined by, downloaded to and saved on the device in order to identify received items and their associated details.
+
+When a transaction is saved by the operator in the on-demand scenario the availability of a connection means the transaction can be posted directly into the database. In the burst-on-connection scenario the contents of the transaction must be saved to an outbound messaging queue on the device and stored there until the “burst” – the point at which a connection becomes available for the transmission of pending messages.
+
+As you can see, the difference between the two types of transaction (wireless SFDC and remote GSM) is that each GSM transaction that is developed has to include a large amount of loading data to the hand-held device to ensure all the required data and error checking is available when the transaction is done. 
+

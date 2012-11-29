@@ -1,0 +1,568 @@
+<!-- saved from url=(0016)http://localhost -->
+<HTML>
+<HEAD>
+<TITLE>Print Price Quotation</TITLE>
+<meta name="GENERATOR" content="Priority 13 - Enterprise Management System - Copyright ?Eshbel Technologies Ltd. 1986-2008">
+<meta http-equiv="Content-Type" content="text/html;  charset=utf-8">
+<SCRIPT LANGUAGE=javascript TYPE="text/javascript"> 
+<!--
+<!--| Priority Script |-->
+<!--| Priority Report Options |-->
+function initform() {
+    <!--| Priority Defaults |-->
+	return true;
+}
+function validate(form) {
+	return true;
+}
+//-->
+</SCRIPT>
+<style> 
+<!--
+a	{ color: #305774; text-decoration: underline }
+a:hover { color: #000000; }
+.datafont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.totalfont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.titlefont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+	font-weight: bold; 
+}
+.groupfont {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+#a { text-decoration:none; color:"#000080"; }
+#a:hover {text-decoration:underline; color:"#0000ff"}
+.DOCNO a{
+	text-decoration:underline; color:"#000000";
+}
+p {margin:0cm;font-size:10.0pt;font-family:'Arial';}
+thead {display: table-header-group}
+tfoot {display: table-footer-group}
+table {border-collapse:collapse}
+td {mso-number-format:\@} 
+.Editcbtn { height:18; width:22;
+            BORDER-LEFT: threedface 1px solid;
+            BORDER-RIGHT: threedface 1px solid;
+            BORDER-TOP: threedface 1px solid;
+            BORDER-BOTTOM: threedface 1px solid; }
+.titletbl {
+	height:19px;
+}
+.tabstbl {
+	height:19px;
+}
+.dbframe {
+	border-style:solid;
+	border-width:1;
+	border-color:#808080;
+	margin-left:3px;
+	margin-right:0px;
+	margin-top:3px;
+	margin-bottom:0px;
+	display:none;
+}
+.titlebar {
+	background-image:url(/priimages/titlebar.jpg);
+	padding-left:10px;
+	padding-right:10px;
+	valign:top
+}
+.lefton a { text-decoration:none; color:"#000080"; }
+.lefton {
+	background-image:url(/priimages/left-on.gif);
+	background-repeat:no-repeat;
+	padding-left:13px;
+	valign:top
+}
+.leftonmiddleoff a{ text-decoration:none; color:"#000080"; }
+.leftonmiddleoff {
+	background-image:url(/priimages/left-on-middle-off.gif);
+	background-repeat:no-repeat;
+	padding-left:23px;
+	valign:top
+}
+.middleoff a{ text-decoration:none; color:"#000080"; }
+.middleoff {
+	background-image:url(/priimages/middle-off.gif);
+	background-repeat:no-repeat;
+	padding-left:23px;
+	valign:top
+}
+.rightoff a{ text-decoration:none; color:"#000080"; }
+.rightoff {
+	background-image:url(/priimages/right-off.gif);
+	background-repeat:no-repeat;
+	padding-left:13px;
+	valign:top
+}
+.leftoff a{ text-decoration:none; color:"#000080"; }
+.leftoff {
+	background-image:url(/priimages/left-off.gif);
+	background-repeat:no-repeat;
+	padding-left:13px;
+	valign:top
+}
+.middleon a{ text-decoration:none; color:"#000080"; }
+.middleon {
+	background-image:url(/priimages/middle-on.gif);
+	background-repeat:no-repeat;
+	padding-left:23px;
+	valign:top
+}
+.righton a{ text-decoration:none; color:"#000080"; }
+.righton {
+	background-image:url(/priimages/right-on.gif);
+	background-repeat:no-repeat;
+	padding-left:13px;
+	valign:top
+}
+.indent {
+	padding-left:25px;
+	padding-right:25px;
+}
+.newpage {
+	page-break-before:always;
+}
+.fs {
+	background-color:white;
+	border-collapse:separate;
+}
+.bttn1,.bttn2,.bttn3,.bttn4,.bttn5,.bttn6,.bttn7,.bttn8 {
+	background-image:url(/priimages/bttnm.bmp);
+	width:70px;
+	cursor:hand;
+	vertical-align:top
+}
+.disabled_bttn {
+	background-image:url(/priimages/bttnm-gray.bmp);
+	width:70px;
+	cursor:default;
+}
+.disabled_bttn font {
+	color:#404040;
+}
+.rightbtn{
+	background-image:url(/priimages/bttnr.gif);
+	width:15;
+	cursor:default;
+}
+.disabled_rightbtn{
+	background-image:url(/priimages/bttnr-gray.gif);
+	width:15;
+	cursor:default;
+}
+.leftbtn{
+	background-image:url(/priimages/bttnl.gif);
+	width:15;
+	cursor:default;
+}
+.disabled_leftbtn{
+	background-image:url(/priimages/bttnl-gray.gif);
+	width:15;
+	cursor:default;
+}
+.ol2{
+	border-top-style:double;
+	border-top-width:3;
+	border-top-color:black;
+}
+.ol{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+}
+.ul2{
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.ul{
+	border-bottom-style:solid;
+	border-bottom-width:1;
+	border-bottom-color:black;
+}
+.olul2{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.ol2ul2{
+	border-top-style:double;
+	border-top-width:3;
+	border-top-color:black;
+	border-bottom-style:double;
+	border-bottom-width:3;
+	border-bottom-color:black;
+}
+.olul{
+	border-top-style:solid;
+	border-top-width:1;
+	border-top-color:black;
+	border-bottom-style:solid;
+	border-bottom-width:1;
+	border-bottom-color:black;
+	background: none;
+}
+/* Styles for scrollable tables */
+.tableContainer {
+	position: relative;	/* to capture the absolutely positioned table header */
+	padding-top: 22px;	/* space for the column heads */
+	margin: 0 auto;
+	width: auto;
+	}
+ 
+/* this enables the table to scroll without scrolling the page */
+.innerFrame {
+	padding-right: 18px;	/* space for the scrollbar */
+	overflow-y: scroll;	
+	overflow: hidden;	
+	height: 500px;		/* height is required */
+	}
+ 
+/* position the row of column heads above the table */
+.tableContainer thead tr {
+	/* position: absolute;	throws the header out of the table */
+	top: 0px;
+	left: 0px;			
+	border-right: solid 1pt #d0d0d0;
+	}
+.tableContainer table{
+	border-right: solid 1px #d0d0d0;
+	border-bottom: solid 1px #d0d0d0;
+	border-left: solid 0px black;
+	border-top: solid 0px black;
+	width: 100%;
+	border-collapse:separate;
+	}
+	
+.tableContainer thead td	{
+	/*border-bottom: solid 1pt #d0d0d0;*/
+	}
+	
+.tableContainer td	{
+	border-top: solid 1px #d0d0d0;
+	border-left: solid 1px #d0d0d0;
+	border-bottom: solid 0pt black;
+	border-right: solid 0px black;
+	}
+.titletable	{ 
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+	font-weight: bold; 
+	border-left: 1px solid #F8F8F8; 
+	border-top: 1px solid #F8F8F8; 
+	border-right: 1px solid #909090; 
+	border-bottom: 1px solid #909090; 
+	background-color:#B4CFE0; 
+	height:22 
+}
+.matrix_cell {
+	width:50px;
+}
+.hidethead {
+	font-size: 9pt; 
+	font-family: Verdana, Sans Serif, Helvetica; 
+}
+.hidethead thead{
+	display:none
+}
+textarea	{ font-size: 9pt; font-family:Courier New, "monospace"; }
+input		{ font-size: 9pt;}
+select		{ font-size: 9pt;}
+-->
+</style>
+ 
+<style type="text/css" media="print"> 
+<!--
+a { color: #000000; text-decoration: none }
+.innerFrame {overflow: visible;}
+.tableContainer {padding-top: 0px;}
+.tableContainer thead tr {position: static;}
+.tableContainer td	{
+	border-top: solid 1px black;
+	border-left: solid 1px black;
+	border-bottom: solid 1pt black;
+	border-right: solid 1px black;
+}
+.tableContainer table{
+	border-right: solid 1px black;
+	border-bottom: solid 1px black;
+	border-left: solid 1px black;
+	border-top: solid 1px black;
+	border-collapse:collapse;
+}
+-->
+</style>
+<!--
+<div name='barcode' style="visibility:hidden;position:absolute;font-family:Free 3 of 9; font-size:1">*0*</div>
+-->
+<SCRIPT LANGUAGE=javascript TYPE="text/javascript"> 
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" topmargin="2" leftmargin="1" rightmargin="1">
+<form method="POST" name="priform">
+ 
+ 
+<table width="100%" border=0 rules="none" bgcolor="#ffffff" cellspacing=10 cellpadding=0>
+<thead>
+<tr><td>
+<table border=0 width="100%"><tr><td>
+    <TABLE border=0 cellspacing=0 cellpadding=0  width="100%"       >
+<tr>
+	<td  align="left" bgcolor="#ffffff">
+<font face="Verdana" size="4" color="#000000"><b>eMerge Information Tech. Ltd</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Speedwell House, Speedwell Close</b></font>, <font face="Verdana" size="2" color="#000000"><b>Hampshire</b></font>&nbsp;<font face="Verdana" size="2" color="#000000"><b>SO53 4BT</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Tel.: +44 845 230 6740</b></font>, <font face="Verdana" size="2" color="#000000"><b>Fax: +44 845 230 6750</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>VAT Nbr:: GB781 9288 80</b></font>
+</td>
+	<td  align="right" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b><a href='javascript:void(0)' onclick='javascript:w = window.open("http://www.emerge-it.co.uk", "PriorityLink"); w.focus(0); return false' title="GoTo Company WebSite" tabindex="14"><img border="0" src="c:\priority\system\images\logo2.gif" ></a></b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>URL: <a href='javascript:void(0)' onclick='javascript:w = window.open("http://www.emerge-it.co.uk", "PriorityLink"); w.focus(0); return false' title="GoTo Company WebSite" tabindex="15">http://www.emerge-it.co.uk</a></b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>E-mail: <a href="mailto:info@emerge-it.co.uk" title="E-mail" tabindex="16">info@emerge-it.co.uk</a></b></font>
+</td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+</td></tr>
+</thead>
+<tr><td>
+ 
+<table width="100%" border=0 rules="none" bgcolor="#ffffff" style="BORDER-TOP: #ffffff 1px solid" cellspacing=1 cellpadding=0>
+<tr><td>
+ 
+<table width="100%" border=0 rules="none" bgcolor="#ffffff" cellspacing=0 cellpadding=6>
+<tr><td>
+ 
+<table width="100%" border=0 rules="none" bgcolor="#ffffff" cellspacing=0 cellpadding=0>
+<thead>
+<tr>
+<td  colspan="3" valign="top">
+<table border=0 width="100%"><tr><td>
+    <TABLE border=0 cellspacing=0 cellpadding=0  width="100%"       >
+<tr>
+	<td  align="left" valign="top" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>To:</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Strauss Water UK Ltd</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Strauss House</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Unit 3C Henley Business Park</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Pirbright Road, Normandy</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Guildford, Surrey GU3 2DX</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Attn: David Milanovich</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Tel.: 01483 231 789</b></font>, <font face="Verdana" size="2" color="#000000"><b>Fax: 01344 869911</b></font>
+</td>
+	<td ></td>
+	<td  align="left" valign="top" width="27%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>Quote Date: 06/04/11</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Print Date: 28/04/11</b></font><br>
+<font face="Verdana" size="2" color="#000000"><b>Current Version: 4</b></font>
+</td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+<br><table border=0 width="100%"><tr><td>
+    <TABLE border=0 cellspacing=0 cellpadding=0  width="100%"       >
+<tr>
+	<td  align="center" width="100%" colspan="3" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>&nbsp</b></font><font face="Verdana" size="4" color="#000000"><u>&nbsp;Price Quotation&nbsp;</u></font><font face="Verdana" size="4" color="#000000"><u><a href="priority:priform@CPROF:PQ11000035:emerge:tabula.ini:2" title="Space" tabindex="19">PQ11000035</a></u></font><q id="_orig"></q></td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+</td></tr>
+</thead>
+<tr>
+<td  colspan="3" valign="top">
+<br><table border=0 width="100%"><tr><td>
+    <TABLE border=1 cellspacing=0 cellpadding=0 rules="all" width="100%"   bordercolor="#505050"     >
+<tr>
+<td valign="top" width="100%">
+<table border=0 cellspacing=0 cellpadding=4  width="100%"   >
+<tr>
+	<td  align="left" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>1. Motorola ES400 Mobile Device</b></font>
+</td>
+	<td  align="left" valign="top" width="20%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000">Part Number</font><br>
+<font face="Verdana" size="2" color="#000000">Quantity</font><br>
+<font face="Verdana" size="2" color="#000000">Unit Price</font><br>
+<font face="Verdana" size="2" color="#000000">Extended Price</font><br>
+<font face="Verdana" size="2" color="#000000">Bar Code</font>
+</td>
+	<td  align="right" valign="top" width="20%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><a href="priority:priform@LOGPART:Hardware:emerge:tabula.ini:2" title="Part Number" tabindex="33">Hardware</a></font><br>
+<font face="Verdana" size="2" color="#000000">13.00 ea</font><br>
+<font face="Verdana" size="2" color="#000000">GBP 445.00</font><br>
+<font face="Verdana" size="2" color="#000000">GBP 5,785.00</font><br>
+<font face="Verdana" size="2" color="#000000">*Hardware*</font>
+</td>
+</tr>
+<tr>
+	<td  align="left" colspan="3" bgcolor="#ffffff">
+ 
+<style> p,div,li{margin:0cm;font-size:8.0pt;font-family:'Verdana';}</style> <P><SPAN style="FONT-FAMILY: 'Calibri','sans-serif'; FONT-SIZE: 10pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-GB; mso-fareast-language: EN-GB; mso-bidi-language: AR-SA">The Motorola ES400 is a cutting-edge mobile Enterprise Digital Assistant (EDA) that transforms mobile managers and task workers from informed to truly empowered by giving them the tools and access to critical enterprise-class applications they need to complete any job, anywhere. Instead of pushing information at your workers, give them what they need to take action when and where it matters&nbsp; in front of your customers. <BR></SPAN></P> </td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td valign="top" width="100%">
+<table border=0 cellspacing=0 cellpadding=4  width="100%"   >
+<tr>
+	<td  align="left" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>2. Option - 3yr extended warranty</b></font>
+</td>
+	<td  align="left" valign="top" width="20%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000">Part Number</font><br>
+<font face="Verdana" size="2" color="#000000">Quantity</font><br>
+<font face="Verdana" size="2" color="#000000">Unit Price</font><br>
+<font face="Verdana" size="2" color="#000000">Extended Price</font><br>
+<font face="Verdana" size="2" color="#000000">Bar Code</font>
+</td>
+	<td  align="right" valign="top" width="20%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><a href="priority:priform@LOGPART:Hardware:emerge:tabula.ini:2" title="Part Number" tabindex="47">Hardware</a></font><br>
+<font face="Verdana" size="2" color="#000000">13.00 ea</font><br>
+<font face="Verdana" size="2" color="#000000">GBP 165.00</font><br>
+<font face="Verdana" size="2" color="#000000">GBP 2,145.00</font><br>
+<font face="Verdana" size="2" color="#000000">*Hardware*</font>
+</td>
+</tr>
+<tr>
+	<td  align="left" colspan="3" bgcolor="#ffffff">
+ 
+<style> p,div,li{margin:0cm;font-size:8.0pt;font-family:'Verdana';}</style> <P>Back-to-back with PDA supplier. The warranty is a 3 year accidental damage cover warranty on a 5 day return to base policy.</P> </td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td valign="top" width="100%">
+<table border=0 cellspacing=0 cellpadding=4  width="100%"   >
+<tr>
+	<td  align="left" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>3. SOTI MobiControl</b></font>
+</td>
+	<td  align="left" valign="top" width="20%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000">Part Number</font><br>
+<font face="Verdana" size="2" color="#000000">Quantity</font><br>
+<font face="Verdana" size="2" color="#000000">Unit Price</font><br>
+<font face="Verdana" size="2" color="#000000">Extended Price</font><br>
+<font face="Verdana" size="2" color="#000000">Bar Code</font>
+</td>
+	<td  align="right" valign="top" width="20%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><a href="priority:priform@LOGPART:Software:emerge:tabula.ini:2" title="Part Number" tabindex="61">Software</a></font><br>
+<font face="Verdana" size="2" color="#000000">13.00 ea</font><br>
+<font face="Verdana" size="2" color="#000000">GBP 40.00</font><br>
+<font face="Verdana" size="2" color="#000000">GBP 520.00</font><br>
+<font face="Verdana" size="2" color="#000000">*Software*</font>
+</td>
+</tr>
+<tr>
+	<td  align="left" colspan="3" bgcolor="#ffffff">
+ 
+<style> p,div,li{margin:0cm;font-size:8.0pt;font-family:'Verdana';}</style> <P>MobiControl is the solution of choice for&nbsp;rapid and reliable performance over any network for any size of deployment. MobiControl is designed to effectively manage, support, secure and track evolving mobile field forces across diverse network topologies.</P> </td>
+</tr>
+</table>
+</td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+</td></tr>
+<tr>
+<td width="45%"  valign="top">
+<br><table border=0 width="100%"><tr><td>
+    <TABLE border=0 cellspacing=0 cellpadding=4 rules="none" width="100%"       >
+<tr>
+	<td  align="left" valign="top" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000">Price Quote Bar Code</font>&nbsp;<font face="Verdana" size="2" color="#000000">*PQ11000035*</font><br>
+<font face="Verdana" size="2" color="#000000">Expir. Date: 06/05/11</font><br>
+<font face="Verdana" size="2" color="#000000">Payment Terms: 28 Days</font><br>
+<font face="Verdana" size="2" color="#000000">Sales Rep: Phil Nicholls</font><br>
+<font face="Verdana" size="2" color="#000000">Project: Strauss Support</font><br>
+<font face="Verdana" size="2" color="#000000">Customer Number: <a href="priority:priform@CUSTOMERS:C000048:emerge:tabula.ini:2" title="Customer Number" tabindex="75">C000048</a></font><br>
+<font face="Verdana" size="2" color="#000000">Current Version: 4</font>
+</td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+</td>
+<td></td>
+<td width="40%"  valign="top">
+<table border=0 width="100%"><tr><td>
+    <TABLE border=1 cellspacing=0 cellpadding=4 rules="groups" width="100%"   bordercolor="#505050"     >
+<tr>
+	<td  align="left" nowrap width="50%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>Total Price</b></font>
+</td>
+	<td  align="right" width="50%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>8,450.00</b></font>
+</td>
+</tr>
+<tr>
+	<td  align="left" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>VAT</b></font>
+</td>
+	<td  align="right" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>1,690.00</b></font>
+</td>
+</tr>
+<tr>
+	<td  align="left" width="50%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>TOTAL</b></font>
+</td>
+	<td  align="right" nowrap width="50%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000"><b>GBP 10,140.00</b></font>
+</td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+</td></tr>
+<tr>
+<td  colspan="3" valign="top">
+<table border=0 width="100%"><tr><td>
+    
+</td></tr></table>
+<table border=0 width="100%"><tr><td>
+    <TABLE border=0 cellspacing=0 cellpadding=0  width="100%"       >
+<tr>
+	<td width="75%">
+&nbsp;</td>
+	<td width="25%" bgcolor="#ffffff">
+<font face="Verdana" size="2" color="#000000">Simon Barnett</font><br>
+<font face="Verdana" size="2" color="#000000">eMerge Information Tech. Ltd</font>
+</td>
+</tr>
+</TABLE>
+ 
+</td></tr></table>
+<table border=0 width="100%"><tr><td>
+    
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+</td></tr></table>
+<table border=0 width="100%"><tr><td >
+<font face="Arial" color="#ff0000" size="3">
+    
+</font></td></tr></table>
+</td></tr></table>
+    
+</form>
+</BODY>
+</HTML>
+
