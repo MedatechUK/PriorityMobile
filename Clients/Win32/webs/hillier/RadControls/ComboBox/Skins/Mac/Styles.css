@@ -1,0 +1,118 @@
+.ComboBoxDropDown_Mac
+{
+	background-image: url(dropdownBg.gif);
+	border: 1px solid #C3C3C3;
+	border-top: none;
+	scrollbar-face-color: #F8F6F2;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #E9E9E9;
+	scrollbar-3dlight-color: #DBDBDB;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-darkshadow-color: #AEAEAE;
+}
+
+.ComboBoxImage_Mac
+{
+	vertical-align:middle;
+}
+
+.ComboBoxImageHover_Mac
+{
+	vertical-align:middle;
+}
+
+.ComboBoxInput_Mac
+{
+	background-image: url(bg.gif);
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	font-family: Arial, Verdana;
+	border: 0px;
+	margin-right: 0px;
+	border-left: 1px solid #B3B3B3;
+	font-size: 11px;
+	color: black;
+	padding-top: 2px;
+	padding-left: 3px;
+	height: 21px;
+}
+
+.ComboBoxInputHover_Mac
+{
+	background-image: url(bg.gif);
+	background-repeat: repeat-x;
+	vertical-align: middle;
+	font-family: Arial, Verdana;
+	border: 0px;
+	margin-right: 0px;
+	border-left: 1px solid #B3B3B3;
+	font-size: 11px;
+	color: black;
+	padding-top: 2px;
+	padding-left: 3px;
+	height: 21px;
+}
+
+.ComboBoxItem_Mac
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: #333333;	
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemHover_Mac
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: white;
+	text-decoration: none;
+	background-color: #777777; 
+	cursor: pointer;
+	cursor: hand;
+	padding: 3px;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_Mac
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_Mac
+{
+	font-family: Arial;
+	font-size: 11px; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Mac
+{
+	font-family: Arial;
+	font-size: 10px; 
+	padding: 2px;
+	text-align: center;
+}
+
+
+.ComboBoxMoreResultsImage_Mac
+{
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.ComboBoxMoreResultsBox_Mac
+{
+	background-color: #E8E8E8;
+}

@@ -1,0 +1,87 @@
+.RadTabStrip_VerticalRight
+{
+	font: 8pt tahoma, sans-serif;
+	text-align: center;
+}
+
+.RadTabStrip_VerticalRight ul
+{
+	width:33px;
+	padding:20px 0;
+}
+
+.RadTabStrip_VerticalRight li a
+{
+	padding-top:20px;
+	white-space:nowrap;
+	background:transparent url('img/tabTopOff.gif') no-repeat left top;
+	line-height:33px;
+	text-decoration:none;
+	margin-top:-34px;
+}
+
+.RadTabStrip_VerticalRight li a .innerWrap
+{
+	writing-mode: tb-rl; 
+	background:transparent url('img/tabOffBg.gif') left bottom;
+	padding-top:17px;
+	padding-bottom:17px;	
+	text-indent:10px;
+}
+
+.RadTabStrip_VerticalRight li a .wrap
+{
+	padding-bottom:20px;
+	background:transparent url('img/tabBottomOff.gif') no-repeat left bottom;
+}
+
+.RadTabStrip_VerticalRight li a.selected
+{
+	background-image:url(img/tabTopOn.gif);
+}
+
+.RadTabStrip_VerticalRight li a.selected .wrap
+{
+	background-image:url(img/tabBottomOn.gif);
+}
+
+.RadTabStrip_VerticalRight li a.selected .innerWrap
+{
+	background : url(img/tabOnBg.gif);
+	border-right:1px solid #8f8f8f;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_VerticalRight .leftArrow
+{
+	background-image:url(img/ScrollLeft.png);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 16px;
+}
+
+.RadTabStrip_VerticalRight .rightArrow
+{
+	background-image:url(img/ScrollRight.png);
+	background-repeat: no-repeat;
+	height: 17px;
+	width: 16px;
+}
+
+
+.RadTabStrip_VerticalRight .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.png);
+	height: 17px;
+	width: 16px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_VerticalRight .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.png);
+	height: 17px;
+	width: 16px;
+	background-repeat: no-repeat;
+}

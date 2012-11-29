@@ -1,0 +1,12 @@
+bin\Debug\Demo Project.exe.config
+bin\Debug\Demo Project.exe
+bin\Debug\Demo Project.pdb
+bin\Debug\Demo Project.xml
+bin\Debug\PriLoadData.dll
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\DemoProject.Form1.resources
+obj\Debug\DemoProject.Resources.resources
+obj\Debug\DemoProject.vbproj.GenerateResource.Cache
+obj\Debug\Demo Project.exe
+obj\Debug\Demo Project.xml
+obj\Debug\Demo Project.pdb

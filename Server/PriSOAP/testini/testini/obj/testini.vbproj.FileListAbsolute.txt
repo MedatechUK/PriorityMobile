@@ -1,0 +1,16 @@
+M:\Server\PriSOAP\testini\testini\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP\testini\testini\obj\Debug\testini.Form1.resources
+M:\Server\PriSOAP\testini\testini\obj\Debug\testini.Resources.resources
+M:\Server\PriSOAP\testini\testini\obj\Debug\testini.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP\testini\testini\bin\Debug\testini.exe
+M:\Server\PriSOAP\testini\testini\bin\Debug\testini.pdb
+M:\Server\PriSOAP\testini\testini\bin\Debug\testini.xml
+M:\Server\PriSOAP\testini\testini\bin\Debug\ntEvtlog.dll
+M:\Server\PriSOAP\testini\testini\bin\Debug\PriClient.dll
+M:\Server\PriSOAP\testini\testini\bin\Debug\PriClient.pdb
+M:\Server\PriSOAP\testini\testini\bin\Debug\PriClient.xml
+M:\Server\PriSOAP\testini\testini\bin\Debug\ntEvtlog.pdb
+M:\Server\PriSOAP\testini\testini\bin\Debug\ntEvtlog.xml
+M:\Server\PriSOAP\testini\testini\obj\Debug\testini.exe
+M:\Server\PriSOAP\testini\testini\obj\Debug\testini.xml
+M:\Server\PriSOAP\testini\testini\obj\Debug\testini.pdb

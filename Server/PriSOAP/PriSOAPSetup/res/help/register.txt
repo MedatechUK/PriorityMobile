@@ -1,0 +1,9 @@
+Usage: RegisterEventLog.exe [-r|register "{LogName}"] 
+                   [-?|h|help "{helpFile}"]
+
+Options (-|/):
+
+
+    r|register     Register {LogName} with the windows event log.
+
+    -?|h|help      This help file. 

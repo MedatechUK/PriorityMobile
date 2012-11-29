@@ -1,0 +1,85 @@
+.RadTabStrip_Outlook
+{
+	font:8pt tahoma, sans-serif;
+	text-align:center;
+}
+
+
+.RadTabStrip_Outlook ul
+{
+	padding-top:3px !important;
+}
+
+.RadTabStrip_Outlook li a
+{
+	padding-left:3px;
+	background:transparent url('img/tabLeftOff.gif') 0px 0px no-repeat;
+	color:Black;
+	text-decoration:none;
+	line-height:19px;	
+}
+
+.RadTabStrip_Outlook li a .wrap
+{
+
+	padding-right:3px;
+	background:transparent url('img/tabRightOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_Outlook li a .innerWrap
+{
+
+	padding:0 5px;
+	background:transparent url('img/tabMiddleOff.gif') 0px 0px repeat-x;
+}
+
+.RadTabStrip_Outlook li a.selected
+{
+	margin-top:-3px;
+	line-height:22px;	
+	background:transparent url('img/tabLeftOn.gif') 0px 0px no-repeat;
+}
+
+.RadTabStrip_Outlook li a.selected .wrap
+{
+	background-image:url('img/tabRightOn.gif');
+}
+
+
+.RadTabStrip_Outlook li a.selected .innerWrap
+{
+	background-image:url('img/tabMiddleOn.gif');
+}
+
+/* arrows */
+.RadTabStrip_Outlook .rightArrow, 
+.RadTabStrip_Outlook .leftArrow,
+.RadTabStrip_Outlook .rightArrowDisabled, 
+.RadTabStrip_Outlook .leftArrowDisabled
+{
+	width:17px;
+	height:22px;
+}
+
+
+
+
+.RadTabStrip_Outlook .leftArrow
+{
+	background-image:url(img/ScrollLeft.png);
+}
+
+.RadTabStrip_Outlook .rightArrow
+{
+	background-image:url(img/ScrollRight.png);
+}
+
+.RadTabStrip_Outlook .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.png);
+}
+
+.RadTabStrip_Outlook .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.png);
+}

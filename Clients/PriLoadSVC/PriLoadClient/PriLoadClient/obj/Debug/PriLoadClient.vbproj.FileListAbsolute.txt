@@ -1,0 +1,3 @@
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.exe
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.xml
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.pdb

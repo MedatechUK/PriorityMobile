@@ -1,0 +1,7 @@
+0	Set Time En-Route	On Route
+1	Set Time On-Site	On Site
+2	Set Time Finished	Comp - NFA
+3	Set Time Finished	Non Comp
+4	Post Data	Comp - NFA
+5	Post Data	Non Comp
+6	Re-Issued	Re- Issued

@@ -1,0 +1,6 @@
+M:\Clients\Win32\faxClient\faxClient\bin\Debug\faxClient.exe.config
+M:\Clients\Win32\faxClient\faxClient\obj\Debug\Interop.FAXCOMEXLib.dll
+M:\Clients\Win32\faxClient\faxClient\obj\Debug\faxClient.vbproj.ResolveComReference.cache
+M:\Clients\Win32\faxClient\faxClient\obj\Debug\faxClient.exe
+M:\Clients\Win32\faxClient\faxClient\obj\Debug\faxClient.xml
+M:\Clients\Win32\faxClient\faxClient\obj\Debug\faxClient.pdb

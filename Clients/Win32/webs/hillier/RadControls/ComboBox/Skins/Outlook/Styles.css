@@ -1,0 +1,117 @@
+.ComboBoxDropDown_Outlook
+{
+	border: 1px solid #000080;
+	border-top: 1px solid #000080;
+	background-color: #ffffff;
+	text-align: left;
+}
+
+.ComboBoxImage_Outlook
+{
+	vertical-align:middle;
+	border: solid 1px #c3d9f9;
+}
+
+.ComboBoxImageHover_Outlook
+{
+	vertical-align:middle;
+	border-top: solid 1px #000080;
+	border-right: solid 1px #000080;
+	border-bottom: solid 1px #000080;
+	border-left: solid 1px #000080;
+}
+
+.ComboBoxInput_Outlook
+{
+	height: 18px;
+	border-top: 1px solid #c3d9f9;
+	border-right: 0px;
+	border-bottom: 1px solid #c3d9f9;
+	border-left: 1px solid #c3d9f9;
+	background-color: white;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	color: #000000;
+	margin-right: 0px;
+	padding-left: 3px;
+	cursor: default;
+}
+
+.ComboBoxInputHover_Outlook
+{
+	height: 18px;
+	border-top: 1px solid #000080;
+	border-right: 0px;
+	border-bottom: 1px solid #000080;
+	border-left: 1px solid #000080;
+	background-color: white;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: #000000;
+	margin-right: 0px;
+	padding-left: 3px;
+	cursor: default;
+}
+
+.ComboBoxItem_Outlook
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: #000000;	
+	padding: 3px;
+	text-decoration: none;
+	_height:1%;
+}
+
+.ComboBoxItemHover_Outlook
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: white;
+	text-decoration: none;
+	background-color: #306ac5; 
+	cursor: default;
+	padding: 3px;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_Outlook
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+}
+
+.ComboBoxLoadingMessage_Outlook
+{
+	font-family: Arial;
+	font-size: 11px; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Outlook
+{
+	font-family: Arial;
+	font-size: 10px;
+	padding-bottom: 4px;
+}
+
+
+.ComboBoxMoreResultsImage_Outlook
+{
+	padding: 5px;
+	margin: 5px;
+}
+
+.ComboBoxMoreResultsBox_Outlook
+{
+	border-top: 1px solid #000080;
+	cursor: default;
+	background-color: #f1f1f1;
+}

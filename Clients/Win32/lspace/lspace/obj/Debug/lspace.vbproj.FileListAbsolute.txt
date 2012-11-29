@@ -1,0 +1,10 @@
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\bin\Debug\lspace.exe
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\bin\Debug\lspace.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\bin\Debug\lspace.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\lspace.Form1.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\lspace.Resources.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\lspace.vbproj.GenerateResource.Cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\lspace.exe
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\lspace.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\lspace\lspace\obj\Debug\lspace.pdb

@@ -1,0 +1,5 @@
+M:\components\win32ntSox\ntSox\bin\AdminTelnet\ntSox.dll
+M:\components\win32ntSox\ntSox\obj\AdminTelnet\ResolveAssemblyReference.cache
+M:\components\win32ntSox\ntSox\obj\AdminTelnet\ntSox.Resources.resources
+M:\components\win32ntSox\ntSox\obj\AdminTelnet\ntSoxLib.vbproj.GenerateResource.Cache
+M:\components\win32ntSox\ntSox\obj\AdminTelnet\ntSox.dll

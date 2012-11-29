@@ -1,0 +1,25 @@
+1	Mr	Simon	Barnett	emerge-it	simonbarnett@emerge-it.co.uk	07989389179									
+2								49, GREAT PARK DRIVE				LEYLAND	3UN	PR25	
+3															<style> p,div,li 
+3															{margin:0cm;font-size:10.0pt;font-family:'Arial';}</style>
+3															 <p> This experiment is designed to test whether you can spot the 
+3															difference between a fake smile and a real one  <br> It has 20 
+3															questions and should take you 10 minutes  <br> It is based on 
+3															research by Professor Paul Ekman, a psychologist at the University 
+3															of California  <br> Each video clip will take approximately 15 
+3															seconds to load on a 56k modem and you can only play each smile 
+3															once  </p>  
+1	Mr	si	barnett	emege-it	si@ntsa.org.uk	07989389179									
+2								49, HANBURY ROAD				DROITWICH	8PR	WR9	
+3															<style> p,div,li 
+3															{margin:0cm;font-size:10.0pt;font-family:'Arial';}</style>
+3															 <p> BBC SCIENCE is provided for general information only, and 
+3															should not be treated as a substitute for the medical advice of 
+3															your own doctor, psychiatrist or any other health care 
+3															professional. The BBC is not responsible or liable for any 
+3															diagnosis, decision or self-assessment made by a user based on the 
+3															content of the BBC SCIENCE website. The BBC is not liable for the 
+3															contents of any external internet sites listed, nor does it endorse 
+3															any commercial product or service mentioned or advised on any of 
+3															the sites. Always consult your own GP if you're in any way 
+3															concerned about your health. </p>  <p>  </p>  

@@ -1,0 +1,2 @@
+IEXPLORE.EXE	C:\Program Files\Internet Explorer\iexplore.exe
+WPF.EXE	M:\Clients\Win32\wpfDesktop\wpfDesktop\bin\Debug\wpfDesktop.exe

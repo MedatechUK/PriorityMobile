@@ -1,0 +1,12 @@
+M:\Clients\Win32\RandomStudent\RandomStudent\bin\Debug\RandomStudent.exe
+M:\Clients\Win32\RandomStudent\RandomStudent\bin\Debug\RandomStudent.pdb
+M:\Clients\Win32\RandomStudent\RandomStudent\bin\Debug\RandomStudent.xml
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.DisplayStudent.resources
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.Form1.resources
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.Resources.resources
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.vbproj.GenerateResource.Cache
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.exe
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.xml
+M:\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\RandomStudent.pdb
+M:\Clients\Win32\RandomStudent\RandomStudent\bin\Debug\RandomStudent.exe.config

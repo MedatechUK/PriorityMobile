@@ -1,0 +1,9 @@
+M:\Server\PriSOAP\SetupCustomisation\PassData\bin\Debug\PassData.dll
+M:\Server\PriSOAP\SetupCustomisation\PassData\bin\Debug\PassData.pdb
+M:\Server\PriSOAP\SetupCustomisation\PassData\bin\Debug\PassData.xml
+M:\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\PassData.Resources.resources
+M:\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\PassData.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\PassData.dll
+M:\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\PassData.xml
+M:\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\PassData.pdb

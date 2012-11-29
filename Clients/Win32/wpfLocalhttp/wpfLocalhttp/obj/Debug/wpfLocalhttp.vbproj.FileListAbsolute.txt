@@ -1,0 +1,38 @@
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\wpfLocalhttp.exe
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\wpfLocalhttp.pdb
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\wpfLocalhttp.xml
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.dll
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.pdb
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.xml
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\ResolveAssemblyReference.cache
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.Resources.resources
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.vbproj.GenerateResource.Cache
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.exe
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.xml
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.pdb
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\200.html
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\500.html
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\favicon.ico
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.wpfHTTP.resources
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\401.html
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\402.html
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\404.html
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\200.html
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\500.html
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\401.html
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\402.html
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\404.html
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\favicon.ico
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.dll
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.pdb
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.xml
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\wpfLocalhttp.vbproj.GenerateResource.Cache
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\HTTPixie.exe
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\HTTPixie.pdb
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\HTTPixie.xml
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\HTTPixie.PriorityHTTPixie.resources
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\HTTPixie.Resources.resources
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\HTTPixie.exe
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\HTTPixie.xml
+M:\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\HTTPixie.pdb

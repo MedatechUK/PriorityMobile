@@ -1,0 +1,22 @@
+<h1>Customer Number: %CUSTNAME%</h1>
+<h2>Customer Name: %CUSTDES%</h2>
+<Table width=100%>
+<th>Order Number</th>
+<th>Order Value</th>
+<th>Order Date</th>
+<th>Post Code</th>
+<th></th>
+$REPEAT$
+<tr <% if %MOD2%=0 %>
+        bgcolor="#c0c0c0"
+    <% else %>
+        bgcolor="#ffffff" 
+    <% end if %> >
+<td>%ORDNAME%</td>
+<td>%TOTPRICE%</td>
+<td>%CURDATE%</td>
+<td>%ZIP%</td>
+<td><a href="OrderItems.aspx?ORD=%ORD%">Order Items</a></td>
+</tr>
+$/REPEAT$
+</Table>

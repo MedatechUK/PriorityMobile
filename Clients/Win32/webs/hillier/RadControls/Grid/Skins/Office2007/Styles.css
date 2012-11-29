@@ -1,0 +1,155 @@
+/* r.a.d.grid Office2007 skin */
+
+div.RadGrid_Office2007
+{
+	border: solid 1px #3b5a82;
+	font: normal 11px Tahoma, Arial, Verdana, Sans-serif;
+	text-align: left;
+	background: white;
+}
+
+.RadGrid_Office2007 a
+{ 
+	color: #000000;
+}
+
+.MasterTable_Office2007
+{
+	border-collapse: separate !important;
+	color: #27413e;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.MasterTable_Office2007 th
+{
+	padding-left:4px;
+}
+.MasterTable_Office2007 td
+{
+	padding-left:3px;
+}
+
+.GridHeader_Office2007,
+.ResizeHeader_Office2007
+{
+	font: bold 10px;
+	background: #d3dbe9 url('Img/GridHeaderBg.gif') repeat-x;
+	height: 19px;
+	color: #27413e;
+	border-bottom: solid 1px #9eb6ce;
+}
+.GridHeader_Office2007 a
+{
+	color: #27413e;
+	text-decoration: none;
+}
+
+.GridRow_Office2007,
+.GridAltRow_Office2007
+{
+	background: transparent;
+	height: 19px;
+}
+.GridRow_Office2007 td,
+.GridAltRow_Office2007 td,
+.GridEditRow_Office2007 td
+{
+	border-right: solid 1px #d0d7e5;
+	border-bottom: solid 1px #d0d7e5;
+}
+
+.SelectedRow_Office2007,
+.ActiveRow_Office2007
+{
+	background: #f1c15f url('Img/gridSelectedRowBg.gif') repeat-x !important;
+	height: 19px;
+}
+.SelectedRow_Office2007 td,
+.ActiveRow_Office2007 td
+{
+	border-right: solid 1px #f29536;
+	border-bottom: solid 1px #f29536;
+}
+
+.GridEditRow_Office2007
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_Office2007 input
+{
+	font-size: 11px;
+}
+
+.GridPager_Office2007
+{
+	background: #9ab5db url('Img/GriPagerBg.gif') repeat-x;
+	height: 15px;
+	color: white;
+}
+
+.GridFooter_Office2007
+{
+	background: #fbfbfb;
+	height: 19px;
+	color: #666;
+}
+.GridFooter_Office2007 td
+{
+	border: solid 1px #fbfbfb;
+	border-top: 1px solid #637783;
+	padding:0 4px;
+}
+
+.GridFooter_Office2007 td a
+{
+	color: #666;
+}
+
+.GridPager_Office2007 td a
+{
+	color: #fff;
+}
+
+.GridPager_Office2007 td a:hover,
+.GridFooter_Office2007 td a:hover
+{
+	color: #000;
+}
+
+tr.GroupHeader_Office2007
+{
+	background: #e4ecf7;
+	height: 22px;
+}
+
+.GroupPanel_Office2007
+{
+	background: #9ebde5 url('Img/GridGroupPanelBg.gif') repeat-x;
+	width: 100%;
+	height: 23px;
+	border-bottom: solid 1px #688caf;
+	border-collapse: collapse;
+}
+
+.GroupPanelItems_Office2007
+{
+	background: white;
+	color: black;
+	border: solid 1px #325373;
+	white-space:  nowrap;
+	padding-left:2px;
+	font-size: 11px;
+	height: 15px;
+}
+td.GridHeader_Office2007 input
+{
+	width: auto;
+	float: left;
+	border: solid 1px #3b5a82;
+	background: #fafafa;
+	font: bold 10px Verdana, Arial, Sans-serif;
+	color: #989cb0;
+	height: 14px;
+	vertical-align:middle;
+}

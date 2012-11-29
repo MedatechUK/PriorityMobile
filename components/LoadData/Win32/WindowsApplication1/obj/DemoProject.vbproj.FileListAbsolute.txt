@@ -1,0 +1,8 @@
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PriLoadData\WindowsApplication1\bin\Debug\Demo Project.exe.config
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PriLoadData\WindowsApplication1\obj\Debug\Demo Project.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PriLoadData\WindowsApplication1\obj\Debug\Demo Project.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PriLoadData\WindowsApplication1\obj\Debug\Demo Project.pdb
+M:\components\LoadData\Win32\WindowsApplication1\bin\Debug\Demo Project.exe.config
+M:\components\LoadData\Win32\WindowsApplication1\obj\Debug\Demo Project.exe
+M:\components\LoadData\Win32\WindowsApplication1\obj\Debug\Demo Project.xml
+M:\components\LoadData\Win32\WindowsApplication1\obj\Debug\Demo Project.pdb

@@ -1,0 +1,110 @@
+.ComboBoxDropDown_Web20
+{
+	border: solid 1px #a5bedf;
+	background: white;
+	cursor: default;
+	text-align: left;
+	scrollbar-face-color: #a5bedf;
+	scrollbar-highlight-color: white;
+	scrollbar-shadow-color: #6788be;
+	scrollbar-3dlight-color: #a5bedf; /**/
+	scrollbar-arrow-color: white;
+	scrollbar-track-color: #a5bedf;
+	scrollbar-darkshadow-color: #404040; /**/
+}
+
+
+.ComboBoxImage_Web20,
+.ComboBoxImageHover_Web20
+{
+	vertical-align: middle;
+	width: 26px;
+	height: 25px;
+	margin-left: -2px;
+	border: solid 1px #6788be;
+	border-left: 0px;
+	border-bottom-width: 2px;
+}
+
+.ComboBoxInput_Web20,
+.ComboBoxInputHover_Web20
+{
+	background: white;
+	height: 28px;
+	border: solid 1px #6788be;
+	border-bottom-width: 2px;
+	font: normal 18px Arial, Verdana, Sans-serif; 
+	color: #111;
+	cursor: default;
+	vertical-align: middle;
+	padding-top: 2px;
+	padding-left: 4px;
+}
+
+.ComboBoxItem_Web20
+{
+	font: normal 12px Arial, Verdana, Sans-serif; 
+	color: black;	
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+	border-top: solid 1px #e7eaec;
+	line-height: 26px;
+}
+
+.ComboBoxItemHover_Web20
+{
+	font: normal 12px Arial, Verdana, Sans-serif; 
+	color: black;	
+	text-decoration: none;
+	background: #e7f1ff; 
+	cursor: default;
+	padding: 3px;
+	text-align: left;
+	border-top: solid 1px #a5bedf;
+	line-height: 26px;
+}
+
+.ComboBoxItemDisabled_Web20
+{
+	font: normal 11px Arial, Verdana, Sans-serif; 
+	color: #ccc;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_Web20
+{
+	font: normal 11px Arial, Verdana, Sans-serif; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Web20
+{
+	font: normal 11px Arial, Verdana, Sans-serif; 
+	padding: 2px;
+	text-align: center;
+}
+
+.ComboBoxMoreResultsImage_Web20
+{
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.ComboBoxMoreResultsBox_Web20
+{
+	background-color: #EEEEE5;
+}
+
+/* default header template */
+.ComboBoxHeader_Web20
+{
+	background-color: #cdcdcd;
+	font: bold 11px Arial, Verdana, Sans-serif; 
+	color: #36454d;
+	line-height: 22px;
+	padding-left: 4px;
+}

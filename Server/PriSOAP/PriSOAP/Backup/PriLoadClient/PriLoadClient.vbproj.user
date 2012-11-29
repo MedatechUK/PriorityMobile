@@ -1,0 +1,6 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>/q /d "examples\Load_Sig.txt" /e /w /v++</StartArguments>
+    <StartWorkingDirectory>D:\Program Files\eMerge-IT\Priority SOAP Service\</StartWorkingDirectory>
+  </PropertyGroup>
+</Project>

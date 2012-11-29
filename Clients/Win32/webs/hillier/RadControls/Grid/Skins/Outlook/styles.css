@@ -1,0 +1,160 @@
+/* Telerik RadGrid Outlook / embedded skin */
+
+.RadGrid_Outlook
+{
+	background-color: ButtonFace;
+	color: WindowText;
+	border: 1px solid #002D96;
+	font-size: 11px;
+	font-family:Tahoma;
+	text-align: left;
+}
+
+.RadGrid_Outlook a,
+.GridPager_Outlook a
+{
+	color: WindowText;
+}
+
+.MasterTable_Outlook
+{
+	background-color: Window;
+	color: WindowText;
+	border: 0;
+	border-top: 1px solid #c5c2b2;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GridHeader_Outlook,
+.ResizeHeader_Outlook
+{
+	background-color: ButtonFace;
+	color: WindowText;
+	border-right: 2px inset white;
+	border-top: 3px solid ButtonFace;
+	border-bottom: 2px solid #d2cfbe;
+	font-weight:normal;
+	padding: 4px 3px;
+	font-weight:normal;
+}
+
+.GridHeader_Outlook a
+{
+	text-decoration: none;
+	color: WindowText;
+}
+
+.GridHeader_Outlook span
+{
+	text-decoration: none;
+	padding-left: 3px;
+	color: WindowText;
+}
+
+.ResizeHeader_Outlook
+{
+	background-image: url(Img/resizeHeader.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.GridRow_Outlook td,
+.GridAltRow_Outlook td,
+.GridEditRow_Outlook td
+{
+	border-bottom: 1px solid #EAE9E1;
+	padding:2px 4px;
+}
+
+/* IE6 can't use bottom borders, because they remain visible when collapsing groups of rows */
+* html .GridRow_Outlook td,
+* html .GridAltRow_Outlook td,
+* html .GridEditRow_Outlook td
+{
+    border-bottom:0;
+}
+* html .GridRow_Outlook,
+* html .GridAltRow_Outlook,
+* html .GridEditRow_Outlook
+{
+    background:url(Img/borderbottom.gif) left bottom repeat-x;
+}
+
+.SelectedRow_Outlook
+{
+	background: Highlight !important;
+	color: white;
+}
+.SelectedRow_Outlook td
+{
+	border-bottom: 1px solid #666;
+}
+
+.GridEditRow_Outlook
+{
+	background-color: #ffffe1;
+}
+.GridEditRow_Outlook input
+{
+	font-size: 11px;
+}
+
+.ActiveRow_Outlook
+{
+	background: #ffffe1 !important;
+	color: black;
+}
+.ActiveRow_Outlook td
+{
+	padding: 2px 4px;
+}
+
+.GridPager_Outlook
+{
+	background-color: ButtonFace;
+	color: WindowText;
+}
+.GridPager_Outlook td
+{
+	border-top: 3px solid #d2cfbe;
+	padding: 3px 9px;
+}
+
+.GroupPanelItems_Outlook
+{
+	white-space:nowrap;
+	color: white;
+	padding-bottom:4px;
+}
+
+.GroupPanel_Outlook
+{
+	background:url(Img/topBg.gif) 0 0 repeat-x #039;
+	width: 100%;
+	height: 20px;
+	border-collapse: collapse;
+	color: white;
+}
+
+.GroupPanel_Outlook td
+{
+	padding-left: 4px;
+}
+
+.GroupPanel_Outlook table table
+{
+	border-collapse: collapse;
+}
+
+.GroupHeader_Outlook td
+{
+	border-bottom: 2px solid #7BA4E0;
+	padding-top:3px;
+	color: #3768b9;
+	font-weight: bold;
+}
+
+.GridFooter_Outlook td
+{
+    padding:0 4px;
+}

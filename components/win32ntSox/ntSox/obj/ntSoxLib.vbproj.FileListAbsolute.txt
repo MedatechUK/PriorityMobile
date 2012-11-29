@@ -1,0 +1,24 @@
+M:\components\win32ntSox\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+M:\components\win32ntSox\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+M:\components\win32ntSox\ClassLibrary1\bin\Debug\ClassLibrary1.xml
+M:\components\win32ntSox\ClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
+M:\components\win32ntSox\ClassLibrary1\obj\Debug\ClassLibrary1.Resources.resources
+M:\components\win32ntSox\ClassLibrary1\obj\Debug\ntSoxLib.vbproj.GenerateResource.Cache
+M:\components\win32ntSox\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+M:\components\win32ntSox\ClassLibrary1\obj\Debug\ClassLibrary1.xml
+M:\components\win32ntSox\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+M:\components\win32ntSox\ntSox\bin\Debug\ntSox.dll
+M:\components\win32ntSox\ntSox\bin\Debug\ntSox.pdb
+M:\components\win32ntSox\ntSox\bin\Debug\ntSox.xml
+M:\components\win32ntSox\ntSox\obj\Debug\ResolveAssemblyReference.cache
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.Resources.resources
+M:\components\win32ntSox\ntSox\obj\Debug\ntSoxLib.vbproj.GenerateResource.Cache
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.dll
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.xml
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\ntSox.dll
+D:\Program Files\eMerge-IT\Priority SOAP Service\ntSox.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\ntSox.xml
+C:\binding\loadAssm\w32\Binder\bin\Debug\ntSox.dll
+C:\binding\loadAssm\w32\Binder\bin\Debug\ntSox.pdb
+C:\binding\loadAssm\w32\Binder\bin\Debug\ntSox.xml

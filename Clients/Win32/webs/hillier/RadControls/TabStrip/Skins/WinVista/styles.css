@@ -1,0 +1,112 @@
+.RadTabStrip_WinVista
+{
+	font:8pt tahoma, sans-serif;
+	text-align:center;
+}
+
+
+.RadTabStrip_WinVista ul
+{
+	padding-top:3px;
+}
+
+/*  level 1 tabs */
+
+.RadTabStrip_WinVista .level1 li a
+{
+	padding-left: 0px;
+	background: transparent url('img/tabOff.gif') 0px 0px no-repeat;
+	color: black;
+	text-decoration: none;
+	line-height: 17px;
+	border: solid 1px #8d8d8d;
+	border-bottom: 0px;
+}
+
+.RadTabStrip_WinVista .level1 li a .wrap
+{
+
+	padding-right: 0px;
+	background:transparent url('img/tabOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_WinVista .level1 li a .innerWrap
+{
+
+	padding:0 5px;
+	background:transparent url('img/tabOff.gif') 0px 0px repeat-x;
+}
+
+.RadTabStrip_WinVista .level1 li a.selected
+{
+	margin-top: -4px;
+	line-height: 21px;	
+	background: white;
+	border: solid 1px #8d8d8d;
+	border-bottom: 0px;
+}
+
+
+.RadTabStrip_WinVista .level1 li a.selected .wrap
+{
+	background-image:url('img/tabOn.gif');
+}
+
+
+.RadTabStrip_WinVista .level1 li a.selected .innerWrap
+{
+	background-image:url('img/tabOn.gif');
+}
+
+/* level2 tabs */
+
+.RadTabStrip_WinVista .level2 ul
+{
+	padding-top: 3px;
+}
+
+.RadTabStrip_WinVista .level2 li a
+{
+	color: #666666;
+	padding-left: 4px;
+	padding-right: 4px;
+	text-decoration: none;
+}
+
+.RadTabStrip_WinVista .level2 li a:hover, .RadTabStrip_WinVista .level2 li a.selected
+{
+	color: black;
+}
+
+/* arrows */
+.RadTabStrip_WinVista .rightArrow, 
+.RadTabStrip_WinVista .leftArrow,
+.RadTabStrip_WinVista .rightArrowDisabled, 
+.RadTabStrip_WinVista .leftArrowDisabled
+{
+	width:17px;
+	height:22px;
+}
+
+
+
+
+.RadTabStrip_WinVista .leftArrow
+{
+	background-image:url(img/ScrollLeft.png);
+}
+
+.RadTabStrip_WinVista .rightArrow
+{
+	background-image:url(img/ScrollRight.png);
+}
+
+.RadTabStrip_WinVista .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.png);
+}
+
+.RadTabStrip_WinVista .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.png);
+}

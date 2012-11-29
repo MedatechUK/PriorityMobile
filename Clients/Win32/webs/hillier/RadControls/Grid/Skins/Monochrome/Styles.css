@@ -1,0 +1,141 @@
+/* Telerik RadGrid Monochrome skin */
+
+.RadGrid_Monochrome
+{
+	border: solid 1px #d3d3d3;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+}
+
+.RadGrid_Monochrome th,
+.RadGrid_Monochrome th a
+{ 
+	font: bold 11px Tahoma;
+	color: #fff;
+}
+
+.RadGrid_Monochrome td,
+.RadGrid_Monochrome td a
+{ 
+	font: 11px tahoma;
+	color: #000;
+}
+
+.MasterTable_Monochrome
+{
+	border: 0px !important;
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GridHeader_Monochrome,
+.ResizeHeader_Monochrome
+{
+	color: white;
+	height: 34px;
+	background: #494949;
+}
+
+.GridHeader_Monochrome a
+{
+	color: #fff;
+}
+
+.GridRow_Monochrome,
+.GridAltRow_Monochrome,
+.SelectedRow_Monochrome,
+.GridEditRow_Monochrome,
+.ActiveRow_Monochrome
+{
+	height:20px;
+}
+
+.GridRow_Monochrome td,
+.GridAltRow_Monochrome td,
+.SelectedRow_Monochrome td,
+.ActiveRow_Monochrome td,
+.GridEditRow_Monochrome td
+{
+	border-bottom:1px solid #d3d3d3;
+}
+
+.GridRow_Monochrome
+{
+	background-color: #f7f7f7;
+}
+.GridAltRow_Monochrome
+{
+	background-color: #eeeeee;
+}
+.SelectedRow_Monochrome
+{
+    background-color: #fff;
+	border-bottom:1px solid #d3d3d3;
+}
+.GridEditRow_Monochrome
+{
+	background-color: #ffffe1;
+	border-bottom:1px solid #d3d3d3;
+}
+
+.GridEditRow_Monochrome input
+{
+	font-size: 11px;
+}
+.ActiveRow_Monochrome
+{
+	background-color: #d3d3d3 !important;
+}
+
+.GridPager_Monochrome
+{
+	background: #d8d8d8;
+	height: 17px;
+}
+.GridPager_Monochrome td
+{
+	border-top: 1px solid #d3d3d3;
+	padding-left: 11px;
+}
+.GridPager_Monochrome a
+{
+	color: #333;	
+}
+
+.GridHeader_Monochrome img,
+.GroupPanelItems_Monochrome input
+{
+	vertical-align: middle;
+}
+
+/* grouping button */
+.GroupPanelItems_Monochrome
+{
+	background: #686868;
+	color: white !important;
+	border: solid 1px #bababa;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+tr.GroupHeader_Monochrome
+{
+	background: #d8d8d8;
+	font-weight: bold;
+	height:20px;
+	border-bottom:1px solid #d3d3d3;
+}
+
+.GroupPanel_Monochrome
+{
+	height: 30px;
+	width: 100%;
+	background: #000;
+	border-bottom: 1px solid #d3d3d3;
+	border-collapse: collapse;
+}
+
+.GroupPanel_Monochrome td
+{
+	color: #fff;
+}

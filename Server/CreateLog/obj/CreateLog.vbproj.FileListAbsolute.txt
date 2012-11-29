@@ -1,0 +1,11 @@
+C:\Priority Mobile\Server\CreateLog\CreateLog\bin\Debug\CreateLog.exe
+C:\Priority Mobile\Server\CreateLog\CreateLog\bin\Debug\CreateLog.pdb
+C:\Priority Mobile\Server\CreateLog\CreateLog\bin\Debug\CreateLog.xml
+C:\Priority Mobile\Server\CreateLog\CreateLog\obj\Debug\ResolveAssemblyReference.cache
+C:\Priority Mobile\Server\CreateLog\CreateLog\obj\Debug\CreateLog.Resources.resources
+C:\Priority Mobile\Server\CreateLog\CreateLog\obj\Debug\CreateLog.vbproj.GenerateResource.Cache
+C:\Priority Mobile\Server\CreateLog\CreateLog\obj\Debug\CreateLog.exe
+C:\Priority Mobile\Server\CreateLog\CreateLog\obj\Debug\CreateLog.xml
+C:\Priority Mobile\Server\CreateLog\CreateLog\obj\Debug\CreateLog.pdb
+M:\Server\CreateLog\obj\Debug\CreateLog.exe
+M:\Server\CreateLog\obj\Debug\CreateLog.xml

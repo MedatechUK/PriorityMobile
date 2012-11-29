@@ -1,0 +1,189 @@
+/* r.a.d.grid Web 2.0 skin */
+
+div.RadGrid_Web20
+{
+	background: white;
+	border: solid 1px #6788be;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+	scrollbar-face-color: #E9E9E9;
+	scrollbar-highlight-color: white;
+	scrollbar-shadow-color: #E9E9E9;
+	scrollbar-3dlight-color: #DBDBDB;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-darkshadow-color: #AEAEAE;
+}
+
+.RadGrid_Web20 td,
+.RadGrid_Web20 td a
+{ 
+	font: normal 11px arial,verdana,sans-serif;
+	color: #333;
+}
+
+.MasterTable_Web20
+{
+	border: 5px solid #fff;
+	border-collapse: separate !important;
+	color: #333;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.MasterTable_Web20 td,
+.MasterTable_Web20 th
+{
+	padding:2px 4px;
+}
+
+th.GridHeader_Web20,
+th.ResizeHeader_Web20
+{
+	font: bold 11px Arial, Verdana, Sans-serif;
+	background: #92b4e0;
+	height: 21px;
+	color: white;
+}
+
+.GridHeader_Web20 a
+{
+	color: white;
+	font: bold 11px Arial, Verdana, Sans-serif;
+	text-decoration: none;
+}
+
+.GridRow_Web20,
+.GridAltRow_Web20,
+.SelectedRow_Web20,
+.GridEditRow_Web20,
+.ActiveRow_Web20
+{
+	height: 21px;
+}
+.GridRow_Web20 td,
+.GridAltRow_Web20 td,
+.GridEditRow_Web20 td
+{
+	border-bottom: solid 1px #d8dde0;
+}
+
+.GridRow_Web20,
+.GridAltRow_Web20
+{
+	background: white;
+}
+.SelectedRow_Web20
+{
+	background: #dcfc5c !important;
+}
+.SelectedRow_Web20 td
+{
+	border-bottom: solid 1px #accb2d;
+}
+
+.GridEditRow_Web20
+{
+	background-color: #ffffe1;
+}
+.GridEditRow_Web20 input
+{
+	font-size: 11px;
+}
+
+.ActiveRow_Web20
+{
+	background: #e7f1ff !important;
+}
+.ActiveRow_Web20 td
+{
+	border-bottom: solid 1px #a5bedf;
+}
+
+.GridPager_Web20
+{
+	background: #d6d6d6;
+	height: 25px;
+}
+.GridPager_Web20 td
+{
+	color: #666;
+}
+
+.GridFooter_Web20
+{
+	background: #fbfbfb;
+	height: 21px;
+	color: #666;
+}
+.GridFooter_Web20 td
+{
+	border: solid 1px #fbfbfb;
+	border-top: 1px solid #e8e6e6;
+	padding:0 4px;
+}
+
+.GridFooter_Web20 a,
+.GridPager_Web20 td,
+.GridPager_Web20 a
+{
+	font-weight: bold !important;
+}
+
+.GridPager_Web20 td a:hover,
+.GridFooter_Web20 td a:hover
+{
+	color: #666;
+}
+
+tr.GroupHeader_Web20
+{
+	background: #fff;
+	height: 21px;
+}
+tr.GroupHeader_Web20 td
+{
+	border-bottom: solid 2px #6788be;
+}
+
+table.GroupPanel_Web20
+{
+	background: #ffebcc;
+	width: 100% !important;
+	height: 20px;
+	border-collapse: collapse;
+	border: dashed 1px #ff9900;
+	margin-bottom: 12px;
+	text-align: center;
+	color: #333;
+}
+
+.GroupPanelItems_Web20
+{
+	background: #544b58 url('Img/GroupPanelItemsButtonBg.gif') repeat-x;
+	color: #ffebcc;
+	border: solid 1px #8e827f;
+	white-space:  nowrap;
+	font-size: 11px;
+	padding: 0px 30px;
+	height: 18px;
+}
+
+td.GridHeader_Web20 input
+{
+	margin-top: 10px;
+	width: auto;
+	float: left;
+	border: solid 1px #92b4e0;
+	background: white;
+	font: bold 11px Arial, Verdana, Sans-serif;
+	color: #92b4e0;
+	height: 14px;
+	vertical-align: middle;
+}
+
+td.GridHeader_Web20 img
+{
+	margin-top: 10px;
+	margin-left: 2px;
+	float: left;
+}

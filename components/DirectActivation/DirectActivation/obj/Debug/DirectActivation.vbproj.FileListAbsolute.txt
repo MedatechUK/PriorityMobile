@@ -1,0 +1,10 @@
+M:\components\DirectActivation\DirectActivation\bin\Debug\DirectActivation.dll
+M:\components\DirectActivation\DirectActivation\bin\Debug\DirectActivation.pdb
+M:\components\DirectActivation\DirectActivation\bin\Debug\DirectActivation.xml
+M:\components\DirectActivation\DirectActivation\obj\Debug\ResolveAssemblyReference.cache
+M:\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.Resources.resources
+M:\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.vbproj.GenerateResource.Cache
+M:\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.dll
+M:\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.xml
+M:\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.pdb
+M:\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.daToolbar.resources

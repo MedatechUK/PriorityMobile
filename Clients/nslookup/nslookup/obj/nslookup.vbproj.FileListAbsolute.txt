@@ -1,0 +1,10 @@
+M:\Clients\nslookup\nslookup\bin\Debug\nslookup.exe
+M:\Clients\nslookup\nslookup\bin\Debug\nslookup.pdb
+M:\Clients\nslookup\nslookup\bin\Debug\nslookup.xml
+M:\Clients\nslookup\nslookup\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\nslookup\nslookup\obj\Debug\nslookup.Form1.resources
+M:\Clients\nslookup\nslookup\obj\Debug\nslookup.Resources.resources
+M:\Clients\nslookup\nslookup\obj\Debug\nslookup.vbproj.GenerateResource.Cache
+M:\Clients\nslookup\nslookup\obj\Debug\nslookup.exe
+M:\Clients\nslookup\nslookup\obj\Debug\nslookup.xml
+M:\Clients\nslookup\nslookup\obj\Debug\nslookup.pdb

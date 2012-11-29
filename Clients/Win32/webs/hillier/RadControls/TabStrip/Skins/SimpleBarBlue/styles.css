@@ -1,0 +1,131 @@
+.RadTabStrip_SimpleBarBlue
+{
+	font: 8pt tahoma, sans-serif;
+	text-align:center;
+	background-repeat: repeat-x;
+	border-bottom: solid 4px #128cdd;
+	height: 22px;
+}
+
+
+.RadTabStrip_SimpleBarBlue ul
+{
+	/**/
+}
+
+
+.RadTabStrip_SimpleBarBlue .level1 li a
+{
+	padding-left: 0px;
+	background-color: #E4F1F8;
+	color: black;
+	text-decoration: none;
+	line-height: 22px;
+	border-right: solid 1px white;
+	border-top: solid 1px white;
+}
+
+.RadTabStrip_SimpleBarBlue .level1 li a:hover
+{
+	background-color: #28c1ea;
+	color: white;
+	text-decoration: underline;
+	margin-top: -3px;
+	line-height: 25px;
+}
+
+.RadTabStrip_SimpleBarBlue .level1 li a .wrap
+{
+
+	padding-right: 0px;
+}
+
+
+.RadTabStrip_SimpleBarBlue .level1 li a .innerWrap
+{
+
+	padding:0 5px;
+}
+
+.RadTabStrip_SimpleBarBlue .level1 li a.selected
+{
+	line-height: 25px;
+	color: white;
+	margin-top: -3px;
+}
+
+.RadTabStrip_SimpleBarBlue .level1 li a.selected .wrap
+{
+	background-color: #128cdd;
+}
+
+
+.RadTabStrip_SimpleBarBlue .level1 li a.selected .innerWrap
+{
+	background-color: #128cdd;
+}
+
+.RadTabStrip_SimpleBarBlue .level1 li a.selected:hover, 
+.RadTabStrip_SimpleBarBlue .level1 li a.selected:hover .wrap, 
+.RadTabStrip_SimpleBarBlue .level1 li a.selected:hover .innerWrap
+{
+	background-color: #128cdd;
+}
+
+/* level2 tabs */
+
+.RadTabStrip_SimpleBarBlue .level2 ul
+{
+	padding-top: 6px;
+	background-color: #128cdd;
+	height: 20px;
+}
+
+.RadTabStrip_SimpleBarBlue .level2 li a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 9px;
+	padding: 0px 9px;
+}
+
+.RadTabStrip_SimpleBarBlue .level2 li a.selected,
+.RadTabStrip_SimpleBarBlue .level2 li a.selected:hover,
+.RadTabStrip_SimpleBarBlue .level2 li a:hover
+{
+	color: black;
+}
+
+
+/* arrows */
+.RadTabStrip_SimpleBarBlue .rightArrow, 
+.RadTabStrip_SimpleBarBlue .leftArrow,
+.RadTabStrip_SimpleBarBlue .rightArrowDisabled, 
+.RadTabStrip_SimpleBarBlue .leftArrowDisabled
+{
+	width:8px;
+	height:11px;
+}
+
+
+
+
+.RadTabStrip_SimpleBarBlue .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+}
+
+.RadTabStrip_SimpleBarBlue .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+}
+
+.RadTabStrip_SimpleBarBlue .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+}
+
+.RadTabStrip_SimpleBarBlue .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+}

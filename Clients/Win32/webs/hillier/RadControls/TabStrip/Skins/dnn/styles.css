@@ -1,0 +1,142 @@
+.RadTabStrip_dnn
+{
+	font: 11px arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_dnn .level1 li a
+{
+	padding-left: 8px;
+	background:transparent url('img/tabLeftFirstOff.gif') 0px 0px no-repeat;
+	height: 28px;
+	margin-right: -10px; 
+	color: #877560;
+	text-decoration:none;
+}
+
+.RadTabStrip_dnn .level1 li.last a,
+.RadTabStrip_dnn .level1 li.break a
+{
+	margin-right:0;
+}
+
+.RadTabStrip_dnn .level1 li a .wrap
+{
+
+	padding-right: 8px;
+	height: 28px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_dnn .level1 li a:hover
+{
+	color: #877560;
+}
+
+.RadTabStrip_dnn .level1 li a .innerWrap
+{
+	line-height: 28px;
+	padding: 0px 5px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align: center;
+}
+
+.RadTabStrip_dnn .level1 li a.selected
+{
+	padding-top: 0px;
+	padding-left: 12px;
+	background: transparent url('img/tabLeftFirstOn.gif') 0px 0px no-repeat;
+	line-height: 28px;
+}
+
+.RadTabStrip_dnn .level1 li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+	line-height: 28px;
+	padding-right: 12px;
+	color: #877560;
+}
+
+
+.RadTabStrip_dnn .level1 li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+	padding-top: 0px;
+}
+
+
+.RadTabStrip_dnn .level2 ul
+{
+	background: #fcfbf6;
+	height:30px;
+}
+
+.RadTabStrip_dnn .level2 li a
+{
+	color: #877560;
+	text-decoration: none;
+	padding: 6px 9px;
+	font-weight: normal;
+}
+
+.RadTabStrip_dnn .level2 li a:hover
+{
+	color: #594731;
+	text-decoration: underline;
+}
+
+ .RadTabStrip_dnn .level2 li a.selected
+{
+	color: #594731;
+	text-decoration: underline;
+}
+
+.RadTabStrip_dnn li a.disabled,
+.RadTabStrip_dnn li a.disabled .wrap,
+.RadTabStrip_dnn li a.disabled .innerWrap
+{
+	cursor: default;
+	text-decoration: line-through;
+}
+
+.RadTabStrip_dnn li a.red,
+.RadTabStrip_dnn li a.red .wrap,
+.RadTabStrip_dnn li a.red .innerWrap
+{
+	color: red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_dnn .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+.RadTabStrip_dnn .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+
+.RadTabStrip_dnn .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_dnn .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}

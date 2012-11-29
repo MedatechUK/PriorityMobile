@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="faxClient">
+</Property><Property Name="Solution File" Value="M:\Clients\Win32\faxClient\faxClient\faxClient.sln">
+</Property><Property Name="Date" Value="08 July 2012">
+</Property><Property Name="Time" Value="21:43">
+</Property></Properties><Event ErrorLevel="0" Project="faxClient" Source="faxClient.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="faxClient" Source="faxClient.vbproj" Description="Converted">
+</Event><Event ErrorLevel="2" Project="ConsoleApp" Source="..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj" Description="Unable to open project file to perform upgrade.  ">
+</Event><Event ErrorLevel="2" Project="ntSettings" Source="..\..\..\components\ntSettings\ntSettings\ntSettings.vbproj" Description="Unable to open project file to perform upgrade.  ">
+</Event><Event ErrorLevel="0" Project="" Source="faxClient.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="faxClient.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="faxClient" Source="faxClient.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

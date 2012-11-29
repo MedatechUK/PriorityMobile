@@ -1,0 +1,2989 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RadTabStrip.Net2</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.WebControls.Design.TabStrip.ControlBuilderForm">
+            <summary>
+            Summary description for ControlBuilderForm.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.Design.TabStrip.ControlBuilderForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.Design.TabStrip.ControlBuilderForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.Design.PageViewDesigner">
+            <summary>
+            Summary description for PageViewDesigner.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.Design.PageViewDesigner.#ctor">
+            <summary>
+            Creates an instance of PageViewDesigner.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.Design.RadMultiPageDesigner">
+            <summary>
+            The designer class for RadMultiPage.
+            </summary>
+            
+        </member>
+        <member name="M:Telerik.WebControls.Design.RadMultiPageDesigner.#ctor">
+            <summary>
+            Creates an instance of RadMultiPageDesigner.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.Design.RadTabStripCollectionEditor">
+            <summary>
+            Summary description for RadTabStripCollectionEditor.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.TabStripEventHandler">
+            <summary>
+                Represents the method that will handle the
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabCreated">TabCreated</see>,
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabDataBound">TabDataBound</see> and
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabClick">TabClick</see> events of a
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control.
+            </summary>
+            <remarks>
+            	<para>
+                    The <see cref="E:Telerik.WebControls.RadTabStrip.TabCreated">TabCreated</see> event is raised when a
+                    tab in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control is created.
+                </para>
+            	<para>
+                    The <see cref="E:Telerik.WebControls.RadTabStrip.TabDataBound">TabDataBound</see> event is raised
+                    when a tab in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control is
+                    databound to a source.
+                </para>
+            	<para>
+                    The <see cref="E:Telerik.WebControls.RadTabStrip.TabClick">TabClick</see> event is raised when a tab
+                    in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control is clicked.
+                </para>
+            </remarks>
+            <param name="sender">The source of the event.</param>
+            <param name="e">
+                A <see cref="T:Telerik.WebControls.TabStripEventArgs">TabStripEventArgs</see> than contains the event
+                data
+            </param>
+        </member>
+        <member name="T:Telerik.WebControls.TabStripEventArgs">
+            <summary>
+                Provides data for the <see cref="E:Telerik.WebControls.RadTabStrip.TabCreated">TabCreated</see>,
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabDataBound">TabDataBound</see> and
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabClick">TabClick</see> events.
+            </summary>
+            <remarks>
+            	<para>
+                    The <see cref="E:Telerik.WebControls.RadTabStrip.TabCreated">TabCreated</see> event is raised when a
+                    tab in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control is created.
+                </para>
+            	<para>
+                    The <see cref="E:Telerik.WebControls.RadTabStrip.TabDataBound">TabDataBound</see> event is raised
+                    when a tab in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control is
+                    databound to a source.
+                </para>
+            	<para>
+                    The <see cref="E:Telerik.WebControls.RadTabStrip.TabClick">TabClick</see> event is raised when a tab
+                    in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control is clicked.
+                </para>
+            </remarks>
+        </member>
+        <member name="M:Telerik.WebControls.TabStripEventArgs.#ctor(Telerik.WebControls.Tab)">
+            <summary>
+                Initializes a new instance of the
+                <see cref="T:Telerik.WebControls.TabStripEventArgs">TabStripEventArgs</see> class.
+            </summary>
+            <param name="tab">
+                A <see cref="P:Telerik.WebControls.TabStripEventArgs.Tab">Tab</see> which represents a tab in the
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control.
+            </param>
+        </member>
+        <member name="P:Telerik.WebControls.TabStripEventArgs.Tab">
+            <summary>
+                Gets the referenced <see cref="P:Telerik.WebControls.TabStripEventArgs.Tab">Tab</see> in the
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control when the event is raised.
+            </summary>
+            <value>
+                The referenced tab in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control when
+                the event is raised.
+            </value>
+            <remarks>
+                Use this property to programmatically access the tab referenced in the
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> when the event is raised.
+            </remarks>
+        </member>
+        <member name="T:Telerik.WebControls.RadTabStrip">
+            <summary>A navigation control used to create tabbed interfaces.</summary>
+            <remarks>
+            	<para>
+                    The <b>RadTabStrip</b> control is used to display a list of tabs in a Web Forms
+                    page and is often used in combination with a
+                    <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> control for building tabbed
+                    interfaces. The <b>RadTabStrip</b> control supports the following features:
+                </para>
+            	<list type="bullet">
+            		<item>Databinding that allows the control to be populated from various
+                    datasources</item>
+            		<item>Programmatic access to the <strong>RadTabStrip</strong> object model
+                    which allows to dynamic creation of tabstrips, populate h tabs, set
+                    properties.</item>
+            		<item>Customizable appearance through built-in or user-defined skins.</item>
+            	</list>
+            	<h3>Tabs</h3>
+            	<para>
+                    The <strong>RadTabStrip</strong> control is made up of tree of tabs represented
+                    by <see cref="T:Telerik.WebControls.Tab">Tab</see> objects. Tabs at the top level (level 0) are
+                    called root tabs. A tab that has a parent tab is called a child tab. All root
+                    tabs are stored in the <see cref="P:Telerik.WebControls.RadTabStrip.Tabs">Tabs</see> collection. Child tabs are
+                    stored in a parent tab's <see cref="P:Telerik.WebControls.Tab.Tabs">Tabs</see> collection.
+                </para>
+            	<para>
+                    Each tab has a <see cref="P:Telerik.WebControls.Tab.Text">Text</see> and a
+                    <see cref="P:Telerik.WebControls.Tab.Value">Value</see> property. The value of the <b>Text</b>
+                    property is displayed in the <b>RadTabStrip</b> control, while the <b>Value</b>
+                    property is used to store any additional data about the tab, such as data
+                    passed to the postback event associated with the tab. When clicked, a tab can
+                    navigate to another Web page indicated by the
+                    <see cref="P:Telerik.WebControls.Tab.NavigateUrl">NavigateUrl</see> property.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.RadTabStripUtils.RadControl.Version">
+            <summary>Gets the component's current version.</summary>
+        </member>
+        <member name="P:Telerik.RadTabStripUtils.RadControl.UseEmbeddedScripts">
+            <summary>
+            Gets or sets a value indicating whether to use the embedded JavaScript files or not.
+            </summary>
+            <value>
+            	<strong>True</strong> if embedded JavaScript files are to be used; otherwise
+            <strong>false</strong>. The default value is <strong>true</strong>.
+            </value>
+            <remarks>
+            Use this property for debugging purposes or to apply any modifications to the
+            JavaScript files.
+            </remarks>
+        </member>
+        <member name="T:Telerik.WebControls.ITabContainer">
+            <summary>
+                Defines properties that tab containers (<see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see>,
+                <see cref="T:Telerik.WebControls.Tab">Tab</see>) should implement.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.Owner">
+            <summary>Gets the parent <see cref="T:Telerik.WebControls.ITabContainer">ITabContainer</see>.</summary>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.Tabs">
+            <summary>Gets the collection of child tabs.</summary>
+            <value>A <see cref="T:Telerik.WebControls.TabCollection">TabCollection</see> that represents the tabs.</value>
+            <remarks>
+            Use this property to retrieve the child tabs. You can also use it to
+            programmatically add or remove child tabs.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.SelectedIndex">
+            <summary>Gets or sets the index of the selected child tab.</summary>
+            <value>
+            The zero based index of the selected tab. The default value is -1 (none child tab
+            is selected).
+            </value>
+            <remarks>
+            Use the <b>SelectedIndex</b> property to programmatically specify the selected
+            child tab in a <strong>ITabContainer</strong> (<strong>RadTabStrip</strong> or
+            <strong>Tab</strong>). To clear the selection set the <strong>SelectedIndex</strong>
+            property to -1.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.SelectedTab">
+            <summary>Gets the selected child tab.</summary>
+            <value>
+            Returns the child tab which is currently selected. If no tab is selected
+            (<strong>SelectedIndex</strong> is -1) the <strong>SelectedTab</strong> property will
+            return <strong>null</strong> (<strong>Nothing</strong> in VB.NET).
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.ScrollChildren">
+            <summary>
+            Gets or sets a value indicating whether the children of the tab will be
+            scrollable.
+            </summary>
+            <value>
+            	<strong>true</strong> if the child tabs will be scrolled; otherwise
+            <strong>false</strong>. The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.PerTabScrolling">
+            <summary>
+            Gets or sets a value indicating whether the tabstrip should scroll directly to
+            the next tab.
+            </summary>
+            <value>
+            	<strong>true</strong> if the tabstrip should scroll to the next (or previous)
+            tab; otherwise <strong>false</strong>. The default value is
+            <strong>false</strong>.
+            </value>
+            <remarks>
+                By default tabs are scrolled smoothly. If you want the tabstrip to scroll directly
+                to the next (or previous) tab set this property to <strong>true</strong>. This
+                property is applicable when the <see cref="P:Telerik.WebControls.ITabContainer.ScrollChildren">ScrollChildren</see>
+                property is set to <strong>true</strong>; otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.ScrollButtonsPosition">
+            <summary>The position of the scroll buttons regarding the tab band.</summary>
+            <value>
+                One of the <see cref="P:Telerik.WebControls.ITabContainer.ScrollButtonsPosition">ScrollButtonsPosition</see>
+                enumeration values. The default value is <strong>Right</strong>.
+            </value>
+            <remarks>
+                This property is applicable when the
+                <see cref="P:Telerik.WebControls.ITabContainer.ScrollChildren">ScrollChildren</see> property is set to
+                <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.ITabContainer.ScrollPosition">
+            <summary>
+            Gets or sets the position of the scrollable band of tabs relative to the
+            beginning of the scrolling area.
+            </summary>
+            <value>
+            	<para>An integer specifying the initial scrolling position. The default value is 0
+                (no offset from the default scrolling position). Use negative values to move the
+                tabs to the left.</para>
+            </value>
+            <remarks>
+                This property is applicable when the
+                <see cref="P:Telerik.WebControls.ITabContainer.ScrollChildren">ScrollChildren</see> property is set to
+                <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="M:Telerik.WebControls.RadTabStrip.#ctor">
+            <summary>Initializes a new instance of the RadTabStrip class.</summary>
+            <remarks>
+            Use this constructor to create and initialize a new instance of the RadTabStrip
+            control.
+            </remarks>
+            <example>
+                The following example demonstrates how to programmatically create a RadTabStrip
+                control. 
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                RadTabStrip RadTabStrip1 = new RadTabStrip();
+                RadTabStrip1.ID = "RadTabStrip1";
+                
+                Tab sportTab = new Tab("Sport");
+                RadTabStrip1.Tabs.Add(sportTab);
+                
+                Tab newsTab = new Tab("News");
+                RadTabStrip1.Tabs.Add(newsTab);
+             
+                PlaceHolder1.Controls.Add(newsTab);
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                Dim RadTabStrip1 As RadTabStrip = New RadTabStrip()
+                RadTabStrip1.ID = "RadTabStrip1"
+             
+                Dim sportTab As Tab = New Tab("Sport")
+                RadTabStrip1.Tabs.Add(sportTab)
+             
+                Dim newsTab As Tab = New Tab("News")
+                RadTabStrip1.Tabs.Add(newsTab)
+             
+                PlaceHolder1.Controls.Add(newsTab)
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.WebControls.RadTabStrip.GetAllTabs">
+            <summary>
+            Gets a linear list of all tabs in the <strong>RadTabStrip</strong>
+            control.
+            </summary>
+            <returns>
+                A <see cref="T:Telerik.WebControls.TabCollection">TabCollection</see> containing all tabs (from all
+                hierarchy levels).
+            </returns>
+            <remarks>
+            Use the <strong>GetAllTabs</strong> method to obtain a linear collection of all
+            tabs regardless their place in the hierarchy.
+            </remarks>
+            <example>
+                The following example demonstrates how to disable all tabs within a
+                <strong>RadTabStrip</strong> control. 
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                foreach (Tab tab in RadTabStrip1.GetAllTabs())
+                {
+                    tab.Enabled = false;
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                For Each childTab As Tab In RadTabStrip1.GetAllTabs
+                    childTab.Enabled = False
+                Next
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.WebControls.RadTabStrip.FindTabByUrl(System.String)">
+            <summary>
+                Searches the <strong>RadTabStrip</strong> control for the first
+                <see cref="T:Telerik.WebControls.Tab">Tab</see> with a <see cref="P:Telerik.WebControls.Tab.NavigateUrl">NavigateUrl</see>
+                property equal to the specified value.
+            </summary>
+            <returns>
+                A <see cref="T:Telerik.WebControls.Tab">Tab</see> whose <see cref="P:Telerik.WebControls.Tab.NavigateUrl">NavigateUrl</see>
+                property is equal to the specified value.
+            </returns>
+            <remarks>
+            The method returns the first tab matching the search criteria. If no tab is
+            matching then <strong>null</strong> (<strong>Nothing</strong> in VB.NET) is
+            returned.
+            </remarks>
+            <param name="url">The value to search for.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadTabStrip.FindTabByValue(System.String)">
+            <summary>
+                Searches the <strong>RadTabStrip</strong> control for the first
+                <see cref="T:Telerik.WebControls.Tab">Tab</see> with a <see cref="P:Telerik.WebControls.Tab.Value">Value</see> property equal
+                to the specified value.
+            </summary>
+            <returns>
+                A <see cref="T:Telerik.WebControls.Tab">Tab</see> whose <see cref="P:Telerik.WebControls.Tab.Value">Value</see> property is
+                equal to the specified value.
+            </returns>
+            <remarks>
+            The method returns the first tab matching the search criteria. If no tab is
+            matching then <strong>null</strong> (<strong>Nothing</strong> in VB.NET) is
+            returned.
+            </remarks>
+            <param name="value">The value to search for.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadTabStrip.FindTabByText(System.String)">
+            <summary>
+                Searches the <strong>RadTabStrip</strong> control for the first
+                <see cref="T:Telerik.WebControls.Tab">Tab</see> with a <see cref="P:Telerik.WebControls.Tab.Text">Text</see> property equal to
+                the specified value.
+            </summary>
+            <returns>
+                A <see cref="T:Telerik.WebControls.Tab">Tab</see> whose <see cref="P:Telerik.WebControls.Tab.Text">Text</see> property is equal
+                to the specified value.
+            </returns>
+            <remarks>
+            The method returns the first tab matching the search criteria. If no tab is
+            matching then <strong>null</strong> (<strong>Nothing</strong> in VB.NET) is
+            returned.
+            </remarks>
+            <param name="text">The value to search for.</param>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.ValidationGroup">
+            <summary>
+            	<para><font color="red">Note: This property is new in the .NET Framework version
+                2.0.</font></para>
+            	<para>Gets or sets the name of the validation group to which this validation
+                control belongs.</para>
+            </summary>
+            <value>
+            The name of the validation group to which this validation control belongs. The
+            default is an empty string (""), which indicates that this property is not set.
+            </value>
+            <remarks>
+                This property works only when <see cref="P:Telerik.WebControls.RadTabStrip.CausesValidation">CausesValidation</see>
+                is set to true.
+            </remarks>
+            
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.PostBackUrl">
+            <summary>
+            	<para>Gets or sets the URL of the page to post to from the current page when a tab
+                from the tabstrip is clicked.</para>
+            </summary>
+            <value>
+            The URL of the Web page to post to from the current page when a tab from the
+            tabstrip control is clicked. The default value is an empty string (""), which causes
+            the page to post back to itself.
+            </value>
+        </member>
+        <member name="E:Telerik.WebControls.RadTabStrip.TabCreated">
+            <summary>Occurs on the server when a tab in the RadTabStrip control is created.</summary>
+            <remarks>
+            	<para>The <b>TabCreated</b> event is raised every time a new tab is added to the
+                RadTabStrip instance.</para>
+            	<para>The <b>TabCreated</b> event is not related to databinding and you cannot
+                retrieve the DataItem of the tab in the event handler.</para>
+            	<para>The <b>TabCreated</b> event is often useful in scenarios where you want to
+                initialize all Tabs - for example setting the ToolTip of each Tab to be equal to
+                the Text property.</para>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>TabCreated</strong> event
+                to set the <strong>ToolTip</strong> property of each tab. 
+                <code lang="CS">
+            private void RadTabStrip1_TabCreated(object sender, Telerik.WebControls.TabStripEventArgs e)
+            {
+                e.Tab.ToolTip = e.Tab.Text;
+            }
+                </code>
+            	<code lang="VB">
+            Sub RadTabStrip1_TabCreated(ByVal sender As Object, ByVal e As TabStripEventArgs) Handles RadTabStrip1.TabCreated
+                e.Tab.ToolTip = e.Tab.Text
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="E:Telerik.WebControls.RadTabStrip.TabClick">
+            <summary>
+                Occurs on the server when a tab in the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see>
+                control is clicked.
+            </summary>
+            <remarks>
+            	<para>
+                    The <strong>TabClick</strong> event requires the
+                    <see cref="P:Telerik.WebControls.RadTabStrip.AutoPostBack">AutoPostBack</see> property to be set to
+                    <strong>true</strong>. The tabstrip will also postback if you navigate to a tab
+                    using the [tab] key and then press [enter] on the tab that is focused. The
+                    instance of the clicked tab is passed to the <strong>TabClick</strong> event
+                    handler - you can obtain a reference to it using the eventArgs.Tab property.
+                </para>
+            </remarks>
+        </member>
+        <member name="E:Telerik.WebControls.RadTabStrip.TabDataBound">
+            <summary>Occurs after a tab is data bound.</summary>
+            <remarks>
+            	<para>
+                    The <strong>TabDataBound</strong> event is raised for each tab upon
+                    databinding. You can retrieve the tab being bound using the event arguments.
+                    The <strong>DataItem</strong> associated with the tab can be retrieved using
+                    the <see cref="P:Telerik.WebControls.Tab.DataItem">DataItem</see> property.
+                </para>
+            	<para>The <strong>TabDataBound</strong> event is often used in scenarios when you
+                want to perform additional mapping of fields from the DataItem to their respective
+                properties in the Tab class.</para>
+            </remarks>
+            <example>
+                The following example demonstrates how to map fields from the data item to
+                <see cref="T:Telerik.WebControls.Tab">tab properties using the <strong>TabDataBound</strong> event.</see>
+            	<code lang="CS">
+            private void RadTabStrip1_TabDataBound(object sender, Telerik.WebControls.TabStripEventArgs e)
+            {
+                Tab tab = e.Tab;
+                DataRowView dataRow = (DataRowView) e.Tab.DataItem;
+             
+                tab.ImageUrl = "image" + dataRow["ID"].ToString() + ".gif";
+                tab.NavigateUrl = dataRow["URL"].ToString();
+            }
+                </code>
+            	<code lang="VB">
+            Sub RadTabStrip1_TabDataBound(ByVal sender As Object, ByVal e As TabStripEventArgs) Handles RadTabStrip1.TabDataBound
+                Dim tab As Tab = e.Tab
+                Dim dataRow As DataRowView = CType(e.Tab.DataItem, DataRowView)
+             
+                tab.ImageUrl = "image" + dataRow("ID").ToString() + ".gif"
+                tab.NavigateUrl = dataRow("URL").ToString()
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.AutoPostBack">
+            <summary>
+            Gets or sets a value indicating whether tabs should postback when
+            selected.
+            </summary>
+            <value>
+            	<strong>True</strong> if tabs should postback; otherwise <strong>false</strong>.
+            The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataSource">
+            <summary>
+            The DataSource object used for data-binding. Can be either IListSource (DataSet, DataTable, DataView) or ICollection / IEnumerable (ArrayList, arrays, etc)
+            </summary>
+            <summary>
+            	<para>Gets or sets the object from which the data-bound control retrieves its list
+                of data items.</para>
+            </summary>
+            <remarks>
+            	<para>RadTabStrip fully supports binding to IList datasources (DataSet, DataTable)
+                and ICollection / IEnumerable (ArrayList, arrays, etc), so you can easily populate
+                your tabstrip instance with only a few lines of code. The built-in data binding
+                supports auto-binding from a a single self-referencing table with ID -&gt; ParentID
+                relation.<br/>
+            		<br/>
+                Properties and methods related to data binding:</para>
+            	<para>
+            		<see cref="P:Telerik.WebControls.RadTabStrip.DataSource">DataSource</see> - (mandatory) object. Set to an
+                    instance of your datasource.
+                </para>
+            	<para>
+            		<see cref="!:DataMember">DataMember</see> - (optional) string. If the DataSource
+                    is a DataSet and DataMember is set, then RadTabStrip assumes the DataTable
+                    with the respective name in the DataSet. Otherwise the first DataTable in the
+                    DataSet is used.
+                </para>
+            	<para>
+            		<see cref="P:Telerik.WebControls.RadTabStrip.DataFieldID">DataFieldID</see> - (optional) string. The name of the
+                    DataColumn holding the ID value;
+                </para>
+            	<para>
+            		<see cref="P:Telerik.WebControls.RadTabStrip.DataFieldParentID">DataFieldParentID</see> - (optional) string. The
+                    name of the DataColumn holding the ParentID value;
+                </para>
+            	<para>
+            		<see cref="P:Telerik.WebControls.RadTabStrip.DataTextField">DataTextField</see> (optional) - Gets or sets the
+                    field name from a data source to bind to the Tab Text property.
+                </para>
+            	<para>
+            		<see cref="P:Telerik.WebControls.RadTabStrip.DataValueField">DataValueField</see> (optional) - Gets or sets the
+                    field name from a data source to bind to the Tab Value property.
+                </para>
+            	<para>
+            		<see cref="P:Telerik.WebControls.RadTabStrip.DataNavigateUrlField">DataNavigateUrlField</see> (optional) - Gets
+                    or set the field name from a data source to bind to the Tab NavigageUrl
+                    property.
+                </para>
+            	<para>DataBind() - (mandatory) method. Call this method after you've set the
+                aforementioned properties per your scenario.</para>
+            </remarks>
+            <example>
+            	<code lang="VB">
+            Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"))
+            dbCon.Open()
+             
+            Dim adapter As New OleDbDataAdapter("SELECT * FROM Links", dbCon)
+            Dim ds As New DataSet()
+            adapter.Fill(ds)
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID"
+            RadTabStrip1.DataFieldParentID = "ParentID"
+             
+            RadTabStrip1.DataSource = ds
+            RadTabStrip1.DataBind()
+                </code>
+            	<code lang="CS">
+            OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"));
+            dbCon.Open();
+             
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM Links", dbCon);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID";
+            RadTabStrip1.DataFieldParentID = "ParentID";
+             
+            RadTabStrip1.DataSource = ds;            
+            RadTabStrip1.DataBind();
+                </code>
+            </example>
+            <value>
+            	<para>A data source that provides data for populating the
+                <strong>RadTabStrip</strong> control.</para>
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataTextField">
+            <summary>
+            Gets or sets the field of the data source that provides the text labels of the
+            tabs.
+            </summary>
+            <summary>
+            	<para>Gets or sets the object from which the data-bound control retrieves its list
+                of data items.</para>
+            </summary>
+            <example>
+            	<code lang="VB">
+            Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"))
+            dbCon.Open()
+             
+            Dim adapter As New OleDbDataAdapter("SELECT * FROM Links", dbCon)
+            Dim ds As New DataSet()
+            adapter.Fill(ds)
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID"
+            RadTabStrip1.DataFieldParentID = "ParentID"
+            RadTabStrip1.DataNavigateUrlField = "URL"
+             
+            RadTabStrip1.DataSource = ds
+            RadTabStrip1.DataBind()
+                </code>
+            	<code lang="CS">
+            OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"));
+            dbCon.Open();
+             
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM Links", dbCon);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID";
+            RadTabStrip1.DataFieldParentID = "ParentID";
+            RadTabStrip1.DataNavigateUrlField = "URL";
+             
+            RadTabStrip1.DataSource = ds;            
+            RadTabStrip1.DataBind();
+                </code>
+            </example>
+            <value>
+            A string that specifies the field of the data source that provides the text
+            labels of the tabs. The default value is empty string.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataNavigateUrlField">
+            <summary>
+                Gets or sets the field of the data source that provides the
+                <see cref="P:Telerik.WebControls.Tab.NavigateUrl">NavigateUrl</see> of the tabs.
+            </summary>
+            <value>
+                A string that specifies the field of the data source that provides the
+                <see cref="P:Telerik.WebControls.Tab.NavigateUrl">NavigateUrl</see> property of the tabs. The default
+                value is empty string.
+            </value>
+            <example>
+            	<code lang="VB">
+            Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"))
+            dbCon.Open()
+             
+            Dim adapter As New OleDbDataAdapter("SELECT * FROM Links", dbCon)
+            Dim ds As New DataSet()
+            adapter.Fill(ds)
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID"
+            RadTabStrip1.DataFieldParentID = "ParentID"
+            RadTabStrip1.DataNavigateUrlField = "URL"
+             
+            RadTabStrip1.DataSource = ds
+            RadTabStrip1.DataBind()
+                </code>
+            	<code lang="CS">
+            OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"));
+            dbCon.Open();
+             
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM Links", dbCon);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID";
+            RadTabStrip1.DataFieldParentID = "ParentID";
+            RadTabStrip1.DataNavigateUrlField = "URL";
+             
+            RadTabStrip1.DataSource = ds;            
+            RadTabStrip1.DataBind();
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataValueField">
+            <summary>
+            Gets or sets the field of the data source that provides the value of the
+            tabs.
+            </summary>
+            <summary>
+            	<para>Gets or sets the object from which the data-bound control retrieves its list
+                of data items.</para>
+            </summary>
+            <example>
+            	<code lang="VB">
+            Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"))
+            dbCon.Open()
+             
+            Dim adapter As New OleDbDataAdapter("SELECT * FROM Links", dbCon)
+            Dim ds As New DataSet()
+            adapter.Fill(ds)
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID"
+            RadTabStrip1.DataFieldParentID = "ParentID"
+            RadTabStrip1.DataNavigateUrlField = "URL"
+             
+            RadTabStrip1.DataSource = ds
+            RadTabStrip1.DataBind()
+                </code>
+            	<code lang="CS">
+            OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"));
+            dbCon.Open();
+             
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM Links", dbCon);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID";
+            RadTabStrip1.DataFieldParentID = "ParentID";
+            RadTabStrip1.DataNavigateUrlField = "URL";
+             
+            RadTabStrip1.DataSource = ds;            
+            RadTabStrip1.DataBind();
+                </code>
+            </example>
+            <value>
+                A string that specifies the field of the data source that provides the
+                <see cref="P:Telerik.WebControls.Tab.Value">Value</see> property of the tabs. The default is empty
+                string.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataFieldID">
+            <summary>
+            Gets or sets the field from the data source which is the "child" column in the
+            "parent-child" relationship used to databind the <strong>RadTabStrip</strong>
+            control.
+            </summary>
+            <summary>
+            	<para>Gets or sets the object from which the data-bound control retrieves its list
+                of data items.</para>
+            </summary>
+            <example>
+            	<code lang="VB">
+            Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"))
+            dbCon.Open()
+             
+            Dim adapter As New OleDbDataAdapter("SELECT * FROM Links", dbCon)
+            Dim ds As New DataSet()
+            adapter.Fill(ds)
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID"
+            RadTabStrip1.DataFieldParentID = "ParentID"
+            RadTabStrip1.DataNavigateUrlField = "URL"
+             
+            RadTabStrip1.DataSource = ds
+            RadTabStrip1.DataBind()
+                </code>
+            	<code lang="CS">
+            OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"));
+            dbCon.Open();
+             
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM Links", dbCon);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID";
+            RadTabStrip1.DataFieldParentID = "ParentID";
+            RadTabStrip1.DataNavigateUrlField = "URL";
+             
+            RadTabStrip1.DataSource = ds;            
+            RadTabStrip1.DataBind();
+                </code>
+            </example>
+            <value>
+            A string that specifies the field of the data source that will be the "child"
+            column during databinding. The default is empty string.
+            </value>
+            <remarks>
+            	<strong>RadTabStrip</strong> requires both <strong>DataFieldID</strong> and
+            <strong>DataFieldParentID</strong> properties to be set in order to be databound
+            recursively.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataFieldParentID">
+            <summary>
+            Gets or sets the field from the data source which is the "parent" column in the
+            "parent-child" relationship used to databind the <strong>RadTabStrip</strong>
+            control.
+            </summary>
+            <summary>
+            	<para>Gets or sets the object from which the data-bound control retrieves its list
+                of data items.</para>
+            </summary>
+            <example>
+            	<code lang="VB">
+            Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"))
+            dbCon.Open()
+             
+            Dim adapter As New OleDbDataAdapter("SELECT * FROM Links", dbCon)
+            Dim ds As New DataSet()
+            adapter.Fill(ds)
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID"
+            RadTabStrip1.DataFieldParentID = "ParentID"
+            RadTabStrip1.DataNavigateUrlField = "URL"
+             
+            RadTabStrip1.DataSource = ds
+            RadTabStrip1.DataBind()
+                </code>
+            	<code lang="CS">
+            OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + Server.MapPath("~/tabstrip/Data/Tree.mdb"));
+            dbCon.Open();
+             
+            OleDbDataAdapter adapter = new OleDbDataAdapter("SELECT * FROM Links", dbCon);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+             
+            RadTabStrip1.DataTextField = "TextColumn"
+            RadTabStrip1.DataValueField = "ValueColumn"
+            RadTabStrip1.DataFieldID = "ID";
+            RadTabStrip1.DataFieldParentID = "ParentID";
+            RadTabStrip1.DataNavigateUrlField = "URL";
+             
+            RadTabStrip1.DataSource = ds;            
+            RadTabStrip1.DataBind();
+                </code>
+            </example>
+            <value>
+            A string that specifies the field of the data source that will be the "parent"
+            column during databinding. The default is empty string.
+            </value>
+            <remarks>
+            	<strong>RadTabStrip</strong> requires both <strong>DataFieldID</strong> and
+            <strong>DataFieldParentID</strong> properties to be set in order to be databound
+            recursively.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.DataTextFormatString">
+            <summary>
+            Gets or sets the formatting string used to control how text to the tabstrip
+            control is displayed.
+            </summary>
+            <remarks>
+             Use the DataTextFormatString property to provide a custom display format for text of the tabs.
+             The data format string consists of two parts, separated by a colon, in the form { A: Bxx }. For example, the formatting string {0:F2} would /// format the cell to display a fixed point number with two decimal places.
+             Note   The entire string must be enclosed in braces to indicate that it is a format string and not a literal string. Any text outside the
+             braces is displayed as literal text.
+             The value before the colon (A in the general example) specifies the parameter index in a zero-based list of parameters.
+             Note   This value can only be set to 0 because there is only one value in each cell.
+             </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.SelectedIndex">
+            <summary><para>Gets or sets the index of the selected item in the tabstrip control.</para></summary>
+            <remarks>
+            Use the <b>SelectedIndex</b> property to programmatically specify the selected
+            child tab in a <strong>ITabContainer</strong> (<strong>RadTabStrip</strong> or
+            <strong>Tab</strong>). To clear the selection set the <strong>SelectedIndex</strong>
+            property to -1.
+            </remarks>
+            <value>
+            The zero based index of the selected tab. The default value is -1 (none child tab
+            is selected).
+            </value>
+            <example>
+                The following example demonstrates how to programmatically select a tab by using
+                the <strong>SelectedIndex</strong> property. 
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (!Page.IsPostBack)
+                {
+                    Tab inbox = new Tab("Inbox");
+                    RadTabStrip1.Tabs.Add(newsTab);
+                    
+                    RadTabStrip1.SelectedIndex = 0; //This will select the "News" tab
+             
+                    Tab cnnTab = new Tab("CNN");
+                    newsTab.Tabs.Add(cnnTab);
+             
+                    Tab nbcTab = new Tab("NBC");
+                    newsTab.Tabs.Add(nbcTab);
+             
+                    newsTab.SelectedIndex = 1; //This will select the "NBC" child tab of the "News" tab
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                If Not Page.IsPostBack Then
+                    Dim newsTab As Tab = New Tab("News")
+                    RadTabStrip1.Tabs.Add(newsTab)
+             
+                    RadTabStrip1.SelectedIndex = 0 'This will select the "News" tab
+             
+                    Dim cnnTab As Tab = New Tab("CNN")
+                    newsTab.Tabs.Add(cnnTab)
+             
+                    Dim nbcTab As Tab = New Tab("NBC")
+                    newsTab.Tabs.Add(nbcTab)
+             
+                    newsTab.SelectedIndex = 1 'This will select the "NBC" child tab of the "News" tab
+                End If
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.SelectedTab">
+            <summary>Gets the selected child tab.</summary>
+            <value>
+            Returns the child tab which is currently selected. If no tab is selected
+            (<strong>SelectedIndex</strong> is -1) the <strong>SelectedTab</strong> property will
+            return <strong>null</strong> (<strong>Nothing</strong> in VB.NET).
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.InnerMostSelectedTab">
+            <summary>Gets the innermost selected tab in a hierarchical tabstrip.</summary>
+            <remarks>
+            	<para>In hierarchical tabstrips this property returns the innermost selected
+                tab.</para>
+            </remarks>
+            <value>
+            Returns the inner most selected child tab in hierarchical tabstrip scenarios. If
+            no tab is selected (<strong>SelectedIndex</strong> is -1) the
+            <strong>SelectedTab</strong> property will return <strong>null</strong>
+            (<strong>Nothing</strong> in VB.NET).
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.MultiPageID">
+            <summary>
+                Gets or sets the ID of the <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> control that
+                will be controlled by this <strong>RadTabStrip</strong>.
+            </summary>
+            <remarks>
+            You should have specified a RadMultiPage control in the same form or user
+            control. Switching the tabs in the tabstrip will switch the pages in the multipage
+            control.
+            </remarks>
+            <value>
+            The <strong>ID</strong> of the RadMultiPage. The default value is empty
+            string.
+            </value>
+            <example>
+                The following example demonstrates how to associate a <strong>RadMultiPage</strong>
+                control with a <strong>RadTabStrip</strong> control through the
+                <strong>MultiPageID</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>MultiPageID="RadMultiPage1"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab Text="Personal Details"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Education"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Computing Skills"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadMultiPage <strong>id="RadMultiPage1"</strong>
+                    runat="server"&gt;<br/>
+                    .....<br/>
+                    &lt;/radTS:RadMultiPage&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.ClickSelectedTab">
+            <summary>
+            Gets or sets a value indicating whether the tabstrip should postback when the user clicks the currently selected tab.
+            </summary>
+            <value>
+                <strong>True</strong> if the tabstrip should postback when the user clicks the currently selected tab; otherwise <strong>false</strong>. The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.MultiPage">
+            <summary>
+                Gets the associated <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> control if the
+                <see cref="P:Telerik.WebControls.RadTabStrip.MultiPageID">MultiPageID</see> property is set.
+            </summary>
+            <value>
+            The <strong>RadMultiPage</strong> control associated with the
+            <strong>RadTabStrip</strong> control. The default value is <strong>null</strong>
+            (<strong>Nothing</strong> in VB.NET)
+            </value>
+            <remarks>
+                The <strong>MultiPage</strong> property returns a non-null value only when the
+                <see cref="P:Telerik.WebControls.RadTabStrip.MultiPageID">MultiPageID</see> property is set.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.Tabs">
+            <summary>
+            Gets the collection of child tabs in the <strong>RadTabStrip</strong>
+            control.
+            </summary>
+            <value>
+                A <see cref="T:Telerik.WebControls.TabCollection">TabCollection</see> that represents the children within
+                the <strong>RadTabStrip</strong> control. The default is empty collection.
+            </value>
+            <remarks>
+            Use this property to retrieve the child tabs of the <strong>RadTabStrip</strong>
+            control. You can also use it to programmatically add or remove tabs.
+            </remarks>
+            <example>
+                The following example demonstrates how to programmatically add tabs. 
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (!Page.IsPostBack)
+                {
+                    Tab corporateTab = new Tab("Corporate");
+                    RadTabStrip1.Tabs.Add(corporateTab);
+             
+                    Tab newsTab = new Tab("News");
+                    RadTabStrip1.Tabs.Add(newsTab);
+                
+                    Tab aboutUsTab = new Tab("About us");
+                    RadTabStrip1.Tabs.Add(aboutUsTab);
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                If Not Page.IsPostBack Then
+                    Dim corporateTab As Tab = New Tab("Corporate")
+                    RadTabStrip1.Tabs.Add(newsTab)
+             
+                    Dim newsTab As Tab = New Tab("News")
+                    RadTabStrip1.Tabs.Add(newsTab)
+             
+                    Dim aboutUsTab As Tab = New Tab("About us")
+                    RadTabStrip1.Tabs.Add(aboutUsTab)
+                End If
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.Skin">
+            <summary>
+            Gets or sets the skin used by RadTabStrip.
+            </summary>
+            <value>
+                A <see cref="T:System.String">String</see> specifying the skin. The default value is
+                empty string ("").
+            </value>
+            <remarks>If the value is empty string ("") no skin is used.</remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.SkinsPath">
+            <summary>
+            Gets or sets the relative path of the folder containing the skins.
+            </summary>
+            <example>
+            If the skin folder is located in the project root and is named "Skins" the
+            SkinsPath property should be set to: "~/Skins". Then you can create subfolders for
+            individual skins e.g. Skins/Gold, Skins/Default etc.
+            </example>
+            <value>
+            A string specifying the relative path to the folder which contains
+            RadTabStrip skins. The default value is
+            "~/RadControls/TabStrip/Skins".
+            </value>
+            <remarks>
+            RadTabStrip ships with a set of predefined skins which are ready
+            to use. They are located in RadControls/TabStrip/Skins.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.Orientation">
+            <summary>
+            Gets or sets a value indicating the orientation of child tabs within the
+            <strong>RadTabStrip</strong> control.
+            </summary>
+            <value>
+                One of the <see cref="T:Telerik.WebControls.RadTabStripOrientation">RadTabStripOrientation</see> values.
+                The default value is <strong>HorizontalTopToBottom</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.Align">
+            <summary>Gets or sets the alignment of the tabs in the RadTabStrip control.</summary>
+            <value>
+                One of the <see cref="T:Telerik.WebControls.TabStripAlign">TabStripAlign</see> enumeration values. The
+                default value is <strong>Left</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.ReorderTabRows">
+            <summary>
+            Gets or sets a value indicating whether the row of the selected tab should move
+            to the bottom.
+            </summary>
+            <value>
+            	<strong>true</strong> if the row containing the selected tab should be moved to
+            the bottom; otherwise <strong>false</strong>. The default value is
+            <strong>false</strong>.
+            </value>
+            <remarks>
+            Use the <strong>ReorderTabRows</strong> property to mimic the behavior of the
+            Windows tabstrip control.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.UnSelectChildren">
+            <summary>
+            Gets or sets a value determining whether child tabs are unselected when a parent
+            tab is unselected.
+            </summary>
+            <value>
+            	<strong>true</strong> if child tabs are unselected when a parent tab is
+            unselected. <strong>false</strong> if the tabs persist their state even when hidden.
+            The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.AppendDataBoundItems">
+            <summary>
+            	<para>Gets or sets a value that indicates whether child tabs are cleared before
+                data binding.</para>
+            </summary>
+            <remarks>
+            	<para>The <strong>AppendDataBoundItems</strong> property allows you to add items to
+                the RadTabStrp control before data binding occurs. After data binding, the items
+                collection contains both the items from the data source and the previously added
+                items.</para>
+            	<para>The value of this property is stored in view state.</para>
+            </remarks>
+            <value>
+            	<strong>True</strong> if child tabs should not be cleared before databinding;
+            otherwise <strong>false</strong>. The default value is <strong>false</strong> (child
+            items will be cleared before databinding).
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.CausesValidation">
+            <summary>
+            Gets or sets a value indicating whether validation is performed when a tab within
+            the <strong>RadTabStrip</strong> control is selected.
+            </summary>
+            <value>
+            	<strong>true</strong> if validation is performed when a tab is selected;
+            otherwise, <b>false</b>. The default value is <b>true</b>.
+            </value>
+            <remarks>
+            	<para>By default, page validation is performed when a tab is selected. Page
+                validation determines whether the input controls associated with a validation
+                control on the page all pass the validation rules specified by the validation
+                control. You can specify or determine whether validation is performed on both the
+                client and the server when a tab is clicked by using the <b>CausesValidation</b>
+                property. To prevent validation from being performed, set the
+                <b>CausesValidation</b> property to <b>false</b>.</para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.ScrollChildren">
+            <summary>
+            Gets or sets a value indicating whether the children of the tab will be
+            scrollable.
+            </summary>
+            <value>
+            	<strong>true</strong> if the child tabs will be scrolled; otherwise
+            <strong>false</strong>. The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.ScrollButtonsPosition">
+            <summary>The position of the scroll buttons regarding the tab band.</summary>
+            <value>
+                One of the <see cref="P:Telerik.WebControls.RadTabStrip.ScrollButtonsPosition">ScrollButtonsPosition</see>
+                enumeration values. The default value is <strong>Right</strong>.
+            </value>
+            <remarks>
+                This property is applicable when the
+                <see cref="P:Telerik.WebControls.RadTabStrip.ScrollChildren">ScrollChildren</see> property is set to
+                <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.ScrollPosition">
+            <summary>
+            Gets or sets the position of the scrollable band of tabs relative to the
+            beginning of the scrolling area.
+            </summary>
+            <remarks>
+                This property is applicable when the
+                <see cref="P:Telerik.WebControls.RadTabStrip.ScrollChildren">ScrollChildren</see> property is set to
+                <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+            <value>
+            	<para>An integer specifying the initial scrolling position. The default value is 0
+                (no offset from the default scrolling position). Use negative values to move the
+                tabs to the left.</para>
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.PerTabScrolling">
+            <summary>
+            Gets or sets a value indicating whether the tabstrip should scroll directly to
+            the next tab.
+            </summary>
+            <value>
+            	<strong>true</strong> if the tabstrip should scroll to the next (or previous)
+            tab; otherwise <strong>false</strong>. The default value is
+            <strong>false</strong>.
+            </value>
+            <remarks>
+                By default tabs are scrolled smoothly. If you want the tabstrip to scroll directly
+                to the next (or previous) tab set this property to <strong>true</strong>. This
+                property is applicable when the <see cref="P:Telerik.WebControls.RadTabStrip.ScrollChildren">ScrollChildren</see>
+                property is set to <strong>true</strong>; otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientTabSelected">
+            <summary>
+            	Gets or sets a value indicating the client-side event handler that is called
+                after selecting a tab.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientTabSelected</strong> property to specify a JavaScript
+                function that will be executed after a tab is selected - either by left-clicking it
+                with a mouse or hitting enter after tabbing to that tab.</para>
+            	<para>Two parameters are passed to the handler</para>
+            	<list type="bullet">
+            		<item>sender (the client-side RadTabStrip object)</item>
+            		<item>
+                        eventArgs with one property 
+                        <ul>
+            				<li>Tab - the instance of the selected tab</li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientTabSelected</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientTabSelectedHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+            			<br/>
+                    alert("You have selected the " + tab.Text + " tab in the " + tabStrip.ID +
+                    "tabstrip.");<br/>
+                    }<br/>
+                    &lt;/script&gt;</para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientTabSelected="ClientTabSelectedHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab Text="Personal Details"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Education"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Computing Skills"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientContextMenu">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called
+            before the browser context menu shows (after right-clicking an item).
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientContextMenu</strong> property to specify a JavaScript
+                function that will be executed before the context menu shows after right clicking a
+                tab.</para>
+            	<para>Two parameters are passed to the handler</para>
+            	<list type="bullet">
+            		<item>sender (the client-side RadTabStrip object)</item>
+            		<item>
+                        eventArgs with two properties 
+                        <ul>
+            				<li>Tab - the instance of the selected tab</li>
+            				<li>EventObject - the browser DOM event</li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientContextMenu</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>OnContextMenuHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+            			<br/>
+                    alert("You have right-clicked the " + tab.Text + " tab in the " + tabStrip.ID +
+                    "tabstrip.");<br/>
+                    }<br/>
+                    &lt;/script&gt;</para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientContextMenu="OnContextMenuHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab Text="Personal Details"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Education"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Computing Skills"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientDoubleClick">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called
+            when the user double-clicks a tab.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientDoubleClick</strong> property to specify a JavaScript
+                function that will be executed when the user double-clicks a tab.
+            </para>
+            	<para>Two parameters are passed to the handler</para>
+            	<list type="bullet">
+            		<item>sender (the client-side RadTabStrip object)</item>
+            		<item>
+                        eventArgs with two properties 
+                        <ul>
+            				<li>Tab - the instance of the selected tab</li>
+            				<li>EventObject - the browser DOM event</li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientDoubleClick</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>OnDoubleClickHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+            			<br/>
+                    alert("You have double-clicked the " + tab.Text + " tab in the " + tabStrip.ID +
+                    "tabstrip.");<br/>
+                    }<br/>
+                    &lt;/script&gt;</para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientDoubleClick="OnDoubleClickHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab Text="Personal Details"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Education"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab Text="Computing Skills"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>		
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientTabSelecting">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called just
+            prior to selecting a tab.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientTabSelecting</strong> property to specify a
+                JavaScript function that will be executed prior to tab selecting - either by
+                left-clicking it with a mouse or hitting enter after tabbing to that tab. You can
+                cancel that event (prevent tab selecting) by returning <strong>false</strong> in
+                your JavaScript function.</para>
+            	<para>Two parameters are passed to the handler</para>
+            	<list type="bullet">
+            		<item>sender (the client-side RadTabStrip object)</item>
+            		<item>
+                        eventArgs with one property 
+                        <ul>
+            				<li>Tab - the instance of the selected tab</li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientTabSelecting</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientTabSelectingHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+            			<br/>
+                    alert("You will be selecting the " + tab.Text + " tab in the " + tabStrip.ID +
+                    " tabstrip.");<br/>
+            			<br/>
+                    if (tab.Text == "Education")<br/>
+                    {<br/>
+                    alert("Education cannot be selected");<br/>
+            			<strong>return false;</strong><br/>
+                    }<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientTabSelecting="ClientTabSelectedHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientMouseOver">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called when
+            the mouse hovers a tab in the <strong>RadTabStrip</strong> control.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientMouseOver</strong> property to specify a JavaScript
+                function that is called when the user hovers a tab with the mouse.</para>
+            	<para>Two parameters are passed to the handler:</para>
+            	<list type="bullet">
+            		<item>sender (the client-side RadTabStrip object);</item>
+            		<item>
+                        eventArgs with two properties 
+                        <ul>
+            				<li>Tab - the instance of the tab that is being hovered</li>
+            				<li>EventObject - the instance of the browser event.</li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientMouseOver</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientMouseOverHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+                    var browserEvents = eventArgs.EventObject;<br/>
+            			<br/>
+                    alert("You have just moved over the " + tab.Text + " tabs in the " +
+                    tabStrip.ID + " tabstrip");<br/>
+                    alert("Mouse coordinates: " + browserEvents.clientX + ":" +
+                    browserEvents.clientY);<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientMouseOver="ClientMouseOverHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientMouseOut">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called when
+            the mouse leaves a tab in the <strong>RadTabStrip</strong> control.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientMouseOut</strong> property to specify a JavaScript
+                function that is executed <font color="black">whenever the user moves the mouse
+                away from a particular tab in the RadTabStrip control.</font></para>
+            	<para><font color="black">Two parameters are passed to the handler:</font></para>
+            	<list type="bullet">
+            		<item><font color="black">sender (the client-side RadTabStrip
+                    object);</font></item>
+            		<item>
+                        eventArgs <font color="black">with two properties:</font>
+            			<ul>
+            				<li><font color="black">Tab - the instance of the tab we are moving
+                            away from;</font></li>
+            				<li><font color="black">EventObject - the instance of the browser
+                            event.</font></li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>OnClientMouseOut</strong>
+                property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientMouseOutHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+                    var browserEvents = eventArgs.EventObject;</para>
+            		<para class="sourcecode">alert("You have just moved out of " + tab.Text + " in
+                    the " + tabStrip.ID + " tabstrip.");<br/>
+                    alert("Mouse coordinates: " + browserEvents.clientX + ":" +
+                    browserEvents.clientY);<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientMouseOut="ClientMouseOutHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientTabUnSelected">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called
+            after a tab is unselected (i.e. the user has selected another tab).
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientTabUnSelected</strong> property to specify a
+                JavaScript function that is executed <font color="black">after a tab is
+                unselected.</font></para>
+            	<para><font color="black">Two parameters are passed to the handler:</font></para>
+            	<list type="bullet">
+            		<item><font color="black">sender (the client-side RadTabStrip
+                    object);</font></item>
+            		<item>
+                        eventArgs <font color="black">with two properties:</font>
+            			<ul>
+            				<li><font color="black">Tab - the instance of the tab which is
+                            unselected;</font></li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>OnClientMouseOut</strong>
+                property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientTabUnSelectedHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;<br/>
+            			<br/>
+                    alert("You have unselected the " + tab.Text + " tab in the " + tabStrip.ID +
+                    "tabstrip.");<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientTabUnSelected="ClientTabUnSelectedHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientTabEnabled">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called
+            after a tab is enabled.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientTabEnabled</strong> property to specify a JavaScript
+                function that is executed after tab enabling. To enable a tab you should use the
+                <strong>Enable</strong> JavaScript method exposed by the client-side RadTabStrip
+                object.</para>
+            	<para><font color="black">Two parameters are passed to the handler:</font></para>
+            	<list type="bullet">
+            		<item><font color="black">sender (the client-side <strong>RadTabStrip</strong>
+                    object);</font></item>
+            		<item>
+                        eventArgs <font color="black">with two properties:</font>
+            			<ul>
+            				<li><font color="black">Tab - the instance of the which has been
+                            enabled;</font></li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientTabEnabled</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientTabEnabledHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;</para>
+            		<para class="sourcecode">alert("You have enabled " + tab.Text + " tab in the "
+                    + tabStrip.ID + " tabstrip.");<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientTabEnabled="ClientTabEnabledHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientTabDisabled">
+            <summary>
+            Gets or sets a value indicating the client-side event handler that is called
+            after a tab is disabled.
+            </summary>
+            <value>
+            A string specifying the name of the JavaScript function that will handle the
+            event. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientTabDisabled</strong> property to specify a JavaScript
+                function that is executed after tab disabling. To enable a tab you should use the
+                <strong>Disable</strong> JavaScript method exposed by the client-side
+                <strong>RadTabStrip</strong> object.</para>
+            	<para><font color="black">Two parameters are passed to the handler:</font></para>
+            	<list type="bullet">
+            		<item><font color="black">sender (the client-side RadTabStrip
+                    object);</font></item>
+            		<item>
+                        eventArgs <font color="black">with two properties:</font>
+            			<ul>
+            				<li><font color="black">Tab - the instance of the which has been
+                            disabled;</font></li>
+            			</ul>
+            		</item>
+            	</list>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the
+                <strong>OnClientTabDisabled</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientTabDisabledHandler</strong>(sender, eventArgs)<br/>
+                    {<br/>
+                    var tabStrip = sender;<br/>
+                    var tab = eventArgs.Tab;</para>
+            		<para class="sourcecode">alert("You have disabled " + tab.Text + " tab in the "
+                    + tabStrip.ID + " tabstrip.");<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientTabDisabled="ClientTabDisabledHandler"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.OnClientLoad">
+            <summary>
+            Gets or sets the name of the javascript function called when the control is fully
+            initialized on the client side.
+            </summary>
+            <value>
+            A string specifying the name of the javascript function called when the control
+            is fully initialized on the client side. The default value is empty string.
+            </value>
+            <remarks>
+            	<para>Use the <strong>OnClientLoad</strong> property to specify a JavaScript
+                function that is executed after the control is initialized on the client side.
+                <font color="black">A single parameter is passed to the handler, which is the
+                client-side RadTabStrip object.</font></para>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>OnClientLoad</strong>
+                property. 
+                <para>
+            		<para class="sourcecode">&lt;script language="javascript"&gt;<br/>
+                    function <strong>ClientTabstripLoad</strong>(tabstrip)<br/>
+                    {<br/>
+                    alert(tabstrip.ID + " is loaded.");<br/>
+                    }<br/>
+                    &lt;/script&gt;<br/>
+            			<br/>
+                    &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"
+                    <strong>OnClientLoad="ClientTabstripLoad"</strong>&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="Personal Details"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Education"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;radTS:Tab Text="Computing Skills"&gt;&lt;/radTS:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadTabStrip.EnableImmediateNavigation">
+            <summary>
+            Gets or sets a value indicating wether the control should navigate immediately after clicking a tab or
+            update its visual state first.
+            </summary>
+            <value>
+            	<strong>true</strong> if the tabstrip should immediately navigate after clicking a tab
+            ;otherwise <strong>false</strong>. The default value is
+            <strong>true</strong>.
+            </value>
+        </member>
+        <member name="T:Telerik.WebControls.Ide.Common.RadTabStrip.ProjectManagement">
+            <summary>
+            Utility class for Design - Time VisualStudio.NET project management.
+            </summary>
+        </member>
+        <member name="T:Telerik.RadTabStripUtils.PropertyCategory">
+            <summary>
+            Defines the common property categories' names
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.PageView">
+            <summary>
+                The <strong>PageView</strong> class represents a single page in a
+                <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> control.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.PageView.Selected">
+            <summary>
+            Gets or sets a value indicating whether the page view is selected in the RadMultiPage control.
+            </summary>
+            <value>
+            	<strong>true</strong> if the page view is selected; otherwise
+            <strong>false</strong>. The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.PageView.ID">
+            <summary>Gets or sets the programmatic identifier assigned to the server control.</summary>
+            <value>The programmatic identifier assigned to the control.</value>
+        </member>
+        <member name="P:Telerik.WebControls.PageView.ClientID">
+            <summary>Gets the server control identifier generated by ASP.NET.</summary>
+            <value>The server control identifier generated by ASP.NET.</value>
+        </member>
+        <member name="P:Telerik.WebControls.PageView.Index">
+            <summary>
+            Gets the index of the <strong>PageView</strong> in the parent
+            <strong>RadMultiPage PageViews</strong> collection.
+            </summary>
+            <value>
+            The index of the <strong>PageView</strong> in the parent <strong>RadMultiPage
+            PageViews</strong> collection.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.PageView.TagKey">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.PageViewCollection">
+            <summary>
+                A collection of <see cref="T:Telerik.WebControls.PageView">PageView</see> objects in a
+                <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> control.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.PageViewCollection.#ctor(Telerik.WebControls.RadMultiPage)">
+            <summary>
+            Initializes a new instance of the <strong>PageViewCollection</strong>
+            class.
+            </summary>
+            <param name="multiPage">The owner <strong>RadMultiPage</strong> control.</param>
+        </member>
+        <member name="M:Telerik.WebControls.PageViewCollection.Add(Telerik.WebControls.PageView)">
+            <summary>Appends the specified <see cref="T:Telerik.WebControls.PageView">PageView</see> to the collection.</summary>
+            <param name="item">The <see cref="T:Telerik.WebControls.PageView">PageView</see> to append to the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.PageViewCollection.IndexOf(Telerik.WebControls.PageView)">
+            <summary>
+                Determines the index value that represents the position of the specified
+                <see cref="T:Telerik.WebControls.PageView">PageView</see> in the collection.
+            </summary>
+            <returns>
+            The zero-based index position of the specified <strong>PageView</strong> in the
+            collection.
+            </returns>
+            <remarks>
+            Use the <b>IndexOf</b> method to determine the index value of the
+            <strong>PageView</strong> specified by the <i>page</i> parameter in the collection. If
+            a page view with this criteria is not found in the collection, -1 is returned.
+            </remarks>
+            <param name="page">A <strong>PageView</strong> to search for in the collection.</param>
+        </member>
+        <member name="P:Telerik.WebControls.PageViewCollection.Item(System.Int32)">
+            <summary>
+                Gets a <see cref="T:Telerik.WebControls.PageView">PageView</see> at the specified index in the
+                collection.
+            </summary>
+            <remarks>
+            	<para>Use this indexer to get a <strong>PageView</strong> from the collection at
+                the specified index, using array notation.</para>
+            </remarks>
+            <param name="index">
+            The zero-based index of the <strong>PageView</strong> to retrieve from the
+            collection.
+            </param>
+        </member>
+        <member name="T:Telerik.WebControls.RadMultiPage">
+            <summary>
+            The telerik RadMultiPage class.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.RadMultiPage.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.RadMultiPage.OnInit(System.EventArgs)">
+            <summary>
+            Raises the Init event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs">EventArgs</see> object that contains the event data.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadMultiPage.System#Web#UI#IPostBackEventHandler#RaisePostBackEvent(System.String)">
+            <summary>
+            
+            </summary>
+            
+        </member>
+        <member name="M:Telerik.WebControls.RadMultiPage.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Render this control to the output parameter specified.
+            </summary>
+            <param name="output"> The HTML writer to write out to </param>
+        </member>
+        <member name="M:Telerik.WebControls.RadMultiPage.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <exclude />
+            <excludetoc />
+        </member>
+        <member name="M:Telerik.WebControls.RadMultiPage.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <exclude />
+            <excludetoc />
+        </member>
+        <member name="E:Telerik.WebControls.RadMultiPage.PageViewItemCreated">
+            <summary>
+            	<para>Occurs upon postback, when programatically added pageviews (if such exist)
+                are recreated.</para>
+            </summary>
+            <example>
+                The example below starts by defining a dynamic pageview and adding a control (i.e.
+                Label) to the new pageview. Then, upon postback, the
+                <strong>PageViewItemCreated</strong> event is used to restore the dynamic pageview.
+                <code lang="CS" title="Restoring programatically created pageview">
+            private void Page_Load(object sender, System.EventArgs e)
+            {
+                PageView view = new PageView();
+                view.ID = "dynamicPageView";
+                Label l = new Label();
+                l.ID = "dynamicLabel";
+                l.Text = "Programatically created label"
+                view.Controls.Add(l);
+                
+                RadMultiPage1.PageViews.Add(view);
+            }
+             
+             
+            private void InitializeComponent()
+            {    
+                this.Load += new System.EventHandler(this.Page_Load);
+                this.RadMultiPage1.PageViewItemCreated +=new Telerik.WebControls.PageViewItemCreatedDelegate(RadMultiPage1_PageViewItemCreated);
+            }
+             
+            private void RadMultiPage1_PageViewItemCreated(Telerik.WebControls.PageView view, int viewIndex)
+            {
+                Label l = new Label();
+                l.ID = "dynamicLabel";
+                l.Text = "Programatically created label"
+                view.Controls.Add(l);
+            }
+                </code>
+            </example>
+            <remarks>
+            Use this event when you need to create dynamic pageviews from code behind. The
+            event restores the dynamic pageviews at postback.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadMultiPage.RenderSelectedPageOnly">
+            <summary>
+            Determines whether to output the HTML content of only the selected page.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadMultiPage.AutoScrollBars">
+            <summary>
+            Determines whether the <strong>PageViews</strong> in the
+            <strong>RadMultiPage</strong> will render with scrollbars when their size is greather
+            than the size of the <strong>RadMultiPage</strong>.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadMultiPage.SelectedIndex">
+            <summary>Gets or sets the selected index of RadMultiPage</summary>
+            <value>
+            The index of the currently selected <strong>PageView</strong>. The default value is -1,
+            which means that no PageView is selected.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadMultiPage.PageViews">
+            <summary>
+            Gets a PageViews collection that represents the PageView controls for the RadMultiPage instance.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.RadTabStripOrientation">
+            <summary>
+            Summary description for RadTabStripOrientation.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadTabStripOrientation.HorizontalTopToBottom">
+            <summary>
+            The RadTabStrip is horizontal, any child sub tabs will appear below the main RadTabStrip.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadTabStripOrientation.HorizontalBottomToTop">
+            <summary>
+            The RadTabStrip is horizontal, any child sub tabs will appear above the main RadTabStrip.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadTabStripOrientation.VerticalLeftToRight">
+            <summary>
+            The RadTabStrip is vertical, any child sub tabs will appear to the right of the main RadTabStrip.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadTabStripOrientation.VerticalRightToLeft">
+            <summary>
+            The RadTabStrip is vertical, any child sub tabs will appear to the left of the main RadTabStrip.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.ScrollButtonsPosition">
+            <summary>
+            The position of the scroll buttons toward the Tab labels when the ScrollChildren
+            property is set to true.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.ScrollButtonsPosition.Left">
+            <summary>
+            The buttons are to left of the Tab labels.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.ScrollButtonsPosition.Middle">
+            <summary>
+            The Tab labels are between the two scroll buttons.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.ScrollButtonsPosition.Right">
+            <summary>
+            The buttons are to the right of the Tab labels.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.Tab.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Telerik.WebControls.Tab">Tab</see> class.</summary>
+            <remarks>
+                Use this constructor to create and initialize a new instance of the
+                <see cref="T:Telerik.WebControls.Tab">Tab</see> class using default values.
+            </remarks>
+            <example>
+                The following example demonstrates how to add tabs to
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> controls.
+                <code lang="CS" title="[New Example]">
+            Tab tab = new Tab();
+            tab.Text = "News";
+            tab.NavigateUrl = "~/News.aspx";
+             
+            RadTabStrip1.Tabs.Add(tab);
+                </code>
+            	<code lang="VB" title="[New Example]">
+            Dim tab As New Tab()
+            tab.Text = "News"
+            tab.NavigateUrl = "~/News.aspx"
+             
+            RadTabStrip1.Tabs.Add(tab)
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.WebControls.Tab.#ctor(System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Telerik.WebControls.Tab">Tab</see> class with the
+                specified text data.
+            </summary>
+            <remarks>
+            	<para>
+                    Use this constructor to create and initialize a new instance of the
+                    <see cref="T:Telerik.WebControls.Tab">Tab</see> class using the specified text.
+                </para>
+            </remarks>
+            <example>
+                The following example demonstrates how to add tabs to
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> controls. 
+                <code lang="CS" title="[New Example]">
+            Tab tab = new Tab("News");
+             
+            RadTabStrip1.Tabs.Add(tab);
+                </code>
+            	<code lang="VB" title="[New Example]">
+            Dim tab As New Tab("News")
+             
+            RadTabStrip1.Tabs.Add(tab)
+                </code>
+            </example>
+            <param name="text">
+                The text of the tab. The <see cref="P:Telerik.WebControls.Tab.Text">Text</see> property is set to the value
+                of this parameter.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.Tab.#ctor(System.String,System.String)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Telerik.WebControls.Tab">Tab</see> class with the
+                specified text and value data.
+            </summary>
+            <remarks>
+            	<para>
+                    Use this constructor to create and initialize a new instance of the
+                    <see cref="T:Telerik.WebControls.Tab">Tab</see> class using the specified text and value.
+                </para>
+            </remarks>
+            <example>
+                This example demonstrates how to add tabs to
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> controls. 
+                <code lang="CS" title="[New Example]">
+            Tab tab = new Tab("News", "NewsTabValue");
+             
+            RadTabStrip1.Tabs.Add(tab);
+                </code>
+            	<code lang="VB" title="[New Example]">
+            Dim tab As New Tab("News", "NewsTabValue")
+             
+            RadTabStrip1.Tabs.Add(tab)
+                </code>
+            </example>
+            <param name="text">
+                The text of the tab. The <see cref="P:Telerik.WebControls.Tab.Text">Text</see> property is set to the value
+                of this parameter.
+            </param>
+            <param name="value">
+                The value of the tab. The <see cref="P:Telerik.WebControls.Tab.Value">Value</see> property is set to the
+                value of this parameter.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.Tab.SelectParents">
+            <summary>Selects recursively all parent tabs in the hierarchy.</summary>
+            <remarks>
+            Use this method to programmatically select all parents of the tab. Selected tabs
+            will be visible in the browser.
+            </remarks>
+            <example>
+                The following example demonstrates how to select the parents of the tab which
+                corresponds to the current URL.
+                <code lang="CS" title="[New Example]">
+            Tab currentTab = RadTabStrip1.FindTabByUrl(Request.Url.PathAndQuery);
+            if (currentTab != null)
+            {
+                currentTab.SelectParents();
+            }
+                </code>
+            	<code lang="VB" title="[New Example]">
+            Tab currentTab = RadTabStrip1.FindTabByUrl(Request.Url.PathAndQuery)
+             
+            If Not currentTab Is Nothing Then
+                currentTab.SelectParents()
+            End If
+                </code>
+            </example>
+        </member>
+        <member name="M:Telerik.WebControls.Tab.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <exclude/>
+            <excludetoc/>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.TabStrip">
+            <summary>Gets the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> instance which contains the tab.</summary>
+            <remarks>
+                Use this property to obtain an instance to the
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> object containing the tab.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.PostBack">
+            <summary>
+            Gets or sets a value indicating whether clicking on the tab will
+            postback.
+            </summary>
+            <value>
+            	<strong>True</strong> if the tab should postback; otherwise
+                <strong>false</strong>. By default all tabs will postback.
+            </value>
+            <remarks>
+                By default all tabs will postback if the <see cref="P:Telerik.WebControls.RadTabStrip.AutoPostBack">AutoPostBack</see> property is set to <strong>true</strong>. To turn off that behavior you should set the
+                <strong>PostBack</strong> property to <strong>false</strong>. This property cannot
+                be set in design time.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.ScrollChildren">
+            <summary>
+            Gets or sets a value indicating whether the children of the tab will be
+            scrollable.
+            </summary>
+            <value>
+            	<strong>true</strong> if the child tabs will be scrolled; otherwise
+            <strong>false</strong>. The default value is <strong>false</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.ScrollButtonsPosition">
+            <summary>The position of the scroll buttons regarding the tab band.</summary>
+            <remarks>
+                This property is applicable when the
+                <see cref="P:Telerik.WebControls.Tab.ScrollChildren">ScrollChildren</see> property is set to
+                <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+            <value>
+                One of the <see cref="P:Telerik.WebControls.Tab.ScrollButtonsPosition">ScrollButtonsPosition</see>
+                enumeration values. The default value is <strong>Right</strong>.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.ScrollPosition">
+            <summary>
+            Gets or sets the position of the scrollable band of tabs relative to the
+            beginning of the scrolling area.
+            </summary>
+            <remarks>
+                This property is applicable when the
+                <see cref="P:Telerik.WebControls.Tab.ScrollChildren">ScrollChildren</see> property is set to
+                <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+            <value>
+            	<para>An integer specifying the initial scrolling position. The default value is 0
+                (no offset from the default scrolling position). Use negative values to move the
+                tabs to the left.</para>
+            </value>
+            <remarks>
+            This property is taken under consideration only when the ScrollChildren property
+            is set to <strong>true;</strong> otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.PerTabScrolling">
+            <summary>
+            Gets or sets a value indicating whether the tabstrip should scroll directly to
+            the next tab.
+            </summary>
+            <value>
+            	<strong>true</strong> if the tabstrip should scroll to the next (or previous)
+            tab; otherwise <strong>false</strong>. The default value is
+            <strong>false</strong>.
+            </value>
+            <remarks>
+                By default tabs are scrolled smoothly. If you want the tabstrip to scroll directly
+                to the next (or previous) tab set this property to <strong>true</strong>. This
+                property is applicable when the <see cref="P:Telerik.WebControls.Tab.ScrollChildren">ScrollChildren</see>
+                property is set to <strong>true</strong>; otherwise it is ignored.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Enabled">
+            <exclude/>
+            <excludetoc/>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Visible">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.DataItem">
+            <summary>Gets or sets the data item represented by the tab.</summary>
+            <remarks>
+                This property is applicable only during data binding. Use it along with the
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabDataBound">TabDataBound</see> event to perform additional
+                mapping of fields from the data item to <see cref="T:Telerik.WebControls.Tab">Tab</see> properties.
+            </remarks>
+            <example>
+                The following example demonstrates how to map fields from the data item to
+                <see cref="T:Telerik.WebControls.Tab">Tab</see> properties. It assumes the user has subscribed to the
+                <see cref="E:Telerik.WebControls.RadTabStrip.TabDataBound">TabDataBound</see> event. 
+                <code lang="CS">
+            private void RadTabStrip1_TabDataBound(object sender, Telerik.WebControls.TabStripEventArgs e)
+            {
+                Tab tab = e.Tab;
+                DataRowView dataRow = (DataRowView) e.Tab.DataItem;
+             
+                tab.ImageUrl = "image" + dataRow["ID"].ToString() + ".gif";
+                tab.NavigateUrl = dataRow["URL"].ToString();
+            }
+                </code>
+            	<code lang="VB">
+            Sub RadTabStrip1_TabDataBound(ByVal sender As Object, ByVal e As TabStripEventArgs) Handles RadTabStrip1.TabDataBound
+                Dim tab As Tab = e.Tab
+                Dim dataRow As DataRowView = CType(e.Tab.DataItem, DataRowView)
+             
+                tab.ImageUrl = "image" + dataRow("ID").ToString() + ".gif"
+                tab.NavigateUrl = dataRow("URL").ToString()
+            End Sub
+                </code>
+            </example>
+            <value>
+            An object representing the data item to which the tab is bound to. The
+            <strong>DataItem</strong> property will always return <strong>null</strong> when
+            accessed outside of <strong>TabDataBound</strong> event handler.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Selected">
+            <summary>Gets or sets a value indicating whether the tab is selected.</summary>
+            <value>
+            	<para><b>true</b> if the item is selected; otherwise, <b>false</b>. The default is
+                <b>false</b>.</para>
+            </value>
+            <value>
+            	<strong>true</strong> if the tab is selected; otherwise <strong>false</strong>.
+            The default value is <strong>false</strong>.
+            </value>
+            <remarks>
+                Use the <b>Selected</b> property to determine whether the tab is currently selected
+                in the <see cref="T:Telerik.WebControls.TabCollection">TabCollection</see> that contains it. Setting this
+                property to <strong>true</strong> will deselect the tab previously selected.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Owner">
+            <summary>Gets the <see cref="T:Telerik.WebControls.ITabContainer">ITabContainer</see> which contains the tab.</summary>
+            <value>
+                The object which contains the tab. It might be an instance of the
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> class or the <see cref="T:Telerik.WebControls.Tab">Tab</see>
+                class depending on the hierarchy level.
+            </value>
+            <remarks>
+                The value is of the <see cref="T:Telerik.WebControls.ITabContainer">ITabContainer</see> type which is
+                implemented by the <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> class and the
+                <see cref="T:Telerik.WebControls.Tab">Tab</see> class. Use the <strong>Owner</strong> property when
+                recursively traversing <strong>RadTabStrip</strong>.
+            </remarks>
+            <example>
+                The following example demonstrates how to make a bread crumb trail out of
+                hierarchical RadTabStrip. 
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (RadTabStrip1.SelectedIndex &gt;= 0)
+                {
+                    Tab selected = RadTabStrip1.InnerMostSelectedTab;
+                    ITabContainer owner = selected.Owner;
+                    string breadCrumbTrail = string.Empty;
+                    while (owner != null)
+                    {
+                        breadCrumbTrail =  " &gt; " +  owner.SelectedTab.Text + breadCrumbTrail;
+                        owner = owner.Owner;
+                    }
+                    Label1.Text = breadCrumbTrail;
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                If RadTabStrip1.SelectedIndex &gt;= 0 Then
+                    Dim selected As Tab = RadTabStrip1.InnerMostSelectedTab
+                    Dim owner As ITabContainer = selected.Owner
+                    Dim breadCrumbTrail As String = String.Empty
+                    While Not owner Is Nothing
+                        breadCrumbTrail = " &gt; " &amp; owner.SelectedTab.Text &amp; breadCrumbTrail
+                        owner = owner.Owner
+                    End While
+                    Label1.Text = breadCrumbTrail
+                End If
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Index">
+            <summary>
+                Gets the zero based index of the tab in the
+                <see cref="P:Telerik.WebControls.ITabContainer.Tabs">Tabs</see> collection of its container.
+            </summary>
+            <value>
+                An integer specifying the zero based index of the tab considering the
+                <see cref="T:Telerik.WebControls.TabCollection">TabCollection</see> that contains it.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.SelectedIndex">
+            <summary>Gets or sets the index of the selected child tab.</summary>
+            <value>
+            The zero based index of the selected tab. The default value is -1 (none child tab
+            is selected).
+            </value>
+            <remarks>
+            Use the <b>SelectedIndex</b> property to programmatically specify the selected
+            child tab in a <strong>ITabContainer</strong> (<strong>RadTabStrip</strong> or
+            <strong>Tab</strong>). To clear the selection set the <strong>SelectedIndex</strong>
+            property to -1.
+            </remarks>
+            <example>
+                The following example demonstrates how to programmatically select a tab by using
+                the <strong>SelectedIndex</strong> property.
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (!Page.IsPostBack)
+                {
+                    Tab newsTab = new Tab("News");
+                    RadTabStrip1.Tabs.Add(newsTab);
+                
+                    RadTabStrip1.SelectedIndex = 0; //This will select the "News" tab
+             
+                    Tab cnnTab = new Tab("CNN");
+                    newsTab.Tabs.Add(cnnTab);
+             
+                    Tab nbcTab = new Tab("NBC");
+                    newsTab.Tabs.Add(nbcTab);
+             
+                    newsTab.SelectedIndex = 1; //This will select the "NBC" child tab of the "News" tab
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                If Not Page.IsPostBack Then
+                    Dim newsTab As Tab = New Tab("News")
+                    RadTabStrip1.Tabs.Add(newsTab)
+             
+                    RadTabStrip1.SelectedIndex = 0 'This will select the "News" tab
+             
+                    Dim cnnTab As Tab = New Tab("CNN")
+                    newsTab.Tabs.Add(cnnTab)
+             
+                    Dim nbcTab As Tab = New Tab("NBC")
+                    newsTab.Tabs.Add(nbcTab)
+             
+                    newsTab.SelectedIndex = 1 'This will select the "NBC" child tab of the "News" tab
+                End If
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.SelectedTab">
+            <summary>Gets the selected child tab.</summary>
+            <value>
+            Returns the child tab which is currently selected. If no tab is selected
+            (<strong>SelectedIndex</strong> is -1) the <strong>SelectedTab</strong> property will
+            return <strong>null</strong> (<strong>Nothing</strong> in VB.NET).
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.CssClass">
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.IsSeparator">
+            <summary>Gets or sets a value indicating whether the tab will behave as separator.</summary>
+            <value>
+            	<strong>true</strong> if the tab is separator; otherwise <strong>false</strong>.
+            The default value is <strong>false</strong>.
+            </value>
+            <remarks>
+            Use separators to visually separate the tabs. You also need to specify the width
+            of the separator tab through the <strong>Width</strong> property.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.SelectedCssClass">
+            <summary>
+            Gets or sets the Cascading Style Sheet (CSS) class applied when the tab is
+            selected.
+            </summary>
+            <value>
+            The CSS class applied when the tab is selected. The default value is
+            <strong>"selected"</strong>.
+            </value>
+            <remarks>
+            By default the visual appearance of selected tabs is defined in the skin CSS
+            file. You can use the <strong>SelectedCssClass</strong> property to specify unique
+            appearance for the tab when it is selected.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.DisabledCssClass">
+            <summary>
+            Gets or sets the Cascading Style Sheet (CSS) class applied when the tab is
+            disabled.
+            </summary>
+            <value>
+            The CSS class applied when the tab is disabled. The default value is
+            <strong>"disabled"</strong>.
+            </value>
+            <remarks>
+            By default the visual appearance of disabled tabs is defined in the skin CSS
+            file. You can use the <strong>DisabledCssClass</strong> property to specify unique
+            appearance for the tab when it is disabled.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.ChildGroupCssClass">
+            <summary>
+            Gets or sets the Cascading Style Sheet (CSS) class applied to the HTML element
+            containing the child tabs.
+            </summary>
+            <value>
+            The CSS class applied to the child tabs container. The default value is empty
+            string.
+            </value>
+            <remarks>
+            	<para>Tabs are rendered as <strong>LI</strong> (list item) HTML elements inside a
+                <strong>UL</strong> (unordered list). The CSS class specified by the
+                <strong>ChildGroupCssClass</strong> property is applied to the <strong>UL</strong>
+                tag.</para>
+            </remarks>
+            <example>
+            	<h3>ASPX:</h3>&lt;radTS:RadTabStrip ID="RadTabStrip1" runat="server"&gt;<br/>
+                 &lt;Tabs&gt;<br/>
+                 &lt;radTS:Tab Text="News" <strong>ChildGroupCssClass="news"</strong>&gt;<br/>
+                 &lt;Tabs&gt;<br/>
+                 &lt;radTS:Tab Text="CNN" /&gt;<br/>
+                 &lt;radTS:Tab Text="NBC" /&gt;<br/>
+                 &lt;/Tabs&gt;<br/>
+                 &lt;/radTS:Tab&gt;<br/>
+                 &lt;/Tabs&gt;<br/>
+                &lt;/radTS:RadTabStrip&gt; 
+                <h3>HTML:</h3>
+            	<para class="sourcecode">&lt;li&gt;News<br/>
+                 &lt;ul <strong>class="news"</strong>&gt;<br/>
+                 &lt;li&gt;CNN&lt;/li&gt;<br/>
+                 &lt;li&gt;NBC&lt;/li&gt;<br/>
+                 &lt;/ul&gt;<br/>
+                &lt;/li&gt;</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.IsBreak">
+            <summary>
+            Gets or sets a value indicating whether next tab will be displayed on a new
+            line.
+            </summary>
+            <value>
+            	<strong>true</strong> if the next tab should be displayed on a new line;
+            <strong>false</strong> otherwise. The default value is <strong>false</strong>.
+            </value>
+            <remarks>
+            Use the <strong>IsBreak</strong> property to create multi-row tabstrip. All tabs
+            after the "break" tab will be displayed on a new line.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.PageViewID">
+            <summary>
+                Gets or sets the <strong>ID</strong> of the <see cref="P:Telerik.WebControls.Tab.PageView">PageView</see> in
+                a <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> that will be switched when the tab is
+                selected.
+            </summary>
+            <remarks>
+                This property overrides the default relation between the page views within a
+                <see cref="T:Telerik.WebControls.RadMultiPage">RadMultiPage</see> and the tabs in a
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see>. By default a tab activates the page view
+                with the same index.
+            </remarks>
+            <value>
+                The <strong>ID</strong> of the <see cref="P:Telerik.WebControls.Tab.PageView">PageView</see> that will be
+                activated when the tab is selected. The default value is empty string.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.PageView">
+            <summary>Gets the <see cref="P:Telerik.WebControls.Tab.PageView">PageView</see> activated when the tab is selected.</summary>
+            <value>
+                The <see cref="P:Telerik.WebControls.Tab.PageView">PageView</see> that is activated when the tab is selected.
+                The default value is <strong>null</strong> (<strong>Nothing</strong> in VB.NET).
+            </value>
+            <remarks>
+                The <strong>PageView</strong> property returns a non-null value only when the
+                <see cref="P:Telerik.WebControls.Tab.PageViewID">PageViewID</see> property is set.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Tabs">
+            <summary>Gets the collection of child tabs in the tab.</summary>
+            <value>
+                A <see cref="T:Telerik.WebControls.TabCollection">TabCollection</see> that represents the children within
+                the tab. The default is empty collection.
+            </value>
+            <remarks>
+            Use this property to retrieve the child tabs of the tab. You can also use it to
+            programmatically add or remove child tabs.
+            </remarks>
+            <example>
+                The following example demonstrates how to programmatically add child tabs.
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (!Page.IsPostBack)
+                {
+                    Tab newsTab = new Tab("News");
+                    RadTabStrip1.Tabs.Add(newsTab);
+                
+                    Tab cnnTab = new Tab("CNN");
+                    newsTab.Tabs.Add(cnnTab);
+             
+                    Tab nbcTab = new Tab("NBC");
+                    newsTab.Tabs.Add(nbcTab);
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                If Not Page.IsPostBack Then
+                    Dim newsTab As Tab = New Tab("News")
+                    RadTabStrip1.Tabs.Add(newsTab)
+             
+                    Dim cnnTab As Tab = New Tab("CNN")
+                    newsTab.Tabs.Add(cnnTab)
+             
+                    Dim nbcTab As Tab = New Tab("NBC")
+                    newsTab.Tabs.Add(nbcTab)
+                End If
+            End Sub
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Text">
+            <summary>Gets or sets the text caption for the tab.</summary>
+            <value>The text of the tab. The default value is empty string.</value>
+            <remarks>
+            Use the <strong>Text</strong> property to specify the text to display for the
+            tab.
+            </remarks>
+            <example>
+                This example demonstrates how to set the text of the tab using the
+                <strong>Text</strong> property. 
+                <para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip ID="RadTabStrip1"
+                    runat="server"&gt;<br/>
+                     &lt;Tabs&gt;<br/>
+                     &lt;radTS:Tab <strong>Text="News"</strong> /&gt;<br/>
+                     &lt;radTS:Tab <strong>Text="News"</strong> /&gt;<br/>
+                     &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Value">
+            <summary>Gets or sets the value associated with the tab.</summary>
+            <value>The value associated with the tab. The default value is empty string.</value>
+            <remarks>
+            	<para>Use the <b>Value</b> property to specify or determine the value associated
+                with the tab.</para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.NavigateUrl">
+            <summary>Gets or sets the URL to link to when the tab is selected.</summary>
+            <value>
+            The URL to link to when the tab is selected. The default value is empty
+            string.
+            </value>
+            <remarks>
+            Use the <strong>NavigateUrl</strong> property to specify the URL to link to when
+            the tab is selected. This is suitable for scenarios when RadTabStrip is used for
+            navigation. Use "~" (tilde) in front of an URL within the same ASP.NET application.
+            When specifying external URL do not forget the protocol (e.g. "http://").
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>NavigateUrl</strong>
+                property 
+                <para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1"
+                    runat="server"&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="News" <strong>NavigateUrl="~/News.aspx"</strong>
+                    /&gt;<br/>
+                    &lt;radTS:Tab Text="External URL"
+                    <strong>NavigateUrl="http://www.example.com"</strong> /&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.ImageUrl">
+            <summary>Gets or sets the path to an image to display for the tab.</summary>
+            <value>
+            The path to the image to display for the tab. The default value is empty
+            string.
+            </value>
+            <remarks>
+            Use the <strong>ImageUrl</strong> property to specify the image that will be
+            rendered before the text of the tab. If the ImageUrl property is set to empty string no
+            image will be rendered. Use "~" (tilde) when referring to images within the current
+            ASP.NET application.
+            </remarks>
+            <example>
+            	<para>The following example demonstrates how to specify the image to display for
+                the tab using the <strong>ImageUrl</strong> property.</para>
+            	<para >
+                <para class="sourcecode">
+                &lt;radTS:RadTabStrip id="RadTabStrip1" runat="server"&gt;<br/>
+                 &lt;Tabs&gt;<br/>
+                 &lt;radts:Tab <strong>ImageUrl="~/Img/inbox.gif"</strong>
+                Text="Index"&gt;&lt;/radts:Tab&gt;<br/>
+                 &lt;radts:Tab <strong>ImageUrl="~/Img/outbox.gif"</strong>
+                Text="Outbox"&gt;&lt;/radts:Tab&gt;<br/>
+                 &lt;radts:Tab <strong>ImageUrl="~/Img/trash.gif"</strong>
+                Text="Trash"&gt;&lt;/radts:Tab&gt;<br/>
+                 &lt;radts:Tab <strong>ImageUrl="~/Img/meetings.gif"</strong>
+                Text="Meetings"&gt;&lt;/radts:Tab&gt;<br/>
+                 &lt;/Tabs&gt;<br/>
+                &lt;/radTS:RadTabStrip&gt;
+                </para>
+                </para>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.ImageOverUrl">
+            <summary>
+            Gets or sets the path to an image to display for the tab when the user hovers it
+            with the mouse.
+            </summary>
+            <value>
+            The path to the image to display for the tab when the user hovers it with the
+            mouse. The default value is empty string.
+            </value>
+            <example>
+            	<para>The following example demonstrates a typical usage of the
+                <strong>ImageOverUrl</strong> property.</para>
+            	<para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1"
+                    runat="server"&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab ImageUrl="~/Img/inbox.gif"
+                    <strong>ImageOverUrl="~/Img/inboxOver.gif"</strong>
+                    Text="Index"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab ImageUrl="~/Img/outbox.gif"
+                    <strong>ImageOverUrl="~/Img/outboxOver.gif"</strong>
+                    Text="Outbox"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+            <remarks>
+            Use the <strong>ImageOverUrl</strong> property to specify the image that will be
+            displayed when the user hovers the tab with the mouse. If the
+            <strong>ImageOverUrl</strong> property is not set the image specified via
+            <strong>ImageUrl</strong> will be used. Setting the <strong>ImageOverUrl</strong>
+            property requires setting the <strong>ImageUrl</strong> property beforehand. Use "~"
+            (tilde) when referring to images within the current ASP.NET application.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.SelectedImageUrl">
+            <summary>Gets or sets the path to an image to display when the tab is selected.</summary>
+            <value>
+            The path to the image to display when the tab is selected. The default value is
+            empty string.
+            </value>
+            <example>
+            	<para>The following example demonstrates a typical usage of the
+                <strong>SelectedImageUrl</strong> property.</para>
+            	<para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1"
+                    runat="server"&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab ImageUrl="~/Img/inbox.gif"
+                    <strong>SelectedImageUrl="~/Img/inboxSelected.gif"</strong>
+                    Text="Index"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab ImageUrl="~/Img/outbox.gif"
+                    <strong>SelectedImageUrl="~/Img/outboxSelected.gif"</strong>
+                    Text="Outbox"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+            <remarks>
+            Use the <strong>SelectedImageUrl</strong> property to specify the image that will
+            be displayed when the tab is selected. If the <strong>SelectedImageUrl</strong>
+            property is not set the image specified via <strong>ImageUrl</strong> will be used.
+            Setting the <strong>SelectedImageUrl</strong> property requires setting the
+            <strong>ImageUrl</strong> property beforehand. Use "~" (tilde) when referring to images
+            within the current ASP.NET application.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.DisabledImageUrl">
+            <summary>Gets or sets the path to an image to display when the tab is disabled.</summary>
+            <value>
+            The path to the image to display when the tab is disabled. The default value is
+            empty string.
+            </value>
+            <example>
+            	<para>The following example demonstrates a typical usage of the
+                <strong>SelectedImageUrl</strong> property.</para>
+            	<para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1"
+                    runat="server"&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radts:Tab ImageUrl="~/Img/inbox.gif"
+                    <strong>DisabledImageUrl="~/Img/inboxDisabled.gif"</strong>
+                    Text="Index"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;radts:Tab ImageUrl="~/Img/outbox.gif"
+                    <strong>DisabledImageUrl="~/Img/outboxDisabled.gif"</strong>
+                    Text="Outbox"&gt;&lt;/radts:Tab&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+            <remarks>
+            Use the <strong>DisabledImageUrl</strong> property to specify the image that will
+            be displayed when the tab is disabled. If the <strong>DisabledImageUrl</strong>
+            property is not set the image specified via <strong>ImageUrl</strong> will be used.
+            Setting the <strong>DisabledImageUrl</strong> property requires setting the
+            <strong>ImageUrl</strong> property beforehand. Use "~" (tilde) when referring to images
+            within the current ASP.NET application.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.Tab.Target">
+            <summary>
+            Gets or sets the target window or frame to display the Web page content linked to
+            when the tab is selected.
+            </summary>
+            <value>
+            	<para>The target window or frame to load the Web page linked to when the tab is
+                selected. Values must begin with a letter in the range of a through z (case
+                insensitive), except for the following special values, which begin with an
+                underscore:</para>
+            	<para>
+            		<list type="table">
+            			<item>
+            				<term>_blank</term>
+            				<description>Renders the content in a new window without
+                            frames.</description>
+            			</item>
+            			<item>
+            				<term>_parent</term>
+            				<description>Renders the content in the immediate frameset
+                            parent.</description>
+            			</item>
+            			<item>
+            				<term>_self</term>
+            				<description>Renders the content in the frame with focus.</description>
+            			</item>
+            			<item>
+            				<term>_top</term>
+            				<description>Renders the content in the full window without
+                            frames.</description>
+            			</item>
+            		</list>
+            	</para>The default value is empty string.
+            </value>
+            <remarks>
+            	<para>
+                    Use the <b>Target</b> property to specify the frame or window that displays the
+                    Web page linked to when the tab is selected. The Web page is specified by
+                    setting the <see cref="P:Telerik.WebControls.Tab.NavigateUrl">NavigateUrl</see> property.
+                </para>
+            	<para>If this property is not set, the Web page specified by the
+                <strong>NavigateUrl</strong> property is loaded in the current window.</para>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>Target</strong> property 
+                <para>
+            		<para class="sourcecode">&lt;radTS:RadTabStrip id="RadTabStrip1"
+                    runat="server"&gt;<br/>
+                    &lt;Tabs&gt;<br/>
+                    &lt;radTS:Tab Text="News" NavigateUrl="~/News.aspx"
+                    <strong>Target="_self"</strong> /&gt;<br/>
+                    &lt;radTS:Tab Text="External URL" NavigateUrl="http://www.example.com"
+                    <strong>Target="_blank"</strong> /&gt;<br/>
+                    &lt;/Tabs&gt;<br/>
+                    &lt;/radTS:RadTabStrip&gt;</para>
+            	</para>
+            </example>
+        </member>
+        <member name="T:Telerik.WebControls.TabCollection">
+            <summary>
+                A collection of <see cref="T:Telerik.WebControls.Tab">Tab</see> objects in a
+                <see cref="T:Telerik.WebControls.RadTabStrip">RadTabStrip</see> control.
+            </summary>
+            <remarks>
+            	<para>The <strong>TabCollection</strong> class represents a collection of
+                <strong>Tab</strong> objects. The <strong>Tab</strong> objects in turn represent a
+                tabs within a <strong>RadTabStrip</strong> control.</para>
+            	<list type="bullet">
+            		<item>
+                        Use the <see cref="P:Telerik.WebControls.TabCollection.Item(System.Int32)">indexer</see> to programmatically retrieve a
+                        single Tab from the collection, using array notation.
+                    </item>
+            		<item>
+                        Use the <strong>Count</strong> property to determine the total
+                        number of tabs in the collection.
+                    </item>
+            		<item>
+                        Use the <see cref="M:Telerik.WebControls.TabCollection.Add(Telerik.WebControls.Tab)">Add</see> method to add tabs in the collection.
+                    </item>
+            		<item>
+                        Use the <see cref="M:Telerik.WebControls.TabCollection.Remove(Telerik.WebControls.Tab)">Remove</see> method to remove tabs from the
+                        collection.
+                    </item>
+            	</list>
+            </remarks>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.#ctor(Telerik.WebControls.ITabContainer)">
+            <summary>Initializes a new instance of the <strong>TabCollection</strong> class.</summary>
+            <remarks>Use the constructor to create a new <strong>TabCollection</strong> class.</remarks>
+            <param name="owner">The owner of the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.Add(Telerik.WebControls.Tab)">
+            <summary>Appends a %Tab:Tab% to the end of the collection.</summary>
+            <example>
+            	<para>The following example demonstrates how to programmatically add tabs in a
+                <strong>RadTabStrip</strong> control.</para>
+            	<code lang="CS">
+            Tab newsTab = new Tab("News");
+             
+            RadTabStrip1.Tabs.Add(newsTab);
+                </code>
+            	<code lang="VB">
+            Dim newsTab As Tab = New Tab("News")
+             
+            RadTabStrip1.Tabs.Add(newsTab)
+                </code>
+            </example>
+            <param name="tab">The <see cref="T:Telerik.WebControls.Tab">Tab</see> to append to the end of the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.AddRange(Telerik.WebControls.Tab[])">
+            <summary>Adds the items in an array of <see cref="T:Telerik.WebControls.Tab">Tab</see> objects to the collection.</summary>
+            <remarks>
+            	<para>
+                    Use the <b>AddRange</b> method to add the items in the array of
+                    <see cref="T:Telerik.WebControls.Tab">Tab</see> objects specified by the <i>tabs</i> parameter. This
+                    allows you to add multiple <b>Tab</b> objects to the collection in a single
+                    step.
+                </para>
+            </remarks>
+            <example>
+                The following example demonstrates how to use the <strong>AddRange</strong> method
+                to add multiple tabs in a single step. 
+                <code lang="CS">
+            void Page_Load(object sender, EventArgs e)
+            {
+                if (!Page.IsPostBack)
+                {
+                    Tab[] tabs = new Tab[] { new Tab("First"), new Tab("Second"), new Tab("Third") };
+                    RadTabStrip1.Tabs.AddRange(tabs);
+                }
+            }
+                </code>
+            	<code lang="VB">
+            Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+                If Not Page.IsPostBack Then
+                    Dim tabs() As Tab = {New Tab("First"), New Tab("Second"), New Tab("Third")}
+                    RadTabStrip1.Tabs.AddRange(tabs)
+                End If
+            End Sub
+                </code>
+            </example>
+            <param name="tabs">
+                An array of <see cref="T:Telerik.WebControls.Tab">Tab</see> objects that contain the items to add to the
+                collection.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.Insert(System.Int32,Telerik.WebControls.Tab)">
+            <summary>
+                Inserts the specified <see cref="T:Telerik.WebControls.Tab">Tab</see> in the collection at the specified
+                index location.
+            </summary>
+            <remarks>
+            Use the <b>Insert</b> method to add a <strong>Tab</strong> to the collection at
+            the index specified by the <i>index</i> parameter.
+            </remarks>
+            <param name="index">The location in the collection to insert the <strong>Tab</strong>.</param>
+            <param name="value">The <strong>Tab</strong> to add to the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.IndexOf(Telerik.WebControls.Tab)">
+            <summary>
+                Determines the index value that represents the position of the specified
+                <paramref name="Tab">Tab</paramref> in the collection.
+            </summary>
+            <returns>
+            The zero-based index position of the specified <strong>Tab</strong> in the
+            collection.
+            </returns>
+            <remarks>
+            Use the <b>IndexOf</b> method to determine the index value of the
+            <strong>Tab</strong> specified by the <i>tab</i> parameter in the collection. If a tab
+            with this criteria is not found in the collection, -1 is returned.
+            </remarks>
+            <param name="tab">A <strong>Tab</strong> to search for in the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.Contains(Telerik.WebControls.Tab)">
+            <summary>
+                Determines whether the collection contains the specified
+                <paramref name="Tab">Tab</paramref>.
+            </summary>
+            <returns>
+            	<strong>true</strong> if the collection contains the specified tab; otherwise,
+            <b>false</b>.
+            </returns>
+            <remarks>
+            Use the <b>Contains</b> method to determine whether the <strong>Tab</strong>
+            specified by the <i>tab</i> parameter is in the collection.
+            </remarks>
+            <param name="tab">A Tab to search for in the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.Remove(Telerik.WebControls.Tab)">
+            <summary>Removes the specified <paramref name="Tab">Tab</paramref> from the collection.</summary>
+            <remarks>
+            Use the <b>Remove</b> method to remove a <strong>Tab</strong> from the
+            collection.
+            </remarks>
+            <example>
+                The following example demonstrates how to programmatically remove a Tab from a
+                <strong>RadTabStrip</strong> control.
+                <code lang="CS">
+            Tab newsTab = RadTabStrip1.FindTabByText("News");
+            if (newsTab != null)
+            {
+                RadTabStrip1.Tabs.Remove(newsTab);
+            }
+                </code>
+            	<code lang="VB">
+            Dim newsTab As Tab = RadTabStrip1.FindTabByText("News")
+            If Not newsTab Is Nothing Then
+                RadTabStrip1.Tabs.Remove(newsTab)
+            End If
+                </code>
+            </example>
+            <param name="tab">The <strong>Tab</strong> to remove from the collection.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.RemoveAt(System.Int32)">
+            <summary>Removes the <see cref="T:Telerik.WebControls.Tab">Tab</see> at the specified index from the collection.</summary>
+            <remarks>
+            	<para>Use the <b>RemoveAt</b> method to remove the <strong>Tab</strong> at the
+                specified index from the collection.</para>
+            </remarks>
+            <param name="index">The index of the <strong>Tab</strong> to remove.</param>
+        </member>
+        <member name="M:Telerik.WebControls.TabCollection.Clear">
+            <summary>Removes all tabs from the collection.</summary>
+            <remarks>
+                Use the <strong>Clear</strong> method to remove all tabs from the collection. The
+                <strong>Count</strong> property is set to 0.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.TabCollection.Item(System.Int32)">
+            <summary>
+            	<para>
+                    Gets a <see cref="T:Telerik.WebControls.Tab">Tab</see> at the specified index in the collection.
+                </para>
+            </summary>
+            <remarks>
+            	<para>Use this indexer to get a <strong>Tab</strong> from the collection at the
+                specified index, using array notation.</para>
+            </remarks>
+            <param name="index">
+            The zero-based index of the <strong>Tab</strong> to retrieve from the
+            collection.
+            </param>
+        </member>
+        <member name="T:Telerik.WebControls.TabStripAlign">
+            <summary>
+            The alignment of the RadTabStrip Tabs.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.TabStripAlign.Left">
+            <summary>
+            The Tabs will be aligned to the left.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.TabStripAlign.Center">
+            <summary>
+            The Tabs will be centered in the middle.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.TabStripAlign.Right">
+            <summary>
+            The Tabs will be aligned to the right.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.TabStripAlign.Justify">
+            <summary>
+            The Tabs will be justified.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,10 @@
+ZPDA_REPAIR_LOAD	ZPDA_LOAD_REPAIR	
+1	DOCNO	
+2		REPAIRTEXT
+	TEXT	TEXT
+1	SC10004421	
+2		<style> p,div,li 
+2		{margin:0cm;font-size:10.0pt;font-family:'Arial';}</style>
+2		 <p> pmi on cameras.all tested bar 8 & 9 radio red wall down.also 
+2		camera no 9 needs replacing( 12v 3092).need quote for the radio red 
+2		walls. </p>  <p> signed by chris williams </p>  

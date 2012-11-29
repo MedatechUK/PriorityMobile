@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "hPriority", "hPriority.vbproj", "{19E2AB8B-5CF1-434C-80A4-63373B6BA22C}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ConsoleApp", "..\..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj", "{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\setup\Setup\Setup.vdproj", "{5A18C8A8-5549-4402-A7C7-B7F83EC77743}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19E2AB8B-5CF1-434C-80A4-63373B6BA22C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19E2AB8B-5CF1-434C-80A4-63373B6BA22C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19E2AB8B-5CF1-434C-80A4-63373B6BA22C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19E2AB8B-5CF1-434C-80A4-63373B6BA22C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A18C8A8-5549-4402-A7C7-B7F83EC77743}.Debug|Any CPU.ActiveCfg = Debug
+		{5A18C8A8-5549-4402-A7C7-B7F83EC77743}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

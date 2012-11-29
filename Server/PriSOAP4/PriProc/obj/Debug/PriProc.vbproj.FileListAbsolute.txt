@@ -1,0 +1,24 @@
+M:\server\PriSOAP4\PriProc\obj\Debug\ResolveAssemblyReference.cache
+M:\server\PriSOAP4\PriProc\obj\Debug\PriProc.vbproj.GenerateResource.Cache
+M:\server\PriSOAP4\PriProc\bin\Debug\PriProc.exe
+M:\server\PriSOAP4\PriProc\bin\Debug\PriProc.pdb
+M:\server\PriSOAP4\PriProc\bin\Debug\PriProc.xml
+M:\server\PriSOAP4\PriProc\bin\Debug\ntEvtlog.dll
+M:\server\PriSOAP4\PriProc\bin\Debug\ntSox.dll
+M:\server\PriSOAP4\PriProc\bin\Debug\xmlLoad.dll
+M:\server\PriSOAP4\PriProc\bin\Debug\ntEvtlog.pdb
+M:\server\PriSOAP4\PriProc\bin\Debug\ntEvtlog.xml
+M:\server\PriSOAP4\PriProc\bin\Debug\ntSox.pdb
+M:\server\PriSOAP4\PriProc\bin\Debug\ntSox.xml
+M:\server\PriSOAP4\PriProc\bin\Debug\xmlLoad.pdb
+M:\server\PriSOAP4\PriProc\bin\Debug\xmlLoad.xml
+C:\Program Files\eMerge-IT\PriProc4\PriProc4.exe
+C:\Program Files\eMerge-IT\PriProc4\PriProc4.pdb
+C:\Program Files\eMerge-IT\PriProc4\PriProc4.xml
+M:\server\PriSOAP4\PriProc\obj\Debug\PriProc4.exe
+M:\server\PriSOAP4\PriProc\obj\Debug\PriProc4.xml
+M:\server\PriSOAP4\PriProc\obj\Debug\PriProc4.pdb
+C:\Program Files\eMerge-IT\PriProc4\PriProc4.exe.config
+M:\Server\PriSOAP4\PriProc\obj\Debug\priority.Resources.resources
+M:\Server\PriSOAP4\PriProc\obj\Debug\priority.PriProc.resources
+M:\Server\PriSOAP4\PriProc\obj\Debug\priority.ProjectInstaller.resources

@@ -1,0 +1,12 @@
+M:\components\PRIRUN\PRIRUN\obj\Debug\ResolveAssemblyReference.cache
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.AboutBox.resources
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.Form1.resources
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.Form2.resources
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.Resources.resources
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.vbproj.GenerateResource.Cache
+M:\components\PRIRUN\PRIRUN\bin\Debug\PRIRUN.exe
+M:\components\PRIRUN\PRIRUN\bin\Debug\PRIRUN.pdb
+M:\components\PRIRUN\PRIRUN\bin\Debug\PRIRUN.xml
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.exe
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.xml
+M:\components\PRIRUN\PRIRUN\obj\Debug\PRIRUN.pdb

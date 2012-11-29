@@ -1,0 +1,63 @@
+Usage: PriLoadClient.exe [-d|data "{dataFile}"] [-i|ini "{iniFile}"]
+            [-r|register] [-e|event] [-w|wait] [-?|h|help "{helpFile}"]
+            ([-v|Verbose] | -v+|veryverbose] | [-v++|arcane])
+
+Options (-|/):
+
+    d|data "{dataFile}"
+                   * Sets the {dataFile} that can contain either the tab 
+                   delimited text file that will be formatted using the
+                   specified {iniFile}, or pre-formatted bubble data with 
+                   the /q switch set. 
+
+    i|ini "{iniFile}"
+                   * Sets the {iniFile} that contains the definition 
+                   of the loading. For more information regarding the
+                   structure of the initialisation file try /? ini.
+                   If specified the client will use this to create a 
+                   new bubble file
+
+    q|enq          * Specifies that the {dataFile} contains a pre-formatted 
+                   bubble file to the Queue. If ommited an {iniFile} is
+                   required. You can also use this switch to re-queue SOAP 
+                   bubbles that have been created with an {iniFile} but have
+                   not accepted by the local queue. 
+
+    e|event        When used in conjunction with a {dataFile} this tells the 
+                   local server to monitor the loading and collect event
+                   data. Event data is read from the local loading service
+                   by using the /e switch without a {dataFile} specified.
+                   
+    r|register     Register the application with the windows event 
+                   log. Note that this must be run manually prior to 
+                   using the program so that events from the client are 
+                   captured to the Windows event log. Not also that 
+                   this switch must be run by an .\administrator
+
+    del|delete     Specify that the {dataFile} should be deleted once
+                   the client receives confirmation from the local service
+                   that the bubble is enqued.
+                   
+    w|wait         Specify that the client should wait for keypress
+                   before terminating.
+
+    v|+|++         Set the logging verbosity. If ommited then logging 
+                   verbosity is set to normal, ie only generate Windows
+                   event logs if an error condtion is raised. In 
+                   verbose mode transmission sucsesses are also 
+                   recorded. VeryVerbose (-v+) and Arcane (-v++) switches
+                   provide additional levels of logging and are used
+                   for debugging.
+ 
+    -?|h|help {helpType}
+                   {helpType} is optional. If ommited the command displays 
+                   this help file. Permitted values for {helpType} are "ini"
+                   and "server", which display the help specific to the 
+                   structure of initialisation file and valid switches for 
+                   modifying the behaviour of the Priority Client Service 
+                   respectively.
+
+    *              If the filename contains spaces you MUST enclose 
+                   the {FileName} in (") characters. Filenames may omit
+                   the executable path if they are stored in or under
+                   that path ie \file == {ExecutionPath}\file.

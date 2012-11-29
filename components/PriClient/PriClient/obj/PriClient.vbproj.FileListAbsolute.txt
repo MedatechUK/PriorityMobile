@@ -1,0 +1,18 @@
+M:\components\PriClient\PriClient\bin\Debug\PriClient.dll
+M:\components\PriClient\PriClient\bin\Debug\PriClient.pdb
+M:\components\PriClient\PriClient\bin\Debug\PriClient.xml
+M:\components\PriClient\PriClient\obj\Debug\ResolveAssemblyReference.cache
+M:\components\PriClient\PriClient\obj\Debug\PriClient.vbproj.GenerateResource.Cache
+M:\components\PriClient\PriClient\obj\Debug\PriClient.dll
+M:\components\PriClient\PriClient\obj\Debug\PriClient.xml
+M:\components\PriClient\PriClient\obj\Debug\PriClient.pdb
+M:\components\PriClient\PriClient\obj\Debug\Priority.Resources.resources
+M:\components\PriClient\PriClient\bin\Debug\ntEvtlog.dll
+M:\components\PriClient\PriClient\bin\Debug\ntSox.dll
+M:\components\PriClient\PriClient\bin\Debug\ntEvtlog.pdb
+M:\components\PriClient\PriClient\bin\Debug\ntEvtlog.xml
+M:\components\PriClient\PriClient\bin\Debug\ntSox.pdb
+M:\components\PriClient\PriClient\bin\Debug\ntSox.xml
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriClient.dll
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriClient.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriClient.xml

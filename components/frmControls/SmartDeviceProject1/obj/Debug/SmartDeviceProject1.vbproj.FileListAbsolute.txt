@@ -1,0 +1,10 @@
+M:\components\frmControls\SmartDeviceProject1\bin\Debug\SmartDeviceProject1.exe
+M:\components\frmControls\SmartDeviceProject1\bin\Debug\SmartDeviceProject1.pdb
+M:\components\frmControls\SmartDeviceProject1\bin\Debug\SmartDeviceProject1.xml
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\ResolveAssemblyReference.cache
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.Form1.resources
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.Resources.resources
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.vbproj.GenerateResource.Cache
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.exe
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.xml
+M:\components\frmControls\SmartDeviceProject1\obj\Debug\SmartDeviceProject1.pdb

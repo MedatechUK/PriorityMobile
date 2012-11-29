@@ -1,0 +1,7 @@
+0	Set Time En-Route	En-route
+1	Set Time On-Site	On Site
+2	Set Time Finished	Left Site - Complete
+3	Set Time Finished	Left Site Incomplete
+4	Post Data	Left Site - Complete
+5	Post Data	Left Site Incomplete
+6	Re-Issued	Re-Issued

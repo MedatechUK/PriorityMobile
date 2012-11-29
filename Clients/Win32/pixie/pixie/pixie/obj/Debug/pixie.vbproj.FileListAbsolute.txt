@@ -1,0 +1,15 @@
+M:\Clients\Win32\pixie\pixie\pixie\bin\Debug\pixie.exe
+M:\Clients\Win32\pixie\pixie\pixie\bin\Debug\pixie.pdb
+M:\Clients\Win32\pixie\pixie\pixie\bin\Debug\pixie.xml
+M:\Clients\Win32\pixie\pixie\pixie\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\pixie\pixie\pixie\obj\Debug\pixie.Resources.resources
+M:\Clients\Win32\pixie\pixie\pixie\obj\Debug\pixie.vbproj.GenerateResource.Cache
+M:\Clients\Win32\pixie\pixie\pixie\obj\Debug\pixie.exe
+M:\Clients\Win32\pixie\pixie\pixie\obj\Debug\pixie.xml
+M:\Clients\Win32\pixie\pixie\pixie\obj\Debug\pixie.pdb
+c:\pixie.exe
+c:\pixie.pdb
+c:\pixie.xml
+C:\Program Files\eMerge-IT\Priority Pixie\Pixie.exe
+C:\Program Files\eMerge-IT\Priority Pixie\Pixie.pdb
+C:\Program Files\eMerge-IT\Priority Pixie\Pixie.xml

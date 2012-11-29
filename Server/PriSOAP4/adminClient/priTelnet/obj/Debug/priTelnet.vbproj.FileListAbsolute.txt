@@ -1,0 +1,24 @@
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\priTelnet.exe.config
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\priTelnet.exe
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\priTelnet.pdb
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\priTelnet.xml
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.Resources.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.exe
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.xml
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.pdb
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\ntSox.dll
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\ntSox.pdb
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\ntSox.xml
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmConsole.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.LoginForm1.resources
+C:\Program Files\eMerge-IT\PriProc4\priTelnet.exe.config
+C:\Program Files\eMerge-IT\PriProc4\priTelnet.exe
+C:\Program Files\eMerge-IT\PriProc4\priTelnet.pdb
+C:\Program Files\eMerge-IT\PriProc4\priTelnet.xml
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.Splash.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.AboutBox1.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmStartArgs.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmBusy.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmWMI.resources

@@ -1,0 +1,9 @@
+01	Equipment Failure
+02	Cable Fault
+03	Training Issue
+04	Commissioning Issue
+05	Client Error
+06	PSU Failure
+07	Mains Failure
+08	Enviromental Cause
+09	Other/Specify

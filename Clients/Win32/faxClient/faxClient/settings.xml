@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<settings>
+  <setting name="Title" value="" />
+  <setting name="Name" value="" />
+  <setting name="City" value="" />
+  <setting name="State" value="" />
+  <setting name="Company" value="" />
+  <setting name="Country" value="" />
+  <setting name="Email" value="" />
+  <setting name="FaxNumber" value="" />
+  <setting name="HomePhone" value="" />
+  <setting name="OfficeLocation" value="" />
+  <setting name="OfficePhone" value="" />
+  <setting name="StreetAddress" value="" />
+  <setting name="TSID" value="" />
+  <setting name="ZipCode" value="" />
+  <setting name="BillingCode" value="" />
+  <setting name="Department" value="" />
+  <setting name="ReceiptAddress" value="" />
+  <setting name="CoverPage" value="" />
+  <setting name="CoverPageType" value="" />
+  <setting name="FaxServer" value="" />
+</settings>

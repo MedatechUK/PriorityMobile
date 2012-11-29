@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntSoxLib", "components\ntSox\ntSoxLib.vbproj", "{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "priTelnet", "TerminalServiceClient\priTelnet.vbproj", "{00C64266-69A7-4B09-A17D-2D47BB526410}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AdminTelnet|Any CPU = AdminTelnet|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

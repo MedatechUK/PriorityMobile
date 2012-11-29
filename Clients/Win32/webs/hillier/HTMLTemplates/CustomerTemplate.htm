@@ -1,0 +1,33 @@
+<table width=100%border=0 cellpadding=10 cellspacing=10><tr><td>
+<Table width=100% border=0 cellpadding=0 cellspacing=0>
+<tr bgcolor=#94BE84 >
+        <th>Customer No.</th>
+        <th>Customer Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th colspan=2></th>
+    </tr>
+<tr bgcolor=#94BE84 >
+    <td><% PH ph_TextFilterCUSTNAME %></td>
+    <td><% PH ph_TextFilterCUSTDES %></td>
+    <td><% PH ph_TextFilterADDRESS %></td>
+    <td></td>
+    <th colspan=2>View:</th>
+</tr>    
+$REPEAT$
+    <tr <% if %MOD2%=0 %>
+            bgcolor="#ffffff"
+        <% else %>
+            bgcolor="#dceed6" 
+        <% end if %> 
+    >    
+        <td>%CUSTNAME%</td>
+        <td>%CUSTDES%</td>
+        <td>%ADDRESS%</td>
+        <td>%PHONE%</td>
+        <td><a href="myOrders.aspx?CUST=%CUST%">Orders</a></td>
+        <td><a href="OrderItems.aspx?CUST=%CUST%">Order Items</a></td>
+    </tr>
+$/REPEAT$
+</table>
+</td></tr></table>

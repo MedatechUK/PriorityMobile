@@ -1,0 +1,12 @@
+M:\Clients\Win32\RealexCli\RealexFrm\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\RealexCli\RealexFrm\obj\Debug\RealexFrm.Resources.resources
+M:\Clients\Win32\RealexCli\RealexFrm\obj\Debug\RealexFrm.vbproj.GenerateResource.Cache
+M:\Clients\Win32\RealexCli\complie\RealexFrm.exe
+M:\Clients\Win32\RealexCli\complie\RealexFrm.pdb
+M:\Clients\Win32\RealexCli\complie\RealexFrm.xml
+M:\Clients\Win32\RealexCli\RealexFrm\obj\Debug\RealexFrm.exe
+M:\Clients\Win32\RealexCli\RealexFrm\obj\Debug\RealexFrm.xml
+M:\Clients\Win32\RealexCli\RealexFrm\obj\Debug\RealexFrm.pdb
+M:\Clients\Win32\RealexCli\compile\RealexFrm.exe
+M:\Clients\Win32\RealexCli\compile\RealexFrm.pdb
+M:\Clients\Win32\RealexCli\compile\RealexFrm.xml

@@ -1,0 +1,29 @@
+SC10004109	11931115	11930400	A4Darren	Comp - NFA	ABC Fire & Security Limited	Unit 14 Heath Hill I	 	 	TF4 2RH	 		01952 503514	Full Payment	540
+SC10004110	11931119	11930400	A4Darren	Comp - NFA	AEMC Limited	Kirkham Lane	 	 	YO18 7AS	 		01751 472448	Silver	720
+SC10004111	11931121	11930400	A4Darren	Comp - NFA	AF Connell Limited	Vine Street	 	 	HD1  6NT	 		01484 223106	Full Payment	780
+SC10004119	11931213	11930400	A4Darren	Comp - NFA	AEMC Limited	Kirkham Lane	 	 	YO18 7AS	 		01751 472448	Silver	840
+SC10004120	11931218	11930400	A4Darren	On Route	ABC Fire & Security Limited	Stafford Park 6	 	 	TF1 3AB	 		01952 503514	Full Payment	900
+SC10004122	11931270	11930400	A4Darren	On Route	ABC Fire & Security Limited	Stafford Park 6	 	 	TF1 3AB	 		01952 503514	Full Payment	885
+SC10004149	11933900	11933280	A4Darren	Comp - NFA	Abacus Direct	Abacus House	 	 	HG3 3TB	 		01423 341100	Full Payment	720
+SC10004151	11933906	11933280	A4Darren	Comp - NFA	Admiral Security Services	Admiral House	 	 	WF17 8PD	 			Full Payment	780
+SC10004152	11933911	11933280	A4Darren	Comp - NFA	AG Barr Plc	North Road	 	 	M46 OBZ	 		01942 886688	Silver	660
+SC10004161	11934169	11933280	A4Darren	Comp - NFA	AG Barr Plc	North Road	 	 	M46 OBZ	 		01942 886688	Silver	900
+SC10004155	11933983	11939040	A4Darren	Comp - NFA	Vaultex UK Limited	Unit 2 Redwood Busin	 	 	B66 1NJ	 		0121 565 4666	Silver	720
+SC10004154	11933958	11939040	A4Darren	Comp - NFA	Jardine Motors Group	Manor Lane	 	 	B62 8RD	 		0121 504 0000	Silver	720
+SC10004210	11941026	11940480	A4Darren	Comp - NFA	Travis Perkins Group	177 Goosemoor Lane	 	 	B23 5QG	 		0121 377 6313	Full Payment	600
+SC10004205	11940120	11940480	A4Darren	Comp - NFA	Evans Easyspace Ltd	Middlemore Road	 	 	B71 4LS	 	Terry Boytler	01743 453120	Silver	480
+SC10004209	11941023	11940480	A4Darren	Comp - NFA	Travis Perkins Group	Unit 6 Kings Road In	 	 	B11 2AX	 		0121 766 8160	Full Payment	540
+SC10004201	11939964	11941920	A4Darren	Comp - NFA	Travis Perkins Group	Old Warwick Road	 	 	CV31 3NS	 		01926 463000	Full Payment	600
+SC10004251	11942743	11941920	A4Darren	Comp - NFA	Travis Perkins Group	1 South Road	 	 	B18 5LT	 		0121 554 3396	Full Payment	540
+SC10004252	11942745	11943360	A4Darren	Comp - NFA	Travis Perkins Group	Hastings House	 	 	B30 2BT	 		0121 451 1664	Full Payment	540
+SC10004259	11943977	11943360	A4Darren	Comp - NFA	Travis Perkins Group	Avenue Road	 	 	B65 0LP	 		0121 561 2233	Full Payment	600
+SC10004260	11943979	11943360	A4Darren	Comp - NFA	Travis Perkins Group	Toll End Road	 	 	DY4 0EU	 		0121 557 6437	Full Payment	660
+SC10004265	11944192	11943360	A4Darren	Comp - NFA	Travis Perkins Group	John Street North	 	 	B71 1RZ	 		0121 525 0777	Full Payment	780
+SC10004274	11944296	11944800	A4Darren	Comp - NFA	Travis Perkins Group	Lodge Way	 	 	NN5 7UG	 		01604 752424	Full Payment	540
+SC10004421	11959973	11959200	A4Darren	Comp - NFA	Travis Perkins Group	Heath End Road	 	 	CV10 7HQ	 		02476 354074	Full Payment	840
+SC10004492	11965985	11969280	A4Darren	Comp - NFA	Jardine Motors Group	Knights Way	 	 	SY1 3AB	 		01743 453300	Silver	540
+SC10004467	11962978	11969280	A4Darren	Comp - NFA	Travis Perkins Group	Etruscan Street	 	 	ST1 5PQ	 		01782 201600	Full Payment	600
+SC10004510	11970102	11969280	A4Darren	Comp - NFA	Travis Perkins Group	Avenue Road	 	 	B65 0LP	 		0121 561 2233	Full Payment	840
+SC10004549	11974116	11973600	A4Darren	Comp - NFA	Travis Perkins Group	153-159 Bridgeman St	 	 	WS2 9NP	 		01604 752424	Full Payment	545
+SC10004568	11975606	11975040	A4Darren	Comp - NFA	Travis Perkins Group	Tameside Business Pa	 	 	B42 2ET	 		0121 332 4330	Full Payment	600
+SC10005346	12040877	12039840	A4Anthony	Comp - NFA	ABC Fire & Security Limited	Unit 14 Heath Hill I	 	 	TF4 2RH	 		01952 503514	Full Payment	0

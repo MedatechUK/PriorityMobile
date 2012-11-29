@@ -1,0 +1,21 @@
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriLoadClient.exe
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriLoadClient.pdb
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriLoadClient.xml
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.Resources.resources
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.vbproj.GenerateResource.Cache
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.exe
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.xml
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\PriLoadClient.pdb
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntEvtlog.dll
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntSox.dll
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriClient.dll
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntEvtlog.pdb
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntEvtlog.xml
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriClient.pdb
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriClient.xml
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntSox.pdb
+M:\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntSox.xml
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriLoadClient.exe
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriLoadClient.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriLoadClient.xml

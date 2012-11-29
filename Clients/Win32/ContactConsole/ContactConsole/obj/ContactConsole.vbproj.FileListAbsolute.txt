@@ -1,0 +1,19 @@
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\ContactConsole.exe.config
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\ContactConsole.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\ContactConsole.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\ContactConsole.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\PriLoadData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\PriLoadData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.Form1.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\bin\Debug\edtFTPnet.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\ContactConsole\ContactConsole\obj\Debug\ContactConsole.ftpDetails.resources
+M:\Clients\Win32\ContactConsole\ContactConsole\bin\Debug\ContactConsole.exe.config
+M:\Clients\Win32\ContactConsole\ContactConsole\obj\Debug\ContactConsole.exe
+M:\Clients\Win32\ContactConsole\ContactConsole\obj\Debug\ContactConsole.xml
+M:\Clients\Win32\ContactConsole\ContactConsole\obj\Debug\ContactConsole.pdb

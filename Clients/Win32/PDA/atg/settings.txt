@@ -1,0 +1,5 @@
+priwebsvc_Service=http://mobile.clearimage.co.uk/service.asmx
+CheckFreq=4
+CheckOnStart=False
+Username=A4Anthony
+Warehouse=015

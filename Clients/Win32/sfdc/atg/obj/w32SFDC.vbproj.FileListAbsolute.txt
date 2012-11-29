@@ -1,0 +1,50 @@
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\ResolveAssemblyReference.cache
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.About.resources
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.frmLogin.resources
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.frmMenu.resources
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.frmNumber.resources
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.frmOption.resources
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.Resources.resources
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.vbproj.GenerateResource.Cache
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDC.exe.config
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDC.exe
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDC.pdb
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDC.xml
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\MyCls.dll
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\PriLoadData.dll
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDCData.dll
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\MyCls.pdb
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\MyCls.xml
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\PriLoadData.pdb
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\PriLoadData.xml
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDCData.pdb
+C:\Priority Mobile\Clients\Win32\sfdc\bin\Debug\w32SFDCData.xml
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.exe
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.xml
+C:\Priority Mobile\Clients\Win32\sfdc\obj\Debug\w32SFDC.pdb
+C:\Priority Mobile\bin\Win32\sfdc\w32SFDC.exe.config
+C:\Priority Mobile\bin\Win32\sfdc\w32SFDC.exe
+C:\Priority Mobile\bin\Win32\sfdc\w32SFDC.pdb
+C:\Priority Mobile\bin\Win32\sfdc\w32SFDC.xml
+M:\Clients\bin\Win32\sfdc\w32SFDC.exe.config
+M:\Clients\Win32\sfdc\emerge\obj\Debug\w32SFDC.xml
+M:\Clients\Win32\sfdc\emerge\obj\Debug\w32SFDC.pdb
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.xml
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.pdb
+M:\Clients\Win32\sfdc\atg\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.About.resources
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.frmLogin.resources
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.frmMenu.resources
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.frmNumber.resources
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.frmOption.resources
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.Resources.resources
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.vbproj.GenerateResource.Cache
+M:\bin\Win32\sfdc\w32SFDC.exe.config
+M:\bin\Win32\sfdc\w32SFDC.exe
+M:\bin\Win32\sfdc\w32SFDC.pdb
+M:\bin\Win32\sfdc\w32SFDC.xml
+M:\Clients\Win32\sfdc\atg\obj\Debug\w32SFDC.exe
+M:\bin\Win32\sfdc\atg\w32SFDC.exe.config
+M:\bin\Win32\sfdc\atg\w32SFDC.exe
+M:\bin\Win32\sfdc\atg\w32SFDC.pdb
+M:\bin\Win32\sfdc\atg\w32SFDC.xml

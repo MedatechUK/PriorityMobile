@@ -1,0 +1,10 @@
+M:\Clients\sigcapture\sigCapture\sigCapture\bin\Debug\sigCapture.exe
+M:\Clients\sigcapture\sigCapture\sigCapture\bin\Debug\sigCapture.pdb
+M:\Clients\sigcapture\sigCapture\sigCapture\bin\Debug\sigCapture.xml
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\sigCapture.Form1.resources
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\sigCapture.Resources.resources
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\sigCapture.vbproj.GenerateResource.Cache
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\sigCapture.exe
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\sigCapture.xml
+M:\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\sigCapture.pdb

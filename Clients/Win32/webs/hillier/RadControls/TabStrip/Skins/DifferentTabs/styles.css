@@ -1,0 +1,42 @@
+.RadTabStrip_DifferentTabs
+{
+	font: bold 8pt arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_DifferentTabs ul
+{
+	/**/
+}
+
+
+/* different tabs begin */
+.RadTabStrip_DifferentTabs li
+{
+	background-color: transparent;
+	height: 48px;
+	color: White;
+	text-decoration: none;
+}
+
+.RadTabStrip_DifferentTabs li a
+{
+	height: 48px;
+	text-decoration: none;
+	color: white;
+	background-repeat: no-repeat;
+}
+
+
+.RadTabStrip_DifferentTabs li .wrap
+{
+	padding-top: 10px;
+	padding-left: 3px;
+}
+
+.RadTabStrip_DifferentTabs li a .innerWrap
+{
+	width:78px;
+	display:block;
+	text-align:center;
+}

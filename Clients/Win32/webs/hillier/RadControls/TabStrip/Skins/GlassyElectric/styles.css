@@ -1,0 +1,149 @@
+.RadTabStrip_GlassyElectric
+{
+	font: 11px tahoma, sans-serif;
+	background-color:White;
+}
+
+.RadTabStrip_GlassyElectric .levelwrap
+{
+	border-bottom:1px solid #DEDEDE;
+	padding-left:20px;
+}
+
+.RadTabStrip_GlassyElectric  .levelwrap.level2
+{
+	border-bottom: 0px;
+}
+
+.RadTabStrip_GlassyElectric .level1 li a
+{
+	padding-left: 27px;
+	background:transparent url('img/tabLeftFirstOff.gif') 0px 0px no-repeat;
+	margin-right:-18px;
+	color:#666;
+	text-decoration:none;
+	margin-bottom:-1px;
+}
+
+.RadTabStrip_GlassyElectric .level1 li.last a,
+.RadTabStrip_GlassyElectric .level1 li.break a
+{
+	margin-right:0;
+}
+
+
+.RadTabStrip_GlassyElectric .level1 li a .wrap
+{
+	padding-right: 23px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_GlassyElectric .level1 li a:hover
+{
+	color: #333;
+}
+
+.RadTabStrip_GlassyElectric .level1 li a .innerWrap
+{
+	line-height: 33px;
+	padding-top: 9px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align:center;
+}
+
+.RadTabStrip_GlassyElectric .level1 li a.selected
+{
+	padding-top: 0px;
+	background: transparent url('img/tabLeftFirstOn.gif') 0px 0px no-repeat;
+}
+
+.RadTabStrip_GlassyElectric .level1 li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+
+	color: #000;
+}
+
+.RadTabStrip_GlassyElectric .level1 li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+}
+
+
+
+.RadTabStrip_GlassyElectric .level2 ul
+{
+	background:transparent url('img/tabStripeLevel2.gif') 0px 0px repeat-x;
+	height:30px;
+}
+
+.RadTabStrip_GlassyElectric .level2 li a
+{
+	color: #999;
+	text-decoration: none;
+	padding: 6px 9px;
+	font-weight: normal;
+}
+
+.RadTabStrip_GlassyElectric .level2 li a:hover
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+ .RadTabStrip_GlassyElectric .level2 li a.selected
+{
+	color: #666;
+	text-decoration: underline;
+}
+
+.RadTabStrip_GlassyElectric li a.disabled,
+.RadTabStrip_GlassyElectric li a.disabled .wrap,
+.RadTabStrip_GlassyElectric li a.disabled .innerWrap
+{
+	cursor:default;
+	text-decoration:line-through;
+}
+
+.RadTabStrip_GlassyElectric li a.red,
+.RadTabStrip_GlassyElectric li a.red .wrap,
+.RadTabStrip_GlassyElectric li a.red .innerWrap
+{
+	color:Red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_GlassyElectric .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+.RadTabStrip_GlassyElectric .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+
+
+.RadTabStrip_GlassyElectric .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_GlassyElectric .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}

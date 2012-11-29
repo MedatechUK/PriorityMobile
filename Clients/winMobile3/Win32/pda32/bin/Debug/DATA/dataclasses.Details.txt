@@ -1,0 +1,4 @@
+SC10000002	<style> p,div,li{margin:0cm;font-size:10.0pt;font-family:'Verdana';}</style><P>This is the description of a malfunction</P>
+SC10000003	
+SC11000001	
+SC11000002	<style> p,div,li{margin:0cm;font-size:10.0pt;font-family:'Verdana';}</style><P>It's broken - come quick!!</P>

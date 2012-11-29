@@ -1,0 +1,136 @@
+.ComboBoxDropDown_Telerik
+{
+	border: 1px solid #D6D6D6;
+	border-top: 1px solid #B4B4B4;
+	background-color: white;
+	background-image: url(dropDownBg.gif);
+	background-repeat: repeat-x;
+	scrollbar-face-color: #E9E9E9;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #E9E9E9;
+	scrollbar-3dlight-color: #DBDBDB;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-darkshadow-color: #AEAEAE;
+}
+
+.ComboBoxImage_Telerik
+{
+	vertical-align:middle;
+	margin-left:-2px;
+}
+
+.ComboBoxImageHover_Telerik
+{
+	vertical-align:middle;
+	margin-left:-2px;
+}
+
+.ComboBoxInput_Telerik
+{
+	height: 23px;
+	border-top: 1px solid #EBEBEB;	
+	border-bottom: 1px solid #D6D6D6;
+	border-left: 1px solid #EBEBEB;
+	background-color: white;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	background-image: url(bg.gif);
+	background-repeat: repeat-x;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: #666666;
+	padding-top: 4px;
+	padding-left: 3px;
+}
+
+.ComboBoxInputHover_Telerik
+{
+	height: 23px;
+	border-top: 1px solid #DFDFDF;	
+	border-bottom: 1px solid #CDCDCD;
+	border-left: 1px solid #DFDFDF;
+	background-color: white;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	background-image: url(bg.gif);
+	background-repeat: repeat-x;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: #666666;
+	padding-top: 4px;
+	padding-left: 3px;
+}
+
+.ComboBoxItem_Telerik
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: #333333;	
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemHover_Telerik
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: white;
+	text-decoration: none;
+	background-color: #777777; 
+	cursor: pointer;
+	cursor: hand;
+	padding: 3px;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_Telerik
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_Telerik
+{
+	font-family: Arial;
+	font-size: 11px; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Telerik
+{
+	font-family: Arial;
+	font-size: 10px;
+	padding-bottom: 4px;
+}
+
+
+.ComboBoxMoreResultsImage_Telerik
+{
+	padding: 5px;
+	margin: 5px;
+}
+
+.ComboBoxMoreResultsBox_Telerik
+{
+	background-image: url(moreResults.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	border-top: 1px solid #F7F7F7;
+	cursor: default;
+}
+
+.ComboBoxHeader_Telerik
+{
+	font-size: 12px;
+	font-weight: bold;
+	border-bottom: 1px solid #cacaca;
+}

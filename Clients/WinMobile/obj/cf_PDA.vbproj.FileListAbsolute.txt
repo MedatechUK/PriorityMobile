@@ -1,0 +1,135 @@
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_Address.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_DateSelect.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_Details.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_PartsUsed.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_Repair.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_Settings.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_Sign.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.ct_Survey.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cf_PDA.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfLoadData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfLoadData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfOnBoardData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfOnBoardData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cfPDA.AppForm.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Debug\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfOnBoardData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfLoadData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfOnBoardData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfLoadData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfOnBoardData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfOnBoardData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.AppForm.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_Address.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_DateSelect.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_Details.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_PartsUsed.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_Repair.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_Settings.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_Sign.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cfPDA.ct_Survey.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cf_PDA.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\obj\Release\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Release\cfLoadData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\PDAOnBoardData\cf_PDA\cf_PDA\bin\Debug\cfLoadData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.AppForm.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_Address.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_DateSelect.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_Details.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_PartsUsed.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_Repair.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_Settings.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_Sign.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cfPDA.ct_Survey.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cf_PDA.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\cf_PDA\obj\Release\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.AppForm.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_Address.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_DateSelect.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_Details.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_PartsUsed.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_Repair.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_Settings.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_Sign.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cfPDA.ct_Survey.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cf_PDA.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\Clients\WinMobile\obj\Release\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\bin\WinMobile\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\bin\WinMobile\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\bin\WinMobile\cf_PDA.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinMobile\cf_PDA.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinMobile\cf_PDA.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinMobile\cf_PDA.xml
+M:\Clients\WinMobile\obj\Release\ResolveAssemblyReference.cache
+M:\Clients\WinMobile\obj\Release\cfPDA.AppForm.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.Resources.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_Address.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_DateSelect.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_Details.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_PartsUsed.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_Repair.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_Settings.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_Sign.resources
+M:\Clients\WinMobile\obj\Release\cfPDA.ct_Survey.resources
+M:\Clients\WinMobile\obj\Release\cf_PDA.vbproj.GenerateResource.Cache
+M:\Clients\WinMobile\obj\Release\cf_PDA.exe
+M:\Clients\WinMobile\obj\Release\cf_PDA.xml
+M:\Clients\WinMobile\obj\Release\cf_PDA.pdb
+M:\bin\WinMobile\cf_PDA.exe
+M:\bin\WinMobile\cf_PDA.pdb
+M:\bin\WinMobile\cf_PDA.xml
+M:\Clients\WinMobile\bin\Debug\cf_PDA.exe
+M:\Clients\WinMobile\bin\Debug\cf_PDA.pdb
+M:\Clients\WinMobile\bin\Debug\cf_PDA.xml
+M:\Clients\WinMobile\bin\Debug\cfLoadData.dll
+M:\Clients\WinMobile\bin\Debug\cfMyCls.dll
+M:\Clients\WinMobile\bin\Debug\cfOnBoardData.dll
+M:\Clients\WinMobile\bin\Debug\cfLoadData.pdb
+M:\Clients\WinMobile\bin\Debug\cfLoadData.xml
+M:\Clients\WinMobile\bin\Debug\cfOnBoardData.pdb
+M:\Clients\WinMobile\bin\Debug\cfOnBoardData.xml
+M:\Clients\WinMobile\bin\Debug\cfMyCls.pdb
+M:\Clients\WinMobile\bin\Debug\cfMyCls.xml
+M:\Clients\WinMobile\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\WinMobile\obj\Debug\cfPDA.AppForm.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.Resources.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_Address.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_DateSelect.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_Details.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_PartsUsed.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_Repair.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_Settings.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_Sign.resources
+M:\Clients\WinMobile\obj\Debug\cfPDA.ct_Survey.resources
+M:\Clients\WinMobile\obj\Debug\cf_PDA.vbproj.GenerateResource.Cache
+M:\Clients\WinMobile\obj\Debug\cf_PDA.exe
+M:\Clients\WinMobile\obj\Debug\cf_PDA.xml
+M:\Clients\WinMobile\obj\Debug\cf_PDA.pdb

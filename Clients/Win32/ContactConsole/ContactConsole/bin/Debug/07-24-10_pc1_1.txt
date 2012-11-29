@@ -1,0 +1,14 @@
+1	Mr	Simon	Barnett	eMerge-IT	simonbarnett@emerge-it.co.uk	01772 424647	07989 389 179									
+2								49, GREAT PARK DRIVE				LEYLAND	3UN	PR25	
+3															<style> p,div,li 
+3															{margin:0cm;font-size:10.0pt;font-family:'Arial';}</style>
+3															 <p> BBC SCIENCE is provided for general information only, and 
+3															should not be treated as a substitute for the medical advice of 
+3															your own doctor, psychiatrist or any other health care 
+3															professional. The BBC is not responsible or liable for any 
+3															diagnosis, decision or self-assessment made by a user based on the 
+3															content of the BBC SCIENCE website. The BBC is not liable for the 
+3															contents of any external internet sites listed, nor does it endorse 
+3															any commercial product or service mentioned or advised on any of 
+3															the sites. Always consult your own GP if you're in any way 
+3															concerned about your health. </p>  <p>  </p>  

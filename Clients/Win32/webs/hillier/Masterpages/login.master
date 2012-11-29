@@ -1,0 +1,77 @@
+<%@ Master Language="VB" CodeFile="login.master.vb" Inherits="Masterpages_default" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+    <LINK rel=stylesheet type="text/css" href="http://www.hilliergardencentres.co.uk/portal/layers.css">
+    <STYLE type=text/css>
+    BODY {
+	    BACKGROUND-IMAGE: url(images/bg_new.jpg); BACKGROUND-COLOR: #808db0; BACKGROUND-REPEAT: repeat-x
+    }
+    </STYLE>    
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table align=center style="width: 998px; " border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="background-image: url(../images/bgleft.jpg); vertical-align: top; width: 98px">
+                    <img height="576" src="../images/HillierPages_01.jpg" width="98" />
+                </td>
+                
+                <td style="width: 751px; vertical-align: top; background-color: white;">
+                   
+                   <table style="width: 100%; height: 100%; " border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 99px; height: 34px;">
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr><td width="244"><img id="menu_r1_c1" alt="" border="0" height="34" name="menu_r1_c1" src="../images/topmenu_nurseries.jpg" width="244" /></td><td width="100%" align="LEFT">
+                                        &nbsp;</td></tr></table></td></tr>
+                        <tr>
+                            <td style="width: 99px; height: 19px;">
+                                <img id="menu_home_r1_c1" alt="" border="0" height="19" name="menu_home_r1_c1" src="../images/topmenu2_nurseries.jpg"
+                                    width="667" /></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 795px">
+                                <img height="229" src="../images/topimage_nurseries.jpg" width="795" /></td>
+                        </tr>
+                        <tr>
+                            <td width=992 style="height: 202px; vertical-align: top;">
+                                <table border="0" cellpadding="0" cellspacing="0" width=100%>
+                                    <tr>
+                                        <td height=294  width=133 style=" vertical-align: top; text-align: left; background-color: #dceed6;">
+                                            <br />
+                                            &nbsp;<img id="menunurseries_r6_c1" alt="" border="0" height="194" name="menunurseries_r6_c1"
+                                                src="../images/menunurseries_r6_c1.jpg" width="133" />
+                                        </td>
+                                        <td height=294 width=100% style="vertical-align: top; text-align: left;">
+                                            <div style="text-align: left">
+                                            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                                            </asp:contentplaceholder>
+                                                &nbsp;</div>
+                                            <asp:PlaceHolder ID="ph_Debug" runat="server"></asp:PlaceHolder>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </td>
+                
+                <td style="background-image: url(../images/bgleft.jpg); vertical-align: top; width: 102px">
+                    <img height="576" src="../images/HillierPages_03.jpg" width="98" />
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="3">
+                    <img border="0" height="45" src="../images/footernew.jpg" width="992" />
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>

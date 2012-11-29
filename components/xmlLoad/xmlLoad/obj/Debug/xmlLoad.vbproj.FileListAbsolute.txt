@@ -1,0 +1,12 @@
+M:\components\xmlLoad\xmlLoad\bin\Debug\xmlLoad.dll
+M:\components\xmlLoad\xmlLoad\bin\Debug\xmlLoad.pdb
+M:\components\xmlLoad\xmlLoad\bin\Debug\xmlLoad.xml
+M:\components\xmlLoad\xmlLoad\obj\Debug\ResolveAssemblyReference.cache
+M:\components\xmlLoad\xmlLoad\obj\Debug\xmlLoad.vbproj.GenerateResource.Cache
+M:\components\xmlLoad\xmlLoad\obj\Debug\xmlLoad.dll
+M:\components\xmlLoad\xmlLoad\obj\Debug\xmlLoad.xml
+M:\components\xmlLoad\xmlLoad\obj\Debug\xmlLoad.pdb
+M:\components\xmlLoad\xmlLoad\obj\Debug\priority.Resources.resources
+M:\Server\PriSOAP4\examples\xmlLoad.dll
+M:\Server\PriSOAP4\examples\xmlLoad.pdb
+M:\Server\PriSOAP4\examples\xmlLoad.xml

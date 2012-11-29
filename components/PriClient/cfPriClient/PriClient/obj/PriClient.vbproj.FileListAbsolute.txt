@@ -1,0 +1,17 @@
+M:\components\PriClient\cfPriClient\PriClient\obj\Debug\ResolveAssemblyReference.cache
+M:\components\PriClient\cfPriClient\PriClient\obj\Debug\PriClient.vbproj.GenerateResource.Cache
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\ntEvtLog.dll
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\ntSox.dll
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\System.Data.SqlClient.dll
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\System.Data.SqlClient.xml
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\ntEvtLog.pdb
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\ntEvtLog.xml
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\ntSox.pdb
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\ntSox.xml
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\Priority.dll
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\Priority.pdb
+M:\components\PriClient\cfPriClient\PriClient\bin\Debug\Priority.xml
+M:\components\PriClient\cfPriClient\PriClient\obj\Debug\Priority.Resources.resources
+M:\components\PriClient\cfPriClient\PriClient\obj\Debug\Priority.dll
+M:\components\PriClient\cfPriClient\PriClient\obj\Debug\Priority.xml
+M:\components\PriClient\cfPriClient\PriClient\obj\Debug\Priority.pdb

@@ -1,0 +1,21 @@
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\RefreshEnv.exe
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\RefreshEnv.pdb
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\RefreshEnv.xml
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntEvtlog.dll
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\PriClient.dll
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntSox.dll
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\PriClient.pdb
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\PriClient.xml
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntEvtlog.pdb
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntEvtlog.xml
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntSox.pdb
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntSox.xml
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\obj\Debug\RefreshEnv.Resources.resources
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\obj\Debug\RefreshEnv.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\obj\Debug\RefreshEnv.exe
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\obj\Debug\RefreshEnv.xml
+M:\Server\PriSOAP\ConnectionConfig\RefreshEnv\obj\Debug\RefreshEnv.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\RefreshEnv.exe
+D:\Program Files\eMerge-IT\Priority SOAP Service\RefreshEnv.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\RefreshEnv.xml

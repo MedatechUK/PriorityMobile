@@ -1,0 +1,5 @@
+priwebsvc_Service=http://mobile.eclipse-ip.co.uk:8080/service.asmx
+CheckFreq=0
+CheckOnStart=True
+Username=
+Warehouse=

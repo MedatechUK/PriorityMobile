@@ -1,0 +1,20 @@
+C:\testxml\ViewControl\bin\Debug\ViewControl.dll
+C:\testxml\ViewControl\bin\Debug\ViewControl.pdb
+C:\testxml\ViewControl\bin\Debug\ViewControl.xml
+C:\testxml\ViewControl\obj\Debug\ResolveAssemblyReference.cache
+C:\testxml\ViewControl\obj\Debug\ViewControl.Resources.resources
+C:\testxml\ViewControl\obj\Debug\ViewControl.vbproj.GenerateResource.Cache
+C:\testxml\ViewControl\obj\Debug\ViewControl.dll
+C:\testxml\ViewControl\obj\Debug\ViewControl.xml
+C:\testxml\ViewControl\obj\Debug\ViewControl.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\bin\Debug\ViewControl.dll
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\bin\Debug\ViewControl.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\bin\Debug\ViewControl.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.Resources.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.vbproj.GenerateResource.Cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.dll
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.gtext.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\ViewControl\obj\Debug\ViewControl.calc.resources

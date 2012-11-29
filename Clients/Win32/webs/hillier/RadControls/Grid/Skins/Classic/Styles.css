@@ -1,0 +1,203 @@
+.RadGrid_Classic
+{
+	color: WindowText;
+	border: 1px solid #97948a;
+	border-left: 1px solid #d2cfbe;
+	border-top: 1px solid #d2cfbe;
+	/*background: ButtonFace;*/
+}
+
+.RadGrid_Classic a
+{
+	color: WindowText;
+	text-decoration: none;
+}
+
+.RadGrid_Classic a:hover
+{
+	text-decoration: underline;
+	color: #666;
+}
+
+.MasterTable_Classic
+{
+	background: transparent;
+	color: WindowText;
+	border: 0;
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GroupPanel_Classic
+{
+	background: #97948a;
+	width: 100%;
+	color: #fff;
+	font-size: small;
+}
+
+th.GridHeader_Classic,
+th.ResizeHeader_Classic,
+td.GridHeader_Classic,
+td.ResizeHeader_Classic
+{
+	background: ButtonFace;
+	color: WindowText;
+	border: 0;
+	text-align: center;
+	padding: 4px 4px;
+	border-bottom: 3px solid #d2cfbe;
+	border-right: solid 1px white;
+}
+
+.GridHeader_Classic input
+{
+	font-size: 11px;
+	margin-right:2px;
+	vertical-align: middle;
+}
+
+.GridHeader_Classic img
+{
+	vertical-align: middle;
+}
+
+.GridPager_Classic
+{
+	background: #f3f1e7;
+	color: WindowText;
+}
+.GridPager_Classic td
+{
+	border: 0;
+	border-top: 1px solid #d2cfbe;
+	border-right: 1px solid #d2cfbe;
+	padding: 2px 4px;
+}
+
+.GridFooter_Classic
+{
+	background: #f8f7ef;
+	color: WindowText;
+}
+.GridFooter_Classic td
+{
+	border: 0;
+	border-right: 1px solid #d2cfbe;
+	padding: 2px 4px;
+}
+
+.GridFooter_Classic a,
+.GridPager_Classic a
+{
+	text-decoration: underline;
+}
+
+.GroupPanelItems_Classic
+{
+	background: ButtonFace;
+	color: WindowText;
+	border-width: 1px;
+	border-style: outset;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+tr.GroupHeader_Classic
+{
+	background: ButtonFace;
+	color: WindowText;
+	font-weight: bold;
+}
+tr.GroupHeader_Classic td
+{
+	border: 0px;
+	border-bottom: 1px solid #d2cfbe;
+}
+
+.GridRow_Classic,
+.GridAltRow_Classic,
+.SelectedRow_Classic,
+.ActiveRow_Classic,
+.GridEditRow_Classic
+{
+	height: 20px;
+}
+
+.GridRow_Classic td,
+.GridAltRow_Classic td,
+.SelectedRow_Classic td,
+.ActiveRow_Classic td,
+.GridEditRow_Classic td,
+.GridFooter_Classic
+{
+	padding:0 4px;
+}
+
+.GridRow_Classic,
+.GridAltRow_Classic
+{
+	color: WindowText;
+	background-color: #fff;
+}
+.GridRow_Classic td,
+.GridAltRow_Classic td,
+.GridEditRow_Classic td
+{
+	border-bottom: solid 1px ButtonFace;
+	border-right: 1px solid #d2cfbe;
+	border-top: 0;
+	border-left: 0;
+}
+
+.GridEditRow_Classic
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_Classic A
+{
+	color: #015da5;
+}
+
+.GridEditRow_Classic A:hover
+{
+	color: #003e6e;
+}
+
+.GridRow_Classic td input,
+.GridAltRow_Classic td input
+{
+	/*height: 100%;
+	width: 100%;*/ /*spoils the images size*/
+}
+
+.SelectedRow_Classic
+{
+	background: #ffffe1 none;
+}
+.SelectedRow_Classic td
+{
+	border-bottom: solid 1px ButtonFace;
+	border-right: 1px solid #d2cfbe;
+	border-top: 0;
+	border-left: 0;
+}
+
+.ActiveRow_Classic
+{
+	background: #f3f7f9 none;
+}
+.ActiveRow_Classic td
+{
+	border-bottom: solid 1px ButtonFace;
+	border-right: 1px solid #d2cfbe;
+	border-top: 0;
+	border-left: 0;
+}
+
+.ResizeItem_Classic
+{
+	background: #f8f6f0 none !important;
+	border-top: solid 1px #fff;
+}

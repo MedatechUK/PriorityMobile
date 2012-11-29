@@ -1,0 +1,37 @@
+VPN client attached. – might get two emails as the first one will probably get stripped down by our mail scanner.
+
+ 
+
+Once you install the application you will have to reboot PC. Upon the reboot double click on the .spd file to import he security policy.
+
+To connect right click on the Juniper icon in the task bar, click on reload security policy, then click on connect and choose Tana UK. If everything is correct you should be prompted with the login window. Your user name is simon. I will send you the password separately.
+
+ 
+
+Now you should be ok to remote to the test server which is on 126.0.3.8. Your login is simon and the password is the same as for the VPN, so you’ll get it in the next mail.
+
+See how you get on and then let me know if and when you run into trouble.
+
+ 
+
+Regards,
+
+ 
+
+David Milanovic
+
+IT Leader
+
+ 
+
+Tana Water UK Ltd 
+
+Tel: 01483 231789
+
+Mob : 07730663653
+
+E-Mail: David.Milanovic@tanawater.co.uk
+
+Web: www.tanawater.co.uk
+
+ 

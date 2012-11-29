@@ -1,0 +1,29 @@
+SC10004109	Comms Failure	Other/Specify
+SC10004110	Commissioning Issue	Other/Specify
+SC10004111	Training Issue	Equipment Failure
+SC10004119	Faulty Equipment	Equipment Failure
+SC10004120		
+SC10004122		
+SC10004149	Faulty Equipment	Equipment Failure
+SC10004151	Faulty Equipment	Equipment Failure
+SC10004152	Power Supply	PSU Failure
+SC10004161	No Fault Found	Other/Specify
+SC10004155	Faulty Equipment	Other/Specify
+SC10004154	No Fault Found	Other/Specify
+SC10004210	No Fault Found	Other/Specify
+SC10004205	Comms Failure	Other/Specify
+SC10004209		Other/Specify
+SC10004201	Faulty Equipment	PSU Failure
+SC10004251	No Fault Found	Other/Specify
+SC10004252	Other/Specify	Other/Specify
+SC10004259	Other/Specify	Other/Specify
+SC10004260	Other/Specify	Other/Specify
+SC10004265	Other/Specify	Other/Specify
+SC10004274	Other/Specify	Other/Specify
+SC10004421	Other/Specify	Other/Specify
+SC10004492	Other/Specify	Other/Specify
+SC10004467	No Fault Found	Other/Specify
+SC10004510	Mains Failure	Other/Specify
+SC10004549	Faulty Equipment	PSU Failure
+SC10004568	Other/Specify	Equipment Failure
+SC10005346		

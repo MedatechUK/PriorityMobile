@@ -1,0 +1,796 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pop3MimeClient</name>
+    </assembly>
+    <members>
+        <member name="T:Pop3.QuotedPrintable">
+            <summary>
+            <para>
+            Robust and fast implementation of Quoted Printable
+            Multipart Internet Mail Encoding (MIME) which encodes every 
+            character, not just "special characters" for transmission over SMTP.
+            </para>
+            <para>
+            More information on the quoted-printable encoding can be found
+            here: http://www.freesoft.org/CIE/RFC/1521/6.htm
+            </para>
+            </summary>
+            <remarks>
+            <para>
+            detailed in: RFC 1521
+            </para>
+            <para>
+            more info: http://www.freesoft.org/CIE/RFC/1521/6.htm
+            </para>
+            <para>
+            The QuotedPrintable class encodes and decodes strings and files
+            that either were encoded or need encoded in the Quoted-Printable
+            MIME encoding for Internet mail. The encoding methods of the class
+            use pointers wherever possible to guarantee the fastest possible 
+            encoding times for any size file or string. The decoding methods 
+            use only the .NET framework classes.
+            </para>
+            <para>
+            The Quoted-Printable implementation
+            is robust which means it encodes every character to ensure that the
+            information is decoded properly regardless of machine or underlying
+            operating system or protocol implementation. The decode can recognize
+            robust encodings as well as minimal encodings that only encode special
+            characters and any implementation in between. Internally, the
+            class uses a regular expression replace pattern to decode a quoted-
+            printable string or file.
+            </para>
+            </remarks>
+            <example>
+            This example shows how to quoted-printable encode an html file and then
+            decode it.
+            <code>
+            string encoded = QuotedPrintable.EncodeFile(
+            	@"C:\WEBS\wwwroot\index.html"
+            	);
+            
+            string decoded = QuotedPrintable.Decode(encoded);
+            
+            Console.WriteLine(decoded);
+            </code>
+            </example>
+        </member>
+        <member name="F:Pop3.QuotedPrintable.RFC_1521_MAX_CHARS_PER_LINE">
+            <summary>
+            Gets the maximum number of characters per quoted-printable
+            line as defined in the RFC minus 1 to allow for the =
+            character (soft line break).
+            </summary>
+            <remarks>
+            (Soft Line Breaks): The Quoted-Printable encoding REQUIRES 
+            that encoded lines be no more than 76 characters long. If 
+            longer lines are to be encoded with the Quoted-Printable 
+            encoding, 'soft' line breaks must be used. An equal sign 
+            as the last character on a encoded line indicates such a 
+            non-significant ('soft') line break in the encoded text.
+            </remarks>
+        </member>
+        <member name="M:Pop3.QuotedPrintable.DecodeFile(System.String)">
+            <summary>
+            decodes an entire file's contents into plain text that 
+            was encoded with quoted-printable.
+            </summary>
+            <param name="filepath">
+            The path to the quoted-printable encoded file to decode.
+            </param>
+            <returns>The decoded string.</returns>
+            <exception cref="T:System.ObjectDisposedException">
+            A problem occurred while attempting to decode the 
+            encoded string.
+            </exception>
+            <exception cref="T:System.OutOfMemoryException">
+            There is insufficient memory to allocate a buffer for the
+            returned string. 
+            </exception>
+            <exception cref="T:System.ArgumentNullException">
+            A string is passed in as a null reference.
+            </exception>
+            <exception cref="T:System.IO.IOException">
+            An I/O error occurs, such as the stream being closed.
+            </exception>  
+            <exception cref="T:System.IO.FileNotFoundException">
+            The file was not found.
+            </exception>
+            <exception cref="T:System.Security.SecurityException">
+            The caller does not have the required permission to open
+            the file specified in filepath.
+            </exception>
+            <exception cref="T:System.UnauthorizedAccessException">
+            filepath is read-only or a directory.
+            </exception>
+            <remarks>
+            Decodes a quoted-printable encoded file into a string
+            of unencoded text of any size.
+            </remarks>
+        </member>
+        <member name="M:Pop3.QuotedPrintable.Decode(System.String)">
+            <summary>
+            Decodes a Quoted-Printable string of any size into 
+            it's original text.
+            </summary>
+            <param name="encoded">
+            The encoded string to decode.
+            </param>
+            <returns>The decoded string.</returns>
+            <exception cref="T:System.ArgumentNullException">
+            A string is passed in as a null reference.
+            </exception>
+            <remarks>
+            Decodes a quoted-printable encoded string into a string
+            of unencoded text of any size.
+            </remarks>
+        </member>
+        <member name="T:Pop3.Pop3MimeClient">
+            <summary>
+            Reads POP3 / MIME based emails 
+            </summary>
+        </member>
+        <member name="T:Pop3.Pop3MailClient">
+            <summary>
+            provides access to emails on a POP3 Server
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.CallWarning(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            call warning event
+            </summary>
+            <param name="methodName">name of the method where warning is needed</param>
+            <param name="response">answer from POP3 server causing the warning</param>
+            <param name="warningText">explanation what went wrong</param>
+            <param name="warningParameters"></param>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.CallTrace(System.String,System.Object[])">
+            <summary>
+            call Trace event
+            </summary>
+            <param name="text">string to be traced</param>
+            <param name="parameters"></param>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.TraceFrom(System.String,System.Object[])">
+            <summary>
+            Trace information received from POP3 server
+            </summary>
+            <param name="text">string to be traced</param>
+            <param name="parameters"></param>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.popServer">
+            <summary>
+            POP3 server name
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.port">
+            <summary>
+            POP3 server port
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.useSSL">
+            <summary>
+            Should SSL be used for connection with POP3 server ?
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.readTimeout">
+            <summary>
+            POP3 server read timeout
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.username">
+            <summary>
+            Owner name of mailbox on POP3 server
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.password">
+            <summary>
+            Password for mailbox on POP3 server
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.pop3ConnectionState">
+            <summary>
+            connection status with POP3 server
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.setPop3ConnectionState(Pop3.Pop3ConnectionStateEnum)">
+            <summary>
+            set POP3 connection state
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.EnsureState(Pop3.Pop3ConnectionStateEnum)">
+            <summary>
+            throw exception if POP3 connection is not in the required state
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.serverTcpConnection">
+            <summary>
+            TCP to POP3 server
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.pop3Stream">
+            <summary>
+            Stream from POP3 server with or without SSL
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.pop3StreamReader">
+            <summary>
+            Reader for POP3 message
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.CRLF">
+            <summary>
+            char 'array' for carriage return / line feed
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.#ctor(System.String,System.Int32,System.Boolean,System.String,System.String)">
+            <summary>
+            Make POP3 client ready to connect to POP3 server
+            </summary>
+            <param name="PopServer"><example>pop.gmail.com</example></param>
+            <param name="Port"><example>995</example></param>
+            <param name="useSSL">True: SSL is used for connection to POP3 server</param>
+            <param name="Username"><example>abc@gmail.com</example></param>
+            <param name="Password">Secret</param>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.Connect">
+            <summary>
+            Connect to POP3 server
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.Disconnect">
+            <summary>
+            Disconnect from POP3 Server
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.DeleteEmail(System.Int32)">
+            <summary>
+            Delete message from server.
+            The POP3 server marks the message as deleted.  Any future
+            reference to the message-number associated with the message
+            in a POP3 command generates an error.  The POP3 server does
+            not actually delete the message until the POP3 session
+            enters the UPDATE state.
+            </summary>
+            <param name="msg_number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetEmailIdList(System.Collections.Generic.List{System.Int32}@)">
+            <summary>
+            Get a list of all Email IDs available in mailbox
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetEmailSize(System.Int32)">
+            <summary>
+            get size of one particular email
+            </summary>
+            <param name="msg_number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetUniqueEmailIdList(System.Collections.Generic.List{Pop3.EmailUid}@)">
+            <summary>
+            Get a list with the unique IDs of all Email available in mailbox.
+            
+            Explanation:
+            EmailIds for the same email can change between sessions, whereas the unique Email id
+            never changes for an email.
+            </summary>
+            <param name="EmailIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetUniqueEmailIdList(System.Collections.Generic.SortedList{System.String,System.Int32}@)">
+            <summary>
+            get a list with all currently available messages and the UIDs
+            </summary>
+            <param name="EmailIds">EmailId Uid list</param>
+            <returns>false: server sent negative response (didn't send list)</returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetUniqueEmailId(Pop3.EmailUid)">
+            <summary>
+            get size of one particular email
+            </summary>
+            <param name="msg_number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.NOOP">
+            <summary>
+            Sends an 'empty' command to the POP3 server. Server has to respond with +OK
+            </summary>
+            <returns>true: server responds as expected</returns>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.isTraceRawEmail">
+            <summary>
+            Should the raw content, the US-ASCII code as received, be traced
+            GetRawEmail will switch it on when it starts and off once finished
+            
+            Inheritors might use it to get the raw email
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MailClient.RawEmailSB">
+            <summary>
+            contains one MIME part of the email in US-ASCII, needs to be translated in .NET string (Unicode)
+            contains the complete email in US-ASCII, needs to be translated in .NET string (Unicode)
+            For speed reasons, reuse StringBuilder
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetRawEmail(System.Int32,System.String@)">
+            <summary>
+            Reads the complete text of a message
+            </summary>
+            <param name="MessageNo">Email to retrieve</param>
+            <param name="EmailText">ASCII string of complete message</param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.UndeleteAllEmails">
+            <summary>
+            Unmark any emails from deletion. The server only deletes email really
+            once the connection is properly closed.
+            </summary>
+            <returns>true: emails are unmarked from deletion</returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.GetMailboxStats(System.Int32@,System.Int32@)">
+            <summary>
+            Get mailbox statistics
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.SendRetrCommand(System.Int32)">
+            <summary>
+            Send RETR command to POP 3 server to fetch one particular message
+            </summary>
+            <param name="MessageNo">ID of message required</param>
+            <returns>false: negative server respond, message not delivered</returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.executeCommand(System.String,System.String@)">
+            <summary>
+            sends the 4 letter command to POP3 server (adds CRLF) and waits for the
+            response of the server
+            </summary>
+            <param name="command">command to be sent to server</param>
+            <param name="response">answer from server</param>
+            <returns>false: server sent negative acknowledge, i.e. server could not execute command</returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.executeReconnect(System.IO.IOException,System.String,System.Byte[])">
+            <summary>
+            Reconnect, if there is a timeout exception and isAutoReconnect is true
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.readSingleLine(System.String@)">
+            <summary>
+            read single line response from POP3 server. 
+            <example>Example server response: +OK asdfkjahsf</example>
+            </summary>
+            <param name="response">response from POP3 server</param>
+            <returns>true: positive response</returns>
+        </member>
+        <member name="M:Pop3.Pop3MailClient.readMultiLine(System.String@)">
+            <summary>
+            read one line in multiline mode from the POP3 server. 
+            </summary>
+            <param name="response">line received</param>
+            <returns>false: end of message</returns>
+            <returns></returns>
+        </member>
+        <member name="E:Pop3.Pop3MailClient.Warning">
+            <summary>
+            Called whenever POP3 server doesn't react as expected, but no runtime error is thrown.
+            </summary>
+        </member>
+        <member name="E:Pop3.Pop3MailClient.Trace">
+            <summary>
+            Shows the communication between PopClient and PopServer, including warnings
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.PopServer">
+            <summary>
+            Get POP3 server name
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.Port">
+            <summary>
+            Get POP3 server port
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.UseSSL">
+            <summary>
+            Should SSL be used for connection with POP3 server ?
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.IsAutoReconnect">
+            <summary>
+            should Pop3MailClient automatically reconnect if POP3 server has dropped the 
+            connection due to a timeout ?
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.ReadTimeout">
+            <summary>
+            Get / set read timeout (miliseconds)
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.Username">
+            <summary>
+            Get owner name of mailbox on POP3 server
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.Password">
+            <summary>
+            Get password for mailbox on POP3 server
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MailClient.Pop3ConnectionState">
+            <summary>
+            Get connection status with POP3 server
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MimeClient.isCollectUnknowHeaderLines">
+            <summary>
+            used for debugging. Collects all unknown header lines for all (!) emails received
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3MimeClient.AllUnknowHeaderLines">
+            <summary>
+            list of all unknown header lines received, for all (!) emails 
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.#ctor(System.String,System.Int32,System.Boolean,System.String,System.String)">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.GetEmail(System.Int32,Pop3.RxMailMessage@)">
+            <summary>
+            Gets 1 email from POP3 server and processes it.
+            </summary>
+            <param name="MessageNo">Email Id to be fetched from POP3 server</param>
+            <param name="Message">decoded email</param>
+            <returns>false: no email received or email not properly formatted</returns>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.ProcessMimeEntity(Pop3.RxMailMessage,System.String)">
+            <summary>
+            Process a MIME entity
+            
+            A MIME entity consists of header and body.
+            Separator lines in the body might mark children MIME entities
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.parentBoundaryFound(System.String,System.String,System.String,Pop3.Pop3MimeClient.MimeEntityReturnCode@)">
+            <summary>
+            Check if the response line received is a parent boundary 
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.ProcessHeaderField(Pop3.RxMailMessage,System.String)">
+            <summary>
+            Convert one MIME header field and update message accordingly
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.AddMailAddresses(System.String,System.Net.Mail.MailAddressCollection)">
+            <summary>
+            find individual addresses in the string and add it to address collection
+            </summary>
+            <param name="Addresses">string with possibly several email addresses</param>
+            <param name="AddressCollection">parsed addresses</param>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.ConvertToMailAddress(System.String)">
+            <summary>
+            Tries to convert a string into an email address
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.ConvertToDateTime(System.String)">
+            <summary>
+            Tries to convert string to date, following POP3 rules
+            If there is a run time error, the smallest possible date is returned
+            <example>Wed, 04 Jan 2006 07:58:08 -0800</example>
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.ConvertToTransferEncoding(System.String)">
+            <summary>
+            converts TransferEncoding as defined in the RFC into a .NET TransferEncoding
+            
+            .NET doesn't know the type "bit8". It is translated here into "bit7", which
+            requires the same kind of processing (none).
+            </summary>
+            <param name="TransferEncodingString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.saveMessageBody(Pop3.RxMailMessage,System.String)">
+            <summary>
+            Copies the content found for the MIME entity to the RxMailMessage body and creates
+            a stream which can be used to create attachements, alternative views, ...
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.SaveAttachment(Pop3.RxMailMessage)">
+            <summary>
+            each attachement is stored in its own MIME entity and read into this entity's
+            ContentStream. SaveAttachment creates an attachment out of the ContentStream
+            and attaches it to the parent MIME entity.
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.RemoveBrackets(System.String)">
+            <summary>
+            removes leading '&lt;' and trailing '&gt;' if both exist
+            </summary>
+            <param name="parameterString"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.AddChildPartsToParent(Pop3.RxMailMessage,Pop3.RxMailMessage)">
+            <summary>
+            Add all attachments and alternative views from child to the parent
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3MimeClient.DecodeByteArryToString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            Converts byte array to string, using decoding as requested
+            </summary>
+        </member>
+        <member name="P:Pop3.Pop3MimeClient.IsCollectRawEmail">
+            <summary>
+            Set this flag, if you would like to get also the email in the raw US-ASCII format
+            as received.
+            Good for debugging, but takes quiet some space.
+            </summary>
+        </member>
+        <member name="T:Pop3.Pop3MimeClient.MimeEntityReturnCode">
+            <summary>
+            indicates the reason how a MIME entity processing has terminated
+            </summary>
+        </member>
+        <member name="T:Pop3.EmailUid">
+            <summary>
+            Combines Email ID with Email UID for one email
+            The POP3 server assigns to each message a unique Email UID, which will not change for the life time
+            of the message and no other message should use the same.
+            
+            Exceptions:
+            Throws Pop3Exception if there is a serious communication problem with the POP3 server, otherwise
+            
+            </summary>
+        </member>
+        <member name="F:Pop3.EmailUid.EmailId">
+            <summary>
+            used in POP3 commands to indicate which message (only valid in the present session)
+            </summary>
+        </member>
+        <member name="F:Pop3.EmailUid.Uid">
+            <summary>
+            Uid is always the same for a message, regardless of session
+            </summary>
+        </member>
+        <member name="M:Pop3.EmailUid.#ctor(System.Int32,System.String)">
+            <summary>
+            constructor
+            </summary>
+        </member>
+        <member name="T:Pop3.Pop3Exception">
+            <summary>
+            If anything goes wrong within Pop3MailClient, a Pop3Exception is raised
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3Exception.#ctor">
+            <summary>
+            Pop3 exception with no further explanation
+            </summary>
+        </member>
+        <member name="M:Pop3.Pop3Exception.#ctor(System.String)">
+            <summary>
+            Pop3 exception with further explanation
+            </summary>
+        </member>
+        <member name="T:Pop3.Pop3ConnectionStateEnum">
+            <summary>
+            A pop 3 connection goes through the following states:
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3ConnectionStateEnum.None">
+            <summary>
+            undefined
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3ConnectionStateEnum.Disconnected">
+            <summary>
+            not connected yet to POP3 server
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3ConnectionStateEnum.Authorization">
+            <summary>
+            TCP connection has been opened and the POP3 server has sent the greeting. POP3 server expects user name and password
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3ConnectionStateEnum.Connected">
+            <summary>
+            client has identified itself successfully with the POP3, server has locked all messages 
+            </summary>
+        </member>
+        <member name="F:Pop3.Pop3ConnectionStateEnum.Closed">
+            <summary>
+            QUIT command was sent, the server has deleted messages marked for deletion and released the resources
+            </summary>
+        </member>
+        <member name="T:Pop3.WarningHandler">
+            <summary>
+            If POP3 Server doesn't react as expected or this code has a problem, but
+            can continue with the execution, a Warning is called.
+            </summary>
+            <param name="WarningText"></param>
+            <param name="Response">string received from POP3 server</param>
+        </member>
+        <member name="T:Pop3.TraceHandler">
+            <summary>
+            Traces all the information exchanged between POP3 client and POP3 server plus some
+            status messages from POP3 client.
+            Helpful to investigate any problem.
+            Console.WriteLine() can be used
+            </summary>
+        </member>
+        <member name="T:Pop3.RxMailMessage">
+             <summary>
+             Stores all MIME decoded information of a received email. One email might consist of
+             several MIME entities, which have a very similar structure to an email. A RxMailMessage
+             can be a top most level email or a MIME entity the emails contains.
+             
+             According to various RFCs, MIME entities can contain other MIME entities 
+             recursively. However, they usually need to be mapped to alternative views and 
+             attachments, which are non recursive.
+            
+             RxMailMessage inherits from System.Net.MailMessage, but provides additional receiving related information 
+             </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.DeliveredTo">
+            <summary>
+            To whom the email was delivered to
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ReturnPath">
+            <summary>
+            To whom the email was
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.DeliveryDate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.MessageId">
+            <summary>
+            Date when the email was received
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.MimeVersion">
+            <summary>
+            probably '1,0'
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ContentId">
+            <summary>
+            It may be desirable to allow one body to make reference to another. Accordingly, 
+            bodies may be labelled using the "Content-ID" header field.    
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ContentDescription">
+            <summary>
+            some descriptive information for body
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ContentDisposition">
+            <summary>
+            ContentDisposition contains normally redundant information also stored in the 
+            ContentType. Since ContentType is more detailed, it is enough to analyze ContentType
+            
+            something like:
+            inline
+            inline; filename="image001.gif
+            attachment; filename="image001.jpg"
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.TransferType">
+            <summary>
+            something like "7bit" / "8bit" / "binary" / "quoted-printable" / "base64"
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ContentTransferEncoding">
+            <summary>
+            similar as TransferType, but .NET supports only "7bit" / "quoted-printable"
+            / "base64" here, "bit8" is marked as "bit7" (i.e. no transfer encoding needed), 
+            "binary" is illegal in SMTP
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ContentType">
+            <summary>
+            The Content-Type field is used to specify the nature of the data in the body of a
+            MIME entity, by giving media type and subtype identifiers, and by providing 
+            auxiliary information that may be required for certain media types. Examples:
+            text/plain;
+            text/plain; charset=ISO-8859-1
+            text/plain; charset=us-ascii
+            text/plain; charset=utf-8
+            text/html;
+            text/html; charset=ISO-8859-1
+            image/gif; name=image004.gif
+            image/jpeg; name="image005.jpg"
+            message/delivery-status
+            message/rfc822
+            multipart/alternative; boundary="----=_Part_4088_29304219.1115463798628"
+            multipart/related; 	boundary="----=_Part_2067_9241611.1139322711488"
+            multipart/mixed; 	boundary="----=_Part_3431_12384933.1139387792352"
+            multipart/report; report-type=delivery-status; boundary="k04G6HJ9025016.1136391237/carbon.singnet.com.sg"
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.MediaMainType">
+            <summary>
+            .NET framework combines MediaType (text) with subtype (plain) in one property, but
+            often one or the other is needed alone. MediaMainType in this example would be 'text'.
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.MediaSubType">
+            <summary>
+            .NET framework combines MediaType (text) with subtype (plain) in one property, but
+            often one or the other is needed alone. MediaSubType in this example would be 'plain'.
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.ContentStream">
+            <summary>
+            RxMessage can be used for any MIME entity, as a normal message body, an attachement or an alternative view. ContentStream
+            provides the actual content of that MIME entity. It's mainly used internally and later mapped to the corresponding 
+            .NET types.
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.Entities">
+            <summary>
+            A MIME entity can contain several MIME entities. A MIME entity has the same structure
+            like an email. 
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.Parent">
+            <summary>
+            This entity might be part of a parent entity
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.TopParent">
+            <summary>
+            The top most MIME entity this MIME entity belongs to (grand grand grand .... parent)
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.RawContent">
+            <summary>
+            The complete entity in raw content. Since this might take up quiet some space, the raw content gets only stored if the
+            Pop3MimeClient.isGetRawEmail is set.
+            </summary>
+        </member>
+        <member name="F:Pop3.RxMailMessage.UnknowHeaderlines">
+            <summary>
+            Headerlines not interpretable by Pop3ClientEmail
+            <example></example>
+            </summary>
+        </member>
+        <member name="M:Pop3.RxMailMessage.#ctor">
+            <summary>
+            default constructor
+            </summary>
+        </member>
+        <member name="M:Pop3.RxMailMessage.SetContentTypeFields(System.String)">
+            <summary>
+            Set all content type related fields
+            </summary>
+        </member>
+        <member name="M:Pop3.RxMailMessage.CreateChildEntity">
+            <summary>
+            Creates an empty child MIME entity from the parent MIME entity.
+            
+            An email can consist of several MIME entities. A entity has the same structure
+            like an email, that is header and body. The child inherits few properties 
+            from the parent as default value.
+            </summary>
+        </member>
+        <member name="M:Pop3.RxMailMessage.MailStructure">
+            <summary>
+            Convert structure of message into a string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Pop3.Program.SendTestmail">
+            <summary>
+            Produce some test emails.
+            </summary>
+        </member>
+    </members>
+</doc>

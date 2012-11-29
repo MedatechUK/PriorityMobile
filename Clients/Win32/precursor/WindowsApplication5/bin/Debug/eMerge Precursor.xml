@@ -1,0 +1,44 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+eMergePrecursor
+</name>
+</assembly>
+<members>
+<member name="P:Priority.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Priority.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:Priority.My.Resources.Resources.TableDictionary">
+	<summary>
+  Looks up a localized string similar to CREATE TABLE ABC 'ABC' 0
+PART (INT,13,'Part (ID)')
+QUANT (REAL,13,2,'Qty (Factory Units)')
+PRICE (REAL,13,2,'Unit Price')
+QPRICE (REAL,16,2,'Extended Price')
+PERCENT (REAL,8,2,'% Total Issue')
+ACCPERCENT (REAL,8,2,'Total Accumulated %')
+CLASS (CHAR,1,'Class')
+OLD (CHAR,1,'Standard Class')
+UNIQUE (PART)
+NONUNIQUE (CLASS)
+;
+CREATE TABLE ABILITIES 'Abilities' 0
+ABILITY (INT,13,'Ability (ID)')
+ABILITYCODE (CHAR,3,'Qualification Code')
+ABILITYDES (CHAR,32,'Qualification Desc.')
+AUTOUNIQUE (ABIL [rest of string was truncated]";.
+</summary>
+</member><member name="T:Priority.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

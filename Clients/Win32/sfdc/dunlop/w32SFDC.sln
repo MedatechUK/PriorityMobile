@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "w32SFDC", "w32SFDC.vbproj", "{6AE26255-1D20-4D94-96ED-2709F1E69D88}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BBBD79A6-627D-4144-8318-A91B675DE965} = {BBBD79A6-627D-4144-8318-A91B675DE965}
+		{39C846CC-C496-464A-970B-4A8B75C4C686} = {39C846CC-C496-464A-970B-4A8B75C4C686}
+		{008768F7-59AA-4F1C-B4CD-E18A5F59754C} = {008768F7-59AA-4F1C-B4CD-E18A5F59754C}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PriLoadData", "..\..\..\..\components\LoadData\Win32\PriLoadData\PriLoadData.vbproj", "{008768F7-59AA-4F1C-B4CD-E18A5F59754C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{39C846CC-C496-464A-970B-4A8B75C4C686} = {39C846CC-C496-464A-970B-4A8B75C4C686}
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MyCls", "..\..\..\..\components\MyCls\Win32\MyCls.vbproj", "{39C846CC-C496-464A-970B-4A8B75C4C686}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "w32SFDCData", "..\..\..\..\components\OnBoardData\Win32\SFDC\w32SFDCData.vbproj", "{BBBD79A6-627D-4144-8318-A91B675DE965}"
+	ProjectSection(ProjectDependencies) = postProject
+		{008768F7-59AA-4F1C-B4CD-E18A5F59754C} = {008768F7-59AA-4F1C-B4CD-E18A5F59754C}
+		{39C846CC-C496-464A-970B-4A8B75C4C686} = {39C846CC-C496-464A-970B-4A8B75C4C686}
+	EndProjectSection
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "w32SFDCSetup", "..\..\..\..\install\Client\Win32\sfdc\dunlop\w32SFDCSetup.vdproj", "{459BFC5A-37A5-445A-9889-952C42BB4EF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6AE26255-1D20-4D94-96ED-2709F1E69D88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AE26255-1D20-4D94-96ED-2709F1E69D88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AE26255-1D20-4D94-96ED-2709F1E69D88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AE26255-1D20-4D94-96ED-2709F1E69D88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{008768F7-59AA-4F1C-B4CD-E18A5F59754C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{008768F7-59AA-4F1C-B4CD-E18A5F59754C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{008768F7-59AA-4F1C-B4CD-E18A5F59754C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{008768F7-59AA-4F1C-B4CD-E18A5F59754C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39C846CC-C496-464A-970B-4A8B75C4C686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39C846CC-C496-464A-970B-4A8B75C4C686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39C846CC-C496-464A-970B-4A8B75C4C686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39C846CC-C496-464A-970B-4A8B75C4C686}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBBD79A6-627D-4144-8318-A91B675DE965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBBD79A6-627D-4144-8318-A91B675DE965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBBD79A6-627D-4144-8318-A91B675DE965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBBD79A6-627D-4144-8318-A91B675DE965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{459BFC5A-37A5-445A-9889-952C42BB4EF8}.Debug|Any CPU.ActiveCfg = Debug
+		{459BFC5A-37A5-445A-9889-952C42BB4EF8}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

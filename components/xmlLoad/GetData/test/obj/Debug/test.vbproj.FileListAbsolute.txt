@@ -1,0 +1,13 @@
+M:\components\xmlLoad\GetData\test\bin\Debug\test.exe
+M:\components\xmlLoad\GetData\test\bin\Debug\test.pdb
+M:\components\xmlLoad\GetData\test\bin\Debug\test.xml
+M:\components\xmlLoad\GetData\test\bin\Debug\GetData.dll
+M:\components\xmlLoad\GetData\test\bin\Debug\GetData.pdb
+M:\components\xmlLoad\GetData\test\bin\Debug\GetData.xml
+M:\components\xmlLoad\GetData\test\obj\Debug\ResolveAssemblyReference.cache
+M:\components\xmlLoad\GetData\test\obj\Debug\test.Resources.resources
+M:\components\xmlLoad\GetData\test\obj\Debug\test.vbproj.GenerateResource.Cache
+M:\components\xmlLoad\GetData\test\obj\Debug\test.exe
+M:\components\xmlLoad\GetData\test\obj\Debug\test.xml
+M:\components\xmlLoad\GetData\test\obj\Debug\test.pdb
+M:\components\xmlLoad\GetData\test\obj\Debug\test.Form1.resources

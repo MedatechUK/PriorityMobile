@@ -1,0 +1,130 @@
+.RadGrid_Ice
+{
+	font: normal 11px Arial, Verdana;
+	background: #a2bac5 url('Img/tableBg.jpg') repeat-y;
+	border-left: solid 1px #3770aa;
+	border-right: solid 1px #3770aa;
+	border-bottom: solid 1px #3770aa;
+	filter: progid:DXImageTransform.Microsoft.dropShadow(Color=56708a,offX=2,offY=2,positive=true);
+	text-align:left;
+}
+
+.MasterTable_Ice
+{
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.RadGrid_Ice table
+{
+	font: normal 11px Arial, Verdana;
+	width: 100%;
+}
+
+.GridHeader_Ice,
+.ResizeHeader_Ice	
+{
+	font-weight: bold;
+	color: white;
+	height: 35px;
+	background:#2aa0e8 url('Img/RadGridBg.gif') repeat-x 0 100%;
+	border-top:1px solid #a1d5f5;
+	padding:6px 3px 6px 5px;
+}
+
+.GroupPanel_Ice
+{
+	background: url('Img/GroupPanel.gif') repeat-x;
+	height: 31px;
+	border-collapse: collapse;
+	color: white;
+}
+
+
+.GroupPanel_Ice table table
+{
+	border-collapse: collapse;
+}
+
+.GroupPanelItems_Ice
+{
+	font-weight: bold;
+	color: #a76a00;
+	white-space:nowrap;
+	background: #f1dc01 url('Img/GroupPanelItems.gif') repeat-x bottom;
+	border: 1px solid #a76a00;
+	height: 16px;
+	padding-left: 3px;
+}
+
+.GridHeader_Ice a
+{
+	color: white;
+	text-decoration: none;
+}
+
+tr.GroupHeader_Ice td
+{
+	border-bottom: solid 1px #90a8bd;
+	border-top: solid 1px #cddae0;
+	line-height: 24px;
+	padding-left: 5px;
+	color: #393939;
+	font-weight: bold;
+	background: #c2dcf1;
+}
+
+.GridRow_Ice,
+.GridAltRow_Ice,
+.SelectedRow_Ice,
+.ActiveRow_Ice
+{
+	color: #393939;
+}
+.GridRow_Ice td,
+.GridAltRow_Ice td,
+.SelectedRow_Ice td,
+.ActiveRow_Ice td
+{
+	border-bottom: solid 1px #90a8bd;
+	border-top: solid 1px #cddae0;
+	padding: 3px 3px 3px 5px;
+}
+
+.SelectedRow_Ice
+{
+	background: #eff6fd;
+}
+
+.GridEditRow_Ice
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_Ice input
+{
+	font-size: 11px;
+}
+
+.ActiveRow_Ice
+{
+	background: #c2dcf1;
+}
+
+
+.GridPager_Ice
+{
+	background-color: #628496;
+	line-height: 21px;
+}
+.GridPager_Ice td
+{
+	padding-left: 9px;
+	background-image: url(Img/footerBg.gif);
+	background-repeat: repeat-y;
+	border-top: solid 1px #e3ecf2;
+}
+.GridPager_Ice a
+{
+	color: #333;
+}

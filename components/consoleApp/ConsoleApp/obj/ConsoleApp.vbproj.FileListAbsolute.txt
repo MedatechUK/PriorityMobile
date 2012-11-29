@@ -1,0 +1,9 @@
+M:\components\consoleApp\ConsoleApp\obj\Debug\ResolveAssemblyReference.cache
+M:\components\consoleApp\ConsoleApp\obj\Debug\ConsoleApp.Resources.resources
+M:\components\consoleApp\ConsoleApp\obj\Debug\ConsoleApp.vbproj.GenerateResource.Cache
+M:\components\consoleApp\ConsoleApp\bin\Debug\ConsoleApp.dll
+M:\components\consoleApp\ConsoleApp\bin\Debug\ConsoleApp.pdb
+M:\components\consoleApp\ConsoleApp\bin\Debug\ConsoleApp.xml
+M:\components\consoleApp\ConsoleApp\obj\Debug\ConsoleApp.dll
+M:\components\consoleApp\ConsoleApp\obj\Debug\ConsoleApp.xml
+M:\components\consoleApp\ConsoleApp\obj\Debug\ConsoleApp.pdb

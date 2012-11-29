@@ -1,0 +1,13 @@
+001	Speakers-sound
+002	Speakers-broken
+100	Receivers-broken
+101	Receivers-out of order
+003	Speakers-out of order
+200	LCD TV's HD-picture
+201	LCD TV's HD-broken
+203	LCD TV's HD-out of order
+300	DVD's-out of order
+301	DVD's-sound
+302	DVD's-picture
+400	Sound System-sound
+401	Sound System-out of order

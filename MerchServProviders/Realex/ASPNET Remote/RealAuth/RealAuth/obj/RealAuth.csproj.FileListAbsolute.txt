@@ -1,0 +1,5 @@
+M:\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\bin\Debug\RealAuth.dll
+M:\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\bin\Debug\RealAuth.pdb
+M:\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\obj\Debug\ResolveAssemblyReference.cache
+M:\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\obj\Debug\RealAuth.dll
+M:\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\obj\Debug\RealAuth.pdb

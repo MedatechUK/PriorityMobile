@@ -1,0 +1,28 @@
+Syntax:
+   faxClient.exe -b {"bodyfile"} -f {"faxnumber"} -r {"recipientname"} 
+              -s {"subject"} -n {"note"} -p {hi|lo} priority 
+
+   -config        
+      Shows a dialog that lets you set static information about 
+      the sender and covering page. These values are stored per user.
+
+   -? 
+      This help file
+
+   -b {"bodyfile"}
+      The file name of the document being FAXed.
+
+   -f {"faxnumber"}
+      The number to send the FAX to
+
+   -r {"recipientname"}
+      The name of the recipient of the FAX
+
+   -s {"subject"}
+      The subject line for the FAX cover page
+
+   -n {"note"}
+      The message sisplayed on the cover page
+
+   -p {hi|lo} priority
+      The priority of the FAX. If unspecified this defaults to normal

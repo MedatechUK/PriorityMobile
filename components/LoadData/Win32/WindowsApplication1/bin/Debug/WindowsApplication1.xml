@@ -1,0 +1,59 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WindowsApplication1
+</name>
+</assembly>
+<members>
+<member name="M:WindowsApplication1.priwebsvc.Service.#ctor">
+	<remarks/>
+</member><member name="E:WindowsApplication1.priwebsvc.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="E:WindowsApplication1.priwebsvc.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:WindowsApplication1.priwebsvc.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:WindowsApplication1.priwebsvc.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.Service">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:WindowsApplication1.priwebsvc.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:WindowsApplication1.priwebsvc.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:WindowsApplication1.priwebsvc.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:WindowsApplication1.priwebsvc.GetDataCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+faxClient
+</name>
+</assembly>
+<members>
+<member name="P:faxClient.SimpleProperties.FaxServer">
+</member><member name="P:faxClient.SimpleProperties.Title">
+</member><member name="T:faxClient.SimpleProperties">
+</member>
+</members>
+</doc>

@@ -1,0 +1,107 @@
+Tables\ServiceCalls	2	3	table	ServiceCalls	ServiceCalls
+Tables\Statuses	2	3	table	Statuses	Statuses
+Tables\Warehouse	2	3	table	Warehouse	Warehouse
+Tables\Parts	2	3	table	Parts	Parts
+Tables\Malfunction	2	3	table	Malfunction	Malfunction
+Tables\Resolution	2	3	table	Resolution	Resolution
+Tables\Details	2	3	table	Details	Details
+Tables\Repair	2	3	table	Repair	Repair
+Tables\Flags	2	3	table	Flags	Flags
+Tables\Time	2	3	table	Time	Time
+Tables\Signature	2	3	table	Signature	Signature
+Forms\ServiceCalls	4	5	form	ServiceCalls	Service
+Forms\ServiceCalls\Call Detail	6	7	tab	Call Detail	Call Detail
+Forms\ServiceCalls\Address	6	7	tab	Address	Address
+Forms\ServiceCalls\Contact	6	7	tab	Contact	Contact
+Forms\ServiceCalls\Details of Malfunction	4	5	form	Details of Malfunction	Details of Malfunction
+Forms\ServiceCalls\Details of Malfunction\General	6	7	tab	General	General
+Forms\ServiceCalls\Service Info	4	5	form	Service Info	Service Info
+Forms\ServiceCalls\Service Info\General	6	7	tab	General	General
+Forms\ServiceCalls\Description of Repair	4	5	form	Description of Repair	Description of Repair
+Forms\ServiceCalls\Description of Repair\General	6	7	tab	General	General
+Forms\ServiceCalls\Report Parts	4	5	form	Report Parts	Report Parts
+Forms\ServiceCalls\Report Parts\General	6	7	tab	General	General
+Forms\ServiceCalls\Signature	4	5	form	Signature	Signature
+Forms\ServiceCalls\Signature\General	6	7	tab	General	General
+
+ServiceCalls	DOCNO	String	0	Y	Y
+ServiceCalls	DATEOPENED	String	1	N	Y
+ServiceCalls	PDATE	Int32	2	N	Y
+ServiceCalls	USERLOGIN	String	3	N	Y
+ServiceCalls	STATUS	String	4	N	N
+ServiceCalls	CUSTOMERNAME	String	5	N	Y
+ServiceCalls	ADDRESS2	String	6	N	Y
+ServiceCalls	ADDRESS21	String	7	N	Y
+ServiceCalls	ADDRESS3	String	8	N	Y
+ServiceCalls	POSTCODE	String	9	N	Y
+ServiceCalls	CITYCOUNTY	String	10	N	Y
+ServiceCalls	NAME	String	11	N	Y
+ServiceCalls	PHONENUMBER	String	12	N	Y
+ServiceCalls	SERVTDES	String	13	N	Y
+ServiceCalls	PTIME	Int32	14	N	Y
+Statuses	CODE	String	15	Y	Y
+Warehouse	PARTNAME	String	1	Y	Y
+Warehouse	QTY	Int32	3	N	Y
+Warehouse	PRICE	String	4	N	Y
+Warehouse	WARHSNAME	String	5	N	Y
+Parts	DOCNO	String	1	Y	Y
+Parts	PARTNAME	String	2	Y	Y
+Parts	QTY	Int32	3	N	Y
+Malfunction	MALFCODE	String	1	Y	Y
+Malfunction	MALFDES	String	2	N	Y
+Resolution	CODE	String	1	Y	Y
+Resolution	DES	String	2	N	Y
+Details	DOCNO	String	1	Y	Y
+Details	ORD	Int32	2	Y	Y
+Details	TEXT	String	3	N	Y
+Repair	DOCNO	String	1	Y	Y
+Repair	ORD	Int32	2	Y	Y
+Repair	TEXT	String	3	N	Y
+Flags	DOCNO	String	1	Y	Y
+Flags	MALFCODE	String	2	N	Y
+Flags	RESCODE	String	3	N	Y
+Time	DOCNO	String	1	Y	Y
+Time	ONROUTE	Int32	3	N	Y
+Time	ONSITE	Int32	2	N	Y
+Time	END	Int32	4	N	Y
+Signature	DOCNO	String	1	Y	Y
+Signature	SIGDATA	String	2	N	Y
+Signature	ASTEXT	String	3	N	Y
+
+ServiceCalls	SELECT [DOCNO] AS DOCNO,\n[Date Opened] AS DATEOPENED,\n[PDATE] AS PDATE,\n[USERLOGIN] AS USERLOGIN,\n[Status] AS STATUS,\n[Customer Name] AS CUSTOMERNAME,\n[Address 2] AS ADDRESS2,\n[Address 2.1] AS ADDRESS21,\n[Address 3] AS ADDRESS3,\n[Post Code] AS POSTCODE,\n[City/County] AS CITYCOUNTY,\n[NAME] AS NAME,\n[Phone Number] AS PHONENUMBER,\n[SERVTDES] AS SERVTDES,\n[PTIME] AS PTIME FROM V_SERVCALL \nWHERE USERLOGIN = '%username%'
+Statuses	select \n[CODE] as CODE \nFROM V_SVCCALL_STATUS
+Warehouse	select \n[PARTNAME] as PARTNAME,\n[PARTDES] as PARTDES,\n[QTY] as QTY,\n[PRICE] as PRICE,\n[WARHSNAME] as WARHSNAME \nfrom V_SVCCALL_WARHS\nwhere WARHSNAME = '%van%'
+Resolution	select \n[CODE] as CODE,\n[DES] as DES \nfrom V_SVCCALL_RESOLUTION
+Details	select \n[DOCNO] as DOCNO,\n[ORD] as ORD,\n[TEXT] as TEXT \nfrom V_SVCCALL_DETAILS \nwhere [USERLOGIN] = '%username%'
+Malfunction	select\n[MALFCODE] as MALFCODE, \n[MALFDES] as MALFDES\nfrom V_SVCCALL_MALFUNCTION
+
+Forms\ServiceCalls\Call Detail	Document No		DOCNO		True	False	False						1
+Forms\ServiceCalls\Call Detail	Call Status		STATUS	1	False	False	False	Statuses	CODE	CODE			5
+Forms\ServiceCalls\Call Detail	Date Scheduled		PDATE	2	True	False	False						3
+Forms\ServiceCalls\Call Detail	Customer		CUSTOMERNAME		True	False	False						2
+Forms\ServiceCalls\Call Detail	Service Type		SERVTDES		True	False	False						4
+Forms\ServiceCalls\Address	Customer		CUSTOMERNAME		True	False	False						1
+Forms\ServiceCalls\Address	Address 1		ADDRESS2		True	False	False						2
+Forms\ServiceCalls\Address	Address 2		ADDRESS21		True	False	False						3
+Forms\ServiceCalls\Address	Address 3		ADDRESS3		True	False	False						4
+Forms\ServiceCalls\Address	Address 4		CITYCOUNTY		True	False	False						5
+Forms\ServiceCalls\Address	Post Code		POSTCODE		True	False	False						6
+Forms\ServiceCalls\Contact	Contact Name		NAME		True	False	False						1
+Forms\ServiceCalls\Contact	Contact Number		PHONENUMBER		True	False	False						2
+Forms\ServiceCalls\Details of Malfunction\General	ORD		ORD		False	False	False						1
+Forms\ServiceCalls\Details of Malfunction\General	TEXT		TEXT		False	False	False						2
+Forms\ServiceCalls\Description of Repair\General	ORD		ORD		False	False	False						1
+Forms\ServiceCalls\Description of Repair\General	TEXT		TEXT		False	False	False						2
+Forms\ServiceCalls\Service Info\General	Malfunction		MALFCODE	1	False	False	True	Malfunction	MALFDES	MALFCODE			1
+Forms\ServiceCalls\Service Info\General	Resolution		RESCODE	1	False	False	True	Resolution	DES	CODE			2
+Forms\ServiceCalls\Report Parts\General	Part		PARTNAME	1	False	False	True	Warehouse	PARTDES	PARTNAME			1
+Forms\ServiceCalls\Report Parts\General	Quantity		QTY		False	False	True					[0-9]+	2
+Forms\ServiceCalls\Signature\General	SIGDATA		SIGDATA		False	False	True						1
+Forms\ServiceCalls\Signature\General	ASTEXT		ASTEXT		False	False	True						2
+
+Forms\ServiceCalls	Service		0	ServiceCalls	False
+Forms\ServiceCalls\Details of Malfunction	Details of Malfunction	DOCNO = :$$.DOCNO	2	Details	True
+Forms\ServiceCalls\Description of Repair	Description of Repair	DOCNO = :$$.DOCNO	2	Repair	False
+Forms\ServiceCalls\Report Parts	Report Parts	DOCNO = :$$.DOCNO	1	Parts	False
+Forms\ServiceCalls\Service Info	Service Info	DOCNO = :$$.DOCNO	0	Flags	False
+Forms\ServiceCalls\Signature	Signature	DOCNO = :$$.DOCNO	3	Signature	False

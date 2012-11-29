@@ -1,0 +1,166 @@
+/* Telerik RadGrid lime skin */
+
+.MasterTable_Lime
+{
+	background: #97bd25;
+	border-left: 1px solid #778e19 !important;
+	border-right: 1px solid #778e19;
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+	text-align:left;
+}
+
+.GridFilterRow_Lime td{background:none}/*td's inherit the background image of the table in IE*/
+
+.RadGrid_Lime
+{
+	font: normal 11px Arial, Verdana;
+	background: #97bd25;
+}
+
+.RadGrid_Lime_Lime table,
+.RadGrid_Lime_Lime table td
+{
+	font: normal 11px Arial, Verdana;
+	border: 0px;
+}
+
+th.GridHeader_Lime
+{
+	font-weight: bold;
+	color: white;
+	height: 41px;
+	margin:0;
+	border:0;
+}
+
+th.GridHeader_Lime,
+th.ResizeHeader_Lime
+{
+	background: transparent url('Img/RadGridHeaderBg.gif') no-repeat right 0;
+	padding:4px 0 0 5px;
+	font-weight: bold;
+	color: white;
+}
+
+td.GridHeader_Lime input
+{
+	width: 50px;
+	float: left;
+	border: solid 1px #474b38;
+}
+
+.GroupPanel_Lime
+{
+	background: #778e19 url('Img/groupPanelBg.gif') repeat-x;
+	width: 100%;
+	color: white;
+}
+
+.GroupPanel_Lime table table
+{ 
+     border-collapse: collapse; 
+}
+
+.GridHeader_Lime a
+{
+	color: white;
+	text-decoration: none;
+}
+
+.GridRow_Lime,
+.GridAltRow_Lime,
+.SelectedRow_Lime,
+.ActiveRow_Lime,
+.GridEditRow_Lime
+{
+	height: 24px;
+}
+
+.GridRow_Lime td,
+.GridAltRow_Lime td,
+.SelectedRow_Lime td,
+.ActiveRow_Lime td,
+.GridEditRow_Lime td
+{
+	border-bottom: solid 1px #ced3be;
+	padding: 0 0 0 5px;
+}
+
+.GridRow_Lime
+{
+	background: #edefe7;
+}
+.GridAltRow_Lime
+{
+	background: #e5e8dc url('Img/GridAltRowBg.gif') repeat-x;
+}
+.SelectedRow_Lime
+{
+	background: #fcfcfc none;
+	color: #6e9100;
+}
+.GridEditRow_Lime
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_Lime input
+{
+	font-size: 11px;
+}
+.ActiveRow_Lime
+{
+	background: #b5baa5 none;
+	color: #fff;
+}
+
+.GridPager_Lime
+{
+	background: #b7bca7 url('Img/pagerBg.gif') repeat-y;
+	color: #edefe7;
+	height: 20px;
+}
+.GridPager_Lime td
+{
+	padding-left: 6px;
+	border-bottom: 5px solid #4c503c;
+}
+
+.GridPager_Lime a
+{
+	color: #edefe7;
+}
+
+/* filtering button */
+.GroupPanelItems_Lime
+{
+	background: #a3c82a url('Img/groupPanelItem.gif') repeat-x;
+	color: #fff;
+	padding-left: 3px;
+	border-right: solid 1px #515d23;
+	border-bottom: solid 1px #515d23;
+	white-space:  nowrap;
+	font-size: 11px;
+	font-weight: bold;
+	color: white;
+}
+
+/* filtering direction input[image] */
+.GroupPanelItems_Lime input
+{
+	vertical-align: middle;
+}
+/* filtering table row */
+
+tr.GroupHeader_Lime
+{
+	background: #cacdb5 url('Img/groupHeader.gif') repeat-y;
+	color: #5b6048;
+	font-weight: bold;
+}
+
+.GridFooter_Lime td
+{
+    padding: 0 0 0 5px;
+}

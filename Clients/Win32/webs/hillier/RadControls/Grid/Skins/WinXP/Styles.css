@@ -1,0 +1,172 @@
+.RadGrid_WinXP
+{
+	background: #f6f6f1 url('Img/bg.gif') repeat-y;
+	border-left: 1px solid #cbc8c0;
+	border-bottom: 1px solid #cbc8c0;
+}
+
+.MasterTable_WinXP
+{
+	font-size: 11px;
+	font-family: Arial, Verdana;
+	border-collapse: separate !important;
+    /*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.MasterTable_WinXP a
+{
+	color: #0d88f0;
+}
+
+th.GridHeader_WinXP
+{
+	font-weight: bold;
+	text-align: center;
+	background:#fafaf8 url('Img/Headerbg.gif') repeat-x 0 100%;
+	padding: 6px 3px;
+	border-top: solid 1px #e6e5e1;
+	border-left: solid 1px #fcfbf9;
+	border-right: solid 1px #e4e2d9;
+}
+
+th.ResizeHeader_WinXP
+{
+	background: url('Img/resizeHeader.gif') no-repeat;
+	border-top: solid 1px #e6e5e1;
+	width: 6px;
+	padding: 0 !important;
+	border-left: solid 1px #fcfbf9;
+	border-right: solid 1px #e4e2d9;
+}
+
+.ResizeItem_WinXP
+{
+	background: #fcfbf9 url('Img/resize.gif') repeat-y !important;
+	border-right: solid 1px #f1f0ee;
+	border-bottom: solid 1px #fcfbf9;
+	border-top: solid 1px #e4e2d9;
+	width: 6px;
+	padding: 0 !important;
+}
+
+.GridHeader_WinXP a
+{
+	color: #242500;
+}
+
+.GridRow_WinXP td,
+.GridAltRow_WinXP td,
+.SelectedRow_WinXP td,
+.ActiveRow_WinXP td
+{
+    padding:0 3px 0 4px;
+}
+
+.GridRow_WinXP,
+.GridAltRow_WinXP
+{
+	background: transparent none;
+}
+.GridRow_WinXP td,
+.GridAltRow_WinXP td
+{
+	border-right: 1px solid #e3e2de;
+	border-bottom: solid 1px #fcfbf9;
+	border-top: solid 1px #efede2;
+}
+
+.SelectedRow_WinXP
+{
+	background: #ffffe1 none;
+}
+.SelectedRow_WinXP td
+{
+	border-top: solid 1px #ffffe1;
+	border-right: 1px solid #e3e2de;
+	border-bottom: solid 1px #fcfbf9;
+}
+
+.ActiveRow_WinXP
+{
+	background: #f3f7f9 none;
+}
+.ActiveRow_WinXP td
+{
+	border-right: 1px solid #e3e2de;
+}
+
+.GridEditRow_WinXP
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_WinXP td
+{
+	border: solid 1px #bab8a9;
+	border-left: 0;
+}
+
+.GridEditRow_WinXP a
+{
+	color: #015da5;
+}
+
+.GridEditRow_WinXP a:hover
+{
+	color: #003e6e;
+}
+
+.GridPager_WinXP td
+{
+	color: #242500;
+	padding: 3px 14px;
+	border-top: solid 1px #e3e2de;
+	border-right: 1px solid #cbc8c0;
+	background: #f7f7f2;
+}
+
+.GridFooter_WinXP
+{
+	color: #242500;
+	background: #fdfdfc;
+}
+.GridFooter_WinXP td
+{
+	padding-right: 4px;
+	padding-left: 3px;
+	border-top: solid 1px #e3e2de;
+	border-right: 1px solid #e3e2de;
+}
+
+.GridPager_WinXP a
+{
+	color: #242500;
+}
+
+.GroupPanel_WinXP
+{
+	background: #ebe8de url('Img/GroupPanel.gif') repeat-x bottom;
+	height: 22px;
+	width: 100%;
+	border-top: 1px solid #cbcac7;
+	border-bottom: 1px solid #fff;
+}
+
+.GroupPanel_WinXP Table
+{
+	border-collapse: collapse;
+	border: 0;
+}
+
+.GroupPanelItems_WinXP
+{
+	color: #8c690b;
+	border: solid 1px #d99e00;
+	background: #ffe200 url('Img/GroupPanelItem.gif') repeat-x;
+}
+
+.GroupHeader_WinXP td
+{
+	background: #fcfbf9 none;
+	color: #9b9d7a;
+}

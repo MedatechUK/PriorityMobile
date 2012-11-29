@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="LogVerbosity" Type="System.String" Scope="User">
+      <Value Profile="(Default)">99</Value>
+    </Setting>
+    <Setting Name="PRIORITYDIR" Type="System.String" Scope="User">
+      <Value Profile="(Default)">z:</Value>
+    </Setting>
+    <Setting Name="PRIORITYUSER" Type="System.String" Scope="User">
+      <Value Profile="(Default)">tabula</Value>
+    </Setting>
+    <Setting Name="PRIORITYPWD" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Sund1al</Value>
+    </Setting>
+    <Setting Name="LOADTIMEOUT" Type="System.String" Scope="User">
+      <Value Profile="(Default)">60</Value>
+    </Setting>
+    <Setting Name="PRIUNC" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DATASOURCE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">test</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

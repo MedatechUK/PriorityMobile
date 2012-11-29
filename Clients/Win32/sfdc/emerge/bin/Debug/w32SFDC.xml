@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+w32SFDC
+</name>
+</assembly>
+<members>
+<member name="M:w32SFDC.priwebsvc.Service.#ctor">
+	<remarks/>
+</member><member name="E:w32SFDC.priwebsvc.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="E:w32SFDC.priwebsvc.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:w32SFDC.priwebsvc.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:w32SFDC.priwebsvc.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.Service">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:w32SFDC.priwebsvc.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:w32SFDC.priwebsvc.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:w32SFDC.priwebsvc.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:w32SFDC.priwebsvc.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="P:w32SFDC.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:w32SFDC.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:w32SFDC.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

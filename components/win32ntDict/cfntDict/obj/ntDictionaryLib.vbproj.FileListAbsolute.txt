@@ -1,0 +1,9 @@
+M:\components\win32ntDict\cfntDict\obj\Debug\ResolveAssemblyReference.cache
+M:\components\win32ntDict\cfntDict\obj\Debug\ntDictionaryLib.Resources.resources
+M:\components\win32ntDict\cfntDict\obj\Debug\ntDictionaryLib.vbproj.GenerateResource.Cache
+M:\components\win32ntDict\cfntDict\bin\Debug\ntDictionaryLib.dll
+M:\components\win32ntDict\cfntDict\bin\Debug\ntDictionaryLib.pdb
+M:\components\win32ntDict\cfntDict\bin\Debug\ntDictionaryLib.xml
+M:\components\win32ntDict\cfntDict\obj\Debug\ntDictionaryLib.dll
+M:\components\win32ntDict\cfntDict\obj\Debug\ntDictionaryLib.xml
+M:\components\win32ntDict\cfntDict\obj\Debug\ntDictionaryLib.pdb

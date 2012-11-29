@@ -1,0 +1,5 @@
+M:\components\ntEvtlog\ntEvtlog\bin\AdminTelnet\ntEvtlog.dll
+M:\components\ntEvtlog\ntEvtlog\obj\AdminTelnet\ResolveAssemblyReference.cache
+M:\components\ntEvtlog\ntEvtlog\obj\AdminTelnet\ntEvtlog.Resources.resources
+M:\components\ntEvtlog\ntEvtlog\obj\AdminTelnet\ntEvtlog.vbproj.GenerateResource.Cache
+M:\components\ntEvtlog\ntEvtlog\obj\AdminTelnet\ntEvtlog.dll

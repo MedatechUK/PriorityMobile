@@ -1,0 +1,59 @@
+Usage: PriLoadClient.exe ([-d|data "{dataFile}"] [-i|ini "{iniFile}"])
+            | ([-q|enq "{qFile}"])
+            [-r|register] [-e|event] [-w|wait] [-?|h|help "{helpFile}"]
+            ([-v|Verbose] | -v+|veryverbose] | [-v++|arcane])
+
+Options (-|/):
+
+    d|data "{dataFile}"
+                   * Sets the {dataFile} that contains the tab delimited 
+                   text file to be loaded. 
+
+    i|ini "{iniFile}"
+                   * Sets the {iniFile} that contains the definition 
+                   of the loading. For more information regarding the
+                   structure of the initialisation file try /? ini.
+
+    q|enq "{qFile}"
+                   * Re-queues an existing SOAP bubble file. This 
+                   feature is provided to enqueue SOAP bubbles that 
+                   have been created but not accepted by the queue. 
+                   This option cannot be used in conjunction with the 
+                   -d and -i switches. 
+
+    r|register     Register the application with the windows event 
+                   log. Note that this must be run manually prior to 
+                   using the program so that events from the client are 
+                   captured to the Windows event log. Not also that 
+                   this switch must be run by an .\administrator
+
+    e|event        Specify that the server should notify the caller 
+                   when the loading has been transmitted.
+
+    del|delete     Specify that the data file should be discarded once
+                   the client receives confirmation that the bubble is
+                   enqued.
+                   
+    w|wait         Specify that the client should wait for keypress
+                   before terminating.
+
+    V|+|++         Set the logging verbosity. If ommited then logging 
+                   verbosity is set to normal, ie only generate Windows
+                   event logs if an error condtion is raised. In 
+                   verbose mode transmission sucsesses are also 
+                   recorded. VeryVerbose (-v+) and Arcane (-v++) switches
+                   provide additional levels of logging and are used
+                   for debugging.
+ 
+    -?|h|help {helpType}
+                   {helpType} is optional. If ommited the command displays 
+                   this help file. Permitted values for {helpType} are "ini"
+                   and "server", which display the help specific to the 
+                   structure of initialisation file and valid switches for 
+                   modifying the behaviour of the Priority Client Service 
+                   respectively.
+
+    *              If the filename contains spaces you MUST enclose 
+                   the {FileName} in (") characters. Filenames may omit
+                   the executable path if they are stored in or under
+                   that path ie \file == {ExecutionPath}\file.

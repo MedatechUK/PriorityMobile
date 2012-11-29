@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+	<xs:complexType name="past-payment">
+		<xs:sequence>
+			<xs:element name="requested-paymentid" type="xs:string" minOccurs="1" maxOccurs="1"/>
+
+			<xs:element name="success" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="created" type="xs:dateTime" minOccurs="0" maxOccurs="1"/>
+
+			<xs:element name="tradeid" type="xs:string" minOccurs="0" maxOccurs="1"/>
+
+			<xs:element name="buycurr" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[a-zA-Z]{3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="sellcurr" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[a-zA-Z]{3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="amount" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+
+			<xs:element name="rate" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="paymentdate" type="xs:date" minOccurs="0" maxOccurs="1"/>
+			
+			<xs:element name="error" type="error" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

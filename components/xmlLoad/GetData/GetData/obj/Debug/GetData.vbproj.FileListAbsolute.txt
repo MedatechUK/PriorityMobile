@@ -1,0 +1,9 @@
+M:\components\xmlLoad\GetData\GetData\bin\Debug\GetData.dll
+M:\components\xmlLoad\GetData\GetData\bin\Debug\GetData.pdb
+M:\components\xmlLoad\GetData\GetData\bin\Debug\GetData.xml
+M:\components\xmlLoad\GetData\GetData\obj\Debug\ResolveAssemblyReference.cache
+M:\components\xmlLoad\GetData\GetData\obj\Debug\GetData.Resources.resources
+M:\components\xmlLoad\GetData\GetData\obj\Debug\GetData.vbproj.GenerateResource.Cache
+M:\components\xmlLoad\GetData\GetData\obj\Debug\GetData.dll
+M:\components\xmlLoad\GetData\GetData\obj\Debug\GetData.xml
+M:\components\xmlLoad\GetData\GetData\obj\Debug\GetData.pdb

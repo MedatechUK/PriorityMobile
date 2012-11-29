@@ -1,0 +1,4 @@
+M:\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\obj\Debug\cfPriLoadSvc.Resources.resources
+M:\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\obj\Debug\cfPriLoadSvc.PriLoadSVC.resources
+M:\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\obj\Debug\cfPriLoadSvc.vbproj.GenerateResource.Cache

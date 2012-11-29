@@ -1,0 +1,43 @@
+﻿Syntax:
+
+realexcli.exe | realexfrm.exe
+	-config {/xpath [Value]}
+	-test
+	-authcode [value] -pasref [value] -id [value]
+	-v
+	-w
+	-?
+	
+Notes:
+realexcli.exe and realexfrm.exe are the same program. realexfrm.exe is 
+called by windows and will only display the response message from Realex
+in a dialog window. realexcli.exe is called from a command line and 
+displays additional debug information for configuration and testing. 
+
+Switches:
+	-config
+		Issued without additional arguments this switch will display the
+		current configuration (xml).
+	
+		You can use the -config option to change a setting by also passing 
+		setting values like this:
+			/{setting_name} [newValue]
+		where {setting name} is the xpath of the setting in the -config xml
+		
+	-test
+		This creates a test payment and tries to void that transaction.
+		Used only for debugging.
+	
+	-authcode | pasref | id
+		The parameters of the transaction being voided.
+		
+	-v
+		Verbose. More debug information
+		
+	-w
+		Wait for a keypress after execution had completed.
+		
+	/?
+		This syntax file.
+			
+

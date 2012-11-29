@@ -1,0 +1,14 @@
+M:\bin\WinCE\atg\WinCEClient.exe
+M:\bin\WinCE\atg\WinCEClient.pdb
+M:\bin\WinCE\atg\WinCEClient.xml
+M:\Clients\WinCE\ATG\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.About.resources
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.frmLogin.resources
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.frmMenu.resources
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.frmNumber.resources
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.frmOption.resources
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.Resources.resources
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.exe
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.xml
+M:\Clients\WinCE\ATG\obj\Debug\WinCEClient.pdb

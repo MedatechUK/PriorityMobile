@@ -1,0 +1,154 @@
+﻿/* Telerik RadGrid brick skin */
+
+.RadGrid_Brick
+{
+	background: #930015;
+	border-left: solid 1px #B4B3A6;
+	border-right: solid 1px #B4B3A6;
+	border-top: 1px solid #cccaba;
+	border-bottom: 1px solid #c2b12e;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+}
+
+.RadGrid_Brick th,
+.RadGrid_Brick th a
+{ 
+	font:bold 11px tahoma,sans-serif;
+	color:#fff;
+}
+.RadGrid_Brick,
+.RadGrid_Brick a
+{ 
+	font:11px tahoma,sans-serif;
+	color:#000;
+}
+
+.MasterTable_Brick
+{
+	border:0px !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+.GridHeader_Brick
+{
+	color:#fff;
+	height: 34px;
+	background: #930015;
+}
+.GridHeader_Brick a
+{
+	color:#fff;
+}
+
+.GridRow_Brick,
+.GridAltRow_Brick,
+.SelectedRow_Brick,
+.ActiveRow_Brick,
+.GridEditRow_Brick
+{
+    height:20px;
+}
+
+.GridRow_Brick
+{
+	background-color:#FBF4F3;
+}
+.GridRow_Brick td
+{
+	border-bottom:1px solid #ecd6cf;
+}
+
+.SelectedRow_Brick
+{
+	background-color: #ffffff !important;
+}
+.SelectedRow_Brick td,
+.GridEditRow_Brick td
+{
+	border-bottom:1px solid #ecd6cf;
+}
+
+.GridEditRow_Brick
+{
+	background-color: #ffffce !important;
+}
+
+.ActiveRow_Brick
+{
+	background-color: #ecd6cf !important;
+}
+.ActiveRow_Brick td
+{
+	border-bottom:1px solid #ecd6cf;
+}
+
+.GridAltRow_Brick
+{
+	background-color: #F5E9E7;
+}
+.GridAltRow_Brick td
+{
+	border-bottom:1px solid #ecd6cf;
+}
+
+.GridPager_Brick
+{
+	background: #e7d0c8;
+	height: 17px;
+}
+.GridPager_Brick td
+{
+	border-top: 1px solid #c2a9a0;
+	padding-left: 11px;
+}
+.GridPager_Brick a
+{
+	color: #333;	
+}
+.GridHeader_Brick img
+{
+	vertical-align: middle;
+}
+td.GridHeader_Brick input
+{
+	width: auto;
+	float: left;
+	border: solid 1px #666;
+	background: #fafafa;
+	font: bold 10px Verdana, Arial, Sans-serif;
+	color: #989cb0;
+	height: 14px;
+	vertical-align:middle;
+}
+
+/* grouping button */
+.GroupPanelItems_Brick
+{
+	background: #930015;
+	color: white !important;
+	border: solid 1px #bc988c;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+tr.GroupHeader_Brick
+{
+	background: #e7d0c8;
+	color: #706e65;
+	font-weight: bold;
+	height:20px;
+}
+
+.GroupPanel_Brick
+{
+	height: 20px;
+	width: 100%;
+	background: #69000f;
+	border-bottom: 1px solid #bc988c;
+	border-collapse: collapse;
+}
+
+.GroupPanel_Brick td
+{
+	color:#fff;
+}

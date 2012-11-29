@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0653FD24-ABFE-4ED9-B287-764F73D68463}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>PDA.My.MyApplication</StartupObject>
+    <RootNamespace>PDA</RootNamespace>
+    <AssemblyName>PDA</AssemblyName>
+    <MyType>WindowsForms</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PDA.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\bin\Win32\pda\</OutputPath>
+    <DocumentationFile>PDA.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MyCls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\install\Client\Win32\MyCls.dll</HintPath>
+    </Reference>
+    <Reference Include="PDAOnBoardData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\install\Client\Win32\PDAOnBoardData.dll</HintPath>
+    </Reference>
+    <Reference Include="PriLoadData, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\install\Client\Win32\PriLoadData.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.Designer.vb">
+      <DependentUpon>App.vb</DependentUpon>
+    </Compile>
+    <Compile Include="App.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataSets\_Cancel.vb" />
+    <Compile Include="DataSets\_DayEnd.vb" />
+    <Compile Include="_Consts.vb" />
+    <Compile Include="DataSets\_Actions.vb" />
+    <Compile Include="DataSets\_Flags.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="UserControls\ct_Settings.Designer.vb">
+      <DependentUpon>ct_Settings.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_Settings.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_Survey.Designer.vb">
+      <DependentUpon>ct_Survey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_Survey.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_Address.Designer.vb">
+      <DependentUpon>ct_Address.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_Address.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_DateSelect.Designer.vb">
+      <DependentUpon>ct_DateSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_DateSelect.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_Details.Designer.vb">
+      <DependentUpon>ct_Details.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_Details.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_PartsUsed.Designer.vb">
+      <DependentUpon>ct_PartsUsed.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_PartsUsed.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_Repair.Designer.vb">
+      <DependentUpon>ct_Repair.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_Repair.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ct_Sign.Designer.vb">
+      <DependentUpon>ct_Sign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ct_Sign.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Web References\priwebsvc\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="DataSets\_Answers.vb" />
+    <Compile Include="DataSets\_Details.vb" />
+    <Compile Include="DataSets\_Malfunction.vb" />
+    <Compile Include="DataSets\_Parts.vb" />
+    <Compile Include="DataSets\_Repair.vb" />
+    <Compile Include="DataSets\_Resolution.vb" />
+    <Compile Include="DataSets\_ServiceCall.vb" />
+    <Compile Include="DataSets\_Signature.vb" />
+    <Compile Include="DataSets\_Statuses.vb" />
+    <Compile Include="DataSets\_Survey.vb" />
+    <Compile Include="DataSets\_Time.vb" />
+    <Compile Include="DataSets\_Warehouse.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>App.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_Address.resx">
+      <DependentUpon>ct_Address.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_DateSelect.resx">
+      <DependentUpon>ct_DateSelect.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_Details.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ct_Details.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_PartsUsed.resx">
+      <DependentUpon>ct_PartsUsed.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_Repair.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ct_Repair.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_Settings.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ct_Settings.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_Sign.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ct_Sign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ct_Survey.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ct_Survey.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\priwebsvc\service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://service.atgaccess.com:8080">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\priwebsvc\</RelPath>
+      <UpdateFromURL>http://service.atgaccess.com:8080</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Demo_App_priwebsvc_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Web References\priwebsvc\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\priwebsvc\service.disco" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,105 @@
+.RadTabStrip_WebBlue
+{
+	font: 11px arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_WebBlue li a
+{
+	padding-left: 15px;
+	background: transparent url('img/TabLeft.gif') 0px 0px no-repeat;
+	line-height: 23px;
+	color: #929ca3;
+	text-decoration:none;
+}
+
+.RadTabStrip_WebBlue li a .wrap
+{
+
+	padding-right: 15px;
+	line-height: 23px;
+	background:transparent url('img/tabRight.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_WebBlue li a:hover
+{
+	color: #6e7c86;
+}
+
+.RadTabStrip_WebBlue li a .innerWrap
+{
+	line-height: 23px;
+	background:transparent url('img/tabMiddle.gif') 0px 0px repeat-x;
+	text-align: center;
+}
+
+.RadTabStrip_WebBlue li a.selected
+{
+	padding-left: 15px;
+	background: transparent url('img/TabLeftSelected.gif') 0px 0px no-repeat;
+	line-height: 23px;
+}
+
+.RadTabStrip_WebBlue li a.selected .wrap
+{
+	background-image:url('img/tabRightSelected.gif');
+	line-height: 23px;
+	padding-right: 15px;
+	color: #65727c;
+}
+
+.RadTabStrip_WebBlue li a.selected .innerWrap
+{
+	background-image:url('img/tabMiddleSelected.gif');
+	padding-top: 0px;
+}
+
+.RadTabStrip_WebBlue li a.disabled,
+.RadTabStrip_WebBlue li a.disabled .wrap,
+.RadTabStrip_WebBlue li a.disabled .innerWrap
+{
+	cursor: default;
+	text-decoration: line-through;
+}
+
+.RadTabStrip_WebBlue li a.red,
+.RadTabStrip_WebBlue li a.red .wrap,
+.RadTabStrip_WebBlue li a.red .innerWrap
+{
+	color: red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_WebBlue .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+.RadTabStrip_WebBlue .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+
+.RadTabStrip_WebBlue .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_WebBlue .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}

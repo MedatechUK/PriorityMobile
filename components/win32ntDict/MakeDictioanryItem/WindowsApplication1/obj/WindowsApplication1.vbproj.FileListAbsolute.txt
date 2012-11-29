@@ -1,0 +1,10 @@
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\ResolveAssemblyReference.cache
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+M:\components\win32ntDict\MakeDictioanryItem\WindowsApplication1\obj\Debug\WindowsApplication1.pdb

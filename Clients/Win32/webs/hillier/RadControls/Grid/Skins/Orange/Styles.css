@@ -1,0 +1,143 @@
+/* Telerik RadGrid Orange skin */
+
+.RadGrid_Orange
+{
+	background: #cc9b00;
+	border: solid 1px #d3d2a8;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+}
+
+.RadGrid_Orange th,
+.RadGrid_Orange th a
+{ 
+	font: bold 11px tahoma;
+	color: #fff;
+}
+
+.RadGrid_Orange td,
+.RadGrid_Orange td a
+{ 
+	font: 11px tahoma;
+	color: #000;
+}
+
+.MasterTable_Orange
+{
+	border: 0px !important;
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GridHeader_Orange
+{
+	color: #fff;
+	height: 34px;
+	background: #cc9b00;
+	padding:0 2px;
+}
+
+.GridHeader_Orange a
+{
+	color: #fff;
+}
+
+.GridRow_Orange,
+.GridAltRow_Orange,
+.SelectedRow_Orange,
+.ActiveRow_Orange,
+.GridEditRow_Orange
+{
+	height:20px;
+}
+.GridRow_Orange td,
+.GridAltRow_Orange td,
+.SelectedRow_Orange td,
+.ActiveRow_Orange td,
+.GridEditRow_Orange td
+{
+	border-bottom:1px solid #d3d2a8;
+	padding:2px;
+}
+
+.GridRow_Orange
+{
+	background-color: #fefce8;
+}
+.GridAltRow_Orange
+{
+	background-color: #fdf6d8;
+}
+.SelectedRow_Orange
+{
+	background-color: #fff !important;
+}
+.GridEditRow_Orange
+{
+	background-color: #e9faff;
+}
+.GridEditRow_Orange input
+{
+	font-size: 11px;
+}
+.ActiveRow_Orange
+{
+	background-color: #e2dbb9 !important;
+}
+
+.GridPager_Orange
+{
+	background: #e2dbb9;
+	height: 17px;
+}
+.GridPager_Orange td
+{
+	border-top: 1px solid #d3d2a8;
+	padding-left: 11px;
+}
+
+.GridPager_Orange a
+{
+	color: #333;	
+}
+
+.GridHeader_Orange img,
+.GroupPanelItems_Orange input
+{
+	vertical-align: middle;
+}
+
+/* grouping button */
+.GroupPanelItems_Orange
+{
+	background: #cc9b00;
+	color: white !important;
+	border: solid 1px #e4e3ca;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+tr.GroupHeader_Orange
+{
+	background: #9b7500;
+	height:20px;
+	color: #fff;
+}
+tr.GroupHeader_Orange td
+{
+	border-bottom:1px solid #e2dbb9;
+}
+
+.GroupPanel_Orange
+{
+	height: 30px;
+	width: 100%;
+	background: #9b7500;
+	border-bottom: 1px solid #d3d2a8;
+	border-collapse: collapse;
+}
+
+.GridFooter_Orange td
+{
+    padding:2px;
+}

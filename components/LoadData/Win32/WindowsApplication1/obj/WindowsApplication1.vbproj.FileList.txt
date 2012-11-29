@@ -1,0 +1,2 @@
+bin\Debug\WindowsApplication1.exe.config
+bin\Debug\Demo Project.exe.config

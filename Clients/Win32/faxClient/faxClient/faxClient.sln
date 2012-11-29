@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "faxClient", "faxClient.vbproj", "{C022DB3F-4820-43F1-A171-CC74C692A4D8}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ConsoleApp", "..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj", "{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\setup\Setup\Setup.vdproj", "{1691CA19-560D-433E-BB9A-6778D20ED43E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntSettings", "..\..\..\components\ntSettings\ntSettings\ntSettings.vbproj", "{8124FE3B-D820-4D74-83D1-98F284A319EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C022DB3F-4820-43F1-A171-CC74C692A4D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C022DB3F-4820-43F1-A171-CC74C692A4D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C022DB3F-4820-43F1-A171-CC74C692A4D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C022DB3F-4820-43F1-A171-CC74C692A4D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1691CA19-560D-433E-BB9A-6778D20ED43E}.Debug|Any CPU.ActiveCfg = Debug
+		{1691CA19-560D-433E-BB9A-6778D20ED43E}.Release|Any CPU.ActiveCfg = Release
+		{8124FE3B-D820-4D74-83D1-98F284A319EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8124FE3B-D820-4D74-83D1-98F284A319EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8124FE3B-D820-4D74-83D1-98F284A319EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8124FE3B-D820-4D74-83D1-98F284A319EF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+ZPDA_REPAIR_LOAD	ZPDA_LOAD_REPAIR	
+1	DOCNO	
+2		REPAIRTEXT
+	TEXT	TEXT
+1	SC10004155	
+2		<style> p,div,li 
+2		{margin:0cm;font-size:10.0pt;font-family:'Arial';}</style>
+2		 <p> changed ir with one on site </p>  <p> dave completed job sheet 
+2		<br> 41999. 09.15 on site. 10.45 off site.travel 1 hour </p>  

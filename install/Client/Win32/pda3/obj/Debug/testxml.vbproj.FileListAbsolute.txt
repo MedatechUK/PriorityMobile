@@ -1,0 +1,55 @@
+C:\testxml\testxml\obj\Debug\testxml.exe
+C:\testxml\testxml\obj\Debug\testxml.xml
+C:\testxml\testxml\obj\Debug\testxml.pdb
+C:\testxml\testxml\bin\Debug\calls.xml
+C:\testxml\testxml\bin\Debug\forms.xml
+C:\testxml\testxml\bin\Debug\testxml.exe
+C:\testxml\testxml\bin\Debug\testxml.pdb
+C:\testxml\testxml\bin\Debug\testxml.xml
+C:\testxml\testxml\bin\Debug\ViewControl.dll
+C:\testxml\testxml\bin\Debug\ViewControl.pdb
+C:\testxml\testxml\bin\Debug\ViewControl.xml
+C:\testxml\testxml\obj\Debug\ResolveAssemblyReference.cache
+C:\testxml\testxml\obj\Debug\testxml.Form1.resources
+C:\testxml\testxml\obj\Debug\testxml.frmMain.resources
+C:\testxml\testxml\obj\Debug\testxml.Resources.resources
+C:\testxml\testxml\obj\Debug\testxml.UserControl1.resources
+C:\testxml\testxml\obj\Debug\testxml.vbproj.GenerateResource.Cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.frmMain.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.Resources.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Summary.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_StatusPane.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_DataGrid.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.vbproj.GenerateResource.Cache
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\calls.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\forms.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\testxml.exe
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\testxml.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\testxml.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\ViewControl.dll
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\ViewControl.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\ViewControl.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.exe
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.pdb
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\lookup.xml
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Repair.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\back.bmp
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\COPY.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\CALENDAR.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\BALLOON.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\PHONE.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\SORTASC.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\FIND.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Sign.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\DELETE.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Address.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_CallDetail.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Warehouse.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\UP1LVL.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\PASTE.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Parts_Actual.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\obj\Debug\testxml.ctrl_Parts_Planned.resources
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\Plan.BMP
+C:\Users\administrator\Documents\Visual Studio 2008\Projects\testxml\testxml\bin\Debug\icons\ACTUAL.BMP

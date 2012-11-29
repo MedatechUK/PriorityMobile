@@ -1,0 +1,60 @@
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ceMyCls.ct_number.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ceMyCls.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\bin\Debug\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\bin\Debug\ceMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\bin\Debug\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\SFDC2\ceMyCls\ceMyCls\obj\Debug\ceMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\bin\Debug\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\bin\Debug\ceMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\bin\Debug\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.ct_number.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCE\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCE\ceMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCE\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ceMyCls.ct_number.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ceMyCls.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ceMyCls.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\MyCls\WinCE\obj\Release\ceMyCls.pdb
+C:\Priority Mobile\bin\WinCE\ceMyCls.dll
+C:\Priority Mobile\bin\WinCE\ceMyCls.pdb
+C:\Priority Mobile\bin\WinCE\ceMyCls.xml
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ResolveAssemblyReference.cache
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.ct_number.resources
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.Resources.resources
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
+C:\Priority Mobile\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb
+M:\bin\WinCE\ceMyCls.dll
+M:\bin\WinCE\ceMyCls.pdb
+M:\bin\WinCE\ceMyCls.xml
+M:\components\MyCls\WinCE\obj\Debug\ResolveAssemblyReference.cache
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.ct_number.resources
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.Resources.resources
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb
+\\tsclient\M\bin\WinCE\ceMyCls.dll
+\\tsclient\M\bin\WinCE\ceMyCls.pdb
+\\tsclient\M\bin\WinCE\ceMyCls.xml
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ResolveAssemblyReference.cache
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ceMyCls.ct_number.resources
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ceMyCls.Resources.resources
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
+\\tsclient\M\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb

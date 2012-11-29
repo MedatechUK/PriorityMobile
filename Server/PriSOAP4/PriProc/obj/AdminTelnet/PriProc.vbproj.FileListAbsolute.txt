@@ -1,0 +1,11 @@
+M:\Server\PriSOAP4\PriProc\bin\AdminTelnet\PriProc4.exe.config
+M:\Server\PriSOAP4\PriProc\bin\AdminTelnet\PriProc4.exe
+M:\Server\PriSOAP4\PriProc\bin\AdminTelnet\ntEvtlog.dll
+M:\Server\PriSOAP4\PriProc\bin\AdminTelnet\ntSox.dll
+M:\Server\PriSOAP4\PriProc\bin\AdminTelnet\xmlLoad.dll
+M:\Server\PriSOAP4\PriProc\obj\AdminTelnet\ResolveAssemblyReference.cache
+M:\Server\PriSOAP4\PriProc\obj\AdminTelnet\PriProc.Resources.resources
+M:\Server\PriSOAP4\PriProc\obj\AdminTelnet\PriProc.PriProc.resources
+M:\Server\PriSOAP4\PriProc\obj\AdminTelnet\PriProc.ProjectInstaller.resources
+M:\Server\PriSOAP4\PriProc\obj\AdminTelnet\PriProc.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP4\PriProc\obj\AdminTelnet\PriProc4.exe

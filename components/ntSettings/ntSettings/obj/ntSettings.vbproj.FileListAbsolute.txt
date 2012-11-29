@@ -1,0 +1,9 @@
+M:\components\ntSettings\ntSettings\obj\Debug\ResolveAssemblyReference.cache
+M:\components\ntSettings\ntSettings\obj\Debug\ntSettings.Resources.resources
+M:\components\ntSettings\ntSettings\obj\Debug\ntSettings.vbproj.GenerateResource.Cache
+M:\components\ntSettings\ntSettings\bin\Debug\ntSettings.dll
+M:\components\ntSettings\ntSettings\bin\Debug\ntSettings.pdb
+M:\components\ntSettings\ntSettings\bin\Debug\ntSettings.xml
+M:\components\ntSettings\ntSettings\obj\Debug\ntSettings.dll
+M:\components\ntSettings\ntSettings\obj\Debug\ntSettings.xml
+M:\components\ntSettings\ntSettings\obj\Debug\ntSettings.pdb

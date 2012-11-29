@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PDA
+</name>
+</assembly>
+<members>
+<member name="M:PDA.priwebsvc.Service.#ctor">
+	<remarks/>
+</member><member name="E:PDA.priwebsvc.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="E:PDA.priwebsvc.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:PDA.priwebsvc.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDA.priwebsvc.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.Service">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDA.priwebsvc.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDA.priwebsvc.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDA.priwebsvc.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDA.priwebsvc.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="P:PDA.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PDA.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:PDA.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

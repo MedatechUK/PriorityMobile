@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<xs:include schemaLocation="beneficiary.xsd"/>
+
+	<xs:complexType name="payment">
+		<xs:sequence>
+			<xs:element name="tradeid" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			
+			<xs:element name="paymentid" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			
+			<xs:element name="sellcurrency" minOccurs="0" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="[a-zA-Z]{3}"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			
+			<xs:element name="amount" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			
+			<xs:element name="paymentdate" type="xs:date" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="paymenttype" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			
+			<xs:element name="notes1" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="notes2" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="notes3" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			
+			<xs:element name="reason" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="16"/>
+						<xs:enumeration value="17"/>
+						<xs:enumeration value="18"/>
+						<xs:enumeration value="19"/>
+						<xs:enumeration value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="reason_if_other" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			
+			<xs:element name="beneficiary" type="beneficiary" minOccurs="1" maxOccurs="1"/>
+			
+		</xs:sequence>
+	</xs:complexType>
+	
+</xs:schema>

@@ -1,0 +1,19 @@
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\bin\Debug\eMerge Precursor.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\bin\Debug\eMerge Precursor.pdb
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\bin\Debug\eMerge Precursor.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.AboutBox.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.frmJoin.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.frmTable.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.frmOptions.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.MDIChild.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.MDIParent.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.genOptions.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMergePrecursor.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMerge Precursor.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMerge Precursor.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMerge Precursor.pdb
+M:\Clients\Win32\precursor\WindowsApplication5\obj\Debug\eMerge Precursor.exe
+M:\Clients\Win32\precursor\WindowsApplication5\obj\Debug\eMerge Precursor.xml
+M:\Clients\Win32\precursor\WindowsApplication5\obj\Debug\eMerge Precursor.pdb

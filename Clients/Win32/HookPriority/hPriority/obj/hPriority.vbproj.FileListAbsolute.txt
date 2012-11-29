@@ -1,0 +1,16 @@
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\hPriority.exe
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\hPriority.pdb
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\hPriority.xml
+M:\Clients\Win32\HookPriority\hPriority\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\HookPriority\hPriority\obj\Debug\hPriority.Resources.resources
+M:\Clients\Win32\HookPriority\hPriority\obj\Debug\hPriority.vbproj.GenerateResource.Cache
+M:\Clients\Win32\HookPriority\hPriority\obj\Debug\hPriority.exe
+M:\Clients\Win32\HookPriority\hPriority\obj\Debug\hPriority.xml
+M:\Clients\Win32\HookPriority\hPriority\obj\Debug\hPriority.pdb
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\ConsoleApp.dll
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\ConsoleApp.pdb
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\ConsoleApp.xml
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\hPriority.exe.config
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\PriLoadData.dll
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\PriLoadData.pdb
+M:\Clients\Win32\HookPriority\hPriority\bin\Debug\PriLoadData.xml

@@ -1,0 +1,11 @@
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\bin\Debug\ReadXML.exe
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\bin\Debug\ReadXML.pdb
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\bin\Debug\ReadXML.xml
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ReadXML.Form1.resources
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ReadXML.Resources.resources
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ReadXML.vbproj.GenerateResource.Cache
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ReadXML.exe
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ReadXML.xml
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\obj\Debug\ReadXML.pdb
+M:\Clients\Win32\RealexCli\RealexFrm\ReadXML\bin\Debug\System.SR.dll

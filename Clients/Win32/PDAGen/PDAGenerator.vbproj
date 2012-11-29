@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{42C8635F-0E16-43E5-AC77-72E7F76FE2D2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>PDAGenerator</RootNamespace>
+    <AssemblyName>PDAGenerator</AssemblyName>
+    <MyType>WindowsFormsWithCustomSubMain</MyType>
+    <StartupObject>PDAGenerator.frmMain</StartupObject>
+    <ApplicationIcon>emerge.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>PDAGenerator.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>PDAGenerator.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bind, Version=1.0.0.8, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\binding\loadAssm\w32\Bind\bin\Debug\Bind.dll</HintPath>
+    </Reference>
+    <Reference Include="Loading, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\components\LoadData\Version3\Loading\bin\Debug\Loading.dll</HintPath>
+    </Reference>
+    <Reference Include="ntEvtlog, Version=1.0.0.196, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\binding\loadAssm\w32\Bind\bin\Debug\ntEvtlog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dialogs\About.Designer.vb">
+      <DependentUpon>About.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\About.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\NSLookup.Designer.vb">
+      <DependentUpon>NSLookup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NSLookup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\frmNewField.Designer.vb">
+      <DependentUpon>frmNewField.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\frmNewField.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\BoolPropEditor.vb" />
+    <Compile Include="PropertyPages\FieldProperties.vb" />
+    <Compile Include="PropertyPages\FormProperties.vb" />
+    <Compile Include="frmChild.Designer.vb">
+      <DependentUpon>frmChild.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmChild.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.vb">
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\frmNewColumn.Designer.vb">
+      <DependentUpon>frmNewColumn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\frmNewColumn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\frmNewKey.Designer.vb">
+      <DependentUpon>frmNewKey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\frmNewKey.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\frmNewTable.Designer.vb">
+      <DependentUpon>frmNewTable.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\frmNewTable.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\frmNewUpdate.Designer.vb">
+      <DependentUpon>frmNewUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\frmNewUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\Mod.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Output.Designer.vb">
+      <DependentUpon>Output.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Output.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PropertyPages\UITypeEditor.vb" />
+    <Compile Include="Web References\PriWebSVC\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="xmlform.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Dialogs\About.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>About.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\frmNewField.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewField.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\frmNewKey.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewKey.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\frmNewTable.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewTable.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\frmNewUpdate.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewUpdate.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NSLookup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NSLookup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChild.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmChild.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\frmNewColumn.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmNewColumn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Output.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Output.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\PriWebSVC\service.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="dataclasses\dataclasses\dataclasses.vbproj">
+      <Project>{5E0932FE-F03B-404D-9C87-796C57C73554}</Project>
+      <Name>dataclasses</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://soapsvc:8080/">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PriWebSVC\</RelPath>
+      <UpdateFromURL>http://soapsvc:8080/</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>PDAGenerator_PriWebSVC_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Web References\PriWebSVC\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\PriWebSVC\service.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\emerge.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="emerge.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+M:\Clients\Win32\SupportMail\Pop3MimeClient\bin\Debug\Pop3MimeClient.dll
+M:\Clients\Win32\SupportMail\Pop3MimeClient\bin\Debug\Pop3MimeClient.pdb
+M:\Clients\Win32\SupportMail\Pop3MimeClient\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\SupportMail\Pop3MimeClient\obj\Debug\Pop3MimeClient.dll
+M:\Clients\Win32\SupportMail\Pop3MimeClient\obj\Debug\Pop3MimeClient.pdb

@@ -1,0 +1,9 @@
+M:\install\Client\Win32\PriExeTest\PRIEXE\bin\Debug\PRIEXE.exe
+M:\install\Client\Win32\PriExeTest\PRIEXE\bin\Debug\PRIEXE.pdb
+M:\install\Client\Win32\PriExeTest\PRIEXE\bin\Debug\PRIEXE.xml
+M:\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\ResolveAssemblyReference.cache
+M:\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\PRIEXE.Resources.resources
+M:\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\PRIEXE.vbproj.GenerateResource.Cache
+M:\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\PRIEXE.exe
+M:\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\PRIEXE.xml
+M:\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\PRIEXE.pdb

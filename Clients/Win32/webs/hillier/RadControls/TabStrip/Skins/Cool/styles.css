@@ -1,0 +1,139 @@
+.RadTabStrip_Cool
+{
+	font: bold 10px tahoma, sans-serif;
+}
+
+
+.RadTabStrip_Cool .level1 li a
+{
+	padding-left: 7px;
+	background:transparent url('img/tabLeftFirstOff.gif') 0px 0px no-repeat;
+	height: 24px;
+	margin-right: -20px; 
+	color:#666666;
+	text-decoration:none;
+}
+
+.RadTabStrip_Cool .level1 li.last a,
+.RadTabStrip_Cool .level1 li.break a
+{
+	margin-right:0;
+}
+
+.RadTabStrip_Cool .level1 li a .wrap
+{
+
+	padding-right: 29px;
+	height: 24px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_Cool .level1 li a:hover
+{
+	color: #333;
+}
+
+.RadTabStrip_Cool .level1 li a .innerWrap
+{
+	line-height: 24px;
+	padding:0 27px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align:center;
+}
+
+.RadTabStrip_Cool .level1 li a.selected
+{
+	padding-top: 0px;
+	background: transparent url('img/tabLeftFirstOn.gif') 0px 0px no-repeat;
+	line-height: 24px;
+}
+
+.RadTabStrip_Cool .level1 li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+	line-height: 24px;
+	padding-right: 29px;
+	color: white;
+}
+
+.RadTabStrip_Cool .level2 ul
+{
+	background:transparent url('img/tabStripeLevel2.gif') 0px 0px repeat-x;
+	height:30px;
+}
+
+.RadTabStrip_Cool .level2 li a
+{
+	color: white;
+	text-decoration: none;
+	padding: 6px 9px;
+	font-weight: normal;
+}
+
+.RadTabStrip_Cool .level2 li a:hover
+{
+	color: white;
+	text-decoration: underline;
+}
+
+ .RadTabStrip_Cool .level2 li a.selected
+{
+	color: white;
+	text-decoration: underline;
+}
+
+.RadTabStrip_Cool .level1 li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+}
+
+.RadTabStrip_Cool li a.disabled,
+.RadTabStrip_Cool li a.disabled .wrap,
+.RadTabStrip_Cool li a.disabled .innerWrap
+{
+	cursor:default;
+	text-decoration:line-through;
+}
+
+.RadTabStrip_Cool li a.red,
+.RadTabStrip_Cool li a.red .wrap,
+.RadTabStrip_Cool li a.red .innerWrap
+{
+	color:Red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_Cool .leftArrow
+{
+	background-image:url(img/ScrollLeft.png);
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 17px;
+}
+
+.RadTabStrip_Cool .rightArrow
+{
+	background-image:url(img/ScrollRight.png);
+	background-repeat: no-repeat;
+	height: 16px;
+	width: 17px;
+}
+
+
+
+.RadTabStrip_Cool .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.png);
+	height: 16px;
+	width: 17px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_Cool .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.png);
+	height: 16px;
+	width: 17px;
+	background-repeat: no-repeat;
+}

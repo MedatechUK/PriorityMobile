@@ -1,0 +1,10 @@
+M:\Clients\Win32\ieprint\ieprint\bin\Debug\ieprint.exe
+M:\Clients\Win32\ieprint\ieprint\bin\Debug\ieprint.pdb
+M:\Clients\Win32\ieprint\ieprint\bin\Debug\ieprint.xml
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ieprint.Form1.resources
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ieprint.Resources.resources
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ieprint.vbproj.GenerateResource.Cache
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ieprint.exe
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ieprint.xml
+M:\Clients\Win32\ieprint\ieprint\obj\Debug\ieprint.pdb

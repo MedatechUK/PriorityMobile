@@ -1,0 +1,130 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+PDAGenerator
+</name>
+</assembly>
+<members>
+<member name="M:PDAGenerator.PropertyEditorBase.GetEditControl(System.String,System.Object)">
+	<summary>
+ The driven class should provide its edit Control to be shown in the 
+ DropDown or DialogForm window by means of this function. 
+ If specified control be a Form, it is shown in a Modal Form, otherwise, it is shown as in a DropDown window. 
+ This edit control should return its final value at GetEditedValue() method. 
+ </summary>
+</member><member name="M:PDAGenerator.PropertyEditorBase.GetEditedValue(System.Windows.Forms.Control,System.String,System.Object)">
+	<summary>The driven class should return the New Value for edited property at this function.</summary>
+	<param name="EditControl">
+ The control shown in DropDown window and used for editing. 
+ This is the control you pass in GetEditControl() function.
+ </param>
+	<param name="OldValue">The original value of the property before editing through the DropDown window.</param>
+</member><member name="M:PDAGenerator.PropertyEditorBase.GetEditStyle(System.ComponentModel.ITypeDescriptorContext)">
+	<summary>
+ Sets the edit style mode based on the type of EditControl: DropDown or Modal(Dialog). 
+ Note that the driven class can also override this function and explicitly specify the EditStyle value.
+ </summary>
+</member><member name="M:PDAGenerator.PropertyEditorBase.GetIWindowsFormsEditorService">
+	<summary>
+ Provides the interface for this UITypeEditor to display Windows Forms or to 
+ display a control in a DropDown area from the property grid control in design mode.
+ </summary>
+</member><member name="M:PDAGenerator.PropertyEditorBase.CloseDropDownWindow">
+	<summary>Close DropDown window to finish editing</summary>
+</member><member name="T:PDAGenerator.PropertyEditorBase">
+	<summary>
+ This is a UITypeEditor base class usefull for simple editing of control properties 
+ in a DropDown or a ModalDialogForm window at design mode (in VisualStudio.Net IDE). 
+ To use this, inherits a class from it and add this attribute to your control property(ies): 
+ &lt;Editor(GetType(MyPropertyEditor), GetType(System.Drawing.Design.UITypeEditor))&gt;  
+ </summary>
+</member><member name="P:PDAGenerator.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:PDAGenerator.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:PDAGenerator.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:PDAGenerator.FormProperties.IsReadOnly">
+</member><member name="T:PDAGenerator.FormProperties">
+</member><member name="M:PDAGenerator.PriWebSVC.Service.#ctor">
+	<remarks/>
+</member><member name="E:PDAGenerator.PriWebSVC.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:PDAGenerator.PriWebSVC.Service.LoadDataWaitCompleted">
+	<remarks/>
+</member><member name="E:PDAGenerator.PriWebSVC.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="E:PDAGenerator.PriWebSVC.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.LoadDataWait(System.String,System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.GetData(System.String,System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.GetDataAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.GetDataAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:PDAGenerator.PriWebSVC.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.Service">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDAGenerator.PriWebSVC.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.LoadDataWaitCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDAGenerator.PriWebSVC.LoadDataWaitCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.LoadDataWaitCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDAGenerator.PriWebSVC.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:PDAGenerator.PriWebSVC.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:PDAGenerator.PriWebSVC.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="P:PDAGenerator.FieldProperties.FieldStyle">
+</member><member name="P:PDAGenerator.FieldProperties.IsReadOnly">
+</member><member name="P:PDAGenerator.FieldProperties.Hidden">
+</member><member name="P:PDAGenerator.FieldProperties.Mandatory">
+</member><member name="P:PDAGenerator.FieldProperties.REGEX">
+</member><member name="P:PDAGenerator.FieldProperties.ListSource">
+</member><member name="P:PDAGenerator.FieldProperties.ListValueCol">
+</member><member name="P:PDAGenerator.FieldProperties.ListTextCol">
+</member><member name="P:PDAGenerator.FieldProperties.ListFilter">
+</member>
+</members>
+</doc>

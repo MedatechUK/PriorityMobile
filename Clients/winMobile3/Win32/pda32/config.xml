@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<version major="1" minor="1"/>
+	<form name="Service" DefaultView="form" readonly="True" from="ServiceCalls" where="">
+		<tab name="Call Detail">
+			<field name="Document No" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >DOCNO</field>
+			<field name="Customer" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >CUSTOMERNAME</field>
+			<field name="Date Scheduled" fieldstyle="date" mandatory="False" hidden="False" readonly="True" regex="" >PDATE</field>
+			<field name="Service Type" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >SERVTDES</field>
+			<field name="Call Status" fieldstyle="list" mandatory="False" hidden="False" readonly="False" regex="" ListSource="Statuses" ListValueCol="CODE" ListTextCol="CODE" ListFilter="">STATUS</field>
+		</tab>
+		<tab name="Address">
+			<field name="Customer" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >CUSTOMERNAME</field>
+			<field name="Address 1" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >ADDRESS2</field>
+			<field name="Address 2" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >ADDRESS21</field>
+			<field name="Address 3" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >ADDRESS3</field>
+			<field name="Address 4" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >CITYCOUNTY</field>
+			<field name="Post Code" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >POSTCODE</field>
+		</tab>
+		<tab name="Contact">
+			<field name="Contact Name" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >NAME</field>
+			<field name="Contact Number" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >PHONENUMBER</field>
+		</tab>
+		<tab name="Service Info">
+			<field name="Malfunction" fieldstyle="list" mandatory="True" hidden="False" readonly="False" regex="" ListSource="Malfunction" ListValueCol="MALFCODE" ListTextCol="MALFDES" ListFilter="">MALFCODE</field>
+			<field name="Resolution" fieldstyle="list" mandatory="True" hidden="False" readonly="False" regex="" ListSource="Resolution" ListValueCol="CODE" ListTextCol="DES" ListFilter="">RESCODE</field>
+		</tab>
+		<tab name="Hidden">
+			<field name="DATEOPENED" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >DATEOPENED</field>
+			<field name="USERLOGIN" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >USERLOGIN</field>
+			<field name="PTIME" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >PTIME</field>
+		</tab>
+		<form name="Details of Malfunction" DefaultView="HTML" readonly="True" from="Details" where="DOCNO=':$$.DOCNO'">
+			<tab name="General">
+				<field name="ORD" fieldstyle="text" mandatory="False" hidden="False" readonly="False" regex="" >ORD</field>
+				<field name="TEXT" fieldstyle="text" mandatory="False" hidden="False" readonly="true" regex="" >TEXT</field>
+			</tab>
+			<tab name="Hidden">
+				<field name="DOCNO" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >DOCNO</field>
+			</tab>
+		</form>
+		<form name="Report Parts" DefaultView="Table" readonly="False" from="Parts" where="DOCNO=':$$.DOCNO'">
+			<tab name="General">
+				<field name="Part" fieldstyle="list" mandatory="True" hidden="False" readonly="False" regex="" ListSource="Warehouse" ListValueCol="PARTNAME" ListTextCol="PARTDES" ListFilter="">PARTNAME</field>
+				<field name="Description" fieldstyle="text" mandatory="False" hidden="False" readonly="True" regex="" >PARTDES</field>
+				<field name="Quantity" fieldstyle="text" mandatory="True" hidden="False" readonly="False" regex="^[0-9]+$" >QTY</field>				
+			</tab>
+			<tab name="Hidden">
+				<field name="DOCNO" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >DOCNO</field>
+			</tab>
+		</form>
+		<form name="Description of Repair" DefaultView="HTML" readonly="True" from="Repair" where="DOCNO=':$$.DOCNO'">
+			<tab name="General">
+				<field name="TEXT" fieldstyle="text" mandatory="False" hidden="False" readonly="False" regex="" >TEXT</field>
+				<field name="ORD" fieldstyle="text" mandatory="False" hidden="False" readonly="False" regex="" >ORD</field>
+			</tab>
+			<tab name="Hidden">
+				<field name="DOCNO" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >DOCNO</field>
+			</tab>
+		</form>
+		<form name="Signature" DefaultView="Signature" readonly="True" from="Signature" where="DOCNO=':$$.DOCNO'">
+			<tab name="General">
+				<field name="ASTEXT" fieldstyle="text" mandatory="True" hidden="False" readonly="False" regex="" >ASTEXT</field>
+				<field name="SIGDATA" fieldstyle="text" mandatory="True" hidden="False" readonly="False" regex="" >SIGDATA</field>
+			</tab>
+			<tab name="Hidden">
+				<field name="DOCNO" fieldstyle="text" mandatory="False" hidden="True" readonly="True" regex="" >DOCNO</field>
+			</tab>
+		</form>
+	</form>
+</Configuration>

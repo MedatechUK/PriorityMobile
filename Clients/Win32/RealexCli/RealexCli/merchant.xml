@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<merchant>
+  <name>realexsample</name>
+  <password>
+    <normal>secret</normal>
+    <rebait>secret</rebait>
+    <refund>secret</refund>
+  </password>
+</merchant>

@@ -1,0 +1,11 @@
+M:\components\SlideMenu\SlideMenu\bin\Debug\mnuControls.dll
+M:\components\SlideMenu\SlideMenu\bin\Debug\mnuControls.pdb
+M:\components\SlideMenu\SlideMenu\bin\Debug\mnuControls.xml
+M:\components\SlideMenu\SlideMenu\obj\Debug\ResolveAssemblyReference.cache
+M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.vbproj.GenerateResource.Cache
+M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.dll
+M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.xml
+M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.pdb
+M:\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.daToolbar.resources
+M:\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.Resources.resources
+M:\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.SlideMenu.resources

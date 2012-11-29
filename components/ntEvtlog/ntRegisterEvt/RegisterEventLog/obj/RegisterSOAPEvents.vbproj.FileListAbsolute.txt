@@ -1,0 +1,12 @@
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\bin\Debug\RegisterSOAPEvents.exe
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\bin\Debug\RegisterSOAPEvents.pdb
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\bin\Debug\RegisterSOAPEvents.xml
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\bin\Debug\ntEvtlog.dll
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\bin\Debug\ntEvtlog.pdb
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\bin\Debug\ntEvtlog.xml
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\obj\Debug\ResolveAssemblyReference.cache
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\obj\Debug\RegisterSOAPEvents.Resources.resources
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\obj\Debug\RegisterSOAPEvents.vbproj.GenerateResource.Cache
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\obj\Debug\RegisterSOAPEvents.exe
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\obj\Debug\RegisterSOAPEvents.xml
+M:\components\ntEvtlog\ntRegisterEvt\RegisterSOAPEvents\obj\Debug\RegisterSOAPEvents.pdb

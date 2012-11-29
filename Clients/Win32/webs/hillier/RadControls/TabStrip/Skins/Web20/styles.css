@@ -1,0 +1,102 @@
+/* r.a.d.tabstrip Web 2.0 skin */
+
+.RadTabStrip_Web20
+{
+	font: bold 12px Arial, Verdana, Sans-serif;
+	text-align: center;
+	background: url('img/TabstripBackground.gif') repeat-x bottom left;
+}
+
+.RadTabStrip_Web20 ul
+{
+	padding: 6px 6px 0px 6px;
+}
+
+.RadTabStrip_Web20 li a
+{
+	padding-left: 10px;
+	background: transparent url('img/tabLeftOff.gif') 0px 0px no-repeat;
+	color: white;
+	text-decoration: none;
+	line-height: 22px;
+}
+
+.RadTabStrip_Web20 li a .wrap
+{
+	padding-right: 10px;
+	background: transparent url('img/tabRightOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_Web20 li a .innerWrap
+{
+	padding: 0 5px;
+	background:transparent url('img/tabMiddleOff.gif') 0px 0px repeat-x;
+}
+
+.RadTabStrip_Web20 li a.selected
+{
+	color: #333;
+	line-height: 22px;
+	background: transparent url('img/tabLeftOn.gif') 0px 0px no-repeat;
+}
+
+.RadTabStrip_Web20 li a.selected .wrap
+{
+	background: url('img/tabRightOn.gif') no-repeat right;
+}
+
+
+.RadTabStrip_Web20 li a.selected .innerWrap
+{
+	background: url('img/tabMiddleOn.gif') repeat-x;
+}
+
+/* arrows */
+.RadTabStrip_Web20 .rightArrow, 
+.RadTabStrip_Web20 .leftArrow,
+.RadTabStrip_Web20 .rightArrowDisabled, 
+.RadTabStrip_Web20 .leftArrowDisabled
+{
+	width:17px;
+	height: 22px;
+	text-indent: -10000px;
+	background-position: left 3px;
+	background-repeat: no-repeat;
+	background-color: White;
+}
+
+.RadTabStrip_Web20 .leftArrow
+{
+	background-image: url(img/ScrollLeft.png);
+}
+
+.RadTabStrip_Web20 .rightArrow
+{
+	background-image: url(img/ScrollRight.png);
+}
+
+/* Disabled Arrows */
+
+.RadTabStrip_Web20 .rightArrowDisabled, 
+.RadTabStrip_Web20 .leftArrowDisabled
+{
+	cursor: default;
+}
+
+.RadTabStrip_Web20 .leftArrowDisabled
+{
+	background-image: url(img/ScrollLeftDisabled.png);
+}
+
+.RadTabStrip_Web20 .rightArrowDisabled
+{
+	background-image: url(img/ScrollRightDisabled.png);
+}
+
+/* Disabled tab */
+
+.RadTabStrip_Web20 li a.disabled,
+.RadTabStrip_Web20 li a.disabled:hover
+{
+	color: gray;
+}

@@ -1,0 +1,106 @@
+.RadTabStrip_MySite
+{
+	font: 11px arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_MySite li a
+{
+	padding-left: 9px;
+	background: transparent url('img/tabOff.gif') 0px 0px no-repeat;
+	line-height: 24px;
+	margin-right: 1px; 
+	color: #666;
+	text-decoration:none;
+}
+
+.RadTabStrip_MySite li a .wrap
+{
+
+	padding-right: 9px;
+	line-height: 24px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_MySite li a:hover
+{
+	color: #333;
+}
+
+.RadTabStrip_MySite li a .innerWrap
+{
+	line-height: 24px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align: center;
+}
+
+.RadTabStrip_MySite li a.selected
+{
+	padding-left: 9px;
+	background: transparent url('img/tabOn.gif') 0px 0px no-repeat;
+	line-height: 24px;
+}
+
+.RadTabStrip_MySite li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+	line-height: 24px;
+	padding-right: 9px;
+	color: #8cac01;
+}
+
+.RadTabStrip_MySite li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+	padding-top: 0px;
+}
+
+.RadTabStrip_MySite li a.disabled,
+.RadTabStrip_MySite li a.disabled .wrap,
+.RadTabStrip_MySite li a.disabled .innerWrap
+{
+	cursor: default;
+	text-decoration: line-through;
+}
+
+.RadTabStrip_MySite li a.red,
+.RadTabStrip_MySite li a.red .wrap,
+.RadTabStrip_MySite li a.red .innerWrap
+{
+	color: red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_MySite .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+.RadTabStrip_MySite .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+
+.RadTabStrip_MySite .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_MySite .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}

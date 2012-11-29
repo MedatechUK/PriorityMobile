@@ -1,0 +1,10 @@
+M:\Clients\telnet\J2i.Net.Telnet\bin\Debug\J2i.Net.Telnet.exe
+M:\Clients\telnet\J2i.Net.Telnet\bin\Debug\J2i.Net.Telnet.pdb
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.telnet.ico
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.ConnectionSettingsForm.resources
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.Form1.resources
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.Properties.Resources.resources
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.csproj.GenerateResource.Cache
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.exe
+M:\Clients\telnet\J2i.Net.Telnet\obj\Debug\J2i.Net.Telnet.pdb

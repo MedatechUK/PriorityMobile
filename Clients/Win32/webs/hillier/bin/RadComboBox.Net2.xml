@@ -1,0 +1,1907 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RadComboBox.Net2</name>
+    </assembly>
+    <members>
+        <member name="T:Telerik.WebControls.RadComboBoxDataMapping">
+            <summary>
+            Summary description for RadComboBoxDataMapping.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.RadComboBoxDataMappingCollection">
+            <summary>
+            Summary description for RadComboBoxDataMappingCollection.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBoxDataMappingCollection.Add(Telerik.WebControls.RadComboBoxDataMapping)">
+            <summary>
+                Appends the specified <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> to
+                the end of the collection.
+            </summary>
+            <param name="mapping">
+                The <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> to append to the
+                collection.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBoxDataMappingCollection.Insert(System.Int32,Telerik.WebControls.RadComboBoxDataMapping)">
+            <summary>
+                Inserts the specified <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> in
+                the collection at the specified index location.
+            </summary>
+            <param name="index">
+                The location in the collection to insert the
+                <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see>.
+            </param>
+            <param name="mapping">
+                The <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> to add to the
+                collection.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBoxDataMappingCollection.Contains(Telerik.WebControls.RadComboBoxDataMapping)">
+            <summary>Determines whether the collection contains the specified item</summary>
+            <returns>
+            	<strong>true</strong> if the collection contains the specified
+                <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see>; otherwise
+                <strong>false</strong>.
+            </returns>
+            <param name="mapping">
+                The <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> to search for in the
+                collection.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBoxDataMappingCollection.Remove(Telerik.WebControls.RadComboBoxDataMapping)">
+            <summary>
+            	<para>
+                    Removes the specified <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see>
+                    from the collection.
+                </para>
+            </summary>
+            <param name="mapping">
+                The <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> to remove from the
+                collection.
+            </param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBoxDataMappingCollection.IndexOf(Telerik.WebControls.RadComboBoxDataMapping)">
+            <summary>
+                Determines the index value that represents the position of the specified
+                <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> in the collection
+            </summary>
+            <returns>
+                The zero-based index position of the specified
+                <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> in the collection.
+            </returns>
+            <param name="mapping">
+                A <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> to search for in the
+                collection.
+            </param>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBoxDataMappingCollection.Item(System.Int32)">
+            <summary>
+                Gets a <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see> at the specified
+                index in the collection.
+            </summary>
+            <value>
+                Use this indexer to get a <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see>
+                from the
+                <see cref="!:Telerik.WebControls.MaskPartCollection">MaskPartCollection</see> at the
+                specified index, using array notation.
+            </value>
+            <param name="index">
+                The zero-based index of the <see cref="T:Telerik.WebControls.RadComboBoxDataMapping">RadComboBoxDataMapping</see>
+                to retrieve from the collection.
+            </param>
+        </member>
+        <member name="T:Telerik.WebControls.Design.RadComboBoxTypeDescriptorContext">
+            <summary>
+            Summary description for RadComboBoxTypeDescriptorContext.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.RadComboBoxSort">
+            <summary>
+            The Telerik.WebControls.RadComboBoxSort enumeration supports three values - None, Ascending, Descending. Default is None.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadComboBoxSort.None">
+            <summary>
+            Items are not sorted at all.
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadComboBoxSort.Ascending">
+            <summary>
+            Items are sorted in ascending order (min to max)
+            </summary>
+        </member>
+        <member name="F:Telerik.WebControls.RadComboBoxSort.Descending">
+            <summary>
+            Items are sorted in descending order (max to min)
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.Ide.Common.RadComboBox.ProjectManagement">
+            <summary>
+            Utility class for Design - Time VisualStudio.NET project management.
+            </summary>
+        </member>
+        <member name="T:Telerik.RadComboboxUtils.PropertyCategory">
+            <summary>
+            Defines the common property categories' names
+            </summary>
+        </member>
+        <member name="P:Telerik.RadComboboxUtils.RadControl.Version">
+            <summary>Gets the component's current version.</summary>
+        </member>
+        <member name="P:Telerik.RadComboboxUtils.RadControl.UseEmbeddedScripts">
+            <summary>
+            Gets or sets a value indicating whether to use the embedded JavaScript files or not.
+            </summary>
+            <value>
+            	<strong>True</strong> if embedded JavaScript files are to be used; otherwise
+            <strong>false</strong>. The default value is <strong>true</strong>.
+            </value>
+            <remarks>
+            Use this property for debugging purposes or to apply any modifications to the
+            JavaScript files.
+            </remarks>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.LoadXmlString(System.String)">
+            <summary>Populates <strong>RadComboBox</strong> from an XML string.</summary>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim path As String = "~/Combobox/Examples/Programming/XmlStringBinding/combobox.xml"
+             
+            Dim sr As New StreamReader(Server.MapPath(path))
+            RadComboBox1.LoadXmlString(sr.ReadToEnd())
+            sr.Close()
+                </code>
+            	<code lang="CS" title="[New Example]">
+            string path = "~/Combobox/Examples/Programming/XmlStringBinding/combobox.xml";
+             
+            StreamReader sr = new StreamReader(Server.MapPath(path));
+            RadComboBox1.LoadXmlString(sr.ReadToEnd());
+            sr.Close();
+                </code>
+            </example>
+            <param name="s">The XML string.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.GetXmlString">
+            <summary>Returns the state of <strong>RadComboBox</strong> as an XML string.</summary>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.LoadContentFile(System.String)">
+            <summary>Loads combobox items from an XML content file.</summary>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            RadComboBox1.LoadContentFile(Server.MapPath("myfile.xml")
+                </code>
+            	<code lang="CS" title="[New Example]">
+            RadComboBox1.LoadContentFile(Server.MapPath("myfile.xml");
+                </code>
+            </example>
+            <param name="path">The path to the content file.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.FindItemByText(System.String)">
+            <summary>
+            Finds the first <strong>RadComboBoxItem</strong> with <strong>Text</strong> that
+            matches the given text value.
+            </summary>
+            <returns>
+            	<font size="1">The first <strong>RadComboBoxItem</strong> that matches the
+            specified text value.</font>
+            </returns>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim item As RadComboBoxItem = RadComboBox1.FindItemByText("New York")
+                </code>
+            	<code lang="CS" title="[New Example]">
+            RadComboBoxItem item = RadComboBox1.FindItemByText("New York")
+                </code>
+            </example>
+            <param name="text">The string to search for.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.FindItemByValue(System.String)">
+            <summary>
+            Finds the first <strong>RadComboBoxItem</strong> with <strong>Value</strong> that
+            matches the given value.
+            </summary>
+            <returns>
+            	<font size="1">The first <strong>RadComboBoxItem</strong> that matches the
+            specified value.</font>
+            </returns>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim item As RadComboBoxItem = RadComboBox1.FindItemByValue("1")
+                </code>
+            	<code lang="CS" title="[New Example]">
+            RadComboBoxItem item = RadComboBox1.FindItemByValue("1");
+                </code>
+            </example>
+            <param name="_value">The value to search for.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.FindItemIndexByText(System.String)">
+            <summary>
+            Returns the index of the first <strong>RadComboBoxItem</strong> with
+            <strong>Text</strong> that matches the given text value.
+            </summary>
+            <param name="text">The string to search for</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.FindItemIndexByValue(System.String)">
+            <summary>
+            Finds the first <strong>RadComboBoxItem</strong> with <strong>Value</strong> that
+            matches the given value.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.InvalidateClientSize">
+            <summary>
+            Invalidates the cached size which is calculated upon loading the ComboBox for the first time.
+            </summary>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.SortItems(Telerik.WebControls.RadComboBoxSort)">
+            <summary>Sorts the items in the <strong>RadComboBox</strong>.</summary>
+            <remarks>
+                The difference between this method and the <see cref="P:Telerik.WebControls.RadComboBox.Sort">Sort</see> property is
+                that the method sorts the items immediately, while the <strong>Sort</strong>
+                property is checked prior to rendering the control and sorting may not be effective
+                in the <strong>Page_Load</strong> event or in a postback event handler.
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            RadComboBox1.Sort(RadComboBoxSort.Ascending)
+                </code>
+            	<code lang="CS" title="[New Example]">
+            RadComboBox1.Sort(RadComboBoxSort.Ascending);
+                </code>
+            </example>
+            <param name="sortOrder">Ascending or Descending.</param>
+        </member>
+        <member name="M:Telerik.WebControls.RadComboBox.ClearSelection">
+            <summary>
+            	<para>Clears out the list selection and sets the <strong>Selected</strong> property
+                of all items to false.</para>
+            </summary>
+            <remarks><para>Use this method to reset the control so that no items are selected.</para></remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            RadComboBox1.ClearSelection()
+                </code>
+            	<code lang="CS" title="[New Example]">
+            RadComboBox1.ClearSelection();
+                </code>
+            </example>
+        </member>
+        <member name="F:Telerik.WebControls.RadComboBox.cachedSelectedIndex">
+            <summary><para>Gets or sets the index of the selected item in the ComboBox control.</para></summary>
+            <remarks>
+            Use the <b>SelectedIndex</b> property to programmatically specify or determine
+            the index of the selected item from the <strong>combobox</strong> control
+            </remarks>
+        </member>
+        <member name="E:Telerik.WebControls.RadComboBox.ItemDataBound">
+            <summary>
+            	<para>Occurs after an item is data bound to the <strong>RadComboBox</strong>
+                control.</para>
+            </summary>
+            <remarks>
+            	<para>This event provides you with the last opportunity to access the data item
+                before it is displayed on the client. After this event is raised, the data item is
+                nulled out and no longer available.</para>
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            &lt;radcb:radcombobox 
+                id="RadComboBox1" 
+                Runat="server" 
+            /&gt;
+               
+               Private Sub Page_Load(sender As Object, e As System.EventArgs) Handles MyBase.Load
+                  Dim itemsList As String() =  {"One", "Two", "Three"}
+                  
+                  Dim table As New DataTable()
+                  
+                  table.Columns.Add("One")
+                  table.Columns.Add("Two")
+                  table.Columns.Add("Three")
+                  
+                  table.Rows.Add(New String() {"One", "One", "One"})
+                  table.Rows.Add(New String() {"Two", "Two", "Two"})
+                  table.Rows.Add(New String() {"Three", "Three", "Three"})
+                  
+                  RadComboBox1.DataTextField = "One"
+                  RadComboBox1.DataValueField = "Two"
+                  RadComboBox1.DataSource = table
+                  RadComboBox1.DataBind()  
+               End Sub   
+               
+               Private Sub RadComboBox1_ItemDataBound(o As Object, e As Telerik.WebControls.RadComboBoxItemDataBoundEventArgs) Handles RadComboBox1.ItemDataBound
+                  Dim item As RadComboBoxItem = e.Item
+                  Dim row As DataRowView = CType(e.Item.DataItem, DataRowView)
+                  item.Attributes("Image") = row("Three").ToString()
+               End Sub
+                </code>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox 
+                id="RadComboBox1" 
+                Runat="server" 
+            /&gt;
+             
+            private void Page_Load(object sender, System.EventArgs e)
+            {
+                string [] itemsList = {"One", "Two", "Three"};    
+                DataTable table = new DataTable();
+             
+                table.Columns.Add("One");
+                table.Columns.Add("Two");
+                table.Columns.Add("Three");
+             
+                table.Rows.Add(new string [] {"One", "One", "One"} );
+                table.Rows.Add(new string [] {"Two", "Two", "Two"} );
+                table.Rows.Add(new string [] {"Three", "Three", "Three"} );    
+             
+                RadComboBox1.DataTextField = "One";
+                RadComboBox1.DataValueField = "Two";
+                RadComboBox1.DataSource = table;            
+                RadComboBox1.DataBind();
+            }
+             
+            private void RadComboBox1_ItemDataBound(object o, Telerik.WebControls.RadComboBoxItemDataBoundEventArgs e)
+            {
+                RadComboBoxItem item = e.Item;
+                DataRowView row = (DataRowView) e.Item.DataItem;
+                item.Attributes["Image"] = row["Three"].ToString();
+            }
+             
+            private void InitializeComponent()
+            {            
+                this.RadComboBox1.ItemDataBound += new Telerik.WebControls.RadComboBoxItemDataBoundEventHandler(this.RadComboBox1_ItemDataBound);
+                this.Load += new System.EventHandler(this.Page_Load);
+            }
+                </code>
+            </example>
+        </member>
+        <member name="E:Telerik.WebControls.RadComboBox.SelectedIndexChanged">
+            <summary>Occurs when the <strong>SelectedIndex</strong> property has changed.</summary>
+            <remarks>
+            	<para>You can create an event handler for this event to determine when the selected
+                index in the <strong>RadComboBox</strong> has been changed. This can be useful when
+                you need to display information in other controls based on the current selection in
+                the <strong>RadComboBox</strong>. You can use the event handler to load the
+                information in the other controls.</para>
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            &lt;radcb:radcombobox 
+                id="RadComboBox1" 
+                Runat="server" 
+                AutoPostBack="True"&gt;
+            &lt;/radcb:radcombobox&gt;
+             
+            Private Sub RadComboBox1_SelectedIndexChanged(ByVal o As Object, ByVal e As Telerik.WebControls.RadComboBoxSelectedIndexChangedEventArgs) Handles RadComboBox1.SelectedIndexChanged
+                Label1.Text = String.Format("Currently selected item: '{0}'. Previosly selected item: '{1}'", RadComboBox1.SelectedItem.Text, e.OldText)    
+            End Sub
+                </code>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox 
+                id="RadComboBox1" 
+                Runat="server" 
+                AutoPostBack="True"&gt;
+            &lt;/radcb:radcombobox&gt;
+             
+             
+            private void RadComboBox1_SelectedIndexChanged(object o, Telerik.WebControls.RadComboBoxSelectedIndexChangedEventArgs e)
+            {
+                Label1.Text = String.Format("Currently selected item: '{0}'. Previosly selected item: '{1}'", RadComboBox1.SelectedItem.Text, e.OldText);
+            }
+                </code>
+            </example>
+        </member>
+        <member name="E:Telerik.WebControls.RadComboBox.ItemsRequested">
+            <summary>
+            Occurs when <strong>RadComboBox</strong> initiates an AJAX callback to the
+            server.
+            </summary>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            &lt;radcb:radcombobox 
+                id="RadComboBox1" 
+                Runat="server
+                EnableLoadOnDemand="True"
+                MarkFirstMatch="True"&gt;
+            &lt;/radcb:radcombobox&gt;
+             
+            Private Sub RadComboBox1_ItemsRequested(ByVal o As Object, ByVal e As Telerik.WebControls.RadComboBoxItemsRequestedEventArgs) Handles RadComboBox1.ItemsRequested
+                Dim combo As RadComboBox = CType(o, RadComboBox)
+                combo.Items.Clear()
+             
+                Dim mdbPath As String = Server.MapPath("NorthWind.mdb")
+                Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdbPath)
+                dbCon.Open()
+             
+                Dim comboText As String = e.Text
+                Dim sql As String = "SELECT * from Customers WHERE CompanyName LIKE '" + comboText.Replace("'", "''") + "%'"
+             
+                Dim adapter As New OleDbDataAdapter(sql, dbCon)
+                Dim dt As New DataTable()
+                adapter.Fill(dt)
+                dbCon.Close()
+             
+                Dim row As DataRow
+                For Each row In dt.Rows
+                    Dim item As New RadComboBoxItem(row("CompanyName").ToString())        
+                    combo.Items.Add(item)
+                Next row
+            End Sub
+                </code>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox 
+                id="RadComboBox1" 
+                Runat="server
+                EnableLoadOnDemand="True"
+                MarkFirstMatch="True"&gt;
+            &lt;/radcb:radcombobox&gt;
+             
+            private void RadComboBox1_ItemsRequested(object o, Telerik.WebControls.RadComboBoxItemsRequestedEventArgs e)
+            {
+                RadComboBox combo = (RadComboBox) o;
+                combo.Items.Clear();
+             
+                string mdbPath = Server.MapPath("NorthWind.mdb"); 
+                OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdbPath); 
+                dbCon.Open();
+             
+                string text = e.Text;
+                string sql = "SELECT * from Customers WHERE CompanyName LIKE '" + text.Replace("'","''") + "%'";        
+                
+                OleDbDataAdapter adapter = new OleDbDataAdapter(sql, dbCon);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dbCon.Close();
+                
+                foreach (DataRow row in dt.Rows)
+                {
+                    RadComboBoxItem item = new RadComboBoxItem(row["CompanyName"].ToString().ToLower());        
+                    combo.Items.Add(item);
+                }
+            }
+                </code>
+            </example>
+            <remarks>
+            	<strong>ItemsRequested</strong> is called on each client-side text change of the
+                combobox if the <see cref="P:Telerik.WebControls.RadComboBox.EnableLoadOnDemand">EnabledLoadOnDemand</see> property
+                is set to true. The AJAX callback is initiated after a timeout specified by the
+                <see cref="P:Telerik.WebControls.RadComboBox.ItemRequestTimeout">ItemRequestTimeout</see> property.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.IsEmpty">
+            <summary>
+            Gets a value indicating whether the current instance of the combobox has child
+            items.
+            </summary>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            If RadComboBox1.IsEmpty
+              '
+              '
+              '
+            End If
+                </code>
+            	<code lang="CS" title="[New Example]">
+            if (RadComboBox1.IsEmpty)
+            {
+              //
+              //
+              //
+            }
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.IsCallBack">
+            <summary>
+            Gets a value indicating whether the page request is the result of a combobox
+            callback.
+            </summary>
+            <example>
+            	<code lang="CS" title="IsCallBackExample">
+            if (!Page.IsPostBack &amp;&amp; !RadComboBox1.IsCallBack)
+            {
+              // your init code here
+            }
+                </code>
+            	<code lang="VB" title="IsCallBackExampleVB">
+            If Not Page.IsPostBack AndAlso RadComboBox1.IsCallBack
+               'your init code here
+            End If
+                </code>
+            </example>
+            <remarks>
+            	<strong>IsCallBack</strong> can be used to skip heavy initialization code. On
+            combobox callback, <strong>Page.IsPostBack</strong> is false and code inside the
+            <strong>If Not Page.IsPostBack</strong> block gets executed too. You can skip this by
+            adding the <strong>RadComboBox.IsCallBack</strong> check.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientSelectedIndexChanging">
+            <summary>
+            The client-side event that is fired when the selected index of the combo is about
+            to be changed.
+            </summary>
+            <remarks>
+            The JavaScript event handler receives one parameter: the instance of the newly
+            selected item. The event can be cancelled - simply return <strong>false</strong> from
+            the event handler and the item will not change.
+            </remarks>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;script language="javascript"&gt;               
+                function HandleChange(item)
+                {
+                    if (item.Text == "LA")
+                    {
+                        // do not allow selecting item with text "LA"   
+                        return false; 
+                    }
+                    else
+                    {
+                        // alert the new item text and value.
+                        alert(item.Text + ":" + item.Value);
+                    }
+                }                        
+            &lt;/script&gt;
+             
+            &lt;radcb:radcombobox 
+                  id="RadComboBox1" 
+                  Runat="server" 
+                  OnClientSelectedIndexChanging="HandleChange"&gt;
+            &lt;/radcb:radcombobox&gt;
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientSelectedIndexChanged">
+            <summary>
+            The client-side event that is fired after the selected index of the combo has
+            changed.
+            </summary>
+            <remarks>
+            The JavaScript event handler receives one parameter: the instance of the newly
+            selected item.
+            </remarks>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;script language="javascript"&gt;               
+                function HandleChange(item)
+                {///        
+                    else
+                    {
+                        // alert the new item text and value.
+                        alert(item.Text + ":" + item.Value);
+                    }
+                }                        
+            &lt;/script&gt;
+             
+            &lt;radcb:radcombobox 
+                  id="RadComboBox1" 
+                  Runat="server" 
+                  OnClientSelectedIndexChanged="HandleChange"&gt;
+            &lt;/radcb:radcombobox&gt;
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientKeyPressing">
+            <summary>
+            The client-side event that is fired when the user presses a key inside the
+            combobox.
+            </summary>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;radcb:radcombobox 
+              Runat="server"
+              ID="RadComboBox3"       
+              OnClientKeyPressing="HandleKeyPress" 
+             ... 
+            /&gt;
+             
+               &lt;script language="javascript"&gt;
+               
+               function HandleKeyPress(combo, e)
+               {
+                if (e.keyCode == 13)
+                {
+                 document.forms[0].submit();
+                }
+               }
+               
+               &lt;/script&gt;
+                </code>
+            </example>
+            <remarks>
+            	<para>The event handler receives two parameters:</para>
+            	<list type="bullet">
+            		<item>the instance of the combobox client-side object;</item>
+            		<item>browser event arguments.</item>
+            	</list>
+            	<para>You can use the browser event arguments (and the <strong>keyCode</strong>
+                property in particular) to detect which key was pressed and to write your own
+                custom logic.</para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientDropDownOpening">
+            <summary>
+            The client-side event that is fired before the dropdown of the combobox is
+            opened.
+            </summary>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;script language="javascript"&gt;               
+             
+            function HandleOpen(comboBox)
+            {
+                if (someCondition)
+                {
+                    return false;   
+                }
+                else
+                {
+                    alert("Opening combobox with " + comboBox.Items.length + " items");
+                }
+            }
+                                   
+            &lt;/script&gt;
+             
+             
+            &lt;radcb:radcombobox 
+                  id="RadComboBox1" 
+                  Runat="server" 
+                  OnClientDropDownOpening="HandleOpen"&gt;
+            &lt;/radcb:radcombobox&gt;
+                </code>
+            </example>
+            <remarks>
+            The event handler receives a single parameter: the instance of the combobox
+            client-side object. The event can be cancelled - simply return <strong>false</strong>
+            from the event handler and the combobox dropdown will not be opened.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientDropDownClosing">
+            <summary>
+            The client-side event that is fired before the dropdown of the combobox is
+            closed.
+            </summary>
+            <remarks>
+            The event-handler receives a single parameter: the instance of the combobox
+            client-side object. The event can be cancelled - simply return <strong>false</strong>
+            from the event handler and the combobox dropdown will not be closed.
+            </remarks>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;script language="javascript"&gt;                
+              
+            function HandleClose(comboBox) 
+            { 
+                if (someCondition) 
+                { 
+                    return false;    
+                } 
+                else 
+                { 
+                    alert("Closing combobox with " + comboBox.Items.length + " items"); 
+                } 
+            } 
+                                    
+            &lt;/script&gt; 
+              
+              
+            &lt;radcb:radcombobox  
+                  id="RadComboBox1"  
+                  Runat="server"  
+                  OnClientDropDownClosing="HandleClose"&gt; 
+            &lt;/radcb:radcombobox&gt;
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientItemsRequesting">
+            <summary>
+            The client-side event that is fired before the combobox fires an AJAX callback to
+            call the <strong>ItemsRequested</strong> server-side event.
+            </summary>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;script language="javascript"&gt;               
+             
+            function HandleRequestStart(comboBox, text, more)
+            {
+                if (someCondition)
+                {
+                    return false;    
+                }
+            }
+                                    
+            &lt;/script&gt;
+             
+             
+            &lt;radcb:radcombobox 
+                  id="RadComboBox1" 
+                  Runat="server" 
+                  OnClientItemsRequesting="HandleRequestStart"&gt;
+            &lt;/radcb:radcombobox&gt;
+                </code>
+            </example>
+            <remarks>
+            	<para>The event handler receives three parameters:</para>
+            	<list type="bullet">
+            		<item>the instance of the combobox client-side object;</item>
+            		<item>the current text of the combo (string);</item>
+            		<item>whether more items are requested or if new items will clear existing
+                    items. (That is, if <strong>ShowMoreResultBox</strong> is set).
+                    (boolean).</item>
+            	</list>
+            	<para>The event can be cancelled: simply return <strong>false</strong> from the
+                event handler and the combobox will not issue the AJAX callback.</para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OnClientItemsRequested">
+            <summary>
+            The client-side event that is fired after the combobox callback returns the items
+            added from calling the <strong>ItemsRequested</strong> server-side event.
+            </summary>
+            <example>
+            	<code lang="JScript" title="[New Example]">
+            &lt;script language="javascript"&gt;
+             
+            function HandleRequestEnd(comboBox, text, more)
+            {
+                window.status = "CallBack completed";
+            }                        
+             
+            &lt;/script&gt;
+             
+             
+            &lt;radcb:radcombobox 
+                  id="RadComboBox1" 
+                  Runat="server" 
+                  OnClientItemsRequested="HandleRequestEnd"&gt;
+            &lt;/radcb:radcombobox&gt;
+                </code>
+            </example>
+            <remarks>
+            	<para>The event-handler receives three parameters:</para>
+            	<list type="bullet">
+            		<item>the instance of the combobox client-side object;</item>
+            		<item>the current text of the combo (string);</item>
+            		<item>whether more items are requested or if new items will clear existing
+                    items. (That is, if <strong>ShowMoreResultBox</strong> is set).
+                    (boolean)</item>
+            	</list>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Text">
+            <summary>
+            	<para>Gets or sets the text content of the <strong>RadComboBox</strong>
+                control.</para>
+            </summary>
+            <remarks>
+            In standard mode, the currently selected text can be accessed using both the
+            <strong>Text</strong> property or <strong>RadCombobox.SelectedItem.Text</strong>. In
+            AJAX callback modes, only the <strong>Text</strong> property can be used because
+            end-users can type or paste text that does not match the text of any item and
+            <strong>SelectedItem</strong> can be null.
+            </remarks>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            string comboText = RadComboBox1.Text
+                </code>
+            	<code lang="VB" title="[New Example]">
+            Dim comboText As String = RadComboBox1.Text
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Value">
+            <summary>
+            	<para>Gets or sets the value content of the <strong>RadComboBox</strong>
+                control.</para>
+            </summary>
+            <remarks>
+            In standard mode, the currently selected value can be accessed using both the
+            <strong>Value</strong> property or <strong>RadCombobox.SelectedItem.Value</strong>. In
+            AJAX callback modes, only the <strong>Value</strong> property can be used because
+            end-users can type or paste text that does not match the text of any item and
+            <strong>SelectedItem</strong> can be null. If there is no match of the current combobox
+            text and the text of the combobox items, <strong>Value</strong> is null.
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim comboValue As String = RadComboBox1.Value
+                </code>
+            	<code lang="CS" title="[New Example]">
+            string comboValue = RadComboBox1.Value;
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.LoadingMessage">
+            <summary>
+            The value of the message that is shown in <strong>RadComboBox</strong> while AJAX
+            callback call is in effect.
+            </summary>
+            <remarks>
+            This property can be used for customizing and localizing the text of the loading
+            message.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ItemRequestTimeout">
+            <summary>
+            Specifies the timeout after each keypress before <strong>RadComboBox</strong>
+            fires an AJAX callback to the <strong>ItemsRequested</strong> server-side event.
+            </summary>
+            <remarks>
+            In miliseconds. <strong>ItemRequestTimeout = 500</strong> is equal to half a
+            second delay.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ZIndex">
+            <summary>The HTML Z-index of the items dropdown of <strong>RadComboBox</strong>.</summary>
+            <remarks>
+            Can be used when the dropdown is to be shown over content with a specified
+            Z-index. If the combobox items dropdown is displayed below the content, set the
+            <strong>ZIndex</strong> property to a value higher than the value of the HTML content
+            below.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.AppendDataBoundItems">
+            <summary>
+            	<para>Gets or sets a value that indicates whether list items are cleared before
+                data binding.</para>
+            </summary>
+            <remarks>
+            	<para>The <strong>AppendDataBoundItems</strong> property allows you to add items to
+                the <strong>RadComboBox</strong> object before data binding occurs. After data
+                binding, the items collection contains both the items from the data source and the
+                previously added items.</para>
+            	<para>The value of this property is stored in view state.</para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.OpenDropDownOnLoad">
+            <summary>
+            Gets or sets a value that indicates whether the dropdown of the combobox should
+            be opened by default on loadnig the page.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.IsCaseSensitive">
+            <summary>
+            Gets or sets a value that indicates whether the combobox autocompletion logic is
+            case-sensitive or not.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.AutoPostBack">
+            <summary>
+            Gets or sets a value indicating whether a postback to the server automatically
+            occurs when the user changes the <strong>RadComboBox</strong> selection.
+            </summary>
+            <remarks>
+            	<para>Set this property to <b>true</b> if the server needs to capture the selection
+                as soon as it is made. For example, other controls on the Web page can be
+                automatically filled depending on the user's selection from a list control.</para>
+            	<para>This property can be used to allow automatic population of other controls on
+                the Web page based on a user's selection from a list.</para>
+            	<para>The value of this property is stored in view state.</para>
+            	<para>
+                    The server-side event that is fired is
+                    <see cref="E:Telerik.WebControls.RadComboBox.SelectedIndexChanged">SelectedIndexChanged</see>.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ShowMoreResultsBox">
+            <summary>
+            Gets or sets a value indicating whether the combobox should display the box for
+            requesting additional items
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.MarkFirstMatch">
+            <summary>
+            Gets or sets a value indicating whether the combobox should automatically
+            autocomplete and highlight the currently typed text to the closest item text
+            match.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.EnableLoadOnDemand">
+            <summary>
+            Gets or sets a value indicating whether the combobox should issue a callback to
+            the server whenever end-users change the text of the combo (keypress, paste,
+            etc).
+            </summary>
+            <remarks>
+                In Load On Demand mode, the combobox starts a callback after a specified amount of
+                time (see <see cref="P:Telerik.WebControls.RadComboBox.ItemRequestTimeout">ItemRequestTimeout</see>) and calls the
+                server-side <see cref="E:Telerik.WebControls.RadComboBox.ItemsRequested">ItemsRequested</see> event. Depending on the
+                value of the event arguments, you can add new items to the combobox object and the
+                items will be propagated to the browser after the request.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ShowToggleImage">
+            <summary>
+            Gets or sets a value indicating whether the dropdown image next to the combobox
+            text area should be displayed.
+            </summary>
+            <remarks>
+            The dropdown image is located in the <em>Skins</em> folder of the combo - by
+            default <em>~/RadControls/ComboBox/Skins/{SkinName}/DropArrow.gif</em>. You can
+            custmoize or modify the image and place it in the respective folder of the skin you are
+            using.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.NoWrap">
+            <summary>
+            	<para>Gets or sets a value indicating whether the text in a combobox item
+                automatically continues on the next line when it reaches the end of the
+                dropdown.</para>
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.HideCombo">
+            <summary>
+            You can use this property to hide the combox if you wish to make it invisible in
+            the initial page loading while using load on demand. The <strong>Visible</strong>
+            property should not be used in this case because this prevents the control from
+            rendering at all and the combo cannot process the callback request.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.AllowCustomText">
+            <summary><para>Determines whether custom text can be entered into the input field of RadComboBox.</para></summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ShowDropDownOnTextboxClick">
+            <summary><para>Determines whether the dropdown shows when the user clicks in the input field.</para></summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.HighlightTemplatedItems">
+            <summary>
+                Gets or sets a value indicating whether items defined in the
+                <see cref="P:Telerik.WebControls.RadComboBox.ItemTemplate">ItemTemplate</see> template should be automatically
+                highlighted on mouse hover or keyboard navigation.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ExpandEffect">
+            <remarks>
+            	<para>List of supported effects:</para>
+            	<para>Barn<br/>
+                Blinds<br/>
+                Checkerboard<br/>
+                Fade<br/>
+                GradientWipe<br/>
+                Inset<br/>
+                Iris<br/>
+                Pixelate<br/>
+                RadialWipe<br/>
+                RandomBars<br/>
+                RandomDissolve<br/>
+                Slide<br/>
+                Spiral<br/>
+                Stretch<br/>
+                Strips<br/>
+                Wheel<br/>
+                ZigZag</para>
+            </remarks>
+            <summary>
+            Sets the expand animation effect for the combobox dropdown. Supported on Internet
+            Explorer 5.5+ only.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Skin">
+            <summary>
+            Sets the Skin applied to the combobox instance. The default skin is
+            "Classic".
+            </summary>
+            <remarks>
+            	<para>RadComboBox comes with a predefined set of skins. A skin is a set
+                of files in a folder located in <em>~/RadControls/ComboBox/Skins/{SkinName}</em>. A
+                skin consists of several images (dropdown arrow image, more results images
+                (disabled / enabled)) and a <em>Styles.css</em> file containing various CSS styles
+                that format different combobox HTML elements. Here is a list of the default
+                styles:<br/>
+            		<br/>
+                .ComboBoxItem_{SkinName}<br/>
+                .ComboBoxItemHover_{SkinName}<br/>
+                .ComboBoxItemDisabled_{SkinName}<br/>
+                .ComboBoxDropDown_{SkinName}<br/>
+                .ComboBoxImage_{SkinName}<br/>
+                .ComboBoxInput_{SkinName}<br/>
+                .ComboBoxImageHover_{SkinName}<br/>
+                .ComboBoxInputHover_{SkinName}<br/>
+                .ComboBoxLoadingMessage_{SkinName}</para>
+            	<para>You can customize the appearance of the combobox by modifying the
+                skins</para>
+            </remarks>		
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.SkinsPath">
+            <summary>
+            Gets or sets the relative path of the folder containing the skins.
+            </summary>
+            <example>
+            If the skin folder is located in the project root and is named "Skins", the
+            <strong>SkinsPath</strong> property should be set to <strong>"~/Skins"</strong>. Then
+            you can create subfolders for individual skins e.g. Skins/Gold, Skins/Classic
+            etc.
+            </example>
+            <value>
+            A string specifying the relative path to the folder which contains
+            RadComboBox skins. The default value is
+            <strong>"~/RadControls/ComboBox/Skins"</strong>.
+            </value>
+            <remarks>
+            RadComboBox ships with a set of predefined skins which are
+            ready to use. They are located in <em>RadControls/ComboBox/Skins</em>.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Sort">
+            <summary>
+            Automatically sorts items alphabetically (based on the <strong>Text</strong>
+            property) in ascending or descending order.
+            </summary>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            RadComboBox1.Sort = RadComboBoxSort.Ascending;
+             RadComboBox1.Sort = RadComboBoxSort.Descending;
+             RadComboBox1.Sort = RadComboBoxSort.None;
+                </code>
+            	<code lang="VB" title="[New Example]">
+            RadComboBox1.Sort = RadComboBoxSort.Ascending
+             RadComboBox1.Sort = RadComboBoxSort.Descending
+             RadComboBox1.Sort = RadComboBoxSort.None
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.RadComboBoxImagePosition">
+            <summary>Sets or gets the position (left or right) of the arrow image dropdown.</summary>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            RadComboBox1.RadComboBoxImagePosition = RadComboBoxImagePosition.Left;
+                </code>
+            	<code lang="VB" title="[New Example]">
+            RadComboBox1.RadComboBoxImagePosition = RadComboBoxImagePosition.Right
+                </code>
+            </example>
+            <remarks>
+            By default the image is shown on the right. Left can be used in RTL
+            (right-to-left) language scenarios.
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.DataSource">
+            <summary>
+            Gets or sets the data source of the list that is being bound. The default value
+            is a null reference (<b>Nothing</b> in Visual Basic).
+            </summary>
+            <remarks>
+            	<para>
+                    To bind a data source to a combobox, you must first use the control's
+                    <strong>DataBind()</strong> method to ensure data binding. The data source can
+                    either be of type IEnumerable, or of type IListSource. If the data source is of
+                    type IListSource, you can use the <see cref="!:DataMember">DataMember</see> field
+                    to specify which member to extract.
+                </para>
+            	<para>
+                    RadComboBox fully supports binding to collections, tables and
+                    datasets. Simply make sure you populate your collection from your data source
+                    and set the <strong>DataSource</strong> property of RadComboBox to
+                    the instance of the the collection and call the <strong>DataBind()</strong>
+                    method. In addition, you can specify the
+                    <see cref="P:Telerik.WebControls.RadComboBox.DataTextField">DataTextField</see> and
+                    <see cref="P:Telerik.WebControls.RadComboBox.DataValueField">DataValueField</see> of the data-source, using the
+                    respective RadComboBox properties.<br/>
+            		<br/>
+            		<b>Data-Binding expressions</b><br/>
+            		<br/>
+                    You can use databinding expressions in the ItemTemplate template of the
+                    combobox. Data-binding expressions have the typical ASP.NET format and syntax,
+                    i.e.<br/>
+            		<br/>
+            		<b>&lt;%# DataBinder.Eval(Container.DataItem, "Author") %&gt;</b><br/>
+            		<br/>
+                    In RadComboBox the Container object contains two data objects:<br/>
+                    - <b>DataItem</b> - the current row of the respective datasource. You can
+                    access the column needed using the column name as a second argument.<br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.DataItem, "Author")
+                    %&gt;</b><br/>
+            		<br/>
+                    - <b>Item</b> - the current item (<strong>ComboBoxItem</strong>). You can
+                    access all properties and custom attributes of the current combobox item.<br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.Item, "Text") %&gt;</b><br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.Item,
+                    "Attributes['ImagePath']") %&gt;</b>
+            	</para>
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim itemsList As String() = {"One", "Two", "Three"}
+             
+            Dim table As New DataTable()
+             
+            table.Columns.Add("One")
+            table.Columns.Add("Two")
+            table.Columns.Add("Three")
+             
+            table.Rows.Add(New String() {"One", "One", "One"})
+            table.Rows.Add(New String() {"Two", "Two", "Two"})
+            table.Rows.Add(New String() {"Three", "Three", "Three"})
+             
+            combo.DataTextField = "One"
+            combo.DataSource = table
+            combo.DataBind()
+                </code>
+            	<code lang="CS" title="[New Example]">
+            string [] itemsList = {"One", "Two", "Three"};
+                        
+            DataTable table = new DataTable();
+             
+            table.Columns.Add("One");
+            table.Columns.Add("Two");
+            table.Columns.Add("Three");
+             
+            table.Rows.Add(new string [] {"One", "One", "One"} );
+            table.Rows.Add(new string [] {"Two", "Two", "Two"} );
+            table.Rows.Add(new string [] {"Three", "Three", "Three"} );    
+             
+            combo.DataTextField = "One";
+            combo.DataValueField = "Two";
+            combo.DataSource = table;            
+            combo.DataBind();
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.DataTextField">
+            <summary>
+            	<para>Specifies which property of a data-bound item to use when binding an item's
+                <strong>Text</strong> property. The default is a <strong>null</strong> reference
+                (<strong>Nothing</strong> in Visual Basic).</para>
+            </summary>
+            <remarks>
+            	<para>
+                    To bind a data source to a combobox, you must first use the control's
+                    <strong>DataBind()</strong> method to ensure data binding. The data source can
+                    either be of type IEnumerable, or it can be of type IListSource. If the data
+                    source is of type IListSource, you can use the
+                    <see cref="!:DataMember">DataMember</see> field to specify which member to
+                    extract.
+                </para>
+            	<para>
+                    RadComboBox fully supports binding to collections, tables and
+                    datasets. Simply make sure you populate your collection from your data-source
+                    and set the <strong>DataSource</strong> property of RadComboBox to
+                    the instance of the the collection and call the <strong>DataBind()</strong>
+                    method. In addition, you can specify the
+                    <see cref="P:Telerik.WebControls.RadComboBox.DataTextField">DataTextField</see> and
+                    <see cref="P:Telerik.WebControls.RadComboBox.DataValueField">DataValueField</see> of the data-source using the
+                    respective RadComboBox properties.<br/>
+            		<br/>
+            		<b>Data-Binding expressions</b><br/>
+            		<br/>
+                    You can use databinding expressions in the ItemTemplate template of the
+                    combobox. Data-binding expressions have the typical ASP.NET format and syntax,
+                    i.e.<br/>
+            		<br/>
+            		<b>&lt;%# DataBinder.Eval(Container.DataItem, "Author") %&gt;</b><br/>
+            		<br/>
+                    In RadComboBox the Container object contains two data objects:<br/>
+                    - <b>DataItem</b> - the current row of the respective datasource. You can
+                    access the column needed using the column name as a second argument.<br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.DataItem, "Author")
+                    %&gt;</b><br/>
+            		<br/>
+                    - <b>Item</b> - the current item (<strong>ComboBoxItem</strong>). You can
+                    access all properties and custom attributes of the current combobox item.<br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.Item, "Text") %&gt;</b><br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.Item,
+                    "Attributes['ImagePath']") %&gt;</b>
+            	</para>
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim itemsList As String() = {"One", "Two", "Three"}
+             
+            Dim table As New DataTable()
+             
+            table.Columns.Add("One")
+            table.Columns.Add("Two")
+            table.Columns.Add("Three")
+             
+            table.Rows.Add(New String() {"One", "One", "One"})
+            table.Rows.Add(New String() {"Two", "Two", "Two"})
+            table.Rows.Add(New String() {"Three", "Three", "Three"})
+             
+            combo.DataTextField = "One"
+            combo.DataSource = table
+            combo.DataBind()
+                </code>
+            	<code lang="CS" title="[New Example]">
+            string [] itemsList = {"One", "Two", "Three"};
+                        
+            DataTable table = new DataTable();
+             
+            table.Columns.Add("One");
+            table.Columns.Add("Two");
+            table.Columns.Add("Three");
+             
+            table.Rows.Add(new string [] {"One", "One", "One"} );
+            table.Rows.Add(new string [] {"Two", "Two", "Two"} );
+            table.Rows.Add(new string [] {"Three", "Three", "Three"} );    
+             
+            combo.DataTextField = "One";
+            combo.DataValueField = "Two";
+            combo.DataSource = table;            
+            combo.DataBind();
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.DataValueField">
+            <summary>
+            Specifies which property of a data-bound item to use when binding an item's
+            <strong>Value</strong> property. The default is a <strong>null</strong> reference
+            (<strong>Nothing</strong> in Visual Basic).
+            </summary>
+            <remarks>
+            	<para>
+                    To bind a data source to a combobox, you must first use the control's
+                    <strong>DataBind()</strong> method to ensure data binding. The data source can
+                    either be of type IEnumerable, or it can be of type IListSource. If the data
+                    source is of type IListSource, you can use the
+                    <see cref="!:DataMember">DataMember</see> field to specify which member to
+                    extract.
+                </para>
+            	<para>
+                    RadComboBox fully supports binding to collections, tables and
+                    datasets. Simply make sure you populate your collection from your data-source
+                    and set the <strong>DataSource</strong> property of RadComboBox to
+                    the instance of the the collection and call the <strong>DataBind()</strong>
+                    method. In addition, you can specify the
+                    <see cref="P:Telerik.WebControls.RadComboBox.DataTextField">DataTextField</see> and
+                    <see cref="P:Telerik.WebControls.RadComboBox.DataValueField">DataValueField</see> of the data-source using the
+                    respective RadComboBox properties.<br/>
+            		<br/>
+            		<b>Data-Binding expressions</b><br/>
+            		<br/>
+                    You can use databinding expressions in the ItemTemplate template of the
+                    combobox. Data-binding expressions have the typical ASP.NET format and syntax,
+                    i.e.<br/>
+            		<br/>
+            		<b>&lt;%# DataBinder.Eval(Container.DataItem, "Author") %&gt;</b><br/>
+            		<br/>
+                    In RadComboBox the Container object contains two data objects:<br/>
+                    - <b>DataItem</b> - the current row of the respective datasource. You can
+                    access the column needed using the column name as a second argument.<br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.DataItem, "Author")
+                    %&gt;</b><br/>
+            		<br/>
+                    - <b>Item</b> - the current item (<strong>ComboBoxItem</strong>). You can
+                    access all properties and custom attributes of the current combobox item.<br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.Item, "Text") %&gt;</b><br/>
+                    Example: <b>&lt;%# DataBinder.Eval(Container.Item,
+                    "Attributes['ImagePath']") %&gt;</b>
+            	</para>
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim itemsList As String() = {"One", "Two", "Three"}
+             
+            Dim table As New DataTable()
+             
+            table.Columns.Add("One")
+            table.Columns.Add("Two")
+            table.Columns.Add("Three")
+             
+            table.Rows.Add(New String() {"One", "One", "One"})
+            table.Rows.Add(New String() {"Two", "Two", "Two"})
+            table.Rows.Add(New String() {"Three", "Three", "Three"})
+             
+            combo.DataTextField = "One"
+            combo.DataSource = table
+            combo.DataBind()
+                </code>
+            	<code lang="CS" title="[New Example]">
+            string [] itemsList = {"One", "Two", "Three"};
+                        
+            DataTable table = new DataTable();
+             
+            table.Columns.Add("One");
+            table.Columns.Add("Two");
+            table.Columns.Add("Three");
+             
+            table.Rows.Add(new string [] {"One", "One", "One"} );
+            table.Rows.Add(new string [] {"Two", "Two", "Two"} );
+            table.Rows.Add(new string [] {"Three", "Three", "Three"} );    
+             
+            combo.DataTextField = "One";
+            combo.DataValueField = "Two";
+            combo.DataSource = table;            
+            combo.DataBind();
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.AutoCompleteSeparator">
+            <summary>
+            Gets or sets a list of separators: autocomplete logic is reset afer a separator
+            is entered and users can autocomplete multiple items.
+            </summary>
+            <remarks>You can use several separators at once.</remarks>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            RadComboBox1.AutoCompleteSeparator = ";,";
+                </code>
+            	<code lang="VB" title="[New Example]">
+            RadComboBox1.AutoCompleteSeparator = ";,"
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ExternalCallBackPage">
+            <summary>Gets or sets the value of the external callback streamer page.</summary>
+            <remarks>
+            For complex load-on-demand scenarios, such as a load-on-demand combobox inside an
+            asp:datagrid EditTemplate, you will need to use the
+            <strong>ExternalCallBackPage</strong> property of RadComboBox. The
+            callback <strong>ItemsRequested</strong> event fires only when then combobox is
+            initially visible in the page life-cycle (<strong>Page.IsPostBack == false</strong>).
+            This is often not the case when the combobox has been added dynamically to the page or
+            when the combo is inside a template that is not initially visible (for example,
+            EditTemplate in asp:datagrid). This is where <strong>ExternalCallBackPage</strong>
+            comes to help.<br/>
+            	<br/>
+            	<strong>ExternalCallBackPage</strong> is a normal ASP.NET ASPX page that contains only
+            one instance of RadComboBox. The ID of the combobox should match
+            the ID of the combobox initiating the request. You can then wire the
+            <strong>ItemsRequested</strong> event handler of the external combobox and write your
+            custom logic, the same way you would do in the original page. Finally, set the
+            <strong>ExternalCallBackPage</strong> property of the original combobox to the name of
+            the callback (streamer) page. The path is relative to the current path of the parent
+            page. (That is, no path is needed if the streamer page is in the same folder - just the
+            name of the file).<br/>
+            	<br/>
+            An additional benefit of <strong>ExternalCallBackPage</strong> is that methods in the
+            original page lifecycle (<strong>Page_Init</strong>, <strong>Page_Load</strong>, etc)
+            do not get executed - the execution is directly transferred to the external streamer
+            page.
+            </remarks>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            	</code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.CausesValidation">
+            <summary>
+            	<para>Gets or sets a value indicating whether validation is performed when the
+                <strong>RadComboBox</strong> control posts back to the server.</para>
+            </summary>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            	</code>
+            </example>
+            <remarks>
+            	<para>By default, page validation is performed when a <strong>RadComboBox</strong>
+                control is clicked. Page validation determines whether the input controls
+                associated with a validation control on the page all pass the validation rules
+                specified by the validation control.</para>
+            	<para>You can specify or determine whether validation is performed on both the
+                client and the server when a <strong>RadComboBox</strong> control is clicked by
+                using the <strong>CausesValidation</strong> property. To prevent validation from
+                being performed, set the <strong>CausesValidation</strong> property to
+                <strong>false</strong>.</para>
+            	<para>This property is commonly set to <strong>false</strong> when resetting or
+                clearing <strong>RadComboBox</strong>, to prevent validation from being performed
+                when <strong>RadComboBox</strong> is clicked.</para>
+            	<para>When the value of the <strong>CausesValidation</strong> property is set to
+                <strong>true</strong>, you can also use the <strong>ValidationGroup</strong>
+                property to specify the name of the validation group for which the
+                <strong>RadComboBox</strong> control causes validation.</para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.SelectedItem">
+            <summary><para>Gets the currently selected item in the combobox.</para></summary>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox id="RadComboBox1" Runat="server" AutoPostBack="True"&gt;&lt;/radcb:radcombobox&gt;
+                                
+            private void RadComboBox1_SelectedIndexChanged(object o, Telerik.WebControls.RadComboBoxSelectedIndexChangedEventArgs e)
+            {
+                Label1.Text = RadComboBox1.SelectedItem.Text;   
+            }
+                </code>
+            	<code lang="VB" title="[New Example]">
+            &lt;radcb:radcombobox id="RadComboBox1" Runat="server" AutoPostBack="True"&gt;&lt;/radcb:radcombobox&gt;
+                                
+            Private Sub RadComboBox1_SelectedIndexChanged(ByVal o As Object, ByVal e As Telerik.WebControls.RadComboBoxSelectedIndexChangedEventArgs) Handles RadComboBox1.SelectedIndexChanged
+                Label1.Text = RadComboBox1.SelectedItem.Text    
+            End Sub
+                </code>
+            </example>
+            <remarks>
+            	<strong>SelectedItem</strong> can be <strong>null</strong> in load-on-demand or
+                <see cref="P:Telerik.WebControls.RadComboBox.AllowCustomText">AllowCustomText</see> modes. End-users can type any
+                text.
+            </remarks>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Telerik.WebControls.RadComboBox.OffsetX" -->
+        <member name="P:Telerik.WebControls.RadComboBox.OffsetY">
+            <summary>
+            Gets or sets a value indicating the vertical offset of the combobox dropdown.
+            </summary>
+            <value>
+            An integer specifying the vertical offset of the combobox dropdown(measured in
+            pixels). The default value is 0 (no offset).
+            </value>
+            <remarks>
+            	<para>Use the <strong>OffsetY</strong> property to change the position where the combobox dropdown
+                will appear.</para>
+            	<para>
+                    To customize the horizontal offset use the <see cref="P:Telerik.WebControls.RadComboBox.OffsetX">OffsetX</see>
+                    property.
+                </para>
+            </remarks>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.DropDownWidth">
+            <summary>
+            Gets or sets the width of the dropdown in pixels.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.BorderColor">
+            <exclude/>
+            <excludetoc/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.BorderStyle">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.BorderWidth">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.CssClass">
+            <exclude/>
+            <excludetoc/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Font">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.BackColor">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ForeColor">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ValidationGroup">
+            <summary>
+            	<para><font color="red">Note: This property is new in the .NET Framework version
+                2.0.</font></para>
+            	<para>Gets or sets the name of the validation group to which this validation
+                control belongs.</para>
+            </summary>
+            <value>
+            The name of the validation group to which this validation control belongs. The
+            default is an empty string (""), which indicates that this property is not set.
+            </value>
+            <remarks>
+                This property works only when <see cref="P:Telerik.WebControls.RadComboBox.CausesValidation">CausesValidation</see>
+                is set to true.
+            </remarks>
+            
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.PostBackUrl">
+            <summary>
+            	<para>Gets or sets the URL of the page to post to from the current page when a tab
+                from the tabstrip is clicked.</para>
+            </summary>
+            <value>
+            The URL of the Web page to post to from the current page when a tab from the
+            tabstrip control is clicked. The default value is an empty string (""), which causes
+            the page to post back to itself.
+            </value>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ItemTemplate">
+            <remarks>
+            	<para>Use the <strong>ItemTemplate</strong> property to control the contents of the
+                items in the <strong>RadComboBox</strong> control.</para>
+            	<para>To specify a template for the combobox items, place the &lt;ItemTemplate&gt;
+                tags between the opening and closing tags of the <strong>RadComboBox</strong>
+                control. You can then list the contents of the template between the opening and
+                closing &lt;ItemTemplate&gt; tags.</para>
+            </remarks>
+            <summary>
+            Gets or sets the template for the items in the <strong>RadComboBox</strong>
+            control.
+            </summary>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox                           
+                id="RadComboBox1"
+                Runat="server"
+                Height="190px"
+                Width="420px"&gt;
+                &lt;headertemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Company Name
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                City
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Title
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;" align="right"&gt;                                            
+                                &lt;img src="img/help.gif"/&gt;                                                                                
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;                                
+                &lt;/headertemplate&gt;
+                &lt;itemtemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "CompanyName") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "City") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "ContactTitle") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;"&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/itemtemplate&gt;                          
+            &lt;/radcb:radcombobox&gt;
+             
+             
+            private void Page_Load(object sender, System.EventArgs e)
+            {            
+                if (!Page.IsPostBack)
+                {
+                    string mdbPath = Server.MapPath("NorthWind.mdb"); 
+                    OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdbPath); 
+                    dbCon.Open();
+                    
+                    string sql = "SELECT * from Customers";       
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(sql, dbCon);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dbCon.Close();
+                    
+                    RadComboBox1.DataSource = dt;
+                    RadComboBox1.DataBind();
+                }
+            }
+                </code>
+            	<code lang="VB" title="[New Example]">
+            &lt;radcb:radcombobox                           
+                id="RadComboBox1"
+                Runat="server"
+                Height="190px"
+                Width="420px"&gt;
+                &lt;headertemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Company Name
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                City
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Title
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;" align="right"&gt;                                            
+                                &lt;img src="img/help.gif"/&gt;                                                                                
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;                                
+                &lt;/headertemplate&gt;
+                &lt;itemtemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "CompanyName") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "City") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "ContactTitle") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;"&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/itemtemplate&gt;                          
+            &lt;/radcb:radcombobox&gt;
+             
+             
+            Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+                    Dim mdbPath As String = Server.MapPath("NorthWind.mdb")
+                    Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdbPath)
+                    dbCon.Open()
+             
+                    Dim sql As String = "SELECT * from Customers"       
+             
+                    Dim adapter As New OleDbDataAdapter(sql, dbCon)
+                    Dim dt As New DataTable()
+                    adapter.Fill(dt)
+                    dbCon.Close()
+             
+                    RadComboBox1.DataSource = dt
+                    RadComboBox1.DataBind()
+             End Sub 'LoadSupervisors
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.HeaderTemplate">
+            <summary>
+            Gets or sets the template for the heading section of the
+            <strong>RadComboBox</strong> control.
+            </summary>
+            <remarks>
+            Use the <b>HeaderTemplate</b> property to control the contents of the heading
+            section of <strong>RadComboBox</strong>.
+            </remarks>
+            <example>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox                           
+                id="RadComboBox1"
+                Runat="server"
+                Height="190px"
+                Width="420px"&gt;
+                &lt;headertemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Company Name
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                City
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Title
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;" align="right"&gt;                                            
+                                &lt;img src="img/help.gif"/&gt;                                                                                
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;                                
+                &lt;/headertemplate&gt;
+                &lt;itemtemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "CompanyName") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "City") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "ContactTitle") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;"&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/itemtemplate&gt;                          
+            &lt;/radcb:radcombobox&gt;
+             
+             
+            private void Page_Load(object sender, System.EventArgs e)
+            {            
+                if (!Page.IsPostBack)
+                {
+                    string mdbPath = Server.MapPath("NorthWind.mdb"); 
+                    OleDbConnection dbCon = new OleDbConnection ("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdbPath); 
+                    dbCon.Open();
+                    
+                    string sql = "SELECT * from Customers";       
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(sql, dbCon);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dbCon.Close();
+                    
+                    RadComboBox1.DataSource = dt;
+                    RadComboBox1.DataBind();
+                }
+            }
+                </code>
+            	<code lang="CS" title="[New Example]">
+            &lt;radcb:radcombobox                           
+                id="RadComboBox1"
+                Runat="server"
+                Height="190px"
+                Width="420px"&gt;
+                &lt;headertemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Company Name
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                City
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                Title
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;" align="right"&gt;                                            
+                                &lt;img src="img/help.gif"/&gt;                                                                                
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;                                
+                &lt;/headertemplate&gt;
+                &lt;itemtemplate&gt;
+                    &lt;table style="width:415px"&gt;
+                        &lt;tr&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "CompanyName") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "City") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:125px;"&gt;
+                                &lt;%# DataBinder.Eval(Container.DataItem, "ContactTitle") %&gt;
+                            &lt;/td&gt;
+                            &lt;td style="width:40px;"&gt;
+                            &lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/table&gt;
+                &lt;/itemtemplate&gt;                          
+            &lt;/radcb:radcombobox&gt;
+             
+             
+            Private Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+                    Dim mdbPath As String = Server.MapPath("NorthWind.mdb")
+                    Dim dbCon As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + mdbPath)
+                    dbCon.Open()
+             
+                    Dim sql As String = "SELECT * from Customers"       
+             
+                    Dim adapter As New OleDbDataAdapter(sql, dbCon)
+                    Dim dt As New DataTable()
+                    adapter.Fill(dt)
+                    dbCon.Close()
+             
+                    RadComboBox1.DataSource = dt
+                    RadComboBox1.DataBind()
+                End Sub 'LoadSupervisors
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Items">
+            <summary><para>Gets the items of the <strong>RadComboBox</strong>.</para></summary>
+            <remarks>
+            	<para>
+                    This property enables you to obtain a reference to the list of items currently
+                    stored in the <strong>RadComboBox</strong>. With this reference, you can add
+                    items, remove items, and obtain a count of the items in the collection. For
+                    more information about the tasks that can be performed with the item
+                    collection, see the
+                    <see cref="T:Telerik.WebControls.RadComboBoxItemCollection">RadComboBoxItemCollection</see> class
+                    reference topics.
+                </para>
+            	<para>
+                    You can also manipulate the items of a <strong>RadComboBox</strong> by using
+                    the <see cref="P:Telerik.WebControls.RadComboBox.DataSource">DataSource</see> property. If you use the
+                    <strong>DataSource</strong> property to add items to a
+                    <strong>RadComboBox</strong>, you can view the items using the
+                    <strong>Items</strong> property but you cannot add or remove items from the
+                    list with the methods from
+                    the<see cref="T:Telerik.WebControls.RadComboBoxItemCollection">RadComboBoxItemCollection</see>.
+                </para>
+            </remarks>
+            <example>
+            	<code lang="VB" title="[New Example]">
+            Dim item1 As New RadComboBoxItem("RadEditor")
+            RadComboBox1.Items.Add(item1)
+             
+            Dim item2 As New RadComboBoxItem("RadTreeView")
+            RadComboBox1.Items.Add(item2)
+             
+            Dim item3 As New RadComboBoxItem("RadSpell")
+            RadComboBox1.Items.Add(item3)
+             
+            Dim item4 As New RadComboBoxItem("RadMenu")
+            RadComboBox1.Items.Add(item4)
+             
+            Dim item5 As New RadComboBoxItem("RadTabStrip")
+            RadComboBox1.Items.Add(item5)
+                </code>
+            	<code lang="CS" title="[New Example]">
+            RadComboBoxItem item1 = new RadComboBoxItem("RadEditor");
+            RadComboBox1.Items.Add(item1);
+             
+            RadComboBoxItem item2 = new RadComboBoxItem("RadTreeView");
+            RadComboBox1.Items.Add(item2);            
+             
+            RadComboBoxItem item3 = new RadComboBoxItem("RadSpell");
+            RadComboBox1.Items.Add(item3);                        
+             
+            RadComboBoxItem item4 = new RadComboBoxItem("RadMenu");
+            RadComboBox1.Items.Add(item4);            
+             
+            RadComboBoxItem item5 = new RadComboBoxItem("RadTabStrip");
+            RadComboBox1.Items.Add(item5);
+                </code>
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.MaxLength">
+            <summary>Gets or sets the maximum number of characters allowed in the combobox.</summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ContentFile">
+            <summary>
+            The location (path + filename) of the XML content file used to populate the
+            combobox.
+            </summary>
+            <remarks>
+            	<para>The format of the content file resembles the API of the combobox. It consists
+                of one root &lt;Items&gt; element, followed by any number of child &lt;Item&gt;
+                elements. The attributes of the &lt;Item&gt; elements map to the respective
+                properties of the <strong>RadComboBoxItem</strong> object. Sample XML content
+                File:</para>
+            	<para>&lt;?xml version="1.0" encoding="utf-8" ?&gt;<br/>
+                &lt;Items&gt;<br/>
+                &lt;Item Text="New York" ToolTip="New York" Value="1" /&gt;<br/>
+                &lt;Item Text="Paris" Value="2" /&gt;<br/>
+                &lt;Item Text="London" Value="3" /&gt;<br/>
+                &lt;Item Text="Oslo" Value="4" /&gt;<br/>
+                &lt;Item Text="Sofia" Value="5" /&gt;<br/>
+                &lt;/Items&gt;</para>
+            </remarks>
+            <example>
+            &lt;radcb:radcombobox Runat="server" ID="RadComboBox1" ContentFile="items.xml"
+            ... /&gt;
+            </example>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.ShowWhileLoading">
+            <summary>
+            Indicates whether the combobox will be visible while loading.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Description">
+            <summary>
+            Gets or sets a brief phrase that summarizes what a control does, for use in ToolTips and catalogs of WebPart controls.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.Subtitle">
+            <summary>
+            Gets a string that is concatenated with the Title property value to form a complete title for a WebPart control.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.TitleIconImageUrl">
+            <summary>
+            Gets or sets the URL to an image used to represent a Web Parts control in the control's own title bar.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.TitleUrl">
+            <summary>
+            Gets or sets a URL to supplemental information about a WebPart control.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBox.CatalogIconImageUrl">
+            <summary>
+            Gets or sets the URL to an image that represents a WebPart control in a catalog of controls.
+            </summary>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBoxItem.Enabled">
+            <exclude/>
+            <excludetoc/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBoxItem.Visible">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="P:Telerik.WebControls.RadComboBoxItem.EnableViewState">
+            <excludetoc/>
+            <exclude/>
+        </member>
+        <member name="T:Telerik.WebControls.RadComboBoxItemCollection">
+            <summary>
+            Summary description for RadComboBoxItemCollection.
+            </summary>	
+        </member>
+        <member name="T:Telerik.WebControls.RadComboBoxRenderer">
+            <summary>
+            Summary description for RadComboBoxRenderer.
+            </summary>
+        </member>
+        <member name="T:Telerik.WebControls.RadComboBoxXmlParser">
+            <summary>
+            Summary description for RadComboBoxXml.
+            </summary>
+        </member>
+    </members>
+</doc>

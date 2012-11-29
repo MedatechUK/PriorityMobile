@@ -1,0 +1,73 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+realex
+</name>
+</assembly>
+<members>
+<member name="P:realex.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:realex.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:realex.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="T:realex.SimpleProperties">
+</member><member name="M:realex.PriWebSVC.Service.#ctor">
+	<remarks/>
+</member><member name="E:realex.PriWebSVC.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="E:realex.PriWebSVC.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:realex.PriWebSVC.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:realex.PriWebSVC.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.Service">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:realex.PriWebSVC.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:realex.PriWebSVC.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:realex.PriWebSVC.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:realex.PriWebSVC.GetDataCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

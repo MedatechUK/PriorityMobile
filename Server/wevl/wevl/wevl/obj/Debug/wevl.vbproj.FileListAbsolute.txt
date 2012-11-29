@@ -1,0 +1,30 @@
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\wevl.exe
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\wevl.pdb
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\wevl.xml
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\ConsoleApp.dll
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\ntEvtlog.dll
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\ConsoleApp.pdb
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\ConsoleApp.xml
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\ntEvtlog.pdb
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\bin\Debug\ntEvtlog.xml
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\obj\Debug\ResolveAssemblyReference.cache
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.Resources.resources
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.vbproj.GenerateResource.Cache
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.exe
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.xml
+N:\Priority Mobile\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.pdb
+M:\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.exe
+M:\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.xml
+M:\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.pdb
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\wevl.exe
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\wevl.pdb
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\wevl.xml
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\ConsoleApp.dll
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\ntEvtlog.dll
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\ConsoleApp.pdb
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\ConsoleApp.xml
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\ntEvtlog.pdb
+M:\Clients\Win32\wevl\wevl\wevl\bin\Debug\ntEvtlog.xml
+M:\Clients\Win32\wevl\wevl\wevl\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.Resources.resources
+M:\Clients\Win32\wevl\wevl\wevl\obj\Debug\wevl.vbproj.GenerateResource.Cache

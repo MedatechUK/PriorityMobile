@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="StraussPDA">
+</Property><Property Name="Solution File" Value="M:\install\Client\pda3\WinPhone\StraussPDA.sln">
+</Property><Property Name="Date" Value="21 September 2012">
+</Property><Property Name="Time" Value="12:36:41">
+</Property></Properties><Event ErrorLevel="0" Project="StraussPDA" Source="StraussPDA.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="StraussPDA" Source="StraussPDA.vbproj" Description="Converted">
+</Event><Event ErrorLevel="2" Project="" Source="StraussPDA.vbproj" Description="The project file 'M:\install\Client\pda3\WinPhone\StraussPDA.vbproj' cannot be opened.&#xA;&#xA;The project type is not supported by this installation.">
+</Event></UpgradeLog>

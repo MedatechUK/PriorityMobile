@@ -1,0 +1,15 @@
+PDF Printing syntax:
+   pdfprint.exe [/u "www.hostname.ext/file/pdf" | /f "drive:\file.pdf"] 
+                {/p "Printer Name"}
+                {/?}
+                {/config /u "www.hostname.ext"}
+
+This application supports the following switches:
+   -?      This help file.
+   -u      The URL of a PDF that will de downloaded prior to printing.
+   -f      The local or UNC filename of a pre-existing PDF document to print.
+   -p      {Optional} The name of the printer to output the PDF to. This must 
+           be a valid Windows printer name. This will default to the default 
+           Windows printer if unspecified here.
+   -config Set a default hostname to download files from. Use /u to specify
+	       the hostname.

@@ -1,0 +1,83 @@
+.vtabstrip
+{
+	margin:0;
+	padding:0;
+	_height:1%;
+}
+
+.vtabstrip .levelwrap
+{
+	height:100%;
+	float:left;
+}
+
+.vtabstrip ul
+{
+	margin:0;
+	padding:0;
+	height:100%;
+	float:left;
+}
+
+*>.vtabstrip ul /*hide from IE6*/
+{
+    height:auto;
+    min-height:100%;
+}
+
+.vtabstrip a
+{
+	font-size:100%;
+	position:relative;
+	float:left;
+}
+
+.vtabstrip li
+{
+	list-style:none;
+	list-style-image: none;
+	list-style-position:outside;
+	margin:0;
+	padding:0;
+	clear:both;
+	float:left;
+}
+
+.vtabstrip li a img
+{
+	float:left;
+	margin-top:5px;
+	margin-right:5px;
+	border:0;
+}
+
+.vtabstrip li a .wrap, 
+.vtabstrip li a .innerWrap
+{
+	cursor:pointer;
+	/* IE 5 Win */
+	_cursor:hand;
+	float:left;
+}
+
+.vtabstrip li a .innerWrap
+{
+	display:block;
+}
+
+
+.vtabstrip li.break br
+{
+	display:none;
+}
+
+.vtabstrip .leftArrow,
+.vtabstrip .rightArrow,
+.vtabstrip .leftArrowDisabled,
+.vtabstrip .rightArrowDisabled
+
+{
+	position:absolute;
+	z-index:2000;
+	text-decoration:none;
+}

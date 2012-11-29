@@ -1,0 +1,18 @@
+Syntax:
+   realex.exe -c {ID} -a {0.00} -x {EUR}
+
+   -config        
+      Shows a dialog that lets you set static information about 
+      the sender and covering page. These values are stored per user.
+
+   -? 
+      This help file
+
+   -c {ID}
+      The Priority ID number of the customer
+   
+   -a {0.00}
+      The amount to debit the credit card
+
+   -x {EUR}
+      The Currency of the transaction

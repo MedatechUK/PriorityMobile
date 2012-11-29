@@ -1,0 +1,13 @@
+11	Faulty Equipment
+12	Training Issue
+13	Commissioning Issue
+14	Power Supply
+15	Mains Failure
+16	No Fault Found
+17	Cable Damage
+18	Vandalism
+19	Enviromental
+20	Comms Failure
+21	Other/Specify
+22	Pay on foot machine LMU
+23	Chip & Pin LMU

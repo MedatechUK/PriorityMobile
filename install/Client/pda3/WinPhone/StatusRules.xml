@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rules>
+  <status name="Delivered" prereport="true"/>
+  <status name="Active" prereport="true"/>
+  <status name="En-Route" prereport="true"/>
+  <status name="On Site" prereport="false" beginreport="true"/>
+  <status name="Completed" prereport="false" post="true"/>
+  <status name="Incomplete" prereport="false" post="true"/>
+</rules>

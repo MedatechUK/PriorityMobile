@@ -1,0 +1,109 @@
+.ComboBoxDropDown_VSNET
+{
+	border: 1px solid #D4D0C8;
+	background-color: white;
+	scrollbar-base-color : #D4D0C8;
+}
+
+.ComboBoxImage_VSNET
+{
+	vertical-align:middle;
+	border: 1px solid #DBD8D1;
+	background-color: #DBD8D1;
+}
+
+.ComboBoxImageHover_VSNET
+{
+	vertical-align:middle;
+	border: 1px solid #316AC5;
+	background-color: #C1D2EE;
+}
+
+.ComboBoxInput_VSNET
+{
+	border: 1px solid #DBD8D1;	
+	background-color: white;
+	vertical-align: middle;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: black;	
+	padding-left: 3px;
+	height: 18px;
+	cursor: default;
+}
+
+.ComboBoxInputHover_VSNET
+{
+	border: 1px solid #316AC5;	
+	background-color: white;
+	vertical-align: middle;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: black;	
+	padding-left: 3px;
+	height: 18px;
+	cursor: default;
+}
+
+.ComboBoxItem_VSNET
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: #333333;	
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemHover_VSNET
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: white;
+	text-decoration: none;
+	background-color: #777777; 
+	cursor: pointer;
+	cursor: hand;
+	padding: 3px;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_VSNET
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_VSNET
+{
+	font-family: Arial;
+	font-size: 11px; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_VSNET
+{
+	font-family: Arial;
+	font-size: 10px; 
+	padding: 2px;
+	text-align: center;
+}
+
+
+.ComboBoxMoreResultsImage_VSNET
+{
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.ComboBoxMoreResultsBox_VSNET
+{
+	background-color: #EEEEE5;
+}

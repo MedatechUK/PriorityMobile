@@ -1,0 +1,10 @@
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\obj\Debug\examples_LoadClient_csharp.csproj.GenerateResource.Cache
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\bin\Debug\csharp.exe
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\bin\Debug\csharp.pdb
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\bin\Debug\xmlLoad.dll
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\obj\Debug\examples_LoadClient.Properties.Resources.resources
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\obj\Debug\csharp.exe
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\obj\Debug\csharp.pdb
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\bin\Debug\xmlLoad.pdb
+M:\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\bin\Debug\xmlLoad.xml

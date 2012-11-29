@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="StraussPDA">
+</Property><Property Name="Solution File" Value="M:\install\Client\pda3\WinPhone\StraussPDA.sln">
+</Property><Property Name="Date" Value="21 September 2012">
+</Property><Property Name="Time" Value="12:37:51">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="StraussPDA" Source="StraussPDA.vbproj" Description="Project file successfully backed up as M:\install\Client\pda3\WinPhone\Backup\StraussPDA.vbproj">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="StraussPDA.vbproj.user" Description="Project user file successfully backed up as M:\install\Client\pda3\WinPhone\Backup\StraussPDA.vbproj.user">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgBarcode.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgBarcode.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgBarcode.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgBarcode.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgAddPlanned.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgAddPlanned.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgAddPlanned.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgAddPlanned.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgOnCall.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgOnCall.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgOnCall.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgOnCall.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="frmMain.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\frmMain.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="frmMain.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\frmMain.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="HostMainView.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\HostMainView.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="HostMainView.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\HostMainView.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="StartUp.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\StartUp.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="My Project\AssemblyInfo.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="My Project\Resources.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="ProgressBar.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\ProgressBar.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="ProgressBar.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\ProgressBar.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Address.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Address.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Address.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Address.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_CallDetail.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_CallDetail.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_CallDetail.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_CallDetail.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_DataGrid.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_DataGrid.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_DataGrid.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_DataGrid.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Parts_Actual.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Parts_Actual.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Parts_Actual.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Parts_Actual.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Parts_Planned.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Parts_Planned.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Parts_Planned.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Parts_Planned.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Repair.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Repair.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Repair.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Repair.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Sign.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Sign.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Sign.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Sign.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_StatusPane.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_StatusPane.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_StatusPane.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_StatusPane.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Summary.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Summary.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Summary.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Summary.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Warehouse.Designer.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Warehouse.Designer.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Warehouse.vb" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Warehouse.vb">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="calls.xml" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\calls.xml">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="emerge.ico" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\emerge.ico">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="forms.xml" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\forms.xml">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\ACTUAL.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\ACTUAL.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\back.bmp" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\back.bmp">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\BALLOON.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\BALLOON.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\add.bmp" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\add.bmp">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\edit.bmp" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\edit.bmp">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\CALENDAR.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\CALENDAR.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\sync.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\sync.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\COPY.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\COPY.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\DELETE.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\DELETE.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\FIND.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\FIND.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\PASTE.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\PASTE.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\PHONE.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\PHONE.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\Plan.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\Plan.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\SORTASC.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\SORTASC.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="icons\UP1LVL.BMP" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\icons\UP1LVL.BMP">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="lookup.xml" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\lookup.xml">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="StatusRules.xml" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\StatusRules.xml">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgBarcode.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgBarcode.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgAddPlanned.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgAddPlanned.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="dialogs\dlgOnCall.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\dialogs\dlgOnCall.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="frmMain.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\frmMain.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="HostMainView.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\HostMainView.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="My Project\Resources.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="ProgressBar.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\ProgressBar.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Address.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Address.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_CallDetail.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_CallDetail.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_DataGrid.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_DataGrid.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Parts_Actual.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Parts_Actual.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Parts_Planned.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Parts_Planned.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Repair.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Repair.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Sign.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Sign.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_StatusPane.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_StatusPane.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Summary.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Summary.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="usrCtrls\ctrl_Warehouse.resx" Description="File successfully backed up as M:\install\Client\pda3\WinPhone\Backup\usrCtrls\ctrl_Warehouse.resx">
+</Event><Event ErrorLevel="0" Project="StraussPDA" Source="StraussPDA.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="StraussPDA" Source="StraussPDA.vbproj" Description="Converted">
+</Event><Event ErrorLevel="2" Project="" Source="StraussPDA.vbproj" Description="The project file 'M:\install\Client\pda3\WinPhone\StraussPDA.vbproj' cannot be opened.&#xA;&#xA;The project type is not supported by this installation.">
+</Event></UpgradeLog>

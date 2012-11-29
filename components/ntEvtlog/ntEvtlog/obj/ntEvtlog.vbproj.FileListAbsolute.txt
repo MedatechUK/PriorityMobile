@@ -1,0 +1,15 @@
+M:\components\ntEvtlog\ntEvtlog\bin\Debug\ntEvtlog.dll
+M:\components\ntEvtlog\ntEvtlog\bin\Debug\ntEvtlog.pdb
+M:\components\ntEvtlog\ntEvtlog\bin\Debug\ntEvtlog.xml
+M:\components\ntEvtlog\ntEvtlog\obj\Debug\ResolveAssemblyReference.cache
+M:\components\ntEvtlog\ntEvtlog\obj\Debug\ntEvtlog.Resources.resources
+M:\components\ntEvtlog\ntEvtlog\obj\Debug\ntEvtlog.vbproj.GenerateResource.Cache
+M:\components\ntEvtlog\ntEvtlog\obj\Debug\ntEvtlog.dll
+M:\components\ntEvtlog\ntEvtlog\obj\Debug\ntEvtlog.xml
+M:\components\ntEvtlog\ntEvtlog\obj\Debug\ntEvtlog.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\ntEvtlog.dll
+D:\Program Files\eMerge-IT\Priority SOAP Service\ntEvtlog.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\ntEvtlog.xml
+C:\binding\loadAssm\w32\Binder\bin\Debug\ntEvtlog.dll
+C:\binding\loadAssm\w32\Binder\bin\Debug\ntEvtlog.pdb
+C:\binding\loadAssm\w32\Binder\bin\Debug\ntEvtlog.xml

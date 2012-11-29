@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Bind
+</name>
+</assembly>
+<members>
+<member name="P:Bind.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:Bind.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:Bind.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:Bind.PriWebSVC.Service.#ctor">
+	<remarks/>
+</member><member name="E:Bind.PriWebSVC.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:Bind.PriWebSVC.Service.LoadDataWaitCompleted">
+	<remarks/>
+</member><member name="E:Bind.PriWebSVC.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="E:Bind.PriWebSVC.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.LoadDataWait(System.String,System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.GetData(System.String,System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.GetDataAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.GetDataAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:Bind.PriWebSVC.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.Service">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Bind.PriWebSVC.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.LoadDataWaitCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Bind.PriWebSVC.LoadDataWaitCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.LoadDataWaitCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Bind.PriWebSVC.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:Bind.PriWebSVC.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:Bind.PriWebSVC.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

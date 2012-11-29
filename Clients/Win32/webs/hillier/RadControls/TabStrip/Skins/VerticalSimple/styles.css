@@ -1,0 +1,64 @@
+.RadTabStrip_VerticalSimple
+{
+	font:8pt tahoma, sans-serif;	
+}
+
+.RadTabStrip_VerticalSimple ul
+{
+	border:2px outset white;
+	background:buttonface;
+}
+
+.RadTabStrip_VerticalSimple li a
+{
+	padding:6px 12px;
+	text-decoration:none;
+	color:Black;
+	text-align:right;
+	background:buttonface;
+	width:130px;
+	border:1px solid buttonface;
+	border-bottom:1px inset white;
+	float:left;
+}
+
+.RadTabStrip_VerticalSimple li a.selected
+{
+	padding-bottom:7px;
+	background:ButtonHighlight;
+	border:1px inset white;
+}
+
+/* arrows */
+.RadTabStrip_VerticalSimple .rightArrow, 
+.RadTabStrip_VerticalSimple .leftArrow,
+.RadTabStrip_VerticalSimple .rightArrowDisabled, 
+.RadTabStrip_VerticalSimple .leftArrowDisabled
+{
+	width:17px;
+	height:22px;
+}
+
+
+
+
+.RadTabStrip_VerticalSimple .leftArrow
+{
+	background-image:url(img/ScrollLeft.png);
+}
+
+.RadTabStrip_VerticalSimple .rightArrow
+{
+	background-image:url(img/ScrollRight.png);
+}
+
+.RadTabStrip_VerticalSimple .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.png);
+}
+
+.RadTabStrip_VerticalSimple .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.png);
+}
+

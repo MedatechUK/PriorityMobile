@@ -1,0 +1,100 @@
+<%@ Master Language="VB" CodeFile="default.master.vb" Inherits="Masterpages_default" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+    <LINK rel=stylesheet type="text/css" href="http://www.hilliergardencentres.co.uk/portal/layers.css">
+    <STYLE type=text/css>
+    BODY {
+	    BACKGROUND-IMAGE: url(images/bg_new.jpg); BACKGROUND-COLOR: #808db0; BACKGROUND-REPEAT: repeat-x
+    }
+    </STYLE>    
+    	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+	<script src="ckeditor/_samples/sample.js" type="text/javascript"></script>
+	<link href="ckeditor/_samples/sample.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table align=center style="width: 998px; " border="0" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="background-image: url(../images/bgleft.jpg); vertical-align: top; width: 98px">
+                    <img height="576" src="../images/HillierPages_01.jpg" width="98" />
+                </td>
+                
+                <td style="width: 751px; vertical-align: top; background-color: white;">
+                   
+                   <table style="width: 100%; height: 100%; " border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 99px; height: 34px;">
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                                    <tr><td width="244"><img id="menu_r1_c1" alt="" border="0" height="34" name="menu_r1_c1" src="../images/topmenu_nurseries.jpg" width="244" /></td><td width="100%" align="LEFT">
+                                        <asp:Menu ID="Menu1" runat="server" Font-Bold="True" Font-Names="Verdana" Font-Size="8pt"
+                                            Orientation="Horizontal" StaticTopSeparatorImageUrl="~/images/menuspacer.jpg">
+                                            <StaticHoverStyle ForeColor="Red" />
+                                            <Items>
+                                                <asp:MenuItem NavigateUrl="/default.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/login" Text="My Profile" Value="Profile"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/parttest.aspx" Text="Basket Example" Value="Customers"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/cmsexample.aspx" Text="CMS Example" Value="Products"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/login/UserManager.aspx" Text="User Example" Value="User Example">
+                                                </asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/login?arg=bye" Text="Log Off" Value="Log Off"></asp:MenuItem>
+                                            </Items>
+                                        </asp:Menu>
+                                    </td></tr></table></td></tr>
+                        <tr>
+                            <td style="width: 99px; height: 19px;">
+                                <img id="menu_home_r1_c1" alt="" border="0" height="19" name="menu_home_r1_c1" src="../images/topmenu2_nurseries.jpg"
+                                    width="667" /></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 795px">
+                                <img height="229" src="../images/topimage_nurseries.jpg" width="795" /></td>
+                        </tr>
+                        <tr>
+                            <td width=992 style="height: 202px; vertical-align: top;">
+                                <table border="0" cellpadding="0" cellspacing="0" width=100%>
+                                    <tr>
+                                        <td height=294  width=133 style=" vertical-align: top; text-align: left; background-color: #dceed6; font-size: smaller;">
+                                            <br />
+                                            &nbsp;<PRIORITY:WEBMENU ID="Menu" runat="server" ItemBaseURL="~/family.aspx" ItemText="FAMILYDES"
+                                                ItemURIModifier="FAMILY" ItemURLParam="FAMILY" ItemValue="FAMILYDES" View="ZWEBV_PARTFAMILY" />
+                                            <br />
+                                            <strong>This menu Control was created with this HTML:</strong><br />
+                                            <br />
+                                                &lt;PRIORITY:WEBMENU ID=&quot;Menu&quot; runat=&quot;server&quot; ItemBaseURL=&quot;~/family.aspx&quot; ItemText=&quot;FAMILYDES&quot;
+                                                ItemURIModifier=&quot;FAMILY&quot; ItemURLParam=&quot;FAMILY&quot; ItemValue=&quot;FAMILYDES&quot; View=&quot;ZWEBV_PARTFAMILY&quot; /&gt;
+                                            <img id="menunurseries_r6_c1" alt="" border="0" height="194" name="menunurseries_r6_c1"
+                                                src="../images/menunurseries_r6_c1.jpg" width="133" />
+                                        </td>
+                                        <td height=294 width=100% style="vertical-align: top; text-align: left;">
+                                            <div style="text-align: left">
+                                            <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                                            </asp:contentplaceholder>
+                                                &nbsp;</div>
+                                            <asp:PlaceHolder ID="ph_Debug" runat="server"></asp:PlaceHolder>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                    
+                </td>
+                
+                <td style="background-image: url(../images/bgleft.jpg); vertical-align: top; width: 102px">
+                    <img height="576" src="../images/HillierPages_03.jpg" width="98" />
+                </td>
+            </tr>
+            
+            <tr>
+                <td colspan="3">
+                    <img border="0" height="45" src="../images/footernew.jpg" width="992" />
+                </td>
+            </tr>
+            
+        </table>
+    </form>
+</body>
+</html>

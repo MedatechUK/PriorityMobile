@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Priority HTTPixie - Help</title>
+    <style type="text/css">
+
+        #header
+        {
+            width: 96%;
+            margin: 0 0 0 0;
+            padding: 6px 2% 6px 2%;
+            font-family: "trebuchet MS" , Verdana, sans-serif;
+            color: #FFF;
+            background-color: #555555;
+        }
+        h1
+        {
+            font-size: 2.4em;
+            margin: 0;
+            color: #FFF;
+        }
+        #content
+        {
+            margin: 0 0 0 2%;
+            position: relative;
+        }
+        .content-container
+        {
+            background: #FFF;
+            width: 96%;
+            margin-top: 8px;
+            padding: 10px;
+            position: relative;
+        }
+        fieldset
+        {
+            padding: 0 15px 10px 15px;
+        }
+        h2
+        {
+            font-size: 1.7em;
+            margin: 0;
+            color: #CC0000;
+        }
+        h3
+        {
+            font-size: 1.2em;
+            margin: 10px 0 0 0;
+            color: #000000;
+        }
+        .style3
+        {
+            width: 84%;
+        }
+        .style5
+        {
+            width: 121px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .style4
+        {
+            font-weight: bold;
+            text-align: center;
+            width: 123px;
+        }
+        body
+        {
+            margin: 0;
+            font-size: .7em;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            background: #EEEEEE;
+        }
+        #content0
+        {
+            margin: 0 0 0 2%;
+            position: relative;
+        }
+        .style6
+        {
+            font-weight: bold;
+            text-align: center;
+            width: 123px;
+            height: 17px;
+        }
+        .style7
+        {
+            height: 17px;
+        }
+        </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>
+            Help...</h1>
+    </div>
+    <div id="content">
+        <div class="content-container">
+            <fieldset>
+                <h2>
+                    Overview...</h2>
+                <h3>
+                    Welcome to the Priority HTTPixie server. </h3>
+                <br />
+                This application is designed to overcome limitations of cloud based Priority ERP 
+                implimentations with regards the execution of locally installed applications in 
+                a WIN32 environment. The application itself is a tiny HTTP (web) server - with a 
+                footprint of under 100 kilobytes - based on the ntSocks .Net socket library 
+                written by Simon Barnett.
+                <br />
+                <br />
+                The WPF Desktop web service is bound to the internal loopback address of the 
+                local network interface card and is therefore only accessible from the machine 
+                on which the service is installed. Because the Priority HTTPixie server can only 
+                be accessed from the machine upon which it is installed there are no security 
+                issues with regards its use.<br />
+                <br />
+                Once installed the webserver processes HTTP requests sent to the localhost (ie 
+                127.0.0.1), converting HTTP GET requests into shell commands in the local Win32 
+                environment. Such HTTP requests can be made from within the Priority ERP by 
+                using the SHELLEX compiled procedure (see syntax below). Attempts to open the 
+                service in non-WIN32 environments (or in WIN32 environments where the service is 
+                not installed) will simply return a 404, page not found, error.<br />
+                <br />
+                Becuase of the nature of this design any future version of the Priority ERP - or 
+                indeed any other cloud based application that can open a URL - will be able to 
+                support the opening of locally installed binaries (executables) in this fashion. 
+                This is important, as future versions of the Priority ERP may be written in 
+                Microsoft Silverlight, or even HTML 5.</fieldset>
+        </div>
+    </div>
+    <div id="content0">
+        <div class="content-container">
+            <fieldset>
+                <h2>
+                    Syntax...</h2>
+                <h3>
+                    http://localhost:$PORT$/{UNC or File System Location}{Executable}.exe?{Parameters}
+                </h3> 
+                <h3>
+                   {UNC or File System Location}
+                </h3> <font color="red">OPTIONAL</font> -
+                The UNC (i.e. 
+                \\{servername}\{sharename}\) or filing system (i.e. {drive letter}:\{folder}\) path that should be used as the working directory for the 
+                requested executable. This may be ommited if the executable is accessible from 
+                an ENVIRONMENT path. <br><br>For example, executables stored in the \%WINDIR% folder can be called without referencing a physical path to the working directory. If the executable you are starting resides on the filing system of the local machine it is preferable to add the working directory location to the systems ENVIRONMENT variable, so as to be able to leave this blank. 
+                Doing so will ensure that the binary is correctly called, regardless of where it 
+                is installed on the target machine. <br><br>This function is primarily included to handle instances where the desired binary needs to be run from a UNC path (i.e. not locally installed, but on the network).&nbsp;Note 
+                that the direction of slashes is not significant, so c:/ is the same as c:\ and 
+                //server/path is the same as \\server\path.<h3>
+                   {Executable}
+                </h3> The name of the binary to be executed. This <font color="red">MUST</font> include the ".exe" extention, as it is this which notifies the WPF Desktop service that the 
+                incoming HTTP request is made with the intention of running a binary file.
+                <h3>
+                   {Parameters}
+                </h3>The command line parameters to pass to the executable.
+            </fieldset>
+        </div>
+    </div>
+    <div id="content1" style="margin: 0 0 0 2%;">
+        <div class="content-container">
+            <fieldset>
+                <h2>Response Pages...</h2>
+                <h3>Customising the service responses.</h3>                
+                    <br>The Priority HTTPixie service has several pre-defined response pages that may be returned to the calling HTTP client (i.e. web browser) when an HTTP request is recieved. Default response pages are installed as part standard installation but are simple HTML pages and may be modified 
+                    as required.<br><br>The response pages are unique to each installation of the Priority HTTPixie service 
+                    (they are installed on the local machine) and are to be found in the application 
+                    folder that you chose during the install.<br /><br />
+                    On this machine (\\$MACH$) they are stored in:<br />
+                <font color="blue">$PATH$</font>.
+                    <h3>List of Response Pages and their usage...</h3><BR/>
+                    <table class="style3">
+                        <tr>
+                            <td class="style5" valign="top">
+                                200.HTML</td>
+                            <td>
+                                This page is returned when the WPF Desktop Service sucsessfully starts the 
+                                binary specified by the calling HTTP Client.</td>
+                        </tr>
+                        <tr>
+                            <td class="style5" valign="top">
+                                401.HTML</td>
+                            <td>
+                                This help file. This page can also be accessed from
+                                <a href="http://localhost:$PORT$/help">http://localhost:$PORT$/help</a></td>
+                        </tr>
+                        <tr>
+                            <td class="style5" valign="top">
+                                402.HTML</td>
+                            <td>
+                                The about page for the WPF Desktop installation, containing version and 
+                                installation information. This page can also be accessed from <a href="http://localhost:$PORT$/about">http://localhost:$PORT$/about</a></td>
+                        </tr>
+                        <tr>
+                            <td class="style5">
+                                404.HTML</td>
+                            <td>
+                                This page is returned if an unknown file was requested by the HTTP Client.</td>
+                        </tr>
+                        <tr>
+                            <td class="style5" valign="top">
+                                500.HTML</td>
+                            <td>
+                                This page is returned when the WPF Desktop Service CANNOT start the binary 
+                                specified by the calling HTTP Client and includes the desciption of the error 
+                                that was thrown by the operating system in order to allow troubleshooting of the 
+                                request made by the calling HTTP client.</td>
+                        </tr>
+                    </table>
+                    <h3>Response Page Directives.</h3><br />
+                        Response pages support a number of directives that can be included in the html response. These directives act as placeholders which will be replaced by their actual values at run-time, when the WPF Destop HTTP service responds to request from an HTTP Client. The list of supported directives is provided below.                                                            
+                    <h3>List of Response Page Directives and their usage...</h3><BR/>
+                    <table class="style3">
+                        <tr>
+                            <td class="style4">
+                                &#36;ERR&#36;</td>
+                            <td>
+                                The error code raised during the processing of the current request. Note that 
+                                the error number correlates to the response pages listed above. Consequently an 
+                                error code of 200 indicates the sucsessful processing of the binary requested by 
+                                the calling HTTP Client.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;ERDES&#36;</td>
+                            <td>
+                                The description of the error that was thrown by the operating system when a call 
+                                was made by the Priority HTTPixie service to the requested binary.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;EXE&#36;</td>
+                            <td>
+                                The name of the binary that the HTTP client requested by executed.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;PAR&#36;</td>
+                            <td>
+                                The command line parameters that were provided for the execution of this binary 
+                                by the calling HTTP Client</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;PATH&#36;</td>
+                            <td>
+                                The location (on the local machine) of the Priority HTTPixie service 
+                                installation.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;DIR&#36;</td>
+                            <td>
+                                The working directory that contains the requested binary. Note that if this is 
+                                ommited from the request then this will contain the path to the system folder on 
+                                the local machine.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;APP&#36;</td>
+                            <td>
+                                The assembly name of the WPF Desktop Application.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;VER_X###&#36;</td>
+                            <td>
+                                The Major version of the WPF Desktop Application.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;VER_#X##&#36;</td>
+                            <td>
+                                The Minor version of the WPF Desktop Application.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;VER_##X#&#36;</td>
+                            <td>
+                                The Release version of the WPF Desktop Application.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;VER_###X&#36;</td>
+                            <td>
+                                The Build version of the WPF Desktop Application.</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;MACH&#36;</td>
+                            <td>
+                                The netbios name of localhost</td>
+                        </tr>
+                        <tr>
+                            <td class="style6">
+                                &#36;OS&#36;</td>
+                            <td class="style7">
+                                The name of the operating system installed on the localhost</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;OSVER_X##&#36;</td>
+                            <td>
+                                The Major version of the operating system installed on the localhost</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;OSVER_#X#&#36;</td>
+                            <td>
+                                The Minor version of the operating system installed on the localhost</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;OSVER_##X&#36;</td>
+                            <td>
+                                The Release version of the operating system installed on the localhost</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;PORT&#36;</td>
+                            <td>
+                                The port number that the Priority HTTPixie service is listening on</td>
+                        </tr>
+                        <tr>
+                            <td class="style4">
+                                &#36;TIME&#36;</td>
+                            <td>
+                                The current system time</td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br />
+                <br />
+                <i><a href="about">About</a>&nbsp;|&nbsp;<a href="help">Help?</a></i>                    
+        </div>
+    </div>
+</body>
+</html>

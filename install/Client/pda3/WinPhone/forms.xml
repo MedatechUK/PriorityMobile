@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<forms>
+  <form name="Service Calls" xpath="pdadata/calls/servicecall" key="callnumber">
+    <views>
+      <view control="Summary"/>
+      <view control="StatusPane"/>
+    </views>
+    <form name="Address" xpath="/customer">
+      <views>
+        <view control="address"/>
+      </views>
+    </form>
+    <form name="Details" xpath="/detail">
+      <views>
+        <view control="CallDetail"/>
+      </views>
+    </form>
+    <form name="Repair" xpath="/report">
+      <views>
+        <view control="repair"/>
+      </views>
+    </form>
+    <form name="Parts" xpath="/parts/part" key="name,serial">
+      <views>
+        <view control="partsactual"/>
+        <view control="partsplanned"/>        
+      </views>
+    </form>
+    <form name="Sign" xpath="/signature">
+      <views>
+        <view control="sign"/>
+      </views>
+    </form>
+  </form>
+  
+  <form name="Warehouse" xpath="pdadata/warehouse/part" key="name,serial">
+    <views>
+      <view control="warehouse"/>
+    </views>
+  </form>
+  
+  <form name="Surveys" xpath="">
+    <views>
+      <view control=""/>
+    </views>
+  </form>
+</forms>

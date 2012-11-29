@@ -1,0 +1,107 @@
+/* r.a.d.combobox Office2007 skin */
+
+.ComboBoxDropDown_Office2007
+{
+	border: solid 1px #adc3de;
+	border-top: 0px;
+	background: white;
+	text-align: left;
+}
+
+.ComboBoxImage_Office2007
+{
+	vertical-align: middle;
+	border: solid 1px #adc3de;
+	border-left: 0px;
+}
+
+.ComboBoxImageHover_Office2007
+{
+	vertical-align: middle;
+	border: solid 1px #adc3de;
+	border-left: 0px;
+}
+
+.ComboBoxInput_Office2007
+{
+	height: 20px;
+	border: solid 1px #adc3de;
+	border-right: 0px;
+	background: #eff3ff;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: #404040;
+	margin-right: 0px;
+	padding-left: 3px;
+}
+
+.ComboBoxInputHover_Office2007
+{
+	height: 20px;
+	border: solid 1px #adc3de;
+	border-right: 0px;
+	background: white;
+	scrollbar-base-color: #B6D2FC;
+	vertical-align: middle;
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: black;
+	margin-right: 0px;
+	padding-left: 3px;
+	cursor: default;
+}
+
+.ComboBoxItem_Office2007
+{
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: #404040;	
+	padding: 3px;
+	text-decoration: none;
+	_height: 1%;
+}
+
+.ComboBoxItemHover_Office2007
+{
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: white;	
+	padding: 3px;
+	text-decoration: none;
+	background: #306ac5;
+	_height: 1%;
+}
+
+.ComboBoxItemDisabled_Office2007
+{
+	font: normal 12px Arial, Verdana, Sans-serif;
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	_height: 1%;
+}
+
+.ComboBoxLoadingMessage_Office2007
+{
+	font: normal 12px Arial, Verdana, Sans-serif;
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Office2007
+{
+	font: normal 10px Arial, Verdana, Sans-serif;
+	padding-bottom: 4px;
+}
+
+
+.ComboBoxMoreResultsImage_Office2007
+{
+	padding: 5px;
+	margin: 5px;
+}
+
+.ComboBoxMoreResultsBox_Office2007
+{
+	border-top: solid 1px #000080;
+	cursor: default;
+	background: #f1f1f1;
+}

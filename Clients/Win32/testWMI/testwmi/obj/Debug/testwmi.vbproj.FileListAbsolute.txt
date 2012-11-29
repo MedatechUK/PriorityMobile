@@ -1,0 +1,9 @@
+M:\Clients\Win32\testWMI\testwmi\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\testWMI\testwmi\obj\Debug\testwmi.Resources.resources
+M:\Clients\Win32\testWMI\testwmi\obj\Debug\testwmi.vbproj.GenerateResource.Cache
+M:\Clients\Win32\testWMI\testwmi\obj\Debug\testwmi.exe
+M:\Clients\Win32\testWMI\testwmi\obj\Debug\testwmi.xml
+M:\Clients\Win32\testWMI\testwmi\obj\Debug\testwmi.pdb
+M:\testwmi.exe
+M:\testwmi.pdb
+M:\testwmi.xml

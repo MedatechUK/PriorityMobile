@@ -1,0 +1,13 @@
+M:\Clients\Win32\SupportMail\SupportMail\bin\Debug\SupportMail.exe
+M:\Clients\Win32\SupportMail\SupportMail\bin\Debug\SupportMail.pdb
+M:\Clients\Win32\SupportMail\SupportMail\bin\Debug\SupportMail.xml
+M:\Clients\Win32\SupportMail\SupportMail\bin\Debug\Pop3MimeClient.dll
+M:\Clients\Win32\SupportMail\SupportMail\bin\Debug\Pop3MimeClient.pdb
+M:\Clients\Win32\SupportMail\SupportMail\bin\Debug\Pop3MimeClient.xml
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\SupportMail.Form1.resources
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\SupportMail.Resources.resources
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\SupportMail.vbproj.GenerateResource.Cache
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\SupportMail.exe
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\SupportMail.xml
+M:\Clients\Win32\SupportMail\SupportMail\obj\Debug\SupportMail.pdb

@@ -1,0 +1,138 @@
+Imports Demo_App.PDA.PDAnamespace
+
+Public Class ct_PartsUsed
+
+    Dim _App As App
+    Dim drag As Boolean
+    Dim dragstart As Integer
+
+    Public Sub New() 'ByRef App As App
+
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        _App = App
+
+        With pnl_Parts
+            .Top = 0
+            .Left = 0
+            .Width = Me.Width
+            .Height = Me.Height
+            .Visible = True
+        End With
+
+        With Warehouse
+            .Items.Clear()
+            .Columns.Clear()
+            .Columns.Add("Part Number")
+            .Columns.Add("Part Description")
+            .Columns.Add("QTY")
+            .Columns(0).AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize)
+            .Columns(2).AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize)
+            .Columns(1).Width = .Width - (.Columns(2).Width + .Columns(0).Width + 5)
+            For i As Integer = 0 To UBound(App.rss(o.Warehouse).thisArray, 2)
+                .Items.Add("")
+                .Items(Warehouse.Items.Count - 1).Text = App.rss(o.Warehouse).thisArray(0, i)
+                .Items(Warehouse.Items.Count - 1).SubItems.Add(App.rss(o.Warehouse).thisArray(1, i))
+                .Items(Warehouse.Items.Count - 1).SubItems.Add(App.rss(o.Warehouse).thisArray(2, i))
+            Next
+        End With
+
+        With UsedParts
+            .Items.Clear()
+            .Columns.Clear()
+            .Columns.Add("Part Number")
+            .Columns.Add("Part Description")
+            .Columns.Add("QTY")
+            .Columns(0).AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize)
+            .Columns(2).AutoResize(ColumnHeaderAutoResizeStyle.HeaderSize)
+            .Columns(1).Width = .Width - (.Columns(2).Width + .Columns(0).Width + 5)
+            App.rss(o.Warehouse).currentIndex = App.rss(o.ServiceCall).currentIndex
+            Dim sel() As Integer = App.rss(o.Warehouse).Selection
+            For i As Integer = 0 To UBound(sel)
+                .Items.Add("")
+                .Items(Warehouse.Items.Count - 1).Text = App.rss(o.Warehouse).thisArray(1, sel(i))
+                .Items(Warehouse.Items.Count - 1).SubItems.Add(App.rss(o.Warehouse).thisArray(2, sel(i)))
+                .Items(Warehouse.Items.Count - 1).SubItems.Add(App.rss(o.Warehouse).thisArray(3, sel(i)))
+            Next
+        End With
+
+    End Sub
+
+    Private Sub ct_PartsUsed_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles pnl_Parts.Resize
+
+        Dim fs As Single
+
+        If Me.Width > 319 Then
+            fs = 14
+        ElseIf Me.Width > 268 Then
+            fs = 12
+        ElseIf Me.Width > 258 Then
+            fs = 11
+        ElseIf Me.Width > 241 Then
+            fs = 10
+        ElseIf Me.Width > 214 Then
+            fs = 9
+        ElseIf Me.Width > 199 Then
+            fs = 8
+        Else
+            fs = 8
+        End If
+
+        Dim c As New Font("Microsoft Sans Serif", fs - 1, FontStyle.Regular)
+
+        Me.UsedParts.Font = c
+        Me.Warehouse.Font = c
+
+        Me.Warehouse.Height = (pnl_Parts.Height - 5) / 2
+        Me.UsedParts.Height = (pnl_Parts.Height - 5) / 2
+
+    End Sub
+
+    Private Sub warehouse_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Warehouse.MouseUp
+
+        Dim s As ListView.SelectedListViewItemCollection = Warehouse.SelectedItems
+        If s.Count = 0 Then Exit Sub
+
+        App.rss(o.Warehouse).currentIndex = s.Item(0).Text
+
+        If s.Count > 0 Then
+            Select Case e.Button
+                Case Windows.Forms.MouseButtons.Left
+                    With pnl_Parts
+                        .Top = Me.Height
+                        .Left = 0
+                        .Width = 0
+                        .Height = 0
+                        .Visible = False
+                    End With
+                    With pnl_Number
+                        .Top = 0
+                        .Left = 0
+                        .Width = Me.Width
+                        .Height = Me.Height
+                        .Visible = True
+                    End With
+            End Select
+        End If
+
+    End Sub
+
+    Private Sub Ct_number1_SetNumber(ByVal MyValue As Integer) Handles Ct_number1.SetNumber
+        With pnl_Number
+            .Top = Me.Height
+            .Left = 0
+            .Width = 0
+            .Height = 0
+            .Visible = False
+        End With
+        With pnl_Parts
+            .Top = 0
+            .Left = 0
+            .Width = Me.Width
+            .Height = Me.Height
+            .Visible = True
+        End With
+    End Sub
+End Class

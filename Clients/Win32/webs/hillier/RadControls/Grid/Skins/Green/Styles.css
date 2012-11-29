@@ -1,0 +1,156 @@
+/* Telerik RadGrid Green skin */
+
+.RadGrid_Green
+{
+	background: #809e72;
+	border: solid 1px #c7cbb6;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+}
+
+.RadGrid_Green th,
+.RadGrid_Green th a
+{ 
+	font: bold 11px tahoma;
+	color:#fff;
+}
+
+.RadGrid_Green td,
+.RadGrid_Green td a
+{ 
+	font: 11px tahoma;
+	color: #000;
+}
+
+.MasterTable_Green
+{
+	border: 0px !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+th.GridHeader_Green
+{
+	color:#fff;
+	height: 34px;
+	background: #809e72;
+	padding: 0px 2px;
+}
+.GridHeader_Green a
+{
+	color:#fff;
+}
+
+.GridRow_Green,
+.GridAltRow_Green,
+.SelectedRow_Green,
+.ActiveRow_Green,
+.GridEditRow_Green
+{
+	height:20px;
+}
+
+.GridRow_Green td,
+.GridAltRow_Green td,
+.SelectedRow_Green td,
+.ActiveRow_Green td,
+.GridEditRow_Green td
+{
+	border-bottom:1px solid #c7cbb6;
+	padding: 0px 2px;
+}
+
+.GridRow_Green
+{
+	background-color: #f7f6eb;
+}
+
+.GridAltRow_Green
+{
+	background-color: #e5e7d8;
+}
+
+.SelectedRow_Green
+{
+	background-color: #fff;
+}
+
+.ActiveRow_Green
+{
+	background-color: #c9cfb7;
+}
+
+.GridEditRow_Green
+{
+	background-color: #ffffce;
+}
+
+.GridEditRow_Green input
+{
+	font-size: 11px;
+}
+
+.GridPager_Green
+{
+	background: #c9cfb7;
+	height: 17px;
+}
+.GridPager_Green td
+{
+	border-top: 1px solid #c7cbb6;
+	padding-left: 11px;
+}
+.GridPager_Green a
+{
+	color: #333;	
+}
+
+.GridHeader_Green,
+.GroupPanelItems_Green
+{
+	vertical-align: middle;
+}
+
+/* grouping button */
+.GroupPanelItems_Green,
+.GridCommandRow_Green
+{
+	background: #809e72;
+	color: white !important;
+	border: solid 1px #d2d5c6;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+tr.GroupHeader_Green
+{
+	background: #c9cfb7;
+	font-weight: bold;
+	height:20px;
+	border-bottom:1px solid #c7cbb6;
+}
+
+.GroupPanel_Green
+{
+	height: 30px;
+	width: 100%;
+	background: #667e5b;
+	border-bottom: 1px solid #c7cbb6;
+	border-collapse: collapse;
+	color: white;
+}
+
+.GroupPanel_Green td
+{
+	color: white;
+	padding-left: 4px;
+}
+
+.GridCommandRow_Green
+{
+    border-style:none none solid;
+}
+.GridCommandRow_Green td,
+.GridCommandRow_Green a
+{
+    color: #fff !important;
+}

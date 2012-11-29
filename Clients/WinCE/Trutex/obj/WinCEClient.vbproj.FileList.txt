@@ -1,0 +1,14 @@
+..\..\..\bin\WinCE\trutex\WinCEClient.exe
+..\..\..\bin\WinCE\trutex\WinCEClient.pdb
+..\..\..\bin\WinCE\trutex\WinCEClient.xml
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\WinCEClient.About.resources
+obj\Debug\WinCEClient.frmLogin.resources
+obj\Debug\WinCEClient.frmMenu.resources
+obj\Debug\WinCEClient.frmNumber.resources
+obj\Debug\WinCEClient.frmOption.resources
+obj\Debug\WinCEClient.Resources.resources
+obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+obj\Debug\WinCEClient.exe
+obj\Debug\WinCEClient.xml
+obj\Debug\WinCEClient.pdb

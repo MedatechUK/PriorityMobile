@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "wpfLocalhttp", "wpfLocalhttp.vbproj", "{AC4934EC-F6AF-46D9-9D2A-97026240330A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{245E047B-6D1D-47BD-890F-DC15530B2402}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "openURL", "..\openURL\openURL.vbproj", "{959AD59C-6C97-46C7-B270-0C025B6EA572}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC4934EC-F6AF-46D9-9D2A-97026240330A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4934EC-F6AF-46D9-9D2A-97026240330A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4934EC-F6AF-46D9-9D2A-97026240330A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4934EC-F6AF-46D9-9D2A-97026240330A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{245E047B-6D1D-47BD-890F-DC15530B2402}.Debug|Any CPU.ActiveCfg = Debug
+		{245E047B-6D1D-47BD-890F-DC15530B2402}.Release|Any CPU.ActiveCfg = Release
+		{959AD59C-6C97-46C7-B270-0C025B6EA572}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{959AD59C-6C97-46C7-B270-0C025B6EA572}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{959AD59C-6C97-46C7-B270-0C025B6EA572}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{959AD59C-6C97-46C7-B270-0C025B6EA572}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

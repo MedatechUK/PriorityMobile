@@ -1,0 +1,12 @@
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\examples_LoadClient_vb.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\vb.exe
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\vb.pdb
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\vb.xml
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\xmlLoad.dll
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\examples_LoadClient.Resources.resources
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\vb.exe
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\vb.xml
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\vb.pdb
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\xmlLoad.pdb
+M:\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\xmlLoad.xml

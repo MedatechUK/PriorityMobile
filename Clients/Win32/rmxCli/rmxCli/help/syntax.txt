@@ -1,0 +1,26 @@
+﻿Syntax:
+  rmxcli.exe (-config | -o {Outcode} -i {Incode})
+             -db {Instance} -e {Environment} -u {User Name} -p {Password}              
+             {-w -v}
+
+Switches:
+  -o
+    The outcode (ie. the first part of the postcode)    
+  -i
+    The incode (ie. the second part of the postcode)
+  -config
+    Run the config tool. This sets xp_cmd premissions on the selected database 
+    and creates the trigger on ZEMG_RMX table. Note this table must first be 
+    created in Priority.
+  -db 
+    The database Instance eg. server\pri
+  -e
+    The database environment eg. live
+  -u
+	The database username
+  -p
+    The database password
+  -v
+	Optional: Verbose - use this to view extended output from the executable
+  -w
+    Optional: Wait for user keypress at the end of program execution

@@ -1,0 +1,192 @@
+/* Telerik RadGrid Mac / embedded skin */
+
+div.RadGrid_Mac
+{
+	background: #fff;
+	border: solid 1px #666666;
+	text-align: left;
+	scrollbar-face-color: #E9E9E9;
+	scrollbar-highlight-color: white;
+	scrollbar-shadow-color: #E9E9E9;
+	scrollbar-3dlight-color: #DBDBDB;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-darkshadow-color: #AEAEAE;
+}
+
+.RadGrid_Mac a
+{ 
+	color: #000;
+}
+
+.MasterTable_Mac
+{
+	border: 0px !important;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	color: #000000;
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.MasterTable_Mac a
+{
+	color: #000;
+}
+ 
+.MasterTable_Mac th
+{
+	padding:3px 6px 3px 4px;
+}
+.MasterTable_Mac td
+{
+	padding:3px 6px 3px 3px;
+}
+
+th.GridHeader_Mac,
+th.ResizeHeader_Mac
+{
+	background: white url('Img/headerBg.gif') repeat-x top;
+	border-bottom: solid 1px #666;
+	/*padding-left: 6px; /*more than items to compensate for item borders!*/
+	height: 15px;
+	font-weight: normal;
+}
+
+.GridHeader_Mac a
+{
+	color: black;
+	text-decoration: none;
+}
+
+.GridRow_Mac,
+.GridAltRow_Mac,
+.SelectedRow_Mac,
+.ActiveRow_Mac,
+.GridEditRow_Mac
+{
+	height: 17px;
+}
+.GridRow_Mac td
+{
+	border-top: solid 1px #fff; /* support for gridlines */
+	border-right: solid 1px #d9d9d9;
+}
+
+.GridAltRow_Mac
+{
+	background: #edf3fe;
+}
+.GridAltRow_Mac td
+{
+	border-top: solid 1px #edf3fe;
+	border-right: solid 1px #d9d9d9;
+}
+
+.SelectedRow_Mac
+{
+	background: #3d80df !important;
+	color: white;
+}
+.SelectedRow_Mac td
+{
+	border-top: solid 1px #3d80df; /* support for gridlines */
+	border-right: solid 1px #346dbe;
+}
+
+.ActiveRow_Mac
+{
+	background: #a6a6a6 !important;
+	color: black !important;
+}
+.ActiveRow_Mac td,
+.GridEditRow_Mac td
+{
+	border-top: solid 1px #a6a6a6;
+	border-right: solid 1px #d9d9d9;
+}
+
+.GridEditRow_Mac
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_Mac input
+{
+	font-size: 11px;
+}
+
+.GridPager_Mac
+{
+	background: #white;
+	height: 15px;
+	color: #666;
+}
+.GridPager_Mac td
+{
+	border: solid 1px white;
+	border-top: solid 1px #d9d9d9;
+}
+
+.GridFooter_Mac
+{
+	background: #white;
+	height: 15px;
+	color: #666;
+}
+.GridFooter_Mac td
+{
+	border-top: solid 1px #d9d9d9;
+}
+
+.GridFooter_Mac td a
+{
+	color: #666;
+}
+
+.GridPager_Mac td a
+{
+	color: #999;
+}
+
+.GridPager_Mac td a:hover,
+.GridFooter_Mac td a:hover
+{
+	color: #333;
+}
+
+
+tr.GroupHeader_Mac td
+{
+	height: 22px;
+	border: solid 1px #d9d9d9;
+}
+
+.GroupPanel_Mac
+{
+	background: #ababab url('Img/groupPanel.gif') repeat-y center;
+	width: 100%;
+	border-bottom: 1px solid #666;
+	border-top: solid 1px #c2c2c2;
+}
+
+.GroupPanelItems_Mac
+{
+	background: #efefef;
+	color: #999999;
+	border: solid 1px #7a7a7a;
+	white-space:  nowrap;
+}
+
+td.GridHeader_Mac input
+{
+	width: auto;
+	float: left;
+	border: solid 1px #666;
+	background: #fafafa;
+	font: bold 10px Verdana, Arial, Sans-serif;
+	color: #989cb0;
+	height: 14px;
+	vertical-align:middle;
+}
+
+.GridFooter_Mac td{padding:3px 5px 3px 4px}

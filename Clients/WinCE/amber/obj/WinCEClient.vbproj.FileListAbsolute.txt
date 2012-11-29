@@ -1,0 +1,95 @@
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCEClient.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCEClient.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCEClient.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCE\WinCEClient.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCE\WinCEClient.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\WinCE\WinCEClient.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\WinCEClient.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\WinCEClient.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\WinCEClient.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.exe
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\ceLoadData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\ceMyCls.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\SFDCData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\SFDCData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\SFDCData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\ceLoadData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\ceLoadData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\ceMyCls.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\bin\Debug\ceMyCls.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.frmLogin.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.frmMenu.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.frmOption.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.frmLogin.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.frmMenu.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.frmOption.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.frmNumber.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Release\WinCEClient.frmNumber.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\WinCE\Trutex\obj\Debug\WinCEClient.About.resources
+C:\Priority Mobile\bin\WinCE\WinCEClient.exe
+C:\Priority Mobile\bin\WinCE\WinCEClient.pdb
+C:\Priority Mobile\bin\WinCE\WinCEClient.xml
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\ResolveAssemblyReference.cache
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.About.resources
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmLogin.resources
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmMenu.resources
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmNumber.resources
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmOption.resources
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.Resources.resources
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.exe
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.xml
+C:\Priority Mobile\Clients\WinCE\Trutex\obj\Debug\WinCEClient.pdb
+M:\Clients\WinCE\Trutex\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.About.resources
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmLogin.resources
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmMenu.resources
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmNumber.resources
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmOption.resources
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.Resources.resources
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.exe
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.xml
+M:\Clients\WinCE\Trutex\obj\Debug\WinCEClient.pdb
+M:\bin\WinCE\trutex\WinCEClient.exe
+M:\bin\WinCE\trutex\WinCEClient.pdb
+M:\bin\WinCE\trutex\WinCEClient.xml
+\\tsclient\M\bin\WinCE\trutex\WinCEClient.exe
+\\tsclient\M\bin\WinCE\trutex\WinCEClient.pdb
+\\tsclient\M\bin\WinCE\trutex\WinCEClient.xml
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\ResolveAssemblyReference.cache
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.About.resources
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmLogin.resources
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmMenu.resources
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmNumber.resources
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.frmOption.resources
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.Resources.resources
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.exe
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.xml
+\\tsclient\M\Clients\WinCE\Trutex\obj\Debug\WinCEClient.pdb
+M:\bin\WinCE\amber\WinCEClient.exe
+M:\bin\WinCE\amber\WinCEClient.pdb
+M:\bin\WinCE\amber\WinCEClient.xml
+M:\Clients\WinCE\amber\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.About.resources
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.frmLogin.resources
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.frmMenu.resources
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.frmNumber.resources
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.frmOption.resources
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.Resources.resources
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.exe
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.xml
+M:\Clients\WinCE\amber\obj\Debug\WinCEClient.pdb

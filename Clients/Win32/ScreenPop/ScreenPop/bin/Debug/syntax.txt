@@ -1,0 +1,14 @@
+
+Usage: screenPop.exe [-phone "{PHONENUM}"] [-config] [-?|h|help]
+
+Options (-|/):
+
+  clsid|phone	The phone number to lookup in Priority.
+
+  config		Runs the configuration tool which allows you to 
+		setup your Priority and SQL database details.
+
+  forms		Configure which Priority forms to search for 
+		a matching phone number.
+
+  ?|h|help		This help file.

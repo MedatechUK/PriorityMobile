@@ -1,0 +1,10 @@
+M:\components\SlideMenu\SlideMenu\bin\Debug\SlideMenu.dll
+M:\components\SlideMenu\SlideMenu\bin\Debug\SlideMenu.pdb
+M:\components\SlideMenu\SlideMenu\bin\Debug\SlideMenu.xml
+M:\components\SlideMenu\SlideMenu\obj\Debug\ResolveAssemblyReference.cache
+M:\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.Resources.resources
+M:\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.SlideMenu.resources
+M:\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.vbproj.GenerateResource.Cache
+M:\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.dll
+M:\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.xml
+M:\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.pdb

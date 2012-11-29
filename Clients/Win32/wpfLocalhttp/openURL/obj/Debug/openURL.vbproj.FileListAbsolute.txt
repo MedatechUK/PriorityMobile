@@ -1,0 +1,18 @@
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\bin\Debug\openURL.exe
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\bin\Debug\openURL.pdb
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\bin\Debug\openURL.xml
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\ResolveAssemblyReference.cache
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.Resources.resources
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.vbproj.GenerateResource.Cache
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.exe
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.xml
+N:\Priority Mobile\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.pdb
+M:\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.exe
+M:\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.xml
+M:\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.pdb
+M:\Clients\Win32\wpfLocalhttp\openURL\bin\Debug\openURL.exe
+M:\Clients\Win32\wpfLocalhttp\openURL\bin\Debug\openURL.pdb
+M:\Clients\Win32\wpfLocalhttp\openURL\bin\Debug\openURL.xml
+M:\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.Resources.resources
+M:\Clients\Win32\wpfLocalhttp\openURL\obj\Debug\openURL.vbproj.GenerateResource.Cache

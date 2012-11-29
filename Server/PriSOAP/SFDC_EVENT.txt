@@ -1,0 +1,5 @@
+CREATE TABLE [dbo].[ZSFDC_EVENT](
+	[BUBBLEID] [nvarchar](50) NOT NULL DEFAULT (''),
+	[RESULT] [nchar](1) NOT NULL DEFAULT (''),
+	[RESULTDATA] [nvarchar](255) NOT NULL DEFAULT ('')
+) ON [PRIMARY]

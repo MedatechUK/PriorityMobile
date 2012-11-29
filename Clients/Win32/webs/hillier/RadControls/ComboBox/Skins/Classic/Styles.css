@@ -1,0 +1,117 @@
+.ComboBoxDropDown_Classic
+{
+	border: 1px solid black;
+	background-color: white;
+	scrollbar-base-color : #D4D0C8;
+}
+
+.ComboBoxImage_Classic
+{
+	vertical-align:middle;
+	border: 2px inset #D4D0C8;
+	border-left: none;
+}
+
+.ComboBoxImageHover_Classic
+{
+	vertical-align:middle;
+	border: 2px inset #D4D0C8;
+	border-left: none;	
+}
+
+.ComboBoxInput_Classic
+{
+	font-family: MS Sans Serif, Arial, Verdana;
+	font-size: 12px;
+	border: 2px inset #D4D0C8;	
+	background-color: white;
+	vertical-align: middle;	
+	color: black;
+	padding-top: 4px;	
+	padding-left: 3px;
+	height: 22px;
+}
+
+.ComboBoxInputHover_Classic
+{
+	font-family: MS Sans Serif, Arial, Verdana;
+	font-size: 12px;
+	border: 2px inset #D4D0C8;	
+	background-color: white;
+	vertical-align: middle;	
+	color: black;
+	padding-top: 4px;	
+	padding-left: 3px;
+	height: 22px;
+}
+
+.ComboBoxItem_Classic
+{
+	font-family: MS Sans Serif, Arial, Verdana;
+	font-size: 12px;
+	color: #333333;	
+	padding: 3px;
+	cursor: default;
+	text-decoration: none;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemHover_Classic
+{
+	font-family: MS Sans Serif, Arial, Verdana;
+	font-size: 12px;
+	color: white;
+	text-decoration: none;
+	background-color: #777777; 
+	cursor: default;
+	padding: 3px;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_Classic
+{
+	font-family: MS Sans Serif, Arial, Verdana;
+	font-size: 12px;
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_Classic
+{
+	font-family: MS Sans Serif, Arial, Verdana;
+	font-size: 12px;
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Classic
+{
+	font-family: Arial;
+	font-size: 12px; 
+	padding: 2px;
+	text-align: center;
+}
+
+
+.ComboBoxMoreResultsImage_Classic
+{
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.ComboBoxMoreResultsBox_Classic
+{
+	background-color: #EEEEE5;
+}
+
+.ComboBoxHeader_Classic
+{
+	background-color: #EEEEE5;
+	font-size: 12px;
+	font-weight: bold;
+	border-bottom: 1px solid #bbbeac;
+}

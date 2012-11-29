@@ -1,0 +1,36 @@
+C:\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe
+C:\ProcSVC\ProcSVC\bin\Debug\ProcSVC.pdb
+C:\ProcSVC\ProcSVC\bin\Debug\ProcSVC.xml
+C:\ProcSVC\ProcSVC\obj\Debug\ResolveAssemblyReference.cache
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.Resources.resources
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.ProjectInstaller.resources
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.vbproj.GenerateResource.Cache
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.exe
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.xml
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.pdb
+C:\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe.config
+C:\ProcSVC\ProcSVC\obj\Debug\ProcSVC.ProcSVC.resources
+P:\Apps\v13PDA\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe.config
+P:\Apps\v13PDA\ProcSVC\ProcSVC\obj\Debug\ProcSVC.exe
+P:\Apps\v13PDA\ProcSVC\ProcSVC\obj\Debug\ProcSVC.xml
+P:\Apps\v13PDA\ProcSVC\ProcSVC\obj\Debug\ProcSVC.pdb
+C:\Priority Mobile\Server\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe.config
+C:\Priority Mobile\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.exe
+C:\Priority Mobile\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.xml
+C:\Priority Mobile\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.pdb
+N:\Projects\Priority Mobile\Server\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe.config
+N:\Projects\Priority Mobile\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.exe
+N:\Projects\Priority Mobile\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.xml
+N:\Projects\Priority Mobile\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.pdb
+M:\Server\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe.config
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.exe
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.xml
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.pdb
+M:\Server\ProcSVC\ProcSVC\bin\Debug\ProcSVC.exe
+M:\Server\ProcSVC\ProcSVC\bin\Debug\ProcSVC.pdb
+M:\Server\ProcSVC\ProcSVC\bin\Debug\ProcSVC.xml
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.Resources.resources
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.ProcSVC.resources
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.ProjectInstaller.resources
+M:\Server\ProcSVC\ProcSVC\obj\Debug\ProcSVC.vbproj.GenerateResource.Cache

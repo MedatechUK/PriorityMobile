@@ -1,0 +1,126 @@
+.RadTabStrip_Mac
+{
+	font: 11px arial, tahoma, sans-serif;
+	text-align:center;
+}
+
+
+.RadTabStrip_Mac ul
+{
+	padding-top:5px;
+	background-image: url(img/bg.gif);	
+	min-height:28px;
+}
+
+.RadTabStrip_Mac .level2 ul
+{
+	background-position:0 -33px;
+	height:19px;
+	min-height:19px;
+}
+
+.RadTabStrip_Mac li a
+{
+	color: black;
+	text-decoration: none;
+}
+
+.RadTabStrip_Mac .levelwrap li a.selected
+{
+	color: #009cf4;
+}
+
+/*  level 1 tabs */
+
+.RadTabStrip_Mac .level1 li a
+{
+	padding-left: 5px;
+	background: transparent url('img/tabLeftOff.gif') 0px 0px no-repeat;
+	line-height: 28px;
+}
+
+.RadTabStrip_Mac .level1 li a .wrap
+{
+
+	padding-right:5px;
+	background:transparent url('img/tabRightOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_Mac .level1 li a .innerWrap
+{
+
+	padding:0 5px;
+	background:transparent url('img/tabMiddleOff.gif') 0px 0px repeat-x;
+}
+
+.RadTabStrip_Mac .level1 li a.selected
+{
+	background:transparent url('img/tabLeftOn.gif') 0px 0px no-repeat;
+}
+
+.RadTabStrip_Mac .level1 li a.selected .wrap
+{
+	background-image:url('img/tabRightOn.gif');
+}
+
+
+.RadTabStrip_Mac .level1 li a.selected .innerWrap
+{
+	background-image:url('img/tabMiddleOn.gif');
+}
+
+/* level2 tabs */
+
+.RadTabStrip_Mac .level2 ul
+{
+	padding-top: 1px;
+}
+
+.RadTabStrip_Mac .level2 li a
+{
+	color: #333;
+	text-decoration: none;
+	font-size: 10px;
+	margin-bottom:8px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.RadTabStrip_Mac .level2 li a:hover
+{
+	background-image: url('img/secLevelHoverBg.gif');
+}
+
+/* arrows */
+.RadTabStrip_Mac .rightArrow, 
+.RadTabStrip_Mac .leftArrow,
+.RadTabStrip_Mac .rightArrowDisabled, 
+.RadTabStrip_Mac .leftArrowDisabled
+{
+	width:17px;
+	height:22px;
+}
+
+
+
+
+.RadTabStrip_Mac .leftArrow
+{
+	background-image:url(img/ScrollLeft.png);
+}
+
+.RadTabStrip_Mac .rightArrow
+{
+	background-image:url(img/ScrollRight.png);
+}
+
+
+.RadTabStrip_Mac .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.png);
+}
+
+.RadTabStrip_Mac .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.png);
+}

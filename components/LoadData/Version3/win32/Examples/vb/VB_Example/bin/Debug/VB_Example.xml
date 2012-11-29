@@ -1,0 +1,73 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+VB_Example
+</name>
+</assembly>
+<members>
+<member name="M:VB_Example.PriWebSVC.Service.#ctor">
+	<remarks/>
+</member><member name="E:VB_Example.PriWebSVC.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:VB_Example.PriWebSVC.Service.LoadDataWaitCompleted">
+	<remarks/>
+</member><member name="E:VB_Example.PriWebSVC.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="E:VB_Example.PriWebSVC.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataWait(System.String,System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.GetData(System.String,System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.GetDataAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.GetDataAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:VB_Example.PriWebSVC.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.Service">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:VB_Example.PriWebSVC.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.LoadDataWaitCompletedEventHandler">
+	<remarks/>
+</member><member name="P:VB_Example.PriWebSVC.LoadDataWaitCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.LoadDataWaitCompletedEventArgs">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:VB_Example.PriWebSVC.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:VB_Example.PriWebSVC.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:VB_Example.PriWebSVC.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

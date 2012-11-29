@@ -1,0 +1,540 @@
+/** Time Expressions **/
+
+	SELECT @ResultVar = (DATEADD(MI, @MIN, '19880101'))
+-or-
+	SELECT @ResultVar = (DATEdiff(MI, '19880101',@DT ))
+
+
+/** Tabular Functions **/
+
+	CREATE FUNCTION [dbo].[SVCCALL_DETAILS2]()
+	RETURNS 
+	@SVCCALL_DETAILS2 TABLE 
+	(
+		-- Add the column definitions for the TABLE variable here	 
+		DOCNO VARCHAR(24),
+		ORD int,
+		TXT CHAR(68),
+		USERLOGIN CHAR(8)
+	)
+	AS
+	BEGIN
+		-- Fill the table variable with the rows for your result set
+		INSERT INTO  @SVCCALL_DETAILS2 
+		SELECT       dbo.DOCUMENTS.DOCNO , rtrim(ltrim(str(dbo.DOCUMENTSTEXT.TEXTORD))), dbo.DOCUMENTSTEXT.TEXT, system.dbo.USERS.USERLOGIN
+		FROM         dbo.CUSTOMERS INNER JOIN
+							  dbo.DOCUMENTS INNER JOIN
+							  dbo.DOCUMENTSTEXT ON - dbo.DOCUMENTS.DOC = dbo.DOCUMENTSTEXT.DOC INNER JOIN
+							  dbo.SERVCALLS INNER JOIN
+							  dbo.PHONEBOOK ON dbo.SERVCALLS.PHONE = dbo.PHONEBOOK.PHONE INNER JOIN
+							  dbo.CALLSTATUSES ON dbo.SERVCALLS.CALLSTATUS = dbo.CALLSTATUSES.CALLSTATUS ON dbo.DOCUMENTS.DOC = dbo.SERVCALLS.DOC ON 
+							  dbo.CUSTOMERS.CUST = dbo.DOCUMENTS.CUST INNER JOIN
+							  system.dbo.USERS ON dbo.SERVCALLS.TECHNICIAN = system.dbo.USERS.T$USER
+		WHERE     (dbo.DOCUMENTS.TYPE = 'Q') AND (dbo.CALLSTATUSES.ACTIVEFLAG = 'Y') AND (dbo.SERVCALLS.PDATE >= dbo.DATETOMIN(GETDATE() - 1)) AND 
+							  (system.dbo.USERS.USERLOGIN NOT LIKE 'UA%') AND (system.dbo.USERS.USERLOGIN <> 'Services') AND (dbo.DOCUMENTSTEXT.TEXTORD > 0)
+		ORDER BY dbo.DOCUMENTS.DOCNO, dbo.DOCUMENTSTEXT.TEXTORD
+
+		INSERT INTO  @SVCCALL_DETAILS2 
+		SELECT     TOP (100) PERCENT dbo.DOCUMENTS.DOCNO , rtrim(ltrim(str(dbo.DOCUMENTSTEXT.TEXTORD))), dbo.DOCUMENTSTEXT.TEXT, system.dbo.USERS.USERLOGIN
+		FROM         dbo.CUSTOMERS INNER JOIN
+							  dbo.DOCUMENTS INNER JOIN
+							  dbo.DOCUMENTSTEXT ON - dbo.DOCUMENTS.DOC = dbo.DOCUMENTSTEXT.DOC INNER JOIN
+							  dbo.SERVCALLS INNER JOIN
+							  dbo.PHONEBOOK ON dbo.SERVCALLS.PHONE = dbo.PHONEBOOK.PHONE INNER JOIN
+							  dbo.CALLSTATUSES ON dbo.SERVCALLS.CALLSTATUS = dbo.CALLSTATUSES.CALLSTATUS ON dbo.DOCUMENTS.DOC = dbo.SERVCALLS.DOC ON 
+							  dbo.CUSTOMERS.CUST = dbo.DOCUMENTS.CUST INNER JOIN
+							  system.dbo.USERS ON dbo.SERVCALLS.TECHNICIAN2 = system.dbo.USERS.T$USER
+		WHERE     (dbo.DOCUMENTS.TYPE = 'Q') AND (dbo.CALLSTATUSES.ACTIVEFLAG = 'Y') AND (dbo.SERVCALLS.PDATE >= dbo.DATETOMIN(GETDATE() - 1)) AND 
+							  (system.dbo.USERS.USERLOGIN NOT LIKE 'UA%') AND (system.dbo.USERS.USERLOGIN <> '') AND (dbo.DOCUMENTSTEXT.TEXTORD > 0) AND 
+							  (system.dbo.USERS.USERLOGIN <> 'Services')
+		ORDER BY dbo.DOCUMENTS.DOCNO, dbo.DOCUMENTSTEXT.TEXTORD
+
+		RETURN 
+	END
+
+/** Scalar Functions **/
+
+	CREATE FUNCTION [dbo].[SVCCALL_ADDRESS]
+	(
+		-- Add the parameters for the function here
+		@PART varCHAR(5),
+		@DOC INT
+	)
+	RETURNS VARCHAR(20)
+	AS
+	BEGIN
+		-- Declare the return variable here
+		DECLARE @ResultVar VARCHAR(255)
+		DECLARE @DADD VARCHAR(20)
+		DECLARE @CADD VARCHAR(20)
+
+	if @PART = 'A1'
+	begin
+		--(DESTCODES.PHONENUM <> '' ? DESTCODES.PHONENUM : PHONEBOOK.PHONENUM)
+		SET @DADD = (SELECT DESTCODES.ADDRESS 
+					FROM SERVCALLS, DOCUMENTS, DESTCODES 
+					WHERE DOCUMENTS.DESTCODE = DESTCODES.DESTCODE
+					AND DOCUMENTS.DOC = SERVCALLS.DOC
+					AND DOCUMENTS.DOC = @DOC)
+
+		SET @CADD = (SELECT CUSTOMERS.ADDRESS 
+						FROM DOCUMENTS,  CUSTOMERS 
+						WHERE DOCUMENTS.CUST = CUSTOMERS.CUST
+						AND DOCUMENTS.DOC = @DOC)
+	end		
+
+
+	if @PART = 'A2'
+	begin
+		--(DESTCODES.PHONENUM <> '' ? DESTCODES.PHONENUM : PHONEBOOK.PHONENUM)
+		SET @DADD = (SELECT DESTCODES.ADDRESSA 
+					FROM SERVCALLS, DOCUMENTS, DESTCODES 
+					WHERE DOCUMENTS.DESTCODE = DESTCODES.DESTCODE
+					AND DOCUMENTS.DOC = SERVCALLS.DOC
+					AND DOCUMENTS.DOC = @DOC)
+
+		SET @CADD = ''
+	end	
+
+
+	if @PART = 'A3'
+	begin
+		--(DESTCODES.PHONENUM <> '' ? DESTCODES.PHONENUM : PHONEBOOK.PHONENUM)
+		SET @DADD = (SELECT DESTCODES.STATE 
+					FROM SERVCALLS, DOCUMENTS, DESTCODES 
+					WHERE DOCUMENTS.DESTCODE = DESTCODES.DESTCODE
+					AND DOCUMENTS.DOC = SERVCALLS.DOC
+					AND DOCUMENTS.DOC = @DOC)
+
+		SET @CADD = (SELECT CUSTOMERS.STATE 
+						FROM DOCUMENTS,  CUSTOMERS 
+						WHERE DOCUMENTS.CUST = CUSTOMERS.CUST
+						AND DOCUMENTS.DOC = @DOC)
+	end	
+
+	if @PART = 'A4'
+	begin
+		--(DESTCODES.PHONENUM <> '' ? DESTCODES.PHONENUM : PHONEBOOK.PHONENUM)
+		SET @DADD = (SELECT DESTCODES.STATEA 
+					FROM SERVCALLS, DOCUMENTS, DESTCODES 
+					WHERE DOCUMENTS.DESTCODE = DESTCODES.DESTCODE
+					AND DOCUMENTS.DOC = SERVCALLS.DOC
+					AND DOCUMENTS.DOC = @DOC)
+
+		SET @CADD = ''
+	end	
+
+	if @PART = 'A5'
+	begin
+		--(DESTCODES.PHONENUM <> '' ? DESTCODES.PHONENUM : PHONEBOOK.PHONENUM)
+		SET @DADD = (SELECT DESTCODES.ZIP 
+					FROM SERVCALLS, DOCUMENTS, DESTCODES 
+					WHERE DOCUMENTS.DESTCODE = DESTCODES.DESTCODE
+					AND DOCUMENTS.DOC = SERVCALLS.DOC
+					AND DOCUMENTS.DOC = @DOC)
+
+		SET @CADD = (SELECT CUSTOMERS.ZIP 
+						FROM DOCUMENTS,  CUSTOMERS 
+						WHERE DOCUMENTS.CUST = CUSTOMERS.CUST
+						AND DOCUMENTS.DOC = @DOC)
+	end	
+				
+		SET @ResultVar = ' '
+
+		IF @DADD = '' AND @CADD <> ''
+			begin
+				set @ResultVar = @CADD
+			end
+
+		IF @CADD = '' AND @DADD  <> ''
+			begin
+				set @ResultVar = @DADD
+			end
+
+		IF @CADD <> '' AND @DADD  <> ''
+			begin
+				set @ResultVar = @DADD
+			end
+
+		return @ResultVar
+	END
+
+	GO
+
+
+
+/** Views **/
+
+	CREATE VIEW [dbo].[V_SERVCALLS]
+	AS
+	SELECT     TOP (100) PERCENT dbo.DOCUMENTS.DOC, dbo.DOCUMENTS.DOCNO, dbo.SERVCALLS.STARTDATE AS [Date Opened], dbo.SERVCALLS.PDATE, 
+			      dbo.SVCCALL_CODE(dbo.DOCUMENTS.DOC) AS Status, dbo.CUSTOMERS.CUSTDES AS [Customer Name], dbo.SVCCALL_ADDRESS('A1', dbo.DOCUMENTS.DOC) 
+			      AS [Address 2], dbo.SVCCALL_ADDRESS('A2', dbo.DOCUMENTS.DOC) AS [Address 2.1], dbo.SVCCALL_ADDRESS('A2', dbo.DOCUMENTS.DOC) AS [Address 3], 
+			      dbo.SVCCALL_ADDRESS('A5', dbo.DOCUMENTS.DOC) AS [Post Code], dbo.SVCCALL_ADDRESS('A4', dbo.DOCUMENTS.DOC) AS [City/County], dbo.PHONEBOOK.NAME, 
+			      dbo.SVCCALL_PHONE(dbo.DOCUMENTS.DOC) AS [Phone Number], dbo.SERVTYPES.SERVTDES, dbo.SERVCALLS.PTIME, dbo.MALFUNCTIONS.MALFCODE, 
+			      dbo.SOLUTIONS.CODE AS RESCODE
+	FROM         dbo.SOLUTIONS RIGHT OUTER JOIN
+			      dbo.MALFUNCTIONS RIGHT OUTER JOIN
+			      dbo.DESTCODES INNER JOIN
+			      dbo.DOCUMENTS INNER JOIN
+			      dbo.SERVCALLS ON dbo.DOCUMENTS.DOC = dbo.SERVCALLS.DOC ON dbo.DESTCODES.DESTCODE = dbo.DOCUMENTS.DESTCODE INNER JOIN
+			      dbo.CALLSTATUSES ON dbo.SERVCALLS.CALLSTATUS = dbo.CALLSTATUSES.CALLSTATUS INNER JOIN
+			      dbo.CUSTOMERS ON dbo.DOCUMENTS.CUST = dbo.CUSTOMERS.CUST ON dbo.MALFUNCTIONS.MALF = dbo.SERVCALLS.MALF ON 
+			      dbo.SOLUTIONS.SOLUTION = dbo.SERVCALLS.SOLUTION LEFT OUTER JOIN
+			      dbo.SERVTYPES ON dbo.SERVCALLS.SERVTYPE = dbo.SERVTYPES.SERVTYPE LEFT OUTER JOIN
+			      dbo.PHONEBOOK ON dbo.SERVCALLS.PHONE = dbo.PHONEBOOK.PHONE LEFT OUTER JOIN
+			      dbo.DOCUMENTSA ON dbo.DOCUMENTS.DOC = dbo.DOCUMENTSA.DOC
+	WHERE     (dbo.DOCUMENTS.TYPE = 'Q') AND (dbo.CALLSTATUSES.ACTIVEFLAG = 'Y') AND (dbo.CALLSTATUSES.ZPDA_PDASTATUS = 'Y')
+	ORDER BY dbo.SERVCALLS.PDATE
+
+	GO
+
+	EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+	Begin DesignProperties = 
+	   Begin PaneConfigurations = 
+	      Begin PaneConfiguration = 0
+		 NumPanes = 4
+		 Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+	      End
+	      Begin PaneConfiguration = 1
+		 NumPanes = 3
+		 Configuration = "(H (1 [50] 4 [25] 3))"
+	      End
+	      Begin PaneConfiguration = 2
+		 NumPanes = 3
+		 Configuration = "(H (1 [50] 2 [25] 3))"
+	      End
+	      Begin PaneConfiguration = 3
+		 NumPanes = 3
+		 Configuration = "(H (4 [30] 2 [40] 3))"
+	      End
+	      Begin PaneConfiguration = 4
+		 NumPanes = 2
+		 Configuration = "(H (1 [56] 3))"
+	      End
+	      Begin PaneConfiguration = 5
+		 NumPanes = 2
+		 Configuration = "(H (2 [66] 3))"
+	      End
+	      Begin PaneConfiguration = 6
+		 NumPanes = 2
+		 Configuration = "(H (4 [50] 3))"
+	      End
+	      Begin PaneConfiguration = 7
+		 NumPanes = 1
+		 Configuration = "(V (3))"
+	      End
+	      Begin PaneConfiguration = 8
+		 NumPanes = 3
+		 Configuration = "(H (1[56] 4[18] 2) )"
+	      End
+	      Begin PaneConfiguration = 9
+		 NumPanes = 2
+		 Configuration = "(H (1 [75] 4))"
+	      End
+	      Begin PaneConfiguration = 10
+		 NumPanes = 2
+		 Configuration = "(H (1[66] 2) )"
+	      End
+	      Begin PaneConfiguration = 11
+		 NumPanes = 2
+		 Configuration = "(H (4 [60] 2))"
+	      End
+	      Begin PaneConfiguration = 12
+		 NumPanes = 1
+		 Configuration = "(H (1) )"
+	      End
+	      Begin PaneConfiguration = 13
+		 NumPanes = 1
+		 Configuration = "(V (4))"
+	      End
+	      Begin PaneConfiguration = 14
+		 NumPanes = 1
+		 Configuration = "(V (2))"
+	      End
+	      ActivePaneConfig = 0
+	   End
+	   Begin DiagramPane = 
+	      Begin Origin = 
+		 Top = 0
+		 Left = 0
+	      End
+	      Begin Tables = 
+		 Begin Table = "SOLUTIONS"
+		    Begin Extent = 
+		       Top = 6
+		       Left = 38
+		       Bottom = 123
+		       Right = 198
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "MALFUNCTIONS"
+		    Begin Extent = 
+		       Top = 6
+		       Left = 236
+		       Bottom = 123
+		       Right = 396
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "DESTCODES"
+		    Begin Extent = 
+		       Top = 126
+		       Left = 38
+		       Bottom = 243
+		       Right = 198
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "DOCUMENTS"
+		    Begin Extent = 
+		       Top = 126
+		       Left = 236
+		       Bottom = 243
+		       Right = 402
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "SERVCALLS"
+		    Begin Extent = 
+		       Top = 246
+		       Left = 38
+		       Bottom = 363
+		       Right = 218
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "CALLSTATUSES"
+		    Begin Extent = 
+		       Top = 246
+		       Left = 256
+		       Bottom = 363
+		       Right = 435
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "CUSTOMERS"
+		    Begin Extent = 
+		       Top = 366
+		       Left = 38
+		       Bottom = 483
+		       Right = 218
+		    End
+		    ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'V_SERVCALLS'
+	GO
+
+	EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane2', @value=N'DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "SERVTYPES"
+		    Begin Extent = 
+		       Top = 366
+		       Left = 256
+		       Bottom = 483
+		       Right = 416
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "PHONEBOOK"
+		    Begin Extent = 
+		       Top = 486
+		       Left = 38
+		       Bottom = 603
+		       Right = 210
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+		 Begin Table = "DOCUMENTSA"
+		    Begin Extent = 
+		       Top = 486
+		       Left = 248
+		       Bottom = 603
+		       Right = 426
+		    End
+		    DisplayFlags = 280
+		    TopColumn = 0
+		 End
+	      End
+	   End
+	   Begin SQLPane = 
+	   End
+	   Begin DataPane = 
+	      Begin ParameterDefaults = ""
+	      End
+	      Begin ColumnWidths = 19
+		 Width = 284
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+		 Width = 1500
+	      End
+	   End
+	   Begin CriteriaPane = 
+	      Begin ColumnWidths = 11
+		 Column = 7410
+		 Alias = 900
+		 Table = 1170
+		 Output = 720
+		 Append = 1400
+		 NewValue = 1170
+		 SortType = 1350
+		 SortOrder = 1410
+		 GroupBy = 1350
+		 Filter = 1350
+		 Or = 1350
+		 Or = 1350
+		 Or = 1350
+	      End
+	   End
+	End
+	' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'V_SERVCALLS'
+	GO
+
+	EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=2 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'V_SERVCALLS'
+	GO
+
+/** Programatic queries **/
+
+	/** Enumerate tables/columns and creation of tables **/
+	    Public ReadOnly Property IsBubbleTable() As Boolean
+		Get
+		    Dim cmd As SqlClient.SqlCommand = OpenConnection
+		    cmd.CommandText = String.Format( _
+			"SELECT COUNT(*) FROM sys.all_columns where object_id = " & _
+			"(select object_id from sys.tables where name = '{0}') " & _
+			"and name = 'BUBBLEID'" _
+			, Table _
+		    )
+		    Try
+			If cmd.ExecuteScalar > 0 Then
+			    cmd.CommandText = "SELECT count(*) " & _
+					      "FROM sys.tables " & _
+					      "where name = 'ZSFDC_EVENT'"
+			    If cmd.ExecuteScalar = 0 Then
+				cmd.CommandText = "CREATE TABLE [dbo].[ZSFDC_EVENT]( " & _
+						  "	[BUBBLEID] [nvarchar](50) NOT NULL DEFAULT (''), " & _
+						  "	[RESULT] [nchar](1) NOT NULL DEFAULT (''), " & _
+						  "	[RESULTDATA] [nvarchar](255) NOT NULL DEFAULT ('') " & _
+						  ") ON [PRIMARY]"
+				cmd.ExecuteNonQuery()
+			    End If
+			    Return True
+			Else
+			    Return False
+			End If
+		    Catch ex As Exception
+			Throw New Exception(String.Format("Unable to open verify if the table [{0}] supports Bubble events. " & _
+			    "The error was: {1}", Table, ex.Message))
+		    End Try
+		End Get
+	    End Property
+
+	/** Enumeration of triggers **/
+
+	    Public ReadOnly Property TriggerExists() As Boolean
+		Get
+		    Dim cmd As SqlClient.SqlCommand = OpenConnection
+		    cmd.CommandText = String.Format("select count(*) from sys.triggers where name = '{0}'", TriggerName)
+		    Try
+			Return cmd.ExecuteScalar > 0
+		    Catch ex As Exception
+			Throw New Exception(String.Format("Unable to open verify trigger [{0}] exists. " & _
+			    "The error was: {1}", TriggerName, ex.Message))
+		    End Try
+		End Get
+	    End Property
+
+	/** Creation of triggers **/
+
+	    Public Function MakeTrigger() As Boolean
+		Dim ret As Boolean = False
+		Try
+		    Dim cmd As SqlClient.SqlCommand = OpenConnection
+
+		    If TriggerExists() Then ' Try to drop existing trigger
+			Try
+			    cmd.CommandText = String.Format( _
+				"DROP TRIGGER [dbo].[{0}]", _
+				TriggerName _
+			    )
+			Catch ex As Exception
+			    Throw New Exception(String.Format("The trigger [{0}] already exists. " & _
+				"DROP failed becuase: (1)", TriggerName, ex.Message))
+			End Try
+		    End If
+
+		    cmd.CommandText = _
+			String.Format( _
+			    "CREATE TRIGGER [dbo].[{0}] {2}" & _
+			    "   ON  [dbo].[{1}] {2}" & _
+			    "   AFTER UPDATE {2}" & _
+			    "AS  {2}" & _
+			    "begin  {2}" & _
+			    "	SET NOCOUNT ON;  {2}" & _
+			    "	declare @b int {2}" & _
+			    "	set @b = (select COUNT(*) FROM sys.all_columns where object_id =  {2}" & _
+			    "	(select object_id from sys.tables where name = '{1}') {2}" & _
+			    "	and name = 'BUBBLEID') {2}" & _
+			    "	if @b = 1 {2}" & _
+			    "	begin {2}" & _
+			    "		declare @c int  {2}" & _
+			    "		declare @bstr varchar(50)  {2}" & _
+			    "		declare @k int  {2}" & _
+			    "		declare @t int {2}" & _
+			    "		set @bstr = (select top 1 BUBBLEID from inserted)  {2}" & _
+			    "		set @c = (select count(LOADED) from {1}  {2}" & _
+			    "		where BUBBLEID = @bstr and LOADED <> 'Y')  {2}" & _
+			    "		if @c = 0  {2}" & _
+			    "		begin  {2}" & _
+			    "			set @k = (select max(KEY1) from {1} where BUBBLEID = @bstr and KEY1 <> '')  {2}" & _
+			    "			update dbo.ZSFDC_EVENT set RESULT='Y', RESULTDATA = @k  {2}" & _
+			    "			where BUBBLEID = @bstr  {2}" & _
+			    "			set @t = (select count(*) from sys.tables where name ='{1}_LD') {2}" & _
+			    "			if @t = 1 {2}" & _
+			    "			begin {2}" & _
+			    "				insert into {1}_LD {2}" & _
+			    "				select * from {1}  {2}" & _
+			    "				where BUBBLEID = @bstr {2}" & _
+			    "			end {2}" & _
+			    "			delete from {1} where BUBBLEID = @bstr {2}" & _
+			    "		end  {2}" & _
+			    "	end {2}" & _
+			    "end {2}", _
+			    TriggerName, Table, vbCrLf _
+			)
+		    Try
+			cmd.ExecuteNonQuery()
+			ret = True
+		    Catch ex As Exception
+			Throw New Exception(String.Format("CREATE Trigger [{0}] failed. The error was: {1}", TriggerName, ex.Message))
+		    End Try
+
+		Catch ex As Exception
+		    ' Log the exception
+		End Try
+
+		Return ret
+	    End Function

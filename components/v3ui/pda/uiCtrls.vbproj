@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7D203AC6-E847-471D-A3C9-9149BCBC4416}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>uiCtrls</RootNamespace>
+    <AssemblyName>uiCtrls</AssemblyName>
+    <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.0</OSVersion>
+    <MyType>Windows</MyType>
+    <DeployDirSuffix>pdaUI</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>uiCtrls.xml</DocumentationFile>
+    <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>uiCtrls.xml</DocumentationFile>
+    <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGrid" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="btnStart.Designer.vb">
+      <DependentUpon>btnStart.vb</DependentUpon>
+    </Compile>
+    <Compile Include="btnStart.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctform.Designer.vb">
+      <DependentUpon>ctform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ctform.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GridFormats.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PriBaseCtrl.Designer.vb">
+      <DependentUpon>PriBaseCtrl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PriBaseCtrl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="priComboBox.Designer.vb">
+      <DependentUpon>priComboBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="priComboBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PriDatePick.Designer.vb">
+      <DependentUpon>PriDatePick.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PriDatePick.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="priSign.Designer.vb">
+      <DependentUpon>priSign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="priSign.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="priTabs.Designer.vb">
+      <DependentUpon>priTabs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="priTabs.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="priTextBox.Designer.vb">
+      <DependentUpon>priTextBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="priTextBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PriTickBox.Designer.vb">
+      <DependentUpon>PriTickBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PriTickBox.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SlideMenu.Designer.vb">
+      <DependentUpon>SlideMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SlideMenu.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="priDateSel.Designer.vb">
+      <DependentUpon>priDateSel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="priDateSel.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="xmlForm.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="btnStart.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>btnStart.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctform.resx">
+      <DependentUpon>ctform.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriBaseCtrl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PriBaseCtrl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="priComboBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>priComboBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriDatePick.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PriDatePick.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="priDateSel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>priDateSel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="priTabs.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>priTabs.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="priTextBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>priTextBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriTickBox.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PriTickBox.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlideMenu.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SlideMenu.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Bind\pda\Bind.vbproj">
+      <Project>{3D74907B-7688-4200-8136-ACE2495B515E}</Project>
+      <Name>Bind</Name>
+    </ProjectReference>
+    <ProjectReference Include="M:\components\win32ntDict\cfntDict\ntDictionaryLib.vbproj">
+      <Project>{F71C4532-9086-492D-AD3D-80FC5A95E7D4}</Project>
+      <Name>ntDictionaryLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\DataSources\" />
+  </ItemGroup>
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.v1.targets" />
+  <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

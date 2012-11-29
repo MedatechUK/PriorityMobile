@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+wpfDesktop
+</name>
+</assembly>
+<members>
+<member name="P:wpfDesktop.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:wpfDesktop.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:wpfDesktop.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.#ctor">
+	<remarks/>
+</member><member name="E:wpfDesktop.PriWebSvc.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="E:wpfDesktop.PriWebSvc.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:wpfDesktop.PriWebSvc.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:wpfDesktop.PriWebSvc.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.Service">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:wpfDesktop.PriWebSvc.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:wpfDesktop.PriWebSvc.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:wpfDesktop.PriWebSvc.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:wpfDesktop.PriWebSvc.GetDataCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

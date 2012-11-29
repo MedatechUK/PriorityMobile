@@ -1,0 +1,10 @@
+ZPDA_REPAIR_LOAD	ZPDA_LOAD_REPAIR	
+1	DOCNO	
+2		REPAIRTEXT
+	TEXT	TEXT
+1	SC10004510	
+2		<style> p,div,li 
+2		{margin:0cm;font-size:10.0pt;font-family:'Arial';}</style>
+2		 <p> main fuse had been blown by electricians and not 
+2		replaced.replaced fuse and checked all cameras with cms,all ok. 
+2		</p>  <p> signed by dave wint </p>  

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ProcSVC
+</name>
+</assembly>
+<members>
+<member name="P:ProcSVC.cNetworkDrive.SaveCredentials">
+	<summary>
+ Option to save credentials on reconnection...
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.Persistent">
+	<summary>
+ Option to reconnect drive after log off / reboot...
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.Force">
+	<summary>
+ Option to force connection if drive is already mapped...
+ or force disconnection if network path is not responding...
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.PromptForCredentials">
+	<summary>
+ Option to prompt for user credintals when mapping a drive
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.FindNextFreeDrive">
+	<summary>
+ Option to auto select the 'LocalDrive' property to next free driver letter when mapping a network drive
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.LocalDrive">
+	<summary>
+ Drive to be used in mapping / unmapping (eg. 's:')
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.ShareName">
+	<summary>
+ Share address to map drive to. (eg. '\\Computer\C$')
+ </summary>
+</member><member name="P:ProcSVC.cNetworkDrive.MappedDrives">
+	<summary>
+ Returns a string array of currently mapped network drives
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.MapDrive">
+	<summary>
+ Map network drive
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.MapDrive(System.String,System.String)">
+	<summary>
+ Map network drive (using supplied Username and Password)
+ </summary>
+	<param name="username">Username passed for permissions / credintals ('Username' may be passed as null, to map using only a password)</param>
+	<param name="password">Password passed for permissions / credintals</param>
+</member><member name="M:ProcSVC.cNetworkDrive.MapDrive(System.String,System.String,System.Boolean)">
+	<summary>
+ Set common propertys, then map the network drive
+ </summary>
+	<param name="localDrive">LocalDrive to use for connection</param>
+	<param name="shareName">Share name for the connection (eg. '\\Computer\Share')</param>
+	<param name="force">Option to force dis/connection</param>
+</member><member name="M:ProcSVC.cNetworkDrive.MapDrive(System.String,System.Boolean)">
+	<summary>
+ Set common propertys, then map the network drive
+ </summary>
+	<param name="localDrive">Password passed for permissions / credintals</param>
+	<param name="force">Option to force dis/connection</param>
+</member><member name="M:ProcSVC.cNetworkDrive.UnMapDrive">
+	<summary>
+ Unmap network drive
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.UnMapDrive(System.String)">
+	<summary>
+ Unmap network drive
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.UnMapDrive(System.String,System.Boolean)">
+	<summary>
+ Unmap network drive
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.RestoreDrives">
+	<summary>
+ Check / restore persistent network drive
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.RestoreDrive(System.String)">
+	<summary>
+ Check / restore persistent network drive
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.ShowConnectDialog">
+	<summary>
+ Display windows dialog for mapping a network drive (using Desktop as parent form)
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.ShowConnectDialog(System.IntPtr)">
+	<summary>
+ Display windows dialog for mapping a network drive
+ </summary>
+	<param name="parentFormHandle">Form used as a parent for the dialog</param>
+</member><member name="M:ProcSVC.cNetworkDrive.ShowDisconnectDialog">
+	<summary>
+ Display windows dialog for disconnecting a network drive (using Desktop as parent form)
+ </summary>
+</member><member name="M:ProcSVC.cNetworkDrive.ShowDisconnectDialog(System.IntPtr)">
+	<summary>
+ Display windows dialog for disconnecting a network drive
+ </summary>
+	<param name="parentFormHandle">Form used as a parent for the dialog</param>
+</member><member name="M:ProcSVC.cNetworkDrive.GetMappedShareName(System.String)">
+	<summary>
+ Returns the share name of a connected network drive
+ </summary>
+	<param name="localDrive">Drive name (eg. 'X:')</param>
+	<returns>Share name (eg. \\computer\share)</returns>
+</member><member name="T:ProcSVC.cNetworkDrive">
+	<summary>
+ Network Drive Mapping class / wrapper
+ </summary>
+	<remarks>Maps, ummaps and general functions for network drives</remarks>
+</member>
+</members>
+</doc>

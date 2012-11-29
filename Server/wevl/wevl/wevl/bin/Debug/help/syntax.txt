@@ -1,0 +1,53 @@
+Windows Event CLI Logger Syntax:
+
+   wevl.exe {-s|source {"[source]"} -m|msg|message {"[message]"}
+         -t|type {info|warn|ok|fail|err}}|
+         {-r -s|source {"[source]"})|
+         {-? {-w}}
+
+   wevl.exe
+      The name of the binary - note that the installer copies the binaries 
+      to the local system folder, so this execuatble can be called from any
+      working directory without requiring the full path to the executable.
+	  
+   -? 
+      This help file.
+
+   -w 
+      Wait for user input on completion.
+
+   -s|source {"[source]"}
+      The source name of the message. Note that sources must be manually 
+      registered with the -r switch (by an administrator) if the user does 
+      not have premission to create an event source. This parameter MUST be 
+      specified for both LOG and REGISTER operations. If this contains 
+      spaces it should be contained between speech marks "like this".
+
+    -m|msg|message {"[message]"}
+      The message to save to the windows event log. If this contains 
+      spaces it should be contained between speech marks "like this".
+
+   -t|type {info|warn|ok|fail|err}
+      OPTIONAL - The type of log message. There are 5 standard event types
+      in the Windows classic event log. These are:      
+		- Error = error|err|er|1
+		- Warning = warning|warn|2
+		- Information = information|info|nfo|4
+		- SuccessAudit = successaudit|success|suc|ok|8 
+		- FailureAudit = failureaudit|fail|16
+	  
+	  Note: Any of the values listed on the right are valid responses for
+	  parameters for the type shown on the left. E.g. to specify a log 
+	  entry of Sucsess Audit the -s parameter could be any of the values:
+	  successaudit OR success OR suc OR ok OR 8
+	  
+   -r 
+      Register the event source specified by the -s switch as a source for 
+      Windows events. 
+      
+Examples:
+	To register a Windows Event Log source:
+		wevl -r -s "[source]"
+		
+	To write a warning message to the event log:
+		wevl -s "[Source]" -t warn -msg "[This is my message]"

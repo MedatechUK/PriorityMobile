@@ -1,0 +1,108 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "xmlLoad", "..\..\components\xmlLoad\xmlLoad\xmlLoad.vbproj", "{770201A9-2D88-4023-967C-5E5FFDBC69EC}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "mobile", "\\redknave\c$\inetpub\mobile\", "{B3769899-CBCC-4349-87A6-EA149E516580}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		ProjectReferences = "{770201A9-2D88-4023-967C-5E5FFDBC69EC}|xmlLoad.dll;{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}|ntEvtlog.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/mobile"
+		Debug.AspNetCompiler.PhysicalPath = "\\redknave\c$\inetpub\mobile\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\mobile\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/mobile"
+		Release.AspNetCompiler.PhysicalPath = "\\redknave\c$\inetpub\mobile\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\mobile\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53392"
+	EndProjectSection
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntEvtlog", "..\..\components\ntEvtlog\ntEvtlog\ntEvtlog.vbproj", "{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntSoxLib", "..\..\components\win32ntSox\ntSox\ntSoxLib.vbproj", "{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PriProc", "PriProc\PriProc.vbproj", "{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PriProc4.installer.x64", "setup\PriProc4.installer.x86\PriProc4.installer.x86.vdproj", "{EE7BA21A-CB20-41F1-BAF2-9BDFF545E3EF}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PriProc4.installer.x86", "setup\PriProc4.installer.x64\PriProc4.installer.x64.vdproj", "{7CDA0E9D-90D1-4F3E-BECB-BC2E4BE9A486}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "priTelnet", "adminClient\priTelnet\priTelnet.vbproj", "{00C64266-69A7-4B09-A17D-2D47BB526410}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "examples_LoadClient_vb", "examples\vb.net\examples_LoadClient_vb\examples_LoadClient_vb.vbproj", "{E054A0FB-C47D-4CC6-A940-C20F2030DFAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "examples_LoadClient_csharp", "examples\c#.net\examples_LoadClient_csharp\examples_LoadClient_csharp.csproj", "{827922D6-2A15-42BC-BCE0-86A1A691E462}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AdminTelnet|Any CPU = AdminTelnet|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3769899-CBCC-4349-87A6-EA149E516580}.AdminTelnet|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3769899-CBCC-4349-87A6-EA149E516580}.AdminTelnet|Any CPU.Build.0 = Debug|Any CPU
+		{B3769899-CBCC-4349-87A6-EA149E516580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3769899-CBCC-4349-87A6-EA149E516580}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3769899-CBCC-4349-87A6-EA149E516580}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE7BA21A-CB20-41F1-BAF2-9BDFF545E3EF}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet
+		{EE7BA21A-CB20-41F1-BAF2-9BDFF545E3EF}.Debug|Any CPU.ActiveCfg = Debug
+		{EE7BA21A-CB20-41F1-BAF2-9BDFF545E3EF}.Debug|Any CPU.Build.0 = Debug
+		{EE7BA21A-CB20-41F1-BAF2-9BDFF545E3EF}.Release|Any CPU.ActiveCfg = Release
+		{7CDA0E9D-90D1-4F3E-BECB-BC2E4BE9A486}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet
+		{7CDA0E9D-90D1-4F3E-BECB-BC2E4BE9A486}.Debug|Any CPU.ActiveCfg = Debug
+		{7CDA0E9D-90D1-4F3E-BECB-BC2E4BE9A486}.Debug|Any CPU.Build.0 = Debug
+		{7CDA0E9D-90D1-4F3E-BECB-BC2E4BE9A486}.Release|Any CPU.ActiveCfg = Release
+		{7CDA0E9D-90D1-4F3E-BECB-BC2E4BE9A486}.Release|Any CPU.Build.0 = Release
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C64266-69A7-4B09-A17D-2D47BB526410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E054A0FB-C47D-4CC6-A940-C20F2030DFAF}.AdminTelnet|Any CPU.ActiveCfg = Release|Any CPU
+		{E054A0FB-C47D-4CC6-A940-C20F2030DFAF}.AdminTelnet|Any CPU.Build.0 = Release|Any CPU
+		{E054A0FB-C47D-4CC6-A940-C20F2030DFAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E054A0FB-C47D-4CC6-A940-C20F2030DFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E054A0FB-C47D-4CC6-A940-C20F2030DFAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827922D6-2A15-42BC-BCE0-86A1A691E462}.AdminTelnet|Any CPU.ActiveCfg = Release|Any CPU
+		{827922D6-2A15-42BC-BCE0-86A1A691E462}.AdminTelnet|Any CPU.Build.0 = Release|Any CPU
+		{827922D6-2A15-42BC-BCE0-86A1A691E462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827922D6-2A15-42BC-BCE0-86A1A691E462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827922D6-2A15-42BC-BCE0-86A1A691E462}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		BuildVersion_UpdateAssemblyVersion = False
+		BuildVersion_UpdateFileVersion = False
+		BuildVersion_BuildVersioningStyle = None.None.None.None
+	EndGlobalSection
+EndGlobal

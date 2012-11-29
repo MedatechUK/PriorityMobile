@@ -1,0 +1,37 @@
+M:\Server\PriSOAP\PriSOAP\bin\Debug\ntEvtlog.dll
+M:\Server\PriSOAP\PriSOAP\bin\Debug\ntSox.dll
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriClient.dll
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriClient.pdb
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriClient.xml
+M:\Server\PriSOAP\PriSOAP\bin\Debug\ntEvtlog.pdb
+M:\Server\PriSOAP\PriSOAP\bin\Debug\ntEvtlog.xml
+M:\Server\PriSOAP\PriSOAP\bin\Debug\ntSox.pdb
+M:\Server\PriSOAP\PriSOAP\bin\Debug\ntSox.xml
+M:\Server\PriSOAP\PriSOAP\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROC.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriProc.exe.config
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriPROC.exe
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriPROC.pdb
+M:\Server\PriSOAP\PriSOAP\bin\Debug\PriPROC.xml
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROIC.Resources.resources
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROIC.ProjectInstaller.resources
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROC.exe
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROC.xml
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROC.pdb
+C:\Program Files\Emerge-IT\Priority SOAP Service\PriPROC.exe.config
+C:\Program Files\Emerge-IT\Priority SOAP Service\PriPROC.exe
+C:\Program Files\Emerge-IT\Priority SOAP Service\PriPROC.pdb
+C:\Program Files\Emerge-IT\Priority SOAP Service\PriPROC.xml
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriPROC.exe.config
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriPROC.exe
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriPROC.pdb
+D:\Program Files\eMerge-IT\Priority SOAP Service\PriPROC.xml
+M:\Server\PriSOAP\PriSOAP\obj\Debug\PriPROIC.LogItem.resources
+\\grin\c$\program files\eMerge-IT\Priority SOAP Service\PriPROC.exe.config
+\\grin\c$\program files\eMerge-IT\Priority SOAP Service\PriPROC.exe
+\\grin\c$\program files\eMerge-IT\Priority SOAP Service\PriPROC.pdb
+\\grin\c$\program files\eMerge-IT\Priority SOAP Service\PriPROC.xml
+\\grin\c$\eMerge-IT\Priority SOAP Service\PriPROC.exe.config
+\\grin\c$\eMerge-IT\Priority SOAP Service\PriPROC.exe
+\\grin\c$\eMerge-IT\Priority SOAP Service\PriPROC.pdb
+\\grin\c$\eMerge-IT\Priority SOAP Service\PriPROC.xml

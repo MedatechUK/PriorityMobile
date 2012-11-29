@@ -1,0 +1,9 @@
+M:\Server\logParser\logParser\bin\Debug\logParser.exe
+M:\Server\logParser\logParser\bin\Debug\logParser.pdb
+M:\Server\logParser\logParser\bin\Debug\logParser.xml
+M:\Server\logParser\logParser\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\logParser\logParser\obj\Debug\logParser.Resources.resources
+M:\Server\logParser\logParser\obj\Debug\logParser.vbproj.GenerateResource.Cache
+M:\Server\logParser\logParser\obj\Debug\logParser.exe
+M:\Server\logParser\logParser\obj\Debug\logParser.xml
+M:\Server\logParser\logParser\obj\Debug\logParser.pdb

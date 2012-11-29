@@ -1,0 +1,8 @@
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\AdminTelnet\priTelnet.exe.config
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\AdminTelnet\priTelnet.exe
+M:\Server\PriSOAP4\adminClient\priTelnet\bin\AdminTelnet\ntSox.dll
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\AdminTelnet\ResolveAssemblyReference.cache
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\AdminTelnet\priTelnet.frmConsole.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\AdminTelnet\priTelnet.Resources.resources
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\AdminTelnet\priTelnet.vbproj.GenerateResource.Cache
+M:\Server\PriSOAP4\adminClient\priTelnet\obj\AdminTelnet\priTelnet.exe

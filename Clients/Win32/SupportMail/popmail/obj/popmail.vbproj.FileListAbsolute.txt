@@ -1,0 +1,9 @@
+M:\Clients\Win32\SupportMail\popmail\bin\Debug\popmail.dll
+M:\Clients\Win32\SupportMail\popmail\bin\Debug\popmail.pdb
+M:\Clients\Win32\SupportMail\popmail\bin\Debug\popmail.xml
+M:\Clients\Win32\SupportMail\popmail\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\SupportMail\popmail\obj\Debug\popmail.Resources.resources
+M:\Clients\Win32\SupportMail\popmail\obj\Debug\popmail.vbproj.GenerateResource.Cache
+M:\Clients\Win32\SupportMail\popmail\obj\Debug\popmail.dll
+M:\Clients\Win32\SupportMail\popmail\obj\Debug\popmail.xml
+M:\Clients\Win32\SupportMail\popmail\obj\Debug\popmail.pdb

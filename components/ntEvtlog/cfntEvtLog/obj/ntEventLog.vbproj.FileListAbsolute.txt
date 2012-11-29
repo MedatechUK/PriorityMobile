@@ -1,0 +1,9 @@
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\bin\Debug\ntEventLog.dll
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\bin\Debug\ntEventLog.pdb
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\bin\Debug\ntEventLog.xml
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\obj\Debug\ResolveAssemblyReference.cache
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\obj\Debug\ntEventLog.Resources.resources
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\obj\Debug\ntEventLog.vbproj.GenerateResource.Cache
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\obj\Debug\ntEventLog.dll
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\obj\Debug\ntEventLog.xml
+M:\components\ntEvtlog\cfntEvtLog\ntEventLog\obj\Debug\ntEventLog.pdb

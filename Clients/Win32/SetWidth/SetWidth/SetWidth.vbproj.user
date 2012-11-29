@@ -1,0 +1,5 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>-f %c:\priority\ftestf7.txt% -p *:80 -p [0-9]:100 -le LF -w</StartArguments>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Priority Pick-EXE (Pixie) - Help</title>
+    <style type="text/css">
+
+        #header
+        {
+            width: 96%;
+            margin: 0 0 0 0;
+            padding: 6px 2% 6px 2%;
+            font-family: "trebuchet MS" , Verdana, sans-serif;
+            color: #FFF;
+            background-color: #555555;
+        }
+        h1
+        {
+            font-size: 2.4em;
+            margin: 0;
+            color: #FFF;
+        }
+        #content
+        {
+            margin: 0 0 0 2%;
+            position: relative;
+        }
+        .content-container
+        {
+            background: #FFF;
+            width: 96%;
+            margin-top: 8px;
+            padding: 10px;
+            position: relative;
+        }
+        fieldset
+        {
+            padding: 0 15px 10px 15px;
+        }
+        h2
+        {
+            font-size: 1.7em;
+            margin: 0;
+            color: #CC0000;
+        }
+        h3
+        {
+            font-size: 1.2em;
+            margin: 10px 0 0 0;
+            color: #000000;
+        }
+        body
+        {
+            margin: 0;
+            font-size: .7em;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            background: #EEEEEE;
+        }
+        #content0
+        {
+            margin: 0 0 0 2%;
+            position: relative;
+        }
+        </style>
+</head>
+<body>
+
+    <div id="header">
+        <h1>
+            Help...</h1>
+    </div>
+    <div id="content">
+        <div class="content-container">
+            <fieldset>
+                <h2>
+                    Overview...</h2>
+                <h3>
+                    Welcome to the Priority Pick-EXE (pixie). </h3>
+                <br />
+                The Pixie set-up program impliments a new TCP protocol on installed machines. 
+                During set-up the registry keys show below are added to the Windows registry 
+                database. This tells Windows to use the installed Pixie Executable as the 
+                application handler for requests made to this protocol.<br />
+                <br />
+                <strong>HKEY_CLASSES_ROOT</strong><br />
+                <strong><em>pixie</em></strong><br />
+                (Default) = &quot;URL:Priority Pixie&quot;<br />
+                URL Protocol<strong> = </strong>&quot;&quot;<br />
+                <strong>shell</strong><br />
+                <strong>open</strong><br />
+                <strong>command</strong><br />
+                (Default) = &quot;[TARGETDIR]pixie.exe&quot; &quot;%1&quot;</fieldset>
+        </div>
+    </div>
+    <div id="content0">
+        <div class="content-container">
+            <fieldset>
+                <h2>
+                    Syntax...</h2>
+                <h3>
+                    pixie://{UNC or File System Location}{Executable}.exe?{Parameters}
+                </h3> 
+                <h3>
+                   {UNC or File System Location}
+                </h3> <font color="red">OPTIONAL</font> -
+                The UNC (i.e. 
+                \\{servername}\{sharename}\) or filing system (i.e. {drive letter}:\{folder}\) path that should be used as the working directory for the 
+                requested executable. This may be ommited if the executable is accessible from 
+                an ENVIRONMENT path. <br><br>For example, executables stored in the \%WINDIR% folder can be called without referencing a physical path to the working directory. If the executable you are starting resides on the filing system of the local machine it is preferable to add the working directory location to the systems ENVIRONMENT variable, so as to be able to leave this blank. 
+                Doing so will ensure that the binary is correctly called, regardless of where it 
+                is installed on the target machine. <br><br>This function is primarily included to handle instances where the desired binary needs to be run from a UNC path (i.e. not locally installed, but on the network).&nbsp;Note 
+                that the direction of slashes is not significant, so c:/ is the same as c:\ and 
+                //server/path is the same as \\server\path.<h3>
+                   {Executable}
+                </h3> The name of the binary to be executed. This <font color="red">MUST</font> include the ".exe" extention, as it is this which notifies the 
+                pixie that the 
+                incoming request is made with the intention of running a binary file.
+                <h3>
+                   {Parameters}
+                </h3>The command line parameters to pass to the executable.
+            </fieldset>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ContactConsole
+</name>
+</assembly>
+<members>
+<member name="M:ContactConsole.pcode._default.#ctor">
+	<remarks/>
+</member><member name="E:ContactConsole.pcode._default.PostcodeCompleted">
+	<remarks/>
+</member><member name="M:ContactConsole.pcode._default.Postcode(System.String,System.String)">
+	<remarks/>
+</member><member name="M:ContactConsole.pcode._default.PostcodeAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:ContactConsole.pcode._default.PostcodeAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:ContactConsole.pcode._default.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:ContactConsole.pcode._default">
+	<remarks/>
+</member><member name="T:ContactConsole.pcode.PostcodeCompletedEventHandler">
+	<remarks/>
+</member><member name="P:ContactConsole.pcode.PostcodeCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:ContactConsole.pcode.PostcodeCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

@@ -1,0 +1,122 @@
+/* Telerik RadGrid MS Excel skin */
+
+.RadGrid_Excel
+{
+	background: #fff;
+	border: 1px solid #c0c0c0;
+}
+
+.RadGrid_Excel table td
+{
+	height: 18px;
+}
+
+.MasterTable_Excel
+{
+	border-collapse:separate !important;
+    /*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.RadGrid_Excel th,
+.RadGrid_Excel th a
+{ 
+	font: normal 11px Tahoma;
+	color: #000;
+	text-transform: uppercase;
+}
+
+.RadGrid_Excel td,
+.RadGrid_Excel td a
+{ 
+	font: 11px tahoma;
+	color: #000;
+}
+
+.GridHeader_Excel,
+.ResizeHeader_Excel
+{
+	color: #fff;
+	border-bottom: 1px solid #7e7d68;
+	border-right: 1px solid #7e7d68;
+	background: #EFEBDE;
+	padding: 4px 5px;
+}
+
+.GridHeader_Excel img
+{
+	vertical-align: middle;
+	margin-top: 2px;
+}
+
+.GridHeader_Excel a
+{
+	color: #000;
+}
+
+.GridRow_Excel td, 
+.GridAltRow_Excel td,
+.GridEditRow_Excel td
+{
+	border-bottom: 1px solid #c0c0c0;
+	border-right: 1px solid #c0c0c0;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.SelectedRow_Excel,
+.GridEditRow_Excel
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_Excel INPUT
+{
+	font-size: 11px;
+}
+
+.ActiveRow_Excel
+{
+	background: #f3f7f9;
+}
+
+.GridPager_Excel td
+{
+	padding-left: 6px;
+}
+
+.GridPager_Excel a
+{
+	color: #000;	
+}
+
+tr.GroupHeader_Excel td
+{
+	background: #f3f3eb;
+	border-bottom: 1px solid #c0c0c0;
+	border-right: 1px solid #c0c0c0;
+}
+
+.GroupPanelItems_Excel
+{
+	background: #efebde;
+	border: solid 1px #333;
+}
+
+.GroupPanelItems_Excel img
+{
+	vertical-align: middle;
+	margin-top: 4px !important;
+}
+
+.GroupPanel_Excel
+{
+	background: #7e7d68;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.GroupPanel_Excel td
+{
+	color: #fff;
+	padding: 2px;
+}

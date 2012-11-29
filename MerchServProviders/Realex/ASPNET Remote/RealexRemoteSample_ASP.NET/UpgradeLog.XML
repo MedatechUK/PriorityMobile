@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="RealexRemoteSample_ASP.NET">
+</Property><Property Name="Solution File" Value="D:\Strauss\MerchServProviders\Realex\ASPNET Remote\RealexRemoteSample_ASP.NET\RealexRemoteSample_ASP.NET.sln">
+</Property><Property Name="User Options File" Value="D:\Strauss\MerchServProviders\Realex\ASPNET Remote\RealexRemoteSample_ASP.NET\RealexRemoteSample_ASP.NET.suo">
+</Property><Property Name="Date" Value="09 July 2012">
+</Property><Property Name="Time" Value="15:37">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="RealexRemoteSample_ASP.NET.sln" Description="File successfully backed up as D:\Strauss\MerchServProviders\Realex\ASPNET Remote\RealexRemoteSample_ASP.NET\Backup\RealexRemoteSample_ASP.NET.sln">
+</Event><Event ErrorLevel="0" Project="" Source="RealexRemoteSample_ASP.NET.suo" Description="File successfully backed up as D:\Strauss\MerchServProviders\Realex\ASPNET Remote\RealexRemoteSample_ASP.NET\Backup\RealexRemoteSample_ASP.NET.suo">
+</Event><Event ErrorLevel="1" Project="RealexRemoteSample_ASP" Source="..\RealexRemoteSample_ASP.NET" Description="Warning: The project file is being backed up to a relative path that differs from the original solution relative path.  The difference in folder hierarchy may create problems in opening or building the backed up solution and project.">
+</Event><Event ErrorLevel="0" Project="" Source="RealexRemoteSample_ASP.NET.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="RealexRemoteSample_ASP.NET.sln" Description="Converted">
+</Event></UpgradeLog>

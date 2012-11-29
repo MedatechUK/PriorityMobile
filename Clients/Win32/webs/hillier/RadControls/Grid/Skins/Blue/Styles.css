@@ -1,0 +1,148 @@
+/* Telerik RadGrid blue skin */
+
+.RadGrid_Blue
+{
+	background: #5898c5;
+	border: solid 1px #c6dddf;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+	cursor: default;
+}
+
+.RadGrid_Blue th,
+.RadGrid_Blue th a
+{ 
+	font: bold 11px Tahoma;
+	color: #fff;
+}
+
+.RadGrid_Blue td,
+.RadGrid_Blue td a
+{ 
+	font: 11px tahoma;
+	color: #000;
+}
+
+.MasterTable_Blue
+{
+	border: 0px !important;
+	border-collapse: separate !important;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GridHeader_Blue
+{
+	color: #fff;
+	height: 34px;
+	background: #5898C5;
+}
+.GridHeader_Blue a
+{
+	color: #fff;
+}
+
+.GridRow_Blue,
+.GridAltRow_Blue,
+.SelectedRow_Blue,
+.GridEditRow_Blue,
+.ActiveRow_Blue
+{
+    height:20px;
+}
+
+.GridRow_Blue
+{
+	background-color: #F2F9FF;
+}
+.GridRow_Blue td
+{
+	border-bottom: solid 1px #c6dddf;
+}
+
+.GridAltRow_Blue
+{
+	background: #fff;
+}
+.GridAltRow_Blue td
+{
+	border-bottom: solid 1px #c6dddf;
+}
+
+.SelectedRow_Blue,
+.GridEditRow_Blue
+{
+	background-color: #ffffe1 !important;
+}
+.SelectedRow_Blue td,
+.GridEditRow_Blue td
+{
+	border-bottom:1px solid #c6dddf;
+}
+
+.ActiveRow_Blue
+{
+	background-color: #c5dcf0 !important;
+}
+.ActiveRow_Blue td
+{
+	border-bottom:1px solid #c6dddf;
+}
+
+.GridPager_Blue
+{
+	background: #deeffe;
+	height: 17px;
+}
+.GridPager_Blue td
+{
+	border-top: 1px solid #c6dddf;
+	padding-left: 11px;
+}
+.GridPager_Blue a
+{
+	color: #333;	
+}
+
+tr.GroupHeader_Blue
+{
+	background: #deeffe;
+	font-weight: bold;
+	height:20px;
+}
+tr.GroupHeader_Blue td
+{
+	border-bottom: solid 1px #c6dddf;
+}
+
+.GroupPanel_Blue
+{
+	background-color: #467a9e;
+	width: 100%;
+	border-collapse: collapse;
+	border-bottom: 1px solid #c6dddf;
+}
+
+.GroupPanel_Blue td
+{
+	color: #fff;
+}
+
+.GroupPanelItems_Blue
+{
+	background: #6ca7d2;
+	color: #fff !important;
+	border: solid 1px #bbd8e8;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+td.GridHeader_Blue input
+{
+	width: auto;
+	float: left;
+	border: solid 1px #666;
+	background: #fafafa;
+	font: bold 10px Verdana, Arial, Sans-serif;
+	color: #989cb0;
+	height: 14px;
+	vertical-align:middle;
+}

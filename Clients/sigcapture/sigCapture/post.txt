@@ -1,0 +1,205 @@
+<%@ WebHandler Language="VB" Class="postxml" %>
+
+Imports System
+Imports System.Web
+Imports System.Xml
+Imports System.io
+Imports Priority.Loading
+
+Public Class postxml : Implements IHttpHandler
+    
+    Public Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
+
+        Dim StatusCode As Integer = 200
+        Dim StatusMessage As String = "Ok"
+        Dim thisRequest As New XmlDocument
+        Dim ws As New PriWebSVC.Service
+        Dim erl As New Priority.Loading
+        
+        With context
+            
+            Dim reader As New StreamReader(.Request.InputStream)
+            Try
+                With thisRequest
+                    .LoadXml(reader.ReadToEnd)
+                    Dim nodes As Xml.XmlNodeList = .SelectNodes("//order_post")
+                    For Each node As XmlNode In nodes
+
+                        With erl
+  
+                            .Clear()
+                            .Table = "ZTRX_LOS_ORDERS"
+                            .Procedure = "ZTRX_LOAD_LOS"
+                            .Environment = "tru"
+                            
+                            Try
+                                If Not IsNothing(node.Attributes("test")) Then
+                                    .Environment = "trucpy"
+                                    .Procedure = "ZSFDC_TEST"
+                                    else
+                                    throw new Exception("save")
+                                End If
+                            Catch
+                                Using xmwr As New StreamWriter(context.Server.MapPath("\") & "orders\" & Trim(node.SelectSingleNode("order_id").InnerText()) & ".xml", Nothing)
+                                    xmwr.Write(node.OuterXml)
+                                End Using
+                            End Try                        
+                                                       
+                            .RecordType1 = "CUSTOMER_ID,ORDER_ID,ORDER_DATE,TYPECODE,ZTRX_SINGLE_SHIP,REFERENCE"
+                            .RecordType2 = "SKU,QTY,UNIT_PRICE,DELIVERY_DATE," & _
+                                "ADDRESS_1,ADDRESS_2,ADDRESS_3,ADDRESS_4,ADDRESS_5,ADDRESS_POSTCODE," & _
+                                "TRANS,AUTHCODE,AMOUNT," & _
+                                "RT"
+                            .RecordTypes = "TEXT,TEXT,,TEXT,TEXT,TEXT," & _
+                                "TEXT,,,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT," & _
+                                "TEXT,TEXT,," & _
+                                "TEXT"
+                            
+                            Dim ZTRX_SINGLE_SHIP As String = ""
+                            Try
+                                ZTRX_SINGLE_SHIP = node.SelectSingleNode("SINGLE_SHIP").InnerText()
+                            Catch ex As Exception
+                            End Try
+
+                            Dim ZTRX_TYPECODE As String = ""
+                            Try
+                                ZTRX_TYPECODE = node.SelectSingleNode("TYPECODE").InnerText()
+                            Catch ex As Exception
+                                ZTRX_TYPECODE = "WWW"
+                            End Try
+
+                            Dim ZTRX_REFERENCE As String = ""
+                            Try
+                                ZTRX_REFERENCE = node.SelectSingleNode("REFERENCE").InnerText()
+                            Catch ex As Exception
+                                ZTRX_REFERENCE = ""
+                            End Try
+                            
+                            Dim t1() As String = { _
+                                    node.SelectSingleNode("customer_id").InnerText(), _
+                                    node.SelectSingleNode("order_id").InnerText(), _
+                                    DateDiff(DateInterval.Minute, #1/1/1988#, Now).ToString(), _
+                                    ZTRX_TYPECODE, _
+                                    ZTRX_SINGLE_SHIP, _
+                                    ZTRX_REFERENCE _
+                                    }
+                            .AddRecord(1) = t1
+
+                            Dim lines As Xml.XmlNodeList = node.SelectSingleNode("lines").SelectNodes("//line")
+                            For Each line As XmlNode In lines
+                                Dim t2() As String = { _
+                                    line.SelectSingleNode("sku").InnerText(), _
+                                    CStr(CInt(line.SelectSingleNode("qty").InnerText()) * 1000), _
+                                    line.SelectSingleNode("unit_price").InnerText(), _
+                                    ConvertDate(line.SelectSingleNode("delivery_date").InnerText()), _
+                                    "", _
+                                    "", _
+                                    "", _
+                                    "", _
+                                    "", _
+                                    "", _
+                                    "", _
+                                    "", _
+                                    "0", _
+                                    "2" _
+                                }
+                                .AddRecord(2) = t2
+                            Next
+                            
+                            Dim postcode As String = ""
+                            Try
+                                postcode = node.SelectSingleNode("delivery_address_postcode").InnerText()
+                            Catch
+                                ' Ignore errors
+                            End Try
+
+                            Dim t3() As String = { _
+                                    "", _
+                                    "0", _
+                                    "0", _
+                                    "", _
+                                    node.SelectSingleNode("delivery_address_1").InnerText(), _
+                                    node.SelectSingleNode("delivery_address_2").InnerText(), _
+                                    node.SelectSingleNode("delivery_address_3").InnerText(), _
+                                    node.SelectSingleNode("delivery_address_4").InnerText(), _
+                                    node.SelectSingleNode("delivery_address_5").InnerText(), _
+                                    postcode, _
+                                    "", _
+                                    "", _
+                                    "0", _
+                                    "3" _
+                            }
+                            .AddRecord(2) = t3
+                            
+                            Dim payment As XmlNode = node.SelectSingleNode("payment")
+                            If Not IsNothing(payment) Then
+                                Dim t4() As String = { _
+                                        "", _
+                                        "0", _
+                                        "0", _
+                                        "", _
+                                        "", _
+                                        "", _
+                                        "", _
+                                        "", _
+                                        "", _
+                                        "", _
+                                        payment.SelectSingleNode("trans").InnerText, _
+                                        payment.SelectSingleNode("authcode").InnerText, _
+                                        payment.SelectSingleNode("amount").InnerText, _
+                                        "4" _
+                                }
+                                .AddRecord(2) = t4
+                            End If
+                            
+                            If Not ws.LoadData(.ToSerial) Then _
+                                Throw New Exception("Data loading failed. Please see the Windows event log for more information.")
+
+                        End With
+                        
+                    Next
+                End With
+            Catch ex As Exception
+                StatusMessage = ex.Message
+                StatusCode = 400
+            Finally
+                With reader
+                    .Close()
+                    .Dispose()
+                End With
+            End Try
+            
+            With .Response
+                .Clear()
+                .ContentType = "text/xml"
+                .ContentEncoding = Encoding.UTF8
+                Dim objX As New XmlTextWriter(context.Response.OutputStream, Nothing)
+                With objX
+                    .WriteStartDocument()
+                    .WriteStartElement("response")
+                    .WriteAttributeString("status", CStr(StatusCode))
+                    .WriteAttributeString("message", StatusMessage)
+                    .WriteEndElement() 'End Settings 
+                    .WriteEndDocument()
+                    .Flush()
+                    .Close()
+                End With
+                .End()
+            End With        
+                
+        End With
+        
+    End Sub
+    
+    Private Function ConvertDate(ByVal s As String) As String        
+        Dim dt As New Date(CInt(Split(s, "-")(0)), CInt(Split(s, "-")(1)), CInt(Split(s, "-")(2)))
+        Return dt.ToString("dd/MM/yy")
+    End Function
+ 
+    Public ReadOnly Property IsReusable() As Boolean Implements IHttpHandler.IsReusable
+        Get
+            Return False
+        End Get
+    End Property
+
+End Class

@@ -1,0 +1,130 @@
+.RadTabStrip_SimpleBarBrick
+{
+	font: 8pt tahoma, sans-serif;
+	text-align:center;
+	background-repeat: repeat-x;
+	border-bottom: solid 4px #8d865e;
+	height: 22px;
+}
+
+
+.RadTabStrip_SimpleBarBrick ul
+{
+	/**/
+}
+
+
+.RadTabStrip_SimpleBarBrick .level1 li a
+{
+	padding-left: 0px;
+	background-color: #ddd9c2;
+	color: black;
+	text-decoration: none;
+	line-height: 22px;
+	border-right: solid 1px white;
+	border-top: solid 1px white;
+}
+
+.RadTabStrip_SimpleBarBrick .level1 li a:hover
+{
+	background-color: #e9b304;
+	color: white;
+	text-decoration: underline;
+	margin-top: -3px;
+	line-height: 25px;
+}
+
+.RadTabStrip_SimpleBarBrick .level1 li a .wrap
+{
+
+	padding-right: 0px;
+}
+
+
+.RadTabStrip_SimpleBarBrick .level1 li a .innerWrap
+{
+
+	padding:0 5px;
+}
+
+.RadTabStrip_SimpleBarBrick .level1 li a.selected
+{
+	line-height: 25px;
+	color: white;
+	margin-top: -3px;
+}
+
+.RadTabStrip_SimpleBarBrick .level1 li a.selected .wrap
+{
+	background-color: #8d865e;
+}
+
+
+.RadTabStrip_SimpleBarBrick .level1 li a.selected .innerWrap
+{
+	background-color: #8d865e;
+}
+
+.RadTabStrip_SimpleBarBrick .level1 li a.selected:hover, 
+.RadTabStrip_SimpleBarBrick .level1 li a.selected:hover .wrap, 
+.RadTabStrip_SimpleBarBrick .level1 li a.selected:hover .innerWrap
+{
+	background-color: #8d865e;
+}
+
+/* level2 tabs */
+
+.RadTabStrip_SimpleBarBrick .level2 ul
+{
+	padding-top: 6px;
+	background-color: #8d865e;
+	height: 20px;
+}
+
+.RadTabStrip_SimpleBarBrick .level2 li a
+{
+	color: white;
+	text-decoration: none;
+	font-size: 9px;
+	padding: 0px 9px;
+}
+
+.RadTabStrip_SimpleBarBrick .level2 li a.selected,
+.RadTabStrip_SimpleBarBrick .level2 li a.selected:hover,
+.RadTabStrip_SimpleBarBrick .level2 li a:hover
+{
+	color: black;
+}
+
+/* arrows */
+.RadTabStrip_SimpleBarBrick .rightArrow, 
+.RadTabStrip_SimpleBarBrick .leftArrow,
+.RadTabStrip_SimpleBarBrick .rightArrowDisabled, 
+.RadTabStrip_SimpleBarBrick .leftArrowDisabled
+{
+	width:8px;
+	height:11px;
+}
+
+
+
+
+.RadTabStrip_SimpleBarBrick .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+}
+
+.RadTabStrip_SimpleBarBrick .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+}
+
+.RadTabStrip_SimpleBarBrick .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+}
+
+.RadTabStrip_SimpleBarBrick .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+}

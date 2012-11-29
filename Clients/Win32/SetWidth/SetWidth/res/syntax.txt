@@ -1,0 +1,41 @@
+Syntax:
+   SetWidth.exe -f $${input file}$$ -p *:{width} -p {RegEx}:{width}
+                -o {output file} -le {CRLF} -? -w
+
+   -? 
+      This help file
+
+   -f {input file} 
+      The name of the file to open. Use $$ if the name contains spaces.
+      This should be an ascii file, with line ending as defined by the
+      "le" switch.
+
+   -o {output file} 
+      The optional filename to output the ammended ascii data to. If
+      ommited this will default to editing the filename specified by -f
+      in place.
+
+   -p *:{width} 
+      The default width for the lines. Any line that does not meet any 
+      of the specified prefixes will be set to this width.
+
+   -p {RegEx}:{width}
+      Adds a text string to check for and a width to set the line to
+      if a match is found.
+
+      {RegEx} 
+      A regular expression match against the line, for example [0-9]
+      would match to lines beginning with a numeric character while
+      [a-zA-Z] would match an upper or lower case alpha character.
+
+      {width}
+      The width that matching lines should be truncated to.
+
+   -le {CRLF}
+      An optional combination of CR or LF, depending on the line ends
+      that your data format is usiung. Note that this is also defines
+      the line endings that will be written into the output file.
+      If ommited this will default to CRLF, which is Windows standard.
+   
+   -w
+      Wait for a key to be pressed after execution (for debUgging)

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+hPriority
+</name>
+</assembly>
+<members>
+<member name="P:hPriority.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:hPriority.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:hPriority.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:hPriority.PriWebSVC.Service.#ctor">
+	<remarks/>
+</member><member name="E:hPriority.PriWebSVC.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:hPriority.PriWebSVC.Service.LoadDataWaitCompleted">
+	<remarks/>
+</member><member name="E:hPriority.PriWebSVC.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="E:hPriority.PriWebSVC.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.LoadDataWait(System.String,System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String,System.Object)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:hPriority.PriWebSVC.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.Service">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:hPriority.PriWebSVC.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.LoadDataWaitCompletedEventHandler">
+	<remarks/>
+</member><member name="P:hPriority.PriWebSVC.LoadDataWaitCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.LoadDataWaitCompletedEventArgs">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:hPriority.PriWebSVC.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:hPriority.PriWebSVC.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:hPriority.PriWebSVC.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member>
+</members>
+</doc>

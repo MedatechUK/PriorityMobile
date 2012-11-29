@@ -1,0 +1,9 @@
+M:\components\win32ntSox\ntSox\bin\Debug\ntSox.dll
+M:\components\win32ntSox\ntSox\bin\Debug\ntSox.pdb
+M:\components\win32ntSox\ntSox\bin\Debug\ntSox.xml
+M:\components\win32ntSox\ntSox\obj\Debug\ResolveAssemblyReference.cache
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.Resources.resources
+M:\components\win32ntSox\ntSox\obj\Debug\ntSoxLib.vbproj.GenerateResource.Cache
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.dll
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.xml
+M:\components\win32ntSox\ntSox\obj\Debug\ntSox.pdb

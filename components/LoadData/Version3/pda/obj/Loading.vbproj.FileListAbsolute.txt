@@ -1,0 +1,17 @@
+M:\components\LoadData\Version3\pda\bin\Debug\Loading.dll
+M:\components\LoadData\Version3\pda\bin\Debug\Loading.pdb
+M:\components\LoadData\Version3\pda\bin\Debug\Loading.xml
+M:\components\LoadData\Version3\pda\bin\Debug\ntEvtLog.dll
+M:\components\LoadData\Version3\pda\bin\Debug\ntSox.dll
+M:\components\LoadData\Version3\pda\bin\Debug\System.Data.SqlClient.dll
+M:\components\LoadData\Version3\pda\bin\Debug\ntEvtLog.pdb
+M:\components\LoadData\Version3\pda\bin\Debug\ntEvtLog.xml
+M:\components\LoadData\Version3\pda\bin\Debug\ntSox.pdb
+M:\components\LoadData\Version3\pda\bin\Debug\ntSox.xml
+M:\components\LoadData\Version3\pda\bin\Debug\System.Data.SqlClient.xml
+M:\components\LoadData\Version3\pda\obj\Debug\ResolveAssemblyReference.cache
+M:\components\LoadData\Version3\pda\obj\Debug\Loading.Resources.resources
+M:\components\LoadData\Version3\pda\obj\Debug\Loading.vbproj.GenerateResource.Cache
+M:\components\LoadData\Version3\pda\obj\Debug\Loading.dll
+M:\components\LoadData\Version3\pda\obj\Debug\Loading.xml
+M:\components\LoadData\Version3\pda\obj\Debug\Loading.pdb

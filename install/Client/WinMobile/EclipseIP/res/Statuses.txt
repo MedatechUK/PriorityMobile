@@ -1,0 +1,6 @@
+Active
+Enroute
+Comp - NFA
+Non Comp
+On-Site
+Re-Issued

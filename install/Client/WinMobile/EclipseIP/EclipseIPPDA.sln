@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "cfMyCls", "..\..\..\..\components\MyCls\WinMobile\cfMyCls.vbproj", "{4C6FE08F-CB43-4003-A5E7-4A49371FE7C9}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "cfLoadData", "..\..\..\..\components\LoadData\WinMobile\cfLoadData.vbproj", "{B5E8372D-0069-42C0-951E-B43008EC83C5}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "cfOnBoardData", "..\..\..\..\components\OnBoardData\WinMobile\cfOnBoardData.vbproj", "{3F3266F8-5819-4327-B3E2-A5A975999215}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "cf_PDA", "..\..\..\..\Clients\WinMobile\cf_PDA.vbproj", "{3DEC039E-DD64-4563-AC69-66D47290862A}"
+EndProject
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "EclipseIPPDA", "EclipseIPPDA.vddproj", "{0EECCD94-5C60-41DF-B1F5-A30AC4566D88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C6FE08F-CB43-4003-A5E7-4A49371FE7C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C6FE08F-CB43-4003-A5E7-4A49371FE7C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C6FE08F-CB43-4003-A5E7-4A49371FE7C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C6FE08F-CB43-4003-A5E7-4A49371FE7C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5E8372D-0069-42C0-951E-B43008EC83C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5E8372D-0069-42C0-951E-B43008EC83C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5E8372D-0069-42C0-951E-B43008EC83C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5E8372D-0069-42C0-951E-B43008EC83C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F3266F8-5819-4327-B3E2-A5A975999215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F3266F8-5819-4327-B3E2-A5A975999215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F3266F8-5819-4327-B3E2-A5A975999215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F3266F8-5819-4327-B3E2-A5A975999215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DEC039E-DD64-4563-AC69-66D47290862A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DEC039E-DD64-4563-AC69-66D47290862A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DEC039E-DD64-4563-AC69-66D47290862A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3DEC039E-DD64-4563-AC69-66D47290862A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DEC039E-DD64-4563-AC69-66D47290862A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DEC039E-DD64-4563-AC69-66D47290862A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0EECCD94-5C60-41DF-B1F5-A30AC4566D88}.Debug|Any CPU.ActiveCfg = Debug
+		{0EECCD94-5C60-41DF-B1F5-A30AC4566D88}.Debug|Any CPU.Build.0 = Debug
+		{0EECCD94-5C60-41DF-B1F5-A30AC4566D88}.Release|Any CPU.ActiveCfg = Release
+		{0EECCD94-5C60-41DF-B1F5-A30AC4566D88}.Release|Any CPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

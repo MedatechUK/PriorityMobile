@@ -1,0 +1,12 @@
+M:\Clients\Win32\SetWidth\SetWidth\bin\Debug\SetWidth.exe
+M:\Clients\Win32\SetWidth\SetWidth\bin\Debug\SetWidth.pdb
+M:\Clients\Win32\SetWidth\SetWidth\bin\Debug\SetWidth.xml
+M:\Clients\Win32\SetWidth\SetWidth\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\SetWidth\SetWidth\obj\Debug\SetWidth.Resources.resources
+M:\Clients\Win32\SetWidth\SetWidth\obj\Debug\SetWidth.vbproj.GenerateResource.Cache
+M:\Clients\Win32\SetWidth\SetWidth\obj\Debug\SetWidth.exe
+M:\Clients\Win32\SetWidth\SetWidth\obj\Debug\SetWidth.xml
+M:\Clients\Win32\SetWidth\SetWidth\obj\Debug\SetWidth.pdb
+M:\Clients\Win32\SetWidth\SetWidth\bin\Debug\ConsoleApp.dll
+M:\Clients\Win32\SetWidth\SetWidth\bin\Debug\ConsoleApp.pdb
+M:\Clients\Win32\SetWidth\SetWidth\bin\Debug\ConsoleApp.xml

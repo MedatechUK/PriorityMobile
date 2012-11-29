@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\RealexRemoteSample_ASP.NET\", ".", "{2C56B9F6-D355-4481-908A-A297635A7511}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/RealexRemoteSample_ASP.NET"
+		Debug.AspNetCompiler.PhysicalPath = "..\RealexRemoteSample_ASP.NET\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\RealexRemoteSample_ASP.NET\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/RealexRemoteSample_ASP.NET"
+		Release.AspNetCompiler.PhysicalPath = "..\RealexRemoteSample_ASP.NET\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\RealexRemoteSample_ASP.NET\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "3035"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C56B9F6-D355-4481-908A-A297635A7511}.Debug|.NET.ActiveCfg = Debug|.NET
+		{2C56B9F6-D355-4481-908A-A297635A7511}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

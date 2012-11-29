@@ -1,0 +1,72 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+DemoProject
+</name>
+</assembly>
+<members>
+<member name="M:DemoProject.priwebsvc.Service.#ctor">
+	<remarks/>
+</member><member name="E:DemoProject.priwebsvc.Service.SaveSignatureCompleted">
+	<remarks/>
+</member><member name="E:DemoProject.priwebsvc.Service.LoadDataCompleted">
+	<remarks/>
+</member><member name="E:DemoProject.priwebsvc.Service.GetDataCompleted">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.SaveSignatureAsync(System.String)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.SaveSignatureAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.LoadDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.LoadDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.GetDataAsync(System.String)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.GetDataAsync(System.String,System.Object)">
+	<remarks/>
+</member><member name="M:DemoProject.priwebsvc.Service.CancelAsync(System.Object)">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.Service">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.SaveSignatureCompletedEventHandler">
+	<remarks/>
+</member><member name="P:DemoProject.priwebsvc.SaveSignatureCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.SaveSignatureCompletedEventArgs">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.LoadDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:DemoProject.priwebsvc.LoadDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.LoadDataCompletedEventArgs">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.GetDataCompletedEventHandler">
+	<remarks/>
+</member><member name="P:DemoProject.priwebsvc.GetDataCompletedEventArgs.Result">
+	<remarks/>
+</member><member name="T:DemoProject.priwebsvc.GetDataCompletedEventArgs">
+	<remarks/>
+</member><member name="P:DemoProject.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:DemoProject.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:DemoProject.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

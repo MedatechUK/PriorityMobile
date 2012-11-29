@@ -1,0 +1,156 @@
+/* Telerik RadGrid grey skin */
+
+div.RadGrid_Grey
+{
+	font: normal 11px arial,verdana,sans-serif;
+	padding: 0px 8px;
+	background: white url('Img/RadGridBg.gif') repeat-x;
+	text-align:left;
+}
+
+div.RadGrid_Grey table
+{
+	font-size: 11px;
+	font-family: Arial, Verdana;
+	width: 100%;
+}
+
+.MasterTable_Grey
+{
+	background: white url('Img/RadGridBg.gif') repeat-x;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+th.GridHeader_Grey
+{
+	font-weight: bold;
+	color: #887803;
+	height: 36px;
+	background: 0px 7px url('Img/headerBg.gif') no-repeat;
+	padding-left: 6px;
+}
+
+th.GridHeader_Grey input
+{
+	border: solid 1px #616968;
+}
+
+.GroupPanel_Grey
+{
+	background: #cc883b url('Img/groupPanel.gif') repeat-x;
+	width: 100%;
+}
+
+.GroupPanelItems_Grey
+{
+	font-weight: bold;
+	color: white;
+	white-space:nowrap;
+}
+
+.GridHeader_Grey a
+{
+	color: #887803;
+	text-decoration: none;
+}
+
+.GridRow_Grey,
+.GridAltRow_Grey,
+.SelectedRow_Grey,
+.ActiveRow_Grey,
+.GridPager_Grey,
+.GridEditRow_Grey
+{
+    height:24px;
+}
+.GridRow_Grey td,
+.GridAltRow_Grey td,
+.SelectedRow_Grey td,
+.ActiveRow_Grey td,
+.GridEditRow_Grey td
+{
+    background-image:url('Img/GridRowBg.gif');
+    background-repeat: repeat-y;
+	border-bottom: solid 1px #757676;
+	padding-left: 6px;
+}
+.GridRow_Grey
+{
+	background-color: #616968;
+	color: #e2e2e2;
+}
+.GridAltRow_Grey
+{
+	background-color: #494f4f;
+	color: #e2e2e2;
+}
+.GridAltRow_Grey td
+{
+	background-image: url('Img/GridAltRowBg.gif');
+	background-repeat: repeat-y;
+}
+.SelectedRow_Grey
+{
+	background-color: #333;
+	color: #fff;
+}
+.GridEditRow_Grey
+{
+	background: #ffffce;
+}
+.GridEditRow_Grey input
+{
+	font-size: 11px;
+}
+.ActiveRow_Grey
+{
+	background: #9a5f01;
+	color: #fff;
+}
+
+.GridPager_Grey
+{
+	background: #edece9 url('Img/footerBg.gif') repeat-x left bottom;
+	color: #616968;
+}
+.GridPager_Grey td
+{
+	padding-left: 6px;
+	border-left: 0px solid #c9c6c2;
+	border-top: 2px solid #c8c5a1;
+	border-right: 1px solid #c9c6c2;
+}
+.GridPager_Grey a
+{
+	color: #333;
+}
+
+/* filtering button */
+
+.GroupPanelItems_Grey
+{
+	background: #e3ba4f url('Img/filteringBg.gif') repeat-x;
+	color: #887803;
+	border: solid 1px #be9944;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+/* filtering direction input[image] */
+
+.GroupPanelItems_Grey input
+{
+	vertical-align: middle;
+}
+
+/* filtering table row */
+
+tr.GroupHeader_Grey
+{
+	background: #9a5f01;
+	color: #fff;
+}
+.GridFooter_Grey
+{
+    padding-left: 7px;
+}

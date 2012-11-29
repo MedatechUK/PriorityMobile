@@ -1,0 +1,17 @@
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\pdfprintcli.exe.config
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\pdfprintcli.exe
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\pdfprintcli.pdb
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\pdfprintcli.xml
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\ConsoleApp.dll
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\ConsoleApp.pdb
+M:\Clients\Win32\PDFPrint\Source\bin\Debug\ConsoleApp.xml
+C:\Program Files\eMerge-IT\pdfPrint\pdfprintcli.exe.config
+C:\Program Files\eMerge-IT\pdfPrint\pdfprintcli.exe
+C:\Program Files\eMerge-IT\pdfPrint\pdfprintcli.pdb
+C:\Program Files\eMerge-IT\pdfPrint\pdfprintcli.xml
+M:\Clients\Win32\PDFPrint\Source\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\PDFPrint\Source\obj\Debug\pdfprint.Resources.resources
+M:\Clients\Win32\PDFPrint\Source\obj\Debug\pdfPrintcli.vbproj.GenerateResource.Cache
+M:\Clients\Win32\PDFPrint\Source\obj\Debug\pdfprintcli.exe
+M:\Clients\Win32\PDFPrint\Source\obj\Debug\pdfprintcli.xml
+M:\Clients\Win32\PDFPrint\Source\obj\Debug\pdfprintcli.pdb

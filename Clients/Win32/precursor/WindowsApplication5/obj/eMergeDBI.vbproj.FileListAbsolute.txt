@@ -1,0 +1,16 @@
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\bin\Debug\eMergeDBI.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\bin\Debug\eMergeDBI.pdb
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\bin\Debug\eMergeDBI.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMergeDBI.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMergeDBI.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMergeDBI.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\eMergeDBI.pdb
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.MDIChild.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.MDIParent.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.frmOptions.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.genOptions.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.frmTable.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.frmJoin.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\sqltoload\WindowsApplication5\obj\Debug\Priority.AboutBox.resources

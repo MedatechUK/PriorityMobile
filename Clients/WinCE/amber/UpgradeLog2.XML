@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="WinCEClient">
+</Property><Property Name="Solution File" Value="M:\Clients\WinCE\amber\WinCEClient.sln">
+</Property><Property Name="Date" Value="21 June 2012">
+</Property><Property Name="Time" Value="16:56">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="WinCEClient" Source="WinCEClient.vbproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="WinCEClient" Source="WinCEClient.vbproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="ceLoadData" Source="..\..\..\components\LoadData\WinCE\ceLoadData.vbproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="ceLoadData" Source="..\..\..\components\LoadData\WinCE\ceLoadData.vbproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="ceMyCls" Source="..\..\..\components\MyCls\WinCE\ceMyCls.vbproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="ceMyCls" Source="..\..\..\components\MyCls\WinCE\ceMyCls.vbproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="SFDCData" Source="..\..\..\components\OnBoardData\WinCE\SFDCData.vbproj" Description="The project file does not require conversion.">
+</Event><Event ErrorLevel="3" Project="SFDCData" Source="..\..\..\components\OnBoardData\WinCE\SFDCData.vbproj" Description="No Conversion Required">
+</Event><Event ErrorLevel="0" Project="" Source="WinCEClient.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="WinCEClient.sln" Description="Converted">
+</Event></UpgradeLog>

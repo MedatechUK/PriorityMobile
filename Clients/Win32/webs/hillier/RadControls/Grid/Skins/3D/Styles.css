@@ -1,0 +1,176 @@
+.RadGrid_3D
+{
+	border-left: solid 1px #B4B3A6;
+	border-right: solid 1px #B4B3A6;
+	border-top: 1px solid #cccaba;
+	border-bottom: 1px solid #c2b12e;
+	font: normal 11px Arial, Verdana, Sans-serif;
+	text-align: left;
+	background: #eaeae3;
+}
+
+.MasterTable_3D
+{
+	border:0px;
+	color: #242500;
+	/*-moz-user-select: none;*/ /*disables text selecting in Firefox to combat unpleasant visual appearance*/
+}
+
+.GridHeader_3D, .ResizeHeader_3D
+{
+	font-weight: bold;
+	font-size: 11px;
+	height: 34px;
+	border:0;
+	padding: 0 2px 5px;
+	background: #eaeae3 url('Img/headerBg.gif') repeat-x 0 100%;
+}
+
+.GridHeader_3D a
+{
+	color: #242500;
+	text-decoration: none;
+}
+
+td.GridHeader_3D input
+{
+	width: auto;
+	float: left;
+	border: solid 1px #474b38;
+	background: #fafafa;
+	font: bold 10px Verdana, Arial, Sans-serif;
+	color: #989cb0;
+	margin-right: 2px;
+}
+
+.GridRow_3D,
+.GridAltRow_3D,
+.ActiveRow_3D, 
+.SelectedRow_3D
+{
+	height: 23px;
+}
+
+.GridRow_3D td, 
+.GridAltRow_3D td, 
+.ActiveRow_3D td, 
+.SelectedRow_3D td,
+.GridEditRow_3D td
+{
+	padding: 0px 2px 3px;
+}
+
+/*all except IE5/6*/
+tbody>.GridRow_3D,tbody>.GridAltRow_3D
+{
+	background: url('Img/rowBg.gif') repeat-x bottom;
+}
+/*IE5/6 - apply to the table to resolve rendering bottleneck*/
+* html .MasterTable_3D
+{
+	background: url('Img/rowBg.gif') repeat-x bottom;
+}
+
+tbody .SelectedRow_3D
+{
+	background: #f9f8f4 url('Img/rowBg.gif') repeat-x bottom;
+}
+
+tbody .ActiveRow_3D
+{
+	background: #fff url('Img/rowBg.gif') repeat-x bottom;
+}
+
+tbody .GridEditRow_3D
+{
+	background: #ffffe1;
+}
+
+.GridEditRow_3D td
+{
+	border-bottom: solid 1px #bab8a9;
+}
+
+.GridEditRow_3D A,
+tr.GroupHeader_3D A,
+tr.GridCommandRow_3D A
+{
+	color: #007bdb;
+	text-decoration: underline;
+}
+
+.GridEditRow_3D A:hover
+{
+	color: #003e6e;
+}
+
+.GridFooter_3D
+{
+	border:0;
+}
+
+.GridPager_3D
+{
+	background: transparent url('Img/footerBg.gif') repeat-x bottom;
+	height: 36px;
+	color: #242500;
+	padding: 0px 0px 2px 5px;
+	vertical-align: bottom;
+	border:0;
+}
+
+.GridPager_3D a
+{
+	color: #242500;
+}
+
+.GridPager_3D a:hover
+{
+	color: #c97600;
+}
+
+.GroupPanel_3D
+{
+	height: 30px;
+	width: 100%;
+	background: #e7e6de;
+}
+
+.GridHeader_3D img,
+.GroupPanelItems_3D input
+{
+	vertical-align: middle;
+}
+
+/* grouping button */
+.GroupPanelItems_3D
+{
+	background: #c3c2b3;
+	color: #333;
+	padding-left: 3px;
+	border: solid 1px #fff;
+	white-space:  nowrap;
+	font-size: 11px;
+}
+
+tr.GroupHeader_3D,
+tr.GridCommandRow_3D
+{
+	background: #cccabd;
+	color: #706e65;
+	font-weight: bold;
+}
+
+tr.GroupHeader_3D td,
+tr.GridCommandRow_3D td
+{
+	border-top: solid 1px #878373;
+	border-bottom: solid 1px #878373;
+}
+
+
+tr.GroupHeader_3D td td,
+tr.GridCommandRow_3D td td
+{
+	border: 0;
+}

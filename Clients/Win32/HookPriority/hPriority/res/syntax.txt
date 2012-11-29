@@ -1,0 +1,11 @@
+Syntax:
+   conSign.exe -fn "<filename>" -? -w
+
+   -fn {"bodyfile"}
+      The SIG file to be converted to a JPG.
+      
+   -? 
+      This help file
+
+   -w 
+      Wait for user input when the application finishes.

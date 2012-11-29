@@ -1,0 +1,142 @@
+.RadTabStrip_ClassicBlue
+{
+	font: 11px arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_ClassicBlue .level1 li a
+{
+	padding-left: 31px;
+	background:transparent url('img/tabLeftFirstOff.gif') 0px 0px no-repeat;
+	height: 28px;
+	margin-right: -16px; 
+	color: white;
+	text-decoration:none;
+	position:relative;
+	top: 1px;
+}
+
+.RadTabStrip_ClassicBlue .level1 li.break a,
+.RadTabStrip_ClassicBlue .level1 li.last a
+{
+	margin-right:0;
+}
+
+.RadTabStrip_ClassicBlue .level1 li a .wrap
+{
+
+	padding-right: 4px;
+	height: 28px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+.RadTabStrip_ClassicBlue .level1 li a:hover
+{
+	color: white;
+}
+
+.RadTabStrip_ClassicBlue .level1 li a .innerWrap
+{
+	line-height: 28px;
+	padding: 0px 5px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align: center;
+}
+
+.RadTabStrip_ClassicBlue .level1 li a.selected
+{
+	padding-top: 0px;
+	padding-left: 31px;
+	background: transparent url('img/tabLeftFirstOn.gif') 0px 0px no-repeat;
+	line-height: 28px;
+}
+
+.RadTabStrip_ClassicBlue .level1 li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+	line-height: 28px;
+	padding-right: 4px;
+	color: black;
+}
+
+
+.RadTabStrip_ClassicBlue .level1 li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+	padding-top: 0px;
+}
+
+.RadTabStrip_ClassicBlue .level2 ul
+{
+	border-top: 1px solid #1a4a76;
+}
+
+.RadTabStrip_ClassicBlue .level2 li a
+{
+	color: #333333;
+	text-decoration: none;
+	padding: 6px 9px;
+}
+
+.RadTabStrip_ClassicBlue .level2 li a:hover
+{
+	color: #1c59a4;
+	text-decoration: underline;
+}
+
+ .RadTabStrip_ClassicBlue .level2 li a.selected
+{
+	color: #1c59a4;
+	text-decoration: none;
+}
+
+
+.RadTabStrip_ClassicBlue li a.disabled,
+.RadTabStrip_ClassicBlue li a.disabled .wrap,
+.RadTabStrip_ClassicBlue li a.disabled .innerWrap
+{
+	cursor: default;
+	text-decoration: line-through;
+}
+
+.RadTabStrip_ClassicBlue li a.red,
+.RadTabStrip_ClassicBlue li a.red .wrap,
+.RadTabStrip_ClassicBlue li a.red .innerWrap
+{
+	color: red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_ClassicBlue .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+.RadTabStrip_ClassicBlue .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+
+.RadTabStrip_ClassicBlue .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_ClassicBlue .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}

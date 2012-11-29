@@ -1,0 +1,32 @@
+Syntax:
+   w1stCli.exe (-q) -e {Environment} -i {IVNUM} -? (-w)
+   w1stCli.exe (-q) -e {Environment} -r -c {CURREENCY} -? (-w)
+   
+   -q 
+      Optional quiet switch (no command line output)
+   -t
+      Optional - specifies that the transaction is a test
+   
+   -e {Environment}
+      Mandatory for both normal and -r modes.
+      The priority environment to use.
+      
+   -i {IVNUM}
+      The Document number of the invoice to be paid.            
+   
+   -r 
+      Specifies that we want a quote from the 
+      currency specified in position one of our 
+      currency table to the currency specified
+      with the -c switch.
+   
+   -c 
+      Mandatory if -r switch specified. This specifies 
+      the buy currency to get a rate for. 
+      
+   -w 
+      Optional. Wait for user input when the application 
+      finishes (for debugging).
+            
+   -? 
+      This help file.

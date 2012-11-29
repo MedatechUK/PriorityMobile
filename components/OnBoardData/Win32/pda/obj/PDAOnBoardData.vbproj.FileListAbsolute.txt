@@ -1,0 +1,32 @@
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\PDAOnBoardData.BaseForm.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\PDAOnBoardData.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\Win32\PDAOnBoardData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\Win32\PDAOnBoardData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\install\Client\Win32\PDAOnBoardData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\PDAOnBoardData.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\PDAOnBoardData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\PDAOnBoardData.xml
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\components\OnBoardData\Win32\obj\Release\PDAOnBoardData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\Win32\pda\PDAOnBoardData.dll
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\Win32\pda\PDAOnBoardData.pdb
+C:\Documents and Settings\administrator.WONDERLAND.000\My Documents\Visual Studio 2005\Projects\Priority Mobile\bin\Win32\pda\PDAOnBoardData.xml
+M:\components\OnBoardData\Win32\pda\bin\Debug\PDAOnBoardData.dll
+M:\components\OnBoardData\Win32\pda\bin\Debug\PDAOnBoardData.pdb
+M:\components\OnBoardData\Win32\pda\bin\Debug\PDAOnBoardData.xml
+M:\components\OnBoardData\Win32\pda\bin\Debug\MyCls.dll
+M:\components\OnBoardData\Win32\pda\bin\Debug\PriLoadData.dll
+M:\components\OnBoardData\Win32\pda\bin\Debug\MyCls.pdb
+M:\components\OnBoardData\Win32\pda\bin\Debug\MyCls.xml
+M:\components\OnBoardData\Win32\pda\bin\Debug\PriLoadData.pdb
+M:\components\OnBoardData\Win32\pda\bin\Debug\PriLoadData.xml
+M:\components\OnBoardData\Win32\pda\obj\Debug\ResolveAssemblyReference.cache
+M:\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.BaseForm.resources
+M:\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.Resources.resources
+M:\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.vbproj.GenerateResource.Cache
+M:\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.dll
+M:\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.xml
+M:\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.pdb
+M:\bin\Win32\pda\PDAOnBoardData.dll
+M:\bin\Win32\pda\PDAOnBoardData.pdb
+M:\bin\Win32\pda\PDAOnBoardData.xml

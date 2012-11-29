@@ -1,0 +1,112 @@
+.RadTabStrip_ClassicGrey
+{
+	font: 11px arial, tahoma, sans-serif;
+}
+
+
+.RadTabStrip_ClassicGrey li a
+{
+	padding-left: 31px;
+	background:transparent url('img/tabLeftFirstOff.gif') 0px 0px no-repeat;
+	height: 28px;
+	margin-right: -16px; 
+	color: white;
+	text-decoration:none;
+}
+
+.RadTabStrip_ClassicGrey li.last a,
+.RadTabStrip_ClassicGrey li.break a
+{
+	margin-right:0px;
+}
+
+.RadTabStrip_ClassicGrey li a .wrap
+{
+
+	padding-right: 4px;
+	height: 28px;
+	background:transparent url('img/tabRightLastOff.gif') right 0px no-repeat;
+}
+
+
+.RadTabStrip_ClassicGrey li a .innerWrap
+{
+	line-height: 28px;
+	padding: 1px 5px;
+	background:transparent url('img/tabStripeOff.gif') 0px 0px repeat-x;
+	text-align: center;
+}
+
+.RadTabStrip_ClassicGrey li a.selected
+{
+	padding-top: 0px;
+	padding-left: 31px;
+	background: transparent url('img/tabLeftFirstOn.gif') 0px 0px no-repeat;
+	line-height: 28px;
+}
+
+.RadTabStrip_ClassicGrey li a.selected .wrap
+{
+	background-image:url('img/tabRightLastOn.gif');
+	line-height: 28px;
+	padding-right: 4px;
+	color: black;
+}
+
+
+.RadTabStrip_ClassicGrey li a.selected .innerWrap
+{
+	background-image:url('img/tabStripeOn.gif');
+	padding-top: 0px;
+}
+
+.RadTabStrip_ClassicGrey li a.disabled,
+.RadTabStrip_ClassicGrey li a.disabled .wrap,
+.RadTabStrip_ClassicGrey li a.disabled .innerWrap
+{
+	cursor: default;
+	text-decoration: line-through;
+}
+
+.RadTabStrip_ClassicGrey li a.red,
+.RadTabStrip_ClassicGrey li a.red .wrap,
+.RadTabStrip_ClassicGrey li a.red .innerWrap
+{
+	color: red;
+}
+
+/* scrolling arrows */
+
+.RadTabStrip_ClassicGrey .leftArrow
+{
+	background-image:url(img/ScrollLeft.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+.RadTabStrip_ClassicGrey .rightArrow
+{
+	background-image:url(img/ScrollRight.gif);
+	background-repeat: no-repeat;
+	height: 11px;
+	width: 8px;
+}
+
+
+
+.RadTabStrip_ClassicGrey .leftArrowDisabled
+{
+	background-image:url(img/ScrollLeftDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}
+
+.RadTabStrip_ClassicGrey .rightArrowDisabled
+{
+	background-image:url(img/ScrollRightDisabled.gif);
+	height: 11px;
+	width: 8px;
+	background-repeat: no-repeat;
+}

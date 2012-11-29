@@ -1,0 +1,119 @@
+.ComboBoxDropDown_Inox
+{
+	border-top: solid 1px #e8e8e9;
+	border-right: solid 1px #c8c8ca;
+	border-bottom: solid 1px #c8c8ca;
+	border-left: solid 1px #c8c8ca;
+	background: #e6e6e7 url('ComboBoxDropDownBackground.gif') repeat-y center;
+	cursor: default;
+	text-align: left;
+	scrollbar-face-color: #f4f4f4;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #E9E9E9;
+	scrollbar-3dlight-color: #DBDBDB;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-darkshadow-color: #AEAEAE;
+}
+
+
+.ComboBoxImage_Inox,
+.ComboBoxImageHover_Inox
+{
+	vertical-align: middle;
+	width: 30px;
+	height: 25px;
+	margin-left: -2px;
+}
+
+.ComboBoxInput_Inox
+{
+	background: transparent url('InputBackground.gif') no-repeat;
+	height: 25px;
+	border: 0px;
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	color: #36454d;
+	cursor: default;
+	vertical-align: middle;
+	padding-top: 6px;
+	padding-left: 4px;
+}
+
+.ComboBoxInputHover_Inox
+{
+	background: transparent url('InputBackgroundHover.gif') no-repeat;
+	height: 25px;
+	border: 0px;
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	color: #000;
+	cursor: default;
+	vertical-align:middle;
+	padding-top: 6px;
+	padding-left: 4px;
+}
+
+.ComboBoxItem_Inox
+{
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	color: #36454d;	
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemHover_Inox
+{
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	color: #000;	
+	text-decoration: none;
+	background-color: #cdcdcd; 
+	cursor: default;
+	padding: 3px;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_Inox
+{
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	color: #ccc;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_Inox
+{
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Inox
+{
+	font: normal 11px Verdana, Arial, Sans-serif; 
+	padding: 2px;
+	text-align: center;
+}
+
+.ComboBoxMoreResultsImage_Inox
+{
+	padding: 5px;
+	margin-top: 5px;
+}
+
+.ComboBoxMoreResultsBox_Inox
+{
+	background-color: #EEEEE5;
+}
+
+/* default header template */
+.ComboBoxHeader_Inox
+{
+	background-color: #cdcdcd;
+	font: bold 11px Verdana, Arial, Sans-serif; 
+	color: #36454d;
+	line-height: 22px;
+	padding-left: 4px;
+}

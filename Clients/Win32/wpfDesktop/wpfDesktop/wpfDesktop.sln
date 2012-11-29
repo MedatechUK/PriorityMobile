@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "wpfDesktop", "wpfDesktop.vbproj", "{74668E3A-498F-41D1-8123-930AFAF6AE51}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "wpfRPC", "..\wpfRPC\wpfRPC.vdproj", "{D5B1A657-459D-4E7B-AAAA-9C2802D61397}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74668E3A-498F-41D1-8123-930AFAF6AE51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74668E3A-498F-41D1-8123-930AFAF6AE51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74668E3A-498F-41D1-8123-930AFAF6AE51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74668E3A-498F-41D1-8123-930AFAF6AE51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5B1A657-459D-4E7B-AAAA-9C2802D61397}.Debug|Any CPU.ActiveCfg = Debug
+		{D5B1A657-459D-4E7B-AAAA-9C2802D61397}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

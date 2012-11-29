@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="rmxCli">
+</Property><Property Name="Solution File" Value="M:\Clients\Win32\rmxCli\rmxCli\rmxCli.sln">
+</Property><Property Name="Date" Value="09 July 2012">
+</Property><Property Name="Time" Value="23:06:19">
+</Property></Properties><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj" Description="Project file successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\ConsoleApp.vbproj">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\CA.vb" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\CA.vb">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\AssemblyInfo.vb" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\Application.Designer.vb" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\Resources.Designer.vb" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\Settings.Designer.vb" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\Application.myapp" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\Settings.settings" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\My Project\Resources.resx" Description="File successfully backed up as M:\Clients\Win32\rmxCli\rmxCli\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ConsoleApp" Source="..\..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

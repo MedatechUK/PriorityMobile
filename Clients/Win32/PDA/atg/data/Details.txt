@@ -1,0 +1,224 @@
+SC10004109-1	<style> p,div,li                                                    
+SC10004109-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004109-3	<P>PDA TEST</P> <P>&nbsp;</P> <P>Camera 3 is defective</P>          
+SC10004110-1	<style> p,div,li                                                    
+SC10004110-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004110-3	<P>PDA&nbsp;test do not action</P> <P>&nbsp;</P> <P>pipe fitting    
+SC10004110-4	stuck open</P>                                                      
+SC10004111-1	<style> p,div,li                                                    
+SC10004111-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004111-3	<P>pda test do not action</P>                                       
+SC10004112-1	<style> p,div,li                                                    
+SC10004112-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004112-3	<P>pda test do not action</P>                                       
+SC10004119-1	<style> p,div,li                                                    
+SC10004119-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004119-3	<P>PDA test to 2 engineers</P>                                      
+SC10004120-1	<style> p,div,li                                                    
+SC10004120-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004120-3	<P>PDA TEST Originally passed to Darren Whitehead</P>               
+SC10004120-5	<timestamp:11931220:10/>                                            
+SC10004122-1	<style> p,div,li                                                    
+SC10004122-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004122-3	<P>PDA TEST</P> <P>DO NOT ACTION SENT TO DARREN</P>                 
+SC10004149-1	<style> p,div,li                                                    
+SC10004149-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004149-3	<P>PDA TEST</P> <P>Card readers not active in reception</P>         
+SC10004151-1	<style> p,div,li                                                    
+SC10004151-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004151-3	<P>PDA TEST</P> <P>&nbsp;</P> <P>DVR failed this morning</P>        
+SC10004152-1	<style> p,div,li                                                    
+SC10004152-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004152-3	<P>PDA TEST</P> <P>&nbsp;</P> <P>Fastrace not recording</P>         
+SC10004161-1	<style> p,div,li                                                    
+SC10004161-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004161-3	<P>PDA Test do not action </P>                                      
+SC10004168-1	<style> p,div,li                                                    
+SC10004168-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004168-3	<P>Test</P>                                                         
+SC10004155-1	<style> p,div,li                                                    
+SC10004155-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004155-3	<P>infa red: locked uppossibly.....located above bays next to dome  
+SC10004155-4	camera: </P> <P>&nbsp;</P> <P>01215654666 - shane or John</P>       
+SC10004155-5	<P>&nbsp;</P> <P>PO: VUK&nbsp;"<STRONG>UNABLE TO GIVE PO AS LADY    
+SC10004155-6	AWAY TILL MONDAY TO ISSUE</STRONG>"</P>                             
+SC10004154-1	<style> p,div,li                                                    
+SC10004154-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004154-3	<SPAN lang=EN-GB> <P>Customer requested an engineer as they are     
+SC10004154-4	having problems setting the cameras</P></SPAN>                      
+SC10004155-7	to Elaine tomorrow .</P>                                            
+SC10004209-1	<style> p,div,li                                                    
+SC10004209-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004209-3	<P>PMI</P>                                                          
+SC10004210-1	<style> p,div,li                                                    
+SC10004210-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004210-3	<P>PMI</P>                                                          
+SC10004201-1	<style> p,div,li                                                    
+SC10004201-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004201-3	<P>Attend site as camera 4 has gone down </P>                       
+SC10004205-1	<style> p,div,li                                                    
+SC10004205-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004205-3	<P>No connection to any cameras</P> <P>Contact is Melanie Boulter   
+SC10004205-4	contact number 07920 203 490</P> <P>&nbsp;</P> <P>There job ref     
+SC10004205-5	BN2790</P> <P>&nbsp;</P>                                            
+SC10004251-1	<style> p,div,li                                                    
+SC10004251-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004251-3	<P>PMI on site</P>                                                  
+SC10004252-1	<style> p,div,li                                                    
+SC10004252-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004252-3	<P>PMI</P>                                                          
+SC10004259-1	<style> p,div,li                                                    
+SC10004259-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004259-3	<P>PMI </P>                                                         
+SC10004260-1	<style> p,div,li                                                    
+SC10004260-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004260-3	<P>PMI</P>                                                          
+SC10004265-1	<style> p,div,li                                                    
+SC10004265-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004265-3	<P>PMI </P>                                                         
+SC10004274-1	<style> p,div,li                                                    
+SC10004274-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004274-3	<P>PMI</P>                                                          
+SC10003689-1	<style> p,div,li                                                    
+SC10003689-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10003689-3	<P>PMI ON CCTV</P> <P>AND SET UP ON IMMIX AS PER THE ATTATCHMENT</P>
+SC10004349-1	<style> p,div,li                                                    
+SC10004349-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004349-3	<P>call from dave Foulke reqwuesting an engineer due to problem on  
+SC10004349-4	Intruder system, the manager came in this morning and set off the   
+SC10004349-5	alarm due to him not knowing that it required a password</P> <P>now 
+SC10004349-6	the system reads Engineer reset required</P> <P>contact number 01543
+SC10004349-7	451 082</P> <P>&nbsp;</P>                                           
+SC10004385-1	<style> p,div,li                                                    
+SC10004385-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004385-3	<P>Travis Perkins Stratford upon Avon</P> <P>&nbsp;</P> <P>Wayne -  
+SC10004385-4	07826 529 651</P> <P>&nbsp;</P> <P>Had a clearimage engineer on site
+SC10004385-5	yesterday to install web way, but hes caused some issues with       
+SC10004385-6	intruder alarm site wouldnt arm last night then it armed but the    
+SC10004385-7	monitoring station couldnt see if site had armed or not</P>         
+SC10004385-8	<P>&nbsp;</P> <P>&nbsp;</P> <P>D. Whitehouse was on site Job no.    
+SC10004385-9	40757</P>                                                           
+SC10004421-1	<style> p,div,li                                                    
+SC10004421-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004421-3	<P>PMI</P>                                                          
+SC10004492-1	<style> p,div,li                                                    
+SC10004492-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004492-3	<P>Last night an A4 was broken into in the rear compound of the     
+SC10004492-4	Shrewsbury site<BR><BR>Please pull off the Galaxy panel logs for    
+SC10004492-5	last night for any activity. many thanks<BR><BR></P>                
+SC10004467-1	<style> p,div,li                                                    
+SC10004467-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004467-3	<P>Sensor for camera 18 is constantly over activating </P>          
+SC10004467-4	<P>&nbsp;</P> <P>01782 201600</P>                                   
+SC10004367-1	<style> p,div,li                                                    
+SC10004367-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004367-3	<P>Paul - 07917856367 (regional manager): wickes handsworth -       
+SC10004367-4	Birmingham TP</P> <P>&nbsp;</P> <P>call site tel no 1st (ask for    
+SC10004367-5	duty manager)</P> <P>&nbsp;</P> <P>Footage required to be burnt off:
+SC10004367-6	as soon as possible please.</P>                                     
+SC10004510-1	<style> p,div,li                                                    
+SC10004510-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004510-3	<P>All cameras showing no video</P> <P>&nbsp;</P> <P>0121 561       
+SC10004510-4	2233</P>                                                            
+SC10004549-1	<style> p,div,li                                                    
+SC10004549-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004549-3	<P>Stewart - 01922 624 117</P> <P>&nbsp;</P> <P>Had an engineer on  
+SC10004549-4	site installing a new system, but when they came to arm there site  
+SC10004549-5	last night the key pad was dead, no lights and no resonse to any    
+SC10004549-6	input. They have had to leave site unarmed over night. </P>         
+SC10004549-7	<P>&nbsp;</P> <P>&nbsp;</P>                                         
+SC10004549-8	<P>&nbsp;</P> <P>Attend site on the 8/9 due to same fault occuring  
+SC10004549-9	</P> <P>&nbsp;</P>                                                  
+SC10004568-1	<style> p,div,li                                                    
+SC10004568-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10004568-3	<P>Attend site as the unit has failed and will not re boot </P>     
+SC10004568-4	<P>&nbsp;</P> <P>Reported by Paul Wilson </P>                       
+SC10005346-1	<style> p,div,li                                                    
+SC10005346-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005346-3	<P>test</P>                                                         
+SC10005341-1	<style> p,div,li                                                    
+SC10005341-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005341-3	<P>CCTV burn required asap for police investigation</P>             
+SC10005362-1	<style> p,div,li                                                    
+SC10005362-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005362-3	<P>Attend site to do light survey </P>                              
+SC10005363-1	<style> p,div,li                                                    
+SC10005363-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005363-3	<P>Attend site to survey new camera position</P>                    
+SC10005453-1	<style> p,div,li                                                    
+SC10005453-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005453-3	<P>Added by service centre.</P> <P>&nbsp;</P> <P>Camera one showing 
+SC10005453-4	faulty images which distort the view. Unable to Identify any        
+SC10005453-5	activations due to this.</P>                                        
+SC10005599-1	<style> p,div,li                                                    
+SC10005599-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005599-3	<P>dowshu no 1 - completely off after a power cut, needs            
+SC10005599-4	attendance.</P> <P>&nbsp;</P> <P>0712MF</P> <P>&nbsp;</P>           
+SC10005599-5	<P>01217899947: mark faulkner:</P> <P>&nbsp;</P> <P>UPS on site has 
+SC10005599-6	stopped working. Talked customer thro putting the power straight    
+SC10005599-7	from the mains and to by- pass UPS. Engineer req to attend site to  
+SC10005599-8	see if its only the fuse thats blown in UPS.</P>                    
+SC10005652-1	<style> p,div,li                                                    
+SC10005652-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005652-3	<P>PQ1561</P> <P>&nbsp;</P> <P style="TEXT-INDENT: -18pt; MARGIN:   
+SC10005652-4	0cm 0cm 0pt 18pt; mso-margin-top-alt: auto; mso-margin-bottom-alt:  
+SC10005652-5	auto; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"             
+SC10005652-6	class=MsoNormal><SPAN style="FONT-FAMILY: Symbol; FONT-SIZE: 11.5pt;
+SC10005652-7	mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"      
+SC10005652-8	lang=EN-GB><SPAN style="mso-list: Ignore">·<SPAN style="FONT: 7pt   
+SC10005652-9	'Times New                                                          
+SC10005652-10	Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
+SC10005652-11	</SPAN></SPAN></SPAN><SPAN style="FONT-FAMILY: Calibri; COLOR:      
+SC10005652-12	black; FONT-SIZE: 11pt" lang=EN-GB>For the supply only of 2 x 17"   
+SC10005652-13	Flatscreen Monitors</SPAN><SPAN style="FONT-FAMILY: Calibri;        
+SC10005652-14	FONT-SIZE: 11.5pt" lang=EN-GB> <O:P></O:P></SPAN></P>               
+SC10005687-1	<style> p,div,li                                                    
+SC10005687-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005687-3	<P>PQ1524</P> <P>&nbsp;</P> <P style="TEXT-INDENT: -18pt; MARGIN:   
+SC10005687-4	0cm 0cm 0pt 18pt; mso-margin-top-alt: auto; mso-margin-bottom-alt:  
+SC10005687-5	auto; mso-list: l0 level1 lfo1; tab-stops: list 18.0pt"             
+SC10005687-6	class=MsoNormal><SPAN style="FONT-FAMILY: Symbol;                   
+SC10005687-7	mso-fareast-font-family: Symbol; mso-bidi-font-family: Symbol"      
+SC10005687-8	lang=EN-GB><SPAN style="mso-list: Ignore"><FONT size=3>·</FONT><SPAN
+SC10005687-9	style="FONT: 7pt 'Times New                                         
+SC10005687-10	Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
+SC10005687-11	</SPAN></SPAN></SPAN><SPAN style="FONT-FAMILY: Calibri; COLOR:      
+SC10005687-12	black; FONT-SIZE: 11pt" lang=EN-GB>To re-locate the side wall camera
+SC10005687-13	to view the blind spot outside the Tool Hire area </SPAN></P> <P    
+SC10005687-14	style="TEXT-INDENT: -18pt; MARGIN: 0cm 0cm 0pt 18pt;                
+SC10005687-15	mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l0 
+SC10005687-16	level1 lfo1; tab-stops: list 18.0pt" class=MsoNormal><SPAN          
+SC10005687-17	style="FONT-FAMILY: Symbol; mso-fareast-font-family: Symbol;        
+SC10005687-18	mso-bidi-font-family: Symbol" lang=EN-GB><SPAN style="mso-list:     
+SC10005687-19	Ignore"><FONT size=3>·</FONT><SPAN style="FONT: 7pt 'Times New      
+SC10005687-20	Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
+SC10005687-21	</SPAN></SPAN></SPAN><SPAN style="FONT-FAMILY: Calibri; COLOR:      
+SC10005687-22	black; FONT-SIZE: 11pt" lang=EN-GB>To re-locate the Warehouse camera
+SC10005687-23	to the opposite wall so that more area can be covered. </SPAN></P>  
+SC10005687-24	<P style="TEXT-INDENT: -18pt; MARGIN: 0cm 0cm 0pt 18pt;             
+SC10005687-25	mso-margin-top-alt: auto; mso-margin-bottom-alt: auto; mso-list: l0 
+SC10005687-26	level1 lfo1; tab-stops: list 18.0pt" class=MsoNormal><SPAN          
+SC10005687-27	style="FONT-FAMILY: Symbol; mso-fareast-font-family: Symbol;        
+SC10005687-28	mso-bidi-font-family: Symbol" lang=EN-GB><SPAN style="mso-list:     
+SC10005687-29	Ignore"><FONT size=3>·</FONT><SPAN style="FONT: 7pt 'Times New      
+SC10005687-30	Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
+SC10005687-31	</SPAN></SPAN></SPAN><SPAN style="FONT-FAMILY: Calibri; COLOR:      
+SC10005687-32	black; FONT-SIZE: 11pt" lang=EN-GB>To re-locate the compound Redwall
+SC10005687-33	Detector due to it currently being located above the roof and it is 
+SC10005687-34	therefore ineffective</SPAN></P> <P style="TEXT-INDENT: -18pt;      
+SC10005687-35	MARGIN: 0cm 0cm 0pt 18pt; mso-margin-top-alt: auto;                 
+SC10005687-36	mso-margin-bottom-alt: auto; mso-list: l0 level1 lfo1; tab-stops:   
+SC10005687-37	list 18.0pt" class=MsoNormal><SPAN style="FONT-FAMILY: Symbol;      
+SC10005687-38	FONT-SIZE: 11.5pt; mso-fareast-font-family: Symbol;                 
+SC10005687-39	mso-bidi-font-family: Symbol" lang=EN-GB><SPAN style="mso-list:     
+SC10005687-40	Ignore">·<SPAN style="FONT: 7pt 'Times New                          
+SC10005687-41	Roman'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            
+SC10005687-42	</SPAN></SPAN></SPAN><SPAN style="FONT-FAMILY: Calibri; COLOR:      
+SC10005687-43	black; FONT-SIZE: 11pt" lang=EN-GB>To alter the angle of the camera 
+SC10005687-44	that is associated with the Redwall giving a better view of the     
+SC10005687-45	compound area</SPAN><SPAN style="FONT-FAMILY: Calibri; FONT-SIZE:   
+SC10005687-46	11.5pt" lang=EN-GB> <O:P></O:P></SPAN></P> <P>&nbsp;</P>            
+SC10005775-1	<style> p,div,li                                                    
+SC10005775-2	{margin:0cm;font-size:10.0pt;font-family:'Tahoma';}</style>         
+SC10005775-3	<P>PMI ON CCTV</P> <P>&nbsp;</P> <P>DCH TO TAKE DCA, RI AND AE TO   
+SC10005775-4	SITE.</P> <P>NEEDS TO BE PRE BOOKED WITH SITE.</P>                  

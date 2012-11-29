@@ -1,0 +1,13 @@
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\rmxCli.exe
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\rmxCli.pdb
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\rmxCli.xml
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\ConsoleApp.dll
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\ConsoleApp.pdb
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\ConsoleApp.xml
+M:\Clients\Win32\rmxCli\rmxCli\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\rmxCli\rmxCli\obj\Debug\rmxCli.Resources.resources
+M:\Clients\Win32\rmxCli\rmxCli\obj\Debug\rmxCli.vbproj.GenerateResource.Cache
+M:\Clients\Win32\rmxCli\rmxCli\obj\Debug\rmxCli.exe
+M:\Clients\Win32\rmxCli\rmxCli\obj\Debug\rmxCli.xml
+M:\Clients\Win32\rmxCli\rmxCli\obj\Debug\rmxCli.pdb
+M:\Clients\Win32\rmxCli\rmxCli\bin\Debug\help\syntax.txt

@@ -1,0 +1,3 @@
+SC10000003	112-007	BIC Acoustech Cinema Series 6	1
+SC11000002	111-007	Kenwood PW612 - Subwoofer and Ampilifier	1
+SC11000001	111-007	Kenwood PW612 - Subwoofer and Ampilifier	1

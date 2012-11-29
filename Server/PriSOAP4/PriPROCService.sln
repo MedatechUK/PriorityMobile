@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PriProc", "Server\PriProc.vbproj", "{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntEvtlog", "components\ntEvtLog\ntEvtlog.vbproj", "{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ntSoxLib", "components\ntSox\ntSoxLib.vbproj", "{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "xmlLoad", "components\xmlLoad\xmlLoad.vbproj", "{770201A9-2D88-4023-967C-5E5FFDBC69EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		AdminTelnet|Any CPU = AdminTelnet|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A0818A0-EE31-4FE5-BC3D-28B55A2F9389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E20B04-A66D-40B5-A743-2AAB7DD2CFBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED09B21A-915D-4BBA-8B88-01453D0AF9AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.AdminTelnet|Any CPU.ActiveCfg = AdminTelnet|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.AdminTelnet|Any CPU.Build.0 = AdminTelnet|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{770201A9-2D88-4023-967C-5E5FFDBC69EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

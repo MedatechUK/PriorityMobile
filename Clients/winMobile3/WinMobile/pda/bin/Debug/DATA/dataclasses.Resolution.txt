@@ -1,0 +1,7 @@
+001	Technical assistance
+002	Telephone guidence
+003	Answer by phone
+004	Home Visit
+005	Replacing
+006	Parts replacing
+007	Repair

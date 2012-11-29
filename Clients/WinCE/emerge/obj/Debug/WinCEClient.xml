@@ -1,0 +1,46 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WinCEClient
+</name>
+</assembly>
+<members>
+<member name="M:WinCEClient.PriWebSVC.Service.#ctor">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.BeginLoadData(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.EndLoadData(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.GetData(System.String,System.String)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.BeginGetData(System.String,System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.EndGetData(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.BeginSaveSignature(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:WinCEClient.PriWebSVC.Service.EndSaveSignature(System.IAsyncResult)">
+	<remarks/>
+</member><member name="T:WinCEClient.PriWebSVC.Service">
+	<remarks/>
+</member><member name="P:WinCEClient.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:WinCEClient.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:WinCEClient.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

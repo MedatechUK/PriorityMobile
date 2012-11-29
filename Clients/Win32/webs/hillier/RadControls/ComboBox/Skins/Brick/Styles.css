@@ -1,0 +1,143 @@
+.ComboBoxDropDown_Brick
+{
+	border: 1px solid #cadadd;
+	border-top: 1px solid white;
+	background-color: #e7f4f6;
+	background-image: url(dropDownBg.gif);
+	background-repeat: repeat-x;
+	scrollbar-face-color: #E9E9E9;
+	scrollbar-highlight-color: #FFFFFF;
+	scrollbar-shadow-color: #E9E9E9;
+	scrollbar-3dlight-color: #DBDBDB;
+	scrollbar-arrow-color: #787878;
+	scrollbar-track-color: #F5F5F5;
+	scrollbar-darkshadow-color: #AEAEAE;
+}
+
+.ComboBoxHeader_Brick
+{
+	background-image: url(headerBg.gif);
+	height: 37px;
+	color: #849ea2;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.ComboBoxHeader_Brick TD
+{
+	height: 37px;
+	background-image: url(headerSeparator.gif);
+	background-repeat: no-repeat;
+	padding-left: 9px;
+}
+
+.ComboBoxImage_Brick
+{
+	vertical-align:middle;
+}
+
+.ComboBoxImageHover_Brick
+{
+	vertical-align:middle;
+}
+
+.ComboBoxInput_Brick
+{
+	height: 23px;
+	border: 0px;	
+	border-left: 1px solid #e2e3d8;
+	background-color: white;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	background-image: url(bg.gif);
+	background-repeat: repeat-x;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: #666666;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+
+.ComboBoxInputHover_Brick
+{
+	height: 23px;
+	border: 0px;	
+	border-left: 1px solid #e2e3d8;
+	background-color: white;
+	scrollbar-base-color : #B6D2FC;
+	vertical-align: middle;
+	background-image: url(bgOver.gif);
+	background-repeat: repeat-x;
+	font-family: Arial, Verdana;
+	font-size: 11px;
+	color: #333;
+	padding-top: 4px;
+	padding-left: 4px;
+}
+
+.ComboBoxItem_Brick
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: #333333;	
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemHover_Brick
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: white;
+	text-decoration: none;
+	background-color: #aebcbe; 
+	cursor: pointer;
+	cursor: hand;
+	padding: 3px;
+	text-align: left;
+	_height:1%;
+}
+
+.ComboBoxItemDisabled_Brick
+{
+	font-family: Arial;
+	font-size: 11px; 
+	color: gray;
+	cursor: no-drop;
+	padding: 3px;
+	text-decoration: none;
+	text-align: left;
+}
+
+.ComboBoxLoadingMessage_Brick
+{	
+	font-family: Arial;
+	font-size: 11px; 
+	padding: 2px;
+}
+
+.ComboBoxMoreResultsMessage_Brick
+{
+	font-family: Arial;
+	font-size: 10px;
+	padding-bottom: 4px;
+}
+
+
+.ComboBoxMoreResultsImage_Brick
+{
+	padding: 5px;
+	margin: 5px;
+}
+
+.ComboBoxMoreResultsBox_Brick
+{
+	background-image: url(moreResults.gif);
+	background-repeat: repeat-x;
+	background-position: bottom;
+	border-top: 1px solid #F7F7F7;
+	cursor: default;
+}

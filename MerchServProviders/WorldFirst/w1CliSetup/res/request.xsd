@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+<xs:include schemaLocation="payment.xsd"/>
+<xs:include schemaLocation="getquote.xsd"/>
+<xs:include schemaLocation="client_details.xsd"/>
+
+<xs:element name="request">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="atomic" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="testing" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+			
+			<xs:element name="client-details" type="client-details" minOccurs="0" maxOccurs="1"/>
+			
+			<xs:element name="getquote" type="getquote" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="payment" type="payment" minOccurs="0" maxOccurs="unbounded"/>
+			
+			<xs:element name="past-paymentid" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+</xs:schema>

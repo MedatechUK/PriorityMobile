@@ -1,0 +1,9 @@
+M:\Clients\Win32\PDAGen\bin\Debug\dataclasses.dll
+M:\Clients\Win32\PDAGen\bin\Debug\dataclasses.pdb
+M:\Clients\Win32\PDAGen\bin\Debug\dataclasses.xml
+M:\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\dataclasses.Resources.resources
+M:\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\dataclasses.vbproj.GenerateResource.Cache
+M:\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\dataclasses.dll
+M:\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\dataclasses.xml
+M:\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\dataclasses.pdb

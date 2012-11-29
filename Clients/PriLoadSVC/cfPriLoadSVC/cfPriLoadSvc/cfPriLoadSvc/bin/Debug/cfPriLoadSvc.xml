@@ -1,0 +1,52 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+cfPriLoadSvc
+</name>
+</assembly>
+<members>
+<member name="M:cfPriLoadSvc.PriWebSvc.Service.#ctor">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.LoadData(System.String)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.BeginLoadData(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.EndLoadData(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.LoadDataWait(System.String,System.String)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.BeginLoadDataWait(System.String,System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.EndLoadDataWait(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.GetData(System.String)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.BeginGetData(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.EndGetData(System.IAsyncResult)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.SaveSignature(System.String)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.BeginSaveSignature(System.String,System.AsyncCallback,System.Object)">
+	<remarks/>
+</member><member name="M:cfPriLoadSvc.PriWebSvc.Service.EndSaveSignature(System.IAsyncResult)">
+	<remarks/>
+</member><member name="T:cfPriLoadSvc.PriWebSvc.Service">
+	<remarks/>
+</member><member name="P:cfPriLoadSvc.My.Resources.Resources.ResourceManager">
+	<summary>
+   Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:cfPriLoadSvc.My.Resources.Resources.Culture">
+	<summary>
+   Overrides the current thread's CurrentUICulture property for all
+   resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:cfPriLoadSvc.My.Resources.Resources">
+	<summary>
+   A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

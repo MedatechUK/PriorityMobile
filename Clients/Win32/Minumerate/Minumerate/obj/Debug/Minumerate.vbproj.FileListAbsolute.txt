@@ -1,0 +1,14 @@
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.Resources.resources
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.vbproj.GenerateResource.Cache
+M:\Clients\Win32\Minumerate\Minumerate\bin\Debug\Minumerate.exe
+M:\Clients\Win32\Minumerate\Minumerate\bin\Debug\Minumerate.pdb
+M:\Clients\Win32\Minumerate\Minumerate\bin\Debug\Minumerate.xml
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.exe
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.xml
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.pdb
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.frmCalc.resources
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.frmClock.resources
+M:\Clients\Win32\Minumerate\Minumerate\obj\Debug\Minumerate.frmAbout.resources
+M:\Clients\Win32\Minumerate\Minumerate\bin\Debug\Minumerate.exe.config
+M:\Clients\Win32\Minumerate\Minumerate\bin\Debug\PriorityDate.rtf
