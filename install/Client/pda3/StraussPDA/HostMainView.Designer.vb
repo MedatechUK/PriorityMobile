@@ -22,6 +22,8 @@ Partial Public Class HostMainView
     Private Sub InitializeComponent()
         Me.mainMenu1 = New System.Windows.Forms.MainMenu
         Me.MainView = New PriorityMobile.MainView
+        Me.ContextMenu1 = New System.Windows.Forms.ContextMenu
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem
         Me.SuspendLayout()
         '
         'MainView
@@ -32,12 +34,22 @@ Partial Public Class HostMainView
         Me.MainView.Size = New System.Drawing.Size(240, 294)
         Me.MainView.TabIndex = 0
         '
+        'ContextMenu1
+        '
+        Me.ContextMenu1.MenuItems.Add(Me.MenuItem1)
+        '
+        'MenuItem1
+        '
+        Me.MenuItem1.Text = "Close"
+        '
         'HostMainView
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(240, 294)
+        Me.ContextMenu = Me.ContextMenu1
+        Me.ControlBox = False
         Me.Controls.Add(Me.MainView)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
@@ -49,4 +61,6 @@ Partial Public Class HostMainView
 
     End Sub
     Friend WithEvents MainView As PriorityMobile.MainView
+    Friend WithEvents ContextMenu1 As System.Windows.Forms.ContextMenu
+    Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
 End Class

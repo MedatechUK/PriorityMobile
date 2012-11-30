@@ -19,7 +19,6 @@ M:\install\Client\pda3\StraussPDA\bin\Debug\icons\PASTE.BMP
 M:\install\Client\pda3\StraussPDA\bin\Debug\icons\PHONE.BMP
 M:\install\Client\pda3\StraussPDA\bin\Debug\icons\Plan.BMP
 M:\install\Client\pda3\StraussPDA\bin\Debug\icons\SORTASC.BMP
-M:\install\Client\pda3\StraussPDA\bin\Debug\icons\UP1LVL.BMP
 M:\install\Client\pda3\StraussPDA\bin\Debug\mnuControls.dll
 M:\install\Client\pda3\StraussPDA\bin\Debug\mnuControls.pdb
 M:\install\Client\pda3\StraussPDA\bin\Debug\mnuControls.xml
@@ -53,3 +52,5 @@ M:\install\Client\pda3\StraussPDA\obj\Debug\StraussPDA.HostMainView.resources
 M:\install\Client\pda3\StraussPDA\obj\Debug\StraussPDA.dlgAddPlanned.resources
 M:\install\Client\pda3\StraussPDA\obj\Debug\StraussPDA.dlgBarcode.resources
 M:\install\Client\pda3\StraussPDA\obj\Debug\StraussPDA.dlgOnCall.resources
+M:\install\Client\pda3\StraussPDA\bin\Debug\icons\close.BMP
+M:\install\Client\pda3\StraussPDA\bin\Debug\icons\OpenCall.bmp

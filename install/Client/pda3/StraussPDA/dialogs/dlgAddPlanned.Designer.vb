@@ -36,7 +36,7 @@ Partial Public Class dlgAddPlanned
         Me.chkBroken.Name = "chkBroken"
         Me.chkBroken.Size = New System.Drawing.Size(195, 20)
         Me.chkBroken.TabIndex = 0
-        Me.chkBroken.Text = "Unit Is Broken:"
+        Me.chkBroken.Text = "Unit Removed:"
         '
         'txtLocation
         '

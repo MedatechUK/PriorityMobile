@@ -11,6 +11,12 @@ Public Class ctrl_StatusPane
 
 #Region "Overrides base class"
 
+    Public Overrides ReadOnly Property ButtomImage() As String
+        Get
+            Return "OpenCall.bmp"
+        End Get
+    End Property
+
     Public Overrides Sub Bind()
         With Me
             Try
@@ -93,6 +99,8 @@ Public Class ctrl_StatusPane
                             )
                         Else
                             If MsgBox(String.Format("Set the call to '{0}'?", ProposedValue), MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                                ' Append a timestamp to the repair detail
+                                n.SelectSingleNode("report/detail/repair").InnerText += String.Format("<br>TIME STAMP: {0}", Now.ToString)
                                 n.Attributes.Append(xmlForms.postAttribute)
                                 Return True
                             Else

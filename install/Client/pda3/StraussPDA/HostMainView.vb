@@ -38,6 +38,7 @@ Public Class HostMainView
                     Me.Focus()
             End Select
             _ShowTaskbar = value
+            Me.ControlBox = False
         End Set
     End Property
 
@@ -73,19 +74,17 @@ Public Class HostMainView
     End Sub
 
     Private Sub frmMain_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        If Not MsgBox("Close the application?", MsgBoxStyle.OkCancel, "Quit?") = MsgBoxResult.Ok Then
-            e.Cancel = True
-        Else
-            ShowTaskbar = True
-        End If
+        ShowTaskbar = True
     End Sub
 
     Private Sub frmMain_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Activated
         ShowTaskbar = False
+        Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub frmMain_Deactivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate, MyBase.Disposed
         ShowTaskbar = True
+        Me.WindowState = FormWindowState.Normal
     End Sub
 
 #End Region
@@ -179,11 +178,15 @@ Public Class HostMainView
     Private Sub hSetForm() Handles MainView.SetForm
         With Me
             .Menu = mainMenu1
-            .ControlBox = True
+            .ControlBox = False
             .FormBorderStyle = Windows.Forms.FormBorderStyle.None
             .WindowState = FormWindowState.Maximized
             .ShowTaskbar = False
         End With
+    End Sub
+
+    Private Sub hCloseForm() Handles MainView.BeginClose
+        Me.ControlBox = Not (Me.ControlBox)
     End Sub
 
     Private Sub hSetTaskbar(ByVal Visible As Boolean)

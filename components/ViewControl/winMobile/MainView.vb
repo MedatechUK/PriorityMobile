@@ -13,6 +13,7 @@
     Public Event SyncEvent(ByVal NodeType As String, ByVal EventType As PriorityMobile.eSyncEventType, ByRef DataXML As OfflineXML)
     Public Event SetForm()
     Public Event SetTaskbar(ByVal Visible As Boolean)
+    Public Event BeginClose()
 
 #End Region
 
@@ -120,10 +121,13 @@
         With ToolStrip
             .Clear()
             .Add(AddressOf btn_Up_Click, "UP1LVL.BMP", Not IsNothing(Current.Parent))
-            .Add(AddressOf btn_View_Click, Active.CurrentForm.NextViewButton, CBool(Current.Views.Count > 1))
-            .Add(AddressOf btn_Sync, "SYNC.BMP", IsNothing(Current.Parent))
+            .Add(AddressOf btn_View_Click, Active.CurrentForm.NextViewButton, CBool(Current.Views.Count > 1))            
             .Add()
             Active.CurrentForm.Views(Active.CurrentForm.CurrentView).DirectActivations(ToolStrip)
+            .Add()
+            .Add(AddressOf btn_Sync, "SYNC.BMP", IsNothing(Current.Parent))
+            .Add()
+            .Add(AddressOf btn_Close, "close.BMP", IsNothing(Current.Parent))
             .MakeImage()
         End With
 
@@ -200,6 +204,10 @@
         Next
         RaiseEvent SetTaskbar(False)
 
+    End Sub
+
+    Private Sub btn_Close(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        RaiseEvent BeginClose()
     End Sub
 
     Public Sub hSyncEvent(ByVal sender As System.Object, ByVal e As System.EventArgs)

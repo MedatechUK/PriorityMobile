@@ -64,7 +64,7 @@ Public Class ctrl_Parts_Actual
         IsBinding = True
         Dim dr() As Data.DataRow = Nothing
         Dim query As String = String.Format( _
-                "planned <> 'Y' and id <> 'dummy'" _
+                "planned <> 'Y' and id <> 'dummy' and qty <> 0" _
                 )
         dr = thisForm.Datasource.Select(query, ListSort1.Sort)
 
