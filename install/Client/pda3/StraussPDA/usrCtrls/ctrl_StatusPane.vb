@@ -98,14 +98,7 @@ Public Class ctrl_StatusPane
                                 ) _
                             )
                         Else
-                            If MsgBox(String.Format("Set the call to '{0}'?", ProposedValue), MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-                                ' Append a timestamp to the repair detail
-                                n.SelectSingleNode("report/detail/repair").InnerText += String.Format("<br>TIME STAMP: {0}", Now.ToString)
-                                n.Attributes.Append(xmlForms.postAttribute)
-                                Return True
-                            Else
-                                Return False
-                            End If
+                            Return MsgBox(String.Format("Set the call to '{0}'?", ProposedValue), MsgBoxStyle.OkCancel) = MsgBoxResult.Ok
                         End If
 
                     Else
@@ -164,12 +157,35 @@ Public Class ctrl_StatusPane
     Public Overrides Sub RowUpdated(ByVal Column As String, ByVal NewValue As String)
         Select Case Column.ToUpper
             Case "CALLSTATUS"
+                xmlForms.Log("Set CALLSTATUS to {0}.", NewValue)
                 With thisForm
                     If xmlForms.StatusRule(NewValue, eStatusRule.post) Then
                         With .FormData
                             Dim n As XmlNode = thisForm.FormData.SelectSingleNode(thisForm.thisxPath & "/report/times")
                             n.AppendChild(.CreateElement(Replace("endcall", Chr(32), "_")))
                             n.LastChild.InnerText = funcDate.TimeToMin()
+
+                            n = thisForm.FormData.SelectSingleNode(thisForm.thisxPath)
+
+                            ' Append a timestamp to the repair detail
+                            n.SelectSingleNode("report/detail/repair").InnerText = _
+                                n.SelectSingleNode("detail").InnerText & _
+                                ":[hr]:" & _
+                                n.SelectSingleNode("report/detail/repair").InnerText & _
+                                String.Format( _
+                                    ":[br]:TIME STAMP: {0}", _
+                                     Now.ToString _
+                                )
+
+                            n.Attributes.Append(xmlForms.postAttribute)
+                            thisForm.Save()
+
+                            thisForm.Log(xmlForms.FormData.Document.SelectSingleNode(thisForm.thisxPath).OuterXml)
+
+                            If IsNothing(xmlForms.FormData.Document.SelectSingleNode(thisForm.thisxPath).Attributes("post")) Then
+                                Throw New Exception("Post flag was not set on the node.")
+                            End If
+
                         End With
                         .Save()
                     End If
@@ -181,6 +197,8 @@ Public Class ctrl_StatusPane
 
                             ' Update the call to changed so edits no longer overwrite
                             thisForm.FormData.SelectSingleNode(thisForm.thisxPath).Attributes.Append(xmlForms.changedAttribute)
+                            thisForm.Log(xmlForms.FormData.Document.SelectSingleNode(thisForm.thisxPath).OuterXml)
+
                         End With
                         .Save()
                     End If

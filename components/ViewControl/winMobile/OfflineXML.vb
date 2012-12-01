@@ -131,11 +131,11 @@ Public Class OfflineXML
         With PostTimer
             If PostIntervalSec > 0 Then
                 If PostIntervalSec < 60 Then PostIntervalSec = 60
-                .Interval = PostIntervalSec * 1000
-                .Enabled = True
+                .Interval = PostIntervalSec * 1000                
                 AddHandler .Tick, AddressOf hPost
-            Else
                 .Enabled = True
+            Else
+                .Enabled = False
             End If
         End With
 
@@ -384,18 +384,16 @@ Public Class OfflineXML
                 End If
             Next
 
-            For Each TargetNode As XmlNode In Document.SelectNodes(thispath)
-                If IsNothing(TargetNode.Attributes("changed")) Then
-                    soPath = .xPathQuery(thispath, TargetNode)
-                    If IsNothing(SourceXML.SelectSingleNode(soPath)) Then
-                        If Not IsNothing(syncHandler) Then
-                            _CurrentPath = soPath
-                            _SyncEventType = eSyncEventType.DeleteNode
-                            syncHandler.Invoke(Me, New System.EventArgs)
-                        End If
-                        TargetNode.ParentNode.RemoveChild(TargetNode)
+            For Each TargetNode As XmlNode In Document.SelectNodes(thispath)                
+                soPath = .xPathQuery(thispath, TargetNode)
+                If IsNothing(SourceXML.SelectSingleNode(soPath)) Then
+                    If Not IsNothing(syncHandler) Then
+                        _CurrentPath = soPath
+                        _SyncEventType = eSyncEventType.DeleteNode
+                        syncHandler.Invoke(Me, New System.EventArgs)
                     End If
-                End If
+                    TargetNode.ParentNode.RemoveChild(TargetNode)
+                End If                
             Next
 
         End With
@@ -530,15 +528,21 @@ Public Class OfflineXML
 
         Dim postnodes As XmlNodeList
         Dim postException As Exception
-
-        postnodes = Document.SelectNodes("//*[@post ='1']")
-        While postnodes.Count > 0 And IsNothing(postException)
-            If PostData(postnodes(0), postException) Then
-                postnodes(0).Attributes.RemoveNamedItem("post")
-                Document.Save(LocalFile)
-            End If
+        Using sw As New StreamWriter(_UserEnv.LocalFolder & "\log.txt", True)
+            sw.WriteLine("{0}: Checking for postable nodes.", Now.ToString)
             postnodes = Document.SelectNodes("//*[@post ='1']")
-        End While
+            While postnodes.Count > 0 And IsNothing(postException)
+                sw.WriteLine("Found {0} postable node(s).", postnodes.Count)
+                If PostData(postnodes(0), postException) Then
+                    sw.WriteLine("Posted node ok.")
+                    postnodes(0).Attributes.RemoveNamedItem("post")
+                    Document.Save(LocalFile)
+                Else
+                    sw.WriteLine("Post Failed: {0}", postException.Message)
+                End If
+                postnodes = Document.SelectNodes("//*[@post ='1']")
+            End While
+        End Using
 
     End Sub
 

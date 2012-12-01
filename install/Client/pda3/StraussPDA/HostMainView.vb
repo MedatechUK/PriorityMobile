@@ -51,7 +51,7 @@ Public Class HostMainView
         Try
 
             With MainView
-                .xf = New xmlForms( _
+                .xf = New xmlForms(.ue, _
                     New OfflineXML(.ue, "forms.xml", "forms.xml", ClearCache), _
                     New OfflineXML(.ue, "calls.xml", "calls.ashx", _
                         MsgBox("Syncronise Calls?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok, _
@@ -75,6 +75,7 @@ Public Class HostMainView
 
     Private Sub frmMain_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
         ShowTaskbar = True
+        Application.Exit()
     End Sub
 
     Private Sub frmMain_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Activated
