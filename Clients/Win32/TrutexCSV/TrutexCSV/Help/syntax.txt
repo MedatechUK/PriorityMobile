@@ -1,0 +1,7 @@
+CSV Converter:
+   TrutexCSV.exe [ /f "drive:\file.pdf"] 
+                {/?}
+
+This application supports the following switches:
+   -?      This help file.
+   -f      The local or UNC filename of a pre-existing PDF document to print.
