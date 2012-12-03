@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PingTest", "PingTest.vbproj", "{1A81E054-A8CD-4837-853F-438BDA702C78}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PingImp", "..\PingIMPSetup\PingImp\PingImp.vdproj", "{AA2B3E2B-E20E-4334-82C2-D99919661389}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "RegisterEventlog", "M:\components\ntEvtlog\ntRegisterEvt\RegisterEventLog\RegisterEventlog.vbproj", "{34C8EC70-8E82-4967-AD25-45ACF59609E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A81E054-A8CD-4837-853F-438BDA702C78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A81E054-A8CD-4837-853F-438BDA702C78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A81E054-A8CD-4837-853F-438BDA702C78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A81E054-A8CD-4837-853F-438BDA702C78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA2B3E2B-E20E-4334-82C2-D99919661389}.Debug|Any CPU.ActiveCfg = Debug
+		{AA2B3E2B-E20E-4334-82C2-D99919661389}.Release|Any CPU.ActiveCfg = Release
+		{34C8EC70-8E82-4967-AD25-45ACF59609E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34C8EC70-8E82-4967-AD25-45ACF59609E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34C8EC70-8E82-4967-AD25-45ACF59609E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34C8EC70-8E82-4967-AD25-45ACF59609E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

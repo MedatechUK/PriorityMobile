@@ -1,0 +1,9 @@
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\bin\Debug\DeviceApplication1.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\bin\Debug\DeviceApplication1.pdb
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\bin\Debug\DeviceApplication1.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\DeviceApplication1.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\DeviceApplication1.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\DeviceApplication1.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\DeviceApplication1.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\DeviceApplication1.pdb

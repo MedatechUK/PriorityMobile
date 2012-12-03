@@ -1,0 +1,12 @@
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\bin\Debug\PingTest.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\bin\Debug\PingTest.pdb
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\bin\Debug\PingTest.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.Resources.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.PingIMP.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.vbproj.GenerateResource.Cache
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.exe
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.xml
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.pdb
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\obj\Debug\PingTest.ProjectInstaller.resources
+C:\Documents and Settings\administrator.WONDERLAND.001\My Documents\Visual Studio 2005\Projects\pingtest\PingTest\bin\Debug\PingTest.exe.config
