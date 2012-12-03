@@ -73,7 +73,7 @@ Public Class frmMain
         myProgressBar.Visible = False
 
         ue = New UserEnv()
-        xf = New xmlForms( _
+        xf = New xmlForms(ue, _
             New OfflineXML(ue, "forms.xml", "forms.xml", ClearCache), _
             New OfflineXML(ue, "calls.xml", "calls.ashx", _
                 MsgBox("Syncronise Calls?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok, _

@@ -1,0 +1,9 @@
+M:\components\pdaStartArgs\PDAStartArgs\bin\Debug\PDAStartArgs.exe
+M:\components\pdaStartArgs\PDAStartArgs\bin\Debug\PDAStartArgs.pdb
+M:\components\pdaStartArgs\PDAStartArgs\bin\Debug\PDAStartArgs.xml
+M:\components\pdaStartArgs\PDAStartArgs\obj\Debug\ResolveAssemblyReference.cache
+M:\components\pdaStartArgs\PDAStartArgs\obj\Debug\PDAStartArgs.Resources.resources
+M:\components\pdaStartArgs\PDAStartArgs\obj\Debug\PDAStartArgs.vbproj.GenerateResource.Cache
+M:\components\pdaStartArgs\PDAStartArgs\obj\Debug\PDAStartArgs.exe
+M:\components\pdaStartArgs\PDAStartArgs\obj\Debug\PDAStartArgs.xml
+M:\components\pdaStartArgs\PDAStartArgs\obj\Debug\PDAStartArgs.pdb

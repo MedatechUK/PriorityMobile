@@ -1,6 +1,7 @@
 ﻿Imports System.Xml
 Imports System.Text.RegularExpressions
 Imports System.Threading
+Imports System.IO
 
 Public Enum eStatusRule
     prereport = 1
@@ -8,6 +9,7 @@ Public Enum eStatusRule
     post = 3
     active = 4
     beginwork = 5
+    postincomplete = 6
 End Enum
 
 Public Class xmlForms
@@ -25,6 +27,7 @@ Public Class xmlForms
 
 #Region "Public Shared Members"
 
+    Public Shared UserEnv As UserEnv    
     Public Shared FormDesign As OfflineXML
     Public Shared FormData As OfflineXML
     Public Shared DataLookUp As lookupData
@@ -38,8 +41,14 @@ Public Class xmlForms
 
 #Region "initialisation and Finalisation"
 
-    Public Sub New(ByRef _FormDesign As OfflineXML, ByRef _FormData As OfflineXML, ByRef _lookup As OfflineXML, ByRef _StatusRules As OfflineXML)
+    Public Sub New(ByRef UE As UserEnv, _
+                   ByRef _FormDesign As OfflineXML, _
+                   ByRef _FormData As OfflineXML, _
+                   ByRef _lookup As OfflineXML, _
+                   ByRef _StatusRules As OfflineXML _
+                   )
 
+        UserEnv = UE
         FormDesign = _FormDesign
         FormData = _FormData
         If Not IsNothing(_lookup) Then DataLookUp = New lookupData(_lookup)
@@ -58,6 +67,7 @@ Public Class xmlForms
         postAttribute.Value = "1"
 
         changedRegex = New Regex(String.Format(" changed={0}.{0}| post={0}.{0}", Chr(34)))
+
 
     End Sub
 
@@ -162,6 +172,8 @@ Public Class xmlForms
                     at = st.Attributes("prereport")
                 Case eStatusRule.post
                     at = st.Attributes("post")
+                Case eStatusRule.postincomplete
+                    at = st.Attributes("postincomplete")
                 Case eStatusRule.active
                     at = st.Attributes("active")
                 Case eStatusRule.beginwork
@@ -195,6 +207,18 @@ Public Class xmlForms
 
     Public Sub PostNode(ByVal Node As XmlNode, ByVal PostException As Exception)
         FormData.PostData(Node, PostException)
+    End Sub
+
+    Public Shared Sub Log(ByVal FormatString As String, ByVal ParamArray Values() As String)
+        Using sw As New StreamWriter(UserEnv.LocalFolder & "\log.txt", True)
+            sw.WriteLine(FormatString, Values)
+        End Using
+    End Sub
+
+    Public Shared Sub Log(ByVal FormatString As String)
+        Using sw As New StreamWriter(UserEnv.LocalFolder & "\log.txt", True)
+            sw.WriteLine(FormatString)
+        End Using
     End Sub
 
 #End Region

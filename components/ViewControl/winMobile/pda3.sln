@@ -9,7 +9,9 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "mnuControls", "..\..\SlideM
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "frmControls", "..\..\frmControls\frmControls\frmControls.vbproj", "{51160138-3081-4533-8697-3C7778A42F5A}"
 EndProject
-Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "StraussPDA", "..\..\..\install\Client\pda3\StraussPDA\SetUp\StraussPDA\StraussPDA_setup.vddproj", "{B83F9729-219F-4D95-B11A-BD07EEF48AC5}"
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "StraussPDASetup", "..\..\..\install\Client\pda3\StraussPDA\SetUp\StraussPDA\StraussPDA_setup.vddproj", "{B83F9729-219F-4D95-B11A-BD07EEF48AC5}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PDAStartArgs", "..\..\pdaStartArgs\PDAStartArgs\PDAStartArgs.vbproj", "{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,12 @@ Global
 		{B83F9729-219F-4D95-B11A-BD07EEF48AC5}.Debug|Any CPU.Build.0 = Debug
 		{B83F9729-219F-4D95-B11A-BD07EEF48AC5}.Release|Any CPU.ActiveCfg = Release
 		{B83F9729-219F-4D95-B11A-BD07EEF48AC5}.Release|Any CPU.Build.0 = Release
+		{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EBB8BE9-2403-4CF4-9794-D0B3C866FD22}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

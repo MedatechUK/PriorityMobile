@@ -401,6 +401,14 @@ Public Class xForm
         RaiseEvent StartDialog(frmDialog)
     End Sub
 
+    Public Sub Log(ByVal FormatString As String, ByVal ParamArray Values() As String)
+        xmlForms.Log(FormatString, values)
+    End Sub
+
+    Public Sub Log(ByVal FormatString As String)
+        xmlForms.Log(FormatString)
+    End Sub
+
 #End Region
 
 #Region "Event Handlers"
