@@ -122,8 +122,12 @@
                 Me.txt_Number.Text = Me.txt_Number.Text & btn.Text
         End Select
         If txt_Number.Text = "" Then txt_Number.Text = "0"
-        If CInt(txt_Number.Text) > Max Then txt_Number.Text = CStr(Max)
-        txt_Number.Text = CStr(CInt(txt_Number.Text))
+        If Not IsNumeric(txt_Number.Text) Then
+            txt_Number.Text = "0"
+        Else
+            If CInt(txt_Number.Text) > Max Then txt_Number.Text = CStr(Max)
+            txt_Number.Text = CStr(CInt(txt_Number.Text))
+        End If
 
     End Sub
 End Class

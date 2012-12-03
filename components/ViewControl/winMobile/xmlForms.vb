@@ -9,6 +9,7 @@ Public Enum eStatusRule
     post = 3
     active = 4
     beginwork = 5
+    postincomplete = 6
 End Enum
 
 Public Class xmlForms
@@ -171,6 +172,8 @@ Public Class xmlForms
                     at = st.Attributes("prereport")
                 Case eStatusRule.post
                     at = st.Attributes("post")
+                Case eStatusRule.postincomplete
+                    at = st.Attributes("postincomplete")
                 Case eStatusRule.active
                     at = st.Attributes("active")
                 Case eStatusRule.beginwork

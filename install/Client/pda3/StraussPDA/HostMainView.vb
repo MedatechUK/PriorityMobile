@@ -80,12 +80,12 @@ Public Class HostMainView
 
     Private Sub frmMain_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Activated
         ShowTaskbar = False
-        Me.WindowState = FormWindowState.Maximized
+        'Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub frmMain_Deactivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate, MyBase.Disposed
         ShowTaskbar = True
-        Me.WindowState = FormWindowState.Normal
+        'Me.WindowState = FormWindowState.Normal
     End Sub
 
 #End Region

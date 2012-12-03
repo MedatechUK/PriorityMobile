@@ -695,7 +695,7 @@
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_1D0B8048BCA3808B926E2C5ED08086CE"
             {
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:frmControls, Version=1.0.4709.21751, Culture=neutral"
+            "AssemblyAsmDisplayName" = "8:frmControls, Version=1.0.4720.2006, Culture=neutral"
                 "ScatterAssemblies"
                 {
                     "_1D0B8048BCA3808B926E2C5ED08086CE"
@@ -1107,7 +1107,7 @@
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_97343DDAFC8908FD6255A15B4DAD3A28"
             {
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:ViewControl, Version=1.0.4716.42611, Culture=neutral"
+            "AssemblyAsmDisplayName" = "8:ViewControl, Version=1.0.4720.2024, Culture=neutral"
                 "ScatterAssemblies"
                 {
                     "_97343DDAFC8908FD6255A15B4DAD3A28"
@@ -1399,6 +1399,15 @@
             "Property" = "8:%CE17%"
                 "Folders"
                 {
+                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_207ECBA1B644405896690445B0E41511"
+                    {
+                    "Name" = "8:Straus PDA"
+                    "Condition" = "8:"
+                    "Property" = "8:_9AD0CFD9BAE04070A4E8B0A290495FA4"
+                        "Folders"
+                        {
+                        }
+                    }
                 }
             }
             "{D5B00AC1-E6C3-4CC5-90FF-8E0F53D9E5E0}:_D7127338891F48D7AE6B3088B704EEA0"
@@ -1625,7 +1634,7 @@
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "Target" = "8:_42101B19863743EEA3A423996B3F4B6D"
-            "Folder" = "8:_986CF001C9814D05A0CE96A5062E53E1"
+            "Folder" = "8:_207ECBA1B644405896690445B0E41511"
             "WorkingFolder" = "8:_0DFFD6F4BCB3466CA531625170835A8E"
             }
             "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_E4C53CE76634498A9B8EF69ED032BBE0"
@@ -1635,7 +1644,7 @@
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "Target" = "8:_AF6C9400CE1A41B295838ED27FC63ACF"
-            "Folder" = "8:_986CF001C9814D05A0CE96A5062E53E1"
+            "Folder" = "8:_207ECBA1B644405896690445B0E41511"
             "WorkingFolder" = "8:_0DFFD6F4BCB3466CA531625170835A8E"
             }
         }

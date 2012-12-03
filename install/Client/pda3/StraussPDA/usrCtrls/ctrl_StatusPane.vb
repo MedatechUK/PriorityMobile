@@ -87,9 +87,13 @@ Public Class ctrl_StatusPane
                         Dim n As XmlNode = thisForm.FormData.SelectSingleNode(thisForm.thisxPath)
                         If n.SelectSingleNode("report/detail/malfunction").InnerText.Length = 0 Then ret = False
                         If n.SelectSingleNode("report/detail/resolution").InnerText.Length = 0 Then ret = False
-                        If n.SelectSingleNode("report/detail/repair").InnerText.Length = 0 Then ret = False
-                        If n.SelectSingleNode("report/signature/image").InnerText.Length = 0 Then ret = False
-                        If n.SelectSingleNode("report/signature/print").InnerText.Length = 0 Then ret = False
+
+                        If Not (xmlForms.StatusRule(ProposedValue, eStatusRule.postincomplete)) Then
+                            If n.SelectSingleNode("report/detail/repair").InnerText.Length = 0 Then ret = False
+                            If n.SelectSingleNode("report/signature/image").InnerText.Length = 0 Then ret = False
+                            If n.SelectSingleNode("report/signature/print").InnerText.Length = 0 Then ret = False
+                        End If
+
                         If Not ret Then
                             MsgBox( _
                                 String.Format( _
@@ -114,7 +118,7 @@ Public Class ctrl_StatusPane
                         Return True
                     End If
 
-                End If
+                    End If
 
             Case Else
                 Return MyBase.ValidColumn(ColumnName, ProposedValue)
@@ -169,7 +173,7 @@ Public Class ctrl_StatusPane
 
                             ' Append a timestamp to the repair detail
                             n.SelectSingleNode("report/detail/repair").InnerText = _
-                                n.SelectSingleNode("detail").InnerText & _
+                                Split(n.SelectSingleNode("detail").InnerText, ":[!--lastreport--]:")(1) & _
                                 ":[hr]:" & _
                                 n.SelectSingleNode("report/detail/repair").InnerText & _
                                 String.Format( _

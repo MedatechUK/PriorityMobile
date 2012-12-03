@@ -63,7 +63,7 @@ Public Class ctrl_Warehouse
         IsBinding = True
         Dim dr() As Data.DataRow = Nothing
         Dim query As String = String.Format( _
-                "" _
+                "name <> 'dummy'" _
                 )
         dr = thisForm.Datasource.Select(query, ListSort1.Sort)
 
