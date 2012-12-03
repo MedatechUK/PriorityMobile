@@ -99,6 +99,13 @@ Public Class ctrl_Parts_Actual
         Bind()
     End Sub
 
+    Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+        Select Case frmDialog.Name.ToLower
+            Case "add"
+                CloseAddDialog(frmDialog)
+        End Select
+    End Sub
+
 #End Region
 
 #Region "Direct Activations"
@@ -108,6 +115,100 @@ Public Class ctrl_Parts_Actual
             .Add(AddressOf hCalc, "edit.BMP", (ListSort1.SelectedIndex <> -1))
             .Add(AddressOf hDeleteActual, "delete.BMP", (ListSort1.SelectedIndex <> -1))
         End With
+    End Sub
+
+    Private Sub CloseAddDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+        With thisForm
+            If frmDialog.Result = DialogResult.OK Then
+                Dim part As String = ListSort1.Value("name", ListSort1.SelectedIndex)
+                Dim serial As TextBox = frmDialog.FindControl("txtSerialNumber")
+                If serial.Enabled Then
+                    If Not (String.Compare(serial.Text, .CurrentRow("serial").ToString, True) = 0) Then
+                        Dim n As XmlNode = .FormData.SelectSingleNode( _
+                            String.Format("{3}[name={0}{1}{0} and serial={0}{2}{0}]/serial", _
+                                      Chr(34), _
+                                    ListSort1.Value("name", ListSort1.SelectedIndex), _
+                                    ListSort1.Value("serial", ListSort1.SelectedIndex), _
+                                    .boundxPath _
+                                ) _
+                            )
+                        n.InnerText = serial.Text
+                    End If
+                    .Bind()
+                    .TableData.MoveFirst()
+                    Do Until .CurrentRow("name") = part And .CurrentRow("serial") = serial.Text
+                        .TableData.MoveNext()
+                    Loop
+                End If
+
+                Dim DOA As CheckBox = frmDialog.FindControl("chkBroken")
+                Dim p As XmlNode = .FormData.SelectSingleNode( _
+                    String.Format( _
+                        "{3}[name={0}{1}{0} and serial={0}{2}{0}]", _
+                            Chr(34), _
+                            ListSort1.Value("name", ListSort1.SelectedIndex), _
+                            ListSort1.Value("serial", ListSort1.SelectedIndex), _
+                            .boundxPath _
+                        ) _
+                    )
+
+                p.SelectSingleNode("planned").InnerText = "N"
+                If DOA.Checked Then
+                    p.SelectSingleNode("qty").InnerText = "-1"
+                    p.SelectSingleNode("location").InnerText = ""
+                Else
+                    p.SelectSingleNode("qty").InnerText = "1"
+                    Dim location As TextBox = frmDialog.FindControl("txtLocation")
+                    p.SelectSingleNode("location").InnerText = location.Text
+                End If
+
+                updatePart()
+
+            End If
+            thisForm.Bind()
+            thisForm.RefreshForm()
+
+        End With
+
+    End Sub
+
+    Private Sub updatePart()
+
+        With thisForm
+
+            Dim p As XmlNode = .FormData.SelectSingleNode( _
+            String.Format( _
+                "{3}[name={0}{1}{0} and serial={0}{2}{0}]", _
+                    Chr(34), _
+                    ListSort1.Value("name", ListSort1.SelectedIndex), _
+                    ListSort1.Value("serial", ListSort1.SelectedIndex), _
+                    .boundxPath _
+                ) _
+            )
+            p.Attributes.Append(xmlForms.changedAttribute)
+            p.SelectSingleNode("planned").InnerText = "N"
+
+            If p.SelectSingleNode("fromstock").InnerText = "Y" Then
+                Dim whNode As XmlNode = .FormData.SelectSingleNode( _
+                    String.Format("pdadata/warehouse/part[name={0}{1}{0} and serial={0}{2}{0}]", _
+                              Chr(34), _
+                            p.SelectSingleNode("name").InnerText, _
+                            p.SelectSingleNode("serial").InnerText _
+                        ) _
+                    )
+                If Not IsNothing(whNode) Then
+                    whNode.SelectSingleNode("qty").InnerText = CStr(CInt(whNode.SelectSingleNode("qty").InnerText) - CInt(.CurrentRow("qty")))
+                    .TableData.EndEdit()
+
+                End If
+            End If
+
+            .Save()
+
+            Bind()
+
+        End With
+
     End Sub
 
     Public Overrides Sub SetNumber(ByVal MyValue As Integer)
@@ -124,7 +225,7 @@ Public Class ctrl_Parts_Actual
                     )
                 If Not IsNothing(whNode) Then
                     Dim DIF As Integer = MyValue - CInt(.CurrentRow("qty"))
-                    whNode.SelectSingleNode("qty").InnerText = CStr(CInt(whNode.SelectSingleNode("qty").InnerText) - DIF)                    
+                    whNode.SelectSingleNode("qty").InnerText = CStr(CInt(whNode.SelectSingleNode("qty").InnerText) - DIF)
                     whCurr.TableData.EndEdit()
                     .Save()
                 End If
@@ -155,18 +256,44 @@ Public Class ctrl_Parts_Actual
     Private Sub hCalc()
 
         With thisForm
-            Dim whNode As XmlNode = .FormData.SelectSingleNode( _
-                String.Format("pdadata/warehouse/part[name={0}{1}{0} and serial={0}{2}{0}]", _
-                          Chr(34), _
-                        .CurrentRow("name"), _
-                        .CurrentRow("serial") _
-                    ) _
-                )
-            If Not IsNothing(whNode) Then
-                thisForm.Calc(CInt(thisForm.CurrentRow("qty")) + CInt(whNode.SelectSingleNode("qty").InnerText))
+
+            If .CurrentRow("serialpart") = "Y" Then
+
+                Dim dlg As New dlgAddPlanned
+                dlg.Name = "add"
+
+                Dim txtserial = dlg.FindControl("txtSerialNumber")
+                Dim txtLocation = dlg.FindControl("txtLocation")
+                Dim DOA As CheckBox = dlg.FindControl("chkBroken")
+
+                txtserial.Text = ListSort1.Value("serial", ListSort1.SelectedIndex) '.CurrentRow("serial")
+                txtLocation.Text = ListSort1.Value("location", ListSort1.SelectedIndex)
+                DOA.Checked = CInt(ListSort1.Value("qty", ListSort1.SelectedIndex)) = -1
+                txtserial.Enabled = False
+
+                If Not DOA.Checked Then                    
+                    dlg.FocusContolName = "txtLocation"
+                End If
+                txtLocation.Enabled = Not (DOA.Checked)
+                .Dialog(dlg)
+
             Else
-                thisForm.Calc(thisForm.CurrentRow("qty"))
+
+                Dim whNode As XmlNode = .FormData.SelectSingleNode( _
+                    String.Format("pdadata/warehouse/part[name={0}{1}{0} and serial={0}{2}{0}]", _
+                              Chr(34), _
+                            .CurrentRow("name"), _
+                            .CurrentRow("serial") _
+                        ) _
+                    )
+                If Not IsNothing(whNode) Then
+                    thisForm.Calc(CInt(thisForm.CurrentRow("qty")) + CInt(whNode.SelectSingleNode("qty").InnerText))
+                Else
+                    thisForm.Calc(thisForm.CurrentRow("qty"))
+                End If
+
             End If
+
         End With
 
     End Sub

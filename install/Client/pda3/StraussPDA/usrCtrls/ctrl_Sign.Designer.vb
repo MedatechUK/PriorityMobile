@@ -25,8 +25,8 @@ Partial Public Class ctrl_Sign
         '
         'txt_PrintName
         '
-        Me.txt_PrintName.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.txt_PrintName.Location = New System.Drawing.Point(0, 129)
+        Me.txt_PrintName.Dock = System.Windows.Forms.DockStyle.Top
+        Me.txt_PrintName.Location = New System.Drawing.Point(0, 0)
         Me.txt_PrintName.Name = "txt_PrintName"
         Me.txt_PrintName.Size = New System.Drawing.Size(150, 21)
         Me.txt_PrintName.TabIndex = 0
@@ -34,7 +34,7 @@ Partial Public Class ctrl_Sign
         'Signature
         '
         Me.Signature.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Signature.Location = New System.Drawing.Point(0, 0)
+        Me.Signature.Location = New System.Drawing.Point(0, 21)
         Me.Signature.Name = "Signature"
         Me.Signature.Size = New System.Drawing.Size(150, 129)
         Me.Signature.TabIndex = 1

@@ -54,7 +54,7 @@ Public Class HostMainView
                 .xf = New xmlForms(.ue, _
                     New OfflineXML(.ue, "forms.xml", "forms.xml", ClearCache), _
                     New OfflineXML(.ue, "calls.xml", "calls.ashx", _
-                        MsgBox("Syncronise Calls?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok, _
+                        MsgBox("Synchronise Calls?", MsgBoxStyle.OkCancel, "Connection...") = MsgBoxResult.Ok, _
                         AddressOf .hSyncEvent, 60), _
                     New OfflineXML(.ue, "lookup.xml", "lookup.ashx", ClearCache), _
                     New OfflineXML(.ue, "statusrules.xml", "statusrules.xml", ClearCache) _
