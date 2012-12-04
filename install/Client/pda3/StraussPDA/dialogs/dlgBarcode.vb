@@ -24,17 +24,19 @@
         End If
     End Sub
 
-    Private Sub txtSerialNumber_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSerialNumber.KeyUp
-        e.Handled = True
+    Private Sub txtSerialNumber_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtSerialNumber.KeyDown
+
         If e.KeyCode = Keys.Enter Then
-            Me.txtSerialNumber.Text = scanValue
+            e.Handled = True
+            'Me.txtSerialNumber.Text = scanValue
             Dim btn As New Button
             btn.DialogResult = DialogResult.OK
             btn_Click(btn, New System.EventArgs)
-        Else
-            scanValue += Chr(e.KeyCode)
         End If
-        Me.txtSerialNumber.Text = scanValue
+        'Else
+        '    scanValue += Chr(e.KeyCode)
+        'End If
+        'Me.txtSerialNumber.Text = scanValue
     End Sub
 
     Private Sub dlgAddPlanned_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
