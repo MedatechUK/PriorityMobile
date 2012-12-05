@@ -8,8 +8,8 @@ Public Class XMLHandler
 
 
     Public Class Order
-        Private OrdCustID As Integer
-        Private OrdID As Integer
+        Private OrdCustID As String
+        Private OrdID As String
         Private OrdSource As String
         Private OrdDelAddr1 As String
         Private OrdDelAddr2 As String
@@ -19,16 +19,37 @@ Public Class XMLHandler
         Private OrdDelPC As String
         Private OrdAdHoc As String
         Private OrdDate As String
-        Public ReadOnly Property CustID() As Integer
+        Private OrdLoc As String
+        Public Property Location() As String
             Get
-                Return "0123456"
+                Dim loc As String
+                Select Case OrdLoc.Length
+                    Case 1
+                        loc = "00" & OrdLoc
+                    Case 2
+                        loc = "0" & OrdLoc
+                    Case Else
+                        loc = OrdLoc
+                End Select
+                Return loc
             End Get
+            Set(ByVal value As String)
+                OrdLoc = value
+            End Set
         End Property
-        Public Property OId() As Integer
+        Public Property CustID() As Integer
+            Get
+                Return OrdCustID
+            End Get
+            Set(ByVal value As Integer)
+                OrdCustID = value
+            End Set
+        End Property
+        Public Property OId() As String
             Get
                 Return OrdID
             End Get
-            Set(ByVal value As Integer)
+            Set(ByVal value As String)
                 OrdID = value
             End Set
         End Property
@@ -76,10 +97,12 @@ Public Class XMLHandler
                 OrdAdHoc = value
             End Set
         End Property
-        Public Sub New(ByVal oid As Integer, ByVal oad As String, ByVal od As String)
-            OrdID = oid
+        Public Sub New(ByVal acn As String, ByVal id As String, ByVal oad As String, ByVal od As String, ByVal lc As String)
+            OrdCustID = acn
+            OrdID = id
             OrdAdHoc = oad
             odate = od
+            OrdLoc = lc
         End Sub
         Public Property odate() As String
             Get
@@ -101,7 +124,7 @@ Public Class XMLHandler
         Private OrdColL As Char = "L"
         Private OrdProdCode As String
         Private OrdQuantity As Integer
-        Private OrdUnitPrice As Decimal
+        Private OrdUnitPrice As Integer
 
         Public Property CustRef() As String
             Get
@@ -161,12 +184,12 @@ Public Class XMLHandler
                 OrdQuantity = value
             End Set
         End Property
-        Public Property UnitPrice() As Decimal
+        Public Property UnitPrice() As Double
             Get
                 Return OrdUnitPrice
             End Get
-            Set(ByVal value As Decimal)
-                OrdUnitPrice = value
+            Set(ByVal value As Double)
+                OrdUnitPrice = value * 1000
             End Set
         End Property
 
@@ -208,7 +231,7 @@ Public Class XMLHandler
                         Console.WriteLine("Writing Order header data")
 
 
-                        o = New Order(LineOfData(2), LineOfData(5), Today) 'fill the order with the data from the line and then create the xml nodes
+                        o = New Order(LineOfData(1), LineOfData(2), LineOfData(5), Today, LineOfData(3)) 'fill the order with the data from the line and then create the xml nodes
 
                         Dim cu As String = o.CustID
                         Dim cust As XmlNode = OrderXML.CreateElement("customer_id")
@@ -328,36 +351,30 @@ Public Class XMLHandler
 
         Using filereader
             With load
-                .Table = "ZTRX_LOS_ORDERS"
-                .Procedure = "ZSFDC_TEST" ' "ZTRX_LOAD_LOS_NAD"
+                .Table = "ZTRX_CSV_ORDERS"
+                .Procedure = "ZTRX_CSV_ORDERS" ' "ZTRX_LOAD_LOS_NAD"
                 .Environment = "trucpy1"
+                '*********** TYPE 1
                 .AddColumn(1) = New LoadColumn("CUSTOMER_ID", tColumnType.typeCHAR)
                 .AddColumn(1) = New LoadColumn("ORDER_ID", tColumnType.typeCHAR)
                 .AddColumn(1) = New LoadColumn("CURDATE", tColumnType.typeDATE)
+                .AddColumn(1) = New LoadColumn("LOCATION", tColumnType.typeCHAR)
 
-                .AddColumn(1) = New LoadColumn("LOCATION", tColumnType.typeINT)
 
+
+                '*********** TYPE 2
                 .AddColumn(2) = New LoadColumn("SKU", tColumnType.typeCHAR)
                 .AddColumn(2) = New LoadColumn("QTY", tColumnType.typeINT)
-
-                '****** Not In the  CURRENT LOADING
                 .AddColumn(2) = New LoadColumn("UNIT_PRICE", tColumnType.typeREAL)
-                '******
                 .AddColumn(2) = New LoadColumn("TRANS_DATE", tColumnType.typeDATE)
-                '.AddColumn(2) = New LoadColumn("PARTDES", tColumnType.typeCHAR)
-                '.AddColumn(3) = New LoadColumn("ADDRESS_1", tColumnType.typeCHAR)
-                '.AddColumn(3) = New LoadColumn("ADDRESS_2", tColumnType.typeCHAR)
-                '.AddColumn(3) = New LoadColumn("ADDRESS_3", tColumnType.typeCHAR)
-                '.AddColumn(3) = New LoadColumn("ADDRESS_4", tColumnType.typeCHAR)
-                '.AddColumn(3) = New LoadColumn("ADDRESS_POSTCODE", tColumnType.typeCHAR)
-                .AddColumn(3) = New LoadColumn("REFERENCE", tColumnType.typeCHAR)
-                '****** IN LOADING but NOT in File
-                '.AddColumn(1) = New LoadColumn("TYPECODE", tColumnType.typeCHAR) '***** Not in file extract
-                '.AddColumn(1) = New LoadColumn("ZTRX_SINGLE_SHIP", tColumnType.typeCHAR) '***** Not in file extract
+                .AddColumn(2) = New LoadColumn("ORDER_ID2", tColumnType.typeCHAR)
 
-                '.AddColumn(2) = New LoadColumn("TRANS", tColumnType.typeCHAR)
-                '.AddColumn(2) = New LoadColumn("AUTHCODE", tColumnType.typeCHAR)
-                '.AddColumn(2) = New LoadColumn("AMOUNT", tColumnType.typeREAL)
+
+
+                '*********** TYPE 3
+                .AddColumn(3) = New LoadColumn("REFERENCE", tColumnType.typeCHAR)
+                .AddColumn(3) = New LoadColumn("ORDER_ID3", tColumnType.typeCHAR)
+
             End With
             Dim o As Order 'create an order in memory
             Dim ol As OrderLine
@@ -373,20 +390,21 @@ Public Class XMLHandler
                 Select Case LineOfData(0) 'check the first column to see if it is the order header (denoted with an 'H')
                     Case "H"
 
-                        Console.WriteLine("Writing Order header data (type 1)")
+
                         With load
                             'IF NOT FIST PASS THEN
                             'write the address type 3
                             If line_no >= 3 Then
-                                .AddRecordType(3) = New LoadRow(o.OAddr1, o.OAddr2, o.OAddr3, o.OAddr4, o.OAddrPC)
+                                .AddRecordType(3) = New LoadRow(o.AdHoc, o.OId)
                             End If
 
-                            o = New Order(LineOfData(2), LineOfData(5), FormatDateTime(Today, DateFormat.ShortDate))
-                            ol = New OrderLine(LineOfData(2), LineOfData(3), LineOfData(4), LineOfData(7), LineOfData(8), LineOfData(9))
+                            o = New Order(LineOfData(1), LineOfData(3), LineOfData(4), FormatDateTime(Today, DateFormat.ShortDate), LineOfData(5))
+                            ol = New OrderLine(LineOfData(3), LineOfData(5), LineOfData(6), LineOfData(8), LineOfData(9), LineOfData(10))
                             'fill the order with the data from the line
 
-                            .AddRecordType(1) = New LoadRow(o.CustID, o.OId.ToString, o.odate, o.AdHoc)
-                            .AddRecordType(2) = New LoadRow(ol.ProdCode, ol.Quantity, ol.Location, ol.deldate, ol.UnitPrice)
+                            .AddRecordType(1) = New LoadRow(o.CustID, o.OId.ToString, o.odate, o.Location)
+                            Console.WriteLine("Writing Order header data (type 1) for order - " & o.OId)
+                            .AddRecordType(2) = New LoadRow(ol.ProdCode, ol.Quantity, CInt(ol.UnitPrice), ol.deldate, o.OId)
                         End With
 
 
@@ -394,10 +412,19 @@ Public Class XMLHandler
 
 
                     Case Else 'if its not a header line we need to ascertain what type of line it is
-                        Dim check As String 'we will use the lengths of column 1 3 and 3 to check to see what is contained in them
-                        check = LineOfData(1).Replace(" ", "") & LineOfData(2).Replace(" ", "") & LineOfData(3).Replace(" ", "")
-                        Select Case check.Length
-                            Case 8 'if its zero length then its a blank line and could either be the first blank or the blank between records. If its 8 then its the line containing only the order number which means we will write our data
+                        Dim check As Integer = 0 'we will use the lengths of column 1 3 and 3 to check to see what is contained in them
+                        'check = LineOfData(1).Replace(" ", "") & LineOfData(3).Replace(" ", "") & LineOfData(5).Replace(" ", "")
+                        If LineOfData(1).Replace(" ", "") <> "" Then
+                            check += 1
+                        End If
+                        If LineOfData(3).Replace(" ", "") <> "" Then
+                            check += 1
+                        End If
+                        If LineOfData(5).Replace(" ", "") <> "" Then
+                            check += 1
+                        End If
+                        Select Case check
+                            Case 1 'if its zero length then its a blank line and could either be the first blank or the blank between records. If its 1 then its the line containing only the order number which means we will write our data
                                 Dim exc As New Exception
                                 'Try
                                 '    With load
@@ -414,10 +441,10 @@ Public Class XMLHandler
 
 
 
-                            Case 10
+                            Case 2
                                 'As the csv line has just the cust ref in the checking columns it will be read as an order line
-                                ol = New OrderLine(LineOfData(2), LineOfData(3), LineOfData(4), LineOfData(7), LineOfData(8), LineOfData(9))
-                                load.AddRecordType(2) = New LoadRow(ol.ProdCode, ol.Quantity, ol.Location, ol.deldate, ol.UnitPrice)
+                                ol = New OrderLine(LineOfData(3), LineOfData(5), LineOfData(6), LineOfData(8), LineOfData(9), LineOfData(10))
+                                load.AddRecordType(2) = New LoadRow(ol.ProdCode, ol.Quantity, CInt(ol.UnitPrice), ol.deldate, o.OId)
 
 
                         End Select
@@ -432,8 +459,8 @@ Public Class XMLHandler
             Loop
 
             'Exiting so write last type 3
-            load.AddRecordType(3) = New LoadRow(o.OAddr1, o.OAddr2, o.OAddr3, o.OAddr4, o.OAddrPC)
-            Dim ServiceURL As String = "http://localhost:8080"
+            load.AddRecordType(3) = New LoadRow(o.AdHoc, o.OId)
+            Dim ServiceURL As String = " http://mobile.trutex.com:8080"
             Dim exp As New Exception
             With load
                 Try
