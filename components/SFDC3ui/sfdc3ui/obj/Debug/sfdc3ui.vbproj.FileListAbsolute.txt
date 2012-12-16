@@ -1,0 +1,12 @@
+M:\components\SFDC3ui\sfdc3ui\bin\Debug\sfdc3ui.dll
+M:\components\SFDC3ui\sfdc3ui\bin\Debug\sfdc3ui.pdb
+M:\components\SFDC3ui\sfdc3ui\bin\Debug\sfdc3ui.xml
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\ResolveAssemblyReference.cache
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.ctrlButtons.resources
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.iForm.resources
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.Resources.resources
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.CtrlColumn.resources
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.vbproj.GenerateResource.Cache
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.dll
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.xml
+M:\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.pdb

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sfdc>
+  <validation>
+    <regex name="" pattern=""/>
+  </validation>
+  <navigation>
+    <menu name="Goods Receiving">
+      <form name="">
+        <arguments>
+          <argument name="" value=""/>
+        </arguments>
+      </form>
+    </menu>
+    <menu name="Reporting Production">
+      <form name="">
+        <arguments>
+          <argument name="" value=""/>
+        </arguments>
+      </form>
+    </menu>
+  </navigation>
+</sfdc>

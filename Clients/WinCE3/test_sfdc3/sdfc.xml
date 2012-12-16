@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<navigation>
+  <menu name="Goods Receiving">
+    <form name="">      
+      <arguments>
+        <argument name="" value=""/>
+      </arguments>
+    </form>
+  </menu>
+  <menu name="Reporting Production">
+    <form name="">      
+      <arguments>
+        <argument name="" value=""/>
+      </arguments>
+    </form>
+  </menu>
+</navigation>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "sfdc3ui", "sfdc3ui.vbproj", "{46B1C017-D8F3-4498-A1F7-12BDB9639DBB}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "test_sfdc3", "..\..\..\Clients\WinCE3\test_sfdc3\test_sfdc3.vbproj", "{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46B1C017-D8F3-4498-A1F7-12BDB9639DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B1C017-D8F3-4498-A1F7-12BDB9639DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B1C017-D8F3-4498-A1F7-12BDB9639DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B1C017-D8F3-4498-A1F7-12BDB9639DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD43666-8463-49B4-8065-FAFD7D4B6E3C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
