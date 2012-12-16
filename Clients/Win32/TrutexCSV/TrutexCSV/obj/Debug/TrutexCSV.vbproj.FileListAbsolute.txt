@@ -12,3 +12,16 @@ C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\TrutexCSV\TrutexCS
 C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\TrutexCSV\TrutexCSV\bin\Debug\ConsoleApp.pdb
 C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\TrutexCSV\TrutexCSV\bin\Debug\ConsoleApp.xml
 C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\TrutexCSV\TrutexCSV\bin\Debug\Help\syntax.txt
+M:\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\TrutexCSV.exe
+M:\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\TrutexCSV.xml
+M:\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\TrutexCSV.pdb
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\Help\syntax.txt
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\TrutexCSV.exe
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\TrutexCSV.pdb
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\TrutexCSV.xml
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\ConsoleApp.dll
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\ConsoleApp.pdb
+M:\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\ConsoleApp.xml
+M:\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\TrutexCSV.Resources.resources
+M:\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\TrutexCSV.vbproj.GenerateResource.Cache

@@ -21,19 +21,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_65C510F34484A127C6CE937518455E6C"
-        "OwnerKey" = "8:_932B6913977448F4820923F9902715CF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7ACD9CB853374C29A94CA7FC9ACBB146"
+        "MsmKey" = "8:_932B6913977448F4820923F9902715CF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_932B6913977448F4820923F9902715CF"
+        "MsmKey" = "8:_96F69495B8B342C9AEC8E4887FC26CCC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -45,14 +39,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_ED9A00750D764DB18F26A4AAEE976692"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_C4C4CF6C86D4EAF153340E4CEA9C9BEB"
+        "OwnerKey" = "8:_932B6913977448F4820923F9902715CF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_65C510F34484A127C6CE937518455E6C"
+        "MsmKey" = "8:_ED9A00750D764DB18F26A4AAEE976692"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -65,6 +59,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_41AD9AD1A7AF809943AF8C3AB85C313F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C4C4CF6C86D4EAF153340E4CEA9C9BEB"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -85,6 +85,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -101,6 +109,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -175,40 +191,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_65C510F34484A127C6CE937518455E6C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_96F69495B8B342C9AEC8E4887FC26CCC"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:xmlLoad, Version=4.0.0.8, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_65C510F34484A127C6CE937518455E6C"
-                    {
-                    "Name" = "8:xmlLoad.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:xmlLoad.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_8C9A2BFBABE14F9CB56264EA17AC266D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7ACD9CB853374C29A94CA7FC9ACBB146"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\..\\Desktop\\syntax.txt"
+            "SourcePath" = "8:C:\\Users\\andymackintosh\\Desktop\\syntax.txt"
             "TargetName" = "8:syntax.txt"
             "Tag" = "8:"
             "Folder" = "8:_7CDAE6D8E0B64DB59022A44E944F0244"
@@ -244,6 +229,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C4C4CF6C86D4EAF153340E4CEA9C9BEB"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:xmlLoad, Version=4.0.0.8, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_C4C4CF6C86D4EAF153340E4CEA9C9BEB"
+                    {
+                    "Name" = "8:xmlLoad.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:xmlLoad.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8C9A2BFBABE14F9CB56264EA17AC266D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_ED9A00750D764DB18F26A4AAEE976692"
