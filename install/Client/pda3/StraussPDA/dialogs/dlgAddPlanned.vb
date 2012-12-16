@@ -22,7 +22,7 @@
                     Result = btn.DialogResult
                     EndDialog()
                 Else
-                    MsgBox("Please enter a location or mark as broken.")
+                    MsgBox("Please enter a location or unit removed.")
                 End If
             Else
                 MsgBox("Please enter a serial number.")
