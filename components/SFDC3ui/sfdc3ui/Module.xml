@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<module>
+
+  <buttonstate>
+    <enabled/>
+    <init/>
+    <beginadd/>
+    <endadd/>
+    <beginedit/>
+    <endedit/>
+  </buttonstate>
+
+  <start argument="*">
+    <form>
+      <column>
+        <type>text</type>
+        <name>WARHS</name>
+        <title>From W/H</title>
+        <validexp>tWarehouse</validexp>
+        <enabled>True</enabled>
+        <width>30</width>
+        <align>Left</align>
+        <sql>
+          <list>
+            SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE &lt;&gt; 'Y'
+          </list>
+          <validation>
+            SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'
+          </validation>
+          <onvalid>
+            SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'
+          </onvalid>
+        </sql>
+      </column>
+    </form>
+    <table>
+      <column>
+      </column>
+    </table>
+  </start>
+  
+</module>

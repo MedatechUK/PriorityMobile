@@ -1,0 +1,10 @@
+M:\Clients\Win32\stroppy\stroppy\bin\Debug\stroppy.exe
+M:\Clients\Win32\stroppy\stroppy\bin\Debug\stroppy.pdb
+M:\Clients\Win32\stroppy\stroppy\bin\Debug\stroppy.xml
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\stroppy.Form1.resources
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\stroppy.Resources.resources
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\stroppy.vbproj.GenerateResource.Cache
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\stroppy.exe
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\stroppy.xml
+M:\Clients\Win32\stroppy\stroppy\obj\Debug\stroppy.pdb
