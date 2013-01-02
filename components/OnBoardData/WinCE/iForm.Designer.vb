@@ -38,7 +38,6 @@ Partial Public Class iForm
         Me.CtrlTable.FromRS = False
         Me.CtrlTable.Location = New System.Drawing.Point(3, 36)
         Me.CtrlTable.Name = "CtrlTable"
-        Me.CtrlTable.RecordsSQL = Nothing
         Me.CtrlTable.Size = New System.Drawing.Size(213, 127)
         Me.CtrlTable.TabIndex = 0
         '

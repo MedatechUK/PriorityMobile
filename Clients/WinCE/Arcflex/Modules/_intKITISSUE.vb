@@ -436,7 +436,7 @@ Public Class interfaceKITISSUE
                     String.Format("Goods", "M,CHAR,16,Status"), _
                     String.Format(CtrlTable.ItemValue("_LOCNAME", y), "M,CHAR,14,Bin"), _
                     String.Format(CtrlTable.ItemValue("_PARTNAME", y), "M,CHAR,22,Part Number"), _
-                    String.Format(CStr(CInt(CtrlTable.ItemValue("_QTY", y)) * 1000), "INT,17,3,Quantity"), _
+                    String.Format(CStr(CDbl(CtrlTable.ItemValue("_QTY", y)) * 1000), "INT,17,3,Quantity"), _
                     String.Format("", "CHAR,10,Part Revision No."), _
                     String.Format("", "CHAR,1,Rework?"), _
                     String.Format(CtrlTable.ItemValue("_LOTNUM", y), "M,CHAR,22,Work Order/Lot"), _

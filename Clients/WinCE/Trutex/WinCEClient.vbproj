@@ -120,58 +120,47 @@
       <DependentUpon>_intCYC.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intCYC.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intWHSFX.designer.vb">
       <DependentUpon>_intWHSFX.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intWHSFX.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intDOCNT.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intDOTX.Designer.vb">
       <DependentUpon>_intDOTX.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intDOTX.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intGRV.Designer.vb">
       <DependentUpon>_intGRV.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intGRV.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intPARTLU.Designer.vb">
       <DependentUpon>_intPARTLU.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intPARTLU.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intPSLIP.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intSTKCNT.Designer.vb">
       <DependentUpon>_intSTKCNT.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intSTKCNT.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intUNTX.Designer.vb">
       <DependentUpon>_intUNTX.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intUNTX.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intWHSTX.designer.vb">
       <DependentUpon>_intWHSTX.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intWHSTX.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intUNCNT.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">

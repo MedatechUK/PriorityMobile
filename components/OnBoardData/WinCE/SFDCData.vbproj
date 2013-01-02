@@ -58,11 +58,11 @@
   <ItemGroup>
     <Reference Include="ceLoadData, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\WinCE\ceLoadData.dll</HintPath>
+      <HintPath>..\..\LoadData\WinCE\obj\Debug\ceLoadData.dll</HintPath>
     </Reference>
     <Reference Include="ceMyCls, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\WinCE\ceMyCls.dll</HintPath>
+      <HintPath>..\..\MyCls\WinCE\obj\Debug\ceMyCls.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

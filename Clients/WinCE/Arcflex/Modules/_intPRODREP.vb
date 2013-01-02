@@ -7,7 +7,10 @@ Public Class interfacePRODREP
     Private gr As Boolean = False
     Private route As String = ""
     Private defect As String = ""
+    Private userid As String = ""
+    Private starttime As Integer
     Private CurrentWO As String = ""
+    Private SystemTime As String = ""
 
     Public Sub New(Optional ByRef App As Form = Nothing)
 
@@ -42,6 +45,11 @@ Public Class interfacePRODREP
         GetRouting = 2
         GetDefect = 3
         GetCurrentJob = 4
+        GetUserID = 5
+        GetStartTime = 6
+        ClearStartTime = 7
+        GetSystemTime = 8
+        SetStartTime = 9
     End Enum
     Dim SendType As tSendType = tSendType.PopulateForm
 
@@ -193,10 +201,9 @@ Public Class interfacePRODREP
 
         CtrlTable.RecordsSQL = "Select 'Approved' AS STATUS ,0 as QTY ,'' as REASON " & _
                                 "union all " & _
-                                "select 'Reject' AS STATUS ,0 as QTY ,'' as REASON " & _
+                                "select 'MRB' AS STATUS ,0 as QTY ,'' as REASON " & _
                                 "union all " & _
-                                "select 'MRB' AS STATUS ,0 as QTY ,'' as REASON"
-
+                                "select 'Reject' AS STATUS ,0 as QTY ,'' as REASON "
 
     End Sub
 
@@ -225,7 +232,19 @@ Public Class interfacePRODREP
     End Sub
 
     Public Overrides Sub AfterEdit(ByVal TableIndex As Integer)
-
+        With CtrlTable.Table
+            Select Case .Items(TableIndex).Text
+                Case "Reject"
+                    .Items.Add(New ListViewItem)
+                    With .Items(.Items.Count - 1)
+                        .Text = "Reject"
+                        .SubItems.Add(New ListViewItem.ListViewSubItem)
+                        .SubItems(.SubItems.Count - 1).Text = "0"
+                        .SubItems.Add(New ListViewItem.ListViewSubItem)
+                        .SubItems(.SubItems.Count - 1).Text = ""
+                    End With
+            End Select
+        End With
     End Sub
 
     Public Overrides Sub BeginAdd()
@@ -242,6 +261,7 @@ Public Class interfacePRODREP
             MsgBox("Please select the operation")
             Exit Sub
         End If
+
         ' at this point we need to throw a numeric form
         ' to capture  the amount of product for the selected status
         Dim num As New frmNumber
@@ -258,7 +278,6 @@ Public Class interfacePRODREP
             End With
             .Dispose()
         End With
-
 
     End Sub
 
@@ -287,19 +306,60 @@ Public Class interfacePRODREP
 
             Case tSendType.GetCurrentJob
                 If Not IsNothing(Data) Then
-                    MsgBox("You are already booked onto job [" & Data(0, 0) & "]")
-                    Argument("CurrentWO") = Data(0, 0)
-                    With CtrlForm
-                        With .el(.ColNo("SERIALNAME"))
-                            .DataEntry.Text = Data(0, 0)
-                            .ProcessEntry()
-                        End With
-                        With .el(.ColNo("ACTDES"))
-                            .DataEntry.Text = Data(1, 0)
-                            .ProcessEntry()
-                        End With
-                    End With
+                    For y As Integer = 0 To UBound(Data, 2)
+                        If MsgBox("Activate job [" & Data(0, y) & "]?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                            Argument("CurrentWO") = Data(0, y)
+                            With CtrlForm
+                                With .el(.ColNo("SERIALNAME"))
+                                    .DataEntry.Text = Data(0, y)
+                                    .ProcessEntry()
+                                End With
+                                With .el(.ColNo("ACTDES"))
+                                    .DataEntry.Text = Data(1, y)
+                                    .ProcessEntry()
+                                End With
+                            End With
+                            Exit For
+                        End If
+                    Next
                 End If
+
+            Case tSendType.GetUserID
+                Try
+                    userid = Data(0, 0)
+                Catch
+                    userid = 0
+                Finally
+                    gr = True
+                End Try
+
+            Case tSendType.GetStartTime
+                Try
+                    starttime = Data(0, 0)
+                Catch
+                    starttime = "0"
+                Finally
+                    ' Delete start time from ZSFDC_LOAD_STARTTIME
+                    SendType = tSendType.ClearStartTime
+                    InvokeData(" DELETE FROM ZSFDC_LOAD_STARTTIME " & _
+                           " WHERE SERIALNAME = '%SERIALNAME%' " & _
+                            " AND ACTNAME = '" & route & "' " & _
+                            " AND USERID = " & userid & " ")
+                    gr = True
+                End Try
+
+            Case tSendType.GetSystemTime
+                Try
+                    SystemTime = Data(0, 0)
+                Catch
+                    SystemTime = 0
+                Finally
+                    gr = True
+                End Try
+
+            Case tSendType.ClearStartTime, tSendType.SetStartTime
+                'Do nothing
+
         End Select
     End Sub
 
@@ -336,9 +396,6 @@ Public Class interfacePRODREP
                                 "(select SERIALNAME from SERIAL where SERIALNAME = '" & CtrlForm.el(0).Data & "')")
                         CtrlTable.Table.Items.Clear()
                         CtrlTable.BeginLoadRS()
-
-
-
                     End If
 
                 Catch
@@ -348,18 +405,56 @@ Public Class interfacePRODREP
 
     End Sub
 
+    Private Sub GetVars()
+
+        gr = False
+        SendType = tSendType.GetRouting
+        ' query to retreive opperation id from description
+        InvokeData("SELECT ACT.ACTNAME " & _
+                "FROM ACT, SERACT, SERIAL " & _
+                "WHERE SERIAL.SERIAL = SERACT.SERIAL " & _
+                "AND SERACT.ACT = ACT.ACT " & _
+                "and SERIALNAME =  '%SERIALNAME%' " & _
+                "and ACTDES = '%ACTDES%'")
+
+        While Not gr
+            Thread.Sleep(1000)
+        End While
+
+        gr = False
+        SendType = tSendType.GetUserID
+        ' query to retreive USERID id 
+        InvokeData("SELECT USERSB.USERID  " & _
+                "FROM system.dbo.USERS, system.dbo.USERSB  " & _
+                "WHERE USERS.T$USER = USERSB.T$USER  " & _
+                "AND UPPER(USERS.USERLOGIN) = UPPER('" & UserName & "')")
+
+        While Not gr
+            Thread.Sleep(1000)
+        End While
+
+        gr = False
+        SendType = tSendType.GetSystemTime
+        ' query to retreive start time
+        InvokeData("select (datepart(hh, getdate()) * 60) + datepart(mi, getdate())")
+        While Not gr
+            Thread.Sleep(1000)
+        End While
+
+    End Sub
+
     Public Overrides Sub ProcessForm()
         Try
-            gr = False
-            SendType = tSendType.GetRouting
-            ' query to retreive opperation id from description
-            InvokeData("SELECT ACT.ACTNAME " & _
-                    "FROM ACT, SERACT, SERIAL " & _
-                    "WHERE SERIAL.SERIAL = SERACT.SERIAL " & _
-                    "AND SERACT.ACT = ACT.ACT " & _
-                    "and SERIALNAME =  '%SERIALNAME%' " & _
-                    "and ACTDES = '%ACTDES%'")
 
+            GetVars()
+
+            gr = False
+            SendType = tSendType.GetStartTime
+            ' query to retreive start time
+            InvokeData(" SELECT EMPSTIME FROM ZSFDC_LOAD_STARTTIME " & _
+                       " WHERE SERIALNAME = '%SERIALNAME%' " & _
+                        " AND ACTNAME = '" & route & "' " & _
+                        " AND USERID = " & userid & " ")
             While Not gr
                 Thread.Sleep(1000)
             End While
@@ -395,7 +490,7 @@ Public Class interfacePRODREP
                                 "RTYPEBOOL," & _
                                 "SERCANCEL," & _
                                 "SERIALNAME," & _
-                                "SHIFTNAME," & _
+                                "SHIFTNAME2," & _
                                 "SQUANT," & _
                                 "STIME," & _
                                 "TMQUANT," & _
@@ -457,66 +552,111 @@ Public Class interfacePRODREP
                                 }
             p.AddRecord(1) = t1
 
-            Dim ap As Integer = 0
-            Dim rj As Integer = 0
-            Dim mr As Integer = 0
-            Dim re As String = ""
-            For y As Integer = 0 To CtrlTable.RowCount
-                Select Case CtrlTable.Table.Items(y).SubItems(0).Text.ToLower
-                    Case "approved"
-                        ap = CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
-                    Case "reject"
-                        rj = CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
-                        gr = False
-                        SendType = tSendType.GetDefect
-                        ' query to retreive defect id from description
-                        InvokeData("SELECT DEFECTCODE " & _
-                                "FROM DEFECTCODES " & _
-                                "WHERE DEFECTDESC = '" & CtrlTable.Table.Items(y).SubItems(2).Text & "'")
-                        While Not gr
-                            Thread.Sleep(1000)
-                        End While
-                    Case "mrb"
-                        mr = CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
-                End Select
-            Next
             Dim t2() As String = { _
-                UserName, _
-                String.Format("", "CHAR,1,Remove Oper. Number?"), _
-                String.Format(route, "CHAR,16,Operation"), _
-                String.Format("0", "TIME,6,Span"), _
-                String.Format(defect, "CHAR,3,Defect Code"), _
-                String.Format("0", "TIME,6,Labor Span"), _
-                String.Format("0", "TIME,5,End Labor"), _
-                String.Format("0", "TIME,5,Start Labor"), _
-                String.Format("0", "TIME,5,End Time"), _
-                String.Format("", "CHAR,14,Bin"), _
-                String.Format("", "CHAR,1,Set-up/Break (S/B)"), _
-                String.Format((CStr(mr) * 1000), "INT,17,Qty for MRB"), _
-                String.Format("", "CHAR,1,New Pallet?"), _
-                String.Format("0", "INT,6,Packing Crates (No.)"), _
-                String.Format("", "CHAR,2,Packing Crate Code"), _
-                String.Format(CtrlForm.ItemValue("PARTNAME"), "M,CHAR,22,Part Number"), _
-                String.Format((CStr(ap) * 1000), "INT,17,Qty Completed"), _
-                String.Format("", "CHAR,1,Rework?"), _
-                String.Format("", "CHAR,1,Remove Wk Order No.?"), _
-                String.Format(CtrlForm.ItemValue("SERIALNAME"), "M,CHAR,22,Work Order"), _
-                String.Format("", "CHAR,8,Shift"), _
-                String.Format((CStr(rj) * 1000), "INT,17,Qty Rejected"), _
-                String.Format("0", "TIME,5,Start Time"), _
-                String.Format((CStr(mr) * 1000), "INT,17,MRB (Buy/Sell Units)"), _
-                String.Format("", "CHAR,22,Tool"), _
-                String.Format("", "CHAR,16,To Pallet"), _
-                String.Format((CStr(ap) * 1000), "INT,17,Completed (Buy/Sell)"), _
-                String.Format((CStr(rj) * 1000), "INT,17,Rejected (Buy/Sell)"), _
-                String.Format("0", "INT,8,0,Employee ID"), _
-                String.Format("", "CHAR,4,To Warehouse"), _
-                String.Format("", "CHAR,6,Work Cell") _
-                        }
+                    UserName, _
+                    String.Format("", "CHAR,1,Remove Oper. Number?"), _
+                    String.Format(route, "CHAR,16,Operation"), _
+                    String.Format("0", "TIME,6,Span"), _
+                    String.Format("", "CHAR,3,Defect Code"), _
+                    String.Format("0", "TIME,6,Labor Span"), _
+                    String.Format("0", "TIME,5,End Labor"), _
+                    String.Format(starttime, "TIME,5,Start Labor"), _
+                    String.Format(SystemTime, "TIME,5,End Time"), _
+                    String.Format("", "CHAR,14,Bin"), _
+                    String.Format("", "CHAR,1,Set-up/Break (S/B)"), _
+                    String.Format("0", "INT,17,Qty for MRB"), _
+                    String.Format("", "CHAR,1,New Pallet?"), _
+                    String.Format("0", "INT,6,Packing Crates (No.)"), _
+                    String.Format("", "CHAR,2,Packing Crate Code"), _
+                    String.Format(CtrlForm.ItemValue("PARTNAME"), "M,CHAR,22,Part Number"), _
+                    String.Format("0", "INT,17,Qty Completed"), _
+                    String.Format("", "CHAR,1,Rework?"), _
+                    String.Format("", "CHAR,1,Remove Wk Order No.?"), _
+                    String.Format(CtrlForm.ItemValue("SERIALNAME"), "M,CHAR,22,Work Order"), _
+                    String.Format("", "CHAR,8,Shift"), _
+                    String.Format("0", "INT,17,Qty Rejected"), _
+                    String.Format("0", "TIME,5,Start Time"), _
+                    String.Format("0", "INT,17,MRB (Buy/Sell Units)"), _
+                    String.Format("", "CHAR,22,Tool"), _
+                    String.Format("", "CHAR,16,To Pallet"), _
+                    String.Format("0", "INT,17,Completed (Buy/Sell)"), _
+                    String.Format("0", "INT,17,Rejected (Buy/Sell)"), _
+                    String.Format(userid, "INT,8,0,Employee ID"), _
+                    String.Format("", "CHAR,4,To Warehouse"), _
+                    String.Format("", "CHAR,6,Work Cell") _
+            }
             ' Type 2 records
 
             p.AddRecord(2) = t2
 
+            For y As Integer = 0 To CtrlTable.RowCount
+
+                ' Ignore empty lines
+                If Not (CInt(CtrlTable.Table.Items(y).SubItems(1).Text) = 0) Then
+
+                    Dim ap As Integer = 0
+                    Dim rj As Integer = 0
+                    Dim mr As Integer = 0
+                    Dim re As String = ""
+                    defect = ""
+
+                    Select Case CtrlTable.Table.Items(y).SubItems(0).Text.ToLower
+                        Case "approved"
+                            ap = CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+                        Case "reject"
+                            rj = CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+                            gr = False
+                            SendType = tSendType.GetDefect
+                            ' query to retreive defect id from description
+                            InvokeData("SELECT DEFECTCODE " & _
+                                    "FROM DEFECTCODES " & _
+                                    "WHERE DEFECTDESC = '" & CtrlTable.Table.Items(y).SubItems(2).Text & "'")
+                            While Not gr
+                                Thread.Sleep(1000)
+                            End While
+                        Case "mrb"
+                            mr = CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+                    End Select
+
+                    Dim t3() As String = { _
+                        UserName, _
+                        String.Format("", "CHAR,1,Remove Oper. Number?"), _
+                        String.Format(route, "CHAR,16,Operation"), _
+                        String.Format("0", "TIME,6,Span"), _
+                        String.Format(defect, "CHAR,3,Defect Code"), _
+                        String.Format("0", "TIME,6,Labor Span"), _
+                        String.Format("0", "TIME,5,End Labor"), _
+                        String.Format("0", "TIME,5,Start Labor"), _
+                        String.Format("0", "TIME,5,End Time"), _
+                        String.Format("", "CHAR,14,Bin"), _
+                        String.Format("", "CHAR,1,Set-up/Break (S/B)"), _
+                        String.Format((CStr(mr) * 1000), "INT,17,Qty for MRB"), _
+                        String.Format("", "CHAR,1,New Pallet?"), _
+                        String.Format("0", "INT,6,Packing Crates (No.)"), _
+                        String.Format("", "CHAR,2,Packing Crate Code"), _
+                        String.Format(CtrlForm.ItemValue("PARTNAME"), "M,CHAR,22,Part Number"), _
+                        String.Format((CStr(ap) * 1000), "INT,17,Qty Completed"), _
+                        String.Format("", "CHAR,1,Rework?"), _
+                        String.Format("", "CHAR,1,Remove Wk Order No.?"), _
+                        String.Format(CtrlForm.ItemValue("SERIALNAME"), "M,CHAR,22,Work Order"), _
+                        String.Format("", "CHAR,8,Shift"), _
+                        String.Format((CStr(rj) * 1000), "INT,17,Qty Rejected"), _
+                        String.Format("0", "TIME,5,Start Time"), _
+                        String.Format((CStr(mr) * 1000), "INT,17,MRB (Buy/Sell Units)"), _
+                        String.Format("", "CHAR,22,Tool"), _
+                        String.Format("", "CHAR,16,To Pallet"), _
+                        String.Format((CStr(ap) * 1000), "INT,17,Completed (Buy/Sell)"), _
+                        String.Format((CStr(rj) * 1000), "INT,17,Rejected (Buy/Sell)"), _
+                        String.Format(userid, "INT,8,0,Employee ID"), _
+                        String.Format("", "CHAR,4,To Warehouse"), _
+                        String.Format("", "CHAR,6,Work Cell") _
+                                }
+                    ' Type 2 records
+
+                    p.AddRecord(2) = t3
+
+                End If
+            Next
 
         Catch e As Exception
             MsgBox(e.Message)
@@ -547,7 +687,26 @@ Public Class interfacePRODREP
 
         If count = 0 Then
             If Argument("CurrentWO").Length = 0 Then
-                Return MsgBox("This will record the job start time", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok
+                If MsgBox("This will record the job start time", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                    Try
+                        GetVars()
+                        InvokeData( _
+                            "INSERT INTO ZSFDC_LOAD_STARTTIME" & _
+                            "(LINE, SERIALNAME, ACTNAME, USERID, EMPSTIME) " & _
+                            "select (SELECT MAX(LINE) + 1 FROM ZSFDC_LOAD_STARTTIME), " & _
+                            "'%SERIALNAME%', " & _
+                            "'" & route & "', " & _
+                            userid & ", " & _
+                            SystemTime _
+                            )
+                        MyBase.FormClose()
+                        Return False
+                    Catch ex As Exception
+                        MsgBox(ex.Message)
+                    End Try
+                Else
+                    Return False
+                End If
             Else
                 Return MsgBox("This will record the job end time", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok
             End If

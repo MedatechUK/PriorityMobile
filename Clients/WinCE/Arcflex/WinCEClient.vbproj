@@ -32,7 +32,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\bin\WinCE\trutex\</OutputPath>
+    <OutputPath>..\..\..\bin\WinCE\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
     <DocumentationFile>WinCEClient.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -58,15 +58,15 @@
   <ItemGroup>
     <Reference Include="ceLoadData, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\WinCE\ceLoadData.dll</HintPath>
+      <HintPath>..\..\..\components\LoadData\WinCE\obj\Debug\ceLoadData.dll</HintPath>
     </Reference>
     <Reference Include="ceMyCls, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\WinCE\ceMyCls.dll</HintPath>
+      <HintPath>..\..\..\components\MyCls\WinCE\obj\Debug\ceMyCls.dll</HintPath>
     </Reference>
     <Reference Include="SFDCData, Version=1.0.3715.26192, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\WinCE\SFDCData.dll</HintPath>
+      <HintPath>..\..\..\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -263,6 +263,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
