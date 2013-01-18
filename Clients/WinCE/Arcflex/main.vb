@@ -345,15 +345,15 @@ Module main
             '    .SetBaseForm(frmMenu)
             'End With
 
-            .AddRSS(o.ITMCNT, New InterfaceSTKCNT(frmMenu))
-            With rss(o.ITMCNT)
-                .Argument("SHOWBAL") = "FALSE"
-                .Argument("SCANACTION") = "INCREMENT"
-                .Argument("MANUAL") = "N"
-                .ModuleName = "Item Count"
-                .SubMenu = "Inventory Count"
-                .SetBaseForm(frmMenu)
-            End With
+            '.AddRSS(o.ITMCNT, New InterfaceSTKCNT(frmMenu))
+            'With rss(o.ITMCNT)
+            '    .Argument("SHOWBAL") = "FALSE"
+            '    .Argument("SCANACTION") = "INCREMENT"
+            '    .Argument("MANUAL") = "N"
+            '    .ModuleName = "Item Count"
+            '    .SubMenu = "Inventory Count"
+            '    .SetBaseForm(frmMenu)
+            'End With
 
 
             '.AddRSS(o.BSTKCNT, New InterfaceSTKCNT(frmMenu))

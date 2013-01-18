@@ -368,6 +368,10 @@ Public Class InterfaceSTKCNT
                     Catch
                     End Try
 
+                    If ctrl.Name = "LOCNAME" Then
+                        CtrlTable.Table.Focus()
+                    End If
+
                     ' *******************************************************************
                     ' *** Set which controls are enabled
                     'CtrlForm.el(1).CtrlEnabled = Len(CtrlForm.el(0).Data) > 0
