@@ -76,31 +76,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.vb" />
-    <Compile Include="ctrlBase.Designer.vb">
+    <Compile Include="FormContainers\ctrlBase.Designer.vb">
       <DependentUpon>ctrlBase.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctrlBase.vb">
+    <Compile Include="FormContainers\ctrlBase.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlButtons.Designer.vb">
+    <Compile Include="FormControls\ctrlButtons.Designer.vb">
       <DependentUpon>ctrlButtons.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctrlButtons.vb">
+    <Compile Include="FormControls\ctrlButtons.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlForm.Designer.vb">
+    <Compile Include="FormContainers\ctrlForm.Designer.vb">
       <DependentUpon>ctrlForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctrlForm.vb">
+    <Compile Include="FormContainers\ctrlForm.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ctrlMenu.vb">
+    <Compile Include="FormControls\ctrlMenu.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ctrlTable.Designer.vb">
+    <Compile Include="FormContainers\ctrlTable.Designer.vb">
       <DependentUpon>ctrlTable.vb</DependentUpon>
     </Compile>
-    <Compile Include="ctrlTable.vb">
+    <Compile Include="FormContainers\ctrlTable.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="iForm.Designer.vb">
@@ -109,13 +109,13 @@
     <Compile Include="iForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CtrlColumn.vb">
+    <Compile Include="FormControls\CtrlColumn.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="CtrlColumn.Designer.vb">
+    <Compile Include="FormControls\CtrlColumn.Designer.vb">
       <DependentUpon>CtrlColumn.vb</DependentUpon>
     </Compile>
-    <Compile Include="ModuleHandler.vb" />
+    <Compile Include="HandlerDefs\ModuleHandler.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -124,7 +124,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ctrlButtons.resx">
+    <EmbeddedResource Include="FormControls\ctrlButtons.resx">
       <DependentUpon>ctrlButtons.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="iForm.resx">
@@ -135,15 +135,12 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="CtrlColumn.resx">
+    <EmbeddedResource Include="FormControls\CtrlColumn.resx">
       <DependentUpon>CtrlColumn.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Module.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>

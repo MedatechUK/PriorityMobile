@@ -12,4 +12,8 @@ Module Consts
         End Set
     End Property
 
+    Public Function TrimVar(ByVal Var As String) As String
+        Return Var.Substring(1, Var.Length - 2)
+    End Function
+
 End Module
