@@ -81,6 +81,7 @@
     <Compile Include="Builder.vb" />
     <Compile Include="Cli.vb" />
     <Compile Include="ConnStr.vb" />
+    <Compile Include="CompareFilesByDateCreated .vb" />
     <Compile Include="GenericProvider.vb" />
     <Compile Include="iisFolders.vb" />
     <Compile Include="locatePriority.vb" />
@@ -172,7 +173,7 @@
   -->
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateFileVersion="True" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_AssemblyInfoFilename="" />
+      <UserProperties BuildVersion_AssemblyInfoFilename="" BuildVersion_UpdateAssemblyVersion="True" BuildVersion_UpdateFileVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

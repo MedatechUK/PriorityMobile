@@ -515,10 +515,18 @@ Public Class Loading
                                             sql.AppendFormat("'{0}'", line(i + 1).Replace("'", "' + char(39) + '"))
 
                                         Case "int"
-                                            sql.AppendFormat("dbo.INTQUANT({0})", line(i + 1))
+                                            If line(i + 1).Length > 0 Then
+                                                sql.AppendFormat("dbo.INTQUANT({0})", line(i + 1))
+                                            Else
+                                                sql.Append("0")
+                                            End If
 
                                         Case "real"
-                                            sql.AppendFormat("dbo.REALQUANT({0})", line(i + 1))
+                                            If line(i + 1).Length > 0 Then
+                                                sql.AppendFormat("dbo.REALQUANT({0})", line(i + 1))
+                                            Else
+                                                sql.Append("0")
+                                            End If
 
                                         Case "time"
                                             If line(i + 1).Length > 0 Then
