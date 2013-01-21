@@ -1,0 +1,9 @@
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\obj\Debug\ExchangeRates.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\bin\Debug\zemg_exc.exe
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\bin\Debug\zemg_exc.pdb
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\bin\Debug\zemg_exc.xml
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\obj\Debug\zemg_exc.Resources.resources
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\obj\Debug\zemg_exc.exe
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\obj\Debug\zemg_exc.xml
+C:\Users\thomasm\Documents\Bank\ExchangeRates\EchangeRates\obj\Debug\zemg_exc.pdb
