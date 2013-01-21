@@ -44,6 +44,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_0DE26F110E90438CB31FD0860F1A7651"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_23DE0047AC7DF87CCDEBA4594F3C4E80"
         "OwnerKey" = "8:_0124531024614C7EA3AC7155C7B43A56"
         "MsmSig" = "8:_UNDEFINED"
@@ -255,6 +261,12 @@
         "Entry"
         {
         "MsmKey" = "8:_5B1FC08EA30245CF6E44BD401DA41844"
+        "OwnerKey" = "8:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5B1FC08EA30245CF6E44BD401DA41844"
         "OwnerKey" = "8:_0124531024614C7EA3AC7155C7B43A56"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -328,6 +340,12 @@
         {
         "MsmKey" = "8:_64854F00A7EB190F120254828389B1B4"
         "OwnerKey" = "8:_A893E7DC4783B9ABE7FFED34CDBFD302"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64854F00A7EB190F120254828389B1B4"
+        "OwnerKey" = "8:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -476,6 +494,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9A2D79EB54882933A110690D620F56A6"
+        "OwnerKey" = "8:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9C45233179A3CD99E4FB967689D92718"
         "OwnerKey" = "8:_23DE0047AC7DF87CCDEBA4594F3C4E80"
         "MsmSig" = "8:_UNDEFINED"
@@ -562,6 +586,12 @@
         {
         "MsmKey" = "8:_AB007A8BBBE3911D7640F37ECE0182C5"
         "OwnerKey" = "8:_8E68ECE847380EC0FE3966A074EF42F7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B2D6D195EAE0899FC41E3F0E89FA6A60"
+        "OwnerKey" = "8:_52223D7547CA4A1EB03ADE520B12F7BE"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -662,13 +692,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F5A1EE07A4F74CBA9D2CA7446B980B0A"
-        "OwnerKey" = "8:_UNDEFINED"
+        "MsmKey" = "8:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
+        "OwnerKey" = "8:_0124531024614C7EA3AC7155C7B43A56"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F86F137E8CDA42A589BE68A4517E086B"
+        "MsmKey" = "8:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
+        "OwnerKey" = "8:_8598EBB4D35F9E0C6A4A56206A88E4A3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
+        "OwnerKey" = "8:_52223D7547CA4A1EB03ADE520B12F7BE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F5A1EE07A4F74CBA9D2CA7446B980B0A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -770,6 +812,24 @@
             "Register" = "3:0"
             "Exclude" = "11:TRUE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_0DE26F110E90438CB31FD0860F1A7651"
+            {
+            "SourcePath" = "8:M:\\Clients\\WinCE\\Arcflex\\LOGO.bmp"
+            "TargetName" = "8:LOGO.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_4AAA275FB3A342C082EE75DEF4A84509"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_23DE0047AC7DF87CCDEBA4594F3C4E80"
@@ -1238,6 +1298,34 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_B2D6D195EAE0899FC41E3F0E89FA6A60"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_B2D6D195EAE0899FC41E3F0E89FA6A60"
+                    {
+                    "Name" = "8:System.SR.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.SR.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_4AAA275FB3A342C082EE75DEF4A84509"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_B8E52E37C47050F5B25E58D37A9DF191"
             {
             "AssemblyIsInGAC" = "11:FALSE"
@@ -1405,10 +1493,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{BA458234-9B71-4F46-8107-E91156377184}:_F86F137E8CDA42A589BE68A4517E086B"
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
             {
-            "SourcePath" = "8:M:\\Clients\\WinCE\\GSM\\LOGO.bmp"
-            "TargetName" = "8:LOGO.bmp"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ceLoadData, Version=1.0.0.3, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_F3DEDBEE22C0C1361FBE1BE65D1D8A2F"
+                    {
+                    "Name" = "8:ceLoadData.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ceLoadData.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_4AAA275FB3A342C082EE75DEF4A84509"
             "Condition" = "8:"
@@ -1420,7 +1518,7 @@
             "SharedLegacy" = "11:FALSE"
             "Register" = "3:0"
             "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_FC75A621CF0DE05FEF373F6D07A3AD88"

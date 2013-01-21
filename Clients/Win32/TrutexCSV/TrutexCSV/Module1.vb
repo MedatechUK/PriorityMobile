@@ -6,6 +6,7 @@ Module Module1
         file = 0
         url = 1
         Config = 2
+        enviro = 3
     End Enum
     Dim FILENAME As String = Nothing
 
@@ -201,6 +202,8 @@ Module Module1
                         State = "f"
                     Case "u", "url"
                         State = "u"
+                    Case "e"
+                        State = "e"
                     Case Else
                         Valid = False
                 End Select
@@ -217,6 +220,8 @@ Module Module1
                     Case "f"
                         .RunMode = myRunMode.file
                         FILENAME = StrVal
+                    Case "e"
+
                     Case Else
                         Valid = False
                 End Select

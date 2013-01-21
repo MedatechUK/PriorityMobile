@@ -170,23 +170,26 @@ Public Class PriLoadEvents
                 End With
             End If
 
-            If _BubbleQFolder.GetFiles.Count > 0 Then
-                logbuilder.AppendFormat("Found {0} bubbles waiting in the queue.", _BubbleQFolder.GetFiles.Count).AppendLine()
+            Dim files As IO.FileSystemInfo() = _BubbleQFolder.GetFiles
+            If files.Count > 0 Then
+                logbuilder.AppendFormat("Found {0} bubbles waiting in the queue.", files.Count).AppendLine()
+                While files.Count > 0
+                    Try
+                        Array.Sort(files, New CompareFilesByDateCreated)
+                        logbuilder.AppendFormat("Processing bubble file [{0}]...", files.ElementAt(0).FullName)
+                        RaiseEvent NewBubble(files.ElementAt(0).FullName)
+                        logbuilder.AppendFormat("OK.", "").AppendLine()
+                    Catch ex As Exception
+                        verb = ntEvtlog.EvtLogVerbosity.Normal
+                        evt = ntEvtlog.LogEntryType.FailureAudit
+                        logbuilder.AppendFormat("Failed.", "").AppendLine()
+                        logbuilder.AppendFormat("Please see seperate event log for bubble [{0}].", files.ElementAt(0).FullName.Split("\").Last.Split(".").First).AppendLine()
+                        logbuilder.AppendFormat("{0}", ex.Message).AppendLine()
+                    Finally
+                        files = _BubbleQFolder.GetFiles
+                    End Try
+                End While
             End If
-
-            While _BubbleQFolder.GetFiles.Count > 0
-                Try
-                    logbuilder.AppendFormat("Processing bubble file [{0}]...", _BubbleQFolder.GetFiles.ElementAt(0).FullName)
-                    RaiseEvent NewBubble(_BubbleQFolder.GetFiles.ElementAt(0).FullName)
-                    logbuilder.AppendFormat("OK.", "").AppendLine()
-                Catch ex As Exception
-                    verb = ntEvtlog.EvtLogVerbosity.Normal
-                    evt = ntEvtlog.LogEntryType.FailureAudit
-                    logbuilder.AppendFormat("Failed.", "").AppendLine()
-                    logbuilder.AppendFormat("Please see seperate event log for bubble [{0}].", _BubbleQFolder.GetFiles.ElementAt(0).FullName.Split("\").Last.Split(".").First).AppendLine()
-                    logbuilder.AppendFormat("{0}", ex.Message).AppendLine()
-                End Try
-            End While
 
         Catch ex As Exception
             evt = ntEvtlog.LogEntryType.Err

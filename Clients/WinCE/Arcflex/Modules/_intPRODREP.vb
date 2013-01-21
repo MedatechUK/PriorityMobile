@@ -673,16 +673,23 @@ Public Class interfacePRODREP
 #Region "Validation"
 
     Public Overrides Function VerifyForm() As Boolean
+
+        If CtrlForm.el(CtrlForm.ColNo("ACTDES")).Data.Length = 0 Then
+            MsgBox("Please enter an operation.")
+            Return False
+        End If
+
         Dim count As Integer = 0
         For y As Integer = 0 To CtrlTable.RowCount
-            Select Case CtrlTable.Table.Items(y).SubItems(0).Text.ToLower
-                Case "approved"
-                    count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
-                Case "reject"
-                    count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
-                Case "mrb"
-                    count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
-            End Select
+            count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+            'Select Case CtrlTable.Table.Items(y).SubItems(0).Text.ToLower
+            '    Case "approved"
+            '        count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+            '    Case "reject"
+            '        count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+            '    Case "mrb"
+            '        count += CInt(CtrlTable.Table.Items(y).SubItems(1).Text)
+            'End Select
         Next
 
         If count = 0 Then

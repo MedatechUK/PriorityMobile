@@ -341,10 +341,10 @@ Public Class XMLHandler
     Public Shared Sub createloading(ByVal fi As String)
         'This procedure will read the data from a csv file (line by line). I will be using the first 4 columns of the csv to determine the type of data row. There are 3 apparent types contained in the csv (apart from blank rows) they are Header (has an H in the first column) which contains the header data (type 1) for the order but also contains an order line, Order line (type 2) which contains a line of item data and lastly a block ending line which just contains the cust Ref with nothing else.
 
-
+        Dim ServiceURL As String = "http://mobile.trutex.com:8080" '"http://localhost:8080"
         Dim filereader As StreamReader
         Dim line_no As Integer = 1
-
+        Dim exp As Exception
         filereader = New StreamReader(fi)
         Dim load As Loading = New Loading
 
@@ -353,7 +353,7 @@ Public Class XMLHandler
             With load
                 .Table = "ZTRX_CSV_ORDERS"
                 .Procedure = "ZTRX_CSV_ORDERS" ' "ZTRX_LOAD_LOS_NAD"
-                .Environment = "trucpy1"
+                .Environment = "tru"
                 '*********** TYPE 1
                 .AddColumn(1) = New LoadColumn("CUSTOMER_ID", tColumnType.typeCHAR)
                 .AddColumn(1) = New LoadColumn("ORDER_ID", tColumnType.typeCHAR)
@@ -391,17 +391,65 @@ Public Class XMLHandler
                     Case "H"
 
 
-                        With load
-                            'IF NOT FIST PASS THEN
-                            'write the address type 3
-                            If line_no >= 3 Then
+
+                        'IF NOT FIRST PASS THEN
+                        'write the address type 3
+                        If line_no >= 3 Then
+
+
+                            With load
+                                .AddRecordType(2) = New LoadRow("CL115", "1", CInt("0.00"), ol.deldate, o.OId)
                                 .AddRecordType(3) = New LoadRow(o.AdHoc, o.OId)
-                            End If
 
-                            o = New Order(LineOfData(1), LineOfData(3), LineOfData(4), FormatDateTime(Today, DateFormat.ShortDate), LineOfData(5))
-                            ol = New OrderLine(LineOfData(3), LineOfData(5), LineOfData(6), LineOfData(8), LineOfData(9), LineOfData(10))
-                            'fill the order with the data from the line
+                                exp = New Exception
 
+                                Try
+                                    If Not .Post( _
+                                                    ServiceURL, _
+                                                    exp _
+                                                ) Then Throw exp
+
+
+                                Catch ex As Exception
+                                    MsgBox(ex.Message)
+                                End Try
+                            End With
+
+                            load = Nothing
+                            load = New Loading
+                            With load
+                                .Table = "ZTRX_CSV_ORDERS"
+                                .Procedure = "ZTRX_CSV_ORDERS" ' "ZTRX_LOAD_LOS_NAD"
+                                .Environment = "tru"
+                                '*********** TYPE 1
+                                .AddColumn(1) = New LoadColumn("CUSTOMER_ID", tColumnType.typeCHAR)
+                                .AddColumn(1) = New LoadColumn("ORDER_ID", tColumnType.typeCHAR)
+                                .AddColumn(1) = New LoadColumn("CURDATE", tColumnType.typeDATE)
+                                .AddColumn(1) = New LoadColumn("LOCATION", tColumnType.typeCHAR)
+
+
+
+                                '*********** TYPE 2
+                                .AddColumn(2) = New LoadColumn("SKU", tColumnType.typeCHAR)
+                                .AddColumn(2) = New LoadColumn("QTY", tColumnType.typeINT)
+                                .AddColumn(2) = New LoadColumn("UNIT_PRICE", tColumnType.typeREAL)
+                                .AddColumn(2) = New LoadColumn("TRANS_DATE", tColumnType.typeDATE)
+                                .AddColumn(2) = New LoadColumn("ORDER_ID2", tColumnType.typeCHAR)
+
+
+
+                                '*********** TYPE 3
+                                .AddColumn(3) = New LoadColumn("REFERENCE", tColumnType.typeCHAR)
+                                .AddColumn(3) = New LoadColumn("ORDER_ID3", tColumnType.typeCHAR)
+                            End With
+
+
+                        End If
+
+                        o = New Order(LineOfData(1), LineOfData(3), LineOfData(4), FormatDateTime(Today, DateFormat.ShortDate), LineOfData(5))
+                        ol = New OrderLine(LineOfData(3), LineOfData(5), LineOfData(6), LineOfData(8), LineOfData(9), LineOfData(10))
+                        'fill the order with the data from the line
+                        With load
                             .AddRecordType(1) = New LoadRow(o.CustID, o.OId.ToString, o.odate, o.Location)
                             Console.WriteLine("Writing Order header data (type 1) for order - " & o.OId)
                             .AddRecordType(2) = New LoadRow(ol.ProdCode, ol.Quantity, CInt(ol.UnitPrice), ol.deldate, o.OId)
@@ -459,9 +507,11 @@ Public Class XMLHandler
             Loop
 
             'Exiting so write last type 3
+            load.AddRecordType(2) = New LoadRow("CL115", "1", CInt("0.00"), ol.deldate, o.OId)
             load.AddRecordType(3) = New LoadRow(o.AdHoc, o.OId)
-            Dim ServiceURL As String = " http://mobile.trutex.com:8080"
-            Dim exp As New Exception
+
+            'Dim ServiceURL As String = " http://mobile.trutex.com:8080"
+            exp = New Exception
             With load
                 Try
                     If Not .Post( _

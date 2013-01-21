@@ -1,0 +1,13 @@
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\test_sfdc3.Form1.resources
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\test_sfdc3.Resources.resources
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\test_sfdc3.vbproj.GenerateResource.Cache
+M:\Clients\WinCE3\test_sfdc3\bin\Debug\test_sfdc3.exe
+M:\Clients\WinCE3\test_sfdc3\bin\Debug\test_sfdc3.pdb
+M:\Clients\WinCE3\test_sfdc3\bin\Debug\test_sfdc3.xml
+M:\Clients\WinCE3\test_sfdc3\bin\Debug\sfdc3ui.dll
+M:\Clients\WinCE3\test_sfdc3\bin\Debug\sfdc3ui.pdb
+M:\Clients\WinCE3\test_sfdc3\bin\Debug\sfdc3ui.xml
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\test_sfdc3.exe
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\test_sfdc3.xml
+M:\Clients\WinCE3\test_sfdc3\obj\Debug\test_sfdc3.pdb
