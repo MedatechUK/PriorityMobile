@@ -24,6 +24,7 @@ Public Class interfacePRODREP
 
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
+        Argument("CurrentWO") = ""
         SendType = tSendType.GetCurrentJob
         InvokeData("select SERIALNAME, ACTDES from ZSFDC_LOAD_STARTTIME, ACT " & _
                    "where ZSFDC_LOAD_STARTTIME.ACTNAME = ACT.ACTNAME " & _
@@ -304,7 +305,7 @@ Public Class interfacePRODREP
                     gr = True
                 End Try
 
-            Case tSendType.GetCurrentJob
+            Case tSendType.GetCurrentJob                
                 If Not IsNothing(Data) Then
                     For y As Integer = 0 To UBound(Data, 2)
                         If MsgBox("Activate job [" & Data(0, y) & "]?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
@@ -706,7 +707,7 @@ Public Class interfacePRODREP
                             userid & ", " & _
                             SystemTime _
                             )
-                        MyBase.FormClose()
+                        Me.FormClose()
                         Return False
                     Catch ex As Exception
                         MsgBox(ex.Message)
