@@ -1,5 +1,6 @@
 ﻿Public Class PriProc
 
+    Private LicenceProcess As Long
     Private StartConfig As System.Timers.Timer        
 
 #Region "Initialisation and finalisation"
@@ -219,6 +220,7 @@
                     If IsNothing(dr) Then Throw New Exception(String.Format("Priority Fileshare [{0}] is unmapped.", .PRIUNC))
                     If Not String.Compare(dr.DriveLetter, .PRIORITYDIR, True) = 0 Then Throw New Exception(String.Format("Drive [{0}] is not mapped to [{1}].", .PRIORITYDIR, .PRIUNC))
                     If Not dr.info.IsReady Then Throw New Exception(String.Format("Priority mapped drive [{0}] is not ready.", dr.DriveLetter))
+
                     ' Attempt connection to database
                     LogBuilder.Append("Initialisation checks OK.").AppendLine()
                     LogBuilder.AppendFormat("Connecting to database [{0}]...", .DATASOURCE)
@@ -227,6 +229,32 @@
                     ApplicationSetting("DSN") = Connection.ConnectionString
                     ApplicationSetting("PROVIDER") = Connection.Provider
                 End With
+
+                ' Occupy a Priority licence for the session
+                Dim myProcess As Process = New Process()
+                With myProcess
+                    With .StartInfo
+                        .FileName = String.Format("{0}\BIN.95\WINRUN.exe", My.Settings.PRIORITYDIR)
+                        .Arguments = String.Format( _
+                                        "{5}{5} {1} {2} {0}\system\prep {3} WINFORM {4}", _
+                                            My.Settings.PRIORITYDIR, _
+                                            My.Settings.PRIORITYUSER, _
+                                            My.Settings.PRIORITYPWD, _
+                                            ApplicationSetting("Environment"), _
+                                            "ZPDA_LICENSE_LOCK", _
+                                            "'" _
+                                    )
+                        .UseShellExecute = False
+                        .CreateNoWindow = True
+                        .RedirectStandardInput = True
+
+                        LogBuilder.Append("Starting Priority Licence process...").AppendLine()
+                        LogBuilder.AppendFormat("{0} {1}", .FileName, .Arguments).AppendLine()
+
+                    End With
+                    .Start()
+                End With
+
             Catch ConnectionException As Exception
                 LogBuilder.Append("Initialisation exception encountered:").AppendLine()
                 LogBuilder.AppendFormat("{0}", ConnectionException.Message).AppendLine()
@@ -237,7 +265,7 @@
                         qState = "The bubble queue is RUNNING."
                     End If
                 End If
-                LogBuilder.AppendFormat("{0}", qState)
+                LogBuilder.AppendFormat("{0}", qState).AppendLine()
             End Try
 
             ' Verify Connection            
