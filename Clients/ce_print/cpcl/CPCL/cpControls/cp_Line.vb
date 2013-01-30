@@ -14,7 +14,7 @@
     Public Overrides ReadOnly Property tostring() As String
         Get
             Return String.Format( _
-                "BOX {0} {1} {2} {3} {4}{5}", _
+                "LINE {0} {1} {2} {3} {4}{5}", _
                 _TopLeft.X, _
                 _TopLeft.Y, _
                 _BottomRight.X, _

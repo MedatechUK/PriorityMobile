@@ -9,7 +9,6 @@ M:\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.xml
 M:\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.pdb
 M:\Clients\ce_print\btZebra\btZebra\bin\Debug\ZebraBluetoothAdapter.dll
 M:\Clients\ce_print\btZebra\btZebra\bin\Debug\ZSDK_API.dll
-M:\Clients\ce_print\btZebra\btZebra\bin\Debug\InTheHand.Net.Personal.dll
 M:\Clients\ce_print\btZebra\btZebra\bin\Debug\CPCL.dll
 M:\Clients\ce_print\btZebra\btZebra\bin\Debug\CPCL.pdb
 M:\Clients\ce_print\btZebra\btZebra\bin\Debug\CPCL.xml
