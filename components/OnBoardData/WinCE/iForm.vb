@@ -391,6 +391,7 @@ Public MustInherit Class iForm
         End If
 
         If Not VerifyForm() Then Exit Sub
+        If Not (MsgBox("Post Transaction", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok) Then Exit Sub
 
         With p
             .Clear()
@@ -398,7 +399,6 @@ Public MustInherit Class iForm
             ProcessForm()
             Dim d(,) As String = .Data
             If Not (.NoData) And Not IsNothing(d) Then
-                If Not (MsgBox("Post Transaction", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok) Then Exit Sub
                 RaiseEvent SendArray(Me, d)
             End If
             FormClose()
