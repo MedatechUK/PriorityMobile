@@ -1,8 +1,8 @@
 ﻿Imports CPCL
 Imports btZebra
 
-Public Class Invoice
 
+Public Class OrderAcknowledgement
     Private WithEvents prn As New btZebra.LabelPrinter( _
         New Point(300, 300), _
         New Size(576, 0), _
@@ -26,52 +26,37 @@ Public Class Invoice
 
     Private Sub Print()
         Dim headerFont As New PrinterFont(40, 5, 2) 'variable width. 
-        Dim largeFont As New PrinterFont(30, 0, 3) '16 
-        Dim smallFont As New PrinterFont(25, 0, 2) '8 
+        Dim largeFont As New PrinterFont(30, 0, 3)
+        Dim smallFont As New PrinterFont(25, 0, 2)
 
-        Using lblInvoice As New Label(prn, eLabelStyle.receipt)
+        Using lblOrderAcknowledgement As New Label(prn, eLabelStyle.receipt)
 
             'first receipt formatter
-            'taking margins into account the receipt is 556px wide. 
-            'font 0 - 8/16 for size 2/3 respectively, font 5 is variable width ~20-30.
+            'taking margins into account the receipt is 556px wide. At size 2, char width is 8px. 
 
-            Dim docHead As New ReceiptFormatter(64, _
-                                                New FormattedColumn(16, 0, eAlignment.Center), _
-                                                New FormattedColumn(16, 16, eAlignment.Center), _
-                                                New FormattedColumn(16, 32, eAlignment.Center), _
-                                                New FormattedColumn(16, 64, eAlignment.Center))
-            docHead.AddRow("Number", "Date", "Time", "Van")
-            docHead.AddRow("593151", "29/01/13", "11:51:22", "WK11 BHW")
+            Dim docHead As New ReceiptFormatter(66, _
+                                                New FormattedColumn(22, 0, eAlignment.Center), _
+                                                New FormattedColumn(22, 22, eAlignment.Center), _
+                                                New FormattedColumn(22, 44, eAlignment.Center))
+            docHead.AddRow("Number", "Date", "Time")
+            docHead.AddRow("593151", "29/01/13", "11:51:22")
 
             Dim custDetails As New ReceiptFormatter(64, _
                                                     New FormattedColumn(16, 0, eAlignment.Right), _
                                                     New FormattedColumn(48, 16, eAlignment.Left))
-            custDetails.AddRow("Customer:", "G00012")
-            custDetails.AddRow("", "Goods returned Restock Van50")
+            custDetails.AddRow("Customer:", "C123456")
+            custDetails.AddRow("", "Some customer details here")
             custDetails.AddRow("", "TR16 5BU")
 
-
-
-            Dim invoicePartsList As New ReceiptFormatter(64, _
+            Dim partsList As New ReceiptFormatter(64, _
                                                   New FormattedColumn(3, 0, eAlignment.Right), _
-                                                  New FormattedColumn(46, 4, eAlignment.Left), _
-                                                  New FormattedColumn(7, 50, eAlignment.Right), _
-                                                  New FormattedColumn(7, 57, eAlignment.Right))
-            invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
-            invoicePartsList.AddRow("2", "56g (2oz) CLOTTED CREAM", "0.39", "0.78")
-            invoicePartsList.AddRow("8", "Blue 1ltr Whole Milk", "0.60", "4.80")
-            invoicePartsList.AddRow("12", "Green 1ltr Semi-Skimmed Milk", "0.60", "7.20")
+                                                  New FormattedColumn(49, 4, eAlignment.Left), _
+                                                  New FormattedColumn(8, 54, eAlignment.Left))
+            partsList.AddRow("No", "Description:", "Code:")
+            partsList.AddRow("6", "Green 2lt Semi-Skim Milk", "03324")
 
 
-
-
-            Dim total As New ReceiptFormatter(64, _
-                                              New FormattedColumn(6, 10, eAlignment.Right), _
-                                              New FormattedColumn(58, 16, eAlignment.Right))
-            total.AddRow("Total:", "£" & "12.78")
-
-
-            With lblInvoice
+            With lblOrderAcknowledgement
                 'logo
                 .AddImage("roddas.pcx", New Point(186, prn.Dimensions.Height + 10), 147)
 
@@ -79,8 +64,8 @@ Public Class Invoice
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
                          New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
 
-                'header = 174px wide
-                .AddText("INVOICE", New Point((prn.Dimensions.Width / 2) - 87, prn.Dimensions.Height + 10), _
+                'header = 334px wide
+                .AddText("ORDER ACKNOWLEDGEMENT", New Point((prn.Dimensions.Width / 2) - 299, prn.Dimensions.Height + 10), _
                          headerFont)
 
                 'line
@@ -97,7 +82,7 @@ Public Class Invoice
 
                 'document header 
                 For Each StrVal In docHead.FormattedText
-                    .AddText(StrVal, New Point(22, prn.Dimensions.Height), smallFont)
+                    .AddText(StrVal, New Point(14, prn.Dimensions.Height), smallFont)
                 Next
 
                 'line
@@ -113,19 +98,13 @@ Public Class Invoice
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
                          New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
 
-                'itemised invoice box
-                For Each StrVal In invoicePartsList.FormattedText
-                    .AddText(StrVal, New Point(22, prn.Dimensions.Height), smallFont)
+                'itemised parts list. 
+                For Each StrVal In partsList.FormattedText
+                    .AddText(StrVal, New Point(14, prn.Dimensions.Height), smallFont)
                 Next
 
-                'line
-                .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
-
-                'total 
-                For Each StrVal In total.FormattedText
-                    .AddText(StrVal, New Point(22, prn.Dimensions.Height), smallFont)
-                Next
+                'vat waffle
+                .AddText("Items subject to VAT are marked +", New Point(26, prn.Dimensions.Height + 10), largeFont)
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
@@ -145,28 +124,21 @@ Public Class Invoice
                 .AddText(vat, New Point((prn.Dimensions.Width / 2 - (vat.Length / 2) * 16), _
                                            prn.Dimensions.Height + 10), largeFont)
 
-                'For any remittance.... 
                 .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
                               New Point(prn.Dimensions.Width / 2 - 168, prn.Dimensions.Height + 10), smallFont, 30)
-
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
                          New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
-
-                'bank details header
+                'header
                 .AddText("Bank Details", New Point(prn.Dimensions.Width / 2 - 96, prn.Dimensions.Height + 10), largeFont)
-                'bank details 
                 .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
                               New Point(10, prn.Dimensions.Height + 10), smallFont, 30)
-
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
                          New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
-
                 'please quote
-                .AddText("Please quote account number in all correspondence.", _
-                         New Point(prn.Dimensions.Width / 2 - 200, _
-                                   prn.Dimensions.Height + 10), _
+                .AddText("Please quote account number in all correspondence.", New Point(prn.Dimensions.Width / 2 - 200, _
+                                                                                         prn.Dimensions.Height + 10), _
                          smallFont)
 
                 'tear 'n' print!

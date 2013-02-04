@@ -1,13 +1,14 @@
 ﻿Imports CPCL
 Imports btZebra
 
-Public Class Invoice
+Public Class CreditNote
+
 
     Private WithEvents prn As New btZebra.LabelPrinter( _
         New Point(300, 300), _
         New Size(576, 0), _
         "\prnimg\" _
-    )
+        )
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim macaddress As String = "00225831c92a"
@@ -29,7 +30,7 @@ Public Class Invoice
         Dim largeFont As New PrinterFont(30, 0, 3) '16 
         Dim smallFont As New PrinterFont(25, 0, 2) '8 
 
-        Using lblInvoice As New Label(prn, eLabelStyle.receipt)
+        Using lblCreditNote As New Label(prn, eLabelStyle.receipt)
 
             'first receipt formatter
             'taking margins into account the receipt is 556px wide. 
@@ -71,7 +72,7 @@ Public Class Invoice
             total.AddRow("Total:", "£" & "12.78")
 
 
-            With lblInvoice
+            With lblCreditNote
                 'logo
                 .AddImage("roddas.pcx", New Point(186, prn.Dimensions.Height + 10), 147)
 
@@ -80,7 +81,7 @@ Public Class Invoice
                          New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
 
                 'header = 174px wide
-                .AddText("INVOICE", New Point((prn.Dimensions.Width / 2) - 87, prn.Dimensions.Height + 10), _
+                .AddText("CREDIT NOTE", New Point((prn.Dimensions.Width / 2) - 138, prn.Dimensions.Height + 10), _
                          headerFont)
 
                 'line
@@ -177,5 +178,4 @@ Public Class Invoice
             End With
         End Using
     End Sub
-
 End Class
