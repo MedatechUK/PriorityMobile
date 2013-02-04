@@ -9,3 +9,4 @@ M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.pdb
 M:\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.daToolbar.resources
 M:\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.Resources.resources
 M:\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.SlideMenu.resources
+M:\components\SlideMenu\SlideMenu\bin\Debug\System.SR.dll

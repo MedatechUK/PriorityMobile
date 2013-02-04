@@ -1,8 +1,11 @@
-﻿Public Class ListSort
+﻿Imports System.Data
+
+Public Class ListSort
 
 #Region "Local Variables"
 
     Private _Columns As New List(Of ListSortColumn)
+    Private _Keys As New List(Of String)
 
 #End Region
 
@@ -16,6 +19,18 @@
 
 #Region "Public Properties"
 
+    Public ReadOnly Property Keys() As List(Of String)
+        Get
+            Return _Keys
+        End Get
+    End Property
+
+    Public ReadOnly Property Columns() As List(Of ListSortColumn)
+        Get
+            Return _Columns
+        End Get
+    End Property
+
     Public ReadOnly Property Items() As System.Windows.Forms.ListView.ListViewItemCollection
         Get
             Return View.Items
@@ -28,7 +43,7 @@
             Return _Sort
         End Get
         Set(ByVal value As String)
-            _Sort = value            
+            _Sort = value
         End Set
     End Property
 
@@ -81,25 +96,37 @@
         End Set
     End Property
 
+    Public Function RowSelected(ByVal Row As DataRow, ByVal View As DataRowView) As Boolean
+        For Each k As String In _Keys
+            If Not String.Compare(Row(k), View(k), True) = 0 Then
+                Return False
+            End If
+        Next
+        Return True
+    End Function
+
 #End Region
 
 #Region "Public Methods"
 
-    Public Sub AddColumn(ByVal BoundColumn As String, Optional ByVal ColumnTitle As String = Nothing, Optional ByVal ColumnWidth As Integer = 100)
+    Public Sub AddColumn(ByVal BoundColumn As String, Optional ByVal ColumnTitle As String = Nothing, Optional ByVal ColumnWidth As Integer = 100, Optional ByVal IsKey As Boolean = False)
         If IsNothing(ColumnTitle) Then ColumnTitle = String.Format("Column {0}", (_Columns.Count + 1).ToString)
         _Columns.Add(New ListSortColumn(BoundColumn, ColumnTitle, ColumnWidth))
+        If IsKey Then
+            _Keys.Add(BoundColumn)
+        End If
     End Sub
 
     Public Sub Clear()
         View.Clear()
         With View
             For Each c As ListSortColumn In _Columns
-                Dim ch As New ColumnHeader()                
+                Dim ch As New ColumnHeader()
                 ch.Text = c.ColumnTitle
                 .Columns.Add(ch)
                 With .Columns
                     With .Item(.Count - 1)
-                        .Width = c.ColumnWidth                        
+                        .Width = c.ColumnWidth
                     End With
                 End With
             Next

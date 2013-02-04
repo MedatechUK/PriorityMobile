@@ -82,6 +82,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="usrCtrls\ctrl_Home.Designer.vb">
+      <DependentUpon>ctrl_Home.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Home.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_DataGrid.Designer.vb">
+      <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_DataGrid.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="dialogs\dlgAddPlanned.Designer.vb">
       <DependentUpon>dlgAddPlanned.vb</DependentUpon>
     </Compile>
@@ -101,74 +113,140 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_VanSales.Designer.vb">
-      <DependentUpon>ctrl_VanSales.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\ctrl_Payment.Designer.vb">
+      <DependentUpon>ctrl_Payment.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_VanSales.vb">
+    <Compile Include="usrCtrls\Deliveries\ctrl_Payment.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Address.Designer.vb">
-      <DependentUpon>ctrl_Address.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\ctrl_Signature.Designer.vb">
+      <DependentUpon>ctrl_Signature.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Address.vb">
+    <Compile Include="usrCtrls\Deliveries\ctrl_Signature.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_CallDetail.Designer.vb">
-      <DependentUpon>ctrl_CallDetail.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\ctrl_DeliveryItems.Designer.vb">
+      <DependentUpon>ctrl_DeliveryItems.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_CallDetail.vb">
+    <Compile Include="usrCtrls\Deliveries\ctrl_DeliveryItems.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_DataGrid.Designer.vb">
-      <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\ctrl_Deliveries.Designer.vb">
+      <DependentUpon>ctrl_Deliveries.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_DataGrid.vb">
+    <Compile Include="usrCtrls\Deliveries\ctrl_Deliveries.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Delivery.Designer.vb">
-      <DependentUpon>ctrl_Delivery.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_Balances.Designer.vb">
+      <DependentUpon>ctrl_Balances.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Delivery.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_Balances.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Parts_Planned.Designer.vb">
-      <DependentUpon>ctrl_Parts_Planned.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_AddRemark.Designer.vb">
+      <DependentUpon>ctrl_AddRemark.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Parts_Planned.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_AddRemark.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Repair.Designer.vb">
-      <DependentUpon>ctrl_Repair.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\ctrl_Customer.Designer.vb">
+      <DependentUpon>ctrl_Customer.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Repair.vb">
+    <Compile Include="usrCtrls\Deliveries\ctrl_Customer.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Sign.Designer.vb">
-      <DependentUpon>ctrl_Sign.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_Remarks.Designer.vb">
+      <DependentUpon>ctrl_Remarks.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Sign.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_Remarks.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_StatusPane.Designer.vb">
-      <DependentUpon>ctrl_StatusPane.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_Credit.Designer.vb">
+      <DependentUpon>ctrl_Credit.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_StatusPane.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_Credit.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Summary.Designer.vb">
-      <DependentUpon>ctrl_Summary.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_AccInfo.Designer.vb">
+      <DependentUpon>ctrl_AccInfo.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Summary.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\ctrl_AccInfo.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Warehouse.Designer.vb">
-      <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
+    <Compile Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_InvoiceItems.Designer.vb">
+      <DependentUpon>ctrl_InvoiceItems.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\ctrl_Warehouse.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_InvoiceItems.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_Invoices.Designer.vb">
+      <DependentUpon>ctrl_Invoices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_Invoices.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\ctrl_OrderItems.Designer.vb">
+      <DependentUpon>ctrl_OrderItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\ctrl_OrderItems.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.Designer.vb">
+      <DependentUpon>ctrl_Orders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance.Designer.vb">
+      <DependentUpon>ctrl_Maintainance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Mileage.Designer.vb">
+      <DependentUpon>ctrl_Mileage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Mileage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Damage.Designer.vb">
+      <DependentUpon>ctrl_Damage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Damage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Clean.Designer.vb">
+      <DependentUpon>ctrl_Clean.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Clean.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Checks.Designer.vb">
+      <DependentUpon>ctrl_Checks.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Checks.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Pricelist\ctrl_FamilyItems.Designer.vb">
+      <DependentUpon>ctrl_FamilyItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Pricelist\ctrl_FamilyItems.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Pricelist\ctrl_Families.Designer.vb">
+      <DependentUpon>ctrl_Families.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Pricelist\ctrl_Families.vb">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="usrCtrls\ctrl_Home.resx">
+      <DependentUpon>ctrl_Home.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_DataGrid.resx">
+      <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="dialogs\dlgAddPlanned.resx">
       <DependentUpon>dlgAddPlanned.vb</DependentUpon>
     </EmbeddedResource>
@@ -181,42 +259,62 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_VanSales.resx">
-      <DependentUpon>ctrl_VanSales.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Customer.resx">
+      <DependentUpon>ctrl_Customer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Address.resx">
-      <DependentUpon>ctrl_Address.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Deliveries.resx">
+      <DependentUpon>ctrl_Deliveries.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_CallDetail.resx">
-      <DependentUpon>ctrl_CallDetail.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_DeliveryItems.resx">
+      <DependentUpon>ctrl_DeliveryItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_DataGrid.resx">
-      <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Payment.resx">
+      <DependentUpon>ctrl_Payment.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Delivery.resx">
-      <DependentUpon>ctrl_Delivery.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Signature.resx">
+      <DependentUpon>ctrl_Signature.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Parts_Planned.resx">
-      <DependentUpon>ctrl_Parts_Planned.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_AccInfo.resx">
+      <DependentUpon>ctrl_AccInfo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Repair.resx">
-      <DependentUpon>ctrl_Repair.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_AddRemark.resx">
+      <DependentUpon>ctrl_AddRemark.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Sign.resx">
-      <DependentUpon>ctrl_Sign.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_Balances.resx">
+      <DependentUpon>ctrl_Balances.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_StatusPane.resx">
-      <DependentUpon>ctrl_StatusPane.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_Credit.resx">
+      <DependentUpon>ctrl_Credit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Summary.resx">
-      <DependentUpon>ctrl_Summary.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_Remarks.resx">
+      <DependentUpon>ctrl_Remarks.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\ctrl_Warehouse.resx">
-      <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_InvoiceItems.resx">
+      <DependentUpon>ctrl_InvoiceItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_Invoices.resx">
+      <DependentUpon>ctrl_Invoices.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_OrderItems.resx">
+      <DependentUpon>ctrl_OrderItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.resx">
+      <DependentUpon>ctrl_Orders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance.resx">
+      <DependentUpon>ctrl_Maintainance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Pricelist\ctrl_Families.resx">
+      <DependentUpon>ctrl_Families.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Pricelist\ctrl_FamilyItems.resx">
+      <DependentUpon>ctrl_FamilyItems.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Delivery.xml" />
     <Content Include="emerge.ico" />
+    <Content Include="forms.xml" />
     <Content Include="icons\ACTUAL.BMP">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -227,6 +325,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icons\add.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\close.BMP">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icons\edit.bmp">
@@ -283,6 +384,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateFileVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

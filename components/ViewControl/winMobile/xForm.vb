@@ -409,6 +409,10 @@ Public Class xForm
         xmlForms.Log(FormatString)
     End Sub
 
+    Public Function thisUserEnv() As UserEnv
+        Return xmlForms.UserEnv
+    End Function
+
 #End Region
 
 #Region "Event Handlers"

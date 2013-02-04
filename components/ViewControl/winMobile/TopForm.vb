@@ -62,7 +62,11 @@ Public Class TopLevelForm
         With CurrentForm
             If Not IsNothing(.Parent) Then
                 .FormClosing()
-                .Views(.CurrentView).thisForm.TableData.EndEdit()
+                Try
+                    .Views(.CurrentView).thisForm.TableData.EndEdit()
+                Catch ex As Exception
+                    MsgBox(ex.StackTrace)
+                End Try
                 _openForms.RemoveAt(_openForms.Count - 1)
                 .RefreshDirectActivations()
                 .RefreshSubForms()

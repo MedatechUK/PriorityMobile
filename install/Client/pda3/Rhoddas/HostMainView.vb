@@ -2,6 +2,8 @@
 Imports System.IO
 Imports System.Runtime.InteropServices
 Imports System.Xml
+Imports System.Reflection
+
 
 Public Class HostMainView
 
@@ -38,6 +40,7 @@ Public Class HostMainView
                     Me.Focus()
             End Select
             _ShowTaskbar = value
+            Me.ControlBox = False
         End Set
     End Property
 
@@ -47,25 +50,25 @@ Public Class HostMainView
 
     Private Sub init(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-        'Try
+        Try
 
-        With MainView
-            .xf = New xmlForms( _
-                New OfflineXML(.ue, "forms.xml", "forms.xml", ClearCache), _
-                New OfflineXML(.ue, "calls.xml", "calls.xml", _
-                    MsgBox("Syncronise Calls?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok, _
-                    AddressOf .hSyncEvent), _
-                Nothing, _
-                Nothing _
-            )
-            .LoadViews()
-        End With
+            With MainView
+                .xf = New xmlForms(.ue, _
+                    New OfflineXML(.ue, "forms.xml", "forms.xml", ClearCache), _
+                    New OfflineXML(.ue, "delivery.xml", "delivery.xml", _
+                        MsgBox("Synchronise Calls?", MsgBoxStyle.OkCancel, "Connection...") = MsgBoxResult.Ok, _
+                        AddressOf .hSyncEvent, 60), _
+                    Nothing, _
+                    Nothing _
+                )
+                .LoadViews()
+            End With
 
-        'Catch ex As Exception
-        '    MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fatal Error.")
-        '    Application.Exit()
-        '    Exit Sub
-        'End Try
+        Catch ex As Exception
+            MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fatal Error.")
+            Application.Exit()
+            Exit Sub
+        End Try
 
         Cursor.Current = Cursors.Default
         Me.ShowTaskbar = False
@@ -73,19 +76,18 @@ Public Class HostMainView
     End Sub
 
     Private Sub frmMain_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        If Not MsgBox("Close the application?", MsgBoxStyle.OkCancel, "Quit?") = MsgBoxResult.Ok Then
-            e.Cancel = True
-        Else
-            ShowTaskbar = True
-        End If
+        ShowTaskbar = True
+        Application.Exit()
     End Sub
 
     Private Sub frmMain_Activated(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Activated
         ShowTaskbar = False
+        'Me.WindowState = FormWindowState.Maximized
     End Sub
 
     Private Sub frmMain_Deactivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate, MyBase.Disposed
         ShowTaskbar = True
+        'Me.WindowState = FormWindowState.Normal
     End Sub
 
 #End Region
@@ -93,28 +95,17 @@ Public Class HostMainView
 #Region "Main View Event Handlers"
 
     Private Sub hLoadiView(ByVal ControlName As String, ByRef view As iView, ByRef thisForm As xForm) Handles MainView.LoadiView
-        Select Case ControlName
-            Case "SUMMARY"
-                view = New ctrl_Summary()
-                'Case "STATUSPANE"
-                '    view = New ctrl_StatusPane
-            Case "SALESORDER"
-                view = New ctrl_VanSales
-            Case "SIGN"
-                view = New ctrl_Sign
-            Case "ADDRESS"
-                view = New ctrl_Address
-            Case "DELIVERY"
-                view = New ctrl_Delivery
-                'Case "PARTSPLANNED"
-                '    view = New ctrl_Parts_Planned
-                'Case "PARTSACTUAL"
-                '    view = New ctrl_Parts_Actual
-            Case "WAREHOUSE"
-                view = New ctrl_Warehouse
-            Case Else
-                view = New ctrl_DataGrid
-        End Select
+        Dim f As Boolean = False
+        For Each ay In Assembly.GetExecutingAssembly().GetTypes
+            If (String.Format("{0}.vb", ay.Name).ToUpper = ControlName.ToUpper) Then
+                view = Activator.CreateInstance(ay)
+                f = True
+                Exit For
+            End If
+        Next
+        If Not f Then
+            view = New ctrl_DataGrid
+        End If
         view.SetForm(thisForm)
     End Sub
 
@@ -179,11 +170,15 @@ Public Class HostMainView
     Private Sub hSetForm() Handles MainView.SetForm
         With Me
             .Menu = mainMenu1
-            .ControlBox = True
+            .ControlBox = False
             .FormBorderStyle = Windows.Forms.FormBorderStyle.None
             .WindowState = FormWindowState.Maximized
             .ShowTaskbar = False
         End With
+    End Sub
+
+    Private Sub hCloseForm() Handles MainView.BeginClose
+        Me.ControlBox = Not (Me.ControlBox)
     End Sub
 
     Private Sub hSetTaskbar(ByVal Visible As Boolean)
@@ -191,5 +186,9 @@ Public Class HostMainView
     End Sub
 
 #End Region
+
+    Private Sub HostMainView_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
+        'Me.MainView.Height = Screen.PrimaryScreen.WorkingArea.Height
+    End Sub
 
 End Class
