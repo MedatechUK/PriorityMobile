@@ -40,13 +40,15 @@ Public Class Invoice
                                                 New FormattedColumn(16, 16, eAlignment.Center), _
                                                 New FormattedColumn(16, 32, eAlignment.Center), _
                                                 New FormattedColumn(16, 48, eAlignment.Center))
-            docHead.AddRow("Number", "Date", "Time", "Van")
+            docHead.AddRow(" ", " ", " ", " ")
+            docHead.AddRow("Number:", "Date:", "Time:", "Van:")
             docHead.AddRow("593151", "29/01/13", "11:51:22", "WK11 BHW")
 
             Dim custDetails As New ReceiptFormatter(64, _
                                                     New FormattedColumn(16, 0, eAlignment.Right), _
                                                     New FormattedColumn(48, 16, eAlignment.Left))
-            custDetails.AddRow("Customer:", "G00012")
+            custDetails.AddRow(" ", " ")
+            custDetails.AddRow("Customer:   ", "G00012")
             custDetails.AddRow("", "Goods returned Restock Van50")
             custDetails.AddRow("", "TR16 5BU")
 
@@ -57,6 +59,7 @@ Public Class Invoice
                                                   New FormattedColumn(46, 4, eAlignment.Left), _
                                                   New FormattedColumn(7, 50, eAlignment.Right), _
                                                   New FormattedColumn(7, 57, eAlignment.Right))
+            invoicePartsList.AddRow(" ", " ", " ", " ")
             invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
             invoicePartsList.AddRow("2", "56g (2oz) CLOTTED CREAM", "0.39", "0.78")
             invoicePartsList.AddRow("8", "Blue 1ltr Whole Milk", "0.60", "4.80")
@@ -67,8 +70,9 @@ Public Class Invoice
 
             Dim total As New ReceiptFormatter(64, _
                                               New FormattedColumn(6, 10, eAlignment.Right), _
-                                              New FormattedColumn(48, 16, eAlignment.Right))
-            total.AddRow("Total:", "£" & "12.78")
+                                              New FormattedColumn(47, 16, eAlignment.Right))
+            total.AddRow(" ", " ")
+            total.AddRow("Total:", Chr(156) & "12.78")
 
 
             With lblInvoice
@@ -77,7 +81,7 @@ Public Class Invoice
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'header = 174px wide
                 .AddText("INVOICE", New Point((prn.Dimensions.Width / 2) - 87, prn.Dimensions.Height + 10), _
@@ -85,10 +89,10 @@ Public Class Invoice
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'address
-                .AddMultiLine("A.E. Rodda & Son Ltd." & Environment.NewLine & "The Creamery" & vbCr & vbLf & "Scorrier" _
+                .AddMultiLine(" " & vbCrLf & "A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
                                 & vbCrLf & vbLf & "Redruth" & vbCrLf & "Cornwall" & vbCrLf & "TR165BU", _
                                              New Point(10, prn.Dimensions.Height + 10), largeFont, 40)
                 'line
@@ -111,7 +115,7 @@ Public Class Invoice
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'itemised invoice box
                 For Each StrVal In invoicePartsList.FormattedText
@@ -133,12 +137,13 @@ Public Class Invoice
 
                 'itemisation
                 Dim totals As String = " ( 1 lines 6 units ) " 'this will, of course, be calculated.
+                .AddText(" ", New Point(0, prn.Dimensions.Height), largeFont)
                 .AddText(totals, New Point((prn.Dimensions.Width / 2 - (totals.Length / 2) * 16), _
                                            prn.Dimensions.Height + 10), largeFont)
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'vat number 
                 Dim vat As String = "V.A.T. No.  131 7759 63"
@@ -151,17 +156,17 @@ Public Class Invoice
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'bank details header
                 .AddText("Bank Details", New Point(prn.Dimensions.Width / 2 - 96, prn.Dimensions.Height + 10), largeFont)
                 'bank details 
-                .AddMultiLine("HSBC" & vbCrLf & vbCrLf & vbCrLf & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
+                .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
                               New Point(10, prn.Dimensions.Height + 10), smallFont, 30)
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 30)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'please quote
                 .AddText("Please quote account number in all correspondence.", _
@@ -170,10 +175,6 @@ Public Class Invoice
                          smallFont)
 
                 'tear 'n' print!
-                System.IO.File.Create("/output.txt").Dispose()
-                Dim sr As New System.IO.StreamWriter("/output.txt")
-                sr.Write(.toString)
-                sr.Close()
                 .AddTearArea(New Point(0, prn.Dimensions.Height))
                 'prn.Print(.toByte)
 

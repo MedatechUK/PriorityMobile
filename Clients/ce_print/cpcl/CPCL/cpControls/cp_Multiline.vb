@@ -5,7 +5,7 @@
     Private _FontSize As Integer
     Private _height As Integer
     Private _Orientation As TextOrientation = TextOrientation.normal
-    Private _lineHeight As Integer = 30
+    Private _lineHeight As Integer
 
     Public Sub New(ByVal sender As Label, ByVal strVal As String, ByVal Location As Point, ByVal thisFont As PrinterFont, ByVal lineHeight As Integer, ByVal Orientaion As TextOrientation)
         Me.Location = Location
