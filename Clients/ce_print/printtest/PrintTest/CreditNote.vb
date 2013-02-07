@@ -41,12 +41,14 @@ Public Class CreditNote
                                                 New FormattedColumn(16, 16, eAlignment.Center), _
                                                 New FormattedColumn(16, 32, eAlignment.Center), _
                                                 New FormattedColumn(16, 64, eAlignment.Center))
+            docHead.AddRow(" ", " ", " ", " ")
             docHead.AddRow("Number", "Date", "Time", "Van")
             docHead.AddRow("593151", "29/01/13", "11:51:22", "WK11 BHW")
 
             Dim custDetails As New ReceiptFormatter(64, _
                                                     New FormattedColumn(16, 0, eAlignment.Right), _
                                                     New FormattedColumn(48, 16, eAlignment.Left))
+            custDetails.AddRow(" ", " ")
             custDetails.AddRow("Customer:", "G00012")
             custDetails.AddRow("", "Goods returned Restock Van50")
             custDetails.AddRow("", "TR16 5BU")
@@ -58,6 +60,7 @@ Public Class CreditNote
                                                   New FormattedColumn(46, 4, eAlignment.Left), _
                                                   New FormattedColumn(7, 50, eAlignment.Right), _
                                                   New FormattedColumn(7, 57, eAlignment.Right))
+            invoicePartsList.AddRow(" ", " ", " ", " ")
             invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
             invoicePartsList.AddRow("2", "56g (2oz) CLOTTED CREAM", "0.39", "0.78")
             invoicePartsList.AddRow("8", "Blue 1ltr Whole Milk", "0.60", "4.80")
@@ -69,6 +72,7 @@ Public Class CreditNote
             Dim total As New ReceiptFormatter(64, _
                                               New FormattedColumn(6, 10, eAlignment.Right), _
                                               New FormattedColumn(58, 16, eAlignment.Right))
+            total.AddRow(" ", " ")
             total.AddRow("Total:", "£" & "12.78")
 
 
@@ -78,7 +82,7 @@ Public Class CreditNote
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'header = 174px wide
                 .AddText("CREDIT NOTE", New Point((prn.Dimensions.Width / 2) - 138, prn.Dimensions.Height + 10), _
@@ -86,7 +90,7 @@ Public Class CreditNote
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'address
                 .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
@@ -94,7 +98,7 @@ Public Class CreditNote
                                              New Point(10, prn.Dimensions.Height + 10), largeFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'document header 
                 For Each StrVal In docHead.FormattedText
@@ -112,7 +116,7 @@ Public Class CreditNote
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'itemised invoice box
                 For Each StrVal In invoicePartsList.FormattedText
@@ -139,7 +143,7 @@ Public Class CreditNote
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'vat number 
                 Dim vat As String = "V.A.T. No.  131 7759 63"
@@ -152,7 +156,7 @@ Public Class CreditNote
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'bank details header
                 .AddText("Bank Details", New Point(prn.Dimensions.Width / 2 - 96, prn.Dimensions.Height + 10), largeFont)
@@ -162,7 +166,7 @@ Public Class CreditNote
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'please quote
                 .AddText("Please quote account number in all correspondence.", _
