@@ -6,7 +6,7 @@ Public Class Receipt
     Private WithEvents prn As New btZebra.LabelPrinter( _
         New Point(300, 300), _
         New Size(576, 0), _
-        "\prnimg\" _
+        "\my documents\prnimg\" _
     )
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -40,8 +40,8 @@ Public Class Receipt
 
             Dim paymentDetails As New ReceiptFormatter(66, _
                                         New FormattedColumn(22, 0, eAlignment.Center), _
-                                        New FormattedColumn(22, 0, eAlignment.Center), _
-                                        New FormattedColumn(22, 0, eAlignment.Right))
+                                        New FormattedColumn(22, 22, eAlignment.Center), _
+                                        New FormattedColumn(22, 44, eAlignment.Right))
 
             paymentDetails.AddRow("04/02/2013 09:07", "Cheque", "£99")
             paymentDetails.AddRow("02/01/2013 16:21", "Cash", "£0.85")

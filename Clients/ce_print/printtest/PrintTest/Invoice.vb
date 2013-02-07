@@ -6,7 +6,7 @@ Public Class Invoice
     Private WithEvents prn As New btZebra.LabelPrinter( _
         New Point(300, 300), _
         New Size(576, 0), _
-        "\prnimg\" _
+        "\my documents\prnimg\" _
     )
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -25,9 +25,9 @@ Public Class Invoice
     End Sub
 
     Private Sub Print()
-        Dim headerFont As New PrinterFont(40, 5, 2) 'variable width. 
-        Dim largeFont As New PrinterFont(30, 0, 3) '16 
-        Dim smallFont As New PrinterFont(25, 0, 2) '8 
+        Dim headerFont As New PrinterFont(50, 5, 2) 'variable width. 
+        Dim largeFont As New PrinterFont(40, 0, 3) '16 
+        Dim smallFont As New PrinterFont(35, 0, 2) '8 
 
         Using lblInvoice As New Label(prn, eLabelStyle.receipt)
 
@@ -39,7 +39,7 @@ Public Class Invoice
                                                 New FormattedColumn(16, 0, eAlignment.Center), _
                                                 New FormattedColumn(16, 16, eAlignment.Center), _
                                                 New FormattedColumn(16, 32, eAlignment.Center), _
-                                                New FormattedColumn(16, 64, eAlignment.Center))
+                                                New FormattedColumn(16, 48, eAlignment.Center))
             docHead.AddRow("Number", "Date", "Time", "Van")
             docHead.AddRow("593151", "29/01/13", "11:51:22", "WK11 BHW")
 
@@ -67,7 +67,7 @@ Public Class Invoice
 
             Dim total As New ReceiptFormatter(64, _
                                               New FormattedColumn(6, 10, eAlignment.Right), _
-                                              New FormattedColumn(58, 16, eAlignment.Right))
+                                              New FormattedColumn(48, 16, eAlignment.Right))
             total.AddRow("Total:", "£" & "12.78")
 
 
@@ -85,15 +85,15 @@ Public Class Invoice
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
 
                 'address
-                .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
-                                & vbCrLf & "Redruth" & vbCrLf & "Cornwall" & vbCrLf & "TR165BU", _
-                                             New Point(10, prn.Dimensions.Height + 10), largeFont, 30)
+                .AddMultiLine("A.E. Rodda & Son Ltd." & Environment.NewLine & "The Creamery" & vbCr & vbLf & "Scorrier" _
+                                & vbCrLf & vbLf & "Redruth" & vbCrLf & "Cornwall" & vbCrLf & "TR165BU", _
+                                             New Point(10, prn.Dimensions.Height + 10), largeFont, 40)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'document header 
                 For Each StrVal In docHead.FormattedText
@@ -146,7 +146,7 @@ Public Class Invoice
                                            prn.Dimensions.Height + 10), largeFont)
 
                 'For any remittance.... 
-                .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
+                .AddMultiLine("For any remittance " & vbCrLf & "queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
                               New Point(prn.Dimensions.Width / 2 - 168, prn.Dimensions.Height + 10), smallFont, 30)
 
                 'line
@@ -156,12 +156,12 @@ Public Class Invoice
                 'bank details header
                 .AddText("Bank Details", New Point(prn.Dimensions.Width / 2 - 96, prn.Dimensions.Height + 10), largeFont)
                 'bank details 
-                .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
+                .AddMultiLine("HSBC" & vbCrLf & vbCrLf & vbCrLf & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
                               New Point(10, prn.Dimensions.Height + 10), smallFont, 30)
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 30)
 
                 'please quote
                 .AddText("Please quote account number in all correspondence.", _
@@ -170,8 +170,12 @@ Public Class Invoice
                          smallFont)
 
                 'tear 'n' print!
+                System.IO.File.Create("/output.txt").Dispose()
+                Dim sr As New System.IO.StreamWriter("/output.txt")
+                sr.Write(.toString)
+                sr.Close()
                 .AddTearArea(New Point(0, prn.Dimensions.Height))
-                prn.Print(.toByte)
+                'prn.Print(.toByte)
 
 
             End With

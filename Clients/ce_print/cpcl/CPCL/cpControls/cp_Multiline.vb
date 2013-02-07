@@ -5,7 +5,7 @@
     Private _FontSize As Integer
     Private _height As Integer
     Private _Orientation As TextOrientation = TextOrientation.normal
-    Private _lineHeight As Integer
+    Private _lineHeight As Integer = 30
 
     Public Sub New(ByVal sender As Label, ByVal strVal As String, ByVal Location As Point, ByVal thisFont As PrinterFont, ByVal lineHeight As Integer, ByVal Orientaion As TextOrientation)
         Me.Location = Location
@@ -30,13 +30,14 @@
             End Select
 
             Return String.Format( _
-                "ML {0}{1} {2} {3} {4} {5} {6}{7}ENDML{8}", _
-                _lineHeight & vbCrLf, _
+                "ML {0}{1}{2} {3} {4} {5} {6} {7}{8}ENDML{9}", _
+                _lineHeight, _
+                vbCrLf, _
                 cmd, _
                 _Font, _
                 _FontSize, _
                 Location.X, _
-                Location.Y, _
+                Location.Y & vbCrLf, _
                 _strVal, _
                 vbCrLf, _
                 vbCrLf _
