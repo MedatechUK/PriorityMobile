@@ -34,16 +34,18 @@ Public Class OrderAcknowledgement
             'first receipt formatter
             'taking margins into account the receipt is 556px wide. At size 2, char width is 8px. 
 
-            Dim docHead As New ReceiptFormatter(66, _
-                                                New FormattedColumn(22, 0, eAlignment.Center), _
-                                                New FormattedColumn(22, 22, eAlignment.Center), _
-                                                New FormattedColumn(22, 44, eAlignment.Center))
+            Dim docHead As New ReceiptFormatter(63, _
+                                                New FormattedColumn(21, 0, eAlignment.Center), _
+                                                New FormattedColumn(21, 21, eAlignment.Center), _
+                                                New FormattedColumn(21, 42, eAlignment.Center))
+            docHead.AddRow(" ", " ", " ")
             docHead.AddRow("Number", "Date", "Time")
             docHead.AddRow("593151", "29/01/13", "11:51:22")
 
             Dim custDetails As New ReceiptFormatter(64, _
                                                     New FormattedColumn(16, 0, eAlignment.Right), _
                                                     New FormattedColumn(48, 16, eAlignment.Left))
+            custDetails.AddRow(" ", " ")
             custDetails.AddRow("Customer:", "C123456")
             custDetails.AddRow("", "Some customer details here")
             custDetails.AddRow("", "TR16 5BU")
@@ -52,6 +54,7 @@ Public Class OrderAcknowledgement
                                                   New FormattedColumn(3, 0, eAlignment.Right), _
                                                   New FormattedColumn(49, 4, eAlignment.Left), _
                                                   New FormattedColumn(8, 54, eAlignment.Left))
+            partsList.AddRow(" ", " ", " ")
             partsList.AddRow("No", "Description:", "Code:")
             partsList.AddRow("6", "Green 2lt Semi-Skim Milk", "03324")
 
@@ -62,7 +65,7 @@ Public Class OrderAcknowledgement
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'header = 334px wide
                 .AddText("ORDER ACKNOWLEDGEMENT", New Point((prn.Dimensions.Width / 2) - 299, prn.Dimensions.Height + 10), _
@@ -70,7 +73,7 @@ Public Class OrderAcknowledgement
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'address
                 .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
@@ -78,7 +81,7 @@ Public Class OrderAcknowledgement
                                              New Point(10, prn.Dimensions.Height + 10), largeFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'document header 
                 For Each StrVal In docHead.FormattedText
@@ -96,7 +99,7 @@ Public Class OrderAcknowledgement
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'itemised parts list. 
                 For Each StrVal In partsList.FormattedText
@@ -108,7 +111,7 @@ Public Class OrderAcknowledgement
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'itemisation
                 Dim totals As String = " ( 1 lines 6 units ) " 'this will, of course, be calculated.
@@ -117,7 +120,7 @@ Public Class OrderAcknowledgement
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'vat number 
                 Dim vat As String = "V.A.T. No.  131 7759 63"
@@ -128,14 +131,14 @@ Public Class OrderAcknowledgement
                               New Point(prn.Dimensions.Width / 2 - 168, prn.Dimensions.Height + 10), smallFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
                 'header
                 .AddText("Bank Details", New Point(prn.Dimensions.Width / 2 - 96, prn.Dimensions.Height + 10), largeFont)
                 .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
                               New Point(10, prn.Dimensions.Height + 10), smallFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
                 'please quote
                 .AddText("Please quote account number in all correspondence.", New Point(prn.Dimensions.Width / 2 - 200, _
                                                                                          prn.Dimensions.Height + 10), _

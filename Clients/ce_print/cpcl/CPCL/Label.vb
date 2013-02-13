@@ -77,7 +77,7 @@
     End Sub
 
     Public Sub AddMultiLine(ByVal strVal As String, ByVal Location As Point, ByVal thisFont As PrinterFont, ByVal lineHeight As Integer, Optional ByVal Orientaion As TextOrientation = TextOrientation.normal)
-        Commands.Add(New cp_Multiline(Me, strVal, Location, thisFont, Orientaion, lineHeight))
+        Commands.Add(New cp_Multiline(Me, strVal, Location, thisFont, lineHeight, Orientaion))
     End Sub
 
     Public Sub AddBarcode(ByVal Barcode As String, ByVal Location As Point, ByVal Height As Integer, Optional ByVal Symbol As Symbology = Symbology.CODE39, Optional ByVal Orientaion As TextOrientation = TextOrientation.normal)

@@ -1,0 +1,14 @@
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\btZebra.dll
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\btZebra.pdb
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\btZebra.xml
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\CPCL.dll
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\ZebraBluetoothAdapter.dll
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\ZSDK_API.dll
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\CPCL.pdb
+M:\Clients\ce_print\btZebra\btZebra\bin\Release\CPCL.xml
+M:\Clients\ce_print\btZebra\btZebra\obj\Release\ResolveAssemblyReference.cache
+M:\Clients\ce_print\btZebra\btZebra\obj\Release\btZebra.Resources.resources
+M:\Clients\ce_print\btZebra\btZebra\obj\Release\btZebra.vbproj.GenerateResource.Cache
+M:\Clients\ce_print\btZebra\btZebra\obj\Release\btZebra.dll
+M:\Clients\ce_print\btZebra\btZebra\obj\Release\btZebra.xml
+M:\Clients\ce_print\btZebra\btZebra\obj\Release\btZebra.pdb

@@ -6,7 +6,7 @@ Public Class Receipt
     Private WithEvents prn As New btZebra.LabelPrinter( _
         New Point(300, 300), _
         New Size(576, 0), _
-        "\prnimg\" _
+        "\my documents\prnimg\" _
     )
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
@@ -34,15 +34,16 @@ Public Class Receipt
             Dim custDetails As New ReceiptFormatter(64, _
                                         New FormattedColumn(16, 0, eAlignment.Right), _
                                         New FormattedColumn(48, 16, eAlignment.Left))
+            custDetails.AddRow(" ", " ", " ")
             custDetails.AddRow("Customer:", "C123456")
             custDetails.AddRow("", "Some customer details here")
             custDetails.AddRow("", "TR16 5BU")
 
-            Dim paymentDetails As New ReceiptFormatter(66, _
-                                        New FormattedColumn(22, 0, eAlignment.Center), _
-                                        New FormattedColumn(22, 0, eAlignment.Center), _
-                                        New FormattedColumn(22, 0, eAlignment.Right))
-
+            Dim paymentDetails As New ReceiptFormatter(63, _
+                                        New FormattedColumn(21, 0, eAlignment.Center), _
+                                        New FormattedColumn(21, 21, eAlignment.Center), _
+                                        New FormattedColumn(21, 42, eAlignment.Right))
+            paymentDetails.AddRow(" ", " ", " ")
             paymentDetails.AddRow("04/02/2013 09:07", "Cheque", "£99")
             paymentDetails.AddRow("02/01/2013 16:21", "Cash", "£0.85")
 
@@ -52,7 +53,7 @@ Public Class Receipt
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'header = 334px wide
                 .AddText("RECEIPT", New Point((prn.Dimensions.Width / 2) - 86, prn.Dimensions.Height + 10), _
@@ -60,7 +61,7 @@ Public Class Receipt
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'address
                 .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
@@ -68,7 +69,7 @@ Public Class Receipt
                                              New Point(10, prn.Dimensions.Height + 10), largeFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 'customer details 
                 For Each StrVal In custDetails.FormattedText
@@ -77,7 +78,7 @@ Public Class Receipt
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
 
                 For Each StrVal In paymentDetails.FormattedText
                     .AddText(StrVal, New Point(44, prn.Dimensions.Height), smallFont)
@@ -85,7 +86,7 @@ Public Class Receipt
 
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
 
                 'vat number 
                 Dim vat As String = "V.A.T. No.  131 7759 63"
@@ -96,14 +97,14 @@ Public Class Receipt
                               New Point(prn.Dimensions.Width / 2 - 168, prn.Dimensions.Height + 10), smallFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 2)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 1)
                 'header
                 .AddText("Bank Details", New Point(prn.Dimensions.Width / 2 - 96, prn.Dimensions.Height + 10), largeFont)
                 .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
                               New Point(10, prn.Dimensions.Height + 10), smallFont, 30)
                 'line
                 .AddLine(New Point(10, prn.Dimensions.Height + 10), _
-                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 4)
+                         New Point(prn.Dimensions.Width - 10, prn.Dimensions.Height + 10), 5)
                 'please quote
                 .AddText("Please quote account number in all correspondence.", New Point(prn.Dimensions.Width / 2 - 200, _
                                                                                          prn.Dimensions.Height + 10), _

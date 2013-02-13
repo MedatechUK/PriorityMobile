@@ -17,4 +17,9 @@ M:\Clients\ce_print\printtest\PrintTest\bin\Debug\InTheHand.Net.Personal.dll
 M:\Clients\ce_print\printtest\PrintTest\bin\Debug\CPCL.dll
 M:\Clients\ce_print\printtest\PrintTest\bin\Debug\CPCL.pdb
 M:\Clients\ce_print\printtest\PrintTest\bin\Debug\CPCL.xml
-M:\Clients\ce_print\printtest\PrintTest\bin\Debug\prnimg\roddas.pcx
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.CreditNote.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.DeliveryNote.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.Invoice.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.OrderAcknowledgement.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.Receipt.resources
+M:\Clients\ce_print\printtest\PrintTest\bin\Debug\prnimg\roddas.bmp

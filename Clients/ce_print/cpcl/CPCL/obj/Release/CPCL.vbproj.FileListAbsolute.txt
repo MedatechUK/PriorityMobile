@@ -1,0 +1,9 @@
+M:\Clients\ce_print\cpcl\CPCL\bin\Release\CPCL.dll
+M:\Clients\ce_print\cpcl\CPCL\bin\Release\CPCL.pdb
+M:\Clients\ce_print\cpcl\CPCL\bin\Release\CPCL.xml
+M:\Clients\ce_print\cpcl\CPCL\obj\Release\ResolveAssemblyReference.cache
+M:\Clients\ce_print\cpcl\CPCL\obj\Release\CPCL.Resources.resources
+M:\Clients\ce_print\cpcl\CPCL\obj\Release\CPCL.vbproj.GenerateResource.Cache
+M:\Clients\ce_print\cpcl\CPCL\obj\Release\CPCL.dll
+M:\Clients\ce_print\cpcl\CPCL\obj\Release\CPCL.xml
+M:\Clients\ce_print\cpcl\CPCL\obj\Release\CPCL.pdb
