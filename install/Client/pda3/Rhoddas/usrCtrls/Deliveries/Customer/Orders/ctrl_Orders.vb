@@ -1,4 +1,5 @@
 ﻿Imports PriorityMobile
+Imports System.Xml
 
 Public Class ctrl_Orders
     Inherits iView
@@ -23,6 +24,7 @@ Public Class ctrl_Orders
                 .Sort = "deliverydate"
                 .AddColumn("deliverydate", "Date", 130, True)
                 .AddColumn("ponum", "PO", 130)
+                .AddColumn("value", "Total", 130)
             End With
         End With
 
@@ -127,20 +129,43 @@ Public Class ctrl_Orders
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hShowAddDialog, "add.BMP", True)
+        ToolBar.Add(AddressOf hPrint, "print.BMP", Not ListSort1.SelectedIndex = -1)
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hShowAddDialog()        
+        thisForm.Dialog(New dlgAddOrder)
+    End Sub
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+    Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
 
-    'End Sub
+        Dim DeliveryDate As DateTimePicker = frmDialog.FindControl("DeliveryDate")
+        Dim PONum As TextBox = frmDialog.FindControl("PONum")
+        With thisForm
+            If frmDialog.Result = DialogResult.OK Then
+                Dim Order As XmlNode = .CreateNode(.FormData.SelectSingleNode(.boundxPath).ParentNode, "order")
+                .CreateNode(Order, "deliverydate", DeliveryDate.Value.ToString)
+                .CreateNode(Order, "ponum", PONum.Text)
+                .CreateNode(Order, "value", "0.00")
+                Dim Parts As XmlNode = .CreateNode(Order, "parts")
+                Dim Part As XmlNode = .CreateNode(Parts, "part")
+                .CreateNode(Part, "name", "0")
+                .CreateNode(Part, "barcode", "0")
+                .CreateNode(Part, "des", "0")
+                .CreateNode(Part, "qty", "0")
+                .CreateNode(Part, "unitprice", "0")
+                .Save()                
+                .Bind()
+            End If
+            .RefreshForm()
+        End With
+
+    End Sub
+
+    Private Sub hPrint()
+        MsgBox("Printing...", MsgBoxStyle.OkOnly)
+    End Sub
 
 #End Region
 

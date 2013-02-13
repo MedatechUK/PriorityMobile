@@ -1,7 +1,21 @@
-﻿Imports PriorityMobile
+﻿Imports System.Xml
+Imports PriorityMobile
 
 Public Class ctrl_Home
     Inherits iView
+
+    Private ReadOnly Property MandatoryQuestions() As List(Of Integer)
+        Get
+            Static mq As List(Of Integer)
+            If IsNothing(mq) Then
+                mq = New List(Of Integer)
+                With mq
+                    .Add(8)
+                End With
+            End If
+            Return mq
+        End Get
+    End Property
 
     Private ReadOnly Property VersionString()
         Get
@@ -35,6 +49,24 @@ Public Class ctrl_Home
         Else
             Return ""
         End If
+    End Function
+
+    Public Overrides Function SubFormVisible(ByVal Name As String) As Boolean
+        Dim ret As Boolean = True
+        Select Case Name.ToUpper
+            Case "DELIVERIES"
+                Dim maintainance As XmlNode = thisForm.FormData.SelectSingleNode("pdadata/maintainance")
+                For Each Question As Integer In MandatoryQuestions
+                    Dim Response As XmlNode = maintainance.SelectSingleNode(String.Format("//question[number='{0}']/response", Question.ToString))
+                    With Response
+                        If .SelectSingleNode("text").InnerText.Length = 0 And .SelectSingleNode("value").InnerText.Length = 0 Then
+                            ret = False
+                            Exit For
+                        End If
+                    End With
+                Next
+        End Select
+        Return ret
     End Function
 
 #Region "Direct Activations"

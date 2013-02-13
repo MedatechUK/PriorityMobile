@@ -77,8 +77,11 @@ Public Class ListSort
             Dim ret As String = Nothing
             For Each C As ListSortColumn In _Columns
                 If String.Compare(C.BoundColumn, ColumnName, True) = 0 Then
-                    ret = View.Items(Row).SubItems(i).Text
-                    Exit For
+                    Try
+                        ret = View.Items(Row).SubItems(i).Text
+                        Exit For
+                    Catch
+                    End Try
                 End If
                 i += 1
             Next
@@ -178,19 +181,22 @@ Public Class ListSort
     End Sub
 
     Private Sub ListView_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) _
-        Handles View.SelectedIndexChanged, View.LostFocus
+        Handles View.SelectedIndexChanged, View.LostFocus, View.ItemActivate
         With View
-            If .SelectedIndices.Count = 0 Then Exit Sub
-            RaiseEvent SelectedIndexChanged(.SelectedIndices(0))
+            If .SelectedIndices.Count = 0 Then
+                RaiseEvent SelectedIndexChanged(Nothing)
+            Else
+                RaiseEvent SelectedIndexChanged(.SelectedIndices(0))
+            End If
         End With
     End Sub
 
-    Private Sub View_ItemActivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles View.ItemActivate
-        With View
-            If .SelectedIndices.Count = 0 Then Exit Sub
-            RaiseEvent SelectedIndexChanged(.SelectedIndices(0))
-        End With
-    End Sub
+    'Private Sub View_ItemActivate(ByVal sender As Object, ByVal e As System.EventArgs) Handles View.ItemActivate
+    '    With View
+    '        If .SelectedIndices.Count = 0 Then Exit Sub
+    '        RaiseEvent SelectedIndexChanged(.SelectedIndices(0))
+    '    End With
+    'End Sub
 
 #End Region
 

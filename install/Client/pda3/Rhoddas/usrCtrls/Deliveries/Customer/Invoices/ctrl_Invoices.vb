@@ -130,20 +130,13 @@ Public Class ctrl_Invoices
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hPrint, "print.BMP", Not ListSort1.SelectedIndex = -1)
+    End Sub
 
-    'Private Sub hPlaceCall()
-
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
-
-    'End Sub
+    Private Sub hPrint()
+        MsgBox("Printing...", MsgBoxStyle.OkOnly)
+    End Sub
 
 #End Region
 

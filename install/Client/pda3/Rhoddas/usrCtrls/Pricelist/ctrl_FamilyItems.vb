@@ -1,7 +1,20 @@
-﻿Imports PriorityMobile
+﻿Imports System.Xml
+Imports PriorityMobile
 
 Public Class ctrl_FamilyItems
     Inherits iView
+
+    Private ReadOnly Property HomeForm() As xForm
+        Get
+            Return TopForm("Home").CurrentForm
+        End Get
+    End Property
+
+    Private ReadOnly Property HomeFormView() As iView
+        Get
+            Return HomeForm.Views(HomeForm.CurrentView)
+        End Get
+    End Property
 
 #Region "Initialisation and Finalisation"
 
@@ -129,20 +142,58 @@ Public Class ctrl_FamilyItems
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        With ToolBar            
+            .Add(AddressOf hCalc, "ADD.BMP", CBool(String.Compare(thisForm.FormData.SelectSingleNode(HomeFormView.thisForm.boundxPath).ParentNode.ParentNode.Name, "order", True) = 0) And Not IsNothing(thisForm.TableData.Current))
+        End With
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hCalc()
+        thisForm.Calc(999)
+    End Sub
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+    Public Overrides Sub SetNumber(ByVal MyValue As Integer)
 
-    'End Sub
+        With thisForm
+            Dim parts As XmlNode = .FormData.SelectSingleNode(HomeFormView.thisForm.boundxPath).ParentNode            
+            Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name")))
+            Dim Price As Double = CDbl(.CurrentRow("price"))
+            If IsNothing(OrderPart) Then                
+                GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), MyValue)
+                Dim part As XmlNode = .CreateNode(parts, "part")
+                .CreateNode(part, "name", .CurrentRow("name"))
+                .CreateNode(part, "barcode", .CurrentRow("barcode"))
+                .CreateNode(part, "des", .CurrentRow("des"))
+                .CreateNode(part, "qty", MyValue.ToString)
+                .CreateNode(part, "unitprice", Price)
+            Else
+                GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), CInt(OrderPart.SelectSingleNode("qty").InnerText) + MyValue)
+                OrderPart.SelectSingleNode("qty").InnerText = CInt(OrderPart.SelectSingleNode("qty").InnerText) + MyValue
+                OrderPart.SelectSingleNode("unitprice").InnerText = Price
+            End If
+            .Save()
+            .Bind()
+        End With
+
+        For Each V As iView In HomeForm.Views
+            V.Bind()
+        Next
+        HomeFormView.RefreshData()
+        HomeForm.RefreshForm()
+
+    End Sub
+
+    Sub GetCustomerPrice(ByRef Price As Double, ByVal PriceList As XmlNode, ByVal qty As Integer)
+        With thisForm
+            For Each custPrice As XmlNode In PriceList.SelectNodes(String.Format("parts/part[name='{0}']", .CurrentRow("name")))
+                If qty >= Integer.Parse(custPrice.SelectSingleNode("tquant").InnerText) Then
+                    If CDbl(custPrice.SelectSingleNode("price").InnerText) < Price Then
+                        Price = CDbl(custPrice.SelectSingleNode("price").InnerText)
+                    End If
+                End If
+            Next
+        End With
+    End Sub
 
 #End Region
 

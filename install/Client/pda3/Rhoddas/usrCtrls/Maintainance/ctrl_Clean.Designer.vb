@@ -19,8 +19,26 @@ Partial Public Class ctrl_Clean
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container()
+        Me.Survey = New PriorityMobile.Survey
+        Me.SuspendLayout()
+        '
+        'Survey
+        '
+        Me.Survey.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Survey.Location = New System.Drawing.Point(0, 0)
+        Me.Survey.Name = "Survey"
+        Me.Survey.Size = New System.Drawing.Size(150, 150)
+        Me.Survey.TabIndex = 0
+        '
+        'ctrl_Clean
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.Controls.Add(Me.Survey)
+        Me.Name = "ctrl_Clean"
+        Me.ResumeLayout(False)
+
     End Sub
+    Friend WithEvents Survey As PriorityMobile.Survey
 
 End Class

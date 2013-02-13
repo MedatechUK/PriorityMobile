@@ -1,23 +1,26 @@
-﻿Imports PriorityMobile
+﻿Imports System.Xml
+Imports PriorityMobile
 
 Public Class ctrl_Checks
     Inherits iView
 
     Public Overrides Sub Bind()
-
+        Survey.LoadSurvey(thisForm.FormData.SelectSingleNode(thisForm.thisxPath))
     End Sub
 
-    Public Overrides Sub CurrentChanged()
-
+    Private Sub Survey_NewResponse(ByVal QuestionNumber As Integer, ByVal Value As String, ByVal Text As String) Handles Survey.NewResponse
+        With thisForm
+            With .FormData
+                If Not IsNothing(Text) Then
+                    .SelectSingleNode(String.Format("{0}/question[number='{1}']/response/text", thisForm.thisxPath, QuestionNumber.ToString)).InnerText = Text
+                End If
+                If Not IsNothing(Value) Then
+                    .SelectSingleNode(String.Format("{0}/question[number='{1}']/response/value", thisForm.thisxPath, QuestionNumber.ToString)).InnerText = Value
+                End If
+            End With
+            .Save()
+        End With
     End Sub
-
-    Public Function CRLFifData(ByVal str As String) As String
-        If Len(Trim(str)) > 0 Then
-            Return str & vbCrLf
-        Else
-            Return ""
-        End If
-    End Function
 
 #Region "Direct Activations"
 

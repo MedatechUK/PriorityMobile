@@ -413,6 +413,16 @@ Public Class xForm
         Return xmlForms.UserEnv
     End Function
 
+    Public Function CreateNode(ByRef ParentNode As XmlNode, ByVal NodeName As String, Optional ByVal NodeInnerText As String = Nothing) As XmlNode
+        With ParentNode
+            .AppendChild(xmlForms.FormData.Document.CreateElement(NodeName))
+            If Not IsNothing(NodeInnerText) Then
+                .ChildNodes(.ChildNodes.Count - 1).InnerText = NodeInnerText
+            End If
+            Return .ChildNodes(.ChildNodes.Count - 1)
+        End With
+    End Function
+
 #End Region
 
 #Region "Event Handlers"

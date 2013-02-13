@@ -1,4 +1,5 @@
-﻿Imports PriorityMobile
+﻿Imports System.Xml
+Imports PriorityMobile
 
 Public Class ctrl_InvoiceItems
     Inherits iView
@@ -30,6 +31,32 @@ Public Class ctrl_InvoiceItems
             End With
         End With
 
+    End Sub
+
+    Public Overrides Sub FormClosing()
+        Dim total As Double = 0
+        Dim dr() As Data.DataRow = Nothing
+        Dim query As String = String.Format( _
+                "{0} <> '0'", _
+                ListSort1.Keys(0) _
+                )
+        dr = thisForm.Datasource.Select(query, ListSort1.Sort)
+
+        For Each r As System.Data.DataRow In dr
+            total += CDbl(r.Item("qty")) * CDbl(r.Item("unitprice"))
+        Next
+
+        With thisForm
+            Dim parts As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode
+            parts.ParentNode.SelectSingleNode("total").InnerText = total.ToString
+            .Save()
+            With .Parent
+                .Views(.CurrentView).RefreshData()
+                .RefreshForm()
+            End With
+
+        End With
+        MyBase.FormClosing()
     End Sub
 
 #End Region
@@ -131,20 +158,67 @@ Public Class ctrl_InvoiceItems
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hCredit, "delete.BMP", Not ListSort1.SelectedIndex = -1)
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hCredit()
+        Dim credit As New dlgAddCredit
+        With credit
+            Dim CreditQty As NumericUpDown = .FindControl("CreditQty")
+            With CreditQty
+                .Maximum = Integer.Parse(thisForm.CurrentRow("qty"))
+                .Minimum = 0
+                .Value = 1
+            End With
+            Dim rcvQty As NumericUpDown = .FindControl("rcvQty")
+            With rcvQty
+                .Maximum = 1
+                .Minimum = 0
+                .Value = 0
+            End With
+            Dim PartName As Label = .FindControl("PartName")
+            PartName.Text = thisForm.CurrentRow("name")
+            .FocusContolName = "CreditQty"
+        End With        
+        thisForm.Dialog(credit)
+    End Sub
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+    Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
 
-    'End Sub
+        Dim CreditQty As NumericUpDown = frmDialog.FindControl("CreditQty")
+        Dim rcvQty As NumericUpDown = frmDialog.FindControl("rcvQty")
+        Dim PartName As Label = frmDialog.FindControl("PartName")
+
+        With thisForm
+            If frmDialog.Result = DialogResult.OK Then
+                Dim CreditNote As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.ParentNode.ParentNode.SelectSingleNode("creditnote")
+
+                If IsNothing(CreditNote.SelectSingleNode(String.Format(".//part[name='{0}']", .CurrentRow("name")))) Then
+                    Dim part As XmlNode = .CreateNode(CreditNote.SelectSingleNode("parts"), "part")
+                    .CreateNode(part, "ivnum", .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.SelectSingleNode("ivnum").InnerText)
+                    .CreateNode(part, "ordi", .CurrentRow("ordi"))
+                    .CreateNode(part, "name", .CurrentRow("name"))
+                    .CreateNode(part, "des", .CurrentRow("des"))
+                    .CreateNode(part, "qty", CreditQty.Value.ToString)
+                    .CreateNode(part, "unitprice", .CurrentRow("unitprice"))
+                    .CreateNode(part, "rcvdqty", rcvQty.Value.ToString)
+                Else
+                    Dim part As XmlNode = CreditNote.SelectSingleNode(String.Format(".//part[name='{0}']", .CurrentRow("name")))
+                    part.SelectSingleNode("qty").InnerText = (Integer.Parse(part.SelectSingleNode("qty").InnerText) + CreditQty.Value).ToString
+                    part.SelectSingleNode("rcvdqty").InnerText = (Integer.Parse(part.SelectSingleNode("rcvdqty").InnerText) + rcvQty.Value).ToString
+                End If
+
+                .CurrentRow("qty") = .CurrentRow("qty") - CreditQty.Value.ToString
+                .Save()
+                .Bind()
+
+            End If
+            .RefreshForm()
+        End With
+
+    End Sub
+
 
 #End Region
 

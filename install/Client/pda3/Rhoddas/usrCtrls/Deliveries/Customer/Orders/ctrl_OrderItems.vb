@@ -1,4 +1,5 @@
 ﻿Imports PriorityMobile
+Imports System.Xml
 
 Public Class ctrl_OrderItems
     Inherits iView
@@ -24,11 +25,37 @@ Public Class ctrl_OrderItems
                 .AddColumn("name", "Part", 130, True)
                 .AddColumn("des", "Description", 130)
                 .AddColumn("barcode", "Barcode", 130)
-                .AddColumn("qty", "Barcode", 130)
+                .AddColumn("qty", "Qty", 130)
                 .AddColumn("unitprice", "Price", 130)
             End With
         End With
 
+    End Sub
+
+    Public Overrides Sub FormClosing()
+        Dim total As Double = 0
+        Dim dr() As Data.DataRow = Nothing
+        Dim query As String = String.Format( _
+                "{0} <> '0'", _
+                ListSort1.Keys(0) _
+                )
+        dr = thisForm.Datasource.Select(query, ListSort1.Sort)
+
+        For Each r As System.Data.DataRow In dr
+            total += CDbl(r.Item("qty")) * CDbl(r.Item("unitprice"))
+        Next
+
+        With thisForm
+            Dim parts As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode
+            parts.ParentNode.SelectSingleNode("value").InnerText = total.ToString
+            .Save()
+            With .Parent
+                .Views(.CurrentView).RefreshData()
+                .RefreshForm()
+            End With
+
+        End With
+        MyBase.FormClosing()
     End Sub
 
 #End Region
@@ -130,20 +157,61 @@ Public Class ctrl_OrderItems
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hCalc, "edit.BMP", Not ListSort1.SelectedIndex = -1)
+        ToolBar.Add(AddressOf hDelOrdItem, "DELETE.BMP", Not ListSort1.SelectedIndex = -1)
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hCalc()
+        thisForm.Calc(999)
+    End Sub
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+    Public Overrides Sub SetNumber(ByVal MyValue As Integer)
 
-    'End Sub
+        With thisForm
+            Dim parts As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode
+            Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name")))
+            If Not IsNothing(OrderPart) Then
+                Dim stdpricelist As XmlNode = .FormData.SelectSingleNode(String.Format("pdadata/stdpricelist"))
+                Dim stdPrice As XmlNode = stdpricelist.SelectSingleNode(String.Format(".//part[name='{0}']", .CurrentRow("name")))
+                If Not IsNothing(stdPrice) Then
+                    Dim Price As Double = CDbl(stdPrice.SelectSingleNode("price").InnerText)
+                    GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), MyValue)
+                    OrderPart.SelectSingleNode("qty").InnerText = MyValue
+                    OrderPart.SelectSingleNode("unitprice").InnerText = Price
+                End If
+            End If
+            .Save()
+            .Bind()
+            .RefreshForm()
+        End With
+
+    End Sub
+
+    Sub GetCustomerPrice(ByRef Price As Double, ByVal PriceList As XmlNode, ByVal qty As Integer)
+        With thisForm
+            For Each custPrice As XmlNode In PriceList.SelectNodes(String.Format("parts/part[name='{0}']", .CurrentRow("name")))
+                If qty >= Integer.Parse(custPrice.SelectSingleNode("tquant").InnerText) Then
+                    If CDbl(custPrice.SelectSingleNode("price").InnerText) < Price Then
+                        Price = CDbl(custPrice.SelectSingleNode("price").InnerText)
+                    End If
+                End If
+            Next
+        End With
+    End Sub
+
+    Private Sub hDelOrdItem()
+        With thisForm
+            If MsgBox(String.Format("Delete part [{0}] from this order?", thisForm.CurrentRow("name")), MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                Dim parts As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode
+                Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name")))
+                parts.RemoveChild(OrderPart)
+                .Save()
+                .Bind()
+                .RefreshForm()
+            End If
+        End With
+    End Sub
 
 #End Region
 

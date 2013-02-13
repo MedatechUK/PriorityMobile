@@ -168,6 +168,8 @@
 #Region "Interface Event Handlers"
 
     Private Sub hTopMenuClick(ByVal Button As Integer)
+        Cursor.Current = Cursors.WaitCursor
+
         If Not (xf.ActiveForm = Button) Then
             xf.ActiveForm = Button
             With Active.CurrentForm
@@ -177,32 +179,49 @@
             End With
         End If
         mnu_TopForms.Selected(Button) = True
+        Cursor.Current = Cursors.Default
+
     End Sub
 
     Private Sub hSubMenuClick(ByVal Button As Integer)
+        Cursor.Current = Cursors.WaitCursor
+
         Active.OpenForm(mnu_SubForms.itemText(Button))
         DrawSubMenu()
         DrawForm()
+        Cursor.Current = Cursors.Default
+
     End Sub
 
     Private Sub btn_Up_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Cursor.Current = Cursors.WaitCursor
+
         Active.CloseForm()
         DrawSubMenu()
         DrawForm()
+        Cursor.Current = Cursors.Default
+
     End Sub
 
     Private Sub btn_View_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Cursor.Current = Cursors.WaitCursor
+
         Current.CurrentView += 1
         DrawForm()
+        Cursor.Current = Cursors.Default
+
     End Sub
 
     Private Sub btn_Sync(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Cursor.Current = Cursors.WaitCursor
+
         xf.Sync()
         Current.Bind()
         For Each v As iView In Current.Views
             v.Bind()
         Next
         RaiseEvent SetTaskbar(False)
+        Cursor.Current = Cursors.Default
 
     End Sub
 

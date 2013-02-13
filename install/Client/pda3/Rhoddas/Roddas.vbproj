@@ -82,6 +82,18 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dialogs\dlgAddCredit.Designer.vb">
+      <DependentUpon>dlgAddCredit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\dlgAddCredit.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dialogs\dlgAddOrder.Designer.vb">
+      <DependentUpon>dlgAddOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\dlgAddOrder.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="usrCtrls\ctrl_Home.Designer.vb">
       <DependentUpon>ctrl_Home.vb</DependentUpon>
     </Compile>
@@ -92,12 +104,6 @@
       <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
     </Compile>
     <Compile Include="usrCtrls\ctrl_DataGrid.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="dialogs\dlgAddPlanned.Designer.vb">
-      <DependentUpon>dlgAddPlanned.vb</DependentUpon>
-    </Compile>
-    <Compile Include="dialogs\dlgAddPlanned.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="HostMainView.Designer.vb">
@@ -241,14 +247,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="dialogs\dlgAddCredit.resx">
+      <DependentUpon>dlgAddCredit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\dlgAddOrder.resx">
+      <DependentUpon>dlgAddOrder.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\ctrl_Home.resx">
       <DependentUpon>ctrl_Home.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\ctrl_DataGrid.resx">
       <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="dialogs\dlgAddPlanned.resx">
-      <DependentUpon>dlgAddPlanned.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HostMainView.resx">
       <DependentUpon>HostMainView.vb</DependentUpon>
@@ -301,8 +310,20 @@
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.resx">
       <DependentUpon>ctrl_Orders.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Checks.resx">
+      <DependentUpon>ctrl_Checks.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Clean.resx">
+      <DependentUpon>ctrl_Clean.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Damage.resx">
+      <DependentUpon>ctrl_Damage.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance.resx">
       <DependentUpon>ctrl_Maintainance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Mileage.resx">
+      <DependentUpon>ctrl_Mileage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Pricelist\ctrl_Families.resx">
       <DependentUpon>ctrl_Families.vb</DependentUpon>
@@ -328,6 +349,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icons\close.BMP">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="icons\print.BMP">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icons\edit.bmp">
@@ -384,7 +408,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateFileVersion="True" />
+      <UserProperties BuildVersion_UpdateFileVersion="False" BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

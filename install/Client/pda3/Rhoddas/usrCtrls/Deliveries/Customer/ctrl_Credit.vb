@@ -1,4 +1,5 @@
-﻿Imports PriorityMobile
+﻿Imports System.Xml
+Imports PriorityMobile
 
 Public Class ctrl_Credit
     Inherits iView
@@ -22,6 +23,7 @@ Public Class ctrl_Credit
             With ListSort1
                 .Sort = "name"
                 .AddColumn("ordi", "ordi", 0, True)
+                .AddColumn("ivnum", "Invoice No", 130)
                 .AddColumn("name", "Part", 130)
                 .AddColumn("des", "Description", 130)
                 .AddColumn("qty", "Qty", 130)
@@ -131,20 +133,37 @@ Public Class ctrl_Credit
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hPrint, "print.BMP", ListSort1.Items.Count > 0)
+        ToolBar.Add(AddressOf hDelCredit, "DELETE.BMP", Not ListSort1.SelectedIndex = -1)
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hDelCredit()
+        If MsgBox("Delete this credit?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+            With thisForm
+                Dim iv As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.ParentNode.SelectSingleNode(String.Format("invoices/invoice[ivnum='{0}']", .CurrentRow("ivnum")))
+                Dim part As XmlNode = iv.SelectSingleNode(String.Format("parts/part[name='{0}']", .CurrentRow("name")))
+                part.SelectSingleNode("qty").InnerText = Integer.Parse(part.SelectSingleNode("qty").InnerText) + Integer.Parse(.CurrentRow("qty"))
+                .FormData.SelectSingleNode(.boundxPath).ParentNode.RemoveChild(.FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name"))))
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+                Dim total As Double = 0
+                For Each ivpart As XmlNode In iv.SelectNodes(".//part")
+                    total += CDbl(ivpart.SelectSingleNode("qty").InnerText) * CDbl(ivpart.SelectSingleNode("unitprice").InnerText)
+                Next
 
-    'End Sub
+                iv.SelectSingleNode("total").InnerText = total.ToString
+
+                .Save()
+                .Bind()
+                .RefreshForm()
+            End With
+        End If
+
+    End Sub
+
+    Private Sub hPrint()
+        MsgBox("Printing...", MsgBoxStyle.OkOnly)
+    End Sub
 
 #End Region
 

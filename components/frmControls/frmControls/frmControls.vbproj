@@ -110,6 +110,36 @@
     <Compile Include="Sign.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="SurveyCtrls\BoolQuestion.Designer.vb">
+      <DependentUpon>BoolQuestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyCtrls\BoolQuestion.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyCtrls\ChooseQuestion.Designer.vb">
+      <DependentUpon>ChooseQuestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyCtrls\ChooseQuestion.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyCtrls\QuestionBase.Designer.vb">
+      <DependentUpon>QuestionBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyCtrls\QuestionBase.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Survey.Designer.vb">
+      <DependentUpon>Survey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Survey.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SurveyCtrls\TextQuestion.Designer.vb">
+      <DependentUpon>TextQuestion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SurveyCtrls\TextQuestion.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="calc.resx">
@@ -128,6 +158,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sign.resx">
       <DependentUpon>Sign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurveyCtrls\BoolQuestion.resx">
+      <DependentUpon>BoolQuestion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SurveyCtrls\QuestionBase.resx">
+      <DependentUpon>QuestionBase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Survey.resx">
+      <DependentUpon>Survey.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
