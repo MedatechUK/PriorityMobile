@@ -75,6 +75,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cpControls\cp_Country.vb" />
     <Compile Include="cpControls\cp_Multiline.vb" />
     <Compile Include="cpControls\cp_image.vb" />
     <Compile Include="cpControls\cp_Line.vb" />
