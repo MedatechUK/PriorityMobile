@@ -8,7 +8,7 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
-        defaultItem = New SlideMenuItem("I", _FontFace, _ForeColour, _BackColour)
+        'defaultItem = New SlideMenuItem("I", _FontFace, _ForeColour, _BackColour)
     End Sub
 
     Private Sub SlideMenu_Disposed(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Disposed
@@ -19,7 +19,7 @@
 
 #Region "Private Variables"
 
-    Private defaultItem As SlideMenuItem
+    'Private defaultItem As SlideMenuItem
     Private MenuWidth As Integer = 0
     Private _image As Image
     Private _ItemImage As Graphics
@@ -45,7 +45,7 @@
         End Get
         Set(ByVal value As Font)
             _FontFace = value
-            defaultItem = New SlideMenuItem("I", _FontFace, _ForeColour, _BackColour)
+            'defaultItem = New SlideMenuItem("I", _FontFace, _ForeColour, _BackColour)
         End Set
     End Property
 
@@ -74,7 +74,7 @@
             If Not IsNothing(_image) Then
                 Return _image.Height
             Else
-                Return defaultItem.iSize.Height
+                Return MeasureString("I", _FontFace).Height
             End If
         End Get
     End Property
@@ -117,9 +117,9 @@
     Public Sub MakeImage()
 
         If MenuWidth < Me.Width Then
-            _image = New Bitmap(Me.Width, defaultItem.iSize.Height)
+            _image = New Bitmap(Me.Width, MeasureString("I", _FontFace).Height + 4)
         Else
-            _image = New Bitmap(MenuWidth, defaultItem.iSize.Height)
+            _image = New Bitmap(MenuWidth, MeasureString("I", _FontFace).Height + 4)
         End If
 
         _ItemImage = Graphics.FromImage(_image)

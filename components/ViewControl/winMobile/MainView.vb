@@ -1,5 +1,7 @@
 ﻿Public Class MainView
 
+    Private hConnectPrinter As CPCL.PrinterConnectionHandler = Nothing
+
 #Region "Public Declarations"
 
     Public ue As UserEnv
@@ -86,13 +88,27 @@
 
     Private Sub DrawForm() Handles xf.DrawForm
         With Me
+            With .mnu_TopForms
+                .Height = .Internalheight
+            End With
+
+            Try
+                RemoveHandler prn.connectionEstablished, hConnectPrinter
+            Catch
+            Finally
+                hConnectPrinter = AddressOf Current.Views(Current.CurrentView).PrintForm
+                AddHandler prn.connectionEstablished, hConnectPrinter
+            End Try
+
             With .ContentPanel
+
                 With .Controls
                     .Clear()
                     .Add(Current.Views(Current.CurrentView))
                 End With
                 .Controls(.Controls.Count - 1).Dock = DockStyle.Fill
                 Current.Views(Current.CurrentView).SetFocus()
+
             End With
             RaiseEvent SetForm()
         End With
@@ -101,6 +117,7 @@
     Private Sub DrawSubMenu() Handles xf.DrawSubMenu
         With Me
             With .mnu_SubForms
+
                 .Clear()
                 .Font = New Font("Microsoft Sans Serif", 10, FontStyle.Bold)
                 .ForeColor = Color.FromArgb(0, 0, 255)
@@ -112,6 +129,7 @@
                 .MakeImage()
                 RemoveHandler .ItemClick, AddressOf hSubMenuClick
                 AddHandler .ItemClick, AddressOf hSubMenuClick
+
             End With
         End With
     End Sub
@@ -119,9 +137,10 @@
     Private Sub DrawDirectActivations() Handles xf.DrawDirectActivations
 
         With ToolStrip
+
             .Clear()
             .Add(AddressOf btn_Up_Click, "UP1LVL.BMP", Not IsNothing(Current.Parent))
-            .Add(AddressOf btn_View_Click, Active.CurrentForm.NextViewButton, CBool(Current.Views.Count > 1))            
+            .Add(AddressOf btn_View_Click, Active.CurrentForm.NextViewButton, CBool(Current.Views.Count > 1))
             .Add()
             Active.CurrentForm.Views(Active.CurrentForm.CurrentView).DirectActivations(ToolStrip)
             .Add()
@@ -129,6 +148,7 @@
             .Add()
             .Add(AddressOf btn_Close, "close.BMP", IsNothing(Current.Parent))
             .MakeImage()
+
         End With
 
     End Sub

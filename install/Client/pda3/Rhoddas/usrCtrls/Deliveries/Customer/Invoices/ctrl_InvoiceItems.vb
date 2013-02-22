@@ -156,15 +156,53 @@ Public Class ctrl_InvoiceItems
 
 #End Region
 
+#Region "XML lookups"
+
+    Private ReadOnly Property Customer() As XmlNode
+        Get
+            With thisForm
+                Return .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.ParentNode.ParentNode
+            End With
+        End Get
+    End Property
+
+    Private ReadOnly Property HasOpenOrder() As Boolean
+        Get
+            Return Customer.SelectNodes("./orders/order[deliverydate != '0']").Count > 0
+        End Get
+    End Property
+
+    Private ReadOnly Property OpenOrder() As XmlNode
+        Get
+            Return Customer.SelectSingleNode("./orders").LastChild
+        End Get
+    End Property
+
+#End Region
+
 #Region "Direct Activations"
 
     Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hReorder, "COPY.BMP", Not ListSort1.SelectedIndex = -1)
         ToolBar.Add(AddressOf hCredit, "delete.BMP", Not ListSort1.SelectedIndex = -1)
+    End Sub
+
+    Private Sub hReorder()
+        If Not HasOpenOrder Then
+            Dim dlg As New dlgAddOrder
+            dlg.Name = "Order"
+            Dim dt As DateTimePicker = dlg.FindControl("DeliveryDate")
+            dt.Value = Now
+            thisForm.Dialog(dlg)
+        Else
+            thisForm.Calc(999)
+        End If
     End Sub
 
     Private Sub hCredit()
         Dim credit As New dlgAddCredit
         With credit
+            .Name = "Credit"
             Dim CreditQty As NumericUpDown = .FindControl("CreditQty")
             With CreditQty
                 .Maximum = Integer.Parse(thisForm.CurrentRow("qty"))
@@ -179,46 +217,87 @@ Public Class ctrl_InvoiceItems
             End With
             Dim PartName As Label = .FindControl("PartName")
             PartName.Text = thisForm.CurrentRow("name")
+            Dim CreditReason As ComboBox = .FindControl("CreditReason")
+            With CreditReason
+                With .Items
+                    .Clear()
+                    .Add("Please Select")
+                    For Each reason As XmlNode In thisForm.FormData.SelectSingleNode("pdadata/reasons/credit").SelectNodes(".//reason")
+                        .Add(reason.InnerText)
+                    Next
+                End With
+                .SelectedIndex = 0
+            End With
             .FocusContolName = "CreditQty"
-        End With        
+        End With
         thisForm.Dialog(credit)
     End Sub
 
     Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+        Select Case frmDialog.Name
+            Case "Credit"
+                CloseCreditDialog(frmDialog)
+            Case "Order"
+                CloseOrderDialog(frmDialog)
+        End Select
+    End Sub
+
+    Private Sub CloseCreditDialog(ByVal frmDialog As PriorityMobile.UserDialog)
 
         Dim CreditQty As NumericUpDown = frmDialog.FindControl("CreditQty")
         Dim rcvQty As NumericUpDown = frmDialog.FindControl("rcvQty")
         Dim PartName As Label = frmDialog.FindControl("PartName")
+        Dim CreditReason As ComboBox = frmDialog.FindControl("CreditReason")
 
         With thisForm
             If frmDialog.Result = DialogResult.OK Then
                 Dim CreditNote As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.ParentNode.ParentNode.SelectSingleNode("creditnote")
-
-                If IsNothing(CreditNote.SelectSingleNode(String.Format(".//part[name='{0}']", .CurrentRow("name")))) Then
-                    Dim part As XmlNode = .CreateNode(CreditNote.SelectSingleNode("parts"), "part")
-                    .CreateNode(part, "ivnum", .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.SelectSingleNode("ivnum").InnerText)
-                    .CreateNode(part, "ordi", .CurrentRow("ordi"))
-                    .CreateNode(part, "name", .CurrentRow("name"))
-                    .CreateNode(part, "des", .CurrentRow("des"))
-                    .CreateNode(part, "qty", CreditQty.Value.ToString)
-                    .CreateNode(part, "unitprice", .CurrentRow("unitprice"))
-                    .CreateNode(part, "rcvdqty", rcvQty.Value.ToString)
-                Else
-                    Dim part As XmlNode = CreditNote.SelectSingleNode(String.Format(".//part[name='{0}']", .CurrentRow("name")))
-                    part.SelectSingleNode("qty").InnerText = (Integer.Parse(part.SelectSingleNode("qty").InnerText) + CreditQty.Value).ToString
-                    part.SelectSingleNode("rcvdqty").InnerText = (Integer.Parse(part.SelectSingleNode("rcvdqty").InnerText) + rcvQty.Value).ToString
-                End If
-
-                .CurrentRow("qty") = .CurrentRow("qty") - CreditQty.Value.ToString
-                .Save()
-                .Bind()
-
+                With thisForm
+                    AddCreditNote( _
+                        thisForm, _
+                        CreditNote, _
+                        CreditQty.Value.ToString, _
+                        .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.SelectSingleNode("ivnum").InnerText, _
+                        .CurrentRow("name"), _
+                        .CurrentRow("des"), _
+                        CreditQty.Value.ToString, _
+                        .CurrentRow("unitprice"), _
+                        rcvQty.Value.ToString, _
+                        CreditReason.SelectedItem _
+                     )
+                    .CurrentRow("qty") = .CurrentRow("qty") - CreditQty.Value.ToString
+                    .Bind()
+                End With
             End If
             .RefreshForm()
         End With
 
     End Sub
 
+    Private Sub CloseOrderDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+
+        Dim DeliveryDate As DateTimePicker = frmDialog.FindControl("DeliveryDate")
+        Dim PONum As TextBox = frmDialog.FindControl("PONum")
+        With thisForm
+            If frmDialog.Result = DialogResult.OK Then
+                Dim orders As XmlNode = Customer.SelectSingleNode("orders")
+                AddOrder(thisForm, orders, .DateToInt8(DeliveryDate.Value), PONum.Text)
+                .Bind()
+            End If
+            .RefreshForm()
+            If frmDialog.Result = DialogResult.OK Then .Calc(999)
+        End With
+
+    End Sub
+
+    Public Overrides Sub SetNumber(ByVal MyValue As Integer)
+
+        With thisForm
+            AddOrderItem(thisForm, OpenOrder, .CurrentRow("name"), .CurrentRow("barcode"), .CurrentRow("des"), MyValue.ToString)
+            .RefreshForm()
+        End With
+
+    End Sub
 
 #End Region
 

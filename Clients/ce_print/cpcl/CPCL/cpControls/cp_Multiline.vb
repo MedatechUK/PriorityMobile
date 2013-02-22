@@ -14,7 +14,13 @@
         _FontSize = thisFont.Fontsize
         _lineHeight = lineHeight
         _Orientation = Orientaion
-        changeHeight(sender, Location.Y + thisFont.VerticalOffset)
+        Dim lines As Integer = 0
+        For Each c As Char In strVal
+            If c = Chr(10) Then
+                lines += 1
+            End If
+        Next
+        changeHeight(sender, Location.Y + ((lines + 1) * thisFont.VerticalOffset))
     End Sub
 
     Public Overrides ReadOnly Property tostring() As String
@@ -30,7 +36,7 @@
             End Select
 
             Return String.Format( _
-                "ML {0}{1}{2} {3} {4} {5} {6} {7}{8}ENDML{9}", _
+                "ML {0}{1}{2} {3} {4} {5} {6}{7}{8}ENDML{9}", _
                 _lineHeight, _
                 vbCrLf, _
                 cmd, _

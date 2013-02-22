@@ -197,6 +197,22 @@ Public Class xmlForms
         End Get
     End Property
 
+    Public Property Printer() As CPCL.LabelPrinter
+        Get
+            Return prn
+        End Get
+        Set(ByVal value As CPCL.LabelPrinter)
+            prn = value
+            If File.Exists(UserEnv.LocalFolder & "\prnmac.txt") Then
+                Using sr As New StreamReader(UserEnv.LocalFolder & "\prnmac.txt")
+                    prnmac = sr.ReadToEnd
+                End Using
+            Else
+                prnmac = Nothing
+            End If
+        End Set
+    End Property
+
 #End Region
 
 #Region "Public Methods"

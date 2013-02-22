@@ -114,50 +114,52 @@ Public Class Survey
     Private Sub Survey_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
 
         If SurveryQuestions.Count = 0 Then Exit Sub
+        Try
+            Dim y As Integer = 0
+            Dim uRECT As RECT
+            Dim objGraphics As Graphics = Me.CreateGraphics
+            Dim hDc As IntPtr = objGraphics.GetHdc
+            Dim hFont As IntPtr = SurveryQuestions(0).QuestionText.Font.ToHfont
+            Dim hFontOld As IntPtr = SelectObject(hDc, hFont)
+            Dim lFormat As Integer = DT_CALCRECT Or DT_WORDBREAK Or DT_TOP
 
-        Dim y As Integer = 0
-        Dim uRECT As RECT
-        Dim objGraphics As Graphics = Me.CreateGraphics
-        Dim hDc As IntPtr = objGraphics.GetHdc
-        Dim hFont As IntPtr = SurveryQuestions(0).QuestionText.Font.ToHfont
-        Dim hFontOld As IntPtr = SelectObject(hDc, hFont)
-        Dim lFormat As Integer = DT_CALCRECT Or DT_WORDBREAK Or DT_TOP
-
-        For Each Question As QuestionBase In SurveryQuestions
-            With Question
-                .Top = y - Me.AutoScrollPosition.Y
-                .Left = 1
-                .Width = Me.Width - 30
-
-                With .QuestionText
-                    .Top = 1
-                    .Left = 1
-                    .Width = Me.Width - 2
-                    uRECT.Right = .Width
-                    uRECT.Bottom = .Height
-                    Try
-                        If DrawText(hDc, .Text, -1, uRECT, lFormat) <> 0 Then ' Success
-                            .Height = uRECT.Bottom
-                        End If
-                    Catch
-                    End Try
-                End With
-
-                With .ResponsePanel
+            For Each Question As QuestionBase In SurveryQuestions
+                With Question
+                    .Top = y - Me.AutoScrollPosition.Y
                     .Left = 1
                     .Width = Me.Width - 30
-                    .Top = Question.QuestionText.Top + Question.QuestionText.Height
+
+                    With .QuestionText
+                        .Top = 1
+                        .Left = 1
+                        .Width = Me.Width - 2
+                        uRECT.Right = .Width
+                        uRECT.Bottom = .Height
+                        Try
+                            If DrawText(hDc, .Text, -1, uRECT, lFormat) <> 0 Then ' Success
+                                .Height = uRECT.Bottom
+                            End If
+                        Catch
+                        End Try
+                    End With
+
+                    With .ResponsePanel
+                        .Left = 1
+                        .Width = Me.Width - 30
+                        .Top = Question.QuestionText.Top + Question.QuestionText.Height
+                    End With
+
+                    .Height = .ResponsePanel.Top + .ResponsePanel.Height + 2
+                    y += .Height + 5
+
                 End With
-
-                .Height = .ResponsePanel.Top + .ResponsePanel.Height + 2
-                y += .Height + 5
-
-            End With
-        Next
-        Try
-            SelectObject(hDc, hFontOld)
-            DeleteObject(hFont)
-            objGraphics.Dispose()
+            Next
+            Try
+                SelectObject(hDc, hFontOld)
+                DeleteObject(hFont)
+                objGraphics.Dispose()
+            Catch
+            End Try
         Catch
         End Try
     End Sub

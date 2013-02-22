@@ -28,4 +28,13 @@
         End With
     End Sub
 
+    Private Sub CreditReason_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CreditReason.SelectedIndexChanged
+        Select Case CreditReason.SelectedIndex
+            Case 0
+                Me.btnOK.Enabled = False
+            Case Else
+                Me.btnOK.Enabled = True
+        End Select
+    End Sub
+
 End Class

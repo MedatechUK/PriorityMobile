@@ -1,4 +1,5 @@
 ﻿Imports System.Xml
+Imports System.IO
 
 Public Class xForm
 
@@ -422,6 +423,51 @@ Public Class xForm
             Return .ChildNodes(.ChildNodes.Count - 1)
         End With
     End Function
+
+    Public Function DateFromInt(ByVal IntDate As Integer) As Date
+        Return DateAdd(DateInterval.Minute, IntDate, New Date(1988, 1, 1))
+    End Function
+
+    Public Overloads Function DateToInt(ByVal thisDate As Date) As Integer
+        Return DateDiff(DateInterval.Minute, #1/1/1988#, thisDate)
+    End Function
+
+    Public Overloads Function DateToInt()
+        Return DateDiff(DateInterval.Minute, #1/1/1988#, Now)
+    End Function
+
+    Public Overloads Function DateToInt8(ByVal thisDate As Date) As Integer
+        Return DateDiff(DateInterval.Minute, #1/1/1988#, New Date(thisDate.Year, thisDate.Month, thisDate.Day))
+    End Function
+
+    Public Overloads Function DateToInt8() As Integer
+        Return DateDiff(DateInterval.Minute, #1/1/1988#, New Date(Now.Year, Now.Month, Now.Day))
+    End Function
+
+    Public Function NowTimeToMin()
+        Return DateDiff(DateInterval.Minute, New Date(Now.Year, Now.Month, Now.Day), Now)
+    End Function
+
+    Public Function Printer() As CPCL.LabelPrinter
+        Return prn
+    End Function
+
+    Public Property MACAddress() As String
+        Get
+            Return prnmac
+        End Get
+        Set(ByVal value As String)
+            prnmac = value
+            Dim f As String = xmlForms.UserEnv.LocalFolder & "\prnmac.txt"
+            While File.Exists(f)
+                File.Delete(f)
+                System.Threading.Thread.Sleep(100)
+            End While
+            Using sr As New StreamWriter(f)
+                sr.Write(value)
+            End Using
+        End Set
+    End Property
 
 #End Region
 

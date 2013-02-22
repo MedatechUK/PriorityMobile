@@ -2,6 +2,15 @@
 
 Public Class ListSort
 
+    Private Enum KeyData
+        talk = 230
+        up = 38
+        down = 40
+        left = 37
+        right = 39
+        enter = 13
+    End Enum
+
 #Region "Local Variables"
 
     Private _Columns As New List(Of ListSortColumn)
@@ -173,13 +182,6 @@ Public Class ListSort
         RaiseEvent ItemSelect()
     End Sub
 
-    Private Sub ListView_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles View.KeyPress
-        Select Case e.KeyChar
-            Case Chr(13)
-                RaiseEvent ItemSelect()
-        End Select
-    End Sub
-
     Private Sub ListView_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) _
         Handles View.SelectedIndexChanged, View.LostFocus, View.ItemActivate
         With View
@@ -199,5 +201,45 @@ Public Class ListSort
     'End Sub
 
 #End Region
+
+    Private Sub View_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles View.KeyDown
+
+        Select Case e.KeyData
+            Case KeyData.talk, KeyData.enter
+                e.Handled = True
+                RaiseEvent ItemSelect()
+
+            Case KeyData.left, KeyData.up
+                e.Handled = True
+                With Me.View
+                    If Me.SelectedIndex = -1 Then
+                        .Items(.Items.Count - 1).Selected = True
+                    Else
+                        If .SelectedIndices(0) = 0 Then
+                            .Items(.Items.Count - 1).Selected = True
+                        Else
+                            .Items(Me.SelectedIndex - 1).Selected = True
+                        End If
+                    End If
+                    RaiseEvent SelectedIndexChanged(.SelectedIndices(0))
+                End With
+
+            Case KeyData.right, KeyData.down
+                e.Handled = True
+                With Me.View
+                    If Me.SelectedIndex = -1 Then
+                        .Items(0).Selected = True
+                    Else
+                        If .SelectedIndices(0) = .Items.Count - 1 Then
+                            .Items(0).Selected = True
+                        Else
+                            .Items(Me.SelectedIndex + 1).Selected = True
+                        End If
+                    End If
+                    RaiseEvent SelectedIndexChanged(.SelectedIndices(0))
+                End With
+
+        End Select
+    End Sub
 
 End Class

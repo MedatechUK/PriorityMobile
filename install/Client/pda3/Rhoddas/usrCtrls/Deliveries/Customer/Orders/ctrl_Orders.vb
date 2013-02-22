@@ -1,5 +1,6 @@
-﻿Imports PriorityMobile
-Imports System.Xml
+﻿Imports System.Xml
+Imports PriorityMobile
+Imports CPCL
 
 Public Class ctrl_Orders
     Inherits iView
@@ -134,8 +135,11 @@ Public Class ctrl_Orders
         ToolBar.Add(AddressOf hPrint, "print.BMP", Not ListSort1.SelectedIndex = -1)
     End Sub
 
-    Private Sub hShowAddDialog()        
-        thisForm.Dialog(New dlgAddOrder)
+    Private Sub hShowAddDialog()
+        Dim dlg As New dlgAddOrder
+        Dim dt As DateTimePicker = dlg.FindControl("DeliveryDate")
+        dt.Value = Now
+        thisForm.Dialog(dlg)
     End Sub
 
     Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
@@ -143,19 +147,8 @@ Public Class ctrl_Orders
         Dim DeliveryDate As DateTimePicker = frmDialog.FindControl("DeliveryDate")
         Dim PONum As TextBox = frmDialog.FindControl("PONum")
         With thisForm
-            If frmDialog.Result = DialogResult.OK Then
-                Dim Order As XmlNode = .CreateNode(.FormData.SelectSingleNode(.boundxPath).ParentNode, "order")
-                .CreateNode(Order, "deliverydate", DeliveryDate.Value.ToString)
-                .CreateNode(Order, "ponum", PONum.Text)
-                .CreateNode(Order, "value", "0.00")
-                Dim Parts As XmlNode = .CreateNode(Order, "parts")
-                Dim Part As XmlNode = .CreateNode(Parts, "part")
-                .CreateNode(Part, "name", "0")
-                .CreateNode(Part, "barcode", "0")
-                .CreateNode(Part, "des", "0")
-                .CreateNode(Part, "qty", "0")
-                .CreateNode(Part, "unitprice", "0")
-                .Save()                
+            If frmDialog.Result = DialogResult.OK Then                
+                AddOrder(thisForm, .FormData.SelectSingleNode(.boundxPath).ParentNode, .DateToInt8(DeliveryDate.Value), PONum.Text)
                 .Bind()
             End If
             .RefreshForm()
@@ -164,7 +157,141 @@ Public Class ctrl_Orders
     End Sub
 
     Private Sub hPrint()
-        MsgBox("Printing...", MsgBoxStyle.OkOnly)
+        With thisForm.Printer
+            If Not .Connected Then
+                .BeginConnect(thisForm.MACAddress)
+            Else
+                PrintForm()
+            End If
+        End With
+    End Sub
+
+    Public Overrides Sub PrintForm()
+
+        Dim headerFont As New PrinterFont(50, 5, 2) 'variable width. 
+        Dim largeFont As New PrinterFont(30, 0, 3)
+        Dim smallFont As New PrinterFont(35, 0, 2)
+
+        Using lblOrderAcknowledgement As New Label(thisForm.Printer, eLabelStyle.receipt)
+
+            'first receipt formatter
+            'taking margins into account the receipt is 556px wide. At size 2, char width is 8px. 
+
+            Dim docHead As New ReceiptFormatter(63, _
+                                                New FormattedColumn(21, 0, eAlignment.Center), _
+                                                New FormattedColumn(21, 21, eAlignment.Center), _
+                                                New FormattedColumn(21, 42, eAlignment.Center))
+            docHead.AddRow("Number", "Date", "Time")
+            docHead.AddRow("593151", "29/01/13", "11:51:22")
+
+            Dim custDetails As New ReceiptFormatter(64, _
+                                                    New FormattedColumn(13, 0, eAlignment.Right), _
+                                                    New FormattedColumn(48, 16, eAlignment.Left))
+            custDetails.AddRow("Customer:", "C123456")
+            custDetails.AddRow("", "Some customer details here")
+            custDetails.AddRow("", "TR16 5BU")
+
+            Dim partsList As New ReceiptFormatter(64, _
+                                                  New FormattedColumn(3, 0, eAlignment.Right), _
+                                                  New FormattedColumn(49, 4, eAlignment.Left), _
+                                                  New FormattedColumn(8, 54, eAlignment.Left))
+            partsList.AddRow("No", "Description:", "Code:")
+            partsList.AddRow("6", "Green 2lt Semi-Skim Milk", "03324")
+
+
+            With lblOrderAcknowledgement
+                'logo
+                .AddImage("roddas.pcx", New Point(186, thisForm.Printer.Dimensions.Height + 10), 147)
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10, 15)
+
+                'header = 334px wide
+                .AddText("ORDER", New Point((thisForm.Printer.Dimensions.Width / 2) - 71, thisForm.Printer.Dimensions.Height + 10), _
+                         headerFont)
+                .AddText("ACKNOWLEDGEMENT", New Point((thisForm.Printer.Dimensions.Width / 2) - 222, thisForm.Printer.Dimensions.Height + 10), _
+                         headerFont)
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
+
+                'address
+                .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
+                                & vbCrLf & "Redruth" & vbCrLf & "Cornwall" & vbCrLf & "TR165BU", _
+                                             New Point(10, thisForm.Printer.Dimensions.Height + 10), largeFont, 30)
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+
+                'document header 
+                For Each StrVal In docHead.FormattedText
+                    .AddText(StrVal, New Point(14, thisForm.Printer.Dimensions.Height), smallFont)
+                Next
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+
+                'customer details 
+                For Each StrVal In custDetails.FormattedText
+                    .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
+                Next
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+
+                'itemised parts list. 
+                For Each StrVal In partsList.FormattedText
+                    .AddText(StrVal, New Point(14, thisForm.Printer.Dimensions.Height), smallFont)
+                Next
+
+                'vat waffle
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
+
+                'itemisation
+                Dim totals As String = " ( 1 lines 6 units ) " 'this will, of course, be calculated.
+                .AddText(totals, New Point((thisForm.Printer.Dimensions.Width / 2 - (totals.Length / 2) * 16), _
+                                           thisForm.Printer.Dimensions.Height + 10), largeFont)
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 20), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 20), 5)
+
+                'vat number 
+                Dim vat As String = "V.A.T. No.  131 7759 63"
+                .AddText(vat, New Point((thisForm.Printer.Dimensions.Width / 2 - (vat.Length / 2) * 16), _
+                                           thisForm.Printer.Dimensions.Height + 10), largeFont)
+
+                .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
+                              New Point(thisForm.Printer.Dimensions.Width / 2 - 168, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
+                'header
+                .AddText("Bank Details", New Point(thisForm.Printer.Dimensions.Width / 2 - 96, thisForm.Printer.Dimensions.Height + 10), largeFont)
+                .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
+                              New Point(10, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
+                'please quote
+                .AddText("Please quote account number in all correspondence.", New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                                                                                         thisForm.Printer.Dimensions.Height + 10), _
+                                                                                         smallFont)
+
+                'tear 'n' print!
+                .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
+                thisForm.Printer.Print(.toByte)
+
+
+            End With
+        End Using
     End Sub
 
 #End Region

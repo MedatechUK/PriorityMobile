@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="daToolbarItem.vb" />
     <Compile Include="daToolbarItemStyle.vb" />
+    <Compile Include="SharedGraphics.vb" />
     <Compile Include="SlideMenu.designer.vb">
       <DependentUpon>SlideMenu.vb</DependentUpon>
     </Compile>

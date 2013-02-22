@@ -61,6 +61,11 @@ Public Class HostMainView
                     Nothing, _
                     Nothing _
                 )
+                .xf.Printer = New btZebra.LabelPrinter( _
+                    New Point(300, 300), _
+                    New Size(576, 0), _
+                    .ue.AppPath & "\prnimg\" _
+                )
                 .LoadViews()
             End With
 
@@ -186,9 +191,5 @@ Public Class HostMainView
     End Sub
 
 #End Region
-
-    Private Sub HostMainView_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
-        'Me.MainView.Height = Screen.PrimaryScreen.WorkingArea.Height
-    End Sub
 
 End Class

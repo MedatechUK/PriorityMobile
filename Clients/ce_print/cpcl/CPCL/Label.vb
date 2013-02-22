@@ -64,8 +64,12 @@
 
 #Region "CP Object Instantiation Methods"
 
-    Public Sub AddLine(ByVal TopLeft As Point, ByVal BottomRight As Point, Optional ByVal Thickness As Integer = 1)
-        Commands.Add(New cp_Box(Me, TopLeft, BottomRight, Thickness))
+    Public Sub CharSet(Optional ByVal country As eCountry = eCountry.CP850)
+        Commands.Add(New cp_Country(country))
+    End Sub
+
+    Public Sub AddLine(ByVal TopLeft As Point, ByVal BottomRight As Point, Optional ByVal Thickness As Integer = 1, Optional ByVal leading As Integer = 20)
+        Commands.Add(New cp_Line(Me, TopLeft, BottomRight, Thickness, leading))
     End Sub
 
     Public Sub AddBox(ByVal TopLeft As Point, ByVal BottomRight As Point, Optional ByVal Thickness As Integer = 1)
@@ -73,7 +77,7 @@
     End Sub
 
     Public Sub AddText(ByVal strVal As String, ByVal Location As Point, ByVal thisFont As PrinterFont, Optional ByVal Orientaion As TextOrientation = TextOrientation.normal)
-        Commands.Add(New cp_Text(Me, strVal, Location, thisfont, Orientaion))
+        Commands.Add(New cp_Text(Me, strVal, Location, thisFont, Orientaion))
     End Sub
 
     Public Sub AddMultiLine(ByVal strVal As String, ByVal Location As Point, ByVal thisFont As PrinterFont, ByVal lineHeight As Integer, Optional ByVal Orientaion As TextOrientation = TextOrientation.normal)
@@ -88,7 +92,7 @@
         Commands.Add(New cp_image(Me, Filename, location, Height))
     End Sub
 
-    Public Sub AddTearArea(ByVal location As Point, Optional ByVal Height As Integer = 100)
+    Public Sub AddTearArea(ByVal location As Point, Optional ByVal Height As Integer = 75)
         Commands.Add(New cp_TearArea(Me, location, Height))
     End Sub
 

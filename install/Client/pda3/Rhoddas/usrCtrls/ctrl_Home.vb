@@ -1,4 +1,5 @@
 ﻿Imports System.Xml
+Imports CPCL
 Imports PriorityMobile
 
 Public Class ctrl_Home
@@ -33,8 +34,7 @@ Public Class ctrl_Home
                 .vehiclereg.DataBindings.Add("Text", thisForm.TableData, "vehiclereg")
                 .User.Text = thisForm.thisUserEnv.User
                 .Version.Text = VersionString
-            Catch ex As Exception
-                MsgBox(ex.Message)
+            Catch 
             End Try
         End With
     End Sub
@@ -71,20 +71,65 @@ Public Class ctrl_Home
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hPrintSetup, "print.BMP", Not thisForm.Printer.Connected)
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hPrintSetup()
+        If thisForm.Printer.Connected Then
+            MsgBox("Printer is connected.")
+            Exit Sub
+        End If
+        With thisForm
+            Dim dlg As New dlgPRNSetup
+            Dim MacAddress As TextBox = dlg.FindControl("MACAddress")
+            MacAddress.Text = .MACAddress
+            dlg.FocusContolName = "MACAddress"
+            .Dialog(dlg)
+        End With
+    End Sub
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+    Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+        If frmDialog.Result = DialogResult.OK Then
+            Dim MacAddress As TextBox = frmDialog.FindControl("MACAddress")            
+            With thisForm
+                .MACAddress = MacAddress.Text
+                With .Printer()                    
+                    .BeginConnect(thisForm.MACAddress)
+                End With
+            End With
+        End If
+        thisForm.RefreshForm()
+    End Sub
 
-    'End Sub
+    Public Overrides Sub PrintForm()
+        Dim headerFont As New PrinterFont(50, 5, 2) 'variable width. 
+
+        Using TestPrint As New Label(thisForm.Printer, eLabelStyle.receipt)
+            With TestPrint
+                'logo
+                .AddImage("roddas.pcx", New Point(186, thisForm.Printer.Dimensions.Height + 10), 147)
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10, 15)
+
+                'header = 334px wide
+                .AddText("TEST PRINT", New Point((thisForm.Printer.Dimensions.Width / 2) - 86, thisForm.Printer.Dimensions.Height + 10), _
+                         headerFont)
+
+                'line
+                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
+
+                'tear 'n' print!
+                .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
+                thisForm.Printer.Print(.toByte)
+
+            End With
+        End Using
+
+    End Sub
 
 #End Region
 

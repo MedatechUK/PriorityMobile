@@ -2,17 +2,7 @@
 
 #Region "Private Variables"
 
-    Private g As Graphics
     Private _ItemImage As Graphics
-
-#End Region
-
-#Region "Private Methods"
-
-    Private Function Get_app_path() As String
-        Dim fullPath As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase
-        Return fullPath.Substring(0, fullPath.LastIndexOf("\"))
-    End Function
 
 #End Region
 
@@ -25,25 +15,44 @@
         _ForeColour = ForeColour
         _BackColour = BackColour
 
-        Dim p As New PictureBox
-        g = p.CreateGraphics
-        _iSize = g.MeasureString(_text, _Fontface)
+        If Not SlideImages.Keys.Contains(_text) Then
 
-        _image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
-        _ItemImage = Graphics.FromImage(_image)
-        _ItemImage.FillRectangle(New Drawing.SolidBrush(_BackColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
+            SlideImages.Add(_text, New SlideMenuImage)
+            _iSize = MeasureString(_text, _Fontface)
 
-        _ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
-        _ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
+            _image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
+            _ItemImage = Graphics.FromImage(_image)
+            _ItemImage.FillRectangle(New Drawing.SolidBrush(_ForeColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
+            _ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
+            _ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
+            _ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_BackColour), 10, 0)
+            _ItemImage.DrawImage(_image, 0, 0)
 
-        _ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_ForeColour), 10, 1)
-        _ItemImage.DrawImage(_image, 0, 0)
+            SlideImages(_text).SelectedImage = _image
+            'SlideImages(_text).SelectedImage.Save(Get_app_path() & "\TEST.bmp", System.Drawing.Imaging.ImageFormat.Bmp)
 
-        '_image.Save(Get_app_path() & "\" & _text & ".bmp", Drawing.Imaging.ImageFormat.Bmp)
+            _image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
+            _ItemImage = Graphics.FromImage(_image)
+            _ItemImage.FillRectangle(New Drawing.SolidBrush(_BackColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
+            _ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
+            _ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
+            _ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_ForeColour), 10, 0)
+            _ItemImage.DrawImage(_image, 0, 0)
+
+            SlideImages(_text).UnselectedImage = _image
+
+        End If
+        _image = SlideImages(_text).UnselectedImage
+        _iSize = New SizeF(_image.Width, _image.Height)
 
     End Sub
 
 #End Region
+
+    Private Function Get_app_path() As String
+        Dim fullPath As String = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase
+        Return fullPath.Substring(0, fullPath.LastIndexOf("\"))
+    End Function
 
 #Region "Public Properties"
 
@@ -91,8 +100,8 @@
     Public ReadOnly Property iSize() As SizeF
         Get
             Dim ret As SizeF
-            ret.Width = _iSize.Width + 20
-            ret.Height = _iSize.Height + 2
+            ret.Width = _iSize.Width
+            ret.Height = _iSize.Height
             Return ret
         End Get
     End Property
@@ -114,22 +123,25 @@
                 _Selected = value
                 Select Case _Selected
                     Case True
-                        _image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
-                        _ItemImage = Graphics.FromImage(_image)
-                        _ItemImage.FillRectangle(New Drawing.SolidBrush(_ForeColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
-                        _ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
-                        _ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
-                        _ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_BackColour), 10, 0)
-                        _ItemImage.DrawImage(_image, 0, 0)
+                        _image = SlideImages(_text).SelectedImage                        
+                        '_image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
+                        '_ItemImage = Graphics.FromImage(_image)
+                        '_ItemImage.FillRectangle(New Drawing.SolidBrush(_ForeColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
+                        '_ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
+                        '_ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
+                        '_ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_BackColour), 10, 0)
+                        '_ItemImage.DrawImage(_image, 0, 0)
                     Case False
-                        _image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
-                        _ItemImage = Graphics.FromImage(_image)
-                        _ItemImage.FillRectangle(New Drawing.SolidBrush(_BackColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
-                        _ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
-                        _ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
-                        _ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_ForeColour), 10, 0)
-                        _ItemImage.DrawImage(_image, 0, 0)
+                        _image = SlideImages(_text).UnselectedImage                        
+                        '_image = New Bitmap(_iSize.Width + 20, _iSize.Height + 2)
+                        '_ItemImage = Graphics.FromImage(_image)
+                        '_ItemImage.FillRectangle(New Drawing.SolidBrush(_BackColour), 0, 0, _iSize.Width + 20, _iSize.Height + 2)
+                        '_ItemImage.DrawLine(New Pen(Color.Black), 0, 0, _iSize.Width + 20, 0)
+                        '_ItemImage.DrawLine(New Pen(Color.Black), 0, _iSize.Height + 1, _iSize.Width + 20, _iSize.Height + 1)
+                        '_ItemImage.DrawString(Text, _Fontface, New Drawing.SolidBrush(_ForeColour), 10, 0)
+                        '_ItemImage.DrawImage(_image, 0, 0)
                 End Select
+                _iSize = New SizeF(_image.Width, _image.Height)
             End If
         End Set
     End Property

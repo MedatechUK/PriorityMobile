@@ -155,24 +155,27 @@ Public Class ctrl_FamilyItems
     Public Overrides Sub SetNumber(ByVal MyValue As Integer)
 
         With thisForm
-            Dim parts As XmlNode = .FormData.SelectSingleNode(HomeFormView.thisForm.boundxPath).ParentNode            
-            Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name")))
-            Dim Price As Double = CDbl(.CurrentRow("price"))
-            If IsNothing(OrderPart) Then                
-                GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), MyValue)
-                Dim part As XmlNode = .CreateNode(parts, "part")
-                .CreateNode(part, "name", .CurrentRow("name"))
-                .CreateNode(part, "barcode", .CurrentRow("barcode"))
-                .CreateNode(part, "des", .CurrentRow("des"))
-                .CreateNode(part, "qty", MyValue.ToString)
-                .CreateNode(part, "unitprice", Price)
-            Else
-                GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), CInt(OrderPart.SelectSingleNode("qty").InnerText) + MyValue)
-                OrderPart.SelectSingleNode("qty").InnerText = CInt(OrderPart.SelectSingleNode("qty").InnerText) + MyValue
-                OrderPart.SelectSingleNode("unitprice").InnerText = Price
-            End If
-            .Save()
-            .Bind()
+            AddOrderItem(thisForm, .FormData.SelectSingleNode(HomeFormView.thisForm.boundxPath).ParentNode.ParentNode, .CurrentRow("name"), .CurrentRow("barcode"), .CurrentRow("des"), MyValue.ToString)
+            .RefreshForm()
+
+            'Dim parts As XmlNode = .FormData.SelectSingleNode(HomeFormView.thisForm.boundxPath).ParentNode
+            'Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name")))
+            'Dim Price As Double = CDbl(.CurrentRow("price"))
+            'If IsNothing(OrderPart) Then
+            '    GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), MyValue)
+            '    Dim part As XmlNode = .CreateNode(parts, "part")
+            '    .CreateNode(part, "name", .CurrentRow("name"))
+            '    .CreateNode(part, "barcode", .CurrentRow("barcode"))
+            '    .CreateNode(part, "des", .CurrentRow("des"))
+            '    .CreateNode(part, "qty", MyValue.ToString)
+            '    .CreateNode(part, "unitprice", Price)
+            'Else
+            '    GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), CInt(OrderPart.SelectSingleNode("qty").InnerText) + MyValue)
+            '    OrderPart.SelectSingleNode("qty").InnerText = CInt(OrderPart.SelectSingleNode("qty").InnerText) + MyValue
+            '    OrderPart.SelectSingleNode("unitprice").InnerText = Price
+            'End If
+            '.Save()
+            '.Bind()
         End With
 
         For Each V As iView In HomeForm.Views
@@ -183,17 +186,17 @@ Public Class ctrl_FamilyItems
 
     End Sub
 
-    Sub GetCustomerPrice(ByRef Price As Double, ByVal PriceList As XmlNode, ByVal qty As Integer)
-        With thisForm
-            For Each custPrice As XmlNode In PriceList.SelectNodes(String.Format("parts/part[name='{0}']", .CurrentRow("name")))
-                If qty >= Integer.Parse(custPrice.SelectSingleNode("tquant").InnerText) Then
-                    If CDbl(custPrice.SelectSingleNode("price").InnerText) < Price Then
-                        Price = CDbl(custPrice.SelectSingleNode("price").InnerText)
-                    End If
-                End If
-            Next
-        End With
-    End Sub
+    'Sub GetCustomerPrice(ByRef Price As Double, ByVal PriceList As XmlNode, ByVal qty As Integer)
+    '    With thisForm
+    '        For Each custPrice As XmlNode In PriceList.SelectNodes(String.Format("parts/part[name='{0}']", .CurrentRow("name")))
+    '            If qty >= Integer.Parse(custPrice.SelectSingleNode("tquant").InnerText) Then
+    '                If CDbl(custPrice.SelectSingleNode("price").InnerText) < Price Then
+    '                    Price = CDbl(custPrice.SelectSingleNode("price").InnerText)
+    '                End If
+    '            End If
+    '        Next
+    '    End With
+    'End Sub
 
 #End Region
 

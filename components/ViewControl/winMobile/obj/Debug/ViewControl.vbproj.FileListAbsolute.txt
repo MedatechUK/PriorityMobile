@@ -17,3 +17,6 @@ M:\components\ViewControl\winMobile\bin\Debug\frmControls.pdb
 M:\components\ViewControl\winMobile\bin\Debug\frmControls.xml
 M:\components\ViewControl\winMobile\obj\Debug\PriorityMobile.MainView.resources
 M:\components\ViewControl\winMobile\obj\Debug\PriorityMobile.UserDialog.resources
+M:\components\ViewControl\winMobile\bin\Debug\CPCL.dll
+M:\components\ViewControl\winMobile\bin\Debug\CPCL.pdb
+M:\components\ViewControl\winMobile\bin\Debug\CPCL.xml

@@ -102,40 +102,56 @@
             _ButtonGraphic = New Bitmap(CInt((8 / 22) * Me.ParentHeight), Me.ParentHeight)
             Me.Enabled = True
         Else
-            Dim ptrBitmap As Bitmap = New Bitmap(FileName)
-            Dim hbmp As IntPtr = ptrBitmap.GetHbitmap
 
-            Dim tmp As Bitmap = Image.FromHbitmap(hbmp)
-            With tmp
-                For x = 0 To .Width - 1
-                    For y = 0 To .Height - 1
-                        If .GetPixel(x, y) = Color.Magenta Then
-                            .SetPixel(x, y, _ForeColour)
-                        End If
-                    Next
-                Next
-            End With
-            _ButtonGraphic = tmp
+            If DAImages.Keys.Contains(FileName) Then
 
-            Dim tmp2 As Bitmap = Image.FromHbitmap(hbmp)
-            With tmp2
-                For x = 0 To .Width - 1
-                    For y = 0 To .Height - 1
-                        Dim thisColour As Color = .GetPixel(x, y)
-                        Select Case thisColour
-                            Case Color.Magenta
+                _ButtonGraphic = DAImages(FileName).ButtonGraphic
+                _GreyButtonGraphic = DAImages(FileName).GreyButtonGraphic
+
+            Else
+
+                Dim ptrBitmap As Bitmap = New Bitmap(FileName)
+                Dim hbmp As IntPtr = ptrBitmap.GetHbitmap
+
+                Dim tmp As Bitmap = Image.FromHbitmap(hbmp)
+                With tmp
+                    For x = 0 To .Width - 1
+                        For y = 0 To .Height - 1
+                            If .GetPixel(x, y) = Color.Magenta Then
                                 .SetPixel(x, y, _ForeColour)
-                            Case Color.Black
-                                .SetPixel(x, y, Color.FromArgb(128, 128, 128))
-                            Case Else
-                                .SetPixel(x, y, Color.FromArgb(192, 192, 192))
-                        End Select
+                            End If
+                        Next
                     Next
-                Next
-            End With
-            _GreyButtonGraphic = tmp2
+                End With
+                _ButtonGraphic = tmp
 
-            hbmp = Nothing
+                Dim tmp2 As Bitmap = Image.FromHbitmap(hbmp)
+                With tmp2
+                    For x = 0 To .Width - 1
+                        For y = 0 To .Height - 1
+                            Dim thisColour As Color = .GetPixel(x, y)
+                            Select Case thisColour
+                                Case Color.Magenta
+                                    .SetPixel(x, y, _ForeColour)
+                                Case Color.Black
+                                    .SetPixel(x, y, Color.FromArgb(128, 128, 128))
+                                Case Else
+                                    .SetPixel(x, y, Color.FromArgb(192, 192, 192))
+                            End Select
+                        Next
+                    Next
+                End With
+                _GreyButtonGraphic = tmp2
+
+                DAImages.Add(FileName, New DAImage(tmp, tmp2))
+
+                hbmp = Nothing
+                ptrBitmap = Nothing
+                tmp = Nothing
+                tmp2 = Nothing
+
+            End If
+
             Me.Enabled = Enabled
         End If
 

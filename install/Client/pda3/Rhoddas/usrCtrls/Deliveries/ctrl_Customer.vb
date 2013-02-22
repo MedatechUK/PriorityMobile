@@ -11,28 +11,27 @@ Public Class ctrl_Customer
                 .contact.DataBindings.Add("Text", thisForm.TableData, "contact")
                 .phone.DataBindings.Add("Text", thisForm.TableData, "phone")
                 .postcode.DataBindings.Add("Text", thisForm.TableData, "postcode")
-            Catch ex As Exception
-                MsgBox(ex.Message)
+            Catch 
             End Try
         End With
     End Sub
 
 #Region "Direct Activations"
 
-    'Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-    '    ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
-    'End Sub
+    Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
+        ToolBar.Add(AddressOf hPlaceCall, "PHONE.BMP", thisForm.CurrentRow("phone").ToString.Length > 0)
+    End Sub
 
-    'Private Sub hPlaceCall()
+    Private Sub hPlaceCall()
 
-    '    Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-    '    Try
-    '        ph.Talk(thisForm.CurrentRow("phone"))
-    '    Catch ex As Exception
-    '        MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-    '    End Try
+        Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
+        Try
+            ph.Talk(thisForm.CurrentRow("phone"))
+        Catch ex As Exception
+            MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
+        End Try
 
-    'End Sub
+    End Sub
 
 #End Region
 

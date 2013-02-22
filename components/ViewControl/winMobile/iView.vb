@@ -213,6 +213,11 @@ Public Class iView
 
     End Sub
 
+    Public Overridable Sub PrintForm()
+
+    End Sub
+
+
 #End Region
 
 End Class

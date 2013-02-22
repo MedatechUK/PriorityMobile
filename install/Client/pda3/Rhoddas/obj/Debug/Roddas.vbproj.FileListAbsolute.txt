@@ -17,7 +17,6 @@ M:\install\Client\pda3\Rhoddas\bin\Debug\RoddasPDA.exe
 M:\install\Client\pda3\Rhoddas\bin\Debug\RoddasPDA.pdb
 M:\install\Client\pda3\Rhoddas\bin\Debug\RoddasPDA.xml
 M:\install\Client\pda3\Rhoddas\bin\Debug\frmControls.dll
-M:\install\Client\pda3\Rhoddas\bin\Debug\Microsoft.WindowsMobile.Telephony.dll
 M:\install\Client\pda3\Rhoddas\bin\Debug\mnuControls.dll
 M:\install\Client\pda3\Rhoddas\bin\Debug\System.SR.dll
 M:\install\Client\pda3\Rhoddas\bin\Debug\ViewControl.dll
@@ -27,7 +26,6 @@ M:\install\Client\pda3\Rhoddas\bin\Debug\mnuControls.pdb
 M:\install\Client\pda3\Rhoddas\bin\Debug\mnuControls.xml
 M:\install\Client\pda3\Rhoddas\bin\Debug\ViewControl.pdb
 M:\install\Client\pda3\Rhoddas\bin\Debug\ViewControl.xml
-M:\install\Client\pda3\Rhoddas\bin\Debug\Microsoft.WindowsMobile.Telephony.xml
 M:\install\Client\pda3\Rhoddas\obj\Debug\ResolveAssemblyReference.cache
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.HostMainView.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.Resources.resources
@@ -54,7 +52,6 @@ M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Credit.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Home.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Customer.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Payment.resources
-M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Balances.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Checks.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Clean.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Damage.resources
@@ -62,3 +59,19 @@ M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Mileage.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgAddOrder.resources
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgAddCredit.resources
 M:\install\Client\pda3\Rhoddas\bin\Debug\icons\print.BMP
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgManualCredit.resources
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_DeliveredItems.resources
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgDeliver.resources
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgScanDeliver.resources
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgCloseDelivery.resources
+M:\install\Client\pda3\Rhoddas\bin\Debug\btZebra.dll
+M:\install\Client\pda3\Rhoddas\bin\Debug\CPCL.dll
+M:\install\Client\pda3\Rhoddas\bin\Debug\ZSDK_API.dll
+M:\install\Client\pda3\Rhoddas\bin\Debug\InTheHand.Net.Personal.dll
+M:\install\Client\pda3\Rhoddas\bin\Debug\ZebraBluetoothAdapter.dll
+M:\install\Client\pda3\Rhoddas\bin\Debug\CPCL.pdb
+M:\install\Client\pda3\Rhoddas\bin\Debug\CPCL.xml
+M:\install\Client\pda3\Rhoddas\bin\Debug\btZebra.pdb
+M:\install\Client\pda3\Rhoddas\bin\Debug\btZebra.xml
+M:\install\Client\pda3\Rhoddas\bin\Debug\prnimg\roddas.bmp
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgPRNSetup.resources

@@ -50,7 +50,10 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
 #Region "Connect to Printer"
 
     Public Overrides Sub BeginConnect(ByVal macAddress As String, Optional ByVal PIN As String = Nothing, Optional ByVal RefreshImages As Boolean = False)
-
+        If IsNothing(macAddress) Then
+            MsgBox("Printer MAC Address not set.")
+            Exit Sub
+        End If
         With Me
             .macAddress = macAddress.Trim()
             .PIN = PIN

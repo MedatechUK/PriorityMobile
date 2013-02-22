@@ -28,6 +28,8 @@ Partial Class dlgAddCredit
         Me.rcvQty = New System.Windows.Forms.NumericUpDown
         Me.PartName = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
+        Me.CreditReason = New System.Windows.Forms.ComboBox
+        Me.Reason = New System.Windows.Forms.Label
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -44,6 +46,7 @@ Partial Class dlgAddCredit
         '
         Me.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.btnOK.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnOK.Enabled = False
         Me.btnOK.Location = New System.Drawing.Point(0, 0)
         Me.btnOK.Name = "btnOK"
         Me.btnOK.Size = New System.Drawing.Size(120, 45)
@@ -62,21 +65,21 @@ Partial Class dlgAddCredit
         '
         'Label1
         '
-        Me.Label1.Location = New System.Drawing.Point(23, 45)
+        Me.Label1.Location = New System.Drawing.Point(23, 35)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(100, 20)
         Me.Label1.Text = "Credit Quantity:"
         '
         'Label2
         '
-        Me.Label2.Location = New System.Drawing.Point(23, 101)
+        Me.Label2.Location = New System.Drawing.Point(23, 84)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(167, 20)
         Me.Label2.Text = "Received Quantity:"
         '
         'CreditQty
         '
-        Me.CreditQty.Location = New System.Drawing.Point(33, 66)
+        Me.CreditQty.Location = New System.Drawing.Point(33, 55)
         Me.CreditQty.Name = "CreditQty"
         Me.CreditQty.Size = New System.Drawing.Size(100, 22)
         Me.CreditQty.TabIndex = 7
@@ -84,7 +87,7 @@ Partial Class dlgAddCredit
         '
         'rcvQty
         '
-        Me.rcvQty.Location = New System.Drawing.Point(33, 121)
+        Me.rcvQty.Location = New System.Drawing.Point(33, 104)
         Me.rcvQty.Maximum = New Decimal(New Integer() {1, 0, 0, 0})
         Me.rcvQty.Name = "rcvQty"
         Me.rcvQty.Size = New System.Drawing.Size(100, 22)
@@ -94,9 +97,9 @@ Partial Class dlgAddCredit
         '
         Me.PartName.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.PartName.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.PartName.Location = New System.Drawing.Point(139, 10)
+        Me.PartName.Location = New System.Drawing.Point(146, 10)
         Me.PartName.Name = "PartName"
-        Me.PartName.Size = New System.Drawing.Size(100, 20)
+        Me.PartName.Size = New System.Drawing.Size(90, 20)
         Me.PartName.Text = "123456"
         '
         'Label3
@@ -107,10 +110,27 @@ Partial Class dlgAddCredit
         Me.Label3.Size = New System.Drawing.Size(136, 20)
         Me.Label3.Text = "Credit Note for Part#"
         '
+        'CreditReason
+        '
+        Me.CreditReason.Items.Add("<--Please Select-->")
+        Me.CreditReason.Location = New System.Drawing.Point(33, 161)
+        Me.CreditReason.Name = "CreditReason"
+        Me.CreditReason.Size = New System.Drawing.Size(192, 22)
+        Me.CreditReason.TabIndex = 12
+        '
+        'Reason
+        '
+        Me.Reason.Location = New System.Drawing.Point(23, 138)
+        Me.Reason.Name = "Reason"
+        Me.Reason.Size = New System.Drawing.Size(167, 20)
+        Me.Reason.Text = "Reason for Credit:"
+        '
         'dlgAddCredit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.Controls.Add(Me.Reason)
+        Me.Controls.Add(Me.CreditReason)
         Me.Controls.Add(Me.PartName)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.rcvQty)
@@ -133,5 +153,7 @@ Partial Class dlgAddCredit
     Friend WithEvents rcvQty As System.Windows.Forms.NumericUpDown
     Friend WithEvents PartName As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents CreditReason As System.Windows.Forms.ComboBox
+    Friend WithEvents Reason As System.Windows.Forms.Label
 
 End Class
