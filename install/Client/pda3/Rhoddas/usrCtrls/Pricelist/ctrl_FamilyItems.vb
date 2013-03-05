@@ -35,9 +35,8 @@ Public Class ctrl_FamilyItems
             With ListSort1
                 .Sort = "name"
                 .AddColumn("name", "Part", 130, True)
-                .AddColumn("des", "Description", 130)
-                .AddColumn("barcode", "Barcode", 130)
-                .AddColumn("price", "Price", 130)
+                .AddColumn("des", "Description", 260)
+                '.AddColumn("barcode", "Barcode", 130)
             End With
         End With
 

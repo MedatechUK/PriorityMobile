@@ -77,7 +77,7 @@ Public Class Survey
                         Dim bool As Boolean = True
                         For Each opt As XmlNode In Options
                             Dim optText As String = opt.SelectSingleNode("text").InnerText
-                            OptVal.Add(CInt(opt.SelectSingleNode("value").InnerText), optText)
+                            OptVal.Add(CInt(opt.SelectSingleNode("number").InnerText), optText)
                             Select Case optText.ToLower
                                 Case "yes", "no", "y", "n", "true", "false"
                                 Case Else

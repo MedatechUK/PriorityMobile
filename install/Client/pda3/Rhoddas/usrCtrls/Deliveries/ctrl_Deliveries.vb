@@ -24,9 +24,9 @@ Public Class ctrl_Deliveries
             With ListSort1
                 .Sort = "ordinal"
                 .AddColumn("ordinal", "ordinal", 0, True)
-                .AddColumn("custnumber", "Customer", 130)
+                .AddColumn("custnumber", "Customer", 260)
                 .AddColumn("postcode", "Post Code", 130)
-                .AddColumn("sonum", "Sales Order", 130)
+                .AddColumn("sonum", "Sales Order", 200)
             End With
         End With
 
@@ -289,7 +289,7 @@ Public Class ctrl_Deliveries
                 With .Items
                     .Clear()
                     .Add("Please Select")
-                    For Each reason As XmlNode In thisForm.FormData.SelectSingleNode("pdadata/reasons/nondelivery").SelectNodes(".//reason")
+                    For Each reason As XmlNode In thisForm.FormData.SelectSingleNode("pdadata/reasons/nodelivery").SelectNodes(".//reason")
                         .Add(reason.InnerText)
                     Next
                 End With

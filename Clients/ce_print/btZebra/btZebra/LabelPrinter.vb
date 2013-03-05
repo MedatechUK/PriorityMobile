@@ -25,7 +25,12 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
 #Region "Overriden Methods"
 
     Public Overrides Sub Print(ByVal Bytes() As Byte)
-        connection.Write(Bytes)
+10:
+        Try
+            connection.Write(Bytes)
+        Catch
+            If Not MsgBox("Printer not ready.", MsgBoxStyle.RetryCancel) = MsgBoxResult.Cancel Then GoTo 10
+        End Try
     End Sub
 
     Public Overrides Sub StoreImage(ByVal Filename As String, ByVal Image As System.Drawing.Bitmap)

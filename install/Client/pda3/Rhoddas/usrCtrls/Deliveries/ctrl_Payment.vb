@@ -23,6 +23,8 @@ Public Class ctrl_Payment
 
     Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
         With Me
+            If cash.Text.Length = 0 Then cash.Text = "0.00"
+            If cheque.Text.Length = 0 Then cheque.Text = "0.00"
             ToolBar.Add(AddressOf hPrint, "print.BMP", (CDbl(.cash.Text) + CDbl(.cheque.Text)) > 0)
         End With
     End Sub
@@ -139,6 +141,9 @@ Public Class ctrl_Payment
 #End Region
 
     Private Sub payment_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles cash.LostFocus, cheque.LostFocus
+        If cash.Text.Length = 0 Then cash.Text = "0.00"
+        If cheque.Text.Length = 0 Then cheque.Text = "0.00"
         thisForm.RefreshDirectActivations()
     End Sub
+
 End Class

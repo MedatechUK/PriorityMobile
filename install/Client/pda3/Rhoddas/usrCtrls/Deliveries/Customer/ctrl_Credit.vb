@@ -28,7 +28,7 @@ Public Class ctrl_Credit
                 .AddColumn("name", "Part", 0)
                 .AddColumn("des", "Description", 200)
                 .AddColumn("qty", "Qty", 60)
-                .AddColumn("unitprice", "Price", 130)
+                .AddColumn("unitprice", "Price", 130, , eColumnFormat.fmt_Money)
                 .AddColumn("rcvdqty", "Received", 130)
                 .AddColumn("reason", "Reason", 250)
             End With

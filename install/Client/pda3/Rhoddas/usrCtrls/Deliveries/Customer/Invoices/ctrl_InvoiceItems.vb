@@ -24,10 +24,10 @@ Public Class ctrl_InvoiceItems
                 .Sort = "name"
                 .AddColumn("ordi", "ordi", 0, True)
                 .AddColumn("name", "Part", 130)
-                .AddColumn("des", "Description", 130)
-                .AddColumn("barcode", "Barcode", 130)
-                .AddColumn("qty", "Qty", 130)
-                .AddColumn("unitprice", "Price", 130)
+                .AddColumn("des", "Description", 260)
+                '.AddColumn("barcode", "Barcode", 130)
+                .AddColumn("qty", "Qty", 65)
+                .AddColumn("unitprice", "Price", 130, , eColumnFormat.fmt_Money)
             End With
         End With
 

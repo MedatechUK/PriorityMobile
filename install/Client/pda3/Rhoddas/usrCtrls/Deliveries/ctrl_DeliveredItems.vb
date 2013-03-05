@@ -24,9 +24,9 @@ Public Class ctrl_DeliveredItems
                 .Sort = "name"
                 .AddColumn("ordi", "ordi", 0, True)
                 .AddColumn("name", "Part", 130)
-                .AddColumn("des", "Description", 130)                
-                .AddColumn("lotnumber", "Lot", 130)                
-                .AddColumn("cquant", "qty", 130)
+                .AddColumn("des", "Description", 260)
+                .AddColumn("cquant", "qty", 65)
+                .AddColumn("lotnumber", "Lot", 130)
             End With
         End With
 
@@ -57,7 +57,7 @@ Public Class ctrl_DeliveredItems
         IsBinding = True
         Dim dr() As Data.DataRow = Nothing
         Dim query As String = String.Format( _
-                "{0} <> '0' and cquant <> '0'", _
+                "{0} <> '0' and cquant <> 0", _
                 ListSort1.Keys(0) _
                 )
         dr = thisForm.Datasource.Select(query, ListSort1.Sort)

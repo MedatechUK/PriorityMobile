@@ -23,9 +23,9 @@ Public Class ctrl_Orders
         With Me
             With ListSort1
                 .Sort = "deliverydate"
-                .AddColumn("deliverydate", "Date", 130, True)
+                .AddColumn("deliverydate", "Date", 130, True, eColumnFormat.fmt_Date)
                 .AddColumn("ponum", "PO", 130)
-                .AddColumn("value", "Total", 130)
+                .AddColumn("value", "Total", 130, , eColumnFormat.fmt_Money)
             End With
         End With
 

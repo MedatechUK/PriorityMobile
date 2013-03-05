@@ -61,7 +61,7 @@ Partial Public Class ctrl_Payment
         Me.paymentterms.Enabled = False
         Me.paymentterms.Location = New System.Drawing.Point(104, 0)
         Me.paymentterms.Name = "paymentterms"
-        Me.paymentterms.Size = New System.Drawing.Size(136, 21)
+        Me.paymentterms.Size = New System.Drawing.Size(136, 23)
         Me.paymentterms.TabIndex = 2
         '
         'Panel11
@@ -92,7 +92,7 @@ Partial Public Class ctrl_Payment
         Me.cheque.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cheque.Location = New System.Drawing.Point(104, 0)
         Me.cheque.Name = "cheque"
-        Me.cheque.Size = New System.Drawing.Size(136, 21)
+        Me.cheque.Size = New System.Drawing.Size(136, 23)
         Me.cheque.TabIndex = 8
         '
         'Label5
@@ -120,7 +120,7 @@ Partial Public Class ctrl_Payment
         Me.cash.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cash.Location = New System.Drawing.Point(104, 0)
         Me.cash.Name = "cash"
-        Me.cash.Size = New System.Drawing.Size(136, 21)
+        Me.cash.Size = New System.Drawing.Size(136, 23)
         Me.cash.TabIndex = 2
         '
         'Label2
@@ -149,7 +149,7 @@ Partial Public Class ctrl_Payment
         Me.todaysinvoicetotals.Enabled = False
         Me.todaysinvoicetotals.Location = New System.Drawing.Point(104, 0)
         Me.todaysinvoicetotals.Name = "todaysinvoicetotals"
-        Me.todaysinvoicetotals.Size = New System.Drawing.Size(136, 21)
+        Me.todaysinvoicetotals.Size = New System.Drawing.Size(136, 23)
         Me.todaysinvoicetotals.TabIndex = 2
         '
         'Label8
@@ -178,7 +178,7 @@ Partial Public Class ctrl_Payment
         Me.dueamount.Enabled = False
         Me.dueamount.Location = New System.Drawing.Point(104, 0)
         Me.dueamount.Name = "dueamount"
-        Me.dueamount.Size = New System.Drawing.Size(136, 21)
+        Me.dueamount.Size = New System.Drawing.Size(136, 23)
         Me.dueamount.TabIndex = 3
         '
         'Label4
@@ -207,7 +207,7 @@ Partial Public Class ctrl_Payment
         Me.overduepayment.Enabled = False
         Me.overduepayment.Location = New System.Drawing.Point(104, 0)
         Me.overduepayment.Name = "overduepayment"
-        Me.overduepayment.Size = New System.Drawing.Size(136, 21)
+        Me.overduepayment.Size = New System.Drawing.Size(136, 23)
         Me.overduepayment.TabIndex = 8
         '
         'Label3

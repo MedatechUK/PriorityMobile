@@ -11,7 +11,7 @@ Public Class ctrl_Home
             If IsNothing(mq) Then
                 mq = New List(Of Integer)
                 With mq
-                    .Add(8)
+                    .Add(32)
                 End With
             End If
             Return mq
@@ -29,12 +29,12 @@ Public Class ctrl_Home
     Public Overrides Sub Bind()
         With Me
             Try
-                .curdate.DataBindings.Add("Text", thisForm.TableData, "curdate")
+                .curdate.Text = thisForm.DateFromInt(CInt(thisForm.FormData.SelectSingleNode("pdadata/home/curdate").InnerText)).ToString("dd/MM/yyy")
                 .routenumber.DataBindings.Add("Text", thisForm.TableData, "routenumber")
                 .vehiclereg.DataBindings.Add("Text", thisForm.TableData, "vehiclereg")
-                .User.Text = thisForm.thisUserEnv.User
-                .Version.Text = VersionString
-            Catch 
+                .user.Text = thisForm.thisUserEnv.User
+                .version.Text = VersionString
+            Catch
             End Try
         End With
     End Sub
@@ -57,7 +57,7 @@ Public Class ctrl_Home
             Case "DELIVERIES"
                 Dim maintainance As XmlNode = thisForm.FormData.SelectSingleNode("pdadata/maintainance")
                 For Each Question As Integer In MandatoryQuestions
-                    Dim Response As XmlNode = maintainance.SelectSingleNode(String.Format("//question[number='{0}']/response", Question.ToString))
+                    Dim Response As XmlNode = maintainance.SelectSingleNode(String.Format(".//question[number='{0}']/response", Question.ToString))
                     With Response
                         If .SelectSingleNode("text").InnerText.Length = 0 And .SelectSingleNode("value").InnerText.Length = 0 Then
                             ret = False
@@ -100,6 +100,7 @@ Public Class ctrl_Home
             End With
         End If
         thisForm.RefreshForm()
+        thisForm.RefreshDirectActivations()
     End Sub
 
     Public Overrides Sub PrintForm()

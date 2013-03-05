@@ -23,10 +23,10 @@ Public Class ctrl_OrderItems
             With ListSort1
                 .Sort = "name"
                 .AddColumn("name", "Part", 130, True)
-                .AddColumn("des", "Description", 130)
-                .AddColumn("barcode", "Barcode", 130)
-                .AddColumn("qty", "Qty", 130)
-                .AddColumn("unitprice", "Price", 130)
+                .AddColumn("des", "Description", 260)
+                '.AddColumn("barcode", "Barcode", 130)
+                .AddColumn("qty", "Qty", 65)
+                .AddColumn("unitprice", "Price", 130, , eColumnFormat.fmt_Money)
             End With
         End With
 
@@ -172,32 +172,17 @@ Public Class ctrl_OrderItems
             Dim parts As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode
             Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", .CurrentRow("name")))
             If Not IsNothing(OrderPart) Then
-                Dim stdpricelist As XmlNode = .FormData.SelectSingleNode(String.Format("pdadata/stdpricelist"))
-                Dim stdPrice As XmlNode = stdpricelist.SelectSingleNode(String.Format(".//part[name='{0}']", .CurrentRow("name")))
-                If Not IsNothing(stdPrice) Then
-                    Dim Price As Double = CDbl(stdPrice.SelectSingleNode("price").InnerText)
-                    GetCustomerPrice(Price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), MyValue)
-                    OrderPart.SelectSingleNode("qty").InnerText = MyValue
-                    OrderPart.SelectSingleNode("unitprice").InnerText = Price
-                End If
+                Dim price As Double = 999999999
+                GetStandardPrice(thisForm, price, .CurrentRow("name"), MyValue)
+                GetCustomerPrice(thisForm, price, parts.ParentNode.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), .CurrentRow("name"), MyValue)
+                OrderPart.SelectSingleNode("qty").InnerText = MyValue
+                OrderPart.SelectSingleNode("unitprice").InnerText = price
             End If
             .Save()
             .Bind()
             .RefreshForm()
         End With
 
-    End Sub
-
-    Sub GetCustomerPrice(ByRef Price As Double, ByVal PriceList As XmlNode, ByVal qty As Integer)
-        With thisForm
-            For Each custPrice As XmlNode In PriceList.SelectNodes(String.Format("parts/part[name='{0}']", .CurrentRow("name")))
-                If qty >= Integer.Parse(custPrice.SelectSingleNode("tquant").InnerText) Then
-                    If CDbl(custPrice.SelectSingleNode("price").InnerText) < Price Then
-                        Price = CDbl(custPrice.SelectSingleNode("price").InnerText)
-                    End If
-                End If
-            Next
-        End With
     End Sub
 
     Private Sub hDelOrdItem()

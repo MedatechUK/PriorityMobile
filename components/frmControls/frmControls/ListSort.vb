@@ -62,7 +62,15 @@ Public Class ListSort
                 If .SelectedIndices.Count = 0 Then
                     Return Nothing
                 Else
-                    Return .Items(.SelectedIndices(0)).Text
+                    Select Case Columns(0).ColumnFormat
+                        Case eColumnFormat.fmt_Date
+                            Dim dp() As String = .Items(.SelectedIndices(0)).Text.Split("/")
+                            Dim dt As New Date(CInt(dp(2)), CInt(dp(1)), CInt(dp(0)))                            
+                            Return DateDiff(DateInterval.Minute, #1/1/1988#, dt).ToString
+                        Case Else
+                            Return .Items(.SelectedIndices(0)).Text
+                    End Select
+
                 End If
             End With
         End Get
@@ -87,10 +95,17 @@ Public Class ListSort
             For Each C As ListSortColumn In _Columns
                 If String.Compare(C.BoundColumn, ColumnName, True) = 0 Then
                     Try
-                        ret = View.Items(Row).SubItems(i).Text
-                        Exit For
-                    Catch
+                        Select Case C.ColumnFormat
+                            Case eColumnFormat.fmt_Date
+                                Dim dp() As String = View.Items(Row).SubItems(i).Text.Split("/")
+                                Dim dt As New Date(CInt(dp(2)), CInt(dp(1)), CInt(dp(0)))
+                                ret = DateDiff(DateInterval.Minute, #1/1/1988#, dt).ToString
+                            Case Else
+                                ret = View.Items(Row).SubItems(i).Text
+                        End Select                                                
+                    Catch                    
                     End Try
+                    Exit For
                 End If
                 i += 1
             Next
@@ -121,9 +136,9 @@ Public Class ListSort
 
 #Region "Public Methods"
 
-    Public Sub AddColumn(ByVal BoundColumn As String, Optional ByVal ColumnTitle As String = Nothing, Optional ByVal ColumnWidth As Integer = 100, Optional ByVal IsKey As Boolean = False)
+    Public Sub AddColumn(ByVal BoundColumn As String, Optional ByVal ColumnTitle As String = Nothing, Optional ByVal ColumnWidth As Integer = 100, Optional ByVal IsKey As Boolean = False, Optional ByVal ColumnFormat As eColumnFormat = eColumnFormat.fmt_None)
         If IsNothing(ColumnTitle) Then ColumnTitle = String.Format("Column {0}", (_Columns.Count + 1).ToString)
-        _Columns.Add(New ListSortColumn(BoundColumn, ColumnTitle, ColumnWidth))
+        _Columns.Add(New ListSortColumn(BoundColumn, ColumnTitle, ColumnWidth, ColumnFormat))
         If IsKey Then
             _Keys.Add(BoundColumn)
         End If
@@ -152,18 +167,30 @@ Public Class ListSort
                 Dim first As Boolean = True
                 For Each c As ListSortColumn In _Columns
                     If first Then
-                        .Text = Row.Item(c.BoundColumn)
+                        .Text = formatColumnData(Row.Item(c.BoundColumn), c.ColumnFormat)
                         first = False
                     Else
                         With .SubItems
                             .Add(New System.Windows.Forms.ListViewItem.ListViewSubItem)
-                            .Item(.Count - 1).Text = Row.Item(c.BoundColumn)
+                            .Item(.Count - 1).Text = formatColumnData(Row.Item(c.BoundColumn), c.ColumnFormat)
                         End With
                     End If
                 Next
             End With
         End With
     End Sub
+
+    Private Function formatColumnData(ByVal strval As String, ByVal format As eColumnFormat) As String
+        Select Case format
+            Case eColumnFormat.fmt_Money
+                Return CDec(strval).ToString("c")
+            Case eColumnFormat.fmt_Date
+                Dim dt As DateTime = DateAdd(DateInterval.Minute, CInt(strval), New Date(1988, 1, 1))
+                Return dt.ToString("dd/MM/yyy")
+            Case Else
+                Return strval
+        End Select
+    End Function
 
 #End Region
 

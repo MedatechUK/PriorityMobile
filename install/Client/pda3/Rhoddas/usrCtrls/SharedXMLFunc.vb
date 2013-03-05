@@ -9,13 +9,24 @@ Module SharedXMLFunc
         Return thisform.FormData.SelectSingleNode("pdadata/stdpricelist")
     End Function
 
-    Private Sub GetCustomerPrice(ByRef thisform As xForm, ByRef Price As Double, ByVal PriceList As XmlNode, ByVal name As String, ByVal qty As Double)
+    Public Sub GetStandardPrice(ByRef thisform As xForm, ByRef Price As Double, ByVal name As String, ByVal qty As Double)
+        With thisform
+            For Each stdPrice As XmlNode In StandardPricelist(thisform).SelectNodes(String.Format(".//parts/part[name='{0}']/breaks/break", name))
+                If qty >= CDbl(stdPrice.SelectSingleNode("tquant").InnerText) Then
+                    If CDbl(stdPrice.SelectSingleNode("price").InnerText) < Price Then
+                        Price = CDbl(stdPrice.SelectSingleNode("price").InnerText)
+                    End If
+                End If
+            Next
+        End With
+    End Sub
+
+    Public Sub GetCustomerPrice(ByRef thisform As xForm, ByRef Price As Double, ByVal PriceList As XmlNode, ByVal name As String, ByVal qty As Double)
         With thisform
             For Each custPrice As XmlNode In PriceList.SelectNodes(String.Format("parts/part[name='{0}']", name))
                 If qty >= CDbl(custPrice.SelectSingleNode("tquant").InnerText) Then
-                    If CDbl(custPrice.SelectSingleNode("price").InnerText) < Price Then
-                        Price = CDbl(custPrice.SelectSingleNode("price").InnerText)
-                    End If
+                    Price -= CDbl(custPrice.SelectSingleNode("price").InnerText)
+                    Exit Sub
                 End If
             Next
         End With
@@ -26,7 +37,8 @@ Module SharedXMLFunc
         With thisform
             Dim parts As XmlNode = Order.SelectSingleNode("parts")
             Dim OrderPart As XmlNode = parts.SelectSingleNode(String.Format("part[name='{0}']", name))
-            Dim Price As Double = CDbl(StandardPricelist(thisform).SelectSingleNode(String.Format(".//part[name='{0}']/price", name)).InnerText)
+            Dim Price As Double = 9999999999
+            GetStandardPrice(thisform, Price, name, qty)
             If IsNothing(OrderPart) Then
                 GetCustomerPrice(thisform, Price, Order.ParentNode.ParentNode.SelectSingleNode("customerpricelist"), name, CDbl(qty))
                 Dim part As XmlNode = .CreateNode(parts, "part")

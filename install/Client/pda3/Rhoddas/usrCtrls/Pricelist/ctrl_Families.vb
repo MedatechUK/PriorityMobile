@@ -21,7 +21,7 @@ Public Class ctrl_Families
         With Me
             With ListSort1
                 .Sort = "familyname"
-                .AddColumn("familyname", "Family", 130, True)
+                .AddColumn("familyname", "Family", 300, True)
             End With
         End With
 
