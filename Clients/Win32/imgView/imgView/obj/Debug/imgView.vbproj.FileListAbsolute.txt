@@ -1,0 +1,10 @@
+M:\Clients\Win32\imgView\imgView\bin\Debug\imgView.exe
+M:\Clients\Win32\imgView\imgView\bin\Debug\imgView.pdb
+M:\Clients\Win32\imgView\imgView\bin\Debug\imgView.xml
+M:\Clients\Win32\imgView\imgView\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\imgView\imgView\obj\Debug\imgView.frmView.resources
+M:\Clients\Win32\imgView\imgView\obj\Debug\imgView.Resources.resources
+M:\Clients\Win32\imgView\imgView\obj\Debug\imgView.vbproj.GenerateResource.Cache
+M:\Clients\Win32\imgView\imgView\obj\Debug\imgView.exe
+M:\Clients\Win32\imgView\imgView\obj\Debug\imgView.xml
+M:\Clients\Win32\imgView\imgView\obj\Debug\imgView.pdb
