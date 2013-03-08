@@ -10,3 +10,9 @@ M:\Clients\Win32\PDFPrint\appSelect\obj\Debug\appSelect.vbproj.GenerateResource.
 M:\Clients\Win32\PDFPrint\appSelect\obj\Debug\PDFPrint.exe
 M:\Clients\Win32\PDFPrint\appSelect\obj\Debug\PDFPrint.xml
 M:\Clients\Win32\PDFPrint\appSelect\obj\Debug\PDFPrint.pdb
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\PDFPrint.exe
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\PDFPrint.xml
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\PDFPrint.pdb
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\ResolveAssemblyReference.cache
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\pdfPrint.Resources.resources
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\appSelect.vbproj.GenerateResource.Cache

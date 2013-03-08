@@ -75,3 +75,6 @@ M:\install\Client\pda3\Rhoddas\bin\Debug\btZebra.pdb
 M:\install\Client\pda3\Rhoddas\bin\Debug\btZebra.xml
 M:\install\Client\pda3\Rhoddas\bin\Debug\prnimg\roddas.bmp
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.dlgPRNSetup.resources
+M:\install\Client\pda3\Rhoddas\bin\Debug\usrCtrls\Deliveries\ctrl_Deliveries.resx
+M:\install\Client\pda3\Rhoddas\bin\Debug\usrCtrls\Deliveries\ctrl_Deliveries.Designer.vb
+M:\install\Client\pda3\Rhoddas\bin\Debug\usrCtrls\Deliveries\ctrl_Deliveries.vb

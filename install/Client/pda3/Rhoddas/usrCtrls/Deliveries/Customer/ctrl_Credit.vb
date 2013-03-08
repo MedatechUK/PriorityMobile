@@ -221,153 +221,180 @@ Public Class ctrl_Credit
         Dim largeFont As New PrinterFont(30, 0, 3) '16 
         Dim smallFont As New PrinterFont(35, 0, 2) '8 
 
-        Using lblCreditNote As New Label(thisForm.Printer, eLabelStyle.receipt)
+        With thisForm
+            Using lblCreditNote As New Label(thisForm.Printer, eLabelStyle.receipt)
 
-            'first receipt formatter
-            'taking margins into account the receipt is 556px wide. 
-            'font 0 - 8/16 for size 2/3 respectively, font 5 is variable width ~20-30.
+                Dim cn As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode
 
-            Dim docHead As New ReceiptFormatter(64, _
-                                                New FormattedColumn(16, 0, eAlignment.Center), _
-                                                New FormattedColumn(16, 16, eAlignment.Center), _
-                                                New FormattedColumn(16, 32, eAlignment.Center), _
-                                                New FormattedColumn(16, 48, eAlignment.Center))
-            docHead.AddRow("Number", "Date", "Time", "Van")
-            docHead.AddRow("593151", "29/01/13", "11:51:22", "WK11 BHW")
+                'first receipt formatter
+                'taking margins into account the receipt is 556px wide. 
+                'font 0 - 8/16 for size 2/3 respectively, font 5 is variable width ~20-30.
 
-            Dim custDetails As New ReceiptFormatter(64, _
-                                                    New FormattedColumn(13, 0, eAlignment.Right), _
-                                                    New FormattedColumn(48, 16, eAlignment.Left))
-            custDetails.AddRow("Customer:", "G00012")
-            custDetails.AddRow("", "Goods returned Restock Van50")
-            custDetails.AddRow("", "TR16 5BU")
+                Dim cnDelivery As String = String.Format("{0}-{1}-{2}", cn.ParentNode.ParentNode.ParentNode.ParentNode.ParentNode.SelectSingleNode("curdate").InnerText, _
+                                         cn.ParentNode.ParentNode.ParentNode.ParentNode.ParentNode.SelectSingleNode("routenumber").InnerText, _
+                                         cn.ParentNode.ParentNode.ParentNode.SelectSingleNode("ordinal").InnerText)
 
 
+                Dim cnDate As String = Now.ToString("dd/MM/yy")
+                Dim cnTime As String = Now.ToString("HH:mm")
+                Dim van As String = cn.ParentNode.ParentNode.ParentNode.ParentNode.ParentNode.SelectSingleNode("vehiclereg").InnerText
 
-            Dim invoicePartsList As New ReceiptFormatter(64, _
-                                                  New FormattedColumn(3, 0, eAlignment.Right), _
-                                                  New FormattedColumn(46, 4, eAlignment.Left), _
-                                                  New FormattedColumn(7, 50, eAlignment.Right), _
-                                                  New FormattedColumn(7, 57, eAlignment.Right))
-            invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
-            invoicePartsList.AddRow("2", "56g (2oz) CLOTTED CREAM", "0.39", "0.78")
-            invoicePartsList.AddRow("8", "Blue 1ltr Whole Milk", "0.60", "4.80")
-            invoicePartsList.AddRow("12", "Green 1ltr Semi-Skimmed Milk", "0.60", "7.20")
-
-
-
-
-            Dim total As New ReceiptFormatter(64, _
-                                              New FormattedColumn(6, 10, eAlignment.Right), _
-                                              New FormattedColumn(47, 16, eAlignment.Right))
-            total.AddRow("Total:", "#" & "12.78")
+                Dim docHead As New ReceiptFormatter(64, _
+                                                    New FormattedColumn(16, 0, eAlignment.Center), _
+                                                    New FormattedColumn(16, 16, eAlignment.Center), _
+                                                    New FormattedColumn(16, 32, eAlignment.Center), _
+                                                    New FormattedColumn(16, 48, eAlignment.Center))
+                docHead.AddRow("Invoice", "Date", "Time", "Van")
+                docHead.AddRow(cnDelivery, cnDate, cnTime, van)
 
 
-            With lblCreditNote
-                'logo
-                .AddImage("roddas.pcx", New Point(186, thisForm.Printer.Dimensions.Height + 10), 147)
+                '### customer header### 
+                Dim cnCustNum As String = cn.ParentNode.ParentNode.SelectSingleNode("custnumber").InnerText.ToUpper
+                Dim cnCustName As String = cn.ParentNode.ParentNode.SelectSingleNode("custname").InnerText
+                Dim cnCustPostCode As String = cn.ParentNode.ParentNode.SelectSingleNode("postcode").InnerText.ToUpper
 
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10, 15)
+                Dim custDetails As New ReceiptFormatter(64, _
+                                                        New FormattedColumn(13, 0, eAlignment.Right), _
+                                                        New FormattedColumn(48, 16, eAlignment.Left))
+                custDetails.AddRow("Customer:", cnCustNum)
+                custDetails.AddRow("", cnCustName)
+                custDetails.AddRow("", cnCustPostCode)
 
-                'header = 174px wide
-                .AddText("CREDIT NOTE", New Point((thisForm.Printer.Dimensions.Width / 2) - 138, thisForm.Printer.Dimensions.Height + 10), _
-                         headerFont)
 
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
 
-                'address
-                .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
-                                & vbCrLf & "Redruth" & vbCrLf & "Cornwall" & vbCrLf & "TR165BU", _
-                                             New Point(10, thisForm.Printer.Dimensions.Height + 10), largeFont, 30)
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+                Dim lines As Integer
+                Dim units As Integer
+                Dim cnPartsList As New ReceiptFormatter(64, _
+                                                      New FormattedColumn(10, 0, eAlignment.Left), _
+                                                      New FormattedColumn(33, 11, eAlignment.Left), _
+                                                      New FormattedColumn(7, 44, eAlignment.Right), _
+                                                      New FormattedColumn(13, 51, eAlignment.Right))
+                cnPartsList.AddRow("Invoice:", "Description:", "Qty:", "Received:")
+                Dim cnTotal As Double
+                For Each line As XmlNode In cn.SelectNodes("part[qty>0]")
+                    Dim cnInv As String = line.SelectSingleNode("ivnum").InnerText.ToUpper
+                    Dim cnPartName As String = line.SelectSingleNode("des").InnerText
+                    Dim cnQty As String = line.SelectSingleNode("qty").InnerText
+                    Dim cnRcvd As String = line.SelectSingleNode("rcvdqty").InnerText
+                    Dim cnPrice As String = line.SelectSingleNode("unitprice").InnerText
+                    Dim cnPartReason As String = line.SelectSingleNode("reason").InnerText
+                    cnPartsList.AddRow(cnInv, cnPartName, cnQty, cnRcvd)
+                    cnPartsList.AddRow("", cnPartReason, "", "")
 
-                'document header 
-                For Each StrVal In docHead.FormattedText
-                    .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
+                    cnTotal = cnTotal + CDbl(cnQty) * CDbl(cnPrice)
+                    lines += 1
+                    units += CInt(cnQty)
                 Next
 
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
-
-                'customer details 
-                For Each StrVal In custDetails.FormattedText
-                    .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
-                Next
-
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
-
-                'itemised invoice box
-                For Each StrVal In invoicePartsList.FormattedText
-                    .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
-                Next
-
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
-
-                'total 
-                For Each StrVal In total.FormattedText
-                    .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
-                Next
-
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
-
-                'itemisation
-                Dim totals As String = " ( 1 lines 6 units ) " 'this will, of course, be calculated.
-                .AddText(totals, New Point((thisForm.Printer.Dimensions.Width / 2 - (totals.Length / 2) * 16), _
-                                           thisForm.Printer.Dimensions.Height + 10), largeFont)
-
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 20), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 20), 5)
-
-                'vat number 
-                Dim vat As String = "V.A.T. No.  131 7759 63"
-                .AddText(vat, New Point((thisForm.Printer.Dimensions.Width / 2 - (vat.Length / 2) * 16), _
-                                           thisForm.Printer.Dimensions.Height + 10), largeFont)
-
-                'For any remittance.... 
-                .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
-                              New Point(thisForm.Printer.Dimensions.Width / 2 - 168, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
-
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
-
-                'bank details header
-                .AddText("Bank Details", New Point(thisForm.Printer.Dimensions.Width / 2 - 96, thisForm.Printer.Dimensions.Height + 10), largeFont)
-                'bank details 
-                .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
-                              New Point(10, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
-
-                'line
-                .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                         New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
-
-                'please quote
-                .AddText("Please quote account number in all correspondence.", _
-                         New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
-                                   thisForm.Printer.Dimensions.Height + 10), _
-                         smallFont)
-
-                'tear 'n' print!
-                .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
-                thisForm.Printer.Print(.toByte)
 
 
-            End With
-        End Using
+
+                Dim total As New ReceiptFormatter(64, _
+                                                  New FormattedColumn(6, 10, eAlignment.Right), _
+                                                  New FormattedColumn(47, 16, eAlignment.Right))
+
+
+                total.AddRow("Total:", cnTotal.ToString("c").Replace("£", "#"))
+
+
+                With lblCreditNote
+                    'logo
+                    .AddImage("roddas.pcx", New Point(186, thisForm.Printer.Dimensions.Height + 10), 147)
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10, 15)
+
+                    'header = 174px wide
+                    .AddText("CREDIT NOTE", New Point((thisForm.Printer.Dimensions.Width / 2) - 138, thisForm.Printer.Dimensions.Height + 10), _
+                             headerFont)
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
+
+                    'address
+                    .AddMultiLine("A.E. Rodda & Son Ltd." & vbCrLf & "The Creamery" & vbCrLf & "Scorrier" _
+                                    & vbCrLf & "Redruth" & vbCrLf & "Cornwall" & vbCrLf & "TR165BU", _
+                                                 New Point(10, thisForm.Printer.Dimensions.Height + 10), largeFont, 30)
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+
+                    'document header 
+                    For Each StrVal In docHead.FormattedText
+                        .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
+                    Next
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+
+                    'customer details 
+                    For Each StrVal In custDetails.FormattedText
+                        .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
+                    Next
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
+
+                    'itemised invoice box
+                    For Each StrVal In cnPartsList.FormattedText
+                        .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
+                    Next
+                    ' .AddText(
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
+
+                    'total 
+                    For Each StrVal In total.FormattedText
+                        .AddText(StrVal, New Point(22, thisForm.Printer.Dimensions.Height), smallFont)
+                    Next
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
+
+                    'itemisation
+                    Dim totals As String = String.Format(" ( {0} lines {1} units ) ", lines, units)
+                    .AddText(totals, New Point((thisForm.Printer.Dimensions.Width / 2 - (totals.Length / 2) * 16), _
+                                               thisForm.Printer.Dimensions.Height + 10), largeFont)
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 20), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 20), 5)
+
+                    'vat number 
+                    Dim vat As String = "V.A.T. No.  131 7759 63"
+                    .AddText(vat, New Point((thisForm.Printer.Dimensions.Width / 2 - (vat.Length / 2) * 16), _
+                                               thisForm.Printer.Dimensions.Height + 10), largeFont)
+
+                    'For any remittance.... 
+                    .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
+                                  New Point(thisForm.Printer.Dimensions.Width / 2 - 168, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
+
+
+                    'line
+                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
+                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
+
+                    'please quote
+                    .AddText("Please quote account number in all correspondence.", _
+                             New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                                       thisForm.Printer.Dimensions.Height + 10), _
+                             smallFont)
+
+                    'tear 'n' print!
+                    .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
+                    thisForm.Printer.Print(.toByte)
+
+
+                End With
+            End Using
+        End With
     End Sub
 
 #End Region

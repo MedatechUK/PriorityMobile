@@ -169,7 +169,7 @@ Public Class ctrl_Invoices
                 Dim ivnum As String = iv.SelectSingleNode("ivnum").InnerText
                 Dim ivdateS As String = iv.SelectSingleNode("ivdate").InnerText
                 Dim ivdate As String = CDate("01/01/1988").AddMinutes(CInt(ivdateS)).ToString("dd/MM/yyy")
-                Dim ivtime As String = Now.ToShortTimeString
+                Dim ivtime As String = Now.ToString("HH:mm")
                 Dim van As String = home.SelectSingleNode("vehiclereg").InnerText.ToUpper
 
 
@@ -181,7 +181,7 @@ Public Class ctrl_Invoices
                                                     New FormattedColumn(16, 32, eAlignment.Center), _
                                                     New FormattedColumn(16, 48, eAlignment.Center))
                 docHead.AddRow("Number:", "Date:", "Time:", "Van:")
-                docHead.AddRow(ivnum.ToUpper(), ivdateS, ivtime, van)
+                docHead.AddRow(ivnum.ToUpper(), ivdate, ivtime, van)
 
                 '####customer details####
 
@@ -194,13 +194,14 @@ Public Class ctrl_Invoices
                 custDetails.AddRow("Customer:", custnumber)
                 custDetails.AddRow("", custname)
                 custDetails.AddRow("", postcode)
-                '###
+
+                '####parts list#####
 
 
                 Dim invoicePartsList As New ReceiptFormatter(64, _
                                                       New FormattedColumn(3, 0, eAlignment.Right), _
-                                                      New FormattedColumn(46, 4, eAlignment.Left), _
-                                                      New FormattedColumn(7, 50, eAlignment.Right), _
+                                                      New FormattedColumn(40, 4, eAlignment.Left), _
+                                                      New FormattedColumn(7, 45, eAlignment.Right), _
                                                       New FormattedColumn(7, 57, eAlignment.Right))
                 invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
                 Dim lines As Integer = 0
@@ -216,8 +217,8 @@ Public Class ctrl_Invoices
 
                     invoicePartsList.AddRow(qty, _
                                             des, _
-                                            unitprice.ToString("c").Replace("£", ""), _
-                                            (qty * unitprice).ToString("c").Replace("£", "") _
+                                            unitprice.ToString("c").Replace("£", "#"), _
+                                            (qty * unitprice).ToString("c").Replace("£", "#") _
                                             )
                     lines += 1
                     units += qty
@@ -229,7 +230,7 @@ Public Class ctrl_Invoices
                 Dim RcptTotal As New ReceiptFormatter(64, _
                                                   New FormattedColumn(6, 10, eAlignment.Right), _
                                                   New FormattedColumn(47, 16, eAlignment.Right))
-                RcptTotal.AddRow("Total:", "#" + CDbl(invoicetotal).ToString("c").Replace("£", ""))
+                RcptTotal.AddRow("Total:", CDbl(invoicetotal).ToString("c").Replace("£", "#"))
 
 
                 With lblInvoice
@@ -295,7 +296,7 @@ Public Class ctrl_Invoices
                              New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
 
                     'itemisation
-                    Dim totals As String = String.Format(" ( {0} lines {1} units ) ", lines, units) 'this will, of course, be calculated.
+                    Dim totals As String = String.Format(" ( {0} lines {1} units ) ", lines, units)
                     .AddText(totals, New Point((thisForm.Printer.Dimensions.Width / 2 - (totals.Length / 2) * 16), _
                                                thisForm.Printer.Dimensions.Height + 10), largeFont)
 
@@ -311,16 +312,6 @@ Public Class ctrl_Invoices
                     'For any remittance.... 
                     .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
                                   New Point(thisForm.Printer.Dimensions.Width / 2 - 168, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
-
-                    'line
-                    .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
-                             New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 5)
-
-                    'bank details header
-                    .AddText("Bank Details", New Point(thisForm.Printer.Dimensions.Width / 2 - 96, thisForm.Printer.Dimensions.Height + 10), largeFont)
-                    'bank details 
-                    .AddMultiLine("HSBC" & vbCrLf & "Branch Location" & vbCrLf & "Account Number" & vbCrLf & "Sort Code", _
-                                  New Point(10, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
 
                     'line
                     .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
