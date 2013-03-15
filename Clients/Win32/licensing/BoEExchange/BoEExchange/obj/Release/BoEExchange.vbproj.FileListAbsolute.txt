@@ -1,0 +1,12 @@
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\bin\Release\BoEExchange.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\bin\Release\BoEExchange.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\bin\Release\BoEExchange.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\bin\Release\licensing.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\bin\Release\licensing.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\bin\Release\licensing.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\obj\Release\ResolveAssemblyReference.cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\obj\Release\BoEExchange.Resources.resources
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\obj\Release\BoEExchange.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\obj\Release\BoEExchange.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\obj\Release\BoEExchange.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\BoEExchange\BoEExchange\obj\Release\BoEExchange.pdb
