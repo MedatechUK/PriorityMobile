@@ -197,11 +197,21 @@ Module Module1
     Function download() As Boolean
         Try
             Dim wc As New System.Net.WebClient
-            FILE = String.Format( _
-                    "{0}\{1}.pdf", _
-                    Environment.GetFolderPath(Environment.SpecialFolder.InternetCache), _
-                    Guid.NewGuid.ToString _
-                )
+            Select Case URL.Split(".").Last.ToUpper
+                Case "PDF"
+                    FILE = String.Format( _
+                        "{0}\{1}.pdf", _
+                        Environment.GetFolderPath(Environment.SpecialFolder.InternetCache), _
+                        Guid.NewGuid.ToString _
+                    )
+                Case "HTML", "HTM"
+                    FILE = String.Format( _
+                        "{0}\{1}.html", _
+                        Environment.GetFolderPath(Environment.SpecialFolder.InternetCache), _
+                        Guid.NewGuid.ToString _
+                    )
+            End Select
+
             Console.WriteLine(String.Format("Saving file from [{0}] to [{1}].", URL, FILE))
             wc.DownloadFile(URL, FILE)
             Return True
@@ -242,46 +252,50 @@ Module Module1
                         End If
                     End If
                 Next
-                If acrorun Then resp = MsgBox("Another instance of Acrobat Reader is already running. Please close any other open readers and press retry.", MsgBoxStyle.Exclamation + MsgBoxStyle.RetryCancel, "Warning!")
+                If acrorun And isConsole Then
+                    resp = MsgBox("Another instance of Acrobat Reader is already running. Please close any other open readers and press retry.", MsgBoxStyle.Exclamation + MsgBoxStyle.RetryCancel, "Warning!")
+                Else
+                    Thread.Sleep(5000)
+                End If
             Loop Until acrorun = False Or resp = MsgBoxResult.Cancel
 
-            If resp = MsgBoxResult.Cancel Then
-                Console.WriteLine("Acrobat already running. User cancelled.")
-                Exit Sub
-            End If
+        If resp = MsgBoxResult.Cancel Then
+            Console.WriteLine("Acrobat already running. User cancelled.")
+            Exit Sub
+        End If
 
-            Using myProcess As System.Diagnostics.Process = New System.Diagnostics.Process()
-                With myProcess
-                    With .StartInfo
-                        .FileName = FILE 'CREATE THIS FILE WITH FILESHAREMODE.NONE 
-                        .WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden
-                        .CreateNoWindow = True
-                        .Verb = "print"
-                        .Arguments = PRN
-                        .UseShellExecute = True
-                    End With
-                    Dim Print_Check_Counter As Integer = 0
-                    Try
-                        .Start() 'GIVE THE PROCESS 2 SECOND TO START 
-                        .WaitForExit(2000)
-CLOSE:
-                        Print_Check_Counter = Print_Check_Counter + 1
-                        If Print_Check_Counter > 30 Then
-                            'MsgBox.Show("Problem Printing this document: " & paginatedPDF, "Process Error")
-                            Exit Sub
-                        End If
-                        'FILE WAS CREATED WITH FILESHAREMODE.NONE SO IF IT IS STILL BEING USED 'BY ACROBAT OR READER, THEN CATCH AN IO EXCEPTION 
-                        Dim check As New FileStream(FILE, FileMode.Open)
-                        .CloseMainWindow()
-                        check.Close()
-                    Catch io As IOException 'IF IOEXCEPTION WAS CAUGHT THEN SLEEP AND GO BACK TO CLOSE 
-                        Thread.Sleep(2000)
-                        GoTo close
-                    Catch ex As Exception
-
-                    End Try
+        Using myProcess As System.Diagnostics.Process = New System.Diagnostics.Process()
+            With myProcess
+                With .StartInfo
+                    .FileName = FILE 'CREATE THIS FILE WITH FILESHAREMODE.NONE 
+                    .WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden
+                    .CreateNoWindow = True
+                    .Verb = "print"
+                    .Arguments = PRN
+                    .UseShellExecute = True
                 End With
-            End Using
+                Dim Print_Check_Counter As Integer = 0
+                Try
+                    .Start() 'GIVE THE PROCESS 2 SECOND TO START 
+                    .WaitForExit(2000)
+CLOSE:
+                    Print_Check_Counter = Print_Check_Counter + 1
+                    If Print_Check_Counter > 30 Then
+                        'MsgBox.Show("Problem Printing this document: " & paginatedPDF, "Process Error")
+                        Exit Sub
+                    End If
+                    'FILE WAS CREATED WITH FILESHAREMODE.NONE SO IF IT IS STILL BEING USED 'BY ACROBAT OR READER, THEN CATCH AN IO EXCEPTION 
+                    Dim check As New FileStream(FILE, FileMode.Open)
+                    .CloseMainWindow()
+                    check.Close()
+                Catch io As IOException 'IF IOEXCEPTION WAS CAUGHT THEN SLEEP AND GO BACK TO CLOSE 
+                    Thread.Sleep(2000)
+                    GoTo close
+                Catch ex As Exception
+
+                End Try
+            End With
+        End Using
         End If
     End Sub
 
@@ -293,4 +307,5 @@ CLOSE:
                 MsgBox(DisplayStr, , "PDF Print")
         End Select
     End Sub
+
 End Module

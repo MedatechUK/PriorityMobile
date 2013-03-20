@@ -1,6 +1,5 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>
-    </StartArguments>
+    <StartArguments>/u www.emerge-it.co.uk/my_documents/my_files/emergeIT-%2014347%20-pda%20e%20proof%20(2).pdf</StartArguments>
   </PropertyGroup>
 </Project>
