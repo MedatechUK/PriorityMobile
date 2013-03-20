@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Priority", "Priority.vbproj", "{FB6B28DE-DD70-4D6B-8789-7EC6D6190AA4}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "test", "..\test\test.vbproj", "{7675DEAA-E01C-4537-81A0-B8D2116FDEB2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "keygen", "..\keygen\keygen\keygen.vbproj", "{CA192B38-62A5-4FDC-85FE-C15C703FA498}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FB6B28DE-DD70-4D6B-8789-7EC6D6190AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB6B28DE-DD70-4D6B-8789-7EC6D6190AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB6B28DE-DD70-4D6B-8789-7EC6D6190AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB6B28DE-DD70-4D6B-8789-7EC6D6190AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7675DEAA-E01C-4537-81A0-B8D2116FDEB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7675DEAA-E01C-4537-81A0-B8D2116FDEB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7675DEAA-E01C-4537-81A0-B8D2116FDEB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7675DEAA-E01C-4537-81A0-B8D2116FDEB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA192B38-62A5-4FDC-85FE-C15C703FA498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA192B38-62A5-4FDC-85FE-C15C703FA498}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA192B38-62A5-4FDC-85FE-C15C703FA498}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA192B38-62A5-4FDC-85FE-C15C703FA498}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

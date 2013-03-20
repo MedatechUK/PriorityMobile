@@ -1,0 +1,10 @@
+M:\Server\sqludf\keygen\keygen\bin\Debug\keygen.exe
+M:\Server\sqludf\keygen\keygen\bin\Debug\keygen.pdb
+M:\Server\sqludf\keygen\keygen\bin\Debug\keygen.xml
+M:\Server\sqludf\keygen\keygen\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\sqludf\keygen\keygen\obj\Debug\keygen.Form1.resources
+M:\Server\sqludf\keygen\keygen\obj\Debug\keygen.Resources.resources
+M:\Server\sqludf\keygen\keygen\obj\Debug\keygen.vbproj.GenerateResource.Cache
+M:\Server\sqludf\keygen\keygen\obj\Debug\keygen.exe
+M:\Server\sqludf\keygen\keygen\obj\Debug\keygen.xml
+M:\Server\sqludf\keygen\keygen\obj\Debug\keygen.pdb

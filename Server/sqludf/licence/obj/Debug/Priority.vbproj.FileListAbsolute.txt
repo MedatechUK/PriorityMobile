@@ -1,0 +1,9 @@
+M:\Server\sqludf\licence\bin\Debug\licence.dll
+M:\Server\sqludf\licence\bin\Debug\licence.pdb
+M:\Server\sqludf\licence\bin\Debug\licence.xml
+M:\Server\sqludf\licence\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\sqludf\licence\obj\Debug\licence.Resources.resources
+M:\Server\sqludf\licence\obj\Debug\Priority.vbproj.GenerateResource.Cache
+M:\Server\sqludf\licence\obj\Debug\licence.dll
+M:\Server\sqludf\licence\obj\Debug\licence.xml
+M:\Server\sqludf\licence\obj\Debug\licence.pdb

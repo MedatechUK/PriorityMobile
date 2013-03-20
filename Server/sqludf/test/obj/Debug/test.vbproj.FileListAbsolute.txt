@@ -1,0 +1,9 @@
+M:\Server\sqludf\test\bin\Debug\test.exe
+M:\Server\sqludf\test\bin\Debug\test.pdb
+M:\Server\sqludf\test\bin\Debug\test.xml
+M:\Server\sqludf\test\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\sqludf\test\obj\Debug\test.Resources.resources
+M:\Server\sqludf\test\obj\Debug\test.vbproj.GenerateResource.Cache
+M:\Server\sqludf\test\obj\Debug\test.exe
+M:\Server\sqludf\test\obj\Debug\test.xml
+M:\Server\sqludf\test\obj\Debug\test.pdb
