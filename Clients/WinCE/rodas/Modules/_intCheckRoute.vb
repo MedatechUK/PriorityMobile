@@ -1,8 +1,65 @@
 ﻿Public Class interfaceCheckRoute
     Inherits SFDCData.iForm
+#Region "Table selection - non barcode"
+    Private Sub meclick()
+        If CtrlTable.Table.SelectedIndices.Count = 0 Then
+            Exit Sub
 
+        End If
+
+
+        With CtrlForm
+            If Not (.el(.ColNo("ROUTE")).Data.Length > 0) Then MsgBox("Please select a route.")
+            'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then MsgBox("Please select a warehouse.")
+        End With
+
+        Dim m As Integer
+        m = 1
+
+        Dim h As Integer
+        h = CtrlTable.Table.Items.Count
+        If h >= 0 Then 'check to see if there are any rows to select
+            Dim it As ListViewItem
+            For Each it In CtrlTable.Table.Items
+                If it.Selected = True Then
+
+
+                    Dim g As String
+                    g = it.SubItems(0).Text
+                    CtrlForm.el(4).DataEntry.Text = g
+                    CtrlForm.el(4).Text = g
+                    CtrlForm.el(4).Update()
+                    CtrlForm.el(4).ProcessEntry()
+
+                    Exit For
+                End If
+                If CtrlTable.Table.Items.Count = 0 Then
+                    Exit For
+                End If
+            Next
+        End If
+
+
+
+
+
+    End Sub
+#End Region
 #Region "Variables etc"
     Private current_part As String = ""
+    Dim FINALLIST As New List(Of PSLIPITEMS)
+    Dim changelist As New List(Of String)
+    Public Enum tSendType
+        Route = 0
+        PackSlip = 1
+        Part = 2
+        Warhs = 3
+        Bin = 4
+        Amount = 5
+        AmountCheck = 6
+        PickID = 7
+        LOT = 8
+    End Enum
 
 #End Region
 #Region "Column Declerations"
@@ -15,7 +72,7 @@
             .SQLList = "SELECT FORROUTE FROM V_UncheckedRoutes"
             .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
             .ctrlEnabled = True
-            .MandatoryOnPost = True
+            .MandatoryOnPost = False
         End With
         CtrlForm.AddField(field)
 
@@ -62,11 +119,11 @@
         With field 'using the tfield structure from the ctrlForm
             .Name = "PART"
             .Title = "Part"
-            .ValidExp = ValidStr(tRegExValidation.tBarcode)
+            .ValidExp = ValidStr(tRegExValidation.tString)
             .SQLValidation = _
                 "SELECT     PARTNAME " & _
-                "FROM         dbo.V_PICK_MONITOR " & _
-                "WHERE     (PARTNAME = '%ME%')"
+                "FROM         ZROD_PICKLINE " & _
+                "WHERE     (PARTNAME = '%ME%') AND PICK = '%PICKID%'"
             .Data = ""
             .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
             .ctrlEnabled = False
@@ -132,7 +189,7 @@
             .SQLValidation = "SELECT '%ME%'"
             .DefaultFromCtrl = Nothing
             .ctrlEnabled = False
-            .Mandatory = True
+            .Mandatory = False
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
@@ -169,18 +226,46 @@
         End With
         CtrlTable.AddCol(col)
 
+        With col
+            .Name = "_DONE"
+            .Title = "DONE"
+            .initWidth = 0
+            .TextAlign = HorizontalAlignment.Center
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tString)
+            .SQLList = ""
+            .SQLValidation = ""
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = False
+            .Mandatory = False
+            .MandatoryOnPost = False
+        End With
+        CtrlTable.AddCol(col)
+
     End Sub
 #End Region
 #Region "invocations"
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
         Select Case SendType
+            Case tSendType.LOT
+                With CtrlForm
+                    With .el(.ColNo("PART"))
+                        .DataEntry.Text = Data(0, 0)
+                        .ProcessEntry()
+                    End With
+                End With
             Case tSendType.Route
                 With CtrlForm
+                    With .el(.ColNo("ROUTE"))
+                        .Enabled = False
+                        Me.Argument("HoldWARHS") = .Data & "PI"
+                    End With
                     With .el(.ColNo("PICKID"))
                         .DataEntry.Text = Data(0, 0)
                         .ProcessEntry()
                     End With
                 End With
+
             Case tSendType.PickID
                 Try
                     With CtrlForm
@@ -191,6 +276,7 @@
                             am = Convert.ToInt32(Data(0, 0))
                             If am <> 0 Then
                                 .DataEntry.Text = DateAdd(DateInterval.Minute, am, pdate)
+                                Me.Argument("PickDate") = DateAdd(DateInterval.Minute, am, pdate)
                             End If
                             '.DataEntry.Text = Data(0, 0)
                         End With
@@ -217,6 +303,7 @@
                 End With
 
             Case tSendType.Part
+                'ITERATE THROUGH THE TABLE TO DESELECT ALL PARTS
                 Dim it As ListViewItem
                 For Each it In CtrlTable.Table.Items
                     it.Selected = False
@@ -244,6 +331,7 @@
                                     add = .number
                                     .Dispose()
                                 End With
+
                                 'next we check the counted quantity
                                 Dim expected, lastcount As Integer
                                 expected = Convert.ToInt32(it.SubItems(2).Text)
@@ -255,14 +343,69 @@
                                     amount = add - expected
                                     'amount holds the difference between what we counted and what we expected
                                     If amount = 0 Then
+                                        'THE ITEMS MATCH SO WE NEED TO ADD IT TO THE FINISHED LIST
+                                        Dim finlist As New PSLIPITEMS( _
+                                        0, _
+                                        CtrlForm.el(0).Data, _
+                                        CtrlForm.el(3).Data, _
+                                        CtrlForm.el(4).Data, _
+                                        add, _
+                                        it.SubItems(1).Text, _
+                                        "0", _
+                                        Me.Argument("HoldWARHS"), _
+                                       "0", _
+                                        " ")
+                                        FINALLIST.Add(finlist)
+
                                         With CtrlTable
                                             .Table.Items.Remove(it)
                                         End With
                                     ElseIf amount > 0 Then
                                         'we have too many items intruct user to return surplus
-                                        MsgBox("You appear to have picked too many items for this part, please return " & amount & " back to stock")
+
+
+                                        MsgBox("You appear to have picked too many items for this part, please RETURN " & amount & " back to stock")
+                                        Dim finlist As New PSLIPITEMS( _
+                                       0, _
+                                       CtrlForm.el(0).Data, _
+                                       CtrlForm.el(3).Data, _
+                                       CtrlForm.el(4).Data, _
+                                       add, _
+                                       it.SubItems(1).Text, _
+                                       "0", _
+                                       Me.Argument("HoldWARHS"), _
+                                      "0", _
+                                       " ")
+                                        FINALLIST.Add(finlist)
+                                        changelist.Add("Return " & amount & " of " & it.SubItems(1).Text & " back to stock")
+                                        With CtrlTable
+                                            .Table.Items.Remove(it)
+                                        End With
                                     ElseIf amount < 0 Then
-                                        MsgBox("You appear to have picked too few items for this part, please return " & -amount & " from stock")
+                                        MsgBox("You appear to have picked too few items for this part, please TAKE " & -amount & " from stock")
+                                        Dim finlist As New PSLIPITEMS( _
+                                       0, _
+                                       CtrlForm.el(0).Data, _
+                                       CtrlForm.el(3).Data, _
+                                       CtrlForm.el(4).Data, _
+                                       add, _
+                                       it.SubItems(1).Text, _
+                                       "0", _
+                                       Me.Argument("HoldWARHS"), _
+                                      "0", _
+                                       " ")
+                                        FINALLIST.Add(finlist)
+                                        Dim msg As String
+                                        msg = "Take " & amount & " of " & it.SubItems(1).Text & " from stock"
+                                        Try
+                                            changelist.Add(msg)
+                                        Catch ex As Exception
+                                            MsgBox(ex.ToString)
+                                        End Try
+
+                                        With CtrlTable
+                                            .Table.Items.Remove(it)
+                                        End With
                                     End If
                                 Else
 
@@ -276,7 +419,7 @@
                                 End If
 
                             Else
-                                
+
                                 'we havent had a check on this item yet as the check is still set to o
                                 'so we will need to get the amount counted by calling the number pad
                                 Dim add As Integer
@@ -316,17 +459,7 @@
     End Sub
     Dim SendType As tSendType = tSendType.Route
 
-    Public Enum tSendType
-        Route = 0
-        PackSlip = 1
-        Part = 2
-        Warhs = 3
-        Bin = 4
-        Amount = 5
-        AmountCheck = 6
-        TableScan = 7
-        PickID = 8
-    End Enum
+
 #End Region
 #Region "Form Processing"
     Public Overrides Sub AfterAdd(ByVal TableIndex As Integer)
@@ -360,12 +493,12 @@
                             Case "ROUTE"
                                 SendType = tSendType.Route
                                 InvokeData("SELECT PICK FROM ZROD_PICKS WHERE FORROUTE = '%ROUTE%' AND ISCHECKED ='N'")
-                                With CtrlForm
-                                    With .el(.ColNo("FORDATE"))
+                                'With CtrlForm
+                                '    With .el(.ColNo("FORDATE"))
+                                '        .Enabled = False
+                                '    End With
 
-                                    End With
-
-                                End With
+                                'End With
 
                             Case "PICKID"
                                 SendType = tSendType.PickID
@@ -374,7 +507,7 @@
                             Case "PART"
                                 SendType = tSendType.Part
 
-                                InvokeData("select '%PART%' from dbo.V_PICKLIST_PARTS")
+                                InvokeData("SELECT PARTNAME FROM ZROD_PICKLINE WHERE PARTNAME = '%PART%' AND PICK = '%PICKID%'")
                         End Select
                     End If
                 Catch ex As Exception
@@ -385,6 +518,46 @@
     End Sub
 
     Public Overrides Sub ProcessForm()
+        Try
+            With p
+                .DebugFlag = False
+                .Procedure = "ZSFDC_LOADZROD_CHECK"
+                .Table = "ZSFDC_LOADZROD_CHECK"
+                .RecordType1 = "PICKEDDATE,FORDATE,FORROUTE,ISCHECKED,PACKSLIP,USERLOGIN"
+                .RecordType2 = "PARTNAME,AMOUNTPICKED,WARHSNAME,LOCNAME,SERIALNAME"
+                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,,TEXT,TEXT,TEXT"
+            End With
+
+        Catch e As Exception
+            MsgBox(e.Message)
+        End Try
+
+        ' Type 1 records
+        Dim startdate As Date = FormatDateTime("1/1/1988", DateFormat.LongDate)
+        Dim t1() As String = { _
+                            DateDiff(DateInterval.Minute, startdate, Now()), _
+                            Me.Argument("PickDate"), _
+                            CtrlForm.ItemValue("ROUTE"), _
+                            "Y", _
+                            CtrlForm.ItemValue("PACKING_SLIP"), _
+                            UserName _
+                            }
+        p.AddRecord(1) = t1
+
+        For y As Integer = 0 To (FINALLIST.Count - 1)
+            Dim t2() As String = { _
+                        FINALLIST(y).PART, _
+                        (FINALLIST(y).Quant * 1000), _
+                        FINALLIST(y).WARHS, _
+                        FINALLIST(y).Bin, _
+                        FINALLIST(y).Lot _
+                                }
+            p.AddRecord(2) = t2
+        Next
+        FINALLIST.Clear()
+        Dim f As New frmDisplay
+        f.DataGrid1.DataSource = changelist
+        f.ShowDialog()
 
     End Sub
 #End Region
@@ -393,7 +566,8 @@
         'InitializeComponent()
         CallerApp = App
         NewArgument("PickDate", " ")
-
+        NewArgument("HoldWARHS", " ")
+        AddHandler CtrlTable.Table.ItemActivate, AddressOf meclick
     End Sub
 
 
@@ -409,6 +583,7 @@
                     .Items(.Items.Count - 1).SubItems.Add(Data(2, y))
                     .Items(.Items.Count - 1).SubItems.Add(Data(3, y))
                     .Items(.Items.Count - 1).SubItems.Add(Data(4, y))
+                    .Items(.Items.Count - 1).SubItems.Add("N")
                 End With
             Next
         Catch e As Exception
@@ -422,7 +597,7 @@
             If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Or System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode2)) Then
                 ' Scanning a barcode
                 With CtrlForm
-                    With .el(.ColNo("Part"))
+                    With .el(.ColNo("PART"))
                         .DataEntry.Text = Value
                         .ProcessEntry()
                     End With
@@ -432,6 +607,16 @@
 
                 'SendType = tSendType.TableScan
                 'InvokeData("SELECT PARTNAME, BARCODE FROM PART WHERE BARCODE = '" & Value & "'")
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tLotNumber)) Then
+                ' Scanning a Lot Number
+                With CtrlForm
+                    ' A warehouse must be selected
+                    'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then Throw New Exception("Please select a warehouse.")
+                    SendType = tSendType.LOT
+                    InvokeData("select distinct [PARTNAME],[SERIALNAME],[balance],[EXPIRYDATE],[WARHSNAME],[LOCNAME],[TYPE] from dbo.V_PICKLIST_PARTS where SERIALNAME = '" & Value & "'")
+
+
+                End With
 
 
             Else
@@ -449,6 +634,11 @@
 
 
     Public Overrides Function VerifyForm() As Boolean
-
+        If CtrlTable.Table.Items.Count = 0 Then
+            Return True
+        Else
+            MsgBox("Not all items have been checked, please check them before continuing.")
+            Return False
+        End If
     End Function
 End Class

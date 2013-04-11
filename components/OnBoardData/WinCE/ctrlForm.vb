@@ -417,4 +417,7 @@ Public Class CtrlForm
 
     End Function
 
+    Private Sub CtrlForm_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Click
+
+    End Sub
 End Class

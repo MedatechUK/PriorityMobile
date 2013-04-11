@@ -879,22 +879,24 @@ Public Class CtrlTable
     Public Sub NameValues(ByRef Arr(,) As String)
 
         Dim i As Integer
+        If IsNothing(el) = False Then
+            Try
+                For i = 0 To UBound(el)
+                    Try
+                        ReDim Preserve Arr(1, UBound(Arr, 2) + 1)
+                    Catch ex As Exception
+                        ReDim Arr(1, 0)
+                    End Try
 
-        Try
-            For i = 0 To UBound(mCol)
-                Try
-                    ReDim Preserve Arr(1, UBound(Arr, 2) + 1)
-                Catch ex As Exception
-                    ReDim Arr(1, 0)
-                End Try
+                    Arr(0, UBound(Arr, 2)) = el(i).Name
+                    Arr(1, UBound(Arr, 2)) = el(i).Data
 
-                Arr(0, UBound(Arr, 2)) = el(i).Name
-                Arr(1, UBound(Arr, 2)) = el(i).Data
+                Next
+            Catch
 
-            Next
-        Catch
+            End Try
+        End If
 
-        End Try
 
     End Sub
 
@@ -908,20 +910,24 @@ Public Class CtrlTable
         If Panel.Visible Then
             Return False
         Else
-            If Table.Items.Count - 1 = -1 Then Return False
-            For y = 0 To Table.Items.Count - 1
-                For x = 0 To UBound(mCol)
-                    If Table.Items(y).SubItems(x).Text = "" And mCol(x).MandatoryOnPost Then
-                        cp = False
-                        Try
-                            ReDim Preserve MissingAr(UBound(MissingAr) + 1)
-                        Catch ex As Exception
-                            ReDim MissingAr(0)
-                        End Try
-                        MissingAr(UBound(MissingAr)) = mCol(x).Title
-                    End If
+            'CHECK REMOVED - I have disabled this check as I am actively removing lines from the table so having no lines is good!
+            'If Table.Items.Count - 1 = -1 Then Return False
+            If Table.Items.Count >= 1 Then 'ADDED this check so that it only fires if there are items
+                For y = 0 To Table.Items.Count - 1
+                    For x = 0 To UBound(mCol)
+                        If Table.Items(y).SubItems(x).Text = "" And mCol(x).MandatoryOnPost Then
+                            cp = False
+                            Try
+                                ReDim Preserve MissingAr(UBound(MissingAr) + 1)
+                            Catch ex As Exception
+                                ReDim MissingAr(0)
+                            End Try
+                            MissingAr(UBound(MissingAr)) = mCol(x).Title
+                        End If
+                    Next
                 Next
-            Next
+            End If
+
         End If
 
         Return cp

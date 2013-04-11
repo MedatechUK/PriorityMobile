@@ -194,6 +194,7 @@ Module main
         tPackingSlip = 7
         tLotNumber = 8
         tBarcode2 = 9
+        tPartType = 10
     End Enum
 
     Public ReadOnly Property ValidStr(ByVal rxType As tRegExValidation) As String
@@ -220,7 +221,8 @@ Module main
                     ret = "^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tLotNumber
                     ret = "^[A-Z]+[0-9]+$" '"^[A-Za-z]{2}[0-9]{10}$" 'TODO reset the numerics to 12
-
+                Case tRegExValidation.tPartType
+                    ret = "^[A-Za-z]{1}$"
             End Select
             Return ret
         End Get

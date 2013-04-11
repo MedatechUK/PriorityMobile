@@ -4,10 +4,14 @@
     Private inUpdateMode As Boolean = False
 
     Private Sub frmDisplay_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Width = Screen.PrimaryScreen.WorkingArea.Width
+        Me.Height = Screen.PrimaryScreen.WorkingArea.Height
+
         Dim p As System.Drawing.Point
         p.X = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
         p.Y = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
         Me.Location = p
+
     End Sub
 
 
@@ -37,5 +41,9 @@
             txtEdit.Visible = True
             inEditMode = True
         End If
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        Me.Close()
     End Sub
 End Class

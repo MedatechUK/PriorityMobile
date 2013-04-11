@@ -21,11 +21,11 @@ Partial Public Class CtrlForm
     Private Sub InitializeComponent()
         Me.SuspendLayout()
         '
-        'ctrlForm
+        'CtrlForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.Name = "ctrlForm"
+        Me.Name = "CtrlForm"
         Me.Size = New System.Drawing.Size(167, 26)
         Me.ResumeLayout(False)
 

@@ -3,6 +3,7 @@
     Private mROUTE As String
     Private mPart As String
     Private mPicked As Integer
+   
     Public Property pick() As Integer
         Get
             Return mPICK
@@ -35,10 +36,13 @@
             mPicked = value
         End Set
     End Property
+    
+
     Public Sub New(ByVal pic As Integer, ByVal rou As String, ByVal par As String, ByVal pica As Integer)
         pick = pic
         route = rou
         Part = par
         picked = pica
+
     End Sub
 End Class

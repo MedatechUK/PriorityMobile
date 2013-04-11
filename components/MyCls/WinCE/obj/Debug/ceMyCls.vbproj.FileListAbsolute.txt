@@ -8,3 +8,13 @@ M:\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb
+M:\PriorityMobile.git\bin\WinCE\ceMyCls.dll
+M:\PriorityMobile.git\bin\WinCE\ceMyCls.pdb
+M:\PriorityMobile.git\bin\WinCE\ceMyCls.xml
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ResolveAssemblyReference.cache
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.ct_number.resources
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.Resources.resources
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
+M:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb

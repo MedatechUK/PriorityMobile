@@ -7,3 +7,12 @@ M:\components\LoadData\WinCE\obj\Debug\ceLoadData.vbproj.GenerateResource.Cache
 M:\components\LoadData\WinCE\obj\Debug\ceLoadData.dll
 M:\components\LoadData\WinCE\obj\Debug\ceLoadData.xml
 M:\components\LoadData\WinCE\obj\Debug\ceLoadData.pdb
+M:\PriorityMobile.git\bin\WinCE\ceLoadData.dll
+M:\PriorityMobile.git\bin\WinCE\ceLoadData.pdb
+M:\PriorityMobile.git\bin\WinCE\ceLoadData.xml
+M:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ResolveAssemblyReference.cache
+M:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ceLoadData.Resources.resources
+M:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ceLoadData.vbproj.GenerateResource.Cache
+M:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ceLoadData.dll
+M:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ceLoadData.xml
+M:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ceLoadData.pdb

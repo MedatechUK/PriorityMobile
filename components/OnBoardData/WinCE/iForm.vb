@@ -479,7 +479,10 @@ Public MustInherit Class iForm
         End Try
 
         CtrlForm.NameValues(Arr)
-        CtrlTable.NameValues(Arr)
+        If CtrlTable.Table.Items.Count >= 1 Then
+            CtrlTable.NameValues(Arr)
+        End If
+
 
         For i = 0 To UBound(Arr, 2)
             sql = Replace(sql, "%" & Arr(0, i) & "%", Arr(1, i), , , CompareMethod.Text)

@@ -12,3 +12,17 @@ M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.vbproj.GenerateResource.Cache
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.xml
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.pdb
+M:\PriorityMobile.git\bin\WinCE\SFDCData.dll
+M:\PriorityMobile.git\bin\WinCE\SFDCData.pdb
+M:\PriorityMobile.git\bin\WinCE\SFDCData.xml
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\ResolveAssemblyReference.cache
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlForm.resources
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlList.resources
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlTable.resources
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.ctrlText.resources
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.iForm.resources
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.Resources.resources
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.vbproj.GenerateResource.Cache
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.xml
+M:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.pdb

@@ -8,6 +8,7 @@
     Private mLot As String
     Private mWARHS As String
     Private mBin As String
+    Private mType As String
     Public Property ORDI() As Integer
         Get
             Return mORDI
@@ -80,7 +81,15 @@
             mBin = value
         End Set
     End Property
-    Public Sub New(ByVal ord As Integer, ByVal ro As String, ByVal pslip As String, ByVal par As String, ByVal qua As Integer, ByVal des As String, ByVal lt As String, ByVal wrh As String, ByVal bi As String)
+    Public Property Type() As String
+        Get
+            Return mType
+        End Get
+        Set(ByVal value As String)
+            mType = value
+        End Set
+    End Property
+    Public Sub New(ByVal ord As Integer, ByVal ro As String, ByVal pslip As String, ByVal par As String, ByVal qua As Integer, ByVal des As String, ByVal lt As String, ByVal wrh As String, ByVal bi As String, ByVal ty As String)
         ORDI = ord
         ROUTE = ro
         PSlipNo = pslip
@@ -90,6 +99,6 @@
         Lot = lt
         WARHS = wrh
         Bin = bi
-
+        Type = ty
     End Sub
 End Class

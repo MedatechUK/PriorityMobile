@@ -21,6 +21,7 @@ Partial Public Class frmDisplay
     Private Sub InitializeComponent()
         Me.DataGrid1 = New System.Windows.Forms.DataGrid
         Me.txtEdit = New System.Windows.Forms.TextBox
+        Me.Button2 = New System.Windows.Forms.Button
         Me.SuspendLayout()
         '
         'DataGrid1
@@ -39,12 +40,21 @@ Partial Public Class frmDisplay
         Me.txtEdit.TabIndex = 1
         Me.txtEdit.Visible = False
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(134, 169)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(46, 20)
+        Me.Button2.TabIndex = 3
+        Me.Button2.Text = "Close"
+        '
         'frmDisplay
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(183, 193)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.txtEdit)
         Me.Controls.Add(Me.DataGrid1)
         Me.Name = "frmDisplay"
@@ -54,4 +64,5 @@ Partial Public Class frmDisplay
     End Sub
     Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
     Friend WithEvents txtEdit As System.Windows.Forms.TextBox
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class
