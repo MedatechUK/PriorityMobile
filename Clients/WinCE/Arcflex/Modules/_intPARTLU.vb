@@ -143,6 +143,22 @@ Public Class InterfacePARTLU
         End With
         CtrlTable.AddCol(col)
 
+        ' Pallet
+        With col
+            .Name = "_PALLET"
+            .Title = "Pallet"
+            .initWidth = 25
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tStatus)
+            '.SQLList = "SELECT CUSTNAME FROM CUSTOMERS WHERE STATUSFLAG = 'Y'"
+            '.SQLValidation = "SELECT CUSTNAME FROM CUSTOMERS WHERE STATUSFLAG = 'Y' AND CUSTNAME = '%ME%'"
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = False
+            .Mandatory = False
+        End With
+        CtrlTable.AddCol(col)
+
         ' TQUANT
         With col
             .Name = "_TQUANT"
@@ -174,10 +190,11 @@ Public Class InterfacePARTLU
         CtrlTable.AddCol(col)
 
         ' Set the query to load recordtype 2s
-        CtrlTable.RecordsSQL = "select WARHSNAME, LOCNAME , CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, WARHSBAL.BALANCE/1000 as BALANCE, '' AS CQUANT " & _
-                                "from WARHSBAL, WAREHOUSES, CUSTOMERS, SERIAL " & _
+        CtrlTable.RecordsSQL = "select WARHSNAME, LOCNAME , CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME, WARHSBAL.BALANCE/1000 as BALANCE, '' AS CQUANT " & _
+                                "from WARHSBAL, WAREHOUSES, CUSTOMERS, SERIAL, ACT " & _
                                 "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
                                 "AND WARHSBAL.SERIAL = SERIAL.SERIAL " & _
+                                "AND WARHSBAL.ACT = ACT.ACT " & _
                                 "and WARHSBAL.CUST = CUSTOMERS.CUST " & _
                                 "and WARHSBAL.PART =  " & _
                                 "(select PART from PART where PARTNAME = '%PARTNAME%') " & _

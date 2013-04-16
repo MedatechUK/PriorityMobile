@@ -140,6 +140,64 @@ Public Class InterfaceSTKCNT
         End With
         CtrlTable.AddCol(col)
 
+        ' STATUS
+        With col
+            .Name = "_SERIALNAME"
+            .Title = "W/O"
+            .initWidth = 25
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tString)
+            .SQLList = "SELECT distinct SERIALNAME FROM SERIAL, WARHSBAL " & _
+                "WHERE WARHSBAL.SERIAL = SERIAL.SERIAL " & _
+                "and WARHSBAL.PART = (SELECT PART FROM PART WHERE PARTNAME = '%_PARTNAME%') "
+
+            .SQLValidation = "SELECT SERIALNAME FROM SERIAL, WARHSBAL " & _
+                "WHERE WARHSBAL.SERIAL = SERIAL.SERIAL " & _
+                "and WARHSBAL.PART = (SELECT PART FROM PART WHERE PARTNAME = '%_PARTNAME%') " & _
+                " AND SERIAL.SERIALNAME = '%ME%'"
+
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = True
+            .Mandatory = False
+        End With
+        CtrlTable.AddCol(col)
+
+        ' STATUS
+        With col
+            .Name = "_ACTNAME"
+            .Title = "Lot"
+            .initWidth = 25
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tString)
+            .SQLList = "SELECT '0' AS ACTNAME " & _
+                "UNION ALL " & _
+                "SELECT DISTINCT ACTNAME  " & _
+                "FROM ACT, WARHSBAL, SERIAL  " & _
+                "WHERE WARHSBAL.ACT = ACT.ACT  " & _
+                "AND WARHSBAL.SERIAL = SERIAL.SERIAL  " & _
+                "and WARHSBAL.PART = (SELECT PART FROM PART WHERE PARTNAME = '%_PARTNAME%')  " & _
+                "and SERIAL.SERIALNAME = '%_SERIALNAME%'  " & _
+                "AND ACTNAME <> 0 "
+
+            .SQLValidation = "SELECT '0' AS ACTNAME " & _
+                "UNION ALL " & _
+                "SELECT DISTINCT ACTNAME  " & _
+                "FROM ACT, WARHSBAL, SERIAL  " & _
+                "WHERE WARHSBAL.ACT = ACT.ACT  " & _
+                "AND WARHSBAL.SERIAL = SERIAL.SERIAL  " & _
+                "and WARHSBAL.PART = (SELECT PART FROM PART WHERE PARTNAME = '%_PARTNAME%')  " & _
+                "and SERIAL.SERIALNAME = '%_SERIALNAME%'  " & _
+                "AND ACTNAME <> 0 " & _
+                "AND ACT.ACTNAME = '%ME%'"
+
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = True
+            .Mandatory = False
+        End With
+        CtrlTable.AddCol(col)
+
         If Argument("SHOWBAL") = "TRUE" Then
             ' TQUANT
             With col
@@ -189,10 +247,13 @@ Public Class InterfaceSTKCNT
 
         If Argument("SHOWBAL") = "TRUE" Then
             ' Set the query to load recordtype 2s
-            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, dbo.REALQUANT(BALANCE) as BALANCE, '' AS CQUANT " & _
-                                    "from WARHSBAL, WAREHOUSES, CUSTOMERS, PART " & _
+            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME " & _
+                                    "dbo.REALQUANT(BALANCE) as BALANCE, '' AS CQUANT " & _
+                                    "from WARHSBAL, WAREHOUSES, CUSTOMERS, PART, SERIAL, ACT " & _
                                     "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
                                     "and WARHSBAL.PART = PART.PART " & _
+                                    "and WARHSBAL.SERIAL = SERIAL.SERIAL " & _
+                                    "and WARHSBAL.ACT = ACT.ACT " & _
                                     "and WARHSBAL.CUST = CUSTOMERS.CUST " & _
                                     "and WARHSBAL.WARHS = " & _
                                     "(select WARHS from WAREHOUSES where WARHSNAME= '%WARHS%' " & _
@@ -200,10 +261,13 @@ Public Class InterfaceSTKCNT
                                     "ORDER BY PART.PARTNAME"
         Else
             ' Set the query to load recordtype 2s
-            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, '' AS CQUANT " & _
-                                    "from WARHSBAL, WAREHOUSES, CUSTOMERS, PART " & _
+            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME " & _
+                                    "'' AS CQUANT " & _
+                                    "from WARHSBAL, WAREHOUSES, CUSTOMERS, PART, SERIAL, ACT " & _
                                     "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
                                     "and WARHSBAL.PART = PART.PART " & _
+                                    "and WARHSBAL.SERIAL = SERIAL.SERIAL " & _
+                                    "and WARHSBAL.ACT = ACT.ACT " & _
                                     "and WARHSBAL.CUST = CUSTOMERS.CUST " & _
                                     "and WARHSBAL.WARHS = " & _
                                     "(select WARHS from WAREHOUSES where WARHSNAME= '%WARHS%' " & _
@@ -290,11 +354,17 @@ Public Class InterfaceSTKCNT
             CtrlTable.mCol(2).ctrlEnabled = True
             CtrlTable.mCol(2).Mandatory = True
 
-            CtrlTable.mCol(3).ctrlEnabled = False
-            CtrlTable.mCol(3).Mandatory = False
+            CtrlTable.mCol(3).ctrlEnabled = True
+            CtrlTable.mCol(3).Mandatory = True
 
             CtrlTable.mCol(4).ctrlEnabled = True
             CtrlTable.mCol(4).Mandatory = True
+
+            CtrlTable.mCol(5).ctrlEnabled = False
+            CtrlTable.mCol(5).Mandatory = False
+
+            CtrlTable.mCol(6).ctrlEnabled = True
+            CtrlTable.mCol(6).Mandatory = True
 
         Else
             CtrlTable.mCol(0).ctrlEnabled = True
@@ -309,6 +379,12 @@ Public Class InterfaceSTKCNT
             CtrlTable.mCol(3).ctrlEnabled = True
             CtrlTable.mCol(3).Mandatory = True
 
+            CtrlTable.mCol(4).ctrlEnabled = True
+            CtrlTable.mCol(4).Mandatory = True
+
+            CtrlTable.mCol(5).ctrlEnabled = True
+            CtrlTable.mCol(5).Mandatory = True
+
         End If
     End Sub
 
@@ -318,21 +394,31 @@ Public Class InterfaceSTKCNT
             CtrlTable.mCol(0).Mandatory = False
             CtrlTable.mCol(1).ctrlEnabled = False
             CtrlTable.mCol(1).Mandatory = False
-            CtrlTable.mCol(2).ctrlEnabled = False
-            CtrlTable.mCol(2).Mandatory = False
-            CtrlTable.mCol(3).ctrlEnabled = False
-            CtrlTable.mCol(3).Mandatory = False
+
+            CtrlTable.mCol(2).ctrlEnabled = True
+            CtrlTable.mCol(2).Mandatory = True
+            CtrlTable.mCol(3).ctrlEnabled = True
+            CtrlTable.mCol(3).Mandatory = True
             CtrlTable.mCol(4).ctrlEnabled = True
             CtrlTable.mCol(4).Mandatory = True
+
+            CtrlTable.mCol(5).ctrlEnabled = False
+            CtrlTable.mCol(5).Mandatory = False
+            CtrlTable.mCol(6).ctrlEnabled = True
+            CtrlTable.mCol(6).Mandatory = True
         Else
             CtrlTable.mCol(0).ctrlEnabled = False
             CtrlTable.mCol(0).Mandatory = False
             CtrlTable.mCol(1).ctrlEnabled = False
             CtrlTable.mCol(1).Mandatory = False
-            CtrlTable.mCol(2).ctrlEnabled = False
-            CtrlTable.mCol(2).Mandatory = False
+            CtrlTable.mCol(2).ctrlEnabled = True
+            CtrlTable.mCol(2).Mandatory = True
             CtrlTable.mCol(3).ctrlEnabled = True
             CtrlTable.mCol(3).Mandatory = True
+            CtrlTable.mCol(4).ctrlEnabled = True
+            CtrlTable.mCol(4).Mandatory = True
+            CtrlTable.mCol(5).ctrlEnabled = True
+            CtrlTable.mCol(5).Mandatory = True
         End If
     End Sub
 
@@ -402,8 +488,8 @@ Public Class InterfaceSTKCNT
                 .Procedure = "ZSFDC_LOAD_COUNT"
                 .Table = "ZSFDC_LOAD_COUNT"
                 .RecordType1 = "USERLOGIN,WARHSNAME,LOCNAME"
-                .RecordType2 = "PARTNAME,STATUS,CQUANT,FLAG"
-                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,,TEXT"
+                .RecordType2 = "PARTNAME,STATUS,SERIALNAME,ACTNAME,CQUANT,FLAG"
+                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,,TEXT"
             End With
 
             With CtrlTable
@@ -421,6 +507,8 @@ Public Class InterfaceSTKCNT
                         Dim t2() As String = { _
                             .ItemValue("_PARTNAME", y), _
                             .ItemValue("_TOCUSTNAME", y), _
+                            .ItemValue("_SERIALNAME", y), _
+                            .ItemValue("_ACTNAME", y), _
                             CStr(CInt(.ItemValue("_CQUANT", y)) * 1000), _
                             "Y" _
                         }
@@ -477,38 +565,42 @@ Public Class InterfaceSTKCNT
 
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
 
-        Dim add As Integer = 0
-        Select Case Argument("SCANACTION")
-            Case "OPENFORM"
-                Dim num As New frmNumber
-                With num
-                    .Text = "Box quantity."
-                    .ShowDialog()
-                    add = .number
-                    If .Manual Then Argument("MANUAL") = "Y"
-                    .Dispose()
-                End With
-            Case "INCREMENT"
-                add = 1
-        End Select
+        'Dim add As Integer = 0
+        'Select Case Argument("SCANACTION")
+        '    Case "OPENFORM"
+        '        Dim num As New frmNumber
+        '        With num
+        '            .Text = "Box quantity."
+        '            .ShowDialog()
+        '            add = .number
+        '            If .Manual Then Argument("MANUAL") = "Y"
+        '            .Dispose()
+        '        End With
+        '    Case "INCREMENT"
+        '        add = 1
+        'End Select
 
         Dim lvi As New ListViewItem
         With lvi
             .SubItems(0).Text = Data(0, 0)
             .SubItems.Add(Data(2, 0))
-            .SubItems.Add("Goods")
+            .SubItems.Add("")
+            .SubItems.Add("")
+            .SubItems.Add("")
 
             If Argument("SHOWBAL") = "TRUE" Then
                 .SubItems.Add("")
             End If
-            .SubItems.Add(CStr(add))
+            .SubItems.Add(CStr(0))
             .SubItems.Add(CStr(Data(1, 0)))
+            .Selected = True
         End With
 
         With CtrlTable
             .Table.Items.Add(lvi)
+            .Table.Items(.Table.Items.Count - 1).Selected = True
             .EnableToolbar(False, False, False, False, True)
-            .Focus()
+            .SetEdit()
         End With
 
     End Sub
