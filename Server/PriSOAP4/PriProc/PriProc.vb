@@ -93,6 +93,7 @@
 
         Dim logbuilder As New Builder
         Try
+            lEv.ServicePaused = True
             logbuilder.AppendFormat( _
                     "Pausing Bubble queue at [{0}{1}\]...", _
                     iisFolder, _
@@ -118,6 +119,7 @@
 
         Dim logbuilder As New Builder
         Try
+            lEv.ServicePaused = False
             logbuilder.AppendFormat( _
                     "Resuming Bubble queue at [{0}{1}\]...", _
                     iisFolder, _
@@ -139,6 +141,7 @@
             End If
 
             AddHandler lEv.NewBubble, AddressOf hNewBubble
+            lEv.RestartQ()
 
         Catch ex As Exception
             logbuilder.AppendFormat("{0}", ex.Message).AppendLine()
@@ -304,6 +307,7 @@
                         ) _
                     )
                 AddHandler lEv.NewBubble, AddressOf hNewBubble
+                lEv.RestartQ()
 
             End If
 

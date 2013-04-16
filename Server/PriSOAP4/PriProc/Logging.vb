@@ -39,7 +39,7 @@ Module Logging
         Get
             If IsNothing(_AppVersion) Then
                 With Assembly.GetExecutingAssembly().GetName()
-                    _AppVersion = String.Format("{0}.{2}.{3}", _
+                    _AppVersion = String.Format("{0}.{1}.{3}", _
                         .Version.Major, _
                         .Version.Minor, _
                         .Version.Build, _

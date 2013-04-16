@@ -71,9 +71,12 @@ Public Class PriLoadEvents
     Private _HasElapsed As Boolean
     Private _HasFailed As Boolean
 
+    Private RaiseEvents As Boolean = False
+
     Private WithEvents StartTimer As Timers.Timer
     Private WithEvents CheckEventTimer As Timers.Timer
     Private WithEvents tmr As Timers.Timer
+    Private WithEvents heartBeat As Timers.Timer
 
     Private HldEvents As List(Of HandledWMIEvent)
     Private LogBuilder As Builder
@@ -81,6 +84,16 @@ Public Class PriLoadEvents
 #End Region
 
 #Region "Public Properties"
+
+    Private _ServicePaused As Boolean = False
+    Public Property ServicePaused() As Boolean
+        Get
+            Return _ServicePaused
+        End Get
+        Set(ByVal value As Boolean)
+            _ServicePaused = value
+        End Set
+    End Property
 
     Public ReadOnly Property HasEnded() As Boolean
         Get
@@ -134,7 +147,7 @@ Public Class PriLoadEvents
         WINRUNStartWatcher.Start()
 
         WINRUNStopWatcher = New ManagementEventWatcher(GenerateStopQuery("WINRUN.EXE"))
-        AddHandler WINRUNStartWatcher.EventArrived, AddressOf WINRUNStopped
+        AddHandler WINRUNStopWatcher.EventArrived, AddressOf WINRUNStopped
         WINRUNStopWatcher.Start()
 
         WINACTIVStartWatcher = New ManagementEventWatcher(GenerateStartQuery("WINACTIV.EXE"))
@@ -147,6 +160,7 @@ Public Class PriLoadEvents
 
         StartTimer = New Timers.Timer
         With StartTimer
+            .AutoReset = False
             .Interval = 10000
             AddHandler .Elapsed, AddressOf StartBubbleQ
             .Start()
@@ -156,37 +170,50 @@ Public Class PriLoadEvents
 
     Private Sub StartBubbleQ(ByVal sender As Object, ByVal e As System.Timers.ElapsedEventArgs)
 
+        ' Events should not be raised while 
+        ' we process the q
+        RaiseEvents = False
+
         Dim logbuilder As New Builder
         Dim evt As ntEvtlog.LogEntryType = ntEvtlog.LogEntryType.SuccessAudit
-        Dim verb As ntEvtlog.EvtLogVerbosity = ntEvtlog.EvtLogVerbosity.VeryVerbose
+        Dim verb As ntEvtlog.EvtLogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane
 
         Try
-            logbuilder.AppendFormat("Initialising the bubble queue at: [{0}].", _BubbleQFolder.FullName).AppendLine()
+            ' Has the heartbeat been started
+            If IsNothing(heartBeat) Then
+                logbuilder.AppendFormat( _
+                    "{0}: Initialising system hearbeat: [{1}].", _
+                    Now.ToString("dd/MM/yyy hh:mm:ss"), _
+                _BubbleQFolder.FullName).AppendLine()
 
-            If Not IsNothing(StartTimer) Then
-                With StartTimer
-                    .Stop()
-                    .Dispose()
+                ' Start the heartbeat that will monitor for
+                ' Service weirdness and resart the q 
+                heartBeat = New Timers.Timer
+                With heartBeat
+                    .Interval = 180000
+                    AddHandler .Elapsed, AddressOf hHeartBeat
+                    .Start()
                 End With
+
             End If
 
             Dim files As IO.FileSystemInfo() = _BubbleQFolder.GetFiles
-            If files.Count > 0 Then
-                logbuilder.AppendFormat("Found {0} bubbles waiting in the queue.", files.Count).AppendLine()
+            If files.Count > 0 Then                
                 While files.Count > 0
                     Try
                         Array.Sort(files, New CompareFilesByDateCreated)
-                        logbuilder.AppendFormat("Processing bubble file [{0}]...", files.ElementAt(0).FullName)
                         RaiseEvent NewBubble(files.ElementAt(0).FullName)
-                        logbuilder.AppendFormat("OK.", "").AppendLine()
+
                     Catch ex As Exception
                         verb = ntEvtlog.EvtLogVerbosity.Normal
                         evt = ntEvtlog.LogEntryType.FailureAudit
-                        logbuilder.AppendFormat("Failed.", "").AppendLine()
+                        logbuilder.AppendFormat("Failed Processing bubble file [{0}]...", files.ElementAt(0).FullName)
                         logbuilder.AppendFormat("Please see seperate event log for bubble [{0}].", files.ElementAt(0).FullName.Split("\").Last.Split(".").First).AppendLine()
                         logbuilder.AppendFormat("{0}", ex.Message).AppendLine()
+
                     Finally
                         files = _BubbleQFolder.GetFiles
+
                     End Try
                 End While
             End If
@@ -197,19 +224,30 @@ Public Class PriLoadEvents
             logbuilder.AppendFormat("Error during queue initialisation: {0}", ex.Message).AppendLine()
 
         Finally
+
             Try
-                logbuilder.AppendFormat("Starting the bubble queue at: [{0}]...", _BubbleQFolder.FullName)
-                BubbleQ = New System.IO.FileSystemWatcher(_BubbleQFolder.FullName)
-                BubbleQ.EnableRaisingEvents = True
-                logbuilder.AppendFormat("OK.", _BubbleQFolder.FullName).AppendLine()
+                If IsNothing(BubbleQ) Then
+                    logbuilder.AppendFormat("Initialise file system watcher control at {0}....", _BubbleQFolder.FullName).AppendLine()
+                    BubbleQ = New System.IO.FileSystemWatcher(_BubbleQFolder.FullName)
+                    BubbleQ.EnableRaisingEvents = True
+                    logbuilder.AppendFormat("OK.", _BubbleQFolder.FullName).AppendLine()
+                End If
+
             Catch ex As Exception
                 evt = ntEvtlog.LogEntryType.Err
                 verb = ntEvtlog.EvtLogVerbosity.Normal
                 logbuilder.AppendFormat("FAILED.", _BubbleQFolder.FullName).AppendLine()
                 logbuilder.AppendFormat("{0}", ex.Message).AppendLine()
-            End Try
 
-            ev.Log(logbuilder.ToString, evt, ntEvtlog.EvtLogVerbosity.Normal)
+            Finally
+                ' Write output to the log
+                If logbuilder.ToString.Length > 0 Then _
+                    ev.Log(logbuilder.ToString, evt, verb)
+
+                ' Start listening for new events
+                RaiseEvents = True
+
+            End Try
 
         End Try
 
@@ -238,13 +276,26 @@ Public Class PriLoadEvents
             BubbleQ.Dispose()
         End If
 
+        With StartTimer
+            .Stop()
+            .Dispose()
+        End With
+
+        With heartBeat
+            .Stop()
+            .Dispose()
+        End With
+
         MyBase.Finalize()
+
     End Sub
 
 #End Region
 
 #Region "Public Events"
 
+    ' This is the event that is returned to the bubble handler
+    ' When a new file is founf while starting the bubble q
     Public Event NewBubble(ByVal BubbleFile As String)
 
 #End Region
@@ -267,6 +318,23 @@ Public Class PriLoadEvents
         HldEvents.Add(New HandledWMIEvent(tWMIProcess.WINRUN, tWMIEventState.StateStop, e.NewEvent.Properties("ParentProcessID").Value, e.NewEvent.Properties("ProcessID").Value))
     End Sub
 
+#End Region
+
+#Region "Timer Handlers"
+
+    Private Sub hHeartBeat(ByVal sender As Object, ByVal e As System.Timers.ElapsedEventArgs)
+        If Not ServicePaused Then
+            If RaiseEvents Then ' I'm waiting
+                If _BubbleQFolder.GetFiles.Count > 0 Then
+                    ' But there are files in the q
+                    ' So restart the q
+                    RaiseEvents = False
+                    RestartQ()
+                End If
+            End If
+        End If
+    End Sub
+
     Private Sub CheckEvents(ByVal sender As Object, ByVal e As System.Timers.ElapsedEventArgs)
         If (RunProc = -1) Then
             For Each hld As HandledWMIEvent In HldEvents
@@ -274,7 +342,7 @@ Public Class PriLoadEvents
                     And hld.EventState = tWMIEventState.StateStart _
                     And hld.ParentProcess = System.Diagnostics.Process.GetCurrentProcess().Id Then
                     RunProc = hld.Process
-                    LogBuilder.AppendFormat("Started [{0}] process with ID [{1}]", "WINRUN", RunProc.ToString).AppendLine()
+                    LogBuilder.AppendFormat("{2}: Started [{0}] process with ID [{1}]", "WINRUN", RunProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
                     Exit For
                 End If
             Next
@@ -286,7 +354,7 @@ Public Class PriLoadEvents
                     And hld.EventState = tWMIEventState.StateStart _
                     And hld.ParentProcess = RunProc Then
                     ActProc = hld.Process
-                    LogBuilder.AppendFormat("Started [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString).AppendLine()
+                    LogBuilder.AppendFormat("{2}: Started [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
                     Exit For
                 End If
             Next
@@ -298,7 +366,7 @@ Public Class PriLoadEvents
                 And hld.Process = ActProc Then
 
                 DisposeTimers()
-                LogBuilder.AppendFormat("Finished [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString).AppendLine()
+                LogBuilder.AppendFormat("{2}: Finished [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
 
                 _HasElapsed = False
                 _HasFailed = False
@@ -312,7 +380,7 @@ Public Class PriLoadEvents
     Private Sub TimeOutElapsed(ByVal sender As Object, ByVal e As System.Timers.ElapsedEventArgs)
 
         DisposeTimers()
-        LogBuilder.Append("Loading timeout elapsed. Begin Process Clean-up.").AppendLine()
+        LogBuilder.AppendFormat("Loading timeout elapsed @{0}.", Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine().Append("Begin Process Clean-up.").AppendLine()
 
         LogBuilder.Append("I saw the following threads...").AppendLine()
         For Each hld As HandledWMIEvent In HldEvents
@@ -372,7 +440,17 @@ Public Class PriLoadEvents
 #Region "Folder Watcher Event Handlers"
 
     Private Sub BubbleQ_Created(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles BubbleQ.Created
-        RaiseEvent NewBubble(e.FullPath)
+        If Not ServicePaused Then
+            If RaiseEvents Then
+                ' Ignore any further Filesystem requests 
+                ' until the current bubble has been processed
+                RaiseEvents = False
+                With StartTimer
+                    .Interval = 1
+                    .Start()
+                End With
+            End If
+        End If
     End Sub
 
 #End Region
@@ -427,12 +505,17 @@ Public Class PriLoadEvents
     End Sub
 
     Public Sub RestartQ()
-        StartTimer = New Timers.Timer
-        With StartTimer
-            .Interval = 1
-            AddHandler .Elapsed, AddressOf StartBubbleQ
-            .Start()
-        End With
+
+        If Not ServicePaused Then
+            If RaiseEvents Then
+                RaiseEvents = False
+                With StartTimer
+                    .Interval = 1
+                    .Start()
+                End With
+            End If
+        End If
+
     End Sub
 
 #End Region

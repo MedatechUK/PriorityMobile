@@ -5,8 +5,29 @@ Imports System.Security.AccessControl
 
 Module BubbleHandler
 
+    Friend Class tCountLoad
+        Public Sub New(ByVal loadLines As Integer, ByVal LoadedLines As Integer, ByVal ErrLines As Integer)
+            With Me
+                .LoadedLines = LoadedLines
+                .loadLines = loadLines
+                .ErrLines = ErrLines
+            End With
+        End Sub
+        Public loadLines As Integer
+        Public LoadedLines As Integer
+        Public ErrLines As Integer
+    End Class
+
+    Friend Enum tCountState
+        UnLoaded = 0
+        LoadedWithErrors = 1
+        LoadedNoErrors = 2
+        MaxRetry = 3
+    End Enum
+
     Public lEv As PriLoadEvents
     Private logBuilder As Builder
+    Private Reloads As New Dictionary(Of String, Integer)
 
     Public Sub hNewBubble(ByVal BubbleFile As String)
 
@@ -15,12 +36,19 @@ Module BubbleHandler
         Dim verb As ntEvtlog.EvtLogVerbosity = ntEvtlog.EvtLogVerbosity.Verbose
         Dim dest As New SaveDestination(BubbleFile)
 
+        ' Check if we have seen this bubble before
+        If Reloads.ContainsKey(BubbleFile) Then
+            Reloads(BubbleFile) += 1
+        Else
+            Reloads.Add(BubbleFile, 0)
+        End If
+
         logBuilder = New Builder
         Try
             ev.LogVerbosity = ApplicationSetting("LogVerbosity")
             logBuilder.AppendFormat( _
-                "New bubble data at [{0}].", _
-                BubbleFile _
+                "New bubble data at [{0}]: Attempt {1}.", _
+                BubbleFile, Reloads(BubbleFile) + 1 _
             ).AppendLine()
 
             Using xl As New Loading(ApplicationSetting("Environment"), Connection.Provider)
@@ -113,25 +141,72 @@ Module BubbleHandler
                     End Try
 
                     ' check the load table for unloaded records
+                    ' Si 11/4/13: Set MoveToQ on invalid loading: 
+                    '                    MoveToFolder = tBubbleFolder.QueueFolder
+
+                    ' Get the results of the loading
+                    '   loadLines = number of lines in load table
+                    '   LoadedLines = line where LOADED ='Y'
+                    '   ErrLines = number of errors in ERRMSG
+
+                    Dim CL As tCountLoad
                     Select Case Connection.Provider
-                        Case eProviderType.MSSQL
-                            If Not CountLoaded(.Environment, .Table, logBuilder) Then
-                                et = ntEvtlog.LogEntryType.Warning
-                                verb = ntEvtlog.EvtLogVerbosity.Normal
-                            End If
                         Case eProviderType.ORACLE
-                            If Not plCountLoaded(.Environment, .Table, logBuilder) Then
-                                et = ntEvtlog.LogEntryType.Warning
-                                verb = ntEvtlog.EvtLogVerbosity.Normal
-                            End If
+                            CL = plCountLoaded(.Environment, .Table, logBuilder)
+                        Case Else
+                            CL = CountLoaded(.Environment, .Table, logBuilder)
                     End Select
 
-                    logBuilder.AppendFormat( _
-                            "Loaded bubble ID [{0}].", _
-                            .BubbleID _
-                    ).AppendLine()
+                    ' Check the resuls of the loading
+                    Dim CountState As tCountState
+                    With CL
+                        If (.ErrLines > 0) Or (.LoadedLines > 0 And .loadLines > .LoadedLines) Then
+                            CountState = tCountState.LoadedWithErrors
+                        ElseIf .loadLines = .LoadedLines Then
+                            CountState = tCountState.LoadedNoErrors
+                        Else
+                            CountState = tCountState.UnLoaded
+                        End If
+                    End With
+
+                    ' Quit re-qing after 3 attempts
+                    If CountState = tCountState.UnLoaded And Reloads(BubbleFile) > 1 Then CountState = tCountState.MaxRetry
+
+                    Select Case CountState
+                        Case tCountState.UnLoaded
+                            logBuilder.AppendFormat( _
+                                "Bubble [{0}] failed to load on attempt {1}.", _
+                                BubbleFile, _
+                                Reloads(BubbleFile) + 1 _
+                                ).AppendLine().Append( _
+                                "Sending it to the back of the q.").AppendLine()
+                            MoveToFolder = tBubbleFolder.QueueFolder
+                            et = ntEvtlog.LogEntryType.FailureAudit
+                            verb = ntEvtlog.EvtLogVerbosity.Verbose
+
+                        Case tCountState.LoadedWithErrors
+                            et = ntEvtlog.LogEntryType.Warning
+                            verb = ntEvtlog.EvtLogVerbosity.Normal
+                            Reloads.Remove(BubbleFile)
+
+                        Case tCountState.MaxRetry
+                            logBuilder.AppendFormat( _
+                                "Bubble [{0}] still didn't load after attempt {1}.", _
+                                BubbleFile, Reloads(BubbleFile) + 1 _
+                                ).AppendLine().Append("I'm giving up, and sending this to badmail." _
+                                ).AppendLine.Append("Sorry it didn't work out.").AppendLine()
+                            MoveToFolder = tBubbleFolder.BadMailFolder
+                            et = ntEvtlog.LogEntryType.Err
+                            verb = ntEvtlog.EvtLogVerbosity.Normal
+                            Reloads.Remove(BubbleFile)
+
+                        Case tCountState.LoadedNoErrors
+                            Reloads.Remove(BubbleFile)
+
+                    End Select
 
                 End With
+
             End Using
 
         Catch ex As Exception
@@ -146,52 +221,80 @@ Module BubbleHandler
 
         Finally
 
-            ' Get the detination path, creating folders as required
-            dest.MoveToFolder = MoveToFolder
-            Dim SaveTo As String = dest.DestinationPath(logBuilder)
+            Try
 
-            logBuilder.AppendFormat( _
-                "Moving Bubble File to [{0}].", _
-                SaveTo _
-            ).AppendLine()
+                ' Get the detination path, creating folders as required
+                dest.MoveToFolder = MoveToFolder
 
-            ' Make sure the file does not already exist
-            Do
-                File.Delete(SaveTo)
-                Threading.Thread.Sleep(1)
-            Loop Until Not File.Exists(SaveTo)
+                Select Case dest.MoveToFolder
+                    Case tBubbleFolder.QueueFolder
 
-            ' Remove from queue
-            Dim excep As Exception = Nothing
-            If File.Exists(BubbleFile) Then
-                Do
-                    Try
-                        excep = Nothing
-                        System.IO.File.Move(BubbleFile, SaveTo)
-                    Catch ex As UnauthorizedAccessException
+                        ' Move the failed bubble to the back of the queue
+                        File.SetCreationTime(BubbleFile, Now)
+
+                    Case Else
+
+                        Dim SaveTo As String = dest.DestinationPath(logBuilder)
+
                         logBuilder.AppendFormat( _
-                            "The caller does not have the required permission. {0}", _
-                            ex.Message _
+                            "Moving Bubble File to file://{0}.", _
+                            SaveTo _
                         ).AppendLine()
-                    Catch ex As DirectoryNotFoundException
-                        logBuilder.AppendFormat( _
-                            "The path specified in sourceFileName or destFileName is invalid, (for example, it is on an unmapped drive). {0}", _
-                            ex.Message _
-                        ).AppendLine()
-                    Catch ex As NotSupportedException
-                        logBuilder.AppendFormat( _
-                            "sourceFileName or destFileName is in an invalid format. {0}", _
-                            ex.Message _
-                        ).AppendLine()
-                    Catch ex As Exception
-                        excep = ex
-                        Threading.Thread.Sleep(1)
-                    End Try
-                Loop Until IsNothing(excep) Or Not (File.Exists(BubbleFile))
-            End If
 
-            ' Write logbuilder to the event log
-            ev.Log(logBuilder.ToString, et, verb)
+
+                        ' Make sure the file does not already exist
+                        Do
+                            File.Delete(SaveTo)
+                            Threading.Thread.Sleep(1)
+                        Loop Until Not File.Exists(SaveTo)
+
+                        ' Remove from queue
+                        Dim excep As Exception = Nothing
+                        If File.Exists(BubbleFile) Then
+                            Do
+                                Try
+                                    excep = Nothing
+                                    System.IO.File.Move(BubbleFile, SaveTo)
+                                Catch ex As UnauthorizedAccessException
+                                    logBuilder.AppendFormat( _
+                                        "The caller does not have the required permission. {0}", _
+                                        ex.Message _
+                                    ).AppendLine()
+                                Catch ex As DirectoryNotFoundException
+                                    logBuilder.AppendFormat( _
+                                        "The path specified in sourceFileName or destFileName is invalid, (for example, it is on an unmapped drive). {0}", _
+                                        ex.Message _
+                                    ).AppendLine()
+                                Catch ex As NotSupportedException
+                                    logBuilder.AppendFormat( _
+                                        "sourceFileName or destFileName is in an invalid format. {0}", _
+                                        ex.Message _
+                                    ).AppendLine()
+                                Catch ex As Exception
+                                    excep = ex
+                                    Threading.Thread.Sleep(1)
+                                End Try
+                            Loop Until IsNothing(excep) Or Not (File.Exists(BubbleFile))
+                        End If
+
+                End Select
+
+            Catch ex As Exception
+                et = ntEvtlog.LogEntryType.Err
+                verb = ntEvtlog.EvtLogVerbosity.Normal
+                logBuilder.AppendFormat( _
+                    "Enexpected exception during file cleanup: {0}.", _
+                    ex.Message _
+                ).AppendLine()
+
+            Finally
+                ' Write logbuilder to the event log
+                ev.Log(logBuilder.ToString, et, verb)
+
+                ' Resume the queue
+                lEv.RestartQ()
+
+            End Try
 
         End Try
 
@@ -257,221 +360,285 @@ Module BubbleHandler
 
     End Sub
 
-    Private Function CountLoaded(ByVal Environment As String, ByVal Table As String, ByRef Log As Builder) As Boolean
+#Region "Count Loaded"
 
-        Dim ret As Boolean = True
+    Private Function CountLoaded(ByVal Environment As String, ByVal Table As String, ByRef Log As Builder) As tCountLoad
+
         Dim ld As System.Text.StringBuilder
         Dim cmd As GenericCommand
 
         ld = New System.Text.StringBuilder
         ld.AppendFormat("Use [{0}];", Environment).AppendLine()
         ld.AppendFormat("SELECT T$USER FROM system.dbo.USERS where USERLOGIN='{0}'", My.Settings.PRIORITYUSER).AppendLine()
-        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-        cmd = New GenericCommand(ld.ToString, Connection)
-        Dim tUser As Integer = cmd.ExecuteScalar()
+        Dim tUser As Integer = ExecuteAndLog(ld, Log, "Service User")
 
         ld = New System.Text.StringBuilder
         ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-        ld.AppendFormat("select count(LOADED) from {0} where LINE > 0", Table).AppendLine()
-        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-        cmd = New GenericCommand(ld.ToString, Connection)
-        Dim loadLines As Integer = cmd.ExecuteScalar()
+        ld.AppendFormat("select count(*) from {0} where LINE > 0", Table).AppendLine()
+        Dim loadLines As Integer = ExecuteAndLog(ld, Log, "#Lines to be loaded")
 
         ld = New System.Text.StringBuilder
         ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-        ld.AppendFormat("select count(LOADED) from {0} where LINE > 0 and LOADED='Y'", Table).AppendLine()
-        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-        cmd = New GenericCommand(ld.ToString, Connection)
-        Dim LoadedLines As Integer = cmd.ExecuteScalar()
+        ld.AppendFormat("select count(*) from {0} where LINE > 0 and LOADED='Y'", Table).AppendLine()
+        Dim LoadedLines As Integer = ExecuteAndLog(ld, Log, "#Lines where LOADED='Y'")
+
+        ld = New System.Text.StringBuilder
+        ld.AppendFormat("Use [{0}];", Environment).AppendLine()
+        ld.AppendFormat("select count(*) from ERRMSGS ", Table).AppendLine()
+        ld.AppendFormat("where T$USER={0} ", tUser.ToString).AppendLine()
+        ld.AppendFormat("and ERRMSGS.TYPE = 'i'", tUser.ToString).AppendLine()
+        Dim ErrLines As Integer = ExecuteAndLog(ld, Log, "#Lines in ERRMSG table")
 
         Log.AppendFormat("Loaded {0} of {1} records.", LoadedLines.ToString, loadLines.ToString).AppendLine()
 
-        If loadLines > LoadedLines Then ' Unloaded lines
-
+        If ErrLines > 0 Then
+            Log.AppendFormat("Priority reported [{0}] loading errors: ", ErrLines.ToString).AppendLine()
             ld = New System.Text.StringBuilder
             ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-            ld.AppendFormat("select count(*) from sys.tables where name ='{0}_UL'", Table).AppendLine()
-            If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-            cmd = New GenericCommand(ld.ToString, Connection)
-            If cmd.ExecuteScalar() = 1 Then
-                Log.AppendFormat("Found {0}_UL (unloaded) table.", Table).AppendLine()
-                Log.AppendFormat("Copying data from {0} to {0}_UL table.", Table).AppendLine()
-                ld = New System.Text.StringBuilder
-                ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-                ld.AppendFormat("declare @LN int;", Table).AppendLine()
-                ld.AppendFormat("set @LN = (select MAX(LINE) from {0}_UL);", Table).AppendLine()
-                ld.AppendFormat("update {0} set LINE = (LINE + @LN) where LINE > 0;", Table).AppendLine()
-                ld.AppendFormat("update ERRMSGS set LINE = (LINE + @LN) where T$USER = {0};", tUser.ToString).AppendLine()
-                ld.AppendFormat("insert into {0}_UL select * from {0} where LINE > 0 ;", Table).AppendLine()
-
-                If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                    Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-                cmd = New GenericCommand(ld.ToString, Connection)
-                cmd.ExecuteNonQuery()
-            Else
-                Log.AppendFormat("Unloaded table not created: {0}_UL.", Table).AppendLine()
-            End If
-
-            ' Get the 
-            ld = New System.Text.StringBuilder
-            ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-            ld.AppendFormat("select {0}.LINE, isnull(ERRMSGS.MESSAGE,'was not loaded.')", Table).AppendLine()
-            ld.AppendFormat("from {0} left outer join ERRMSGS on {0}.LINE = ERRMSGS.LINE", Table).AppendLine()
-            ld.AppendFormat("where {0}.LINE > 0 and LOADED <> 'Y'", Table).AppendLine()
-            ld.AppendFormat("and (isnull(ERRMSGS.T$USER,{0}) = {0})", tUser.ToString).AppendLine()
-            ld.AppendFormat("and (isnull(ERRMSGS.TYPE,'i') = 'i')", tUser.ToString).AppendLine()
-
+            ld.AppendFormat("select MESSAGE from ERRMSGS ", Table).AppendLine()
+            ld.AppendFormat("where T$USER={0} ", tUser.ToString).AppendLine()
+            ld.AppendFormat("and ERRMSGS.TYPE = 'i'", tUser.ToString).AppendLine()
             If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
                 Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
             cmd = New GenericCommand(ld.ToString, Connection)
             Dim RD As GenericDataReader = cmd.ExecuteReader()
             While RD.Read
-                Log.AppendFormat("Line {0} {1}", RD.Item(0), RD.Item(1)).AppendLine()
+                Log.AppendFormat("   {0}", RD.Item(0)).AppendLine()
             End While
             RD.Close()
-
-        Else ' All Lines Loaded
-            ld = New System.Text.StringBuilder
-            ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-            ld.AppendFormat("select count(*) from sys.tables where name ='{0}_LD'", Table).AppendLine()
-            If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-            cmd = New GenericCommand(ld.ToString, Connection)
-
-            If cmd.ExecuteScalar() = 1 Then
-                Log.AppendFormat("Found {0}_LD (loaded) table.", Table).AppendLine()
-                Log.AppendFormat("Copying data from {0} to {0}_LD table.", Table).AppendLine()
-                ld = New System.Text.StringBuilder
-                ld.AppendFormat("Use [{0}];", Environment).AppendLine()
-                ld.AppendFormat("declare @LN int;", Table).AppendLine()
-                ld.AppendFormat("set @LN = (select MAX(LINE) from {0}_LD);", Table).AppendLine()
-                ld.AppendFormat("update {0} set LINE = (LINE + @LN) where LINE > 0;", Table).AppendLine()
-                ld.AppendFormat("update ERRMSGS set LINE = (LINE + @LN) where T$USER = {0};", tUser.ToString).AppendLine()
-                ld.AppendFormat("insert into {0}_LD select * from {0};", Table).AppendLine()
-                If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                    Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-                cmd = New GenericCommand(ld.ToString, Connection)
-                cmd.ExecuteNonQuery()
-            Else
-                Log.AppendFormat("Loaded table not created: {0}_LD.", Table).AppendLine()
-            End If
-
         End If
 
-        Return Not (loadLines > LoadedLines)
+        Return New tCountLoad(loadLines, LoadedLines, ErrLines)
+
+        'If loadLines > LoadedLines Then ' Unloaded lines
+
+        '    ld = New System.Text.StringBuilder
+        '    ld.AppendFormat("Use [{0}];", Environment).AppendLine()
+        '    ld.AppendFormat("select count(*) from sys.tables where name ='{0}_UL'", Table).AppendLine()
+        '    If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '        Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '    cmd = New GenericCommand(ld.ToString, Connection)
+        '    If cmd.ExecuteScalar() = 1 Then
+        '        Log.AppendFormat("Found {0}_UL (unloaded) table.", Table).AppendLine()
+        '        Log.AppendFormat("Copying data from {0} to {0}_UL table.", Table).AppendLine()
+        '        ld = New System.Text.StringBuilder
+        '        ld.AppendFormat("Use [{0}];", Environment).AppendLine()
+        '        ld.AppendFormat("declare @LN int;", Table).AppendLine()
+        '        ld.AppendFormat("set @LN = (select MAX(LINE) from {0}_UL);", Table).AppendLine()
+        '        ld.AppendFormat("update {0} set LINE = (LINE + @LN) where LINE > 0;", Table).AppendLine()
+        '        ld.AppendFormat("update ERRMSGS set LINE = (LINE + @LN) where T$USER = {0};", tUser.ToString).AppendLine()
+        '        ld.AppendFormat("insert into {0}_UL select * from {0} where LINE > 0 ;", Table).AppendLine()
+
+        '        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '        cmd = New GenericCommand(ld.ToString, Connection)
+        '        cmd.ExecuteNonQuery()
+        '    Else
+        '        Log.AppendFormat("Unloaded table not created: {0}_UL.", Table).AppendLine()
+        '    End If
+
+        '    ' Get the 
+        '    ld = New System.Text.StringBuilder
+        '    ld.AppendFormat("Use [{0}];", Environment).AppendLine()
+        '    ld.AppendFormat("select {0}.LINE, isnull(ERRMSGS.MESSAGE,'was not loaded.')", Table).AppendLine()
+        '    ld.AppendFormat("from {0} left outer join ERRMSGS on {0}.LINE = ERRMSGS.LINE", Table).AppendLine()
+        '    ld.AppendFormat("where {0}.LINE > 0 and LOADED <> 'Y'", Table).AppendLine()
+        '    ld.AppendFormat("and (isnull(ERRMSGS.T$USER,{0}) = {0})", tUser.ToString).AppendLine()
+        '    ld.AppendFormat("and (isnull(ERRMSGS.TYPE,'i') = 'i')", tUser.ToString).AppendLine()
+
+        '    If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '        Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '    cmd = New GenericCommand(ld.ToString, Connection)
+        '    Dim RD As GenericDataReader = cmd.ExecuteReader()
+        '    While RD.Read
+        '        Log.AppendFormat("Line {0} {1}", RD.Item(0), RD.Item(1)).AppendLine()
+        '    End While
+        '    RD.Close()
+
+        'Else ' All Lines Loaded
+        '    ld = New System.Text.StringBuilder
+        '    ld.AppendFormat("Use [{0}];", Environment).AppendLine()
+        '    ld.AppendFormat("select count(*) from sys.tables where name ='{0}_LD'", Table).AppendLine()
+        '    If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '        Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '    cmd = New GenericCommand(ld.ToString, Connection)
+
+        '    If cmd.ExecuteScalar() = 1 Then
+        '        Log.AppendFormat("Found {0}_LD (loaded) table.", Table).AppendLine()
+        '        Log.AppendFormat("Copying data from {0} to {0}_LD table.", Table).AppendLine()
+        '        ld = New System.Text.StringBuilder
+        '        ld.AppendFormat("Use [{0}];", Environment).AppendLine()
+        '        ld.AppendFormat("declare @LN int;", Table).AppendLine()
+        '        ld.AppendFormat("set @LN = (select MAX(LINE) from {0}_LD);", Table).AppendLine()
+        '        ld.AppendFormat("update {0} set LINE = (LINE + @LN) where LINE > 0;", Table).AppendLine()
+        '        ld.AppendFormat("update ERRMSGS set LINE = (LINE + @LN) where T$USER = {0};", tUser.ToString).AppendLine()
+        '        ld.AppendFormat("insert into {0}_LD select * from {0};", Table).AppendLine()
+        '        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '        cmd = New GenericCommand(ld.ToString, Connection)
+        '        cmd.ExecuteNonQuery()
+        '    Else
+        '        Log.AppendFormat("Loaded table not created: {0}_LD.", Table).AppendLine()
+        '    End If
+
+        'End If
+
+        'Return Not (loadLines > LoadedLines)
 
     End Function
 
-    Private Function plCountLoaded(ByVal Environment As String, ByVal Table As String, ByRef Log As Builder) As Boolean
+    Private Function plCountLoaded(ByVal Environment As String, ByVal Table As String, ByRef Log As Builder) As tCountLoad
 
-        Dim ret As Boolean = True
         Dim ld As System.Text.StringBuilder
         Dim cmd As GenericCommand
 
         ld = New System.Text.StringBuilder
         ld.AppendFormat("SELECT T$USER FROM USERS where USERLOGIN='{0}' or reverse(USERLOGIN)='{0}'", My.Settings.PRIORITYUSER).AppendLine()
-        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-        cmd = New GenericCommand(ld.ToString, Connection)
-        Dim tUser As Integer = cmd.ExecuteScalar()
+        Dim tUser As Integer = ExecuteAndLog(ld, Log, "Service User")
 
         ld = New System.Text.StringBuilder
         ld.AppendFormat("select count(LOADED) from {0}${1} where LINE > 0", Environment, Table).AppendLine()
-        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-        cmd = New GenericCommand(ld.ToString, Connection)
-        Dim loadLines As Integer = cmd.ExecuteScalar()
+        Dim loadLines As Integer = ExecuteAndLog(ld, Log, "#Lines to be loaded")
 
         ld = New System.Text.StringBuilder
-        ld.AppendFormat("select count(LOADED) from {0}${1} where LINE > 0 and LOADED='Y'", Environment, Table).AppendLine()
-        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-        cmd = New GenericCommand(ld.ToString, Connection)
-        Dim LoadedLines As Integer = cmd.ExecuteScalar()
+        ld.AppendFormat("select count(*) from {0}${1} where LINE > 0 and LOADED='Y'", Environment, Table).AppendLine()
+        Dim LoadedLines As Integer = ExecuteAndLog(ld, Log, "#Lines where LOADED='Y'")
+
+        ld = New System.Text.StringBuilder
+        ld.AppendFormat("select count(*) from {0}$ERRMSGS ", Environment, Table).AppendLine()
+        ld.AppendFormat("where T$USER={0} ", tUser.ToString).AppendLine()
+        ld.AppendFormat("and TYPE = 'i'", tUser.ToString).AppendLine()
+        Dim ErrLines As Integer = ExecuteAndLog(ld, Log, "#Lines in ERRMSG table")
 
         Log.AppendFormat("Loaded {0} of {1} records.", LoadedLines.ToString, loadLines.ToString).AppendLine()
 
-        If loadLines > LoadedLines Then ' Unloaded lines
-
+        If ErrLines > 0 Then
+            Log.AppendFormat("Priority reported [{0}] loading errors: ", ErrLines.ToString).AppendLine()
             ld = New System.Text.StringBuilder
-            ld.AppendFormat("SELECT count(*) FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'TABLE' AND upper(OBJECT_NAME) = upper('{0}${1}_UL')", Environment, Table).AppendLine()
-            If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-            cmd = New GenericCommand(ld.ToString, Connection)
-            If cmd.ExecuteScalar() = 1 Then
-                Log.AppendFormat("Found {0}_UL (unloaded) table.", Table).AppendLine()
-                Log.AppendFormat("Copying data from {0} to {0}_UL table.", Table).AppendLine()
-                ld = New System.Text.StringBuilder
-                ld.AppendFormat("DECLARE LN INTEGER ;", "").AppendLine()
-                ld.AppendFormat("BEGIN", "").AppendLine()
-                ld.AppendFormat("select MAX(LINE) into LN from {0}${1}_UL;", Environment, Table).AppendLine()
-                ld.AppendFormat("update {0}${1} set LINE = (LINE + LN) where LINE > 0;", Environment, Table).AppendLine()
-                ld.AppendFormat("update {0}$ERRMSGS set LINE = (LINE + LN) where T$USER = {1};", Environment, tUser.ToString).AppendLine()
-                ld.AppendFormat("insert into {0}${1}_UL select * from {0}${1} where LINE > 0;", Environment, Table).AppendLine()
-                ld.AppendFormat("END;", "").AppendLine()
-
-                If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                    Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-                cmd = New GenericCommand(ld.ToString, Connection)
-                cmd.ExecuteNonQuery()
-            Else
-                Log.AppendFormat("Unloaded table not created: {0}_UL .", Table).AppendLine()
-            End If
-
-            ' Get the 
-            ld = New System.Text.StringBuilder
-            ld.AppendFormat("select {0}${1}.LINE, NVL({0}$ERRMSGS.MESSAGE,'was not loaded.')", Environment, Table).AppendLine()
-            ld.AppendFormat("from {0}${1} left outer join {0}$ERRMSGS on {0}${1}.LINE = {0}$ERRMSGS.LINE", Environment, Table).AppendLine()
-            ld.AppendFormat("where {0}${1}.LINE > 0 and LOADED <> 'Y'", Environment, Table).AppendLine()
-            ld.AppendFormat("and (NVL({0}$ERRMSGS.T$USER,{1}) = {1})", Environment, tUser.ToString).AppendLine()
-            ld.AppendFormat("and (NVL({0}$ERRMSGS.TYPE,'i') = 'i')", Environment, tUser.ToString).AppendLine()
-
+            ld.AppendFormat("select MESSAGE from {0}$ERRMSGS ", Environment, Table).AppendLine()
+            ld.AppendFormat("where T$USER={0} ", tUser.ToString).AppendLine()
+            ld.AppendFormat("and TYPE = 'i'", tUser.ToString).AppendLine()
             If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
                 Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
             cmd = New GenericCommand(ld.ToString, Connection)
             Dim RD As GenericDataReader = cmd.ExecuteReader()
             While RD.Read
-                Log.AppendFormat("Line {0} {1}", RD(0), RD(1)).AppendLine()
+                Log.AppendFormat("   {0}", RD.Item(0)).AppendLine()
             End While
             RD.Close()
-
-        Else ' All Lines Loaded
-            ld = New System.Text.StringBuilder
-            ld.AppendFormat("SELECT count(*) FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'TABLE' AND upper(OBJECT_NAME) = upper('{0}${1}_LD')", Environment, Table).AppendLine()
-            If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-            cmd = New GenericCommand(ld.ToString, Connection)
-
-            If cmd.ExecuteScalar() = 1 Then
-                Log.AppendFormat("Found {0}_LD (loaded) table.", Table).AppendLine()
-                Log.AppendFormat("Copying data from {0} to {0}_LD table.", Table).AppendLine()
-
-                ld = New System.Text.StringBuilder
-                ld.AppendFormat("DECLARE LN INTEGER ;", "").AppendLine()
-                ld.AppendFormat("BEGIN", "").AppendLine()
-                ld.AppendFormat("select MAX(LINE) into LN from {0}${1}_LD;", Environment, Table).AppendLine()
-                ld.AppendFormat("update {0}${1} set LINE = (LINE + LN) where LINE > 0;", Environment, Table).AppendLine()
-                ld.AppendFormat("update {0}$ERRMSGS set LINE = (LINE + LN) where T$USER = {1};", Environment, tUser.ToString).AppendLine()
-                ld.AppendFormat("insert into {0}${1}_LD select * from {0}${1};", Environment, Table).AppendLine()
-                ld.AppendFormat("END;", "").AppendLine()
-
-                If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
-                    Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
-                cmd = New GenericCommand(ld.ToString, Connection)
-                cmd.ExecuteNonQuery()
-            Else
-                Log.AppendFormat("Loaded table not created: {0}_LD.", Table).AppendLine()
-            End If
-
+            Log.AppendLine()
         End If
 
-        Return Not (loadLines > LoadedLines)
+        Return New tCountLoad(loadLines, LoadedLines, ErrLines)
+
+        'Log.AppendFormat("Loaded {0} of {1} records.", LoadedLines.ToString, loadLines.ToString).AppendLine()
+
+        'If loadLines > LoadedLines Then ' Unloaded lines
+
+        '    ld = New System.Text.StringBuilder
+        '    ld.AppendFormat("SELECT count(*) FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'TABLE' AND upper(OBJECT_NAME) = upper('{0}${1}_UL')", Environment, Table).AppendLine()
+        '    If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '        Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '    cmd = New GenericCommand(ld.ToString, Connection)
+        '    If cmd.ExecuteScalar() = 1 Then
+        '        Log.AppendFormat("Found {0}_UL (unloaded) table.", Table).AppendLine()
+        '        Log.AppendFormat("Copying data from {0} to {0}_UL table.", Table).AppendLine()
+        '        ld = New System.Text.StringBuilder
+        '        ld.AppendFormat("DECLARE LN INTEGER ;", "").AppendLine()
+        '        ld.AppendFormat("BEGIN", "").AppendLine()
+        '        ld.AppendFormat("select MAX(LINE) into LN from {0}${1}_UL;", Environment, Table).AppendLine()
+        '        ld.AppendFormat("update {0}${1} set LINE = (LINE + LN) where LINE > 0;", Environment, Table).AppendLine()
+        '        ld.AppendFormat("update {0}$ERRMSGS set LINE = (LINE + LN) where T$USER = {1};", Environment, tUser.ToString).AppendLine()
+        '        ld.AppendFormat("insert into {0}${1}_UL select * from {0}${1} where LINE > 0;", Environment, Table).AppendLine()
+        '        ld.AppendFormat("END;", "").AppendLine()
+
+        '        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '        cmd = New GenericCommand(ld.ToString, Connection)
+        '        cmd.ExecuteNonQuery()
+        '    Else
+        '        Log.AppendFormat("Unloaded table not created: {0}_UL .", Table).AppendLine()
+        '    End If
+
+        '    ' Get the 
+        '    ld = New System.Text.StringBuilder
+        '    ld.AppendFormat("select {0}${1}.LINE, NVL({0}$ERRMSGS.MESSAGE,'was not loaded.')", Environment, Table).AppendLine()
+        '    ld.AppendFormat("from {0}${1} left outer join {0}$ERRMSGS on {0}${1}.LINE = {0}$ERRMSGS.LINE", Environment, Table).AppendLine()
+        '    ld.AppendFormat("where {0}${1}.LINE > 0 and LOADED <> 'Y'", Environment, Table).AppendLine()
+        '    ld.AppendFormat("and (NVL({0}$ERRMSGS.T$USER,{1}) = {1})", Environment, tUser.ToString).AppendLine()
+        '    ld.AppendFormat("and (NVL({0}$ERRMSGS.TYPE,'i') = 'i')", Environment, tUser.ToString).AppendLine()
+
+        '    If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '        Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '    cmd = New GenericCommand(ld.ToString, Connection)
+        '    Dim RD As GenericDataReader = cmd.ExecuteReader()
+        '    While RD.Read
+        '        Log.AppendFormat("Line {0} {1}", RD(0), RD(1)).AppendLine()
+        '    End While
+        '    RD.Close()
+
+        'Else ' All Lines Loaded
+        '    ld = New System.Text.StringBuilder
+        '    ld.AppendFormat("SELECT count(*) FROM ALL_OBJECTS WHERE OBJECT_TYPE = 'TABLE' AND upper(OBJECT_NAME) = upper('{0}${1}_LD')", Environment, Table).AppendLine()
+        '    If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '        Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '    cmd = New GenericCommand(ld.ToString, Connection)
+
+        '    If cmd.ExecuteScalar() = 1 Then
+        '        Log.AppendFormat("Found {0}_LD (loaded) table.", Table).AppendLine()
+        '        Log.AppendFormat("Copying data from {0} to {0}_LD table.", Table).AppendLine()
+
+        '        ld = New System.Text.StringBuilder
+        '        ld.AppendFormat("DECLARE LN INTEGER ;", "").AppendLine()
+        '        ld.AppendFormat("BEGIN", "").AppendLine()
+        '        ld.AppendFormat("select MAX(LINE) into LN from {0}${1}_LD;", Environment, Table).AppendLine()
+        '        ld.AppendFormat("update {0}${1} set LINE = (LINE + LN) where LINE > 0;", Environment, Table).AppendLine()
+        '        ld.AppendFormat("update {0}$ERRMSGS set LINE = (LINE + LN) where T$USER = {1};", Environment, tUser.ToString).AppendLine()
+        '        ld.AppendFormat("insert into {0}${1}_LD select * from {0}${1};", Environment, Table).AppendLine()
+        '        ld.AppendFormat("END;", "").AppendLine()
+
+        '        If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+        '            Log.Append("Running SQL:").AppendLine.Append(ld.ToString).AppendLine()
+        '        cmd = New GenericCommand(ld.ToString, Connection)
+        '        cmd.ExecuteNonQuery()
+        '    Else
+        '        Log.AppendFormat("Loaded table not created: {0}_LD.", Table).AppendLine()
+        '    End If
+
+        'End If
+
+        'Return Not (loadLines > LoadedLines)
 
     End Function
+
+    Private Function ExecuteAndLog(ByRef ld As System.Text.StringBuilder, ByRef Log As Builder, ByVal resultName As String) As Object
+
+        Dim ret As Object = Nothing
+        Try
+            If ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane Then _
+                Log.AppendLine.Append("Running SQL:").AppendLine.Append(ld.ToString)
+            Dim cmd As New GenericCommand(ld.ToString, Connection)
+            ret = cmd.ExecuteScalar()
+
+        Catch ex As Exception
+            Log.AppendLine.AppendFormat("Unexpected error getting load results: {0}", ex.Message).AppendLine()
+            If Not (ev.LogVerbosity = ntEvtlog.EvtLogVerbosity.Arcane) Then _
+                Log.Append("Running SQL:").AppendLine.Append(ld.ToString)
+
+        Finally
+            Select Case ev.LogVerbosity
+                Case ntEvtlog.EvtLogVerbosity.Normal
+                Case Else
+                    Log.AppendFormat("{0} = {1}", resultName, ret.ToString).AppendLine()
+            End Select
+
+        End Try
+
+        Return ret.ToString
+
+    End Function
+
+#End Region
 
 End Module
 
