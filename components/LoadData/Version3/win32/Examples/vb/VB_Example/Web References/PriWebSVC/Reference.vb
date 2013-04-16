@@ -33,8 +33,6 @@ Namespace PriWebSVC
         
         Private LoadDataOperationCompleted As System.Threading.SendOrPostCallback
         
-        Private LoadDataWaitOperationCompleted As System.Threading.SendOrPostCallback
-        
         Private GetDataOperationCompleted As System.Threading.SendOrPostCallback
         
         Private SaveSignatureOperationCompleted As System.Threading.SendOrPostCallback
@@ -81,9 +79,6 @@ Namespace PriWebSVC
         Public Event LoadDataCompleted As LoadDataCompletedEventHandler
         
         '''<remarks/>
-        Public Event LoadDataWaitCompleted As LoadDataWaitCompletedEventHandler
-        
-        '''<remarks/>
         Public Event GetDataCompleted As GetDataCompletedEventHandler
         
         '''<remarks/>
@@ -113,33 +108,6 @@ Namespace PriWebSVC
             If (Not (Me.LoadDataCompletedEvent) Is Nothing) Then
                 Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
                 RaiseEvent LoadDataCompleted(Me, New LoadDataCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
-            End If
-        End Sub
-        
-        '''<remarks/>
-        <System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://priwebsvc.ntsa.org.uk/LoadDataWait", RequestNamespace:="http://priwebsvc.ntsa.org.uk/", ResponseNamespace:="http://priwebsvc.ntsa.org.uk/", Use:=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle:=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)>  _
-        Public Function LoadDataWait(ByVal BubbleID As String, ByVal SerialData As String) As String
-            Dim results() As Object = Me.Invoke("LoadDataWait", New Object() {BubbleID, SerialData})
-            Return CType(results(0),String)
-        End Function
-        
-        '''<remarks/>
-        Public Overloads Sub LoadDataWaitAsync(ByVal BubbleID As String, ByVal SerialData As String)
-            Me.LoadDataWaitAsync(BubbleID, SerialData, Nothing)
-        End Sub
-        
-        '''<remarks/>
-        Public Overloads Sub LoadDataWaitAsync(ByVal BubbleID As String, ByVal SerialData As String, ByVal userState As Object)
-            If (Me.LoadDataWaitOperationCompleted Is Nothing) Then
-                Me.LoadDataWaitOperationCompleted = AddressOf Me.OnLoadDataWaitOperationCompleted
-            End If
-            Me.InvokeAsync("LoadDataWait", New Object() {BubbleID, SerialData}, Me.LoadDataWaitOperationCompleted, userState)
-        End Sub
-        
-        Private Sub OnLoadDataWaitOperationCompleted(ByVal arg As Object)
-            If (Not (Me.LoadDataWaitCompletedEvent) Is Nothing) Then
-                Dim invokeArgs As System.Web.Services.Protocols.InvokeCompletedEventArgs = CType(arg,System.Web.Services.Protocols.InvokeCompletedEventArgs)
-                RaiseEvent LoadDataWaitCompleted(Me, New LoadDataWaitCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState))
             End If
         End Sub
         
@@ -239,33 +207,6 @@ Namespace PriWebSVC
             Get
                 Me.RaiseExceptionIfNecessary
                 Return CType(Me.results(0),Boolean)
-            End Get
-        End Property
-    End Class
-    
-    '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5420")>  _
-    Public Delegate Sub LoadDataWaitCompletedEventHandler(ByVal sender As Object, ByVal e As LoadDataWaitCompletedEventArgs)
-    
-    '''<remarks/>
-    <System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "2.0.50727.5420"),  _
-     System.Diagnostics.DebuggerStepThroughAttribute(),  _
-     System.ComponentModel.DesignerCategoryAttribute("code")>  _
-    Partial Public Class LoadDataWaitCompletedEventArgs
-        Inherits System.ComponentModel.AsyncCompletedEventArgs
-        
-        Private results() As Object
-        
-        Friend Sub New(ByVal results() As Object, ByVal exception As System.Exception, ByVal cancelled As Boolean, ByVal userState As Object)
-            MyBase.New(exception, cancelled, userState)
-            Me.results = results
-        End Sub
-        
-        '''<remarks/>
-        Public ReadOnly Property Result() As String
-            Get
-                Me.RaiseExceptionIfNecessary
-                Return CType(Me.results(0),String)
             End Get
         End Property
     End Class

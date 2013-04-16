@@ -1,0 +1,16 @@
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\VB_Example.exe.config
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\VB_Example.exe
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\VB_Example.pdb
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\VB_Example.xml
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\xmlLoad.dll
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\ntEvtlog.dll
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\ntEvtlog.pdb
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\ntEvtlog.xml
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\xmlLoad.pdb
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\xmlLoad.xml
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\ResolveAssemblyReference.cache
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\VB_Example.Resources.resources
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\V3 VB_Example.vbproj.GenerateResource.Cache
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\VB_Example.exe
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\VB_Example.xml
+M:\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\VB_Example.pdb

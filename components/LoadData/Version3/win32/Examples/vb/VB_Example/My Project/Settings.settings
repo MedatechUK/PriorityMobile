@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="VB_Example_PriWebSVC_Service" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://soapsvc:8080/service.asmx</Value>
+      <Value Profile="(Default)">http://localhost:8080/service.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

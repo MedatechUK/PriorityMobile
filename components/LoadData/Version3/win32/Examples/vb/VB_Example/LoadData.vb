@@ -15,7 +15,7 @@ Module LoadData
         Dim Environment As String = "demo"
 
         Dim ws As New PriWebSVC.Service
-        Dim erl As New Loading.DataLoad
+        Dim erl As New priority.v3Loading
 
         With erl
 

@@ -12,14 +12,14 @@ Module GetData
     Sub Main()
         Dim Environment As String = "demo"
         Dim ws As New PriWebSVC.Service
-        Dim sd As New Loading.SerialData
+        Dim sd As New priority.SerialData
         Dim SQL As String = _
                 "SELECT W1URL, W1USER, W1PASS, W1STKEY, " & _
                 "ACCOUNTS.ACCNAME AS ACCNAME" & _
                 "FROM COMPDATA, ACCOUNTS " & _
                 "WHERE COMP <> 0" & _
                 "AND COMPDATA.W1ACCOUNT = ACCOUNTS.ACCOUNT"
-        Dim cd As New Loading.ColumnDef(SQL)
+        Dim cd As New priority.ColumnDef(SQL)
         With sd
             .FromStr(ws.GetData _
                 ( _

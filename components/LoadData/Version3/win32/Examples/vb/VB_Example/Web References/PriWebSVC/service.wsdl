@@ -16,21 +16,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="LoadDataWait">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="BubbleID" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="SerialData" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="LoadDataWaitResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="LoadDataWaitResult" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="GetData">
         <s:complexType>
           <s:sequence>
@@ -68,12 +53,6 @@
   <wsdl:message name="LoadDataSoapOut">
     <wsdl:part name="parameters" element="tns:LoadDataResponse" />
   </wsdl:message>
-  <wsdl:message name="LoadDataWaitSoapIn">
-    <wsdl:part name="parameters" element="tns:LoadDataWait" />
-  </wsdl:message>
-  <wsdl:message name="LoadDataWaitSoapOut">
-    <wsdl:part name="parameters" element="tns:LoadDataWaitResponse" />
-  </wsdl:message>
   <wsdl:message name="GetDataSoapIn">
     <wsdl:part name="parameters" element="tns:GetData" />
   </wsdl:message>
@@ -91,10 +70,6 @@
       <wsdl:input message="tns:LoadDataSoapIn" />
       <wsdl:output message="tns:LoadDataSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="LoadDataWait">
-      <wsdl:input message="tns:LoadDataWaitSoapIn" />
-      <wsdl:output message="tns:LoadDataWaitSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="GetData">
       <wsdl:input message="tns:GetDataSoapIn" />
       <wsdl:output message="tns:GetDataSoapOut" />
@@ -108,15 +83,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="LoadData">
       <soap:operation soapAction="http://priwebsvc.ntsa.org.uk/LoadData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="LoadDataWait">
-      <soap:operation soapAction="http://priwebsvc.ntsa.org.uk/LoadDataWait" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -154,15 +120,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="LoadDataWait">
-      <soap12:operation soapAction="http://priwebsvc.ntsa.org.uk/LoadDataWait" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetData">
       <soap12:operation soapAction="http://priwebsvc.ntsa.org.uk/GetData" style="document" />
       <wsdl:input>
@@ -184,10 +141,10 @@
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
-      <soap:address location="http://soapsvc:8080/service.asmx" />
+      <soap:address location="http://localhost:8080/service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
-      <soap12:address location="http://soapsvc:8080/service.asmx" />
+      <soap12:address location="http://localhost:8080/service.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

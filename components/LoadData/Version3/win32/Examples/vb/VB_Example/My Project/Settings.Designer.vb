@@ -57,7 +57,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://soapsvc:8080/service.asmx")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://localhost:8080/service.asmx")>  _
         Public ReadOnly Property VB_Example_PriWebSVC_Service() As String
             Get
                 Return CType(Me("VB_Example_PriWebSVC_Service"),String)

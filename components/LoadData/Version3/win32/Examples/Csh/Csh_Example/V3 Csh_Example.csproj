@@ -86,9 +86,9 @@
     <None Include="Web References\PriWebSVC\service.disco" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Loading\Loading.vbproj">
-      <Project>{2871EF70-D0DF-4520-8B26-265025D85360}</Project>
-      <Name>Loading</Name>
+    <ProjectReference Include="..\..\..\..\..\..\xmlLoad\xmlLoad\xmlLoad.vbproj">
+      <Project>{770201A9-2D88-4023-967C-5E5FFDBC69EC}</Project>
+      <Name>xmlLoad</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

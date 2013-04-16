@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using Loading;
+using priority;
 //---------------------------------------------------------------------
 //  Copyright (C) eMerge-IT.  All rights reserved.
 // 
@@ -21,9 +21,9 @@ static class GetData
     {
         string Environment = "demo";
         Csh_Example.PriWebSVC.Service ws = new Csh_Example.PriWebSVC.Service();
-        Loading.SerialData sd = new Loading.SerialData();
+        priority.SerialData sd = new priority.SerialData();
         string SQL = "SELECT W1URL, W1USER, W1PASS, W1STKEY, " + "ACCOUNTS.ACCNAME AS ACCNAME" + "FROM COMPDATA, ACCOUNTS " + "WHERE COMP <> 0" + "AND COMPDATA.W1ACCOUNT = ACCOUNTS.ACCOUNT";
-        Loading.ColumnDef cd = new Loading.ColumnDef(SQL);
+        priority.ColumnDef cd = new priority.ColumnDef(SQL);
 
         sd.FromStr(ws.GetData(SQL, Environment));
         /*

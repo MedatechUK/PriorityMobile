@@ -27,7 +27,7 @@ static class LoadData
         string Environment = "demo";
 
         Csh_Example.PriWebSVC.Service ws = new Csh_Example.PriWebSVC.Service();
-        Loading.DataLoad erl = new Loading.DataLoad();
+        Loading.DataLoad erl = new Loading.v3loading();
 
         erl.Clear();
         erl.Table = "ZEMG_W1LOADERR";

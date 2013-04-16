@@ -10,8 +10,6 @@ VB_Example
 	<remarks/>
 </member><member name="E:VB_Example.PriWebSVC.Service.LoadDataCompleted">
 	<remarks/>
-</member><member name="E:VB_Example.PriWebSVC.Service.LoadDataWaitCompleted">
-	<remarks/>
 </member><member name="E:VB_Example.PriWebSVC.Service.GetDataCompleted">
 	<remarks/>
 </member><member name="E:VB_Example.PriWebSVC.Service.SaveSignatureCompleted">
@@ -21,12 +19,6 @@ VB_Example
 </member><member name="M:VB_Example.PriWebSVC.Service.LoadDataAsync(System.String)">
 	<remarks/>
 </member><member name="M:VB_Example.PriWebSVC.Service.LoadDataAsync(System.String,System.Object)">
-	<remarks/>
-</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataWait(System.String,System.String)">
-	<remarks/>
-</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String)">
-	<remarks/>
-</member><member name="M:VB_Example.PriWebSVC.Service.LoadDataWaitAsync(System.String,System.String,System.Object)">
 	<remarks/>
 </member><member name="M:VB_Example.PriWebSVC.Service.GetData(System.String,System.String)">
 	<remarks/>
@@ -50,12 +42,6 @@ VB_Example
 	<remarks/>
 </member><member name="T:VB_Example.PriWebSVC.LoadDataCompletedEventArgs">
 	<remarks/>
-</member><member name="T:VB_Example.PriWebSVC.LoadDataWaitCompletedEventHandler">
-	<remarks/>
-</member><member name="P:VB_Example.PriWebSVC.LoadDataWaitCompletedEventArgs.Result">
-	<remarks/>
-</member><member name="T:VB_Example.PriWebSVC.LoadDataWaitCompletedEventArgs">
-	<remarks/>
 </member><member name="T:VB_Example.PriWebSVC.GetDataCompletedEventHandler">
 	<remarks/>
 </member><member name="P:VB_Example.PriWebSVC.GetDataCompletedEventArgs.Result">
@@ -68,6 +54,19 @@ VB_Example
 	<remarks/>
 </member><member name="T:VB_Example.PriWebSVC.SaveSignatureCompletedEventArgs">
 	<remarks/>
+</member><member name="P:VB_Example.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:VB_Example.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:VB_Example.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member>
 </members>
 </doc>
