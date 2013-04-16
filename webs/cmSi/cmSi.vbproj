@@ -65,6 +65,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basket\Address.vb" />
     <Compile Include="Basket\BasketCls.vb" />
     <Compile Include="Basket\BasketItem.vb" />
     <Compile Include="Basket\CardPayment.vb" />
@@ -73,6 +74,7 @@
     <Compile Include="Basket\DeliveryItem.vb" />
     <Compile Include="Basket\Session.vb" />
     <Compile Include="Basket\SessionInfo.vb" />
+    <Compile Include="cmsHTTPPost.vb" />
     <Compile Include="cmsPartImg.vb" />
     <Compile Include="Replace\repl_Basket.vb" />
     <Compile Include="Replace\Repl_Search.vb" />

@@ -24,7 +24,18 @@ Public MustInherit Class cmsInherit
             Repl = New cmsReplace(ReplaceModules)
             Repl.LoadControls(P, Me, Context, Server)
             PageLoaded(sender, e)
-        catch            
+        Catch ex As System.Threading.ThreadAbortException
+
+        Catch ex As Exception
+
+            If Not (String.Compare(HttpContext.Current.Request.Url.AbsoluteUri.Split("/").Last, "500.aspx", True) = 0) Then
+                Dim redir As New cmSi.cmsHTTPPost("500.aspx")
+                redir.NameValues.Add("Page", HttpContext.Current.Request.Url.AbsoluteUri)
+                redir.NameValues.Add("Error", ex.Message)
+                redir.Post()
+            Else
+                Response.Write(ex.Message)
+            End If            
         End Try
     End Sub
 

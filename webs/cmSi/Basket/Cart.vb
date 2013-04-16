@@ -10,6 +10,8 @@ Public Class Cart
 #Region "Public Variables"
 
     Public CartItems As New Dictionary(Of String, CartItem)
+    Public DeliveryAddress As New Address
+    Public Payment As New CardPayment
 
 #End Region
 
@@ -23,12 +25,12 @@ Public Class Cart
 
 #Region "Public Properties"
 
-    Private _PostGuid As System.Guid = Nothing
-    Public Property PostGuid() As System.Guid
+    Private _PostGuid As String = Nothing
+    Public Property PostGuid() As String
         Get
             Return _PostGuid
         End Get
-        Set(ByVal value As System.Guid)
+        Set(ByVal value As String)
             _PostGuid = value
         End Set
     End Property
@@ -98,16 +100,6 @@ Public Class Cart
         End Set
     End Property
 
-    Private _Payment As CardPayment
-    Public Property Payment() As CardPayment
-        Get
-            Return _Payment
-        End Get
-        Set(ByVal value As CardPayment)
-            _Payment = value
-        End Set
-    End Property
-
     Public ReadOnly Property chkFreeDel(ByVal FreeDelMin As String) As String
         Get
             If Me.DELIVERY.DELIVERYPART = cmsData.Settings.Item("FreeDelPart") Then
@@ -117,6 +109,16 @@ Public Class Cart
             End If
             Return FreeDelMin
         End Get
+    End Property
+
+    Private _CustomerID As String = ""
+    Public Property CustomerID() As String
+        Get
+            Return _CustomerID
+        End Get
+        Set(ByVal value As String)
+            _CustomerID = value
+        End Set
     End Property
 
 #End Region
@@ -135,38 +137,108 @@ Public Class Cart
 
 #Region "Save Cart"
 
-    Public Function SaveCart() As System.Guid
+    Public Sub LoadCart(ByVal OrderID As String)
 
-        _PostGuid = System.Guid.NewGuid
+        Dim ord As New XmlDocument()
+        Try
+            ord.Load(String.Format("{0}orders\{1}.xml", HttpContext.Current.Server.MapPath("\"), OrderID))
+        Catch
+            Throw New Exception("Order not found.")
+        End Try
+
+        With cmsSessions.CurrentSession(HttpContext.Current).cart
+            .CartItems.Clear()
+            .PostGuid = OrderID
+            Dim order_post As XmlNode = ord.SelectSingleNode("order_post")
+
+            .CustomerID = order_post.SelectSingleNode("customer_id").InnerText
+
+            With .DeliveryAddress
+                Dim deladd As XmlNode = order_post.SelectSingleNode("delivery_address")
+                If Not IsNothing(deladd) Then
+                    .Address1 = deladd.SelectSingleNode("address_1").InnerText
+                    .Address2 = deladd.SelectSingleNode("address_2").InnerText
+                    .Address3 = deladd.SelectSingleNode("address_3").InnerText
+                    .Address4 = deladd.SelectSingleNode("address_4").InnerText
+                    .Address5 = deladd.SelectSingleNode("address_5").InnerText
+                    .Address_Postcode = deladd.SelectSingleNode("postcode").InnerText
+                    .eMail = deladd.SelectSingleNode("email").InnerText
+                    .Phone = deladd.SelectSingleNode("phone").InnerText
+                End If
+            End With
+
+            For Each line As XmlNode In order_post.SelectNodes("lines/line")
+                .CartItems.Add( _
+                line.SelectSingleNode("sku").InnerText, _
+                    New cmSi.CartItem( _
+                        line.SelectSingleNode("sku").InnerText, _
+                        line.SelectSingleNode("part_des").InnerText, _
+                        line.SelectSingleNode("unit_price").InnerText, _
+                        line.SelectSingleNode("qty").InnerText, _
+                        line.SelectSingleNode("pack_family").InnerText, _
+                        line.SelectSingleNode("sales_tax").InnerText, _
+                        line.SelectSingleNode("referer").InnerText _
+                    ) _
+                )
+            Next
+
+        End With
+    End Sub
+
+    Public Function SaveCart(Optional ByVal OrderID As String = Nothing) As String
+
+        If IsNothing(OrderID) Then
+            _PostGuid = System.Guid.NewGuid.ToString
+        Else
+            _PostGuid = OrderID
+        End If
 
         Dim fn As String = String.Format("{0}orders\{1}.xml", HttpContext.Current.Server.MapPath("\"), _PostGuid.ToString)
+        While File.Exists(fn)
+            File.Delete(fn)
+            Threading.Thread.Sleep(1000)
+        End While
+
+        Dim ts As cmSi.Session = cmsSessions.CurrentSession(HttpContext.Current)
         Dim objX As New XmlTextWriter(fn, Nothing)
         With objX
             .WriteStartDocument()
             .WriteStartElement("order_post")
             If CInt(cmsData.Settings.Get("LiveOrders")) = 0 Then .WriteAttributeString("test", "1")
-            .WriteElementString("order_id", _PostGuid.ToString)
-            .WriteElementString("customer_id", HttpContext.Current.Profile("CUSTNAME"))
-            If Not IsNothing(cmsSessions.CurrentSession(HttpContext.Current).cart.Payment) Then
+            .WriteElementString("order_id", _PostGuid)
+            .WriteElementString("customer_id", ts.cart.CustomerID)
+
+            If ts.cart.Payment.trans.Length > 0 Then
                 .WriteStartElement("payment")
-                .WriteElementString("trans", cmsSessions.CurrentSession(HttpContext.Current).cart.Payment.trans)
-                .WriteElementString("authcode", cmsSessions.CurrentSession(HttpContext.Current).cart.Payment.authcode)
-                .WriteElementString("amount", cmsSessions.CurrentSession(HttpContext.Current).cart.Payment.amount)
+                .WriteElementString("trans", ts.cart.Payment.trans)
+                .WriteElementString("authcode", ts.cart.Payment.authcode)
+                .WriteElementString("amount", ts.cart.Payment.amount)
                 .WriteEndElement() 'End Settings 
             End If
-            .WriteElementString("delivery_address_1", HttpContext.Current.Profile.GetProfileGroup("Address").Item("Address1"))
-            .WriteElementString("delivery_address_2", HttpContext.Current.Profile.GetProfileGroup("Address").Item("Address2"))
-            .WriteElementString("delivery_address_3", HttpContext.Current.Profile.GetProfileGroup("Address").Item("Address3"))
-            .WriteElementString("delivery_address_4", HttpContext.Current.Profile.GetProfileGroup("Address").Item("Address4"))
-            .WriteElementString("delivery_address_5", HttpContext.Current.Profile.GetProfileGroup("Address").Item("Address5"))
-            .WriteElementString("delivery_address_postcode", HttpContext.Current.Profile.GetProfileGroup("Address").Item("Postcode"))
+
+            .WriteStartElement("delivery_address")
+            .WriteElementString("address_1", ts.cart.DeliveryAddress.Address1)
+            .WriteElementString("address_2", ts.cart.DeliveryAddress.Address2)
+            .WriteElementString("address_3", ts.cart.DeliveryAddress.Address3)
+            .WriteElementString("address_4", ts.cart.DeliveryAddress.Address4)
+            .WriteElementString("address_5", ts.cart.DeliveryAddress.Address5)
+            .WriteElementString("postcode", ts.cart.DeliveryAddress.Address_Postcode)
+            .WriteElementString("email", ts.cart.DeliveryAddress.eMail)
+            .WriteElementString("phone", ts.cart.DeliveryAddress.Phone)
+            .WriteEndElement()
+
             .WriteStartElement("lines")
-            For Each ci As CartItem In cmsSessions.CurrentSession(HttpContext.Current).cart.CartItems.Values
+            For Each ci As CartItem In ts.cart.CartItems.Values
                 .WriteStartElement("line")
                 .WriteElementString("sku", ci.PARTNAME)
+                .WriteElementString("part_des", ci.PARTDES)
                 .WriteElementString("qty", ci.QTY)
                 .WriteElementString("unit_price", ci.PARTPRICE)
+                .WriteElementString("pack_family", ci.PackFamily)
+                .WriteElementString("sales_tax", ci.SALESTAX)
+                .WriteElementString("referer", ci.REFERER)
                 .WriteElementString("delivery_date", String.Format("{0}-{1}-{2}", Year(Now).ToString, Month(Now).ToString, Day(Now).ToString))
+
                 .WriteEndElement() 'End Settings 
             Next
             .WriteEndElement() 'End Settings 
@@ -178,7 +250,7 @@ Public Class Cart
         Return _PostGuid
     End Function
 
-    Public Function PostCart(ByVal Order As System.Guid) As Exception
+    Public Function PostCart(ByVal Order As String) As Exception
 
         Dim result As Exception = Nothing
 

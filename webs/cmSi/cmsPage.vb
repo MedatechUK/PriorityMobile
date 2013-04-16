@@ -400,6 +400,7 @@ Public Class cmsPage
             .ImageUrl = "~/ckeditor/btn/btnEditSection.png"
             .CommandName = "edit"
             .CommandArgument = placeholder
+            .CssClass = "cmsBtn"
         End With
         AddHandler link.Click, AddressOf hbtnEdit
         Return link

@@ -38,6 +38,10 @@ Public Class cmsCleanHTML
     Public Shared Function FixedLen(ByVal Str As String, ByVal len As Integer) As String
         If Str.Length > len Then
             Str = Left(Str, len) & "..."
+        Else
+            For i As Integer = 0 To CInt((len - Str.Length) / 2)
+                Str += " &nbsp;"
+            Next
         End If
         Return Str
     End Function

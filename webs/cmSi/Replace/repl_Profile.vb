@@ -68,6 +68,7 @@ Public Class repl_Profile : Inherits repl_Base
                 Catch
                 End Try
             Next
+            .Response.Redirect(.Request.Url.AbsoluteUri)
         End With
     End Sub
 

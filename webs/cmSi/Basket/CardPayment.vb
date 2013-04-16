@@ -8,6 +8,10 @@ Imports System.Web.UI.WebControls
 Public Class CardPayment
 
 #Region "Initialisation"
+    Public Sub New()
+
+    End Sub
+
     Public Sub New(ByVal Trans As String, ByVal AuthCode As String, ByVal Amount As Double)
         _trans = Trans
         _authcode = AuthCode
@@ -16,7 +20,7 @@ Public Class CardPayment
 #End Region
 
 #Region "Public Properties"
-    Private _trans As String
+    Private _trans As String = String.Empty
     Public Property trans() As String
         Get
             Return _trans
@@ -25,7 +29,7 @@ Public Class CardPayment
             _trans = value
         End Set
     End Property
-    Private _authcode As String
+    Private _authcode As String = String.Empty
     Public Property authcode() As String
         Get
             Return _authcode
@@ -34,7 +38,7 @@ Public Class CardPayment
             _authcode = value
         End Set
     End Property
-    Private _amount As Double
+    Private _amount As Double = 0
     Public Property amount() As Double
         Get
             Return _amount

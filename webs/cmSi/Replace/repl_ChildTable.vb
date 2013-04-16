@@ -71,92 +71,94 @@ Public Class repl_ChildTable : Inherits repl_Base
                                             p.Attributes("part").Value _
                                         ) _
                                     )
-                                Dim price As Double
-
-                                If IsAuthenticated Then
-                                    price = QTYPrice( _
-                                        PartCurrency( _
-                                            thisPart, _
-                                            ts.Basket.CURRENCY, _
-                                            HttpContext.Current.Profile("CUSTNAME") _
-                                        ), 1 _
-                                    )
-                                Else
-                                    price = QTYPrice( _
-                                        PartCurrency( _
-                                            thisPart, _
-                                            ts.Basket.CURRENCY, _
-                                            "" _
-                                        ), 1 _
-                                    )
-                                End If
-
                                 If Not IsNothing(thisPart) Then
 
-                                    Dim Manufacturer As String = cmsData.Settings.Get("WebName")
-                                    Dim ManufacturerURL As String = cmsData.Settings.Get("URL")
-                                    Dim Model As String = thisPart.SelectSingleNode("PARTNAME").InnerText
+                                    Dim price As Double
 
-                                    For Each spec As XmlNode In thisPart.SelectNodes("SPECS/SPEC")
-                                        Select Case spec.Attributes("VALUE").InnerText.Trim.ToLower
-                                            Case "manufacturer"
-                                                Manufacturer = spec.Attributes("VALUE").InnerText.Trim
-                                            Case "manufacturerurl"
-                                                Manufacturer = spec.Attributes("VALUE").InnerText.Trim
-                                            Case "model"
-                                                Model = spec.Attributes("VALUE").InnerText.Trim
-                                        End Select
-                                    Next
+                                    If IsAuthenticated Then
+                                        price = QTYPrice( _
+                                            PartCurrency( _
+                                                thisPart, _
+                                                ts.Basket.CURRENCY, _
+                                                HttpContext.Current.Profile("CUSTNAME") _
+                                            ), 1 _
+                                        )
+                                    Else
+                                        price = QTYPrice( _
+                                            PartCurrency( _
+                                                thisPart, _
+                                                ts.Basket.CURRENCY, _
+                                                "" _
+                                            ), 1 _
+                                        )
+                                    End If
 
-                                    Dim image As String = "my_documents/priimg/noimage.png"
-                                    Try
-                                        Dim IX As XmlNode = thisPart.SelectSingleNode("PRIIMG")
-                                        If Not IsNothing(IX) Then
-                                            If IX.InnerText.Length > 0 Then
-                                                image = "priimage.aspx?image=" & IX.InnerText
+                                    If Not IsNothing(thisPart) Then
+
+                                        Dim Manufacturer As String = cmsData.Settings.Get("WebName")
+                                        Dim ManufacturerURL As String = cmsData.Settings.Get("URL")
+                                        Dim Model As String = thisPart.SelectSingleNode("PARTNAME").InnerText
+
+                                        For Each spec As XmlNode In thisPart.SelectNodes("SPECS/SPEC")
+                                            Select Case spec.Attributes("VALUE").InnerText.Trim.ToLower
+                                                Case "manufacturer"
+                                                    Manufacturer = spec.Attributes("VALUE").InnerText.Trim
+                                                Case "manufacturerurl"
+                                                    Manufacturer = spec.Attributes("VALUE").InnerText.Trim
+                                                Case "model"
+                                                    Model = spec.Attributes("VALUE").InnerText.Trim
+                                            End Select
+                                        Next
+
+                                        Dim image As String = "my_documents/priimg/noimage.png"
+                                        Try
+                                            Dim IX As XmlNode = thisPart.SelectSingleNode("PRIIMG")
+                                            If Not IsNothing(IX) Then
+                                                If IX.InnerText.Length > 0 Then
+                                                    image = "priimage.aspx?image=" & IX.InnerText
+                                                Else
+                                                    Throw New Exception("Missing Image")
+                                                End If
                                             Else
                                                 Throw New Exception("Missing Image")
                                             End If
-                                        Else
-                                            Throw New Exception("Missing Image")
-                                        End If
-                                    Catch
-                                        If n.Attributes("img").Value.Length > 0 Then
-                                            image = n.Attributes("img").Value
-                                        End If
-                                    End Try
+                                        Catch
+                                            If n.Attributes("img").Value.Length > 0 Then
+                                                image = n.Attributes("img").Value
+                                            End If
+                                        End Try
 
-                                    .Append("   <childpart ")
-                                    .AppendFormat("pagetitle='{0}' ", cmsCleanHTML.htmlEncode(p.Attributes("title").Value))
-                                    .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
-                                    .AppendFormat("image='{0}' ", image)
-                                    .AppendFormat("description='{0}' ", cmsCleanHTML.htmlEncode(p.Attributes("description").Value))
-                                    .AppendFormat("keywords='{0}' ", p.Attributes("keywords").Value)
-                                    .AppendFormat("parentloc='{0}' ", e.thisCMSPage.thisCat.Attributes("id").Value)
-                                    .AppendFormat("parenttitle='{0}' ", cmsCleanHTML.htmlEncode(e.thisCMSPage.thisCat.Attributes("name").Value))
+                                        .Append("   <childpart ")
+                                        .AppendFormat("pagetitle='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(p.Attributes("title").Value, 20)))
+                                        .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
+                                        .AppendFormat("image='{0}' ", image)
+                                        .AppendFormat("description='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(p.Attributes("description").Value, 50)))
+                                        .AppendFormat("keywords='{0}' ", p.Attributes("keywords").Value)
+                                        .AppendFormat("parentloc='{0}' ", e.thisCMSPage.thisCat.Attributes("id").Value)
+                                        .AppendFormat("parenttitle='{0}' ", cmsCleanHTML.htmlEncode(e.thisCMSPage.thisCat.Attributes("name").Value))
 
-                                    .AppendFormat("sku='{0}' ", thisPart.SelectSingleNode("PARTNAME").InnerText)
-                                    .AppendFormat("curr='{0}' ", ts.Basket.CURRENCY)
-                                    .AppendFormat("price='{0}' ", String.Format("{0:0.00}", price))
-                                    .AppendFormat("partdes='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(thisPart.SelectSingleNode("PARTDES").InnerText, 30)))
-                                    .AppendFormat("ean13='{0}' ", thisPart.SelectSingleNode("BARCODE").InnerText)
-                                    .AppendFormat("instock='{0}' ", thisPart.SelectSingleNode("AVAILABLE").InnerText)
+                                        .AppendFormat("sku='{0}' ", thisPart.SelectSingleNode("PARTNAME").InnerText)
+                                        .AppendFormat("curr='{0}' ", ts.Basket.CURRENCY)
+                                        .AppendFormat("price='{0}' ", String.Format("{0:0.00}", price))
+                                        .AppendFormat("partdes='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(thisPart.SelectSingleNode("PARTDES").InnerText, 30)))
+                                        .AppendFormat("ean13='{0}' ", thisPart.SelectSingleNode("BARCODE").InnerText)
+                                        .AppendFormat("instock='{0}' ", thisPart.SelectSingleNode("AVAILABLE").InnerText)
 
-                                    .AppendFormat("manufacturer='{0}' ", Manufacturer)
-                                    .AppendFormat("manufacturerurl='{0}' ", ManufacturerURL)
-                                    .AppendFormat("model='{0}' ", Model)
+                                        .AppendFormat("manufacturer='{0}' ", Manufacturer)
+                                        .AppendFormat("manufacturerurl='{0}' ", ManufacturerURL)
+                                        .AppendFormat("model='{0}' ", Model)
 
-                                    .AppendFormat("lister='{0}' ", cmsData.Settings.Get("WebName"))
-                                    .AppendFormat("listerurl='{0}' ", cmsData.Settings.Get("URL"))
+                                        .AppendFormat("lister='{0}' ", cmsData.Settings.Get("WebName"))
+                                        .AppendFormat("listerurl='{0}' ", cmsData.Settings.Get("URL"))
 
-                                    .Append("/>")
-                                    .AppendLine()
+                                        .Append("/>")
+                                        .AppendLine()
 
+                                    End If
                                 End If
                             End If
-                            End If
                         End If
-
+                    End If
                 Next
 
             End If

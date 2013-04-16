@@ -18,6 +18,7 @@ Public Class repl_Basket : Inherits repl_Base
                 .Add(New ReplaceControl("System.Web.UI.WebControls.Label", "lbllstCurrency", AddressOf hlbllstCurrency))
                 .Add(New ReplaceControl("System.Web.UI.WebControls.DropDownList", "lstCurrency", AddressOf hlstCurrency))
                 .Add(New ReplaceControl("System.Web.UI.WebControls.GridView", "BasketGrid", AddressOf hBasketGrid))
+                .Add(New ReplaceControl("System.Web.UI.WebControls.LinkButton", "btn_card", AddressOf hbtn_card))
             End With
             Return ret
         End Get
@@ -92,9 +93,19 @@ Public Class repl_Basket : Inherits repl_Base
         End With
     End Sub
 
+    Public Sub hbtn_card(ByVal sender As Object, ByVal e As repl_Argument)
+        Dim btn As System.Web.UI.WebControls.LinkButton = sender
+        AddHandler btn.Click, AddressOf btn_card_click
+    End Sub
+
 #End Region
 
 #Region "Event Handlers"
+
+    Protected Sub btn_card_click(ByVal sender As Object, ByVal e As System.EventArgs)
+        Dim btn As System.Web.UI.WebControls.LinkButton = sender
+        btn.Page.Response.Redirect("checkout.aspx")
+    End Sub
 
     Protected Sub hCurrency_Changed(ByVal sender As Object, ByVal e As System.EventArgs)
         Dim ddl As System.Web.UI.WebControls.DropDownList = sender

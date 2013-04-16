@@ -29,7 +29,7 @@ Public Class cmsMenu
         With home
             _MenuItems.Add( _
                 New cmsMenuItem( _
-                       .Attributes("id").Value, _
+                       String.Format("~/{0}", .Attributes("id").Value), _
                        .Attributes("name").Value, _
                        .Attributes("img").Value, _
                        CBool(.Attributes("showonmenu").Value) _
@@ -48,7 +48,7 @@ Public Class cmsMenu
                 With MenuItem
                     _MenuItems.Add( _
                         New cmsMenuItem( _
-                               .Attributes("id").Value, _
+                               String.Format("~/{0}", .Attributes("id").Value), _
                                .Attributes("name").Value, _
                                .Attributes("img").Value, _
                                CBool(.Attributes("showonmenu").Value) _
@@ -81,15 +81,15 @@ Public Class cmsMenu
                     .WriteAttributeString("id", "menu")
                     .WriteAttributeString("name", "menu")
                     .WriteAttributeString("img", "")
-                    .WriteAttributeString("showonmenu", False)
+                    .WriteAttributeString("showonmenu", True)
 
-                    For Each item As cmsMenuItem In _MenuItems
+                    For Each item As cmsMenuItem In _MenuItems                        
                         .WriteStartElement("cat")
                         .WriteAttributeString("id", item.Cat)
                         .WriteAttributeString("name", item.Name)
                         .WriteAttributeString("img", item.Img)
-                        .WriteAttributeString("showonmenu", item.ShowOnMenu)
-                        .WriteEndElement()
+                        .WriteAttributeString("showonmenu", item.ShowOnMenu.ToString)
+                        .WriteEndElement()                        
                     Next
                     .WriteEndElement()
 
