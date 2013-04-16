@@ -39,10 +39,6 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ConsoleApp, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\components\consoleApp\ConsoleApp\bin\Debug\ConsoleApp.dll</HintPath>
-    </Reference>
     <Reference Include="ntEvtlog, Version=1.0.0.252, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\components\ntEvtlog\ntEvtlog\bin\Debug\ntEvtlog.dll</HintPath>
@@ -111,6 +107,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="emerge.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\components\consoleApp\ConsoleApp\ConsoleApp.vbproj">
+      <Project>{2A9DE22D-E8E8-4099-87CC-DBAAF9C3D5A1}</Project>
+      <Name>ConsoleApp</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
