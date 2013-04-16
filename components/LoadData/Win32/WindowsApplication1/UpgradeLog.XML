@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="DemoProject">
+</Property><Property Name="Solution File" Value="M:\components\LoadData\Win32\WindowsApplication1\DemoProject.sln">
+</Property><Property Name="User Options File" Value="M:\components\LoadData\Win32\WindowsApplication1\DemoProject.suo">
+</Property><Property Name="Date" Value="14 April 2013">
+</Property><Property Name="Time" Value="22:19">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="DemoProject.sln" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\DemoProject.sln">
+</Event><Event ErrorLevel="0" Project="" Source="DemoProject.suo" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\DemoProject.suo">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="DemoProject.vbproj" Description="Project file successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\DemoProject.vbproj">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="DemoProject.vbproj.user" Description="Project user file successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\DemoProject.vbproj.user">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Form1.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Form1.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Form1.Designer.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Form1.Designer.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\AssemblyInfo.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\Application.Designer.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\Application.Designer.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\Resources.Designer.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\Settings.Designer.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\Settings.Designer.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Web References\priwebsvc\Reference.vb" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Web References\priwebsvc\Reference.vb">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\Application.myapp" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\Application.myapp">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\Settings.settings" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\Settings.settings">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="app.config" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\app.config">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Web References\priwebsvc\service.wsdl" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Web References\priwebsvc\service.wsdl">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Web References\priwebsvc\Reference.map" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Web References\priwebsvc\Reference.map">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Web References\priwebsvc\service.disco" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Web References\priwebsvc\service.disco">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="Form1.resx" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\Form1.resx">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="My Project\Resources.resx" Description="File successfully backed up as M:\components\LoadData\Win32\WindowsApplication1\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="DemoProject.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="DemoProject" Source="DemoProject.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="DemoProject.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="DemoProject.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DemoProject" Source="DemoProject.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

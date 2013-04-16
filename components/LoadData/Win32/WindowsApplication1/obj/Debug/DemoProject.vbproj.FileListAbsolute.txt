@@ -1,0 +1,4 @@
+M:\components\LoadData\Win32\WindowsApplication1\bin\Debug\Demo Project.exe.config
+M:\components\LoadData\Win32\WindowsApplication1\obj\Debug\Demo Project.exe
+M:\components\LoadData\Win32\WindowsApplication1\obj\Debug\Demo Project.xml
+M:\components\LoadData\Win32\WindowsApplication1\obj\Debug\Demo Project.pdb
