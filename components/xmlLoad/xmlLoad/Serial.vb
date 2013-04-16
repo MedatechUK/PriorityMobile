@@ -1,11 +1,35 @@
-﻿Imports Microsoft.VisualBasic
+Imports Microsoft.VisualBasic
 Imports System.Data
 Imports System.Data.SqlClient
-Imports System.IO
+Imports System.io
 
 Public Class SerialData
 
 #Region "public properties"
+
+    Public ReadOnly Property RowCount() As Integer
+        Get
+            If Not IsNothing(Data) Then
+                Return UBound(Data, 2) + 1
+            Else
+                Return 0
+            End If
+        End Get
+    End Property
+
+    Public Function GetDataError() As Exception
+        With Me
+            If Not IsNothing(.Data) Then
+                If String.Compare(Strings.Left(.Data(0, 0), 1), "!") = 0 Then
+                    Return New Exception(Right(.Data(0, 0), .Data(0, 0).Length - 1))
+                Else
+                    Return Nothing
+                End If
+            Else
+                Return Nothing
+            End If
+        End With
+    End Function
 
     Private _Data As String(,)
     Public ReadOnly Property Data() As String(,)
