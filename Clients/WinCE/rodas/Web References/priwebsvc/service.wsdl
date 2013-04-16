@@ -141,10 +141,10 @@
   </wsdl:binding>
   <wsdl:service name="Service">
     <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
-      <soap:address location="http://baldrick:8080/service.asmx" />
+      <soap:address location="http://mobile.roddas.co.uk:8080/service.asmx" />
     </wsdl:port>
     <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
-      <soap12:address location="http://baldrick:8080/service.asmx" />
+      <soap12:address location="http://mobile.roddas.co.uk:8080/service.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

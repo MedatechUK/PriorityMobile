@@ -33,7 +33,7 @@ Namespace PriWebSVC
         '''<remarks/>
         Public Sub New()
             MyBase.New
-            Me.Url = "http://baldrick:8080/service.asmx"
+            Me.Url = "http://mobile.roddas.co.uk:8080/service.asmx"
         End Sub
         
         '''<remarks/>

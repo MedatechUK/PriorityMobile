@@ -12,3 +12,17 @@ M:\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.pdb
 M:\bin\WinCE\WinCEClient.exe
 M:\bin\WinCE\WinCEClient.pdb
 M:\bin\WinCE\WinCEClient.xml
+M:\PriorityMobile.git\bin\WinCE\WinCEClient.exe
+M:\PriorityMobile.git\bin\WinCE\WinCEClient.pdb
+M:\PriorityMobile.git\bin\WinCE\WinCEClient.xml
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\ResolveAssemblyReference.cache
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.About.resources
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.frmLogin.resources
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.frmMenu.resources
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.frmNumber.resources
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.frmOption.resources
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.Resources.resources
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.vbproj.GenerateResource.Cache
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.exe
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.xml
+M:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\WinCEClient.pdb

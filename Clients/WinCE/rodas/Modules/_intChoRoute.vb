@@ -1,51 +1,8 @@
 ﻿Imports System.Linq
-Public Class lot_type
-    Private part As String
-    Private lot As String
-    Private curr_tot As Integer
-    Private max_tot As Integer
-    Public Property lpart() As String
-        Get
-            Return part
-        End Get
-        Set(ByVal value As String)
-            part = value
-        End Set
-    End Property
-    Public Property LotRef() As String
-        Get
-            Return lot
-        End Get
-        Set(ByVal value As String)
-            lot = value
-        End Set
-    End Property
-    Public Property Ctot() As Integer
-        Get
-            Return curr_tot
-        End Get
-        Set(ByVal value As Integer)
-            curr_tot = value
-        End Set
-    End Property
-    Public Property MTot() As Integer
-        Get
-            Return max_tot
-        End Get
-        Set(ByVal value As Integer)
-            max_tot = value
-        End Set
-    End Property
-    Public Sub New(ByVal lr As String, ByVal ct As Integer, ByVal mt As Integer)
-        LotRef = lr
-        Ctot = ct
-        MTot = mt
-    End Sub
-End Class
+
 Public Class interfaceChoRoute
     Inherits SFDCData.iForm
-    Private LotScan As Boolean = False
-
+   
 #Region "Table selection - non barcode"
     Private Sub meclick()
         If CtrlTable.Table.SelectedIndices.Count = 0 Then
@@ -77,7 +34,7 @@ Public Class interfaceChoRoute
                         CtrlForm.el(1).Update()
                         CtrlForm.el(1).ProcessEntry()
 
-
+                        Exit Sub
                     End If
                     If CtrlTable.Table.Items.Count = 0 Then
                         Exit For
@@ -240,7 +197,7 @@ Public Class interfaceChoRoute
     'these will be the line 2 of the loading
     Public Overrides Sub TableSettings()
 
-
+        '0
         With col
             .Name = "_PART"
             .Title = "PART No"
@@ -256,7 +213,7 @@ Public Class interfaceChoRoute
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
-
+        '1
         With col
             .Name = "_PDESC"
             .Title = "Part Desc"
@@ -272,7 +229,7 @@ Public Class interfaceChoRoute
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
-
+        '2
         With col
             .Name = "_QUANT"
             .Title = "Quantity"
@@ -289,7 +246,7 @@ Public Class interfaceChoRoute
         End With
         CtrlTable.AddCol(col)
 
-
+        '3
         With col
             .Name = "_WARHS"
             .Title = "DWarehouse"
@@ -305,7 +262,7 @@ Public Class interfaceChoRoute
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
-
+        '4
         With col
             .Name = "_BIN"
             .Title = "Bin"
@@ -321,7 +278,7 @@ Public Class interfaceChoRoute
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
-
+        '5
         With col
             .Name = "_PICKED"
             .Title = "Picked"
@@ -337,7 +294,7 @@ Public Class interfaceChoRoute
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
-
+        '6
         With col
             .Name = "_TYPE"
             .Title = "Type"
@@ -362,7 +319,10 @@ Public Class interfaceChoRoute
     Public PItems As New List(Of PSLIPITEMS)
     Private pi_amount As Integer
     Public PickedList As New List(Of PickedItems)
-    Public lotter As List(Of lot_type)
+    Private LotScan As Boolean = False
+    Private expected As Integer = 0
+    Private LotList As New List(Of LotS)
+
 
     Public Property pick_amount() As Integer
         Get
@@ -394,6 +354,7 @@ Public Class interfaceChoRoute
         TableFill = 11
         PartW = 12
         Cust = 13
+        LotFill = 14
     End Enum
     'The endinvoke is called to handle the data sent by the calling query. The call syntax is InvokeData(<sql query>). this call must be preceded by a 
     'sendtype so that the data can be handled correctly.
@@ -421,7 +382,14 @@ Public Class interfaceChoRoute
 
             Case tSendType.Route
                 'this fires after a route has been chosen and validated
+
                 Dim f As Boolean = False
+                With CtrlForm
+                    With .el(.ColNo("WHS"))
+                        .DataEntry.Text = "Main"
+                        .Data = "Main"
+                    End With
+                End With
                 Do
                     If IsNothing(Data) Then Exit Do
                     If IsNothing(Data(0, 0)) Then Exit Do
@@ -495,17 +463,26 @@ Public Class interfaceChoRoute
                     'after that we need to remove anylines that are fully picked
                     Dim itemcount As Integer
                     Dim StillLive As Boolean = False
-
                     itemcount = CtrlTable.Table.Items.Count
-                    For d As Integer = 0 To itemcount - 1
-                        If CtrlTable.Table.Items(d).SubItems(2).Text <> 0 Then
-                            StillLive = True
+                    For pos As Integer = (itemcount - 1) To 0 Step -1
+                        it = CtrlTable.Table.Items(pos)
+                        'it In CtrlTable.Table.Items
+                        Dim g As Integer
+                        g = Convert.ToInt16(it.SubItems(2).Text)
+                        If it.SubItems(2).Text <= 0 Then
+                            CtrlTable.Table.Items.Remove(it)
                         End If
                     Next
+                    itemcount = CtrlTable.Table.Items.Count
+                    'For d As Integer = 0 To itemcount - 1
+                    '    If CtrlTable.Table.Items(d).SubItems(2).Text > 0 Then
+                    '        StillLive = True
+                    '    End If
+                    'Next
 
                     'next we check to see if the table has any data left, if it doesnt then the picking is done and the user will be informed that there 
                     'is nothing left to do on this pick and the page will then close
-                    If StillLive = False Then
+                    If itemcount = 0 Then
                         MsgBox("There are no lines left to pick, the pickings form will now close.")
                         Me.CloseMe()
 
@@ -527,26 +504,30 @@ Public Class interfaceChoRoute
                                 .el(.ColNo("WHS")).ProcessEntry()
                             End If
                         End With
-                    Else 'we definetly have more than one!
-                        'So we will force the user to choose which warehouse they are in
-                        'we will check to see if there is one already chosen
-                        Dim f As New frmDrop
-                        For fg As Integer = 0 To CHECK - 1
-                            f.ComboBox1.Items.Add(Data(0, fg))
-                        Next
-                        f.ComboBox1.Text = f.ComboBox1.Items(0)
-                        f.ShowDialog()
-                        If f.DialogResult = Windows.Forms.DialogResult.OK Then
+                    Else
+                        If CtrlTable.el(CtrlTable.ColNo("LOT")).Data = "" Then
+                            'we definetly have more than one!
+                            'So we will force the user to choose which warehouse they are in
+                            'we will check to see if there is one already chosen
+                            Dim f As New frmDrop
+                            For fg As Integer = 0 To CHECK - 1
+                                f.ComboBox1.Items.Add(Data(0, fg))
+                            Next
+                            f.ComboBox1.Text = f.ComboBox1.Items(0)
+                            f.ShowDialog()
+                            If f.DialogResult = Windows.Forms.DialogResult.OK Then
 
-                            With CtrlForm
-                                .el(.ColNo("WHS")).DataEntry.Text = f.ComboBox1.Text
-                                .el(.ColNo("WHS")).Text = f.ComboBox1.Text
-                                .el(.ColNo("WHS")).ProcessEntry()
-                            End With
-                            CtrlTable.Focus()
+                                With CtrlForm
+                                    .el(.ColNo("WHS")).DataEntry.Text = f.ComboBox1.Text
+                                    .el(.ColNo("WHS")).Text = f.ComboBox1.Text
+                                    .el(.ColNo("WHS")).ProcessEntry()
+                                End With
+                                CtrlTable.Focus()
+
+                            End If
+                        End If
 
                         End If
-                    End If
                 End If
                 LotScan = False
 
@@ -600,7 +581,7 @@ Public Class interfaceChoRoute
                                     If it.SubItems(0).Text = Data(0, 0) Then
 
                                         it.Selected = True
-
+                                        expected = it.SubItems(2).Text
 
                                     End If
                                 Next
@@ -622,7 +603,7 @@ Public Class interfaceChoRoute
                                     If it.SubItems(0).Text = Data(0, 0) Then
 
                                         it.Selected = True
-
+                                        expected = it.SubItems(2).Text
                                     End If
                                 Next
                             End If
@@ -635,7 +616,7 @@ Public Class interfaceChoRoute
                             Dim add As Integer
                             Dim num As New frmNumber
                             With num
-                                .Text = "Box quantity."
+                                .Text = "Expected = " & expected
                                 .ShowDialog()
                                 add = .number
 
@@ -651,7 +632,7 @@ Public Class interfaceChoRoute
                             Dim add As Integer
                             Dim num As New frmNumber
                             With num
-                                .Text = "Box quantity."
+                                .Text = "Expected = " & expected
                                 .ShowDialog()
                                 add = .number
 
@@ -726,11 +707,11 @@ Public Class interfaceChoRoute
                                 If it.SubItems(5).Text <> "" Then
                                     tot_picked = Convert.ToInt16(it.SubItems(5).Text)
                                     tot_picked += pick_amount
-                                    CtrlTable.Table.Items(it.Index).SubItems(4).Text = tot_picked
+                                    CtrlTable.Table.Items(it.Index).SubItems(5).Text = tot_picked
 
                                 Else
 
-                                    CtrlTable.Table.Items(it.Index).SubItems(4).Text = tot_picked
+                                    CtrlTable.Table.Items(it.Index).SubItems(5).Text = tot_picked
                                 End If
                                 'If CtrlTable.Table.Items(6).Text = "R" Then
                                 '    SendType = tSendType.SCANP
@@ -755,7 +736,7 @@ Public Class interfaceChoRoute
                                     CtrlForm.el(6).Data, " ", _
                                 CtrlForm.el(4).Data, _
                                 CtrlForm.el(2).Data, _
-                                " ", CtrlForm.el(7).Data)
+                                "0", CtrlForm.el(7).Data)
                                 PItems.Add(j)
                                 Dim x As Integer
                                 x = 2
@@ -764,6 +745,7 @@ Public Class interfaceChoRoute
                                     x += 1
                                 Loop
                                 'j = New PSLIPITEMS(
+                                it.Selected = False
 
                             End If
                         End If
@@ -802,6 +784,7 @@ Public Class interfaceChoRoute
 
                                         End With
                                     End If
+                                    it.Selected = False
                                 End If
 
                             Next
@@ -844,11 +827,11 @@ Public Class interfaceChoRoute
                                         If it.SubItems(5).Text <> "" Then
                                             tot_picked = Convert.ToInt16(it.SubItems(5).Text)
                                             tot_picked += pick_amount
-                                            CtrlTable.Table.Items(it.Index).SubItems(4).Text = tot_picked
+                                            CtrlTable.Table.Items(it.Index).SubItems(5).Text = tot_picked
 
                                         Else
 
-                                            CtrlTable.Table.Items(it.Index).SubItems(4).Text = tot_picked
+                                            CtrlTable.Table.Items(it.Index).SubItems(5).Text = tot_picked
                                         End If
                                         CtrlTable.Table.Refresh()
                                         CtrlTable.Update()
@@ -860,11 +843,11 @@ Public Class interfaceChoRoute
                                         j = New PSLIPITEMS(0, _
                                             CtrlForm.el(0).Data, _
                                             CtrlForm.el(3).Data, _
-                                            CtrlForm.el(2).Data, _
+                                            CtrlForm.el(1).Data, _
                                             CtrlForm.el(6).Data, " ", _
                                         CtrlForm.el(4).Data, _
-                                        CtrlForm.el(1).Data, _
-                                        " ", CtrlForm.el(7).Data)
+                                        CtrlForm.el(2).Data, _
+                                        "0", CtrlForm.el(7).Data)
                                         PItems.Add(j)
                                         Dim x As Integer
                                         x = 2
@@ -875,6 +858,7 @@ Public Class interfaceChoRoute
                                         'j = New PSLIPITEMS(
 
                                     End If
+                                    it.Selected = False
                                 End If
 
 
@@ -899,7 +883,7 @@ Public Class interfaceChoRoute
                             If Data(6, 0) = "R" Then
                                 MsgBox("This is not a manufactured part, please scan the items barcode")
                             Else
-                                If .el(.ColNo("WHS")).DataEntry.Text <> Data(4, 0) Then
+                                If .el(.ColNo("WHS")).Data <> Data(4, 0) Then
                                     LotScan = True
                                     Dim g As MsgBoxResult = MsgBox("This lot is not in the selected warehouse do you want to change the warehouse to match the lOT?", MsgBoxStyle.YesNo)
                                     If g = MsgBoxResult.Yes Then
@@ -911,7 +895,11 @@ Public Class interfaceChoRoute
                                     .el(.ColNo("LOT")).ProcessEntry()
                                     .el(.ColNo("PART")).DataEntry.Text = Data(0, 0)
                                     .el(.ColNo("PART")).ProcessEntry()
-
+                                Else
+                                    .el(.ColNo("LOT")).DataEntry.Text = Data(1, 0)
+                                    .el(.ColNo("LOT")).ProcessEntry()
+                                    .el(.ColNo("PART")).DataEntry.Text = Data(0, 0)
+                                    .el(.ColNo("PART")).ProcessEntry()
                                 End If
 
 
@@ -933,18 +921,13 @@ Public Class interfaceChoRoute
                         PickedList.Add(pics)
                     Next
                 End If
-            Case tSendType.SCANP
-                'For Each a As PSLIPITEMS In PItems
-                '    If a.Type = "R" Then
-                '        For i As Integer = 0 To UBound(Data, 2)
-                '            If Data(1, i) = a.PART And Data(3, i) <> 0 Then
-                '                If a.Quant < Data(3, i) Then
-                '                    a.Lot
-                '                End If
-                '            End If
-                '        Next
-                '    End If
-                'Next
+            Case tSendType.LotFill
+                LotList.Clear()
+                For y As Integer = 0 To UBound(Data, 2)
+                    Dim lots As New LotS(Data(0, y), Data(1, y), Data(2, y), Data(3, y), Data(4, y), Data(5, y), Data(6, y))
+                    LotList.Add(lots)
+                Next
+
         End Select
         CtrlTable.Focus()
     End Sub
@@ -995,6 +978,7 @@ Public Class interfaceChoRoute
                     If ctrl.Data <> "" Then
                         Select Case ctrl.Name
                             Case "ROUTE"
+                                Me.CtrlTable.Table.Items.Clear()
                                 SendType = tSendType.Route
                                 InvokeData("select dbo.FUNC_ROUTE_PS('%ROUTE%') as DOCNO")
                                 SendType = tSendType.PickDate
@@ -1007,6 +991,7 @@ Public Class interfaceChoRoute
                                 Select Case CtrlForm.el(3).Data.Length
                                     Case 0
                                         InvokeData("exec dbo.SP_SFDC_UPDATEITEMS '%ROUTE%'")
+                                        Me.Text = "Picking"
                                     Case Else
                                         InvokeData("select ROUTE from ZROD_ROUTES WHERE ROUTENAME = '%ROUTE%'")
                                         InvokeData("exec dbo.SP_SFDC_UPDATEPACKSLIP '" & Me.Argument("RouteNo") & "','%PACKING_SLIP%'")
@@ -1021,7 +1006,7 @@ Public Class interfaceChoRoute
                                 'Dim add As Integer
                                 'Dim num As New frmNumber
                                 'With num
-                                '    .Text = "Box quantity."
+                                '    .Text = "Expected = " & expected
                                 '    .ShowDialog()
                                 '    add = .number
 
@@ -1119,12 +1104,128 @@ Public Class interfaceChoRoute
     End Function
 
     Public Overrides Sub ProcessForm()
-        SendType = tSendType.SCANP
-        InvokeData("select SERIALNAME,BALANCE from V_PICKLIST_PARTS WHERE PARTNAME = '%PART% ORDER BY EXPIRYDATE")
+        '******************************************************************************************************************************
+        'first up we create the final list items that we will need to iterate through
+        Dim finallist As New List(Of PSLIPITEMS)
+        'next up we add all the picklines where the parts are manufactured
+        Dim manu = (From pick In PItems _
+                   Where pick.Type <> "R").ToList
+        'and then we take them and add them to our final list
+        For Each its As PSLIPITEMS In manu
+            finallist.Add(its)
+        Next
+        'Next we get a list of all the Buy/Sell parts
+        Dim buyse As New List(Of PSLIPITEMS)
+        buyse = (From pick In PItems _
+                    Where pick.Type = "R" _
+                    Order By pick.PART).ToList
+        Dim trun As New List(Of PSLIPITEMS)
 
 
-        'whs = ((From it In PItems Order By it.WARHS Select it)).ToList
-        'For Each c As PSLIPITEMS In whs
+
+        Dim it As New PSLIPITEMS(buyse(0).ORDI, _
+                                 buyse(0).ROUTE, _
+                                 buyse(0).PSlipNo, _
+                                 buyse(0).PART, _
+                                 buyse(0).Quant, _
+                                 buyse(0).Desc, _
+                                 buyse(0).Lot, _
+                                 buyse(0).WARHS, _
+                                 buyse(0).Bin, _
+                                 buyse(0).Type)
+
+
+        Dim c As Integer = (buyse.Count - 1)
+        For j As Integer = 1 To c
+            If buyse(j).PART = it.PART Then
+                it.Quant += buyse(j).Quant
+            Else
+                'write the summed value to the list and read the next into  it
+                trun.Add(it)
+                it = Nothing
+                it = New PSLIPITEMS(buyse(j).ORDI, _
+                              buyse(j).ROUTE, _
+                              buyse(j).PSlipNo, _
+                              buyse(j).PART, _
+                              buyse(j).Quant, _
+                              buyse(j).Desc, _
+                              buyse(j).Lot, _
+                              buyse(j).WARHS, _
+                              buyse(j).Bin, _
+                              buyse(j).Type)
+            End If
+            'add the final record to list
+
+        Next j
+        trun.Add(it)
+
+        'now we have our aggregated data we need to iterate through it building a list of picks to be sent to the loading. these picks will be utilising the oldest lot first so we now need to get a list of lots for items
+        For Each pi As PSLIPITEMS In trun
+            'get the list of all the available lots for this part
+            SendType = tSendType.LotFill
+            InvokeData("SELECT PARTNAME,SERIALNAME,balance,WARHSNAME,LOCNAME,TYPE,PARTDES from V_PICKLIST_PARTS WHERE PARTNAME='" & pi.PART & "' and balance <> 0 ORDER BY EXPIRYDATE")
+            'we will now count the lots available
+            Dim lottot As Integer = LotList.Count
+
+            'now we will use the list of lots to generate as maany pick lines as are needed
+            'first up find out how many we need
+            Dim tot_am As Integer = pi.Quant
+
+            'next we grab the first available lot in the list
+            Dim x As Integer = 0
+            'check the balance of it and if the lot is bigger than the requested balance then we simply add 1 line to the picking
+            If pi.Quant <= LotList(x).bal Then
+                'we add the lot ref and the warhs and bin from the lot to the pick line
+                pi.Lot = LotList(x).LotRef
+                pi.WARHS = LotList(x).whs
+                pi.Bin = LotList(x).bi
+                'add the pick to final list
+                Try
+                    finallist.Add(pi)
+                Catch ex As Exception
+                    MsgBox(ex.ToString)
+                End Try
+
+            Else
+                Dim needed As Integer
+                needed = pi.Quant - LotList(x).bal
+                Do While needed > 0
+                    'the amount needed is bigger than the lot so we will consume this lot and then keep consuming until we are done or we run out of available stock
+                    Try
+                        finallist.Add(pi)
+                    Catch ex As Exception
+                        MsgBox(ex.ToString)
+                    End Try
+                    x = x + 1
+                    If x > lottot - 1 Then
+                        Exit Do
+                    End If
+                    'check the balance of it and if the lot is bigger than the requested balance then we simply add 1 line to the picking
+                    If needed <= LotList(x).bal Then
+                        'we add the lot ref and the warhs and bin from the lot to the pick line
+                        pi.Lot = LotList(x).LotRef
+                        pi.WARHS = LotList(x).whs
+                        pi.Bin = LotList(x).bi
+                        pi.Quant = needed 'we add what is left from the original picked balance
+                        needed = 0
+                        finallist.Add(pi)
+                    Else
+                        'this lot is smaller than what is needed so we consume it
+                        pi.Lot = LotList(x).LotRef
+                        pi.WARHS = LotList(x).whs
+                        pi.Bin = LotList(x).bi
+                        pi.Quant = LotList(x).bal
+                        'we now take the total size of the lot off the needed amount
+                        needed -= LotList(x).bal
+                    End If
+
+                Loop
+
+
+
+            End If
+        Next
+        '******************************************************************************************************************************
         Try
             With p
                 .DebugFlag = False
@@ -1154,13 +1255,13 @@ Public Class interfaceChoRoute
                             }
         p.AddRecord(1) = t1
 
-        For y As Integer = 0 To (PItems.Count - 1)
+        For y As Integer = 0 To (finallist.Count - 1)
             Dim t2() As String = { _
-                        PItems(y).PART, _
-                        (PItems(y).Quant * 1000), _
-                        PItems(y).WARHS, _
-                        PItems(y).Bin, _
-                        PItems(y).Lot _
+                        finallist(y).PART, _
+                        (finallist(y).Quant * 1000), _
+                        finallist(y).WARHS, _
+                        finallist(y).Bin, _
+                        finallist(y).Lot _
                                 }
             p.AddRecord(2) = t2
         Next
@@ -1224,6 +1325,10 @@ Public Class interfaceChoRoute
                     ' A warehouse must be selected
                     'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then Throw New Exception("Please select a warehouse.")
                     LotScan = True
+                    With .el(.ColNo("LOT"))
+                        .DataEntry.Text = Value
+                        .Data = Value
+                    End With
                     SendType = tSendType.SCANW
                     InvokeData("select distinct [PARTNAME],[SERIALNAME],[balance],[EXPIRYDATE],[WARHSNAME],[LOCNAME],[TYPE] from dbo.V_PICKLIST_PARTS where SERIALNAME = '" & Value & "'")
 

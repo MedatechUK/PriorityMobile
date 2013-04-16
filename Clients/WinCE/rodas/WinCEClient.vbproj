@@ -129,6 +129,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="main.vb" />
+    <Compile Include="Modules\LotS.vb" />
     <Compile Include="Modules\PickedItems.vb" />
     <Compile Include="Modules\PSLIPITEMS.vb" />
     <Compile Include="Modules\_intCheckRoute.vb">
@@ -244,10 +245,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://baldrick:8080/">
+    <WebReferenceUrl Include="http://mobile.roddas.co.uk:8080/">
       <UrlBehavior>Static</UrlBehavior>
       <RelPath>Web References\PriWebSVC\</RelPath>
-      <UpdateFromURL>http://baldrick:8080/</UpdateFromURL>
+      <UpdateFromURL>http://mobile.roddas.co.uk:8080/</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
