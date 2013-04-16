@@ -1,0 +1,6 @@
+C:\GoogleChartSharp\GoogleChartSharp\bin\Debug\GoogleChartSharp.dll
+C:\GoogleChartSharp\GoogleChartSharp\bin\Debug\GoogleChartSharp.pdb
+C:\GoogleChartSharp\GoogleChartSharp\bin\Debug\GoogleChartSharp.xml
+C:\GoogleChartSharp\GoogleChartSharp\obj\Debug\ResolveAssemblyReference.cache
+C:\GoogleChartSharp\GoogleChartSharp\obj\Debug\GoogleChartSharp.dll
+C:\GoogleChartSharp\GoogleChartSharp\obj\Debug\GoogleChartSharp.pdb
