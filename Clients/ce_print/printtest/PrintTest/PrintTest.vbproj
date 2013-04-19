@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A01B1A32-4CE0-4BC7-AAFF-D17E4D64F6D4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>PrintTest.OrderAcknowledgement</StartupObject>
+    <StartupObject>PrintTest.EoDReturnsAnalysis</StartupObject>
     <RootNamespace>PrintTest</RootNamespace>
     <AssemblyName>PrintTest</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
@@ -94,6 +94,18 @@
     <Compile Include="DeliveryNote.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="EoDCashAnalysis.Designer.vb">
+      <DependentUpon>EoDCashAnalysis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EoDCashAnalysis.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EoDreturnsAnalysis.Designer.vb">
+      <DependentUpon>EoDreturnsAnalysis.vb</DependentUpon>
+    </Compile>
+    <Compile Include="EoDreturnsAnalysis.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Invoice.Designer.vb">
       <DependentUpon>Invoice.vb</DependentUpon>
     </Compile>
@@ -123,11 +135,17 @@
     <EmbeddedResource Include="CreditNote.resx">
       <DependentUpon>CreditNote.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EoDCashAnalysis.resx">
+      <DependentUpon>EoDCashAnalysis.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DeliveryNote.resx">
       <DependentUpon>DeliveryNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EoDreturnsAnalysis.resx">
+      <DependentUpon>EoDreturnsAnalysis.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.vb</DependentUpon>
