@@ -94,6 +94,12 @@
     <Compile Include="DeliveryNote.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="eodPayments.Designer.vb">
+      <DependentUpon>eodPayments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="eodPayments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Invoice.Designer.vb">
       <DependentUpon>Invoice.vb</DependentUpon>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeliveryNote.resx">
       <DependentUpon>DeliveryNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eodPayments.resx">
+      <DependentUpon>eodPayments.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.vb</DependentUpon>
