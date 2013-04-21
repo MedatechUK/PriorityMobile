@@ -40,3 +40,4 @@ M:\PriorityMobile.git\Clients\WinCE\rodas\obj\Debug\WinCEClient.exe
 M:\PriorityMobile.git\Clients\WinCE\rodas\obj\Debug\WinCEClient.xml
 M:\PriorityMobile.git\Clients\WinCE\rodas\obj\Debug\WinCEClient.pdb
 M:\PriorityMobile.git\Clients\WinCE\rodas\obj\Debug\WinCEClient.frmDrop.resources
+M:\Clients\WinCE\rodas\obj\Debug\WinCEClient.frmDrop.resources

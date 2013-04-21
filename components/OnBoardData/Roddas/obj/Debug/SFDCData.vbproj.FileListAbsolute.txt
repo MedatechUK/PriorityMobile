@@ -1,0 +1,14 @@
+M:\bin\WinCE\SFDCData.dll
+M:\bin\WinCE\SFDCData.pdb
+M:\bin\WinCE\SFDCData.xml
+M:\components\OnBoardData\WinCE\obj\Debug\ResolveAssemblyReference.cache
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlForm.resources
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlList.resources
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlTable.resources
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.ctrlText.resources
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.iForm.resources
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.Resources.resources
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.vbproj.GenerateResource.Cache
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.xml
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.pdb

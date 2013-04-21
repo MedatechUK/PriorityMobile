@@ -38,12 +38,12 @@ Public Class frmLogin
         End If
     End Sub
 
-    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK.Click
+    Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         mResult = MsgBoxResult.Ok
         Me.Close()
     End Sub
 
-    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
+    Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         mResult = MsgBoxResult.Cancel
         Me.Close()
     End Sub
@@ -63,4 +63,13 @@ Public Class frmLogin
         End Select
     End Sub
 
+    Private Sub MenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem1.Click
+        mResult = MsgBoxResult.Ok
+        Me.Close()
+    End Sub
+
+    Private Sub MenuItem2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MenuItem2.Click
+        mResult = MsgBoxResult.Cancel
+        Me.Close()
+    End Sub
 End Class
