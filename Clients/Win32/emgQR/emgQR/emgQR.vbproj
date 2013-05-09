@@ -17,6 +17,8 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
+    <TargetFrameworkSubset>
+    </TargetFrameworkSubset>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +28,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>emgQR.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +38,26 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>emgQR.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DocumentationFile>emgQR.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DocumentationFile>emgQR.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DTI.ImageMan.Barcode, Version=3.10.0.0, Culture=neutral, PublicKeyToken=3ff15c974c5defd8, processorArchitecture=MSIL">
@@ -42,19 +65,18 @@
       <HintPath>..\..\..\..\..\..\..\Program Files\ImageMan.Net V3\net20\DTI.ImageMan.Barcode.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DTI.ImageMan.Codecs, Version=3.10.0.0, Culture=neutral, PublicKeyToken=3ff15c974c5defd8, processorArchitecture=x86">
+    <Reference Include="DTI.ImageMan.Codecs, Version=3.10.0.0, Culture=neutral, PublicKeyToken=3ff15c974c5defd8, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\Program Files\ImageMan.Net V3\net20\x86\DTI.ImageMan.Codecs.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\..\..\..\..\..\..\Program Files\ImageMan.Net V3\net20\x64\DTI.ImageMan.Codecs.dll</HintPath>
     </Reference>
     <Reference Include="DTI.ImageMan.Core, Version=3.10.0.0, Culture=neutral, PublicKeyToken=3ff15c974c5defd8, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Xml" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -95,6 +117,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

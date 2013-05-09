@@ -6,12 +6,23 @@ Module emgQR
         Dim barCode As New DTI.ImageMan.Barcode.BarcodeEncoder()
         Dim args() As String = System.Environment.GetCommandLineArgs()
         Dim dataIn As String = ""
+        
 
-        Try : dataIn = args(1)
+        Try
+            If Not IsNumeric(args(1)) Then
+                Console.WriteLine("String arguments must be preceded by number of arguments to parse")
+                Console.ReadLine()
+                Exit Sub
+            Else
+                For i As Integer = 2 To CInt(args(1)) + 1
+                    dataIn += args(i)
+                Next
+            End If
+
         Catch ex As Exception
-            Console.WriteLine("No data!")
-            Console.WriteLine("Please enter data to QR-ify:")
-            dataIn = Console.ReadLine()
+            Console.WriteLine("No/malformed data!")
+            Console.ReadLine()
+            Exit Sub
         End Try
 
         If Not IsNothing(dataIn) Then
