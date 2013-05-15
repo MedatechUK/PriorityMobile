@@ -32,7 +32,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\bin\WinCE\</OutputPath>
+    <OutputPath>..\..\..\bin\WinCE\arcflex\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
     <DocumentationFile>WinCEClient.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -56,18 +56,6 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ceLoadData, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\components\LoadData\WinCE\obj\Debug\ceLoadData.dll</HintPath>
-    </Reference>
-    <Reference Include="ceMyCls, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\components\MyCls\WinCE\obj\Debug\ceMyCls.dll</HintPath>
-    </Reference>
-    <Reference Include="SFDCData, Version=1.0.3715.26192, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -260,6 +248,20 @@
   <ItemGroup>
     <Content Include="emerge.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\components\LoadData\WinCE\ceLoadData.vbproj">
+      <Project>{E84A89F7-AC60-45A2-AD47-F456C0F84AE5}</Project>
+      <Name>ceLoadData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\components\MyCls\WinCE\ceMyCls.vbproj">
+      <Project>{B8C1BCCA-A84F-4023-B0FE-A8B509CE9DF8}</Project>
+      <Name>ceMyCls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\components\OnBoardData\WinCE\SFDCData.vbproj">
+      <Project>{5D33ABAE-C47D-47A1-BD6B-F905A6980A27}</Project>
+      <Name>SFDCData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.v1.targets" />
   <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>
@@ -267,7 +269,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

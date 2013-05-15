@@ -170,7 +170,7 @@ Public Class InterfaceSTKCNT
             .initWidth = 25
             .TextAlign = HorizontalAlignment.Left
             .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
-            .ValidExp = ValidStr(tRegExValidation.tString)
+            .ValidExp = ValidStr(tRegExValidation.tLotNumber)
             .SQLList = "SELECT '0' AS ACTNAME " & _
                 "UNION ALL " & _
                 "SELECT DISTINCT ACTNAME  " & _
@@ -179,7 +179,7 @@ Public Class InterfaceSTKCNT
                 "AND WARHSBAL.SERIAL = SERIAL.SERIAL  " & _
                 "and WARHSBAL.PART = (SELECT PART FROM PART WHERE PARTNAME = '%_PARTNAME%')  " & _
                 "and SERIAL.SERIALNAME = '%_SERIALNAME%'  " & _
-                "AND ACTNAME <> 0 "
+                "AND ACTNAME <> '' "
 
             .SQLValidation = "SELECT '0' AS ACTNAME " & _
                 "UNION ALL " & _
@@ -189,7 +189,7 @@ Public Class InterfaceSTKCNT
                 "AND WARHSBAL.SERIAL = SERIAL.SERIAL  " & _
                 "and WARHSBAL.PART = (SELECT PART FROM PART WHERE PARTNAME = '%_PARTNAME%')  " & _
                 "and SERIAL.SERIALNAME = '%_SERIALNAME%'  " & _
-                "AND ACTNAME <> 0 " & _
+                "AND ACTNAME <> '' " & _
                 "AND ACT.ACTNAME = '%ME%'"
 
             .DefaultFromCtrl = Nothing
@@ -506,10 +506,10 @@ Public Class InterfaceSTKCNT
 
                         Dim t2() As String = { _
                             .ItemValue("_PARTNAME", y), _
-                            .ItemValue("_TOCUSTNAME", y), _
+                            .ItemValue("_STATUS", y), _
                             .ItemValue("_SERIALNAME", y), _
                             .ItemValue("_ACTNAME", y), _
-                            CStr(CInt(.ItemValue("_CQUANT", y)) * 1000), _
+                            CStr(CDbl(.ItemValue("_CQUANT", y)) * 1000), _
                             "Y" _
                         }
                         p.AddRecord(2) = t2

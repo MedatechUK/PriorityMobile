@@ -147,7 +147,7 @@ Public Class interfaceKITISSUE
             .DefaultFromCtrl = Nothing '******* Barcoded Field - default from Type1 TOLOCATION '*******
             .ctrlEnabled = True
             .Mandatory = False
-            .MandatoryOnPost = True
+            .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
 

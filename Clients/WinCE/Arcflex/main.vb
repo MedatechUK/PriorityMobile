@@ -192,6 +192,7 @@ Module main
         tString = 5
         tSerial = 6
         tWO = 7
+        tLotNumber = 8
     End Enum
 
     Public ReadOnly Property ValidStr(ByVal rxType As tRegExValidation) As String
@@ -214,6 +215,8 @@ Module main
                     ret = "^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tWO
                     ret = "^[0-9]+\/[0-9]+$|^LOT[0-9]{7}$"
+                Case tRegExValidation.tLotNumber
+                    ret = "^[A-Z0-9]+\/[A-Z0-9]+$|^[A-Z0-9]+$"
             End Select
             Return ret
         End Get

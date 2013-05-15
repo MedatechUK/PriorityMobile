@@ -190,7 +190,7 @@ Public Class InterfacePARTLU
         CtrlTable.AddCol(col)
 
         ' Set the query to load recordtype 2s
-        CtrlTable.RecordsSQL = "select WARHSNAME, LOCNAME , CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME, WARHSBAL.BALANCE/1000 as BALANCE, '' AS CQUANT " & _
+        CtrlTable.RecordsSQL = "select WARHSNAME, LOCNAME , CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME, dbo.REALQUANT(WARHSBAL.BALANCE) as BALANCE, '' AS CQUANT " & _
                                 "from WARHSBAL, WAREHOUSES, CUSTOMERS, SERIAL, ACT " & _
                                 "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
                                 "AND WARHSBAL.SERIAL = SERIAL.SERIAL " & _
