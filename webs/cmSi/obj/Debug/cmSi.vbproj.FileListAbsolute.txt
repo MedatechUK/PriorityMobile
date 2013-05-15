@@ -16,3 +16,12 @@ C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi
 C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.dll
 C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.xml
 C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.pdb
+M:\webs\cmSi\bin\Debug\cmSi.dll
+M:\webs\cmSi\bin\Debug\cmSi.pdb
+M:\webs\cmSi\bin\Debug\cmSi.xml
+M:\webs\cmSi\obj\Debug\ResolveAssemblyReference.cache
+M:\webs\cmSi\obj\Debug\cmSi.Resources.resources
+M:\webs\cmSi\obj\Debug\cmSi.vbproj.GenerateResource.Cache
+M:\webs\cmSi\obj\Debug\cmSi.dll
+M:\webs\cmSi\obj\Debug\cmSi.xml
+M:\webs\cmSi\obj\Debug\cmSi.pdb

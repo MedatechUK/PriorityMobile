@@ -511,7 +511,7 @@ Public Class repl_Part
 
                                             If Not IsNothing(thisPart) Then
 
-                                                Dim Manufacturer As String = "Unbranded"
+                                                Dim Manufacturer As String = "This test"
                                                 Dim ManufacturerURL As String = cmsData.Settings.Get("URL")
                                                 Dim Model As String = thisPart.SelectSingleNode("PARTNAME").InnerText
 
