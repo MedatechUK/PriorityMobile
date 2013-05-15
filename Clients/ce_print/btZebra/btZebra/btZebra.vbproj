@@ -95,8 +95,15 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ZebraBluetoothAdapter.dll" />
-    <Content Include="ZSDK_API.dll" />
+    <Content Include="InTheHand.Net.Personal.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZebraBluetoothAdapter.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ZSDK_API.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\cpcl\CPCL\CPCL.vbproj">

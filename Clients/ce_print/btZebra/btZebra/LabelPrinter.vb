@@ -55,6 +55,7 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
 #Region "Connect to Printer"
 
     Public Overrides Sub BeginConnect(ByVal macAddress As String, Optional ByVal PIN As String = Nothing, Optional ByVal RefreshImages As Boolean = False)
+        WaitConnect = True
         If IsNothing(macAddress) Then
             MsgBox("Printer MAC Address not set.")
             Exit Sub
@@ -79,6 +80,7 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
                 connection = New BluetoothPrinterConnection(Me.macAddress)
                 threadedConnect(Me.macAddress)
             Catch generatedExceptionName As ZebraException
+                WaitConnect = False
                 MsgBox("COMM Error! Disconnected")
                 disconnect()
             End Try
@@ -113,6 +115,10 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
             Catch EX As Exception
                 MsgBox(EX.Message)
                 disconnect()
+
+            Finally
+                WaitConnect = False
+
             End Try
         End If
     End Sub

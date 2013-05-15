@@ -6,6 +6,16 @@ Public MustInherit Class LabelPrinter
 
 #Region "Public Properties"
 
+    Private _WaitConnect As Boolean = False
+    Public Property WaitConnect() As Boolean
+        Get
+            Return _WaitConnect
+        End Get
+        Set(ByVal value As Boolean)
+            _WaitConnect = value
+        End Set
+    End Property
+
     Private _ImageFolder As String = ""
     Public Property ImageFolder() As String
         Get
