@@ -28,6 +28,15 @@ Public Class ListSort
 
 #Region "Public Properties"
 
+    Public Property FormLabel() As String
+        Get
+            Return Me.FormTitle.Text
+        End Get
+        Set(ByVal value As String)
+            Me.FormTitle.Text = value
+        End Set
+    End Property
+
     Public ReadOnly Property Keys() As List(Of String)
         Get
             Return _Keys
@@ -124,12 +133,16 @@ Public Class ListSort
     End Property
 
     Public Function RowSelected(ByVal Row As DataRow, ByVal View As DataRowView) As Boolean
-        For Each k As String In _Keys
-            If Not String.Compare(Row(k), View(k), True) = 0 Then
-                Return False
-            End If
-        Next
-        Return True
+        Try
+            For Each k As String In _Keys
+                If Not String.Compare(Row(k), View(k), True) = 0 Then
+                    Return False
+                End If
+            Next
+            Return True
+        Catch
+            Return False
+        End Try
     End Function
 
 #End Region
@@ -267,6 +280,18 @@ Public Class ListSort
                 End With
 
         End Select
+    End Sub
+
+    Private Sub ListSort_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
+        With Me
+            If FormTitle.Text.Length > 0 Then
+                .View.Height = .Height - .FormTitle.Height
+                .FormTitle.Visible = True
+            Else
+                .View.Height = .Height
+                .FormTitle.Visible = False
+            End If
+        End With
     End Sub
 
 End Class

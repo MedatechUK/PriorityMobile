@@ -4,7 +4,12 @@ Public Class ctrl_Mileage
     Inherits iView
 
     Public Overrides Sub Bind()
+        Survey.FormLabel = "Vehicle Mileage"
         Survey.LoadSurvey(thisForm.FormData.SelectSingleNode(thisForm.thisxPath))
+    End Sub
+
+    Public Overrides Sub FormClosing()
+        thisForm.Save()
     End Sub
 
     Private Sub Survey_NewResponse(ByVal QuestionNumber As Integer, ByVal Value As String, ByVal Text As String) Handles Survey.NewResponse
@@ -16,8 +21,8 @@ Public Class ctrl_Mileage
                 If Not IsNothing(Value) Then
                     .SelectSingleNode(String.Format("{0}/question[number='{1}']/response/value", thisForm.thisxPath, QuestionNumber.ToString)).InnerText = Value
                 End If
+                .SelectSingleNode("pdadata/maintainance").Attributes.Append(xmlForms.changedAttribute)
             End With
-            .Save()
         End With
     End Sub
 

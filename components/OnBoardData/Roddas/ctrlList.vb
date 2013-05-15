@@ -78,11 +78,16 @@ Public Class CtrlList : Inherits CtrlPartial
     Private Sub CtrlList_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown, List.KeyDown
         Select Case e.KeyValue
             Case 113
+                e.Handled = True
                 keybd_event(&H73, 0, &H1, 0)
                 keybd_event(&H73, 0, &H1, 0)
                 Exit Sub
             Case 13
-                If Not ld Then CtrlAccept(Me, tCtrl.ctrlList)
+                If Not ld Then
+                    e.Handled = True
+                    CtrlAccept(Me, tCtrl.ctrlList)
+                    Me.Visible = False
+                End If
         End Select
     End Sub
 

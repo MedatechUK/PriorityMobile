@@ -24,12 +24,12 @@ Public Class ctrl_Customer
 
     Private Sub hPlaceCall()
 
-        Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
-        Try
-            ph.Talk(thisForm.CurrentRow("phone"))
-        Catch ex As Exception
-            MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
-        End Try
+        'Dim ph As New Microsoft.WindowsMobile.Telephony.Phone
+        'Try
+        '    ph.Talk(thisForm.CurrentRow("phone"))
+        'Catch ex As Exception
+        '    MsgBox(String.Format("Call failed to: {0}.", thisForm.CurrentRow("phone")))
+        'End Try
 
     End Sub
 

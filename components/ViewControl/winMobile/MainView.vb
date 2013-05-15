@@ -90,15 +90,16 @@
         With Me
             With .mnu_TopForms
                 .Height = .Internalheight
-            End With
+            End With            
 
             Try
                 RemoveHandler prn.connectionEstablished, hConnectPrinter
-            Catch
+            Catch ex As Exception
             Finally
                 hConnectPrinter = AddressOf Current.Views(Current.CurrentView).PrintForm
                 AddHandler prn.connectionEstablished, hConnectPrinter
             End Try
+
 
             With .ContentPanel
 
@@ -153,7 +154,7 @@
 
     End Sub
 
-    Public Sub StartCalc(ByVal Max As Integer) Handles xf.StartCalc
+    Public Sub StartCalc(ByVal Max As Double) Handles xf.StartCalc
         With Me
             With .ContentPanel
                 With .Controls
@@ -187,10 +188,27 @@
 
 #Region "Interface Event Handlers"
 
+    Private Sub hSetTopForm(ByVal button As Integer) Handles xf.NewTopForm
+        Cursor.Current = Cursors.WaitCursor
+
+        If Not (xf.ActiveForm = button) Then
+            xf.ActiveForm = button
+            With Active.CurrentForm
+                .RefreshForm()
+                .RefreshSubForms()
+                .RefreshDirectActivations()
+            End With
+        End If
+        mnu_TopForms.Selected(button) = True
+        Cursor.Current = Cursors.Default
+
+    End Sub
+
     Private Sub hTopMenuClick(ByVal Button As Integer)
         Cursor.Current = Cursors.WaitCursor
 
         If Not (xf.ActiveForm = Button) Then
+            Current.Views(Current.CurrentView).thisForm.PrinterConnected = False
             xf.ActiveForm = Button
             With Active.CurrentForm
                 .RefreshForm()
@@ -207,18 +225,23 @@
         Cursor.Current = Cursors.WaitCursor
 
         Active.OpenForm(mnu_SubForms.itemText(Button))
+        Current.Views(Current.CurrentView).thisForm.PrinterConnected = False
         DrawSubMenu()
         DrawForm()
+
         Cursor.Current = Cursors.Default
 
     End Sub
 
     Private Sub btn_Up_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
         Cursor.Current = Cursors.WaitCursor
 
         Active.CloseForm()
+        Current.Views(Current.CurrentView).thisForm.PrinterConnected = False
         DrawSubMenu()
         DrawForm()
+
         Cursor.Current = Cursors.Default
 
     End Sub

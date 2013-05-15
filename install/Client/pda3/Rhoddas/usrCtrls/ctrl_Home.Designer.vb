@@ -57,7 +57,7 @@ Partial Public Class ctrl_Home
         Me.curdate.Enabled = False
         Me.curdate.Location = New System.Drawing.Point(104, 0)
         Me.curdate.Name = "curdate"
-        Me.curdate.Size = New System.Drawing.Size(136, 21)
+        Me.curdate.Size = New System.Drawing.Size(136, 23)
         Me.curdate.TabIndex = 2
         '
         'Panel11
@@ -88,7 +88,7 @@ Partial Public Class ctrl_Home
         Me.version.Enabled = False
         Me.version.Location = New System.Drawing.Point(104, 0)
         Me.version.Name = "version"
-        Me.version.Size = New System.Drawing.Size(136, 21)
+        Me.version.Size = New System.Drawing.Size(136, 23)
         Me.version.TabIndex = 7
         '
         'Label5
@@ -117,7 +117,7 @@ Partial Public Class ctrl_Home
         Me.user.Enabled = False
         Me.user.Location = New System.Drawing.Point(104, 0)
         Me.user.Name = "user"
-        Me.user.Size = New System.Drawing.Size(136, 21)
+        Me.user.Size = New System.Drawing.Size(136, 23)
         Me.user.TabIndex = 2
         '
         'Label8
@@ -146,7 +146,7 @@ Partial Public Class ctrl_Home
         Me.vehiclereg.Enabled = False
         Me.vehiclereg.Location = New System.Drawing.Point(104, 0)
         Me.vehiclereg.Name = "vehiclereg"
-        Me.vehiclereg.Size = New System.Drawing.Size(136, 21)
+        Me.vehiclereg.Size = New System.Drawing.Size(136, 23)
         Me.vehiclereg.TabIndex = 3
         '
         'Label4
@@ -175,7 +175,7 @@ Partial Public Class ctrl_Home
         Me.routenumber.Enabled = False
         Me.routenumber.Location = New System.Drawing.Point(104, 0)
         Me.routenumber.Name = "routenumber"
-        Me.routenumber.Size = New System.Drawing.Size(136, 21)
+        Me.routenumber.Size = New System.Drawing.Size(136, 23)
         Me.routenumber.TabIndex = 8
         '
         'Label3

@@ -21,6 +21,7 @@ Public Class ctrl_InvoiceItems
 
         With Me
             With ListSort1
+                .FormLabel = "Invoice Items"
                 .Sort = "name"
                 .AddColumn("ordi", "ordi", 0, True)
                 .AddColumn("name", "Part", 130)
@@ -290,10 +291,10 @@ Public Class ctrl_InvoiceItems
 
     End Sub
 
-    Public Overrides Sub SetNumber(ByVal MyValue As Integer)
+    Public Overrides Sub SetNumber(ByVal MyValue As Double)
 
         With thisForm
-            AddOrderItem(thisForm, OpenOrder, .CurrentRow("name"), .CurrentRow("barcode"), .CurrentRow("des"), MyValue.ToString)
+            AddOrderItem(thisForm, OpenOrder, .CurrentRow("name"), .CurrentRow("barcode"), .CurrentRow("des"), MyValue.ToString, "")
             .RefreshForm()
         End With
 

@@ -22,6 +22,7 @@ Public Class ctrl_Deliveries
 
         With Me
             With ListSort1
+                .FormLabel = "Delivieries"
                 .Sort = "ordinal"
                 .AddColumn("ordinal", "ordinal", 0, True)
                 .AddColumn("custnumber", "Customer", 260)
@@ -61,7 +62,7 @@ Public Class ctrl_Deliveries
         IsBinding = True
         Dim dr() As Data.DataRow = Nothing
         Dim query As String = String.Format( _
-                "{0} <> '0' and Delivered = '0'", _
+                "{0} <> '0' and Delivered = 'N'", _
                 ListSort1.Keys(0) _
                 )
         dr = thisForm.Datasource.Select(query, ListSort1.Sort)

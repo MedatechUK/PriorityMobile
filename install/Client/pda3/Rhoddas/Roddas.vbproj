@@ -32,7 +32,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug2\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
     <DocumentationFile>RoddasPDA.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -69,6 +69,14 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Data" />
+    <Reference Include="ZebraBluetoothAdapter, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Clients\ce_print\btZebra\btZebra\ZebraBluetoothAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="ZSDK_API, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Clients\ce_print\btZebra\btZebra\ZSDK_API.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -124,10 +132,50 @@
     <Compile Include="dialogs\dlgAddOrder.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="usrCtrls\DayEnd\ctrl_DayEnd.Designer.vb">
+      <DependentUpon>ctrl_DayEnd.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="usrCtrls\DayEnd\ctrl_DayEnd.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\ctrl_Delivered.Designer.vb">
+      <DependentUpon>ctrl_Delivered.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\ctrl_Delivered.vb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="usrCtrls\Deliveries\ctrl_DeliveredItems.Designer.vb">
       <DependentUpon>ctrl_DeliveredItems.vb</DependentUpon>
     </Compile>
     <Compile Include="usrCtrls\Deliveries\ctrl_DeliveredItems.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance_End.Designer.vb">
+      <DependentUpon>ctrl_Maintainance_End.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance_End.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Survey.Designer.vb">
+      <DependentUpon>ctrl_Survey.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Survey.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_FamilyItems.Designer.vb">
+      <DependentUpon>ctrl_cust_FamilyItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_FamilyItems.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_Families.Designer.vb">
+      <DependentUpon>ctrl_cust_Families.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_Families.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="usrCtrls\SharedXMLFunc.vb" />
@@ -179,8 +227,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="usrCtrls\Deliveries\ctrl_Deliveries.vb">
-      <SubType>UserControl</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="usrCtrls\Deliveries\Customer\ctrl_AddRemark.Designer.vb">
       <DependentUpon>ctrl_AddRemark.vb</DependentUpon>
@@ -236,46 +284,22 @@
     <Compile Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance.Designer.vb">
-      <DependentUpon>ctrl_Maintainance.vb</DependentUpon>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance_Start.Designer.vb">
+      <DependentUpon>ctrl_Maintainance_Start.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance.vb">
+    <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance_Start.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Mileage.Designer.vb">
-      <DependentUpon>ctrl_Mileage.vb</DependentUpon>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Mileage.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Damage.Designer.vb">
-      <DependentUpon>ctrl_Damage.vb</DependentUpon>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Damage.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Clean.Designer.vb">
-      <DependentUpon>ctrl_Clean.vb</DependentUpon>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Clean.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Checks.Designer.vb">
-      <DependentUpon>ctrl_Checks.vb</DependentUpon>
-    </Compile>
-    <Compile Include="usrCtrls\Maintainance\ctrl_Checks.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="usrCtrls\Pricelist\ctrl_FamilyItems.Designer.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_FamilyItems.Designer.vb">
       <DependentUpon>ctrl_FamilyItems.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\Pricelist\ctrl_FamilyItems.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_FamilyItems.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\Pricelist\ctrl_Families.Designer.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_Families.Designer.vb">
       <DependentUpon>ctrl_Families.vb</DependentUpon>
     </Compile>
-    <Compile Include="usrCtrls\Pricelist\ctrl_Families.vb">
+    <Compile Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_Families.vb">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
@@ -315,6 +339,14 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\DayEnd\ctrl_DayEnd.resx">
+      <DependentUpon>ctrl_DayEnd.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Delivered.resx">
+      <DependentUpon>ctrl_Delivered.vb</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_DeliveredItems.resx">
       <DependentUpon>ctrl_DeliveredItems.vb</DependentUpon>
@@ -359,25 +391,25 @@
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.resx">
       <DependentUpon>ctrl_Orders.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Checks.resx">
-      <DependentUpon>ctrl_Checks.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance_End.resx">
+      <DependentUpon>ctrl_Maintainance_End.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Clean.resx">
-      <DependentUpon>ctrl_Clean.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Survey.resx">
+      <DependentUpon>ctrl_Survey.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Damage.resx">
-      <DependentUpon>ctrl_Damage.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance_Start.resx">
+      <DependentUpon>ctrl_Maintainance_Start.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance.resx">
-      <DependentUpon>ctrl_Maintainance.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_FamilyItems.resx">
+      <DependentUpon>ctrl_cust_FamilyItems.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Mileage.resx">
-      <DependentUpon>ctrl_Mileage.vb</DependentUpon>
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_Families.resx">
+      <DependentUpon>ctrl_cust_Families.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Pricelist\ctrl_Families.resx">
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_Families.resx">
       <DependentUpon>ctrl_Families.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="usrCtrls\Pricelist\ctrl_FamilyItems.resx">
+    <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_FamilyItems.resx">
       <DependentUpon>ctrl_FamilyItems.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
@@ -466,7 +498,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateFileVersion="False" />
+      <UserProperties BuildVersion_UpdateFileVersion="False" BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

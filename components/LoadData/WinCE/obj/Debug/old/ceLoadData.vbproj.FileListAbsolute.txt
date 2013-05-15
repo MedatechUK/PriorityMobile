@@ -1,9 +1,0 @@
-M:\bin\WinCE\ceLoadData.dll
-M:\bin\WinCE\ceLoadData.pdb
-M:\bin\WinCE\ceLoadData.xml
-M:\components\LoadData\WinCE\obj\Debug\ResolveAssemblyReference.cache
-M:\components\LoadData\WinCE\obj\Debug\ceLoadData.Resources.resources
-M:\components\LoadData\WinCE\obj\Debug\ceLoadData.vbproj.GenerateResource.Cache
-M:\components\LoadData\WinCE\obj\Debug\ceLoadData.dll
-M:\components\LoadData\WinCE\obj\Debug\ceLoadData.xml
-M:\components\LoadData\WinCE\obj\Debug\ceLoadData.pdb

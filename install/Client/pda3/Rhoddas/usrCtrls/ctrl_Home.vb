@@ -5,19 +5,6 @@ Imports PriorityMobile
 Public Class ctrl_Home
     Inherits iView
 
-    Private ReadOnly Property MandatoryQuestions() As List(Of Integer)
-        Get
-            Static mq As List(Of Integer)
-            If IsNothing(mq) Then
-                mq = New List(Of Integer)
-                With mq
-                    .Add(32)
-                End With
-            End If
-            Return mq
-        End Get
-    End Property
-
     Private ReadOnly Property VersionString()
         Get
             With System.Reflection.Assembly.GetExecutingAssembly().GetName().Version
@@ -52,21 +39,35 @@ Public Class ctrl_Home
     End Function
 
     Public Overrides Function SubFormVisible(ByVal Name As String) As Boolean
+
         Dim ret As Boolean = True
         Select Case Name.ToUpper
+
+            Case "START DAY"
+                Return IsNothing(thisForm.FormData.SelectSingleNode("pdadata/home").Attributes("changed"))
+
             Case "DELIVERIES"
-                Dim maintainance As XmlNode = thisForm.FormData.SelectSingleNode("pdadata/maintainance")
-                For Each Question As Integer In MandatoryQuestions
-                    Dim Response As XmlNode = maintainance.SelectSingleNode(String.Format(".//question[number='{0}']/response", Question.ToString))
-                    With Response
-                        If .SelectSingleNode("text").InnerText.Length = 0 And .SelectSingleNode("value").InnerText.Length = 0 Then
-                            ret = False
-                            Exit For
+                Dim maintainance As XmlNode = thisForm.FormData.SelectSingleNode("pdadata/maintainance/daystart")
+                For Each response As XmlNode In maintainance.SelectNodes(String.Format(".//question", ""))
+                    With response
+                        If Not IsNothing(.SelectSingleNode("mandatory")) Then
+                            If .SelectSingleNode("mandatory").InnerText = "Y" Then
+                                If .SelectSingleNode("response/text").InnerText.Length = 0 And .SelectSingleNode("response/value").InnerText.Length = 0 Then
+                                    Return False
+                                End If
+                            End If
                         End If
                     End With
                 Next
+                Return True
+
+            Case "END DAY"
+                Return CBool(thisForm.FormData.SelectNodes("pdadata/home/deliveries/delivery[delivered='N']").Count = 0)
+
         End Select
+
         Return ret
+
     End Function
 
 #Region "Direct Activations"

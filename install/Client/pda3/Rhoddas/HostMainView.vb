@@ -55,9 +55,9 @@ Public Class HostMainView
             With MainView
                 .xf = New xmlForms(.ue, _
                     New OfflineXML(.ue, "forms.xml", "forms.xml", ClearCache), _
-                    New OfflineXML(.ue, "delivery.xml", "delivery.xml", _
-                        MsgBox("Synchronise Calls?", MsgBoxStyle.OkCancel, "Connection...") = MsgBoxResult.Ok, _
-                        AddressOf .hSyncEvent, 60), _
+                    New OfflineXML(.ue, "delivery.xml", "delivery.ashx", _
+                        False, _
+                        AddressOf .hSyncEvent), _
                     Nothing, _
                     Nothing _
                 )
@@ -67,6 +67,7 @@ Public Class HostMainView
                     .ue.AppPath & "\prnimg\" _
                 )
                 .LoadViews()
+
             End With
 
         Catch ex As Exception
@@ -119,8 +120,11 @@ Public Class HostMainView
         With DataXML
             Select Case EventType
                 Case eSyncEventType.BeginDownload
-                    'myProgressBar.txt_File.Text = "Download: " & .FileURL
-                    'myProgressBar.txt_Action.Text = ""
+                    If Not DataXML.UrlGetParams.Keys.Contains("VANNUM") Then
+                        Cursor.Current = Cursors.Default
+                        DataXML.UrlGetParams.Add("VANNUM", InputBox("Please scan the vehicle registration."))
+                        Cursor.Current = Cursors.WaitCursor
+                    End If
 
                 Case eSyncEventType.EndDownload
                     'myProgressBar.txt_File.Text = ""

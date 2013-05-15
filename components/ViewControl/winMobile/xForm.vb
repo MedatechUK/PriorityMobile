@@ -16,8 +16,9 @@ Public Class xForm
     Public Event DrawSubMenu()
     Public Event DrawDirectActivations()
     Public Event DrawForm()
-    Public Event StartCalc(ByVal Max As Integer)
+    Public Event StartCalc(ByVal Max As Double)
     Public Event StartDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+    Public Event NewTopForm(ByVal button As Integer)
 
 #End Region
 
@@ -57,6 +58,16 @@ Public Class xForm
 #End Region
 
 #Region "Public Properties"
+
+    Private _PrinterConnected As Boolean = False
+    Public Property PrinterConnected() As Boolean
+        Get
+            Return _PrinterConnected
+        End Get
+        Set(ByVal value As Boolean)
+            _PrinterConnected = value
+        End Set
+    End Property
 
     Public Property FormData() As XmlDocument
         Get
@@ -147,7 +158,7 @@ Public Class xForm
                 Else
                     repeat = False
                 End If
-            Loop Until Not repeat
+            Loop Until Not repeat Or Not (String.Compare(path.Substring(0, 1), "/") = 0)
             Return path
         End Get
     End Property
@@ -171,7 +182,7 @@ Public Class xForm
                     Else
                         repeat = False
                     End If
-                Loop Until Not repeat
+                Loop Until Not repeat Or Not (String.Compare(path.Substring(0, 1), "/") = 0)
             End If
             Return path
         End Get
@@ -276,23 +287,76 @@ Public Class xForm
 
     Public Sub Bind()
 
+        Dim BeginBind As DateTime = Now
+        Dim EndBind As DateTime
+        Dim StartSelectNode As DateTime
+        Dim EndSelectNode As DateTime
+        Dim StartBuildXML As DateTime
+        Dim EndBuildXML As DateTime
+        Dim startHandler As DateTime
+        Dim endHandler As DateTime
+        Dim StartBindView As DateTime
+        Dim EndBindView As DateTime
+
         Try
             If Me.xPath.Length = 0 Then Exit Sub
 
+            StartSelectNode = Now
             Dim ds As New DataSet
-            Dim node As XmlNode = xmlForms.FormData.Document.SelectSingleNode(Me.boundxPath)
+            Dim node As XmlNode
+            If String.Compare(Me.xPath.Substring(0, 1), "/") = 0 Then
+                node = xmlForms.FormData.Document.SelectSingleNode(Me.boundxPath)
+            Else
+                node = xmlForms.FormData.Document.SelectSingleNode(Me.xPath)
+            End If
+            EndSelectNode = Now
 
             If Not IsNothing(node) Then
 
-                Dim retstr As String = String.Format("<{0}>", node.ParentNode.Name)
-                For Each n As XmlNode In xmlForms.FormData.Document.SelectNodes(Me.boundxPath)
-                    retstr += Replace(n.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text)
-                Next
-                retstr += String.Format("</{0}>", node.ParentNode.Name)
+                StartBuildXML = Now
+
+
+                Dim retstr As New System.Text.StringBuilder
+                retstr.AppendFormat("<{0}>", node.ParentNode.Name)
+                If String.Compare(Me.xPath.Substring(0, 1), "/") = 0 Then
+                    For Each n As XmlNode In xmlForms.FormData.Document.SelectNodes(Me.boundxPath)
+                        retstr.AppendFormat("<{0}>", n.Name)
+                        For Each i As XmlNode In n.ChildNodes
+                            If String.Compare(i.InnerText, i.InnerXml.Replace("&amp;", "&")) = 0 Then
+                                retstr.AppendFormat(Replace(i.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text))
+                            End If
+                        Next
+                        retstr.AppendFormat("</{0}>", n.Name)
+                    Next
+                Else
+                    For Each n As XmlNode In xmlForms.FormData.Document.SelectNodes(Me.xPath)
+                        retstr.AppendFormat("<{0}>", n.Name)
+                        For Each i As XmlNode In n.ChildNodes
+                            If String.Compare(i.InnerText, i.InnerXml) = 0 Then
+                                retstr.AppendFormat(Replace(i.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text))
+                            End If
+                        Next
+                        retstr.AppendFormat("</{0}>", n.Name)
+                    Next
+                End If
+                retstr.AppendFormat("</{0}>", node.ParentNode.Name)
+
+
+                'Dim retstr As String = String.Format("<{0}>", node.ParentNode.Name)
+                'If String.Compare(Me.xPath.Substring(0, 1), "/") = 0 Then
+                '    For Each n As XmlNode In xmlForms.FormData.Document.SelectNodes(Me.boundxPath)
+                '            retstr += Replace(n.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text)
+                '    Next
+                'Else
+                '    For Each n As XmlNode In xmlForms.FormData.Document.SelectNodes(Me.xPath)
+                '            retstr += Replace(n.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text)                
+                '    Next
+                'End If
+                'retstr += String.Format("</{0}>", node.ParentNode.Name)
 
                 Dim MemoryStream As New System.IO.MemoryStream( _
                     System.Text.Encoding.UTF8.GetBytes( _
-                        xmlForms.changedRegex.Replace(retstr, "") _
+                        xmlForms.changedRegex.Replace(retstr.ToString, "") _
                         ) _
                     )
 
@@ -301,6 +365,11 @@ Public Class xForm
                 ds.EnforceConstraints = False
 
                 Dim td As DataTable = ds.Tables(0)
+
+
+                EndBuildXML = Now
+
+                startHandler = Now
                 With td
                     RemoveHandler .ColumnChanged, AddressOf hColumnChanged
                     RemoveHandler .ColumnChanging, AddressOf hColumnChanging
@@ -315,6 +384,9 @@ Public Class xForm
                 RemoveHandler TableData.CurrentChanged, AddressOf hCurrentChanged
                 AddHandler TableData.CurrentChanged, AddressOf hCurrentChanged
 
+                endHandler = Now
+
+                StartBindView = Now
                 For Each V As iView In Me.Views
                     With V
                         .ClearBindings()
@@ -323,8 +395,11 @@ Public Class xForm
                     End With
                 Next
 
+                EndBindView = Now
+                EndBind = Now
+
                 RaiseEvent DrawSubMenu()
-                RaiseEvent DrawDirectActivations()                
+                RaiseEvent DrawDirectActivations()
 
             Else
                 Throw New Exception("xPath not found")
@@ -332,6 +407,12 @@ Public Class xForm
 
         Catch ex As Exception
             MsgBox(String.Format("Error {0} retrieving data with xpath {1}", ex.Message, _xpath))
+        Finally
+            Log("Selectnode: {0}", (EndSelectNode - StartSelectNode).ToString)
+            Log("BuildXML: {0}", (EndBuildXML - StartBuildXML).ToString)
+            Log("Handler: {0}", (endHandler - startHandler).ToString)
+            Log("BindView: {0}", (EndBindView - StartBindView).ToString)
+            Log("Total: {0}", (EndBind - BeginBind).ToString)
         End Try
 
     End Sub
@@ -394,7 +475,7 @@ Public Class xForm
         Next
     End Sub
 
-    Public Sub Calc(ByVal Max As Integer)
+    Public Sub Calc(ByVal Max As double)
         RaiseEvent StartCalc(Max)
     End Sub
 
@@ -468,6 +549,10 @@ Public Class xForm
             End Using
         End Set
     End Property
+
+    Public Sub SetTopForm(ByVal button As Integer)
+        RaiseEvent NewTopForm(button)
+    End Sub
 
 #End Region
 

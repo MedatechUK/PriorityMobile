@@ -30,15 +30,15 @@ Partial Class calc
         Me.txt_Number.Dock = System.Windows.Forms.DockStyle.Top
         Me.txt_Number.Location = New System.Drawing.Point(0, 0)
         Me.txt_Number.Name = "txt_Number"
-        Me.txt_Number.Size = New System.Drawing.Size(150, 20)
+        Me.txt_Number.Size = New System.Drawing.Size(150, 21)
         Me.txt_Number.TabIndex = 0
         '
         'calc
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)        
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit
         Me.Controls.Add(Me.txt_Number)
         Me.Name = "calc"
-        Me.ResumeLayout(False)        
+        Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents txt_Number As System.Windows.Forms.TextBox

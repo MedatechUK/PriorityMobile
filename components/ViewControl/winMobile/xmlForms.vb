@@ -20,8 +20,9 @@ Public Class xmlForms
     Public Event DrawForm()
     Public Event DrawSubMenu()
     Public Event DrawDirectActivations()
-    Public Event StartCalc(ByVal Max As Integer)
+    Public Event StartCalc(ByVal Max As Double)
     Public Event StartDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+    Public Event NewTopForm(ByVal button As Integer)
 
 #End Region
 
@@ -77,6 +78,10 @@ Public Class xmlForms
 
 #Region "Interface Event Handlers"
 
+    Private Sub hNewTopForm(ByVal Button As Integer)
+        RaiseEvent NewTopForm(Button)
+    End Sub
+
     Private Sub hDrawForm()
         RaiseEvent DrawForm()
     End Sub
@@ -89,7 +94,7 @@ Public Class xmlForms
         RaiseEvent DrawDirectActivations()
     End Sub
 
-    Private Sub hOpenCalc(ByVal Max As Integer)
+    Private Sub hOpenCalc(ByVal Max As Double)
         RaiseEvent StartCalc(Max)
     End Sub
 
@@ -130,6 +135,7 @@ Public Class xmlForms
             RemoveHandler .DrawForm, AddressOf hDrawForm
             RemoveHandler .StartCalc, AddressOf hOpenCalc
             RemoveHandler .StartDialog, AddressOf hDialog
+            RemoveHandler .NewTopForm, AddressOf hNewTopForm
 
             AddHandler .AddUserControl, AddressOf hAddUserControl
             AddHandler .DrawSubMenu, AddressOf hDrawSubMenu
@@ -137,6 +143,8 @@ Public Class xmlForms
             AddHandler .DrawForm, AddressOf hDrawForm
             AddHandler .StartCalc, AddressOf hOpenCalc
             AddHandler .StartDialog, AddressOf hDialog
+            AddHandler .NewTopForm, AddressOf hNewTopForm
+
         End With
     End Sub
 

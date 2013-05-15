@@ -1,12 +1,19 @@
 ﻿Friend Class BoolQuestion
 
     Private CH As New CheckBox()
-    Public Sub New(ByVal QuestionNumber As Integer, ByVal QuestionText As String, ByVal Options As Dictionary(Of Integer, String), Optional ByVal ResponseValue As Integer = -1)
+    Public Sub New(ByVal QuestionNumber As Integer, ByVal QuestionText As String, ByVal Options As Dictionary(Of Integer, String), Optional ByVal ResponseValue As Integer = -1, Optional ByVal QuestionMandatory As Boolean = False)
         InitializeComponent()
         With Me
             NP = Options
             .QuestionText.Text = QuestionText
             .QuestionNumber = QuestionNumber
+
+            Select Case QuestionMandatory
+                Case True
+                    Me.QuestionText.ForeColor = Color.Red
+                Case Else
+                    Me.QuestionText.ForeColor = Color.Black
+            End Select
 
             With CH
                 .Dock = DockStyle.Left

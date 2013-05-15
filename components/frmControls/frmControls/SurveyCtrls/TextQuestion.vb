@@ -1,17 +1,25 @@
 ﻿Friend Class TextQuestion
 
     Private CH As New TextBox()
-    Public Sub New(ByVal QuestionNumber As Integer, ByVal QuestionText As String, Optional ByVal ResponseText As String = Nothing)
+    Public Sub New(ByVal QuestionNumber As Integer, ByVal QuestionText As String, Optional ByVal ResponseText As String = Nothing, Optional ByVal QuestionMandatory As Boolean = False)
         InitializeComponent()
         With Me
             .QuestionText.Text = QuestionText
             .QuestionNumber = QuestionNumber
+            .Mandatory = QuestionMandatory
 
             CH.Dock = DockStyle.Fill
             CH.Text = ""
             If Not IsNothing(ResponseText) Then
                 CH.Text = ResponseText
             End If
+
+            Select Case QuestionMandatory
+                Case True
+                    Me.QuestionText.ForeColor = Color.Red
+                Case Else
+                    Me.QuestionText.ForeColor = Color.Black
+            End Select
 
             With .ResponsePanel.Controls
                 .Add(CH)

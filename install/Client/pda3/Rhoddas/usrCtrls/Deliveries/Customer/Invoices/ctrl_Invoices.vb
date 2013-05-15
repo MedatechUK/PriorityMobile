@@ -22,6 +22,7 @@ Public Class ctrl_Invoices
 
         With Me
             With ListSort1
+                .FormLabel = "Invoices"
                 .Sort = "ivnum"
                 .AddColumn("ivnum", "Invoice", 130, True)
                 .AddColumn("ivdate", "Date", 130, , eColumnFormat.fmt_Date)

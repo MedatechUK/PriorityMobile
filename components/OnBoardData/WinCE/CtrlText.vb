@@ -412,7 +412,7 @@ Public Class ctrlText
                 ExitDir = -2
             Case Else
                 If e.KeyValue = 115 Then
-                    RaiseEvent ClickDataEntry(sender, e)
+                    RaiseEvent ClickDataEntry(sender, New system.eventargs)
                 End If
                 Exit Sub
         End Select

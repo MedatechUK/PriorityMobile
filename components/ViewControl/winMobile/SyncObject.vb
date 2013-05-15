@@ -80,7 +80,9 @@ Public Class SyncObject
         With ObjectNode.InnerText
             Dim li As Integer = .LastIndexOf("/")
             _Path = .Substring(0, li)
-            _Key.AddRange(Split(.Substring(li + 1, (.Length - (li + 1))), "&"))
+            If .Substring(li + 1, (.Length - (li + 1))).Length > 0 Then _
+                _Key.AddRange(Split(.Substring(li + 1, (.Length - (li + 1))), "&"))
+
         End With
     End Sub
 
@@ -116,18 +118,20 @@ Public Class SyncObject
     Public Function xPathQuery(ByVal Path As String, ByVal Node As XmlNode) As String
         Dim i As Integer = 0
         Dim ret As String = Path
-        ret += "["
-        For Each k As String In Key
-            ret += String.Format("{1}={0}{2}{0}", _
-                    Chr(34), _
-                    k, _
-                    Node.SelectSingleNode(k).InnerText)
-            i += 1
-            If i < Key.Count Then
-                ret += " and "
-            End If
-        Next
-        ret += "]"
+        If Key.Count > 0 Then
+            ret += "["
+            For Each k As String In Key
+                ret += String.Format("{1}={0}{2}{0}", _
+                        Chr(34), _
+                        k, _
+                        Node.SelectSingleNode(k).InnerText)
+                i += 1
+                If i < Key.Count Then
+                    ret += " and "
+                End If
+            Next
+            ret += "]"
+        End If
         Return ret
     End Function
 

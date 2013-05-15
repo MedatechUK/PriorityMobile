@@ -1,6 +1,10 @@
 M:\bin\WinCE\SFDCData.dll
 M:\bin\WinCE\SFDCData.pdb
 M:\bin\WinCE\SFDCData.xml
+M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.xml
+M:\bin\WinCE\arflex\SFDCData.dll
+M:\bin\WinCE\arflex\SFDCData.pdb
+M:\bin\WinCE\arflex\SFDCData.xml
 M:\components\OnBoardData\WinCE\obj\Debug\ResolveAssemblyReference.cache
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlForm.resources
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.CtrlList.resources
@@ -10,5 +14,7 @@ M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.iForm.resources
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.Resources.resources
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.vbproj.GenerateResource.Cache
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll
-M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.xml
 M:\components\OnBoardData\WinCE\obj\Debug\SFDCData.pdb
+M:\bin\WinCE\arcflex\SFDCData.dll
+M:\bin\WinCE\arcflex\SFDCData.pdb
+M:\bin\WinCE\arcflex\SFDCData.xml

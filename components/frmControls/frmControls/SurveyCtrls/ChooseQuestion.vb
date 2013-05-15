@@ -1,13 +1,20 @@
 ﻿Friend Class ChooseQuestion
     Private CH As New ComboBox
 
-    Public Sub New(ByVal QuestionNumber As Integer, ByVal QuestionText As String, ByVal Options As Dictionary(Of Integer, String), Optional ByVal ResponseValue As Integer = -1)
+    Public Sub New(ByVal QuestionNumber As Integer, ByVal QuestionText As String, ByVal Options As Dictionary(Of Integer, String), Optional ByVal ResponseValue As Integer = -1, Optional ByVal QuestionMandatory As Boolean = False)
 
         InitializeComponent()
         With Me
             .QuestionText.Text = QuestionText
             .QuestionNumber = QuestionNumber
             NP = Options
+
+            Select Case QuestionMandatory
+                Case True
+                    Me.QuestionText.ForeColor = Color.Red
+                Case Else
+                    Me.QuestionText.ForeColor = Color.Black
+            End Select
 
             Dim ci As Integer = 0
             For Each key As Integer In Options.Keys

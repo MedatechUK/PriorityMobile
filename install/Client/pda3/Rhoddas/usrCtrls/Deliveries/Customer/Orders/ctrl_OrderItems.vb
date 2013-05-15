@@ -4,6 +4,18 @@ Imports System.Xml
 Public Class ctrl_OrderItems
     Inherits iView
 
+    'Private ReadOnly Property PriceForm() As xForm
+    '    Get
+    '        Return TopForm("Price List").CurrentForm
+    '    End Get
+    'End Property
+
+    'Private ReadOnly Property PriceFormView() As iView
+    '    Get
+    '        Return PriceForm.Views(PriceForm.CurrentView)
+    '    End Get
+    'End Property
+
 #Region "Initialisation and Finalisation"
 
     Public Overrides ReadOnly Property MyControls() As ControlCollection
@@ -21,6 +33,7 @@ Public Class ctrl_OrderItems
 
         With Me
             With ListSort1
+                .FormLabel = "Order Items"
                 .Sort = "name"
                 .AddColumn("name", "Part", 130, True)
                 .AddColumn("des", "Description", 260)
@@ -51,10 +64,10 @@ Public Class ctrl_OrderItems
             .Save()
             With .Parent
                 .Views(.CurrentView).RefreshData()
-                .RefreshForm()
+                '.RefreshForm()
             End With
 
-        End With
+        End With        
         MyBase.FormClosing()
     End Sub
 
@@ -103,8 +116,11 @@ Public Class ctrl_OrderItems
             .Focus()
         End With
 
-        thisForm.RefreshSubForms()
+        thisForm.RefreshSubForms()        
         IsBinding = False
+
+        'PriceForm.CurrentView = 0
+        'PriceForm.Bind()
 
     End Sub
 
@@ -115,18 +131,6 @@ Public Class ctrl_OrderItems
     Public Overrides Sub ViewChanged()
         Bind()
     End Sub
-
-    Public Overrides Function SubFormVisible(ByVal Name As String) As Boolean
-        With Me
-            If IsNothing(.Selected) Then Return False
-            If IsNothing(.thisForm.TableData.Current) Then Return False
-            If IsNothing(ListSort1.Selected) Then Return False
-            Select Case Name.ToUpper
-                Case Else
-                    Return True
-            End Select
-        End With
-    End Function
 
 #End Region
 
@@ -166,7 +170,7 @@ Public Class ctrl_OrderItems
         thisForm.Calc(999)
     End Sub
 
-    Public Overrides Sub SetNumber(ByVal MyValue As Integer)
+    Public Overrides Sub SetNumber(ByVal MyValue As Double)
 
         With thisForm
             Dim parts As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode

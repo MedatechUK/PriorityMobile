@@ -20,3 +20,16 @@ M:\components\ViewControl\winMobile\obj\Debug\PriorityMobile.UserDialog.resource
 M:\components\ViewControl\winMobile\bin\Debug\CPCL.dll
 M:\components\ViewControl\winMobile\bin\Debug\CPCL.pdb
 M:\components\ViewControl\winMobile\bin\Debug\CPCL.xml
+M:\components\ViewControl\winMobile\bin\Debug2\ViewControl.dll
+M:\components\ViewControl\winMobile\bin\Debug2\ViewControl.pdb
+M:\components\ViewControl\winMobile\bin\Debug2\ViewControl.xml
+M:\components\ViewControl\winMobile\bin\Debug2\CPCL.dll
+M:\components\ViewControl\winMobile\bin\Debug2\frmControls.dll
+M:\components\ViewControl\winMobile\bin\Debug2\mnuControls.dll
+M:\components\ViewControl\winMobile\bin\Debug2\System.SR.dll
+M:\components\ViewControl\winMobile\bin\Debug2\CPCL.pdb
+M:\components\ViewControl\winMobile\bin\Debug2\CPCL.xml
+M:\components\ViewControl\winMobile\bin\Debug2\frmControls.pdb
+M:\components\ViewControl\winMobile\bin\Debug2\frmControls.xml
+M:\components\ViewControl\winMobile\bin\Debug2\mnuControls.pdb
+M:\components\ViewControl\winMobile\bin\Debug2\mnuControls.xml

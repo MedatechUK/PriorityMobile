@@ -56,6 +56,15 @@
         End Get
     End Property
 
+    Private _Mandatory As Boolean
+    Public Property Mandatory() As Boolean
+        Get
+            Return _Mandatory
+        End Get
+        Set(ByVal value As Boolean)
+            _Mandatory = value
+        End Set
+    End Property
 #End Region
 
 #Region "Event Handlers"

@@ -4,7 +4,12 @@ Imports PriorityMobile
 Public Class ctrl_Checks
     Inherits iView
 
+    Public Overrides Sub FormClosing()
+        thisForm.Save()
+    End Sub
+
     Public Overrides Sub Bind()
+        Survey.FormLabel = "Vehicle Checks"
         Survey.LoadSurvey(thisForm.FormData.SelectSingleNode(thisForm.thisxPath))
     End Sub
 
@@ -17,8 +22,8 @@ Public Class ctrl_Checks
                 If Not IsNothing(Value) Then
                     .SelectSingleNode(String.Format("{0}/question[number='{1}']/response/value", thisForm.thisxPath, QuestionNumber.ToString)).InnerText = Value
                 End If
+                .SelectSingleNode("pdadata/maintainance").Attributes.Append(xmlForms.changedAttribute)
             End With
-            .Save()
         End With
     End Sub
 

@@ -378,6 +378,7 @@ Public Class ctrlText
                 Case vbCrLf
                     ExitDir = 0
                     ProcessEntry()
+                    Actctrl.Visible = False
                 Case "."
                     If Me.DataEntry.Text = "" Then
                         e.Handled = True
@@ -398,9 +399,33 @@ Public Class ctrlText
     Private Sub DataEntry_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles DataEntry.KeyDown
 
         Select Case e.KeyValue
-            Case 113
-                keybd_event(&H73, 0, &H1, 0)                
-                keybd_event(&H73, 0, &H1, 0)
+            Case 230
+                RaiseEvent ClickMe()
+
+                If mAltCtrlStyle = tAltCtrlStyle.ctNone Then
+                    Exit Sub
+                End If
+
+                mCtrlState = tCtrlState.ctAlt
+                Me.DataEntry.Visible = False
+                Actctrl.Data = Value.Text
+
+                Select Case mAltCtrlStyle
+                    Case tAltCtrlStyle.ctCalc, tAltCtrlStyle.ctKeyb, tAltCtrlStyle.ctDate
+                        IsMax = True
+                        RaiseEvent AltEntry(Me)
+                        Actctrl.Visible = True
+
+                    Case tAltCtrlStyle.ctList
+                        Me.InvokeList()
+                        IsMax = False
+                        Actctrl.SetParent(Me.DataEntry)
+                        Actctrl.Visible = True
+                        Actctrl.Focus()
+
+                End Select
+
+                Actctrl.BringToFront()
                 Exit Sub
             Case 40
                 ExitDir = 1

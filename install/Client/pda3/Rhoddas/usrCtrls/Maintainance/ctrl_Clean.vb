@@ -3,7 +3,12 @@
 Public Class ctrl_Clean
     Inherits iView
 
+    Public Overrides Sub FormClosing()
+        thisForm.Save()
+    End Sub
+
     Public Overrides Sub Bind()
+        Survey.FormLabel = "Vehicle Cleanliness"
         Survey.LoadSurvey(thisForm.FormData.SelectSingleNode(thisForm.thisxPath))
     End Sub
 
@@ -16,8 +21,8 @@ Public Class ctrl_Clean
                 If Not IsNothing(Value) Then
                     .SelectSingleNode(String.Format("{0}/question[number='{1}']/response/value", thisForm.thisxPath, QuestionNumber.ToString)).InnerText = Value
                 End If
+                .SelectSingleNode("pdadata/maintainance").Attributes.Append(xmlForms.changedAttribute)
             End With
-            .Save()
         End With
     End Sub
 

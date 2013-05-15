@@ -16,8 +16,19 @@ Public Class OfflineXML
 
     Private SyncObjectList As New List(Of SyncObject)
     Private WithEvents PostTimer As New System.Windows.Forms.Timer
+    Private posting As Boolean = False
 
 #Region "Public Properties"
+
+    Private _UrlGetParams As New Dictionary(Of String, String)
+    Public Property UrlGetParams() As Dictionary(Of String, String)
+        Get
+            Return _UrlGetParams
+        End Get
+        Set(ByVal value As Dictionary(Of String, String))
+            _UrlGetParams = value
+        End Set
+    End Property
 
     Private _UserEnv As UserEnv
     Public ReadOnly Property ThisUserEnv() As UserEnv
@@ -49,7 +60,11 @@ Public Class OfflineXML
     Private _FileURL As String
     Public Property FileURL() As String
         Get
-            Return _FileURL
+            Dim fn As String = _FileURL
+            For Each k As String In UrlGetParams.Keys
+                fn += String.Format("&{0}={1}", k, UrlGetParams(k))
+            Next
+            Return fn
         End Get
         Set(ByVal value As String)
             _FileURL = value
@@ -214,79 +229,87 @@ Public Class OfflineXML
         _SyncCurrentItem = 0
         _SyncItemCount = 0
 
-        Dim x As New Xml.XmlDocument()
-        Do
-            Try
-                If Not IsNothing(syncHandler) Then
-                    _CurrentPath = Nothing
-                    _SyncEventType = eSyncEventType.BeginDownload
-                    syncHandler.Invoke(Me, New System.EventArgs)
-                End If
-                x.Load(FileURL)
-                sourceError = HasErrors(x)
-                download = True
-            Catch
-                download = False
-                retry = MsgBox( _
-                    String.Format("Cannot download {0}.", FileURL) _
-                    , MsgBoxStyle.RetryCancel, "Connection" _
-                ) = MsgBoxResult.Retry
-            Finally
-                If Not IsNothing(syncHandler) Then
-                    _CurrentPath = Nothing
-                    _SyncEventType = eSyncEventType.EndDownload
-                    syncHandler.Invoke(Me, New System.EventArgs)
-                End If
-            End Try
-        Loop Until download Or (Not retry)
-        If Not IsNothing(sourceError) Then Throw sourceError
+        Try
+            Dim x As New Xml.XmlDocument()
+            Do
+                Try
+                    If Not IsNothing(syncHandler) Then
+                        _CurrentPath = Nothing
+                        _SyncEventType = eSyncEventType.BeginDownload
+                        syncHandler.Invoke(Me, New System.EventArgs)
+                    End If
 
-        With Document
-            If download Then
-                Dim syncObjectNodes As XmlNodeList = x.SelectNodes("//sync/object")
-                Select Case syncObjectNodes.Count
-                    Case 0
-                        DeleteLocalCache()
-                        x.Save(LocalFile)
-                        .Load(LocalFile)
+                    x.Load(FileURL)
+                    sourceError = HasErrors(x)
+                    download = True
+                Catch
+                    download = False
+                    retry = MsgBox( _
+                        String.Format("Cannot download {0}.", FileURL) _
+                        , MsgBoxStyle.RetryCancel, "Connection" _
+                    ) = MsgBoxResult.Retry
+                Finally
+                    If Not IsNothing(syncHandler) Then
+                        _CurrentPath = Nothing
+                        _SyncEventType = eSyncEventType.EndDownload
+                        syncHandler.Invoke(Me, New System.EventArgs)
+                    End If
+                End Try
+            Loop Until download Or (Not retry)
+            If Not IsNothing(sourceError) Then Throw sourceError
 
-                    Case Else
+            With Document
+                If download Then
+                    Dim syncObjectNodes As XmlNodeList = x.SelectNodes("//sync/object")
+                    Select Case syncObjectNodes.Count
+                        Case 0
+                            DeleteLocalCache()
+                            x.Save(LocalFile)
+                            .Load(LocalFile)
 
-                        If Not Loaded Then .Load(LocalFile)
+                        Case Else
 
-                        SyncObjectList.Clear()
-                        For Each s As XmlNode In syncObjectNodes
-                            Dim f As Boolean = False
-                            For Each so As SyncObject In SyncObjectList
-                                If so.IsChild(s) Then
-                                    f = True
-                                    Exit For
-                                End If
+                            If Not Loaded Then .Load(LocalFile)
+
+                            SyncObjectList.Clear()
+                            For Each s As XmlNode In syncObjectNodes
+                                Dim f As Boolean = False
+                                For Each so As SyncObject In SyncObjectList
+                                    If so.IsChild(s) Then
+                                        f = True
+                                        Exit For
+                                    End If
+                                Next
+                                If Not f Then SyncObjectList.Add(New SyncObject(s))
                             Next
-                            If Not f Then SyncObjectList.Add(New SyncObject(s))
-                        Next
 
-                        For Each so As SyncObject In SyncObjectList
-                            _SyncItemCount += x.SelectNodes(so.Path).Count
-                        Next
+                            For Each so As SyncObject In SyncObjectList
+                                _SyncItemCount += x.SelectNodes(so.Path).Count
+                            Next
 
-                        For Each so As SyncObject In SyncObjectList
-                            doSyncObject(x, so)
-                        Next
+                            For Each so As SyncObject In SyncObjectList
+                                doSyncObject(x, so)
+                            Next
 
-                        .Save(LocalFile)
+                            .Save(LocalFile)
 
-                End Select
-            Else
-                .Load(LocalFile)
+                    End Select
+                Else
+                    .Load(LocalFile)
+                End If
+            End With
+
+        Catch SyncException As Exception
+            MsgBox(SyncException.Message, MsgBoxStyle.Critical)
+
+        Finally
+            If Not IsNothing(syncHandler) Then
+                _CurrentPath = Nothing
+                _SyncEventType = eSyncEventType.EndSync
+                syncHandler.Invoke(Me, New System.EventArgs)
             End If
-        End With
 
-        If Not IsNothing(syncHandler) Then
-            _CurrentPath = Nothing
-            _SyncEventType = eSyncEventType.EndSync
-            syncHandler.Invoke(Me, New System.EventArgs)
-        End If        
+        End Try
 
     End Sub
 
@@ -324,7 +347,7 @@ Public Class OfflineXML
 
         Dim erdes As String = ""
         Dim pstr As String = ""
-        Dim er As XmlNode = xmldoc.SelectSingleNode("//error")
+        Dim er As XmlNode = xmldoc.SelectSingleNode("//ERROR")
 
         If Not IsNothing(er) Then
             erdes = er.InnerText
@@ -374,13 +397,18 @@ Public Class OfflineXML
                         syncHandler.Invoke(Me, New System.EventArgs)
                     End If
                     If IsNothing(TargetNode.Attributes("changed")) Then
-                        For Each so As SyncObject In .sObject
-                            doSyncObject(SourceXML, so, soPath)
-                        Next
-                        If Not String.Compare(SourceNode.InnerXml, Left(TargetNode.InnerXml, SourceNode.InnerXml.Length)) = 0 Then
-                            RecurseCompare(SourceNode, TargetNode, soPath, .ListObjects)
+                        If .sObject.Count > 0 Then
+                            For Each so As SyncObject In .sObject
+                                doSyncObject(SourceXML, so, soPath)
+                            Next
+                        Else
+                            TargetNode.InnerXml = SourceNode.InnerXml
+                            'If Not String.Compare(SourceNode.InnerXml, Left(TargetNode.InnerXml, SourceNode.InnerXml.Length)) = 0 Then
+                            'RecurseCompare(SourceNode, TargetNode, soPath, .ListObjects)
                         End If
+
                     End If
+
                 End If
             Next
 
@@ -404,7 +432,12 @@ Public Class OfflineXML
 
         If IsNothing(NoFollow) Then NoFollow = New List(Of String)
         For Each SourceChild As XmlNode In SourceNode.ChildNodes
-            Dim TargetChild As XmlNode = Document.SelectSingleNode(String.Format("{0}/{1}", syncOb, SourceChild.Name))
+            Dim TargetChild As XmlNode = Nothing
+            Try
+                TargetChild = Document.SelectSingleNode(String.Format("{0}/{1}", syncOb, SourceChild.Name))
+            Catch
+                Beep()
+            End Try
             If IsNothing(TargetChild) Then
                 TargetNode.AppendChild(TargetNode.OwnerDocument.ImportNode(SourceChild, True))
             Else
@@ -511,16 +544,45 @@ Public Class OfflineXML
 
 #Region "Post Data"
 
+    Public Function Post(ByRef postException As Exception) As Boolean
+
+        Dim ret As Boolean = False
+
+        If Not posting Then
+            posting = True
+            Dim postnodes As XmlNodeList
+
+            Using sw As New StreamWriter(_UserEnv.LocalFolder & "\log.txt", True)
+                sw.WriteLine("{0}: Checking for postable nodes.", Now.ToString)
+                postnodes = Document.SelectNodes("//*[@post ='1']")
+                While postnodes.Count > 0 And IsNothing(postException)
+                    sw.WriteLine("Found {0} postable node(s).", postnodes.Count)
+                    If PostData(postnodes(0), postException) Then
+                        sw.WriteLine("Posted node ok.")
+                        postnodes(0).Attributes.RemoveNamedItem("post")
+                        Document.Save(LocalFile)
+                        ret = True
+                    Else
+                        sw.WriteLine("Post Failed: {0}", postException.Message)
+                        ret = False
+                    End If
+                    postnodes = Document.SelectNodes("//*[@post ='1']")
+                End While
+            End Using
+            posting = False
+        End If
+        Return ret
+
+    End Function
+
     Private Sub hPost(ByVal sender As Object, ByVal e As System.EventArgs)
-        Static posting As Boolean
         If Not posting Then
             posting = True
             Dim thPost As New Thread(AddressOf PostThread)
             With thPost
                 .IsBackground = True
                 .Start()
-            End With
-            posting = False
+            End With            
         End If
     End Sub
 
@@ -543,6 +605,7 @@ Public Class OfflineXML
                 postnodes = Document.SelectNodes("//*[@post ='1']")
             End While
         End Using
+        posting = False
 
     End Sub
 

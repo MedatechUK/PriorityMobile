@@ -15,3 +15,7 @@ M:\components\frmControls\frmControls\bin\Debug\System.SR.dll
 M:\components\frmControls\frmControls\obj\Debug\PriorityMobile.Survey.resources
 M:\components\frmControls\frmControls\obj\Debug\PriorityMobile.QuestionBase.resources
 M:\components\frmControls\frmControls\obj\Debug\PriorityMobile.BoolQuestion.resources
+M:\components\frmControls\frmControls\bin\Debug2\frmControls.dll
+M:\components\frmControls\frmControls\bin\Debug2\frmControls.pdb
+M:\components\frmControls\frmControls\bin\Debug2\frmControls.xml
+M:\components\frmControls\frmControls\bin\Debug2\System.SR.dll

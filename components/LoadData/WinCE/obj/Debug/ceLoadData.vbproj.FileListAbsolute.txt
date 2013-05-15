@@ -1,6 +1,6 @@
-M:\bin\WinCE\ceLoadData.dll
-M:\bin\WinCE\ceLoadData.pdb
-M:\bin\WinCE\ceLoadData.xml
+M:\bin\WinCE\arcflex\ceLoadData.dll
+M:\bin\WinCE\arcflex\ceLoadData.pdb
+M:\bin\WinCE\arcflex\ceLoadData.xml
 M:\components\LoadData\WinCE\obj\Debug\ResolveAssemblyReference.cache
 M:\components\LoadData\WinCE\obj\Debug\ceLoadData.Resources.resources
 M:\components\LoadData\WinCE\obj\Debug\ceLoadData.vbproj.GenerateResource.Cache

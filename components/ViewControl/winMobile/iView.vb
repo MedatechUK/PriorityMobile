@@ -205,7 +205,7 @@ Public Class iView
 
     End Sub
 
-    Public Overridable Sub SetNumber(ByVal MyValue As Integer)
+    Public Overridable Sub SetNumber(ByVal MyValue As Double)
 
     End Sub
 

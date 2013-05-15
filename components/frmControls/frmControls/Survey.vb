@@ -3,6 +3,17 @@
 Public Class Survey
 
     Private SurveryQuestions As New List(Of QuestionBase)
+    Private FormTitle As Label
+
+    Private _FormLabel As String = ""
+    Public Property FormLabel() As String
+        Get
+            Return _FormLabel
+        End Get
+        Set(ByVal value As String)
+            _FormLabel = value
+        End Set
+    End Property
 
 #Region "Label Resizing declarations"
 
@@ -41,10 +52,26 @@ Public Class Survey
     Public Sub LoadSurvey(ByRef SurveyCategory As XmlNode)
 
         With Me
+
+            FormTitle = New Label
+            With FormTitle
+                .ForeColor = Color.Blue
+                .Font = New Font("Tahoma", 9, FontStyle.Bold)
+                '.BackColor = Color.FromArgb(201, 220, 233)
+                .Height = 30
+                .Dock = DockStyle.Top
+            End With
+
             .AutoScroll = False
             SurveryQuestions.Clear()
             .Controls.Clear()
             .AutoScrollPosition = New Point(0, 0)
+
+            If _FormLabel.Length > 0 Then
+                FormTitle.Text = _FormLabel
+                .Controls.Add(FormTitle)
+            End If
+
         End With
 
         Dim responseValue As String
@@ -54,6 +81,7 @@ Public Class Survey
 
             Dim questionNumber As Integer = CInt(question.SelectSingleNode("number").InnerText)
             Dim questionText As String = question.SelectSingleNode("text").InnerText
+            Dim questionMandatory As Boolean = CBool(question.SelectSingleNode("mandatory").InnerText.Trim.ToLower = "y")
             Dim response As XmlNode = question.SelectSingleNode("response")
 
             With response
@@ -67,9 +95,9 @@ Public Class Survey
                 Select Case Options.Count
                     Case 0
                         If responseText.Length = 0 Then
-                            .Add(New TextQuestion(questionNumber, questionText))
+                            .Add(New TextQuestion(questionNumber, questionText, , questionMandatory))
                         Else
-                            .Add(New TextQuestion(questionNumber, questionText, responseText))
+                            .Add(New TextQuestion(questionNumber, questionText, responseText, questionMandatory))
                         End If
 
                     Case Else
@@ -88,15 +116,15 @@ Public Class Survey
                         Select Case bool And Options.Count = 2
                             Case True
                                 If responseValue.Length = 0 Then
-                                    .Add(New BoolQuestion(questionNumber, questionText, OptVal))
+                                    .Add(New BoolQuestion(questionNumber, questionText, OptVal, , questionMandatory))
                                 Else
-                                    .Add(New BoolQuestion(questionNumber, questionText, OptVal, responseValue))
+                                    .Add(New BoolQuestion(questionNumber, questionText, OptVal, responseValue, questionMandatory))
                                 End If
                             Case Else
                                 If responseValue.Length = 0 Then
-                                    .Add(New ChooseQuestion(questionNumber, questionText, OptVal))
+                                    .Add(New ChooseQuestion(questionNumber, questionText, OptVal, , questionMandatory))
                                 Else
-                                    .Add(New ChooseQuestion(questionNumber, questionText, OptVal, responseValue))
+                                    .Add(New ChooseQuestion(questionNumber, questionText, OptVal, responseValue, questionMandatory))
                                 End If
                         End Select
 
@@ -115,7 +143,15 @@ Public Class Survey
 
         If SurveryQuestions.Count = 0 Then Exit Sub
         Try
-            Dim y As Integer = 0
+            Dim y As Integer
+            With Me
+                If _FormLabel.Length > 0 Then
+                    y = FormTitle.Height                    
+                Else
+                    y = 0
+                End If
+            End With
+
             Dim uRECT As RECT
             Dim objGraphics As Graphics = Me.CreateGraphics
             Dim hDc As IntPtr = objGraphics.GetHdc

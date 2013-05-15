@@ -21,12 +21,14 @@ Public Class ctrl_DeliveredItems
 
         With Me
             With ListSort1
+                .FormLabel = "Delivered Items"
                 .Sort = "name"
                 .AddColumn("ordi", "ordi", 0, True)
                 .AddColumn("name", "Part", 130)
-                .AddColumn("des", "Description", 260)
+                .AddColumn("des", "Description", 280)
                 .AddColumn("cquant", "qty", 65)
-                .AddColumn("lotnumber", "Lot", 130)
+                .AddColumn("expirydate", "Expires", 150, , eColumnFormat.fmt_Date)
+                .AddColumn("weight", "Weight/kg", 100)
             End With
         End With
 
@@ -51,6 +53,12 @@ Public Class ctrl_DeliveredItems
 #End Region
 
 #Region "Overrides base Methods"
+
+    Public Overrides Sub FormClosing()
+        thisForm.CurrentView = 0
+        thisForm.Save()
+        MyBase.FormClosing()
+    End Sub
 
     Public Overrides Sub Bind() Handles ListSort1.Bind
 

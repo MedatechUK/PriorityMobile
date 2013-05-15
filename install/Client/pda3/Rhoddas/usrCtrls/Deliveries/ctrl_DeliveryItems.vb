@@ -21,6 +21,7 @@ Public Class ctrl_DeliveryItems
 
         With Me
             With ListSort1
+                .FormLabel = "Items to deliver"
                 .Sort = "name"
                 .AddColumn("ordi", "ordi", 0, True)
                 .AddColumn("name", "Part", 130)
@@ -51,6 +52,11 @@ Public Class ctrl_DeliveryItems
 
 #Region "Overrides base Methods"
 
+    Public Overrides Sub FormClosing()
+        thisForm.CurrentView = 0
+        thisForm.Save()
+        MyBase.FormClosing()
+    End Sub
 
     Public Overrides Sub Bind() Handles ListSort1.Bind
 
@@ -122,10 +128,28 @@ Public Class ctrl_DeliveryItems
 
         With thisForm
             If Not IsNothing(.TableData.Current) Then
-                Dim dlg As New dlgDeliver
-                dlg.Name = "Select"
-                LotSelect(dlg.FindControl("LotView"), .CurrentRow("name"))
-                thisForm.Dialog(dlg)
+                Select Case .CurrentRow("cheese")
+                    Case "Y"
+                        thisForm.Calc(999)
+
+                    Case Else
+                        If MsgBox(String.Format("Deliver {0} * {1}?", .CurrentRow("tquant"), .CurrentRow("name")), MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                            Dim OrderItem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[ordi='{0}']", .CurrentRow("ordi")))
+                            Dim remain As Double = CDbl(OrderItem.SelectSingleNode("tquant").InnerText)
+                            While remain > 0
+                                remain = DeliverOldestLot(OrderItem, remain)
+                                If remain = -1 Then
+                                    MsgBox("Insufficient stock.")
+                                    Exit While
+                                End If
+                            End While
+                        End If
+                        'Dim dlg As New dlgDeliver
+                        'dlg.Name = "Select"
+                        'LotSelect(dlg.FindControl("LotView"), .CurrentRow("name"))
+                        'thisForm.Dialog(dlg)
+                End Select
+
             End If
         End With
 
@@ -136,7 +160,7 @@ Public Class ctrl_DeliveryItems
 #Region "Direct Activations"
 
     Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-        ToolBar.Add(AddressOf hDeliver, "add.BMP", True)
+        'ToolBar.Add(AddressOf hDeliver, "add.BMP", True)
     End Sub
 
     Private Sub hDeliver()
@@ -151,104 +175,160 @@ Public Class ctrl_DeliveryItems
 
     End Sub
 
-    Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+    'Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
+
+    '    With thisForm
+    '        If frmDialog.Result = DialogResult.OK Then
+    '            Select Case frmDialog.Name
+    '                Case "Select"
+    '                    Dim LotView As ListView = frmDialog.FindControl("LotView")
+    '                    Dim lots As XmlNode = .FormData.SelectSingleNode( _
+    '                        String.Format( _
+    '                            "pdadata/warehouse/parts/part[name='{0}']", _
+    '                            .CurrentRow("name") _
+    '                        ) _
+    '                    )
+    '                    Dim lot As XmlNode = lots.SelectSingleNode(String.Format(".//lot[name='{0}']", LotView.Items(LotView.SelectedIndices(0)).SubItems(0).Text))
+    '                    Dim OrderItem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[ordi='{0}']", .CurrentRow("ordi")))
+    '                    DeliverLot(OrderItem, lot)
+
+    '                Case "Scan"
+    '                    Dim lotnumber As TextBox = frmDialog.FindControl("lotnumber")
+    '                    Dim whsParts As XmlNode = .FormData.SelectSingleNode( _
+    '                        String.Format( _
+    '                            "pdadata/warehouse/parts" _
+    '                        ) _
+    '                    )
+    '                    Dim lot As XmlNode = whsParts.SelectSingleNode(String.Format(".//lot[name='{0}']", lotnumber.Text))
+    '                    Dim part As XmlNode = whsParts.SelectSingleNode(String.Format(".//part[barcode='{0}']", lotnumber.Text))
+
+    '                    If Not IsNothing(lot) Then
+    '                        Dim Orderitem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[name='{0}' and tquant > 0]", lot.ParentNode.ParentNode.SelectSingleNode("name").InnerText))
+    '                        If IsNothing(Orderitem) Then
+    '                            MsgBox("Part does not exist on this order or is already delivered.")
+    '                        Else
+    '                            If CDbl(lot.SelectSingleNode("qty").InnerText) = 0 Then
+    '                                MsgBox("No items remaining in scanned lot.")
+    '                            Else
+    '                                DeliverLot(Orderitem, lot)
+    '                            End If
+    '                        End If
+
+    '                    ElseIf Not IsNothing(part) Then
+    '                        Dim Orderitem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[name='{0}' and tquant > 0]", part.SelectSingleNode("name").InnerText))
+    '                        If IsNothing(Orderitem) Then
+    '                            MsgBox("Part does not exist on this order or is already delivered.")
+    '                        Else
+    '                            If part.SelectNodes("lots/lot[qty > 0]").Count > 1 Then
+    '                                Dim dlg As New dlgDeliver
+    '                                dlg.Name = "Select"
+    '                                LotSelect(dlg.FindControl("LotView"), part.SelectSingleNode("name").InnerText)
+    '                                thisForm.Dialog(dlg)
+    '                                Exit Sub
+    '                            Else
+    '                                If Not IsNothing(part.SelectSingleNode("lots/lot[qty > 0]")) Then
+    '                                    DeliverLot(Orderitem, part.SelectSingleNode("lots/lot[qty > 0]"))
+    '                                Else
+    '                                    MsgBox("No items remaining of scanned part.")
+    '                                End If
+    '                            End If
+    '                        End If
+
+    '                    Else
+    '                        MsgBox("Unknown Part / Lot barcode.")
+
+    '                    End If
+
+    '            End Select
+    '        End If
+    '        .Bind()
+    '        For Each V As iView In thisForm.Views
+    '            V.Bind()
+    '        Next
+    '        .RefreshForm()
+    '    End With
+    'End Sub
+
+    Public Overrides Sub SetNumber(ByVal MyValue As Double)
 
         With thisForm
-            If frmDialog.Result = DialogResult.OK Then
-                Select Case frmDialog.Name
-                    Case "Select"
-                        Dim LotView As ListView = frmDialog.FindControl("LotView")
-                        Dim lots As XmlNode = .FormData.SelectSingleNode( _
-                            String.Format( _
-                                "pdadata/warehouse/parts/part[name='{0}']", _
-                                .CurrentRow("name") _
-                            ) _
-                        )
-                        Dim lot As XmlNode = lots.SelectSingleNode(String.Format(".//lot[name='{0}']", LotView.Items(LotView.SelectedIndices(0)).SubItems(0).Text))
-                        Dim OrderItem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[ordi='{0}']", .CurrentRow("ordi")))
-                        DeliverLot(OrderItem, lot)
-
-                    Case "Scan"
-                        Dim lotnumber As TextBox = frmDialog.FindControl("lotnumber")
-                        Dim whsParts As XmlNode = .FormData.SelectSingleNode( _
-                            String.Format( _
-                                "pdadata/warehouse/parts" _
-                            ) _
-                        )
-                        Dim lot As XmlNode = whsParts.SelectSingleNode(String.Format(".//lot[name='{0}']", lotnumber.Text))
-                        Dim part As XmlNode = whsParts.SelectSingleNode(String.Format(".//part[barcode='{0}']", lotnumber.Text))
-
-                        If Not IsNothing(lot) Then
-                            Dim Orderitem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[name='{0}' and tquant > 0]", lot.ParentNode.ParentNode.SelectSingleNode("name").InnerText))
-                            If IsNothing(Orderitem) Then
-                                MsgBox("Part does not exist on this order or is already delivered.")
-                            Else
-                                If CDbl(lot.SelectSingleNode("qty").InnerText) = 0 Then
-                                    MsgBox("No items remaining in scanned lot.")
-                                Else
-                                    DeliverLot(Orderitem, lot)
-                                End If
-                            End If
-
-                        ElseIf Not IsNothing(part) Then
-                            Dim Orderitem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[name='{0}' and tquant > 0]", part.SelectSingleNode("name").InnerText))
-                            If IsNothing(Orderitem) Then
-                                MsgBox("Part does not exist on this order or is already delivered.")
-                            Else
-                                If part.SelectNodes("lots/lot[qty > 0]").Count > 1 Then
-                                    Dim dlg As New dlgDeliver
-                                    dlg.Name = "Select"
-                                    LotSelect(dlg.FindControl("LotView"), part.SelectSingleNode("name").InnerText)
-                                    thisForm.Dialog(dlg)
-                                    Exit Sub
-                                Else
-                                    If Not IsNothing(part.SelectSingleNode("lots/lot[qty > 0]")) Then
-                                        DeliverLot(Orderitem, part.SelectSingleNode("lots/lot[qty > 0]"))
-                                    Else
-                                        MsgBox("No items remaining of scanned part.")
-                                    End If
-                                End If
-                            End If
-
-                        Else
-                            MsgBox("Unknown Part / Lot barcode.")
-
-                        End If
-
-                End Select
+            If MsgBox(String.Format("Add {0} weighing {1}kg?", .CurrentRow("name"), MyValue.ToString), MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                Dim OrderItem As XmlNode = .FormData.SelectSingleNode(.boundxPath).ParentNode.SelectSingleNode(String.Format(".//part[ordi='{0}']", .CurrentRow("ordi")))
+                Dim remain As Double = 1
+                While remain > 0
+                    remain = DeliverOldestLot(OrderItem, remain, MyValue)
+                    If remain = -1 Then
+                        MsgBox("Insufficient stock.")
+                        Exit While
+                    End If
+                End While
             End If
+        End With
+
+    End Sub
+
+    'Private Sub DeliverLot(ByRef OrderItem As XmlNode, ByRef lot As XmlNode)
+
+    '    Dim qty As Double
+    '    If Not CDbl(lot.SelectSingleNode("qty").InnerText) >= CDbl(OrderItem.SelectSingleNode("tquant").InnerText) Then
+    '        qty = CDbl(lot.SelectSingleNode("qty").InnerText)
+    '    Else
+    '        qty = CDbl(OrderItem.SelectSingleNode("tquant").InnerText)
+    '    End If
+
+    '    With thisForm
+    '        DeliverItem( _
+    '            thisForm, _
+    '            .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode, _
+    '            OrderItem.SelectSingleNode("ordi").InnerText, _
+    '            OrderItem.SelectSingleNode("name").InnerText, _
+    '            OrderItem.SelectSingleNode("des").InnerText, _
+    '            OrderItem.SelectSingleNode("parttype").InnerText, _
+    '            OrderItem.SelectSingleNode("barcode").InnerText, _
+    '            lot.SelectSingleNode("name").InnerText, _
+    '            qty.ToString _
+    '        )
+    '    End With
+
+    'End Sub
+
+    Private Function DeliverOldestLot(ByRef OrderItem As XmlNode, ByVal Qty As Double, Optional ByVal weight As Double = 0) As Double
+        Dim ret As Integer = 0
+        With thisForm
+            Dim warehouse As XmlNode = .FormData.SelectSingleNode("pdadata/warehouse")
+            Dim lots As XmlNodeList = warehouse.SelectNodes(String.Format(".//part[name='{0}']/lots/lot[@qty != '0']", .CurrentRow("name")))
+            If lots.Count = 0 Then
+                ret = -1
+            Else
+                If Not CDbl(lots(0).Attributes("qty").Value) >= Qty Then
+                    Qty = CDbl(lots(0).Attributes("qty").Value)
+                    ret = CDbl(OrderItem.SelectSingleNode("tquant").InnerText) - CDbl(lots(0).Attributes("qty").Value)
+                End If
+                DeliverItem( _
+                    thisForm, _
+                    .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode, _
+                    OrderItem.SelectSingleNode("ordi").InnerText, _
+                    OrderItem.SelectSingleNode("name").InnerText, _
+                    OrderItem.SelectSingleNode("des").InnerText, _
+                    OrderItem.SelectSingleNode("parttype").InnerText, _
+                    OrderItem.SelectSingleNode("cheese").InnerText, _
+                    OrderItem.SelectSingleNode("barcode").InnerText, _
+                    OrderItem.SelectSingleNode("price").InnerText, _
+                    lots(0).Attributes("name").Value, _
+                    Qty.ToString, _
+                    weight.ToString _
+                )
+            End If
+
             .Bind()
             For Each V As iView In thisForm.Views
                 V.Bind()
             Next
             .RefreshForm()
         End With
-    End Sub
 
-    Private Sub DeliverLot(ByRef OrderItem As XmlNode, ByRef lot As XmlNode)
-
-        Dim qty As Double
-        If Not CDbl(lot.SelectSingleNode("qty").InnerText) >= CDbl(OrderItem.SelectSingleNode("tquant").InnerText) Then
-            qty = CDbl(lot.SelectSingleNode("qty").InnerText)
-        Else
-            qty = CDbl(OrderItem.SelectSingleNode("tquant").InnerText)
-        End If
-
-        With thisForm
-            DeliverItem( _
-                thisForm, _
-                .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode, _
-                OrderItem.SelectSingleNode("ordi").InnerText, _
-                OrderItem.SelectSingleNode("name").InnerText, _
-                OrderItem.SelectSingleNode("des").InnerText, _
-                OrderItem.SelectSingleNode("parttype").InnerText, _
-                OrderItem.SelectSingleNode("barcode").InnerText, _
-                lot.SelectSingleNode("name").InnerText, _
-                qty.ToString _
-            )
-        End With
-
-    End Sub
+        Return ret
+    End Function
 
     Private Sub CloseWeighDelivery()
 

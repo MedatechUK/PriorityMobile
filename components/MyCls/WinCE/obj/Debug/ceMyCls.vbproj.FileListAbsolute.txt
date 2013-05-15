@@ -1,10 +1,16 @@
 M:\bin\WinCE\ceMyCls.dll
 M:\bin\WinCE\ceMyCls.pdb
 M:\bin\WinCE\ceMyCls.xml
+M:\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
+M:\bin\WinCE\arclex\ceMyCls.dll
+M:\bin\WinCE\arclex\ceMyCls.pdb
+M:\bin\WinCE\arclex\ceMyCls.xml
+M:\bin\WinCE\arcflex\ceMyCls.dll
+M:\bin\WinCE\arcflex\ceMyCls.pdb
+M:\bin\WinCE\arcflex\ceMyCls.xml
 M:\components\MyCls\WinCE\obj\Debug\ResolveAssemblyReference.cache
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.ct_number.resources
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.Resources.resources
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.vbproj.GenerateResource.Cache
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
-M:\components\MyCls\WinCE\obj\Debug\ceMyCls.xml
 M:\components\MyCls\WinCE\obj\Debug\ceMyCls.pdb

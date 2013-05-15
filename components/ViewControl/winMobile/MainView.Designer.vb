@@ -24,8 +24,8 @@ Partial Public Class MainView
         Me.mnu_SubForms = New PriorityMobile.SlideMenu
         Me.ToolStrip = New PriorityMobile.daToolbar
         Me.frmPanel = New System.Windows.Forms.Panel
-        Me.mnu_TopForms = New PriorityMobile.SlideMenu
         Me.ProgressBar = New System.Windows.Forms.ProgressBar
+        Me.mnu_TopForms = New PriorityMobile.SlideMenu
         Me.Panel1.SuspendLayout()
         Me.frmPanel.SuspendLayout()
         Me.SuspendLayout()
@@ -78,6 +78,14 @@ Partial Public Class MainView
         Me.frmPanel.Name = "frmPanel"
         Me.frmPanel.Size = New System.Drawing.Size(270, 336)
         '
+        'ProgressBar
+        '
+        Me.ProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.ProgressBar.Location = New System.Drawing.Point(0, 292)
+        Me.ProgressBar.Name = "ProgressBar"
+        Me.ProgressBar.Size = New System.Drawing.Size(270, 22)
+        Me.ProgressBar.Visible = False
+        '
         'mnu_TopForms
         '
         Me.mnu_TopForms.BackColor = System.Drawing.SystemColors.ControlDarkDark
@@ -87,14 +95,6 @@ Partial Public Class MainView
         Me.mnu_TopForms.Name = "mnu_TopForms"
         Me.mnu_TopForms.Size = New System.Drawing.Size(270, 26)
         Me.mnu_TopForms.TabIndex = 1
-        '
-        'ProgressBar
-        '
-        Me.ProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ProgressBar.Location = New System.Drawing.Point(0, 292)
-        Me.ProgressBar.Name = "ProgressBar"
-        Me.ProgressBar.Size = New System.Drawing.Size(270, 22)
-        Me.ProgressBar.Visible = False
         '
         'MainView
         '

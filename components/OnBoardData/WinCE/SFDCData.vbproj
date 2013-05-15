@@ -32,7 +32,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\..\..\bin\WinCE\</OutputPath>
+    <OutputPath>..\..\..\bin\WinCE\arcflex\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
     <DocumentationFile>SFDCData.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -56,14 +56,6 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ceLoadData, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\LoadData\WinCE\obj\Debug\ceLoadData.dll</HintPath>
-    </Reference>
-    <Reference Include="ceMyCls, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\MyCls\WinCE\obj\Debug\ceMyCls.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -155,6 +147,16 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LoadData\WinCE\ceLoadData.vbproj">
+      <Project>{E84A89F7-AC60-45A2-AD47-F456C0F84AE5}</Project>
+      <Name>ceLoadData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\MyCls\WinCE\ceMyCls.vbproj">
+      <Project>{B8C1BCCA-A84F-4023-B0FE-A8B509CE9DF8}</Project>
+      <Name>ceMyCls</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Condition="'$(TargetFrameworkVersion)' == 'v1.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.v1.targets" />
   <Import Condition="'$(TargetFrameworkVersion)' == 'v2.0'" Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />

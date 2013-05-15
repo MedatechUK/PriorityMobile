@@ -3,9 +3,11 @@
     Dim _Max As Integer
     Dim _Value As Integer
 
+    Private DNum As Double = 0.0
     Private mclosing As Boolean = True
     Private _Handler As Object
-    Public Event SetNumber(ByVal MyValue As Integer)
+    Private PressDot As Boolean = False
+    Public Event SetNumber(ByVal MyValue As Double)
 
     Public Property Max() As Integer
         Get
@@ -25,12 +27,12 @@
         End Set
     End Property
 
-    Public Property Value() As Integer
+    Public Property Value() As Double
         Get
-            Return CInt(Me.txt_Number.Text)
+            Return CDbl(DNum)
         End Get
-        Set(ByVal value As Integer)
-            Me.txt_Number.Text = CStr(value)
+        Set(ByVal value As Double)
+            DNum = value.ToString
         End Set
     End Property
 
@@ -81,7 +83,7 @@
     Public Sub New()
 
         ' This call is required by the Windows Form Designer.
-        InitializeComponent()        
+        InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
 
@@ -100,9 +102,13 @@
                     btn(i).Text = "Ok"
             End Select
             AddHandler btn(i).Click, AddressOf Btn_Click
+            AddHandler btn(i).KeyPress, AddressOf hKeyPress
+            AddHandler btn(i).KeyDown, AddressOf hKeyDown
             Me.Controls.Add(btn(i))
         Next
-        Me.txt_Number.Text = "0"
+        DNum = 0
+        Me.txt_Number.Text = DNum.ToString
+        Me.btn(9).Focus()
 
     End Sub
 
@@ -110,24 +116,81 @@
         Dim btn As Button = sender
         Select Case Strings.Left(btn.Text, 1)
             Case "O"
+                PressDot = False
                 Me.isClosing = True
-                RaiseEvent SetNumber(CInt(txt_Number.Text))
+                RaiseEvent SetNumber(CDbl(DNum))
             Case "C"
-                txt_Number.Text = ""
+                PressDot = False
+                DNum = 0
             Case "<"
-                If Len(txt_Number.Text) > 0 Then
-                    txt_Number.Text = Strings.Left(txt_Number.Text, Len(txt_Number.Text) - 1)
+                PressDot = False
+                If Len(DNum.ToString) > 1 Then
+                    DNum = CDbl(Strings.Left(DNum.ToString, Len(DNum.ToString) - 1))
+                Else
+                    DNum = 0
                 End If
             Case Else
-                Me.txt_Number.Text = Me.txt_Number.Text & btn.Text
+                If PressDot Then
+                    DNum = CDbl(DNum.ToString & "." & btn.Text)
+                    PressDot = False
+                Else
+                    DNum = CDbl(DNum.ToString & btn.Text)
+                End If
         End Select
-        If txt_Number.Text = "" Then txt_Number.Text = "0"
-        If Not IsNumeric(txt_Number.Text) Then
-            txt_Number.Text = "0"
+
+        If Not IsNumeric(DNum) Then
+            DNum = 0
         Else
-            If CInt(txt_Number.Text) > Max Then txt_Number.Text = CStr(Max)
-            txt_Number.Text = CStr(CInt(txt_Number.Text))
+            If DNum > Max Then DNum = Max            
         End If
 
+        txt_Number.Text = DNum.ToString
+
+        Me.btn(9).Focus()
+
     End Sub
+
+    Private Sub txt_Number_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Number.GotFocus
+        Me.btn(9).Focus()
+    End Sub
+
+    Private Sub hKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Number.KeyDown
+        e.Handled = True
+        Select Case e.KeyValue
+            Case Keys.Back
+                Btn_Click(Me.btn(9), New System.EventArgs)
+            Case Keys.D0
+                Btn_Click(Me.btn(10), New System.EventArgs)
+            Case Keys.D1
+                Btn_Click(Me.btn(0), New System.EventArgs)
+            Case Keys.D2
+                Btn_Click(Me.btn(1), New System.EventArgs)
+            Case Keys.D3
+                Btn_Click(Me.btn(2), New System.EventArgs)
+            Case Keys.D4
+                Btn_Click(Me.btn(3), New System.EventArgs)
+            Case Keys.D5
+                Btn_Click(Me.btn(4), New System.EventArgs)
+            Case Keys.D6
+                Btn_Click(Me.btn(5), New System.EventArgs)
+            Case Keys.D7
+                Btn_Click(Me.btn(6), New System.EventArgs)
+            Case Keys.D8
+                Btn_Click(Me.btn(7), New System.EventArgs)
+            Case Keys.D9
+                Btn_Click(Me.btn(8), New System.EventArgs)
+            Case 190
+                If InStr(txt_Number.Text, ".") = 0 Then
+                    PressDot = True
+                    txt_Number.Text = DNum.ToString & "."
+                End If
+        End Select
+    End Sub
+
+    Private Sub hKeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txt_Number.KeyPress, txt_Number.KeyPress
+
+
+    End Sub
+
+
 End Class
