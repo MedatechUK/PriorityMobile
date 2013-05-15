@@ -1,0 +1,9 @@
+M:\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcData.dll
+M:\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcData.pdb
+M:\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcData.xml
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcData.Resources.resources
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcData.vbproj.GenerateResource.Cache
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcData.dll
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcData.xml
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcData.pdb

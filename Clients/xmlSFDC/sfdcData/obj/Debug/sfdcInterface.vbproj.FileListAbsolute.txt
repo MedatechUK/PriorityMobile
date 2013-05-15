@@ -1,0 +1,11 @@
+M:\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcInterface.dll
+M:\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcInterface.pdb
+M:\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcInterface.xml
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcInterface.vbproj.GenerateResource.Cache
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcInterface.dll
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcInterface.xml
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcInterface.pdb
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdc3.Resources.resources
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdc3.uiColumn.resources
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\sfdc3.iForm.resources

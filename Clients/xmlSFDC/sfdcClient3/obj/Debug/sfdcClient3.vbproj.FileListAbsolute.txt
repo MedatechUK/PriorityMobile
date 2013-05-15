@@ -1,0 +1,13 @@
+M:\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdcClient3.exe
+M:\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdcClient3.pdb
+M:\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdcClient3.xml
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\sfdcClient3.vbproj.GenerateResource.Cache
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\sfdcClient3.exe
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\sfdcClient3.xml
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\sfdcClient3.pdb
+M:\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdcInterface.dll
+M:\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdcInterface.pdb
+M:\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdcInterface.xml
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\sfdc3.Menu.resources
+M:\Clients\xmlSFDC\sfdcClient3\obj\Debug\sfdc3.Resources.resources

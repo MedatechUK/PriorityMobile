@@ -1,0 +1,31 @@
+﻿<menu name="Sfdc Goods In">
+  <interface name="SFDC Top form">
+    <form>
+      <triggers trigger="PRE-FORM" sql="SELECT 'A' INTO :$.TEXT1 FROM DUMMY;" />
+      <column name="TEXT1" type="CHAR" width="32" readonly=" " hidden=" " help="This is some help text.">
+        <triggers trigger="CHOOSE-FIELD" sql="SELECT PARTNAME, PARTDES FROM PART;" />
+        <triggers trigger="POST-FIELD" sql="SELECT 'Y' FROM DUMMY;SELECT 'Z' FROM DUMMY;" />
+      </column>
+      <column name="INT1" type="INT" width="17" readonly=" " hidden=" " />
+      <column name="CHAR1" type="CHAR" width="1" readonly=" " hidden=" " />
+      <column name="TEXT" type="CHAR" width="68" readonly=" " hidden=" " />
+      <column name="INT8" type="INT" width="17" readonly=" " hidden=" " />
+      <column name="REAL1" type="REAL" width="16" readonly=" " hidden=" " />
+      <column name="DATE1" type="DATE" width="14" readonly=" " hidden=" " />
+      <column name="KEY4" type="CHAR" width="20" readonly=" " hidden=" " />
+    </form>
+    <table>
+      <triggers trigger="PRE-FORM" sql="SELECT 'A' INTO :$.TEXT1 FROM DUMMY;" />
+      <column name="TEXT3" type="CHAR" width="48" readonly=" " hidden=" " help="This is some sub level help.">
+        <triggers trigger="CHECK-FIELD" sql="SELECT 'A' FROM DUMMY;" />
+      </column>
+      <column name="INT3" type="INT" width="17" readonly=" " hidden=" " />
+      <column name="CHAR3" type="CHAR" width="1" readonly=" " hidden=" " />
+      <column name="REAL3" type="REAL" width="22" readonly=" " hidden=" " />
+      <column name="DATE3" type="DATE" width="14" readonly=" " hidden=" " />
+      <column name="KEY4" type="CHAR" width="20" readonly=" " hidden=" " />
+      <column name="CHAR13" type="CHAR" width="1" readonly=" " hidden=" " />
+      <column name="INT13" type="INT" width="17" readonly=" " hidden=" " />
+    </table>
+  </interface>
+</menu>
