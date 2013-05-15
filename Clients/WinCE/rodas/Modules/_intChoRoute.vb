@@ -72,7 +72,8 @@ Public Class interfaceChoRoute
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
         CtrlTable.DisableButtons(True, False, True, True, False)
-        CtrlTable.EnableToolbar(True, True, True, True, True)        
+        CtrlTable.EnableToolbar(True, True, True, True, True)
+
     End Sub
 
 #End Region

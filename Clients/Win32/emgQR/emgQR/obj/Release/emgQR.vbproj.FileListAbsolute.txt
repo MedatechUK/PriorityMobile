@@ -1,0 +1,12 @@
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\bin\Release\emgQR.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\bin\Release\emgQR.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\bin\Release\emgQR.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\obj\Release\ResolveAssemblyReference.cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\obj\Release\emgQR.Resources.resources
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\obj\Release\emgQR.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\obj\Release\emgQR.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\obj\Release\emgQR.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\obj\Release\emgQR.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\bin\Release\DTI.ImageMan.Barcode.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\bin\Release\DTI.ImageMan.Codecs.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgQR\emgQR\bin\Release\DTI.ImageMan.Core.dll

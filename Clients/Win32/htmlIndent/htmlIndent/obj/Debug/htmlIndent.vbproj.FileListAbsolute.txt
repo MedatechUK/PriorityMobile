@@ -1,0 +1,10 @@
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\bin\Debug\htmlIndent.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\bin\Debug\htmlIndent.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\bin\Debug\htmlIndent.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\bin\Debug\HtmlAgilityPack.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Debug\htmlIndent.Resources.resources
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Debug\htmlIndent.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Debug\htmlIndent.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Debug\htmlIndent.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Debug\htmlIndent.pdb
