@@ -1,0 +1,12 @@
+This is a small time-saving marketing utility.
+
+It grabs news and blog posts from the emerge website and formulates tweets for them.
+
+It utilises the axd feed from the blog, and pages.xml from the website, extracting the title and URL for each tweetable item. 
+
+It then creates a shortened URL utilising Bit.ly. 
+
+It requests an XML response from Bit.ly which also contains a flag for new hashes - this is utilised to determine whether or not the item should be tweeted.
+
+If the URL posted to bit.ly is new, the new hash flag will read 1 and the item will be tweeted. Presently it is set up with the twitter account EmgTest - this will need to be changed. 
+
