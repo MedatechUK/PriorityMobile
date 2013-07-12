@@ -1,0 +1,16 @@
+1	13427209	 	50001	Provisioning XML	0	12/07/2013	0	N	 	tabula	01/01/1988	Y	12/07/2013 11:32	01/01/1988	 	 	0	01/01/1988	 	Y	tabula	12/07/2013 11:04	0.00	tabula	 	0	 	0	 	01/01/1988	01/01/1988	 	01/01/1988	01/01/1988	 	 	 	N	Y	 	01/01/1988	 	 	 	0	 	 	0	0	 	 	 	 	 	0	0	 	 	 	 	0	0
+2	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13029852	CUSTOMERS	ZAND_FEED	0	TAKEFORMCOL	A	tabula	 	04/07/2013 13:34	F	4	0	 	 	 	 	0	0
+3	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13415851	 	 	0	DBI	A	tabula	 	04/07/2013 13:32	 	3	0	 	 	 	 	0	0
+4	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13417371	CUSTOMERS	 	0	TAKEFORMLINK	A	tabula	 	05/07/2013 14:51	F	5	0	ZEMG_PROVISION_USERS	F	 	 	0	0
+5	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427219	ZEMG_PROVISION_USERS	 	0	TAKESINGLEENT	M	tabula	 	12/07/2013 11:00	F	2	0	 	 	 	 	0	0
+6	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	DBI	M	tabula	 	12/07/2013 11:00	 	1	0	 	 	 	 	0	0
+7	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13415851	 	 	0	0	 	 	 	 	 	0	0	 	 	 	FOR TABLE CUSTOMERS INSERT ZAND_FEED	1	1
+8	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13415851	 	 	0	0	 	 	 	 	 	0	0	 	 	 	(CHAR,50,'Mobile XML Feed');	2	2
+9	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	CREATE TABLE ZEMG_PROVISIONING 'Provisioning Users Table' 0	1	1
+10	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	USERID (INT,13,'USER ID')	2	2
+11	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	CUST (INT,13,'CUSTOMER ID')	3	3
+12	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	USERNAME (CHAR,50,'User Name')	4	4
+13	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	PROVISION_STRING (CHAR,10,'Provisioning String')	5	5
+14	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	AUTOUNIQUE (USERID)	6	6
+15	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	UNIQUE (USERNAME,CUST)	7	7
+16	13427209	 	 	 	 	 	0	 	 	 	 	 	 	 	 	 	0	 	 	 	 	 	0.000000	 	 	0	 	0	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	 	13427220	 	 	0	0	 	 	 	 	 	0	0	 	 	 	;	8	8
