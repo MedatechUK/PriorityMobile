@@ -3,6 +3,8 @@
     Private mROUTE As String
     Private mPart As String
     Private mPicked As Integer
+    Private mOrdName As String
+    Private mOrdLine As String
    
     Public Property pick() As Integer
         Get
@@ -36,13 +38,28 @@
             mPicked = value
         End Set
     End Property
-    
+    'Public Property OrdName()
+    '    Get
+    '        Return mOrdName
+    '    End Get
+    '    Set(ByVal value)
+    '        mOrdName = value
+    '    End Set
+    'End Property
+    'Public Property OrdLine()
+    '    Get
+    '        Return mOrdLine
+    '    End Get
+    '    Set(ByVal value)
+    '        mOrdLine = value
+    '    End Set
+    'End Property
 
     Public Sub New(ByVal pic As Integer, ByVal rou As String, ByVal par As String, ByVal pica As Integer)
         pick = pic
         route = rou
         Part = par
         picked = pica
-
+      
     End Sub
 End Class

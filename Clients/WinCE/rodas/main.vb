@@ -181,6 +181,7 @@ Module main
         INVENCYCC = 18
         CHOPICK = 19
         CHECKRO = 20
+        CHECKCUST = 21
     End Enum
 
     Public Enum tRegExValidation
@@ -195,12 +196,22 @@ Module main
         tLotNumber = 8
         tBarcode2 = 9
         tPartType = 10
+        tPar28 = 11
+        tPar1415 = 12
+        tGSI128 = 13
+
     End Enum
 
     Public ReadOnly Property ValidStr(ByVal rxType As tRegExValidation) As String
         Get
             Dim ret As String = Nothing
             Select Case rxType
+                Case tRegExValidation.tPar28
+                    ret = "^\("
+                Case tRegExValidation.tPar1415
+                    ret = "^\w{14,15}"
+                Case tRegExValidation.tGSI128
+                    ret = "^\w{24}"
                 Case tRegExValidation.tBarcode
                     ret = "^[A-Za-z]{3}[0-9]{4}$" 'TODO reset the characters to 2
                 Case tRegExValidation.tBarcode2
@@ -220,7 +231,7 @@ Module main
                 Case tRegExValidation.tPackingSlip
                     ret = "^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tLotNumber
-                    ret = "^[A-Z]+[0-9]+$" '"^[A-Za-z]{2}[0-9]{10}$" 'TODO reset the numerics to 12
+                    ret = "^[0-9A-Z]" '"^[A-Za-z]{2}[0-9]{10}$" 'TODO reset the numerics to 12"^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tPartType
                     ret = "^[A-Za-z]{1}$"
             End Select
@@ -229,7 +240,9 @@ Module main
     End Property
 
     Sub MAIN()
-
+        'If ws.url <> "http://mobile.roddas.co.uk:8080/service.asmx" Then
+        '    ws.url = "http://mobile.roddas.co.uk:8080/service.asmx"
+        'End If
         Dim frmMenu As New frmMenu
         With frmMenu
             ' Set the menu item to add modules
@@ -264,11 +277,29 @@ Module main
 
             .AddRSS(o.CHECKRO, New interfaceCheckRoute(frmMenu))
             With rss(o.CHECKRO)
-                .ModuleName = "Start Check"
+                .ModuleName = "Check By Route"
                 .SubMenu = "Checking"
                 .Argument("PickDate") = " "
                 .SetBaseForm(frmMenu)
             End With
+
+
+            .AddRSS(o.PARTLU, New InterfacePARTLU(frmMenu))
+            With rss(o.PARTLU)
+                .ModuleName = "Part Lookup"
+                .Argument("BARCODE") = ""
+                .SubMenu = "Inventory Count"
+                .SetBaseForm(frmMenu)
+            End With
+
+            .AddRSS(o.CHECKCUST, New interfaceCheckByCustomer(frmMenu))
+            With rss(o.CHECKCUST)
+                .ModuleName = "Check By Customer"
+                .SubMenu = "Checking"
+                .Argument("PickDate") = " "
+                .SetBaseForm(frmMenu)
+            End With
+
             ' Run the program
             .MainLoop()
 

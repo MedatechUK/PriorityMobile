@@ -1,3 +1,6 @@
+﻿Imports System.Text.RegularExpressions
+Imports System.Xml
+
 Public Class interfacePSLIP
     Inherits SFDCData.iForm
 
@@ -20,9 +23,10 @@ Public Class interfacePSLIP
         GetWarhs = 2
         Loc = 3
         SetUser = 4
+        Part = 5
     End Enum
     Dim SendType As tSendType = tSendType.NextPS
-
+    Private TBar As String = ""
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
         If CtrlForm.el(0).Data.Length = 0 Then
@@ -108,7 +112,7 @@ Public Class interfacePSLIP
             .Data = ""      '******** Barcoded field '*******
             .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctNone 'ctKeyb 
             .ctrlEnabled = False
-            .MandatoryOnPost = False            
+            .MandatoryOnPost = False
         End With
         CtrlForm.AddField(field)
 
@@ -312,7 +316,7 @@ Public Class interfacePSLIP
                 Try
                     If ctrl.Data <> "" Then
                         Select Case ctrl.Name
-                            Case "PSNO"                                
+                            Case "PSNO"
                                 'SendType = tSendType.GetWarhs
                                 'InvokeData("SELECT     distinct WAREHOUSES.WARHSNAME " & _
                                 '            "FROM         dbo.PART INNER JOIN  " & _
@@ -399,34 +403,57 @@ Public Class interfacePSLIP
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        Dim v2 As String = ""
+        Dim doc As New Xml.XmlDocument
+        doc.LoadXml(Value)
+        If regex.ismatch(Value, "^<") = False Then
+            MsgBox("This doesnt appear to be a valid barcode")
+        Else
 
-        If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
-            SendType = tSendType.TableScan
-            InvokeData("SELECT PARTNAME, BARCODE FROM PART WHERE BARCODE = '" & Value & "'")
 
-        ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, "^[A-Z]+[0-9]+$") Or Value = "ZZZ" Then
-            With CtrlForm.el(1)
-                .DataEntry.Text = Value
-                CtrlForm.el(2).Value.Text = ""
-                .ProcessEntry()
-            End With
 
-        ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tNumeric)) Then
-            For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
-                With CtrlTable
-                    If .Table.Items(i).SubItems(2).Text = CtrlForm.ItemValue("PARTNAME") And .Table.Items(i).SubItems(0).Text = CtrlForm.ItemValue("TOLOC") Then
-                        If CInt(.Table.Items(i).SubItems(4).Text) + CInt(Value) > CInt(.Table.Items(i).SubItems(3).Text) Then
-                            MsgBox("To many items scanned.")
-                        Else
-                            .Table.Items(i).SubItems(4).Text = CStr(CInt(.Table.Items(i).SubItems(4).Text) + CInt(Value))
-                            CtrlForm.el(3).Value.Text = .Table.Items(i).SubItems(4).Text & " OF " & .Table.Items(i).SubItems(3).Text
-                        End If
-                        Exit For
-                    End If
-                End With
+            For Each nd As XmlNode In doc.SelectNodes("in/i")
+                Dim DataType As String = nd.Attributes("n").Value
+                Select Case DataType
+                    Case "PART"
+                        SendType = tSendType.Part
+
+                        InvokeData("SELECT PART.BARCODE FROM PARTS WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                        v2 = TBar
+                End Select
+
             Next
-        End If
+            Dim f As Boolean = False
+            Dim add As Integer = 0
+            If v2 <> "" Then
+                If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
+                    SendType = tSendType.TableScan
+                    InvokeData("SELECT PARTNAME, BARCODE FROM PART WHERE BARCODE = '" & Value & "'")
 
+                ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, "^[A-Z]+[0-9]+$") Or Value = "ZZZ" Then
+                    With CtrlForm.el(1)
+                        .DataEntry.Text = Value
+                        CtrlForm.el(2).Value.Text = ""
+                        .ProcessEntry()
+                    End With
+
+                ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tNumeric)) Then
+                    For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
+                        With CtrlTable
+                            If .Table.Items(i).SubItems(2).Text = CtrlForm.ItemValue("PARTNAME") And .Table.Items(i).SubItems(0).Text = CtrlForm.ItemValue("TOLOC") Then
+                                If CInt(.Table.Items(i).SubItems(4).Text) + CInt(Value) > CInt(.Table.Items(i).SubItems(3).Text) Then
+                                    MsgBox("To many items scanned.")
+                                Else
+                                    .Table.Items(i).SubItems(4).Text = CStr(CInt(.Table.Items(i).SubItems(4).Text) + CInt(Value))
+                                    CtrlForm.el(3).Value.Text = .Table.Items(i).SubItems(4).Text & " OF " & .Table.Items(i).SubItems(3).Text
+                                End If
+                                Exit For
+                            End If
+                        End With
+                    Next
+                End If
+            End If
+        End If
     End Sub
 
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
@@ -488,3 +515,4 @@ Public Class interfacePSLIP
     End Sub
 
 End Class
+

@@ -1,16 +1,23 @@
+﻿Imports System.Xml
 Public Class InterfacePARTLU
     Inherits SFDCData.iForm
 
     Public Sub New(Optional ByRef App As Form = Nothing)
 
-        InitializeComponent()
+
         CallerApp = App
         NewArgument("BARCODE", "")
         CtrlTable.DisableButtons(True, False, True, True, False)
         CtrlTable.EnableToolbar(False, False, False, False, False)
 
     End Sub
-
+    Private TBar As String = ""
+    Private Enum tInvoke
+        iBarcode = 0
+        iLoc = 1
+        iPart = 2
+    End Enum
+    Private mInvoke As tInvoke = tInvoke.iBarcode
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
         If Len(Argument("BARCODE")) > 0 Then
@@ -143,6 +150,22 @@ Public Class InterfacePARTLU
         End With
         CtrlTable.AddCol(col)
 
+        ' Pallet
+        With col
+            .Name = "_PALLET"
+            .Title = "Pallet"
+            .initWidth = 25
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tStatus)
+            '.SQLList = "SELECT CUSTNAME FROM CUSTOMERS WHERE STATUSFLAG = 'Y'"
+            '.SQLValidation = "SELECT CUSTNAME FROM CUSTOMERS WHERE STATUSFLAG = 'Y' AND CUSTNAME = '%ME%'"
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = False
+            .Mandatory = False
+        End With
+        CtrlTable.AddCol(col)
+
         ' TQUANT
         With col
             .Name = "_TQUANT"
@@ -174,10 +197,11 @@ Public Class InterfacePARTLU
         CtrlTable.AddCol(col)
 
         ' Set the query to load recordtype 2s
-        CtrlTable.RecordsSQL = "select WARHSNAME, LOCNAME , CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, WARHSBAL.BALANCE/1000 as BALANCE, '' AS CQUANT " & _
-                                "from WARHSBAL, WAREHOUSES, CUSTOMERS, SERIAL " & _
+        CtrlTable.RecordsSQL = "select WARHSNAME, LOCNAME , CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME, WARHSBAL.BALANCE/1000 as BALANCE, '' AS CQUANT " & _
+                                "from WARHSBAL, WAREHOUSES, CUSTOMERS, SERIAL, ACT " & _
                                 "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
                                 "AND WARHSBAL.SERIAL = SERIAL.SERIAL " & _
+                                "AND WARHSBAL.ACT = ACT.ACT " & _
                                 "and WARHSBAL.CUST = CUSTOMERS.CUST " & _
                                 "and WARHSBAL.PART =  " & _
                                 "(select PART from PART where PARTNAME = '%PARTNAME%') " & _
@@ -252,6 +276,8 @@ Public Class InterfacePARTLU
                 Try
 
                     If ctrl.Name = "PARTNAME" Then
+                        mInvoke = tInvoke.iBarcode
+
                         InvokeData("select BARCODE, PARTDES, WARHSNAME, LOCNAME " & _
                             "from PARTPARAM, PART, WAREHOUSES " & _
                             "where PARTPARAM.PART = PART.PART  " & _
@@ -305,25 +331,55 @@ Public Class InterfacePARTLU
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        Dim v2 As String = ""
+        Dim doc As New Xml.XmlDocument
+        doc.LoadXml(Value)
+        For Each nd As XmlNode In doc.SelectNodes("in/i")
+            Dim DataType As String = nd.Attributes("n").Value
+            Select Case DataType
+                Case "PART"
+                    mInvoke = tInvoke.iPart
+                    InvokeData("SELECT PART.PARTNAME FROM PART WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                    v2 = TBar
+            End Select
+
+        Next
+        If v2 <> "" Then
+            With CtrlForm
+                .el(0).DataEntry.Text = v2
+                .el(0).ProcessEntry()
+            End With
+        End If
 
     End Sub
 
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
-        If Not IsNothing(Data) Then
-            Clipboard.SetDataObject(Data(0, 0))
-            MsgBox("Part barcode stored in memory. Use '.' to recall.")
-            With CtrlForm
-                With .el(.ColNo("PARTDES"))
-                    .Data = Data(1, 0)
-                End With
-                With .el(.ColNo("WARHS"))
-                    .Data = Data(2, 0)
-                End With
-                With .el(.ColNo("LOCNAME"))
-                    .Data = Data(3, 0)
-                End With
-            End With
-        End If
+        Select Case mInvoke
+            Case tInvoke.iBarcode
+                If Not IsNothing(Data) Then
+                    Clipboard.SetDataObject(Data(0, 0))
+                    MsgBox("Part barcode stored in memory. Use '.' to recall.")
+                    With CtrlForm
+                        With .el(.ColNo("PARTDES"))
+                            .Data = Data(1, 0)
+                        End With
+                        With .el(.ColNo("WARHS"))
+                            .Data = Data(2, 0)
+                        End With
+                        With .el(.ColNo("LOCNAME"))
+                            .Data = Data(3, 0)
+                        End With
+                    End With
+                End If
+
+            Case tInvoke.iPart
+                If Data Is Nothing Then
+                    TBar = ""
+                Else
+                    TBar = Data(0, 0)
+                End If
+        End Select
+
     End Sub
 
 End Class

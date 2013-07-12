@@ -46,7 +46,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\bin\WinCE\trutex\</OutputPath>
+    <OutputPath>..\..\..\install\Client\WinCE\GSM\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
     <DocumentationFile>WinCEClient.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -64,7 +64,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\WinCE\ceMyCls.dll</HintPath>
     </Reference>
-    <Reference Include="SFDCData, Version=1.0.3715.26192, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SFDCData, Version=1.0.3665.24013, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\WinCE\SFDCData.dll</HintPath>
     </Reference>
@@ -73,6 +73,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGrid" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -115,74 +116,77 @@
     <Compile Include="..\shared\frmOption.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAddParts.Designer.vb">
+      <DependentUpon>frmAddParts.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddParts.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUser.Designer.vb">
+      <DependentUpon>frmAddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEdit.Designer.vb">
+      <DependentUpon>frmEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassCode.Designer.vb">
+      <DependentUpon>frmPassCode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassCode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQRCode.Designer.vb">
+      <DependentUpon>frmQRCode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmQRCode.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReject.Designer.vb">
+      <DependentUpon>frmReject.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReject.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="main.vb" />
-    <Compile Include="Modules\_intKITISSUE.Designer.vb">
-      <DependentUpon>_intKITISSUE.vb</DependentUpon>
+    <Compile Include="Modules\frmMetreLen.Designer.vb">
+      <DependentUpon>frmMetreLen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\frmMetreLen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Parts.vb" />
+    <Compile Include="Modules\Rejects.vb" />
+    <Compile Include="Modules\Users.vb" />
+    <Compile Include="Modules\_intGRV.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intKITISSUE.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\_intCYC.Designer.vb">
-      <DependentUpon>_intCYC.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\_intCYC.vb">
+    <Compile Include="Modules\_intOdette.vb">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intPRODREP.Designer.vb">
-      <DependentUpon>_intPRODREP.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\_intPRODREP.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intWHSFX.designer.vb">
-      <DependentUpon>_intWHSFX.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\_intWHSFX.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intDOCNT.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intDOTX.Designer.vb">
-      <DependentUpon>_intDOTX.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\_intDOTX.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intGRV.Designer.vb">
-      <DependentUpon>_intGRV.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\_intGRV.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intPARTLU.Designer.vb">
-      <DependentUpon>_intPARTLU.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intPARTLU.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\_intPRep.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\_intPRODREP.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intPSLIP.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\_intSTKCNT.Designer.vb">
-      <DependentUpon>_intSTKCNT.vb</DependentUpon>
-    </Compile>
     <Compile Include="Modules\_intSTKCNT.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\_intUNTX.Designer.vb">
-      <DependentUpon>_intUNTX.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modules\_intUNTX.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intWHSTX.designer.vb">
-      <DependentUpon>_intWHSTX.vb</DependentUpon>
-    </Compile>
     <Compile Include="Modules\_intWHSTX.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modules\_intUNCNT.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -218,6 +222,27 @@
       <DependentUpon>frmOption.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddParts.resx">
+      <DependentUpon>frmAddParts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUser.resx">
+      <DependentUpon>frmAddUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEdit.resx">
+      <DependentUpon>frmEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassCode.resx">
+      <DependentUpon>frmPassCode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQRCode.resx">
+      <DependentUpon>frmQRCode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReject.resx">
+      <DependentUpon>frmReject.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\frmMetreLen.resx">
+      <DependentUpon>frmMetreLen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -230,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="emerge.ico" />
+    <Content Include="LOGO.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Web References\PriWebSVC\service.disco" />
   </ItemGroup>
   <ItemGroup>

@@ -181,25 +181,44 @@ Module main
         INVENCYCC = 18
         PRODREP = 19
         ISSUEKIT = 20
+        PREP = 21
+        PAWHTX2 = 22
+        ODETTE = 23
     End Enum
 
     Public Enum tRegExValidation
-        tBarcode = 0
-        tWarehouse = 1
-        tLocname = 2
-        tStatus = 3
-        tNumeric = 4
-        tString = 5
-        tSerial = 6
-        tWO = 7
+        tRouter = 0
+        tWO = 1
+        tOperation = 3
+        tUser = 4
+        tBarcode = 5
+        tString = 6
+        tQR = 7
+        tWarehouse = 8
+        tLocname = 9
+        tNumeric = 10
+        tStatus = 11
+        tOd = 12
     End Enum
 
     Public ReadOnly Property ValidStr(ByVal rxType As tRegExValidation) As String
         Get
             Dim ret As String = Nothing
             Select Case rxType
+                Case tRegExValidation.tRouter
+                    ret = "^[0-9]{18}"
+                Case tRegExValidation.tUser
+                    ret = "^[A-Za-z]+$"
+                Case tRegExValidation.tWO
+                    ret = "^[0-9A-Za-z]{7}"
+                Case tRegExValidation.tOperation
+                    ret = "^S[0-9]{2,5}"
                 Case tRegExValidation.tBarcode
-                    ret = "^\d{13}$"
+                    ret = "^[A-Z0-9]{13}$"
+                Case tRegExValidation.tString
+                    ret = "^[0-9A-Z]+$"
+                Case tRegExValidation.tQR
+                    ret = "^WNO" 'TODO change back to WON
                 Case tRegExValidation.tWarehouse
                     ret = "^[a-zA-Z0-9]{1}[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?$"
                 Case tRegExValidation.tLocname
@@ -208,12 +227,8 @@ Module main
                     ret = "^[a-zA-Z]+$"
                 Case tRegExValidation.tNumeric
                     ret = "^[0-9.]+$"
-                Case tRegExValidation.tString
-                    ret = "^[0-9A-Za-z]+$"
-                Case tRegExValidation.tSerial
-                    ret = "^[A-Z]+[0-9]+$"
-                Case tRegExValidation.tWO
-                    ret = "^[0-9]+\/[0-9]+$|^LOT[0-9]{7}$"
+                Case tRegExValidation.tOd
+                    ret = "^SH"
             End Select
             Return ret
         End Get
@@ -227,8 +242,25 @@ Module main
             .ModuleMenu = .MenuItem1
 
             ' Create the required Modules
-            .AddRSS(o.GRVBOX, New InterfaceGRV(frmMenu))
-            With rss(o.GRVBOX)
+            '.AddRSS(o.ISSUEKIT, New interfaceKITISSUE(frmMenu))
+            'With rss(o.ISSUEKIT)
+            '    .ModuleName = "Issue Kit"
+            '    .SubMenu = "Work Orders"
+            '    .ShowOnMenu = True
+            '    .SetBaseForm(frmMenu)
+            'End With
+
+            '.AddRSS(o.PREP, New interfacePRep(frmMenu))
+            'With rss(o.PREP)
+            '    '    .Argument("CNTNO") = ""
+            '    .ModuleName = "Report Production"
+            '    .SubMenu = "Work Orders"
+            '    .ShowOnMenu = True
+            '    .SetBaseForm(frmMenu)
+            'End With
+
+            .AddRSS(o.GRVITEM, New InterfaceGRV(frmMenu))
+            With rss(o.GRVITEM)
                 .Argument("MANUAL") = "N"
                 .Argument("SCANACTION") = "OPENFORM"
                 .ModuleName = "Receive Boxes"
@@ -236,20 +268,31 @@ Module main
                 .SetBaseForm(frmMenu)
             End With
 
-            .AddRSS(o.GRVITEM, New InterfaceGRV(frmMenu))
-            With rss(o.GRVITEM)
-                .Argument("MANUAL") = "N"
-                .Argument("SCANACTION") = "INCREMENT"
-                .ModuleName = "Receive Items"
-                .SubMenu = "Goods Receipt"
-                .SetBaseForm(frmMenu)
-            End With
+            '.AddRSS(o.GRVITEM, New InterfaceGRV(frmMenu))
+            'With rss(o.GRVITEM)
+            '    .Argument("MANUAL") = "N"
+            '    .Argument("SCANACTION") = "INCREMENT"
+            '    .ModuleName = "Receive Items"
+            '    .SubMenu = "Goods Receipt"
+            '    .SetBaseForm(frmMenu)
+            'End With
+
 
             .AddRSS(o.IWHTX, New InterfaceWHTX(frmMenu))
             With rss(o.IWHTX)
                 .Argument("MANUAL") = "N"
                 .Argument("TXTYPE") = "INTERWHTX"
-                .ModuleName = "Inter-Warehouse Transfer"
+                .ModuleName = "Standard Transfer"
+                .SubMenu = "Stock Transfer"
+                .SetBaseForm(frmMenu)
+            End With
+
+            .AddRSS(o.PAWHTX2, New InterfaceWHTX(frmMenu))
+            With rss(o.PAWHTX2)
+                .Argument("MANUAL") = "N"
+                .Argument("TXTYPE") = "PUTAWAY"
+                .Argument("WHouse") = "GRVR"
+                .ModuleName = "STOCK Put Away"
                 .SubMenu = "Stock Transfer"
                 .SetBaseForm(frmMenu)
             End With
@@ -258,49 +301,32 @@ Module main
             With rss(o.PAWHTX)
                 .Argument("MANUAL") = "N"
                 .Argument("TXTYPE") = "PUTAWAY"
-                .ModuleName = "Stock Put Away"
+                .Argument("WHouse") = "PROR"
+                .ModuleName = "PRODUCTION Put Away"
                 .SubMenu = "Stock Transfer"
                 .SetBaseForm(frmMenu)
             End With
 
-            .AddRSS(o.CHSTWHTX, New InterfaceWHTX(frmMenu))
-            With rss(o.CHSTWHTX)
-                .Argument("MANUAL") = "N"
-                .Argument("TXTYPE") = "CHSTATUS"
-                .ModuleName = "Change Status"
-                .SubMenu = "Stock Transfer"
+            .AddRSS(o.PRODREP, New interfacePRODREP(frmMenu))
+            With rss(o.PRODREP)
+                '    .Argument("CNTNO") = ""
+                .ModuleName = "Report Production"
+                .SubMenu = "Work Orders"
+                .ShowOnMenu = True
                 .SetBaseForm(frmMenu)
             End With
-
-            '.AddRSS(o.TOWHTX, New InterfaceWHFX(frmMenu))
-            'With rss(o.TOWHTX)
-            '    .Argument("MANUAL") = "N"
-            '    .Argument("TXTYPE") = "TO"
-            '    .ModuleName = "From Transfer"
-            '    .SubMenu = "Stock Transfer"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.FRMWHTX, New InterfaceWHFX(frmMenu))
-            'With rss(o.FRMWHTX)
-            '    .Argument("MANUAL") = "N"
-            '    .Argument("TXTYPE") = "FROM"
-            '    .ModuleName = "To Transfer"
-            '    .SubMenu = "Stock Transfer"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.UNTX, New InterfaceUNTX(frmMenu))
-            'With rss(o.UNTX)
-            '    .ModuleName = "Pending Transfers"
-            '    .SubMenu = "Stock Transfer"
-            '    .SetBaseForm(frmMenu)
-            'End With
 
             .AddRSS(o.PARTLU, New InterfacePARTLU(frmMenu))
             With rss(o.PARTLU)
                 .ModuleName = "Part Lookup"
                 .Argument("BARCODE") = ""
+                .SubMenu = "Inventory Count"
+                .SetBaseForm(frmMenu)
+            End With
+
+            .AddRSS(o.ODETTE, New interfaceOdette(frmMenu))
+            With rss(o.ODETTE)
+                .ModuleName = "Odette Lookup"
                 .SubMenu = "Inventory Count"
                 .SetBaseForm(frmMenu)
             End With
@@ -315,100 +341,10 @@ Module main
                 .SetBaseForm(frmMenu)
             End With
 
-            '.AddRSS(o.INVENCYCA, New InterfaceCycCount(frmMenu))
-            'With rss(o.INVENCYCA)
-            '    .Argument("BARCODE") = ""
-            '    .Argument("SHOWBAL") = "TRUE"
-            '    .Argument("ABC") = "A"
-            '    .ModuleName = "Cycle Count A Parts"
-            '    .SubMenu = "Inventory Count"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.INVENCYCB, New InterfaceCycCount(frmMenu))
-            'With rss(o.INVENCYCB)
-            '    .Argument("BARCODE") = ""
-            '    .Argument("SHOWBAL") = "TRUE"
-            '    .Argument("ABC") = "B"
-            '    .ModuleName = "Cycle Count B Parts"
-            '    .SubMenu = "Inventory Count"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.INVENCYCC, New InterfaceCycCount(frmMenu))
-            'With rss(o.INVENCYCC)
-            '    .Argument("BARCODE") = ""
-            '    .Argument("SHOWBAL") = "TRUE"
-            '    .Argument("ABC") = "C"
-            '    .ModuleName = "Cycle Count C Parts"
-            '    .SubMenu = "Inventory Count"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            .AddRSS(o.ITMCNT, New InterfaceSTKCNT(frmMenu))
-            With rss(o.ITMCNT)
-                .Argument("SHOWBAL") = "FALSE"
-                .Argument("SCANACTION") = "INCREMENT"
-                .Argument("MANUAL") = "N"
-                .ModuleName = "Item Count"
-                .SubMenu = "Inventory Count"
-                .SetBaseForm(frmMenu)
-            End With
-
-
-            '.AddRSS(o.BSTKCNT, New InterfaceSTKCNT(frmMenu))
-            'With rss(o.BSTKCNT)
-            '    .Argument("SHOWBAL") = "FALSE"
-            '    .ModuleName = "Blind Count"
-            '    .SubMenu = "Inventory Count"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.UNCNT, New InterfaceUNCNT(frmMenu))
-            'With rss(o.UNCNT)
-            '    .ModuleName = "Pending Counts"
-            '    .SubMenu = "Inventory Count"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.PSLIP, New interfacePSLIP(frmMenu))
-            'With rss(o.PSLIP)
-            '    .ModuleName = "Start Pick"
-            '    .SubMenu = "Picking"
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.DOTX, New InterfaceDOTX(frmMenu))
-            'With rss(o.DOTX)
-            '    .Argument("WTNO") = ""
-            '    .ModuleName = "Complete Transfer"
-            '    .ShowOnMenu = False
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            '.AddRSS(o.DOCNT, New interfaceDOCNT(frmMenu))
-            'With rss(o.DOCNT)
-            '    .Argument("CNTNO") = ""
-            '    .ModuleName = "Complete Count"
-            '    .ShowOnMenu = False
-            '    .SetBaseForm(frmMenu)
-            'End With
-
-            .AddRSS(o.PRODREP, New InterfacePRODREP(frmMenu))
-            With rss(o.PRODREP)
-                '    .Argument("CNTNO") = ""
-                .ModuleName = "Report Production"
-                .SubMenu = "Work Orders"
-                .ShowOnMenu = True
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.ISSUEKIT, New interfaceKITISSUE(frmMenu))
-            With rss(o.ISSUEKIT)
-                '    .Argument("CNTNO") = ""
-                .ModuleName = "Issue Kit"
-                .SubMenu = "Work Orders"
-                .ShowOnMenu = True
+            .AddRSS(o.PSLIP, New interfacePSLIP(frmMenu))
+            With rss(o.PSLIP)
+                .ModuleName = "Start Pick"
+                .SubMenu = "Picking"
                 .SetBaseForm(frmMenu)
             End With
 

@@ -1,6 +1,8 @@
-Imports System
+﻿Imports System
 Imports System.IO
 Imports System.Threading
+Imports System.Xml
+Imports System.Text.RegularExpressions
 
 Public Class PORDERS
     Public Sub New(ByVal VENDOR As String)
@@ -28,20 +30,22 @@ End Class
 
 Public Class InterfaceGRV
     Inherits SFDCData.iForm
-
+    Private Typer As String = "M"
+    Private Family As Integer = 0
     Private Enum tInvoke
         iBarcode = 0
         iVendor = 1
+        iPart = 2
     End Enum
     Private mInvoke As tInvoke = tInvoke.iBarcode
 
     Dim PORD As New Dictionary(Of String, PORDERS)
-
+    Private TBar As String = ""
 #Region "Initialisation"
 
     Public Sub New(Optional ByRef App As Form = Nothing)
 
-        InitializeComponent()
+
         CallerApp = App
         NewArgument("SCANACTION", "OPENFORM")
         NewArgument("MANUAL", "N")
@@ -54,7 +58,14 @@ Public Class InterfaceGRV
     End Sub
 
 #End Region
-
+    Public Overrides Sub FormLoaded()
+        With CtrlForm
+            .el(0).DataEntry.Text = "GRVR"
+            .el(0).ProcessEntry()
+            .el(1).DataEntry.Text = "0"
+            .el(1).ProcessEntry()
+        End With
+    End Sub
     Public Overrides Sub FormSettings()
 
         '' VENDOR
@@ -89,10 +100,10 @@ Public Class InterfaceGRV
             .Name = "WARHS"
             .Title = "W/H"
             .ValidExp = ValidStr(tRegExValidation.tWarehouse)
-            .SQLList = "SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE <> 'Y'"
+            '.SQLList = "SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE <> 'Y'"
             .SQLValidation = "SELECT top 1 WARHSNAME FROM WAREHOUSES WHERE UPPER(WARHSNAME) = UPPER('%ME%')"
-            .Data = "Main"      '******** Barcoded field '*******
-            .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctList
+            .Data = ""      '******** Barcoded field '*******
+            .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctNone
             .ctrlEnabled = True
         End With
         CtrlForm.AddField(field)
@@ -102,10 +113,10 @@ Public Class InterfaceGRV
             .Name = "TOLOC"
             .Title = "Bin"
             .ValidExp = ValidStr(tRegExValidation.tLocname)
-            .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE UPPER(WARHSNAME) = UPPER('%WARHS%') AND WAREHOUSES.INACTIVE <> 'Y'"
+            '.SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE UPPER(WARHSNAME) = UPPER('%WARHS%') AND WAREHOUSES.INACTIVE <> 'Y'"
             .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE UPPER(LOCNAME) = UPPER('%ME%') AND UPPER(WARHSNAME) = UPPER('%WARHS%') AND WAREHOUSES.INACTIVE <> 'Y'"
             .Data = ""
-            .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
             .ctrlEnabled = True
             .MandatoryOnPost = True
         End With
@@ -252,7 +263,7 @@ Public Class InterfaceGRV
             .initWidth = 18
             .TextAlign = HorizontalAlignment.Left
             .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
-            .ValidExp = ValidStr(tRegExValidation.tNumeric)
+            .ValidExp = ValidStr(tRegExValidation.tString)
             .SQLValidation = "SELECT %ME%"
             .DefaultFromCtrl = Nothing
             .ctrlEnabled = True
@@ -266,6 +277,40 @@ Public Class InterfaceGRV
             .Name = "_VENDOR"
             .Title = "Vendor"
             .initWidth = 30
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctList 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tString)
+            .SQLValidation = "SELECT '%ME%'"
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = False
+            .Mandatory = True
+            .MandatoryOnPost = True
+        End With
+        CtrlTable.AddCol(col)
+
+
+        ' FAMILY
+        With col
+            .Name = "_FAMILY"
+            .Title = "Family"
+            .initWidth = 0
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctList 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tString)
+            .SQLValidation = "SELECT '%ME%'"
+            .DefaultFromCtrl = Nothing
+            .ctrlEnabled = False
+            .Mandatory = True
+            .MandatoryOnPost = True
+        End With
+        CtrlTable.AddCol(col)
+
+
+        ' TYPE
+        With col
+            .Name = "_FTYPE"
+            .Title = "FTYPE"
+            .initWidth = 0
             .TextAlign = HorizontalAlignment.Left
             .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctList 'ctKeyb 
             .ValidExp = ValidStr(tRegExValidation.tString)
@@ -305,7 +350,7 @@ Public Class InterfaceGRV
         'CtrlForm.AddField(field)
 
         ' Set the query to load recordtype 2s
-        CtrlTable.RecordsSQL = "SELECT PARTNAME, PORDERS.ORDNAME, 0 " & _
+        CtrlTable.RecordsSQL = "SELECT PARTNAME, PORDERS.ORDNAME, 0 ,FAMILY,'L'" & _
                                         "FROM PART, PORDERITEMS, PORDERS, SUPPLIERS " & _
                                         "WHERE PORDERITEMS.PART = PART.PART " & _
                                         "AND PORDERS.ORD = PORDERITEMS.ORD   " & _
@@ -326,6 +371,9 @@ Public Class InterfaceGRV
                     .Items(.Items.Count - 1).Text = Data(0, y)
                     .Items(.Items.Count - 1).SubItems.Add(Data(1, y))
                     .Items(.Items.Count - 1).SubItems.Add(Data(2, y))
+                    .Items(.Items.Count - 1).SubItems.Add(Data(3, y))
+                    .Items(.Items.Count - 1).SubItems.Add(Data(4, y))
+                    .Items(.Items.Count - 1).SubItems.Add("L")
                 End With
             Next
         Catch e As Exception
@@ -345,7 +393,7 @@ Public Class InterfaceGRV
                     If ctrl.Data <> "" Then
                         Select Case ctrl.Name
                             Case "VENDOR"
-                                'CtrlTable.BeginLoadRS()
+                                CtrlTable.BeginLoadRS()
                             Case "TOLOC"
                                 For Y As Integer = 0 To CtrlTable.Table.Items.Count - 1
                                     If Len(CtrlTable.Table.Items(Y).SubItems(2).Text) = 0 Then
@@ -392,8 +440,8 @@ Public Class InterfaceGRV
                 .Procedure = "ZSFDCP_LOAD_GRV"
                 .Table = "ZSFDC_LOAD_GRV"
                 .RecordType1 = "SUPNAME,USERLOGIN,TOWARHSNAME,TOLOCNAME,MANUAL"
-                .RecordType2 = "ORDNAME1,PARTNAME,TQUANT"
-                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,"
+                .RecordType2 = "ORDNAME1,PARTNAME,TQUANT,ZGSM_LINEARMTRG"
+                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT"
             End With
 
             Dim l As New Dictionary(Of String, String)
@@ -418,12 +466,22 @@ Public Class InterfaceGRV
 
                 For y As Integer = 0 To CtrlTable.RowCount
                     If CtrlTable.ItemValue("_ORDNAME", y) = k Then
-                        Dim t2() As String = { _
-                                    CtrlTable.ItemValue("_ORDNAME", y), _
-                                    CtrlTable.ItemValue("_PARTNAME", y), _
-                                    CStr(CInt(1000 * CtrlTable.ItemValue("_RECEIVED", y))) _
-                                            }
-                        p.AddRecord(2) = t2
+                        If CtrlTable.ItemValue("_FTYPE", y) = "L" Then
+                            Dim t2() As String = { _
+                                                                                          CtrlTable.ItemValue("_ORDNAME", y), _
+                                                                                          CtrlTable.ItemValue("_PARTNAME", y), _
+                                                                                         0, _
+                                                                                                  CStr(CInt(1000 * CtrlTable.ItemValue("_RECEIVED", y)))}
+                            p.AddRecord(2) = t2
+                        Else
+                            Dim t2() As String = { _
+                                                                                          CtrlTable.ItemValue("_ORDNAME", y), _
+                                                                                          CtrlTable.ItemValue("_PARTNAME", y), _
+                                                                                          CStr(CInt(1000 * CtrlTable.ItemValue("_RECEIVED", y))), _
+                                                                                                  0}
+                            p.AddRecord(2) = t2
+                        End If
+
                     End If
                 Next
 
@@ -462,32 +520,87 @@ Public Class InterfaceGRV
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        Dim v2 As String = ""
+        Value = Value.Replace(":", "")
+        Dim doc As New Xml.XmlDocument
+        doc.LoadXml(Value)
+        If regex.ismatch(Value, "^<") = False Then
+            MsgBox("This doesnt appear to be a valid 2d barcode")
+        Else
+            For Each nd As XmlNode In doc.SelectNodes("in/i")
+                Dim DataType As String = nd.Attributes("n").Value
+                Select Case DataType
+                    Case "ORDNAME"
+                        v2 = nd.Attributes("v").Value
+                    Case "PART"
+                        mInvoke = tInvoke.iPart
+                        InvokeData("SELECT PART.BARCODE,PART.FAMILY FROM PART WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                        v2 = TBar
+                End Select
 
-        If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
-            If Len(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data) = 0 Then
-                CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = ""
-                Beep()
-            Else
-                Dim add As Integer = 0
-                Dim f As Boolean = False
+            Next
+            If v2 <> "" Then
+                If System.Text.RegularExpressions.Regex.IsMatch(v2, ValidStr(tRegExValidation.tBarcode)) Then
+                    If Len(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data) = 0 Then
+                        CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = ""
+                        Beep()
+                    Else
+                        Dim add As Decimal = 0.0
+                        Dim f As Boolean = False
 
-                If Not PORD.ContainsKey(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data) Then
-                    Beep()
-                    Exit Sub
-                End If
-                If Not PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS.ContainsKey(Value) Then
-                    Beep()
-                    Exit Sub
-                End If
+                        If Not PORD.ContainsKey(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data) Then
+                            Beep()
+                            Exit Sub
+                        End If
+                        If Not PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS.ContainsKey(v2) Then
+                            Beep()
+                            Exit Sub
+                        End If
 
-                If CtrlTable.Table.Items.Count > 0 Then
-                    For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
-                        If CtrlTable.Table.Items(i).SubItems(1).Text = CtrlForm.el(CtrlForm.ColNo("PONAME")).Data And _
-                            CtrlTable.Table.Items(i).SubItems(0).Text = PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS(Value) Then
+                        If CtrlTable.Table.Items.Count > 0 Then
+                            For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
+                                If CtrlTable.Table.Items(i).SubItems(1).Text = CtrlForm.el(CtrlForm.ColNo("PONAME")).Data And _
+                                    CtrlTable.Table.Items(i).SubItems(0).Text = PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS(v2) Then
 
-                            f = True
-                            CtrlTable.Table.Items(i).Selected = True
+                                    f = True
+                                    CtrlTable.Table.Items(i).Selected = True
 
+                                    Select Case Argument("SCANACTION")
+
+                                        Case "OPENFORM"
+
+                                            Dim num As New frmNumber
+                                            With num
+                                                .Text = "Box quantity."
+                                                .ShowDialog()
+                                                add = .number
+                                                If .Manual Then Argument("MANUAL") = "Y"
+                                                .Dispose()
+                                            End With
+                                            If CtrlTable.Table.Items(i).SubItems(4).Text = "33" Then
+                                                Dim g As New frmMetreLen
+                                                g.ShowDialog()
+                                                If g.DialogResult = Windows.Forms.DialogResult.Yes Then
+                                                    CtrlTable.Table.Items(i).SubItems(5).Text = "M"
+                                                Else
+                                                    CtrlTable.Table.Items(i).SubItems(5).Text = "L"
+                                                End If
+                                            End If
+                                        Case "INCREMENT"
+                                            add = 1
+
+                                    End Select
+
+                                    CtrlTable.Table.Items(i).SubItems(2).Text = _
+                                        CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + add)
+
+                                    Exit For
+
+                                End If
+                            Next
+                        End If
+
+                        If Not f Then
                             Select Case Argument("SCANACTION")
 
                                 Case "OPENFORM"
@@ -501,71 +614,60 @@ Public Class InterfaceGRV
                                         .Dispose()
                                     End With
 
+
                                 Case "INCREMENT"
                                     add = 1
 
                             End Select
+                            If Family = 33 Then
+                                Dim g As New frmMetreLen
+                                g.ShowDialog()
+                                If g.DialogResult = Windows.Forms.DialogResult.Yes Then
+                                    Typer = "M"
+                                Else
+                                    Typer = "L"
+                                End If
 
-                            CtrlTable.Table.Items(i).SubItems(2).Text = _
-                                CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + add)
-
-                            Exit For
-
-                        End If
-                    Next
-                End If
-
-                If Not f Then
-                    Select Case Argument("SCANACTION")
-
-                        Case "OPENFORM"
-
-                            Dim num As New frmNumber
-                            With num
-                                .Text = "Box quantity."
-                                .ShowDialog()
-                                add = .number
-                                If .Manual Then Argument("MANUAL") = "Y"
-                                .Dispose()
+                            End If
+                            Dim lvi As New ListViewItem
+                            With CtrlTable.Table
+                                .Items.Add(lvi)
+                                .Items(.Items.Count - 1).Text = PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS(v2)
+                                .Items(.Items.Count - 1).SubItems.Add(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data)
+                                .Items(.Items.Count - 1).SubItems.Add(add)
+                                .Items(.Items.Count - 1).SubItems.Add(CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data)
+                                .Items(.Items.Count - 1).SubItems.Add(Family)
+                                .Items(.Items.Count - 1).SubItems.Add(Typer)
                             End With
 
-                        Case "INCREMENT"
-                            add = 1
+                        End If
 
-                    End Select
+                        CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = ""
+                        CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data = ""
 
-                    Dim lvi As New ListViewItem
-                    With CtrlTable.Table
-                        .Items.Add(lvi)
-                        .Items(.Items.Count - 1).Text = PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS(Value)
-                        .Items(.Items.Count - 1).SubItems.Add(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data)
-                        .Items(.Items.Count - 1).SubItems.Add(add)
-                        .Items(.Items.Count - 1).SubItems.Add(CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data)
-                    End With
+                    End If
 
+                Else
+                    If PORD.ContainsKey(v2) Then
+
+                        CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = v2
+                        CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data = PORD(v2).VENDOR
+
+                    Else
+                        mInvoke = tInvoke.iVendor
+                        InvokeData("SELECT DISTINCT ORDNAME, SUPNAME ,BARCODE, PARTNAME,FAMILY  " & _
+                                    "FROM PART, PORDERS, PORDERITEMS, SUPPLIERS " & _
+                                    "WHERE PORDERITEMS.PART = PART.PART " & _
+                                    "AND PORDERS.ORD = PORDERITEMS.ORD " & _
+                                    "AND PORDERS.SUP = SUPPLIERS.SUP " & _
+                                    "AND PORDERS.ORDNAME = '" & v2 & "'")
+                    End If
                 End If
-
-                CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = ""
-                CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data = ""
-
-            End If
-
-        Else
-            If PORD.ContainsKey(Value) Then
-
-                CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = Value
-                CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data = PORD(Value).VENDOR
-
             Else
-                mInvoke = tInvoke.iVendor
-                InvokeData("SELECT DISTINCT ORDNAME, SUPNAME ,BARCODE, PARTNAME  " & _
-                            "FROM PART, PORDERS, PORDERITEMS, SUPPLIERS " & _
-                            "WHERE PORDERITEMS.PART = PART.PART " & _
-                            "AND PORDERS.ORD = PORDERITEMS.ORD " & _
-                            "AND PORDERS.SUP = SUPPLIERS.SUP " & _
-                            "AND PORDERS.ORDNAME = '" & Value & "'")
+                MsgBox("Code not recognised")
             End If
         End If
+
 
     End Sub
 
@@ -658,8 +760,17 @@ Public Class InterfaceGRV
                     .el(.ColNo("PONAME")).Data = Data(0, 0)
                     .el(.ColNo("VENDOR")).Data = Data(1, 0)
                 End With
+
+            Case tInvoke.iPart
+                If Data Is Nothing Then
+                    TBar = ""
+                Else
+                    TBar = Data(0, 0)
+                    Family = Data(1, 0)
+                End If
         End Select
 
     End Sub
 
 End Class
+

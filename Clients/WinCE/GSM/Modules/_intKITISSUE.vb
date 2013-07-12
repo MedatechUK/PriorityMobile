@@ -1,5 +1,5 @@
 ﻿Imports System.Threading
-
+Imports System.Text.RegularExpressions
 Public Class interfaceKITISSUE
     Inherits SFDCData.iForm
 #Region "Initialisation"
@@ -122,6 +122,35 @@ Public Class interfaceKITISSUE
         End With
         CtrlTable.AddCol(col)
 
+        ' PALLET
+        With col
+            .Name = "_PALLET"
+            .Title = "Pallet"
+            .initWidth = 30
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
+            .ValidExp = "^.+$"
+            .SQLList = "SELECT DISTINCT ISNULL(dbo.ACT.ACTNAME, 0) AS PALLETNAME " & _
+                        "FROM         dbo.PART INNER JOIN " & _
+                        "dbo.WARHSBAL ON dbo.PART.PART = dbo.WARHSBAL.PART INNER JOIN " & _
+                        "dbo.WAREHOUSES ON dbo.WARHSBAL.WARHS = dbo.WAREHOUSES.WARHS LEFT OUTER JOIN " & _
+                        "dbo.SERIAL ON dbo.PART.PART = dbo.SERIAL.PART LEFT OUTER JOIN " & _
+                        "dbo.ACT ON dbo.WARHSBAL.ACT = dbo.ACT.ACT " & _
+                        "AND dbo.WARHSBAL.SERIAL = dbo.SERIAL.SERIAL " & _
+                        "WHERE     (dbo.WARHSBAL.CUST = - 1) " & _
+                        "AND (dbo.SERIAL.SERIALNAME = '%_LOTNUM%')  " & _
+                        "AND (dbo.PART.PARTNAME = '%_PARTNAME%')  " & _
+                        "AND (dbo.WAREHOUSES.WARHSNAME = '%_WARHS%')  " & _
+                        "AND (dbo.WAREHOUSES.LOCNAME = '%_LOCNAME%') " & _
+                        "AND (dbo.WARHSBAL.BALANCE > 0)"
+            .SQLValidation = "SELECT '%ME%'"
+            .DefaultFromCtrl = Nothing '******* Barcoded Field - default from Type1 TOLOCATION '*******
+            .ctrlEnabled = True
+            .Mandatory = False
+            .MandatoryOnPost = True
+        End With
+        CtrlTable.AddCol(col)
+
         ' Quantity
         With col
             .Name = "_QTY"
@@ -134,12 +163,14 @@ Public Class interfaceKITISSUE
                 "FROM         dbo.WARHSBAL INNER JOIN " & _
                 "dbo.WAREHOUSES ON dbo.WARHSBAL.WARHS = dbo.WAREHOUSES.WARHS INNER JOIN " & _
                 "dbo.PART ON dbo.WARHSBAL.PART = dbo.PART.PART INNER JOIN " & _
-                "dbo.SERIAL ON dbo.WARHSBAL.SERIAL = dbo.SERIAL.SERIAL " & _
+                "dbo.SERIAL ON dbo.WARHSBAL.SERIAL = dbo.SERIAL.SERIAL INNER JOIN " & _
+                "dbo.ACT ON dbo.WARHSBAL.ACT = dbo.ACT.ACT  " & _
                 "where dbo.WAREHOUSES.WARHSNAME = '%_WARHS%' " & _
                 "AND dbo.WAREHOUSES.LOCNAME = '%_LOCNAME%' " & _
                 "and dbo.PART.PARTNAME = '%_PARTNAME%' " & _
                 "AND dbo.SERIAL.SERIALNAME = '%_LOTNUM%' " & _
-                "AND cast('%ME%' as int) <= (dbo.WARHSBAL.BALANCE / 1000)"
+                "AND dbo.ACT.ACTNAME = '%_PALLET%' " & _
+                "AND %ME% <= (dbo.WARHSBAL.BALANCE / 1000)"
 
             .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
             .DefaultFromCtrl = Nothing
@@ -260,7 +291,7 @@ Public Class interfaceKITISSUE
             Case True
                 Try
 
-                    Select ctrl.Name
+                    Select Case ctrl.Name
                         Case "SERIALNAME"
                             ctrl.Enabled = (CtrlForm.el(2).Data = "")
                         Case "WARHS"
@@ -271,6 +302,7 @@ Public Class interfaceKITISSUE
                     End Select
 
                     CtrlForm.el(2).CtrlEnabled = CBool(CtrlForm.el(0).Data.Length > 0 And CtrlForm.el(1).Data.Length > 0)
+                    'CtrlForm.el(3).CtrlEnabled = CBool(CtrlForm.el(2).Data.Length > 0)
 
                     ' *** Set which controls are enabled                 
                     CtrlTable.EnableToolbar( _
@@ -432,11 +464,11 @@ Public Class interfaceKITISSUE
             For y As Integer = 0 To CtrlTable.RowCount
 
                 Dim t2() As String = { _
-                    String.Format("", "CHAR,16,Operation/Pallet"), _
+                    String.Format(CtrlTable.ItemValue("_PALLET", y), "CHAR,16,Operation/Pallet"), _
                     String.Format("Goods", "M,CHAR,16,Status"), _
                     String.Format(CtrlTable.ItemValue("_LOCNAME", y), "M,CHAR,14,Bin"), _
                     String.Format(CtrlTable.ItemValue("_PARTNAME", y), "M,CHAR,22,Part Number"), _
-                    String.Format(CStr(CInt(CtrlTable.ItemValue("_QTY", y)) * 1000), "INT,17,3,Quantity"), _
+                    String.Format(CStr(CDbl(CtrlTable.ItemValue("_QTY", y)) * 1000), "INT,17,3,Quantity"), _
                     String.Format("", "CHAR,10,Part Revision No."), _
                     String.Format("", "CHAR,1,Rework?"), _
                     String.Format(CtrlTable.ItemValue("_LOTNUM", y), "M,CHAR,22,Work Order/Lot"), _
@@ -455,32 +487,35 @@ Public Class interfaceKITISSUE
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        If regex.ismatch(Value, "^<") = False Then
+            MsgBox("This doesnt appear to be a valid barcode")
+        Else
+            If CtrlForm.ItemValue("SERIALNAME").Length = 0 Or CtrlForm.ItemValue("WARHS").Length = 0 Or CtrlForm.ItemValue("LOCNAME").Length = 0 Then Exit Sub
 
-        If CtrlForm.ItemValue("SERIALNAME").Length = 0 Or CtrlForm.ItemValue("WARHS").Length = 0 Or CtrlForm.ItemValue("LOCNAME").Length = 0 Then Exit Sub
-
-        If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
-            SendType = tSendType.GetPart
-            InvokeData("SELECT     dbo.PART.PARTNAME, ISNULL(SERIALNAME,0), dbo.WAREHOUSES.WARHSNAME, dbo.WAREHOUSES.LOCNAME, SUM(dbo.WARHSBAL.BALANCE / 1000) AS BALANCE, BARCODE " & _
-                        "FROM         dbo.PART INNER JOIN " & _
-                        "dbo.WARHSBAL ON dbo.PART.PART = dbo.WARHSBAL.PART INNER JOIN " & _
-                        "dbo.WAREHOUSES ON dbo.WARHSBAL.WARHS = dbo.WAREHOUSES.WARHS LEFT OUTER JOIN " & _
-                        "dbo.SERIAL ON dbo.PART.PART = dbo.SERIAL.PART AND dbo.WARHSBAL.SERIAL = dbo.SERIAL.SERIAL " & _
-                        "WHERE     (dbo.WARHSBAL.CUST = - 1)  " & _
-                        "AND (dbo.PART.BARCODE = '" & Value & "')  " & _
-                        "AND (dbo.WAREHOUSES.WARHSNAME = '%WARHS%')  " & _
-                        "AND (dbo.WAREHOUSES.LOCNAME = '%LOCNAME%') " & _
-                        "AND (dbo.WARHSBAL.BALANCE > 0) " & _
-                        "GROUP BY dbo.PART.PARTNAME, SERIALNAME, dbo.WAREHOUSES.WARHSNAME, dbo.WAREHOUSES.LOCNAME, BARCODE")
-        ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tWarehouse)) Then
-            With CtrlForm.el(1)
-                .DataEntry.Text = Value
-                .ProcessEntry()
-            End With
-        ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tLocname)) Then
-            With CtrlForm.el(2)
-                .DataEntry.Text = Value
-                .ProcessEntry()
-            End With
+            If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
+                SendType = tSendType.GetPart
+                InvokeData("SELECT     dbo.PART.PARTNAME, ISNULL(SERIALNAME,0), dbo.WAREHOUSES.WARHSNAME, dbo.WAREHOUSES.LOCNAME, SUM(dbo.WARHSBAL.BALANCE / 1000) AS BALANCE, BARCODE " & _
+                            "FROM         dbo.PART INNER JOIN " & _
+                            "dbo.WARHSBAL ON dbo.PART.PART = dbo.WARHSBAL.PART INNER JOIN " & _
+                            "dbo.WAREHOUSES ON dbo.WARHSBAL.WARHS = dbo.WAREHOUSES.WARHS LEFT OUTER JOIN " & _
+                            "dbo.SERIAL ON dbo.PART.PART = dbo.SERIAL.PART AND dbo.WARHSBAL.SERIAL = dbo.SERIAL.SERIAL " & _
+                            "WHERE     (dbo.WARHSBAL.CUST = - 1)  " & _
+                            "AND (dbo.PART.BARCODE = '" & Value & "')  " & _
+                            "AND (dbo.WAREHOUSES.WARHSNAME = '%WARHS%')  " & _
+                            "AND (dbo.WAREHOUSES.LOCNAME = '%LOCNAME%') " & _
+                            "AND (dbo.WARHSBAL.BALANCE > 0) " & _
+                            "GROUP BY dbo.PART.PARTNAME, SERIALNAME, dbo.WAREHOUSES.WARHSNAME, dbo.WAREHOUSES.LOCNAME, BARCODE")
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tWarehouse)) Then
+                With CtrlForm.el(1)
+                    .DataEntry.Text = Value
+                    .ProcessEntry()
+                End With
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tLocname)) Then
+                With CtrlForm.el(2)
+                    .DataEntry.Text = Value
+                    .ProcessEntry()
+                End With
+            End If
         End If
 
     End Sub

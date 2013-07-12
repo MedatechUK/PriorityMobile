@@ -19,34 +19,28 @@ Partial Public Class frmDisplay
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGrid1 = New System.Windows.Forms.DataGrid
-        Me.txtEdit = New System.Windows.Forms.TextBox
         Me.Button2 = New System.Windows.Forms.Button
+        Me.Panel1 = New System.Windows.Forms.Panel
         Me.SuspendLayout()
-        '
-        'DataGrid1
-        '
-        Me.DataGrid1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.DataGrid1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGrid1.Name = "DataGrid1"
-        Me.DataGrid1.Size = New System.Drawing.Size(183, 164)
-        Me.DataGrid1.TabIndex = 0
-        '
-        'txtEdit
-        '
-        Me.txtEdit.Location = New System.Drawing.Point(42, 108)
-        Me.txtEdit.Name = "txtEdit"
-        Me.txtEdit.Size = New System.Drawing.Size(100, 23)
-        Me.txtEdit.TabIndex = 1
-        Me.txtEdit.Visible = False
         '
         'Button2
         '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button2.Location = New System.Drawing.Point(134, 169)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(46, 20)
         Me.Button2.TabIndex = 3
         Me.Button2.Text = "Close"
+        '
+        'Panel1
+        '
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.Location = New System.Drawing.Point(0, 2)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(183, 162)
         '
         'frmDisplay
         '
@@ -55,14 +49,12 @@ Partial Public Class frmDisplay
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(183, 193)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.txtEdit)
-        Me.Controls.Add(Me.DataGrid1)
+        Me.Controls.Add(Me.Panel1)
         Me.Name = "frmDisplay"
         Me.Text = "frmDisplay"
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents DataGrid1 As System.Windows.Forms.DataGrid
-    Friend WithEvents txtEdit As System.Windows.Forms.TextBox
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
 End Class
