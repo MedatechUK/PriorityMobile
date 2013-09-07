@@ -22,3 +22,6 @@ M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.AboutBox1.resources
 M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmStartArgs.resources
 M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmBusy.resources
 M:\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.frmWMI.resources
+N:\PriorityMobileGIT\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.exe
+N:\PriorityMobileGIT\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.xml
+N:\PriorityMobileGIT\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\priTelnet.pdb

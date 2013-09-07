@@ -68,48 +68,55 @@ Module BubbleHandler
                         .Environment _
                     ).AppendLine().AppendLine()
 
-                    ' Test database connection
-                    If Not Connection.State = ConnectionState.Open Then
-                        logBuilder.AppendFormat( _
-                            "Connection to datasource [{0}] is not open. Attempting to open...", _
-                            My.Settings.DATASOURCE _
-                        ).AppendLine().AppendLine()
-                        Connection.Open()
-                    End If
+                    ' Check to see if loading is procedure only
+                    ' i.e. no loadinging data to insert.
+                    ' Si - 04/06/13
+                    If .HasSQL Then
 
-                    ' Run SQL
-                    logBuilder.Append("Inserting Bubble Data:").AppendLine.AppendFormat( _
-                        "{0}", _
-                        .BubbleSQL.Replace("%USERNAME%", My.Settings.PRIORITYUSER) _
-                    ).AppendLine()
-                    Dim command As New GenericCommand(.BubbleSQL.Replace("%USERNAME%", My.Settings.PRIORITYUSER), Connection)
-
-                    Try
-                        command.ExecuteNonQuery()
-
-                    Catch FirstChanceException As Exception
-                        logBuilder.AppendFormat( _
-                            "Datasource [{0}] returned an first chance error while inserting bubble data: {1}", _
-                            My.Settings.DATASOURCE, _
-                            FirstChanceException.Message _
-                        ).AppendLine().AppendLine()
-                        Try
+                        ' Test database connection
+                        If Not Connection.State = ConnectionState.Open Then
                             logBuilder.AppendFormat( _
-                                "Attempting to re-open datasource [{0}]...", _
+                                "Connection to datasource [{0}] is not open. Attempting to open...", _
                                 My.Settings.DATASOURCE _
                             ).AppendLine().AppendLine()
                             Connection.Open()
+                        End If
+
+                        ' Run SQL
+                        logBuilder.Append("Inserting Bubble Data:").AppendLine.AppendFormat( _
+                            "{0}", _
+                            .BubbleSQL.Replace("%USERNAME%", My.Settings.PRIORITYUSER) _
+                        ).AppendLine()
+                        Dim command As New GenericCommand(.BubbleSQL.Replace("%USERNAME%", My.Settings.PRIORITYUSER), Connection)
+
+                        Try
                             command.ExecuteNonQuery()
-                        Catch SecondChanceException As Exception
-                            Throw New Exception( _
-                                String.Format( _
-                                    "Datasource [{0}] returned an second chance error while inserting bubble data: {1}", _
-                                    My.Settings.DATASOURCE, _
-                                    SecondChanceException.Message _
-                                ) _
-                            )
+
+                        Catch FirstChanceException As Exception
+                            logBuilder.AppendFormat( _
+                                "Datasource [{0}] returned an first chance error while inserting bubble data: {1}", _
+                                My.Settings.DATASOURCE, _
+                                FirstChanceException.Message _
+                            ).AppendLine().AppendLine()
+                            Try
+                                logBuilder.AppendFormat( _
+                                    "Attempting to re-open datasource [{0}]...", _
+                                    My.Settings.DATASOURCE _
+                                ).AppendLine().AppendLine()
+                                Connection.Open()
+                                command.ExecuteNonQuery()
+                            Catch SecondChanceException As Exception
+                                Throw New Exception( _
+                                    String.Format( _
+                                        "Datasource [{0}] returned an second chance error while inserting bubble data: {1}", _
+                                        My.Settings.DATASOURCE, _
+                                        SecondChanceException.Message _
+                                    ) _
+                                )
+                            End Try
                         End Try
-                    End Try
+
+                    End If ' .hasSQL
 
                     ' Data was inserted ok
                     logBuilder.Append("Shell executing command:").AppendLine.AppendFormat( _
@@ -140,70 +147,74 @@ Module BubbleHandler
                         verb = ntEvtlog.EvtLogVerbosity.Normal
                     End Try
 
-                    ' check the load table for unloaded records
-                    ' Si 11/4/13: Set MoveToQ on invalid loading: 
-                    '                    MoveToFolder = tBubbleFolder.QueueFolder
+                    If .HasSQL Then
 
-                    ' Get the results of the loading
-                    '   loadLines = number of lines in load table
-                    '   LoadedLines = line where LOADED ='Y'
-                    '   ErrLines = number of errors in ERRMSG
+                        ' check the load table for unloaded records
+                        ' Si 11/4/13: Set MoveToQ on invalid loading: 
+                        '                    MoveToFolder = tBubbleFolder.QueueFolder
 
-                    Dim CL As tCountLoad
-                    Select Case Connection.Provider
-                        Case eProviderType.ORACLE
-                            CL = plCountLoaded(.Environment, .Table, logBuilder)
-                        Case Else
-                            CL = CountLoaded(.Environment, .Table, logBuilder)
-                    End Select
+                        ' Get the results of the loading
+                        '   loadLines = number of lines in load table
+                        '   LoadedLines = line where LOADED ='Y'
+                        '   ErrLines = number of errors in ERRMSG
 
-                    ' Check the resuls of the loading
-                    Dim CountState As tCountState
-                    With CL
-                        If (.ErrLines > 0) Or (.LoadedLines > 0 And .loadLines > .LoadedLines) Then
-                            CountState = tCountState.LoadedWithErrors
-                        ElseIf .loadLines = .LoadedLines Then
-                            CountState = tCountState.LoadedNoErrors
-                        Else
-                            CountState = tCountState.UnLoaded
-                        End If
-                    End With
+                        Dim CL As tCountLoad
+                        Select Case Connection.Provider
+                            Case eProviderType.ORACLE
+                                CL = plCountLoaded(.Environment, .Table, logBuilder)
+                            Case Else
+                                CL = CountLoaded(.Environment, .Table, logBuilder)
+                        End Select
 
-                    ' Quit re-qing after 3 attempts
-                    If CountState = tCountState.UnLoaded And Reloads(BubbleFile) > 1 Then CountState = tCountState.MaxRetry
+                        ' Check the resuls of the loading
+                        Dim CountState As tCountState
+                        With CL
+                            If (.ErrLines > 0) Or (.LoadedLines > 0 And .loadLines > .LoadedLines) Then
+                                CountState = tCountState.LoadedWithErrors
+                            ElseIf .loadLines = .LoadedLines Then
+                                CountState = tCountState.LoadedNoErrors
+                            Else
+                                CountState = tCountState.UnLoaded
+                            End If
+                        End With
 
-                    Select Case CountState
-                        Case tCountState.UnLoaded
-                            logBuilder.AppendFormat( _
-                                "Bubble [{0}] failed to load on attempt {1}.", _
-                                BubbleFile, _
-                                Reloads(BubbleFile) + 1 _
-                                ).AppendLine().Append( _
-                                "Sending it to the back of the q.").AppendLine()
-                            MoveToFolder = tBubbleFolder.QueueFolder
-                            et = ntEvtlog.LogEntryType.FailureAudit
-                            verb = ntEvtlog.EvtLogVerbosity.Verbose
+                        ' Quit re-qing after 3 attempts
+                        If CountState = tCountState.UnLoaded And Reloads(BubbleFile) > 1 Then CountState = tCountState.MaxRetry
 
-                        Case tCountState.LoadedWithErrors
-                            et = ntEvtlog.LogEntryType.Warning
-                            verb = ntEvtlog.EvtLogVerbosity.Normal
-                            Reloads.Remove(BubbleFile)
+                        Select Case CountState
+                            Case tCountState.UnLoaded
+                                logBuilder.AppendFormat( _
+                                    "Bubble [{0}] failed to load on attempt {1}.", _
+                                    BubbleFile, _
+                                    Reloads(BubbleFile) + 1 _
+                                    ).AppendLine().Append( _
+                                    "Sending it to the back of the q.").AppendLine()
+                                MoveToFolder = tBubbleFolder.QueueFolder
+                                et = ntEvtlog.LogEntryType.FailureAudit
+                                verb = ntEvtlog.EvtLogVerbosity.Verbose
 
-                        Case tCountState.MaxRetry
-                            logBuilder.AppendFormat( _
-                                "Bubble [{0}] still didn't load after attempt {1}.", _
-                                BubbleFile, Reloads(BubbleFile) + 1 _
-                                ).AppendLine().Append("I'm giving up, and sending this to badmail." _
-                                ).AppendLine.Append("Sorry it didn't work out.").AppendLine()
-                            MoveToFolder = tBubbleFolder.BadMailFolder
-                            et = ntEvtlog.LogEntryType.Err
-                            verb = ntEvtlog.EvtLogVerbosity.Normal
-                            Reloads.Remove(BubbleFile)
+                            Case tCountState.LoadedWithErrors
+                                et = ntEvtlog.LogEntryType.Warning
+                                verb = ntEvtlog.EvtLogVerbosity.Normal
+                                Reloads.Remove(BubbleFile)
 
-                        Case tCountState.LoadedNoErrors
-                            Reloads.Remove(BubbleFile)
+                            Case tCountState.MaxRetry
+                                logBuilder.AppendFormat( _
+                                    "Bubble [{0}] still didn't load after attempt {1}.", _
+                                    BubbleFile, Reloads(BubbleFile) + 1 _
+                                    ).AppendLine().Append("I'm giving up, and sending this to badmail." _
+                                    ).AppendLine.Append("Sorry it didn't work out.").AppendLine()
+                                MoveToFolder = tBubbleFolder.BadMailFolder
+                                et = ntEvtlog.LogEntryType.Err
+                                verb = ntEvtlog.EvtLogVerbosity.Normal
+                                Reloads.Remove(BubbleFile)
 
-                    End Select
+                            Case tCountState.LoadedNoErrors
+                                Reloads.Remove(BubbleFile)
+
+                        End Select
+
+                    End If
 
                 End With
 

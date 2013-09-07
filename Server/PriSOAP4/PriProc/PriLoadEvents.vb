@@ -80,6 +80,7 @@ Public Class PriLoadEvents
 
     Private HldEvents As List(Of HandledWMIEvent)
     Private LogBuilder As Builder
+    Private Started As Boolean = False
 
 #End Region
 
@@ -115,11 +116,34 @@ Public Class PriLoadEvents
 
     Public ReadOnly Property qStarted() As Boolean
         Get
-            Try
-                Return BubbleQ.EnableRaisingEvents
-            Catch
+            If Not Started Then
                 Return False
-            End Try
+            Else
+                If IsNothing(BubbleQ) Or (Not BubbleQ.EnableRaisingEvents) Then
+                    Try
+                        If IsNothing(BubbleQ) Then
+                            BubbleQ = New System.IO.FileSystemWatcher(_BubbleQFolder.FullName)
+                        Else
+                            RemoveHandler BubbleQ.Created, AddressOf BubbleQ_Created
+                        End If
+                    Catch ex As Exception
+                    Finally
+                        Try
+                            AddHandler BubbleQ.Created, AddressOf BubbleQ_Created
+                            BubbleQ.EnableRaisingEvents = True
+                        Catch ex As Exception
+
+                        End Try
+                    End Try
+                    Try
+                        Return BubbleQ.EnableRaisingEvents
+                    Catch
+                        Return False
+                    End Try
+                Else
+                    Return True
+                End If
+            End If
         End Get
     End Property
 
@@ -140,7 +164,7 @@ Public Class PriLoadEvents
 
     Public Sub New(ByVal BubbleQFolder As System.IO.DirectoryInfo)
 
-        _BubbleQFolder = BubbleQFolder
+        _BubbleQFolder = BubbleQFolder        
 
         WINRUNStartWatcher = New ManagementEventWatcher(GenerateStartQuery("WINRUN.EXE"))
         AddHandler WINRUNStartWatcher.EventArrived, AddressOf WINRUNStarted
@@ -169,6 +193,8 @@ Public Class PriLoadEvents
     End Sub
 
     Private Sub StartBubbleQ(ByVal sender As Object, ByVal e As System.Timers.ElapsedEventArgs)
+
+        Started = True
 
         ' Events should not be raised while 
         ' we process the q
@@ -229,9 +255,10 @@ Public Class PriLoadEvents
                 If IsNothing(BubbleQ) Then
                     logbuilder.AppendFormat("Initialise file system watcher control at {0}....", _BubbleQFolder.FullName).AppendLine()
                     BubbleQ = New System.IO.FileSystemWatcher(_BubbleQFolder.FullName)
-                    BubbleQ.EnableRaisingEvents = True
+                    AddHandler BubbleQ.Created, AddressOf BubbleQ_Created                    
                     logbuilder.AppendFormat("OK.", _BubbleQFolder.FullName).AppendLine()
                 End If
+                BubbleQ.EnableRaisingEvents = True
 
             Catch ex As Exception
                 evt = ntEvtlog.LogEntryType.Err
@@ -338,41 +365,47 @@ Public Class PriLoadEvents
     Private Sub CheckEvents(ByVal sender As Object, ByVal e As System.Timers.ElapsedEventArgs)
         If (RunProc = -1) Then
             For Each hld As HandledWMIEvent In HldEvents
-                If hld.Name = tWMIProcess.WINRUN _
-                    And hld.EventState = tWMIEventState.StateStart _
-                    And hld.ParentProcess = System.Diagnostics.Process.GetCurrentProcess().Id Then
-                    RunProc = hld.Process
-                    LogBuilder.AppendFormat("{2}: Started [{0}] process with ID [{1}]", "WINRUN", RunProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
-                    Exit For
+                If Not IsNothing(hld) Then
+                    If hld.Name = tWMIProcess.WINRUN _
+                        And hld.EventState = tWMIEventState.StateStart _
+                        And hld.ParentProcess = System.Diagnostics.Process.GetCurrentProcess().Id Then
+                        RunProc = hld.Process
+                        LogBuilder.AppendFormat("{2}: Started [{0}] process with ID [{1}]", "WINRUN", RunProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
+                        Exit For
+                    End If
                 End If
             Next
         End If
         If (RunProc = -1) Then Exit Sub
         If (ActProc = -1) Then
             For Each hld As HandledWMIEvent In HldEvents
-                If hld.Name = tWMIProcess.WINACTIV _
-                    And hld.EventState = tWMIEventState.StateStart _
-                    And hld.ParentProcess = RunProc Then
-                    ActProc = hld.Process
-                    LogBuilder.AppendFormat("{2}: Started [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
-                    Exit For
+                If Not IsNothing(hld) Then
+                    If hld.Name = tWMIProcess.WINACTIV _
+                        And hld.EventState = tWMIEventState.StateStart _
+                        And hld.ParentProcess = RunProc Then
+                        ActProc = hld.Process
+                        LogBuilder.AppendFormat("{2}: Started [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
+                        Exit For
+                    End If
                 End If
             Next
         End If
         If (ActProc = -1) Then Exit Sub
         For Each hld As HandledWMIEvent In HldEvents
-            If hld.Name = tWMIProcess.WINACTIV _
-                And hld.EventState = tWMIEventState.StateStop _
-                And hld.Process = ActProc Then
+            If Not IsNothing(hld) Then
+                If hld.Name = tWMIProcess.WINACTIV _
+                    And hld.EventState = tWMIEventState.StateStop _
+                    And hld.Process = ActProc Then
 
-                DisposeTimers()
-                LogBuilder.AppendFormat("{2}: Finished [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
+                    DisposeTimers()
+                    LogBuilder.AppendFormat("{2}: Finished [{0}] process with ID [{1}]", "WINACTIV", ActProc.ToString, Now.ToString("dd/MM/yyy hh:mm:ss")).AppendLine()
 
-                _HasElapsed = False
-                _HasFailed = False
-                _HasEnded = True
+                    _HasElapsed = False
+                    _HasFailed = False
+                    _HasEnded = True
 
-                Exit For
+                    Exit For
+                End If
             End If
         Next
     End Sub
@@ -384,12 +417,14 @@ Public Class PriLoadEvents
 
         LogBuilder.Append("I saw the following threads...").AppendLine()
         For Each hld As HandledWMIEvent In HldEvents
-            Select Case hld.EventState
-                Case tWMIEventState.StateStart
-                    LogBuilder.AppendFormat("Process [{0}] with PID [{1}] started by PID [{2}]", hld.Name, hld.Process, hld.ParentProcess).AppendLine()
-                Case tWMIEventState.StateStop
-                    LogBuilder.AppendFormat("Process [{0}] with PID [{1}] terminating", hld.Name, hld.Process).AppendLine()
-            End Select
+            If Not IsNothing(hld) Then
+                Select Case hld.EventState
+                    Case tWMIEventState.StateStart
+                        LogBuilder.AppendFormat("Process [{0}] with PID [{1}] started by PID [{2}]", hld.Name, hld.Process, hld.ParentProcess).AppendLine()
+                    Case tWMIEventState.StateStop
+                        LogBuilder.AppendFormat("Process [{0}] with PID [{1}] terminating", hld.Name, hld.Process).AppendLine()
+                End Select
+            End If
 
         Next
 
@@ -439,7 +474,7 @@ Public Class PriLoadEvents
 
 #Region "Folder Watcher Event Handlers"
 
-    Private Sub BubbleQ_Created(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) Handles BubbleQ.Created
+    Private Sub BubbleQ_Created(ByVal sender As Object, ByVal e As System.IO.FileSystemEventArgs) 'Handles BubbleQ.Created
         If Not ServicePaused Then
             If RaiseEvents Then
                 ' Ignore any further Filesystem requests 

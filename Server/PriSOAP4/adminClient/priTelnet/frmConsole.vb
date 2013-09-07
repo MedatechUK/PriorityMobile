@@ -437,7 +437,7 @@ Public Class frmConsole
         Dim dir As New System.IO.DirectoryInfo("c:\inetpub")
         If dir.Exists Then FolderBrowser.SelectedPath = "c:\inetpub"
         If FolderBrowser.ShowDialog = Windows.Forms.DialogResult.OK Then
-            CopyDirectory(IO.Path.Combine(Environment.CurrentDirectory, "source\website"), _
+            CopyDirectory(IO.Path.Combine(Environment.CurrentDirectory, "source\websites\mobile"), _
                           FolderBrowser.SelectedPath, _
                           True)
             Using p As New Process

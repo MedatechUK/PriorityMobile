@@ -49,7 +49,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "infoboard", "\\redknave\c$\inetpub\infoboard\", "{355BCB89-1763-4BA5-86B3-434E3EA4585E}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
-		ProjectReferences = "{7BAB046F-5A77-4DD6-B115-8A575634CA91}|GoogleChartSharp.dll;"
+		ProjectReferences = ""
 		Debug.AspNetCompiler.VirtualPath = "/infoboard"
 		Debug.AspNetCompiler.PhysicalPath = "\\redknave\c$\inetpub\infoboard\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\infoboard\"
@@ -209,8 +209,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		BuildVersion_UpdateAssemblyVersion = False
-		BuildVersion_UpdateFileVersion = False
 		BuildVersion_BuildVersioningStyle = None.None.None.None
+		BuildVersion_UpdateFileVersion = False
+		BuildVersion_UpdateAssemblyVersion = False
 	EndGlobalSection
 EndGlobal
