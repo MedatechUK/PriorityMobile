@@ -12,6 +12,7 @@ Public Enum tColumnType
     typeREAL = 3
     typeINT = 4
     typeBOOL = 5
+    typeTIME = 6
 End Enum
 
 Public Class LoadColumn
@@ -270,6 +271,7 @@ Public Class Loading
                         Row.Data(i) = String.Format("'{0}'", Row.Data(i).Replace("'", "' + char(39) + '"))
 
                     Case tColumnType.typeINT
+                        If Row.Data(i).Trim.Length = 0 Then Row.Data(i) = "0"
                         If Not IsNumeric(Row.Data(i)) Then _
                             Throw New Exception( _
                                 String.Format( _
@@ -282,6 +284,7 @@ Public Class Loading
                         Row.Data(i) = String.Format("dbo.INTQUANT({0})", Row.Data(i))
 
                     Case tColumnType.typeREAL
+                        If Row.Data(i).Trim.Length = 0 Then Row.Data(i) = "0"
                         If Not IsNumeric(Row.Data(i)) Then _
                             Throw New Exception( _
                                 String.Format( _
@@ -294,6 +297,7 @@ Public Class Loading
                         Row.Data(i) = String.Format("dbo.REALQUANT({0})", Row.Data(i))
 
                     Case tColumnType.typeDATE
+                        If Row.Data(i).Trim.Length = 0 Then Row.Data(i) = "0"
                         If IsDate(Row.Data(i)) Then
                             Row.Data(i) = String.Format("{0}", DateDiff(DateInterval.Minute, #1/1/1988#, CDate(Row.Data(i))))
                         ElseIf String.Compare(Row.Data(i), "%NOW%", True) = 0 Then
@@ -1205,6 +1209,23 @@ Public Class Loading
         End Select
 
     End Sub
+
+    Public Function NamedType(ByVal TypeStr As String) As tColumnType
+        Select Case TypeStr.ToLower
+            Case "int"
+                Return tColumnType.typeINT
+            Case "real"
+                Return tColumnType.typeREAL
+            Case "char"
+                Return tColumnType.typeCHAR
+            Case "date"
+                Return tColumnType.typeDATE
+            Case "time"
+                Return tColumnType.typeTIME
+            Case Else
+                Return tColumnType.typeCHAR
+        End Select
+    End Function
 
 #End Region
 
