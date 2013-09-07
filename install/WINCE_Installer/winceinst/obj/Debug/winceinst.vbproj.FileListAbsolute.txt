@@ -1,0 +1,10 @@
+M:\install\WINCE_Installer\winceinst\bin\Debug\winceinst.exe
+M:\install\WINCE_Installer\winceinst\bin\Debug\winceinst.pdb
+M:\install\WINCE_Installer\winceinst\bin\Debug\winceinst.xml
+M:\install\WINCE_Installer\winceinst\obj\Debug\ResolveAssemblyReference.cache
+M:\install\WINCE_Installer\winceinst\obj\Debug\winceinst.Form1.resources
+M:\install\WINCE_Installer\winceinst\obj\Debug\winceinst.Resources.resources
+M:\install\WINCE_Installer\winceinst\obj\Debug\winceinst.vbproj.GenerateResource.Cache
+M:\install\WINCE_Installer\winceinst\obj\Debug\winceinst.exe
+M:\install\WINCE_Installer\winceinst\obj\Debug\winceinst.xml
+M:\install\WINCE_Installer\winceinst\obj\Debug\winceinst.pdb
