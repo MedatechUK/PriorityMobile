@@ -1,0 +1,10 @@
+M:\components\provision\provision\bin\Debug\provision.dll
+M:\components\provision\provision\bin\Debug\provision.pdb
+M:\components\provision\provision\bin\Debug\provision.xml
+M:\components\provision\provision\obj\Debug\ResolveAssemblyReference.cache
+M:\components\provision\provision\obj\Debug\PrioritySFDC.frmProvisionDialog.resources
+M:\components\provision\provision\obj\Debug\PrioritySFDC.Resources.resources
+M:\components\provision\provision\obj\Debug\Provision.vbproj.GenerateResource.Cache
+M:\components\provision\provision\obj\Debug\provision.dll
+M:\components\provision\provision\obj\Debug\provision.xml
+M:\components\provision\provision\obj\Debug\provision.pdb
