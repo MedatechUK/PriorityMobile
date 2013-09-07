@@ -30,7 +30,7 @@ Partial Class calc
         Me.txt_Number.Dock = System.Windows.Forms.DockStyle.Top
         Me.txt_Number.Location = New System.Drawing.Point(0, 0)
         Me.txt_Number.Name = "txt_Number"
-        Me.txt_Number.Size = New System.Drawing.Size(150, 21)
+        Me.txt_Number.Size = New System.Drawing.Size(150, 23)
         Me.txt_Number.TabIndex = 0
         '
         'calc

@@ -10,19 +10,20 @@
     <RootNamespace>PriorityMobile</RootNamespace>
     <AssemblyName>frmControls</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
-    <OSVersion>5.1</OSVersion>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.00</OSVersion>
     <MyType>Windows</MyType>
-    <DeployDirSuffix>frmControls</DeployDirSuffix>
+    <DeployDirSuffix>roddas</DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
-    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <DeployDirPrefix>%25CSIDL_PROGRAM_FILES%25</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,6 +86,7 @@
     <Compile Include="calc.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="calcSetting.vb" />
     <Compile Include="gText.Designer.vb">
       <DependentUpon>gText.vb</DependentUpon>
     </Compile>

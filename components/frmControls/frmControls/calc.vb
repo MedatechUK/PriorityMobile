@@ -1,22 +1,11 @@
 ﻿Public Class calc
-    Dim btn(11) As Button
-    Dim _Max As Integer
-    Dim _Value As Integer
 
-    Private DNum As Double = 0.0
-    Private mclosing As Boolean = True
-    Private _Handler As Object
+    Dim btn(14) As Button
+    Private _cSetting As calcSetting
+    Private mclosing As Boolean = True    
     Private PressDot As Boolean = False
-    Public Event SetNumber(ByVal MyValue As Double)
 
-    Public Property Max() As Integer
-        Get
-            Return _Max
-        End Get
-        Set(ByVal value As Integer)
-            _Max = value
-        End Set
-    End Property
+    Public Event SetNumber(ByRef cSetting As calcSetting)
 
     Public Property isClosing() As Boolean
         Get
@@ -26,16 +15,6 @@
             mclosing = value
         End Set
     End Property
-
-    Public Property Value() As Double
-        Get
-            Return CDbl(DNum)
-        End Get
-        Set(ByVal value As Double)
-            DNum = value.ToString
-        End Set
-    End Property
-
 
     Private Sub ct_number_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Resize
 
@@ -64,13 +43,13 @@
         txt_Number.Font = c
 
         Dim i As Integer = 0
-        For y As Integer = 0 To 3
+        For y As Integer = 0 To 4
             For x As Integer = 0 To 2
                 If IsNothing(btn(i)) Then
                     btn(i) = New Button
                 End If
                 btn(i).Width = Me.Width / 3
-                btn(i).Height = (Me.Height - txt_Number.Height) / 4
+                btn(i).Height = (Me.Height - txt_Number.Height) / 5
                 btn(i).Font = f
                 btn(i).Top = (txt_Number.Top + txt_Number.Height) + (y * btn(i).Height)
                 btn(i).Left = x * btn(i).Width
@@ -80,34 +59,49 @@
 
     End Sub
 
-    Public Sub New()
+    Public Sub New(ByRef cSetting As calcSetting)
 
-        ' This call is required by the Windows Form Designer.
         InitializeComponent()
 
-        ' Add any initialization after the InitializeComponent() call.
+        _cSetting = cSetting
+        If Not (String.Compare(_cSetting.FormTitle, String.Empty) = 0) Then
+            Dim mnu As New ContextMenu
+            Dim mi As New MenuItem
+            mi.Text = _cSetting.FormTitle
+            mnu.MenuItems.Add(mi)
+            Me.txt_Number.ContextMenu = mnu
+        End If
 
-        For i As Integer = 0 To 11
+        For i As Integer = 0 To 14
             btn(i) = New Button
             btn(i).Width = Me.Width / 3
-            btn(i).Height = (Me.Height - txt_Number.Height) / 4
+            btn(i).Height = (Me.Height - txt_Number.Height) / 5
             Select Case i
                 Case 0, 1, 2, 3, 4, 5, 6, 7, 8
                     btn(i).Text = CStr(i + 1)
                 Case 9
-                    btn(i).Text = "<"
+                    btn(i).Text = "."
+                    btn(i).Enabled = _cSetting.permitDouble
                 Case 10
                     btn(i).Text = "0"
                 Case 11
+                    btn(i).Text = "-"
+                    btn(i).Enabled = _cSetting.permitNeg
+                Case 12
+                    btn(i).Text = "<"
+                Case 13
                     btn(i).Text = "Ok"
+                Case 14
+                    btn(i).Text = "X"
+
             End Select
             AddHandler btn(i).Click, AddressOf Btn_Click
             AddHandler btn(i).KeyPress, AddressOf hKeyPress
             AddHandler btn(i).KeyDown, AddressOf hKeyDown
             Me.Controls.Add(btn(i))
         Next
-        DNum = 0
-        Me.txt_Number.Text = DNum.ToString
+
+        Me.txt_Number.Text = _cSetting.DNUM.ToString
         Me.btn(9).Focus()
 
     End Sub
@@ -118,47 +112,71 @@
             Case "O"
                 PressDot = False
                 Me.isClosing = True
-                RaiseEvent SetNumber(CDbl(DNum))
+                RaiseEvent SetNumber(_cSetting)
             Case "C"
                 PressDot = False
-                DNum = 0
+                _cSetting.DNUM = 0
             Case "<"
                 PressDot = False
-                If Len(DNum.ToString) > 1 Then
-                    DNum = CDbl(Strings.Left(DNum.ToString, Len(DNum.ToString) - 1))
+                If Len(_cSetting.DNUM.ToString) > 1 Then
+                    Try
+                        _cSetting.DNUM = CDbl(Strings.Left(_cSetting.DNUM.ToString, Len(_cSetting.DNUM.ToString) - 1))
+                    Catch
+                        _cSetting.DNUM = 0
+                    End Try
                 Else
-                    DNum = 0
+                    _cSetting.DNUM = 0
                 End If
+            Case "."
+                If InStr(txt_Number.Text, ".") = 0 Then
+                    PressDot = True
+                    txt_Number.Text = _cSetting.DNUM.ToString & "."
+                End If
+            Case "X"
+                _cSetting.Result = DialogResult.Cancel
+                PressDot = False
+                Me.isClosing = True
+                RaiseEvent SetNumber(_cSetting)
+            Case "-"
+                Try
+                    _cSetting.DNUM = _cSetting.DNUM - (_cSetting.DNUM * 2)
+                Catch
+                    _cSetting.DNUM = 0
+                End Try
             Case Else
                 If PressDot Then
-                    DNum = CDbl(DNum.ToString & "." & btn.Text)
+                    _cSetting.DNUM = CDbl(_cSetting.DNUM.ToString & "." & btn.Text)
                     PressDot = False
                 Else
-                    DNum = CDbl(DNum.ToString & btn.Text)
+                    _cSetting.DNUM = CDbl(_cSetting.DNUM.ToString & btn.Text)
                 End If
         End Select
 
-        If Not IsNumeric(DNum) Then
-            DNum = 0
+        If Not IsNumeric(_cSetting.DNUM) Then
+            _cSetting.DNUM = 0
         Else
-            If DNum > Max Then DNum = Max            
+            If _cSetting.DNUM > _cSetting.Max Then _cSetting.DNUM = _cSetting.Max
+            If _cSetting.DNUM < _cSetting.Min Then _cSetting.DNUM = _cSetting.Min
         End If
 
-        txt_Number.Text = DNum.ToString
+        txt_Number.Text = _cSetting.DNUM.ToString
 
         Me.btn(9).Focus()
 
     End Sub
 
     Private Sub txt_Number_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles txt_Number.GotFocus
-        Me.btn(9).Focus()
+        Try
+            Me.btn(9).Focus()
+        Catch
+        End Try
     End Sub
 
     Private Sub hKeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txt_Number.KeyDown
         e.Handled = True
         Select Case e.KeyValue
             Case Keys.Back
-                Btn_Click(Me.btn(9), New System.EventArgs)
+                Btn_Click(Me.btn(12), New System.EventArgs)
             Case Keys.D0
                 Btn_Click(Me.btn(10), New System.EventArgs)
             Case Keys.D1
@@ -180,10 +198,9 @@
             Case Keys.D9
                 Btn_Click(Me.btn(8), New System.EventArgs)
             Case 190
-                If InStr(txt_Number.Text, ".") = 0 Then
-                    PressDot = True
-                    txt_Number.Text = DNum.ToString & "."
-                End If
+                Btn_Click(Me.btn(9), New System.EventArgs)
+            Case Keys.Subtract
+                Btn_Click(Me.btn(11), New System.EventArgs)
         End Select
     End Sub
 
