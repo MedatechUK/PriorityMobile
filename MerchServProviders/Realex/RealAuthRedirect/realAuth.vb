@@ -13,6 +13,7 @@ Public Class realAuth : Inherits BaseRedirect
         With PostValues
             .Add("MERCHANT_ID", MerchantName)
             .Add("ORDER_ID", OrderID)
+            .Add("ACCOUNT", "internettest")
             .Add("CURRENCY", Currency)
             .Add("AMOUNT", Amount)
             .Add("TIMESTAMP", DateTime.Now.ToString("yyyyMMddHHmmss"))

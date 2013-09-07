@@ -7,12 +7,3 @@ C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\Re
 C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Debug\MerchantRedirect.dll
 C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Debug\MerchantRedirect.xml
 C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Debug\MerchantRedirect.pdb
-M:\MerchServProviders\Realex\RealAuthRedirect\bin\Debug\MerchantRedirect.dll
-M:\MerchServProviders\Realex\RealAuthRedirect\bin\Debug\MerchantRedirect.pdb
-M:\MerchServProviders\Realex\RealAuthRedirect\bin\Debug\MerchantRedirect.xml
-M:\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\ResolveAssemblyReference.cache
-M:\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\MerchantRedirect.Resources.resources
-M:\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\MerchantRedirect.vbproj.GenerateResource.Cache
-M:\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\MerchantRedirect.dll
-M:\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\MerchantRedirect.xml
-M:\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\MerchantRedirect.pdb
