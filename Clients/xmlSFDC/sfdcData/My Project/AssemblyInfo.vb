@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("sfdcInterface")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("sfdcInterface")> 
-<Assembly: AssemblyCopyright("Copyright ©  2013")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyDescription("Client interface for SFDC devices.")> 
+<Assembly: AssemblyCompany("eMerge-IT")> 
+<Assembly: AssemblyProduct("sfdc Client Interfaces")> 
+<Assembly: AssemblyCopyright("Copyright eMerge-IT©  2013")> 
+<Assembly: AssemblyTrademark("Future Proof Your business")> 
 
 <Assembly: CLSCompliant(True)> 
 
@@ -31,4 +31,4 @@ Imports System.Runtime.InteropServices
 '
 ' You can specify all the values or you can default the Build and Revision Numbers 
 ' by using the '*' as shown below:
-<Assembly: AssemblyVersion("1.0.*")> 
+<Assembly: AssemblyVersion("3.0.0.98")> 

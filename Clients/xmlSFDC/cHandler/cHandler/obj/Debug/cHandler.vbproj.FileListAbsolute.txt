@@ -1,0 +1,10 @@
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.dlgTestDialog.resources
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.Resources.resources
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.vbproj.GenerateResource.Cache
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.dll
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.xml
+M:\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.pdb
+\\REDKNAVE\c$\inetpub\mobile\cHandler.dll
+\\REDKNAVE\c$\inetpub\mobile\cHandler.pdb
+\\REDKNAVE\c$\inetpub\mobile\cHandler.xml

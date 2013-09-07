@@ -7,8 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EED15BDF-E52C-45B0-BF4B-50384B249B36}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>sfdc3</RootNamespace>
-    <AssemblyName>sfdcInterface</AssemblyName>
+    <RootNamespace>PrioritySFDC</RootNamespace>
+    <AssemblyName>sfdc3interface</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <PlatformFamilyName>WindowsCE</PlatformFamilyName>
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
@@ -29,9 +29,9 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug2\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
-    <DocumentationFile>sfdcInterface.xml</DocumentationFile>
+    <DocumentationFile>sfdc3interface.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <FileAlignment>512</FileAlignment>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -45,7 +45,7 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
-    <DocumentationFile>sfdcInterface.xml</DocumentationFile>
+    <DocumentationFile>sfdc3interface.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <FileAlignment>512</FileAlignment>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
@@ -73,13 +73,17 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interface\Classes\CalcSetting.vb" />
+    <Compile Include="Interface\Modules\cePrinter.vb" />
     <Compile Include="Interface\Classes\Columns\cColumn.vb" />
     <Compile Include="Interface\Classes\Columns\cColumns.vb" />
     <Compile Include="Interface\Classes\BaseClasses\cContainer.vb" />
+    <Compile Include="Interface\Classes\Containers\iMessages.vb" />
     <Compile Include="Interface\Modules\cfmtException.vb" />
     <Compile Include="Interface\cInterface.vb" />
     <Compile Include="Interface\Classes\BaseClasses\cNode.vb" />
     <Compile Include="Interface\Modules\ColRef.vb" />
+    <Compile Include="Interface\Modules\PriorityTypes.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -91,11 +95,41 @@
     <Compile Include="Interface\Classes\Triggers\cTriggers.vb" />
     <Compile Include="Interface\Modules\regexLib.vb" />
     <Compile Include="Interface\Classes\Triggers\cTrigger.vb" />
+    <Compile Include="ui\Column\ScanBuffer.vb" />
     <Compile Include="ui\Column\uiColumn.Designer.vb">
       <DependentUpon>uiColumn.vb</DependentUpon>
     </Compile>
     <Compile Include="ui\Column\uiColumn.vb">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\Column\uiColumnEnums.vb" />
+    <Compile Include="Interface\Classes\Containers\cTableItem.vb" />
+    <Compile Include="ui\FormButtons\iButton.vb" />
+    <Compile Include="ui\FormButtons\iFrmButtons.Designer.vb">
+      <DependentUpon>iFrmButtons.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ui\FormButtons\iFrmButtons.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\menu\about.Designer.vb">
+      <DependentUpon>about.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ui\menu\about.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\Overidable\defaultHandler.vb" />
+    <Compile Include="ui\Overidable\iFormChild.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ui\Overidable\iHandler.vb" />
+    <Compile Include="ui\Overidable\UserDialog.Designer.vb">
+      <DependentUpon>UserDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ui\Overidable\UserDialog.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ui\panels\CalcPanel.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ui\panels\ColumnPanel.vb">
       <SubType>Component</SubType>
@@ -114,6 +148,15 @@
     </Compile>
     <Compile Include="ui\iForm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\panels\DialogPanel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ui\panels\FormPanel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ui\panels\SignPanel.vb">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="ui\panels\TablePanel.vb">
       <SubType>Component</SubType>
@@ -134,9 +177,32 @@
     <EmbeddedResource Include="ui\Column\uiColumn.resx">
       <DependentUpon>uiColumn.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\FormButtons\iFrmButtons.resx">
+      <DependentUpon>iFrmButtons.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\iForm.resx">
       <DependentUpon>iForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\menu\about.resx">
+      <DependentUpon>about.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\Overidable\UserDialog.resx">
+      <DependentUpon>UserDialog.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\components\provision\provision\Provision.vbproj">
+      <Project>{C81127CE-7435-4555-961F-D43C4ADC6797}</Project>
+      <Name>Provision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\components\xmlLoad\xmlLoadCE\xmlLoad.vbproj">
+      <Project>{CFFB9EDD-4E08-4945-BB96-D433BAA0F1D0}</Project>
+      <Name>xmlLoad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ce_print\cpcl\CPCL\CPCL.vbproj">
+      <Project>{02BE755C-1DC9-47CE-9931-58DD9164C988}</Project>
+      <Name>CPCL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>
@@ -144,6 +210,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -14,6 +14,7 @@ Public Class cForm
             LoadNode(Node)
             _Triggers = New cTriggers(Me, thisNode)
             _Columns = New cColumns(Me, thisNode)
+            _iMsg = New iMessages(thisNode)
             _Parent = Parent
 
         Catch ex As Exception

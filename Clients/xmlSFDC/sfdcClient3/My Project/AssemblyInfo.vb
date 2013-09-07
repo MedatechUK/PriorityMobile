@@ -9,11 +9,11 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("sfdcClient3")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
+<Assembly: AssemblyDescription("eMerge SFDC Client")> 
+<Assembly: AssemblyCompany("eMerge-IT")> 
 <Assembly: AssemblyProduct("sfdcClient3")>
-<Assembly: AssemblyCopyright("Copyright ©  2013")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCopyright("Copyright eMerge-IT©  2013")> 
+<Assembly: AssemblyTrademark("Future Proof Your Business")> 
 
 <Assembly: CLSCompliant(True)>
 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("3.0.0.0")> 
 
 'Below attribute is to suppress FxCop warning "CA2232 : Microsoft.Usage : Add STAThreadAttribute to assembly"
 ' as Device app does not support STA thread.

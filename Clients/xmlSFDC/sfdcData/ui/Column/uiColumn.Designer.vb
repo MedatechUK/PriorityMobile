@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Public Class uiColumn
-    Inherits System.Windows.Forms.UserControl
+    Inherits PrioritySFDC.iFormChild
 
     'UserControl overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -57,8 +57,7 @@ Partial Public Class uiColumn
         Me.lbl_Value.Dock = System.Windows.Forms.DockStyle.Right
         Me.lbl_Value.Location = New System.Drawing.Point(103, 0)
         Me.lbl_Value.Name = "lbl_Value"
-        Me.lbl_Value.Size = New System.Drawing.Size(173, 20)
-        Me.lbl_Value.Text = "#Value"
+        Me.lbl_Value.Size = New System.Drawing.Size(1730, 20)
         '
         'list
         '

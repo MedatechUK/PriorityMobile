@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{AAF1B73E-9909-4573-B823-3D663461583D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>sfdc3.Menu</StartupObject>
+    <StartupObject>sfdc3.StartUp</StartupObject>
     <RootNamespace>sfdc3</RootNamespace>
     <AssemblyName>sfdcClient3</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
@@ -24,6 +24,7 @@
     <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <ApplicationIcon>emerge.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -88,6 +89,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="StartUp.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Menu.resx">
@@ -101,10 +103,32 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\components\provision\provision\Provision.vbproj">
+      <Project>{C81127CE-7435-4555-961F-D43C4ADC6797}</Project>
+      <Name>Provision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\components\xmlLoad\xmlLoadCE\xmlLoad.vbproj">
+      <Project>{CFFB9EDD-4E08-4945-BB96-D433BAA0F1D0}</Project>
+      <Name>xmlLoad</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ce_print\btZebra\btZebra\btZebra.vbproj">
+      <Project>{ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513}</Project>
+      <Name>btZebra</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ce_print\cpcl\CPCL\CPCL.vbproj">
+      <Project>{02BE755C-1DC9-47CE-9931-58DD9164C988}</Project>
+      <Name>CPCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sfdcData\sfdcInterface.vbproj">
       <Project>{EED15BDF-E52C-45B0-BF4B-50384B249B36}</Project>
       <Name>sfdcInterface</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="emerge.ico" />
+    <Content Include="prnimg\roddas.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>

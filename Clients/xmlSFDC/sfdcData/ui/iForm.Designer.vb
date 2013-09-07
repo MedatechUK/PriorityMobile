@@ -19,44 +19,31 @@ Partial Public Class iForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.FormView = New sfdc3.FormView
-        Me.TableView = New sfdc3.TableView
+        Me.MainMenu1 = New System.Windows.Forms.MainMenu
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem
         Me.SuspendLayout()
         '
-        'FormView
+        'MainMenu1
         '
-        Me.FormView.AutoScroll = True
-        Me.FormView.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FormView.Location = New System.Drawing.Point(0, 0)
-        Me.FormView.Name = "FormView"
-        Me.FormView.Size = New System.Drawing.Size(638, 150)
-        Me.FormView.TabIndex = 0
-        Me.FormView.ViewForm = Nothing
+        Me.MainMenu1.MenuItems.Add(Me.MenuItem1)
         '
-        'TableView
+        'MenuItem1
         '
-        Me.TableView.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableView.Location = New System.Drawing.Point(0, 305)
-        Me.TableView.Name = "TableView"
-        Me.TableView.Size = New System.Drawing.Size(638, 150)
-        Me.TableView.TabIndex = 1
-        Me.TableView.TableView = sfdc3.TableView.eTableView.vTable
-        Me.TableView.ViewForm = Nothing
-        Me.TableView.ViewTable = Nothing
+        Me.MenuItem1.Text = "Menu"
         '
         'iForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(638, 455)
-        Me.Controls.Add(Me.TableView)
-        Me.Controls.Add(Me.FormView)
+        Me.Menu = Me.MainMenu1
+        Me.MinimizeBox = False
         Me.Name = "iForm"
         Me.Text = "iForm"
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents FormView As sfdc3.FormView
-    Friend WithEvents TableView As sfdc3.TableView
+    Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
+    Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
+
 End Class

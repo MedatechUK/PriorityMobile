@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ui">
+</Property><Property Name="Solution File" Value="M:\Clients\xmlSFDC\ui\ui.sln">
+</Property><Property Name="Date" Value="02 July 2013">
+</Property><Property Name="Time" Value="11:08:15">
+</Property></Properties><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\ntEvtLog.vbproj" Description="Project file successfully backed up as M:\Clients\xmlSFDC\ui\Backup\ntEvtLog.vbproj">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\ntEvtLog.vbproj.user" Description="Project user file successfully backed up as M:\Clients\xmlSFDC\ui\Backup\ntEvtLog.vbproj.user">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\..\ntEvtlog\Event.vb" Description="File successfully backed up as M:\Clients\xmlSFDC\ui\Backup\..\ntEvtlog\Event.vb">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\My Project\AssemblyInfo.vb" Description="File successfully backed up as M:\Clients\xmlSFDC\ui\Backup\My Project\AssemblyInfo.vb">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\My Project\Resources.Designer.vb" Description="File successfully backed up as M:\Clients\xmlSFDC\ui\Backup\My Project\Resources.Designer.vb">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\My Project\Resources.resx" Description="File successfully backed up as M:\Clients\xmlSFDC\ui\Backup\My Project\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\ntEvtLog.vbproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\ntEvtLog.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\My Project\Resources.resx" Description="File converted successfully">
+</Event><Event ErrorLevel="3" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\My Project\Resources.resx" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ntEvtLog" Source="..\..\..\components\ntEvtlog\cfntEvtLog\ntEvtLog.vbproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
