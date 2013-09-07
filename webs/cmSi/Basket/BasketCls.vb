@@ -176,7 +176,7 @@ Public Class BasketCls
                     .Add(part.SelectSingleNode("PARTNAME").InnerText, _
                         New CartItem(part.SelectSingleNode("PARTNAME").InnerText, _
                         part.SelectSingleNode("PARTDES").InnerText, _
-                        CStr(QTYPrice(cur, BasketItems(key).QTY)), _
+                        CStr(QTYPrice(cur, BasketItems(key).QTY, CBool(cmsData.Settings("ShowVAT")))), _
                         BasketItems(key).QTY, _
                         part.SelectSingleNode("PACKFAMILY").InnerText, _
                          cur.Attributes("TAXRATE").InnerText, _
@@ -249,26 +249,46 @@ Public Class BasketCls
         Dim PARTNAME As String = SelectedPart(sender, e.Row.RowIndex)
         With ts.cart
             If e.Row.RowType = DataControlRowType.Footer Then
-                With e.Row.Cells(1)
-                    .CssClass = "empty"
-                    .ColumnSpan = 3
-                End With                
+                If CBool(cmsData.Settings("ShowVAT")) Then
+                    With e.Row.Cells(1)
+                        .CssClass = "empty"
+                        .ColumnSpan = 3
+                    End With
 
-                For n As Integer = 2 To 3
-                    e.Row.Cells(n).Visible = False
-                Next
-                e.Row.Cells(4).Text = _
-                    "<b>Sub Total:</b><br/>" & _
-                    "<b>VAT:</b><br/>" & _
-                    "<b>Total:</b>"
-                e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
-                e.Row.Cells(5).Text = _
-                    .Value & "<br/>" & _
-                    .TotalTax & "<br/>" & _
+                    For n As Integer = 2 To 3
+                        e.Row.Cells(n).Visible = False
+                    Next
+                    e.Row.Cells(4).Text = _
+                        "<b>Total:</b>"
+                    e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
+                    e.Row.Cells(5).Text = _
                     .Total
-                e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
-                e.Row.Cells(6).Text = _
-                    .CURRENCY
+                    e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
+                    e.Row.Cells(6).Text = _
+                        .CURRENCY
+                Else
+                    With e.Row.Cells(1)
+                        .CssClass = "empty"
+                        .ColumnSpan = 3
+                    End With
+
+                    For n As Integer = 2 To 3
+                        e.Row.Cells(n).Visible = False
+                    Next
+                    e.Row.Cells(4).Text = _
+                        "<b>Sub Total:</b><br/>" & _
+                        "<b>VAT:</b><br/>" & _
+                        "<b>Total:</b>"
+                    e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
+                    e.Row.Cells(5).Text = _
+                        .Value & "<br/>" & _
+                        .TotalTax & "<br/>" & _
+                        .Total
+                    e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
+                    e.Row.Cells(6).Text = _
+                        .CURRENCY
+                End If
+
             End If
         End With
 

@@ -86,14 +86,14 @@ Public Class Repl_OrderForm
                 Dim ce3 As New TableCell
                 Dim cur As XmlNode = xmlFunc.PartCurrency(P, ts.Basket.CURRENCY, HttpContext.Current.Profile("CUSTNAME"))
                 If Not t.Page.IsPostBack Then
-                    ce3.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, 1)) * bCount)
+                    ce3.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, 1, CBool(cmsData.Settings("ShowVAT")))) * bCount)
                 Else
                     If IsNumeric(t.Page.Request("ctl00$" & k)) Then
                         Dim lq As Integer = CInt(t.Page.Request("ctl00$" & k))
                         If lq = 0 Then lq = 1
-                        ce3.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, lq)) * bCount)
+                        ce3.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, lq, CBool(cmsData.Settings("ShowVAT")))) * bCount)
                     Else
-                        ce3.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, 1)) * bCount)
+                        ce3.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, 1, CBool(cmsData.Settings("ShowVAT")))) * bCount)
                     End If
 
                 End If

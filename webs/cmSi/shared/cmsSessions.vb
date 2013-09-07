@@ -19,8 +19,12 @@ Public Class cmsSessions
         If IsNothing(Sessions) Then
             Sessions = New Dictionary(Of String, Session)
         End If
-        If Not Sessions.ContainsKey(CurrentContext.Session.SessionID) Then
-            Sessions.Add(CurrentContext.Session.SessionID, New Session(CurrentContext))
+        If Not Sessions.Keys.Contains(CurrentContext.Session.SessionID) Then
+            Try
+                Sessions.Add(CurrentContext.Session.SessionID, New Session(CurrentContext))
+            Catch
+                Sessions.Item(CurrentContext.Session.SessionID).Update(CurrentContext)
+            End Try
         Else
             Sessions.Item(CurrentContext.Session.SessionID).Update(CurrentContext)
         End If

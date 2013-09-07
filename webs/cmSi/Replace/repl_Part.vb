@@ -240,10 +240,11 @@ Public Class repl_Part
         Dim lab As Label = sender
         With lab
             With e.thisPage
-                Dim spec As XmlNode = e.thisCMSPage.Part.SelectSingleNode("SPECS/SPEC/wasprice")
+                Dim spec As XmlNode = e.thisCMSPage.Part.SelectSingleNode("SPECS/SPEC[@DES=""wasprice""]")
                 If Not IsNothing(spec) Then
                     If spec.Attributes("VALUE").InnerText.Length > 0 Then
-                        lab.Text = e.thisCMSPage.Part.SelectSingleNode("SPECS/SPEC/wasprice").InnerText
+                        lab.Text = spec.Attributes("VALUE").InnerText
+                        'lab.Text = "99.99"
                     Else
                         lab.Text = "99.99"
                     End If
@@ -320,7 +321,7 @@ Public Class repl_Part
                             If .IsPostBack Then
                                 l.Items(l.Items.Count - 1).Selected = CBool(CInt(b.Attributes("QTY").Value) = CInt(.Request("ctl00$basketlist")))
                             Else
-                                lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, 1)))
+                                lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, 1, CBool(cmsData.Settings("ShowVAT")))))
                             End If
                         Next
                         quant = CInt(l.SelectedValue)
@@ -328,11 +329,11 @@ Public Class repl_Part
 
                     If Not IsNothing(q) Then
                         If q.Visible Then
-                            lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, CInt(q.Text))))
+                            lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, CInt(q.Text), CBool(cmsData.Settings("ShowVAT")))))
                         ElseIf l.Visible Then
-                            lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, CInt(l.SelectedValue))))
+                            lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, CInt(l.SelectedValue), CBool(cmsData.Settings("ShowVAT")))))
                         ElseIf bx.Visible Then
-                            lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, CInt(bx.SelectedValue))) * e.thisCMSPage.BoxCount())
+                            lab.Text = String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, CInt(bx.SelectedValue), CBool(cmsData.Settings("ShowVAT")))) * e.thisCMSPage.BoxCount())
                         End If
                     End If
                 End If
@@ -497,7 +498,8 @@ Public Class repl_Part
                                                         thisPart, _
                                                         ts.Basket.CURRENCY, _
                                                         HttpContext.Current.Profile("CUSTNAME") _
-                                                    ), 1 _
+                                                    ), 1, _
+                                                    CBool(cmsData.Settings("ShowVAT")) _
                                                 )
                                             Else
                                                 price = QTYPrice( _
@@ -505,13 +507,15 @@ Public Class repl_Part
                                                         thisPart, _
                                                         ts.Basket.CURRENCY, _
                                                         "" _
-                                                    ), 1 _
+                                                    ), _
+                                                    1, _
+                                                    CBool(cmsData.Settings("ShowVAT")) _
                                                 )
                                             End If
 
                                             If Not IsNothing(thisPart) Then
 
-                                                Dim Manufacturer As String = "This test"
+                                                Dim Manufacturer As String = "Unbranded"
                                                 Dim ManufacturerURL As String = cmsData.Settings.Get("URL")
                                                 Dim Model As String = thisPart.SelectSingleNode("PARTNAME").InnerText
 
@@ -548,7 +552,7 @@ Public Class repl_Part
                                                 .AppendFormat("pagetitle='{0}' ", cmsCleanHTML.htmlEncode(p.Attributes("title").Value))
                                                 .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
                                                 .AppendFormat("image='{0}' ", image)
-                                                .AppendFormat("description='{0}' ", cmsCleanHTML.htmlEncode(p.Attributes("description").Value))
+                                                .AppendFormat("description='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(p.Attributes("description").Value, 50)))
                                                 .AppendFormat("keywords='{0}' ", p.Attributes("keywords").Value)
                                                 .AppendFormat("parentloc='{0}' ", e.thisCMSPage.thisCat.Attributes("id").Value)
                                                 .AppendFormat("parenttitle='{0}' ", cmsCleanHTML.htmlEncode(e.thisCMSPage.thisCat.Attributes("name").Value))
@@ -556,7 +560,7 @@ Public Class repl_Part
                                                 .AppendFormat("sku='{0}' ", thisPart.SelectSingleNode("PARTNAME").InnerText)
                                                 .AppendFormat("curr='{0}' ", ts.Basket.CURRENCY)
                                                 .AppendFormat("price='{0}' ", String.Format("{0:0.00}", price))
-                                                .AppendFormat("partdes='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(thisPart.SelectSingleNode("PARTDES").InnerText, 30)))
+                                                .AppendFormat("partdes='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(thisPart.SelectSingleNode("PARTDES").InnerText, 40)))
                                                 .AppendFormat("ean13='{0}' ", thisPart.SelectSingleNode("BARCODE").InnerText)
                                                 .AppendFormat("instock='{0}' ", thisPart.SelectSingleNode("AVAILABLE").InnerText)
 
@@ -656,28 +660,30 @@ Public Class repl_Part
                                 Model _
                             ).AppendLine()
 
-                            .AppendFormat( _
-                                "   <spec name='{0}' value='{1}' />", _
-                                "Manufacturer", _
-                                Manufacturer _
-                            ).AppendLine()
+                            '.AppendFormat( _
+                            '    "   <spec name='{0}' value='{1}' />", _
+                            '    "Manufacturer", _
+                            '    Manufacturer _
+                            ').AppendLine()
 
-                            .AppendFormat( _
-                                "   <spec name='{0}' value='{1}' />", _
-                                "Barcode", _
-                                thisPart.SelectSingleNode("BARCODE").InnerText _
-                            ).AppendLine()
+                            '.AppendFormat( _
+                            '    "   <spec name='{0}' value='{1}' />", _
+                            '    "Barcode", _
+                            '    thisPart.SelectSingleNode("BARCODE").InnerText _
+                            ').AppendLine()
 
                             For Each spec As XmlNode In thisPart.SelectNodes("SPECS/SPEC")
                                 If spec.Attributes("VALUE").InnerText.Trim.Length > 0 Then
                                     Select Case spec.Attributes("VALUE").InnerText.Trim.ToLower
                                         Case "manufacturer", "manufacturerurl", "model"
                                         Case Else
-                                            .AppendFormat( _
-                                                "   <spec name='{0}' value='{1}' />", _
-                                                spec.Attributes("DES").InnerText, _
-                                                spec.Attributes("VALUE").InnerText _
-                                            ).AppendLine()
+                                            If Not spec.Attributes("DES").InnerText.Trim.ToLower = "wasprice" Then
+                                                .AppendFormat( _
+                                                    "   <spec name='{0}' value='{1}' />", _
+                                                    spec.Attributes("DES").InnerText, _
+                                                    spec.Attributes("VALUE").InnerText _
+                                                ).AppendLine()
+                                            End If
                                     End Select
                                 End If
                             Next

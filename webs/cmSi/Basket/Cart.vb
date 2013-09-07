@@ -71,7 +71,12 @@ Public Class Cart
         Get
             Dim t As Double = 0
             For Each i As CartItem In Me.CartItems.Values
-                t += i.QTY * ((1 + CDbl(i.SALESTAX / 100)) * CDbl(i.PARTPRICE))
+                If Not CBool(cmsData.Settings("ShowVAT")) Then
+                    t += i.QTY * ((1 + CDbl(i.SALESTAX / 100)) * CDbl(i.PARTPRICE))
+                Else
+                    t += i.QTY * (CDbl(i.PARTPRICE))
+                End If
+
             Next
             Return FormatDouble(CStr(t))
         End Get
@@ -258,6 +263,21 @@ Public Class Cart
         Using sr As New StreamReader(String.Format("{0}orders\{1}.xml", HttpContext.Current.Server.MapPath("\"), Order.ToString))
             xmldata = sr.ReadToEnd
         End Using
+
+        Dim smtp As New Net.Mail.SmtpClient
+        For Each recipient As String In cmSi.cmsData.Settings.Get("RcptTO").Split(";")
+            Dim mm As New Net.Mail.MailMessage(cmsData.Settings("MailFrom"), recipient)
+            With mm
+                .Subject = String.Format("New order from {0}.", cmSi.cmsData.Settings.Get("WebName"))
+                Dim TestOrder As String = ""
+                If cmsData.Settings("LiveOrders") = 0 Then
+                    TestOrder = "*TEST*"
+                End If
+                .Body = String.Format("A new {2} order was placed on {0}. The order referenence was: {1}.", cmSi.cmsData.Settings.Get("WebName"), Order.ToString, TestOrder)
+                .IsBodyHtml = False
+            End With
+            smtp.Send(mm)
+        Next
 
         Dim requestStream As Stream = Nothing
         Dim uploadResponse As Net.HttpWebResponse = Nothing

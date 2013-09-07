@@ -118,11 +118,15 @@ Module xmlFunc
         End Try
     End Function
 
-    Public Function QTYPrice(ByRef Cur As XmlNode, ByVal qty As Integer) As Double
+    Public Function QTYPrice(ByRef Cur As XmlNode, ByVal qty As Integer, Optional ByVal ShowVAT As Boolean = False) As Double
         Dim ret As Double
         For Each Pricebreak As XmlNode In Cur.SelectNodes("BREAK")
             If qty >= CInt(Pricebreak.Attributes("QTY").InnerText) Then
-                ret = CDbl(Pricebreak.Attributes("PRICE").InnerText)
+                If ShowVAT Then
+                    ret = CDbl(Pricebreak.Attributes("PRICE").InnerText) * (1 + (CDbl(Cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
+                Else
+                    ret = CDbl(Pricebreak.Attributes("PRICE").InnerText)
+                End If
             End If
         Next
         Return ret
@@ -139,7 +143,11 @@ Module xmlFunc
             Chr(34), DELIVERYPART, CURRENCY _
                 ) _
         )
-
+        Dim cur As XmlNode = doc.SelectSingleNode(String.Format( _
+                "/*[position()=1]/PARTS/PART[@DELIVERY and PARTNAME={0}{1}{0}]/PRICE/CURRENCY[@CURSTR={0}{2}{0}]", _
+            Chr(34), DELIVERYPART, CURRENCY _
+                ) _
+        )
         For Each f As XmlNode In xfam
             If Not fam.Keys.Contains(f.Attributes("FAMILY").Value) Then
                 fam.Add(f.Attributes("FAMILY").Value, New DelFam(CDbl(f.Attributes("PRICE").Value), CDbl(f.Attributes("INCREMENT").Value)))
@@ -165,10 +173,18 @@ Module xmlFunc
             If CDbl(cart.Value) >= CDbl(cmsData.Settings.Item("FreeDelMin")) Then
                 Return 0
             Else
-                Return CDbl(price + famprice.Max)
+                If CBool(cmsData.Settings("ShowVAT")) Then
+                    Return CDbl(price + famprice.Max) * (1 + (CDbl(Cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
+                Else
+                    Return CDbl(price + famprice.Max)
+                End If
             End If
         Else
-            Return CDbl(price + famprice.Max)
+            If CBool(cmsData.Settings("ShowVAT")) Then
+                Return CDbl(price + famprice.Max) * (1 + (CDbl(Cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
+            Else
+                Return CDbl(price + famprice.Max)
+            End If
         End If
 
     End Function

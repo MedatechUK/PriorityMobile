@@ -36,6 +36,7 @@ Public Class cmsCleanHTML
     End Function
 
     Public Shared Function FixedLen(ByVal Str As String, ByVal len As Integer) As String
+
         If Str.Length > len Then
             Str = Left(Str, len) & "..."
         Else

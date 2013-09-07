@@ -81,7 +81,8 @@ Public Class repl_ChildTable : Inherits repl_Base
                                                 thisPart, _
                                                 ts.Basket.CURRENCY, _
                                                 HttpContext.Current.Profile("CUSTNAME") _
-                                            ), 1 _
+                                            ), 1, _
+                                            CBool(cmsData.Settings("ShowVAT")) _
                                         )
                                     Else
                                         price = QTYPrice( _
@@ -89,7 +90,8 @@ Public Class repl_ChildTable : Inherits repl_Base
                                                 thisPart, _
                                                 ts.Basket.CURRENCY, _
                                                 "" _
-                                            ), 1 _
+                                            ), 1, _
+                                            CBool(cmsData.Settings("ShowVAT")) _
                                         )
                                     End If
 
@@ -127,9 +129,13 @@ Public Class repl_ChildTable : Inherits repl_Base
                                                 image = n.Attributes("img").Value
                                             End If
                                         End Try
+                                        Dim trunc As Integer = 20
+                                        If e.thisContext.Request.UserAgent.Contains("Safari") And Not e.thisContext.Request.UserAgent.Contains("Chrome") Then
+                                            trunc -= 3
+                                        End If
 
                                         .Append("   <childpart ")
-                                        .AppendFormat("pagetitle='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(p.Attributes("title").Value, 20)))
+                                        .AppendFormat("pagetitle='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(p.Attributes("title").Value, trunc)))
                                         .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
                                         .AppendFormat("image='{0}' ", image)
                                         .AppendFormat("description='{0}' ", cmsCleanHTML.htmlEncode(cmsCleanHTML.FixedLen(p.Attributes("description").Value, 50)))
@@ -215,31 +221,32 @@ Public Class repl_ChildTable : Inherits repl_Base
             If Not NoNodes Then
 
                 For Each n As XmlNode In ChildNodes
-                    Dim p As XmlNode = cmsData.doc.SelectSingleNode( _
-                        String.Format( _
-                            "//page[@id='{0}']", _
-                            n.Attributes("id").Value _
-                        ) _
-                    )
+                    If CBool(n.Attributes("showonmenu").Value) Then
+                        Dim p As XmlNode = cmsData.doc.SelectSingleNode( _
+                            String.Format( _
+                                "//page[@id='{0}']", _
+                                n.Attributes("id").Value _
+                            ) _
+                        )
 
-                    If Not IsNothing(p) Then                        
+                        If Not IsNothing(p) Then
 
-                        Dim image As String = "my_documents/priimg/noimage.png"
-                        If n.Attributes("img").Value.Length > 0 Then
-                            image = n.Attributes("img").Value
+                            Dim image As String = "my_documents/priimg/noimage.png"
+                            If n.Attributes("img").Value.Length > 0 Then
+                                image = n.Attributes("img").Value
+                            End If
+
+                            .Append("   <child ")
+                            .AppendFormat("pagetitle='{0}' ", p.Attributes("title").Value)
+                            .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
+                            .AppendFormat("image='{0}' ", image)
+                            .AppendFormat("description='{0}' ", p.Attributes("description").Value)
+                            .AppendFormat("keywords='{0}' ", p.Attributes("keywords").Value)
+                            .Append("/>")
+                            .AppendLine()
+
                         End If
-
-                        .Append("   <child ")
-                        .AppendFormat("pagetitle='{0}' ", p.Attributes("title").Value)
-                        .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
-                        .AppendFormat("image='{0}' ", image)
-                        .AppendFormat("description='{0}' ", p.Attributes("description").Value)
-                        .AppendFormat("keywords='{0}' ", p.Attributes("keywords").Value)
-                        .Append("/>")
-                        .AppendLine()
-
                     End If
-
                 Next
 
             End If
