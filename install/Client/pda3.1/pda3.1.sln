@@ -1,0 +1,74 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ViewControl", "..\..\..\components\ViewControl2\winMobile\ViewControl.vbproj", "{5A0389F9-AF9A-40A4-947B-CE0773959815}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Provision", "..\..\..\components\provision\provision\Provision.vbproj", "{C81127CE-7435-4555-961F-D43C4ADC6797}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "pdaHandler", "Roddas\cHandler\pdaHandler.vbproj", "{38A5E3FE-2B37-45DD-9307-623B73482BD6}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "frmControls", "..\..\..\components\frmControls\frmControls\frmControls.vbproj", "{51160138-3081-4533-8697-3C7778A42F5A}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "mnuControls", "..\..\..\components\SlideMenu\SlideMenu\mnuControls.vbproj", "{BB0BE30E-005F-440A-81C3-B6B349B44D17}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "btZebra", "..\..\..\Clients\ce_print\btZebra\btZebra\btZebra.vbproj", "{ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "CPCL", "..\..\..\Clients\ce_print\cpcl\CPCL\CPCL.vbproj", "{02BE755C-1DC9-47CE-9931-58DD9164C988}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Roddas", "Roddas\Roddas.vbproj", "{7D72660F-2A24-4F96-AFA6-30568842DB92}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "StartPDA", "Roddas\StartPDA\StartPDA\StartPDA.vbproj", "{5D49DD59-6120-4B6A-8CF5-4C23379A1EBB}"
+EndProject
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "RoddasPDA", "Roddas\setup\RoddasPDA\RoddasPDA.vddproj", "{5481C810-FD9F-4505-A2D7-87E521D88203}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{925A3E2D-30C2-4A4B-941D-37DBBB7527CB}"
+	ProjectSection(SolutionItems) = preProject
+		pda3.1.vsmdi = pda3.1.vsmdi
+		SmartDeviceTestRun.testrunConfig = SmartDeviceTestRun.testrunConfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = pda3.1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A0389F9-AF9A-40A4-947B-CE0773959815}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0389F9-AF9A-40A4-947B-CE0773959815}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0389F9-AF9A-40A4-947B-CE0773959815}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C81127CE-7435-4555-961F-D43C4ADC6797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81127CE-7435-4555-961F-D43C4ADC6797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81127CE-7435-4555-961F-D43C4ADC6797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38A5E3FE-2B37-45DD-9307-623B73482BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38A5E3FE-2B37-45DD-9307-623B73482BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38A5E3FE-2B37-45DD-9307-623B73482BD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51160138-3081-4533-8697-3C7778A42F5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51160138-3081-4533-8697-3C7778A42F5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51160138-3081-4533-8697-3C7778A42F5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0BE30E-005F-440A-81C3-B6B349B44D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0BE30E-005F-440A-81C3-B6B349B44D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0BE30E-005F-440A-81C3-B6B349B44D17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02BE755C-1DC9-47CE-9931-58DD9164C988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02BE755C-1DC9-47CE-9931-58DD9164C988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02BE755C-1DC9-47CE-9931-58DD9164C988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D72660F-2A24-4F96-AFA6-30568842DB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D72660F-2A24-4F96-AFA6-30568842DB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D72660F-2A24-4F96-AFA6-30568842DB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D72660F-2A24-4F96-AFA6-30568842DB92}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5D49DD59-6120-4B6A-8CF5-4C23379A1EBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D49DD59-6120-4B6A-8CF5-4C23379A1EBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D49DD59-6120-4B6A-8CF5-4C23379A1EBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D49DD59-6120-4B6A-8CF5-4C23379A1EBB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{5481C810-FD9F-4505-A2D7-87E521D88203}.Debug|Any CPU.ActiveCfg = Debug
+		{5481C810-FD9F-4505-A2D7-87E521D88203}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -53,10 +53,21 @@ Public Class HostMainView
         Try
 
             With MainView
+                .ue.SaveProvision = Not (StartFlags.NoProvision)
                 .xf = New xmlForms(.ue, _
-                    New OfflineXML(.ue, "forms.xml", "forms.xml", ClearCache), _
+                    New OfflineXML(.ue, "forms.xml", "forms.xml", _
+                        New pdaStartFlags( _
+                            StartFlags.ClearCache, _
+                            StartFlags.WipeData, _
+                            StartFlags.NoProvision _
+                        ) _
+                    ), _
                     New OfflineXML(.ue, "delivery.xml", "delivery.ashx", _
-                        False, _
+                        New pdaStartFlags( _
+                            False, _
+                            StartFlags.WipeData, _
+                            StartFlags.NoProvision _
+                        ), _
                         AddressOf .hSyncEvent), _
                     Nothing, _
                     Nothing _
@@ -121,8 +132,10 @@ Public Class HostMainView
             Select Case EventType
                 Case eSyncEventType.BeginDownload
                     If Not DataXML.UrlGetParams.Keys.Contains("VANNUM") Then
+                        Dim frmReg As New scan_Reg
+                        frmReg.ShowDialog()                        
                         Cursor.Current = Cursors.Default
-                        DataXML.UrlGetParams.Add("VANNUM", InputBox("Please scan the vehicle registration."))
+                        DataXML.UrlGetParams.Add("VANNUM", frmReg.txtReg.Text)
                         Cursor.Current = Cursors.WaitCursor
                     End If
 
@@ -169,8 +182,9 @@ Public Class HostMainView
                 Case eSyncEventType.EndSync
                     'myProgressBar.txt_File.Text = ""
                     'myProgressBar.txt_Action.Text = ""
+                    Cursor.Current = Cursors.Default
                     Me.ShowTaskbar = False
-                    Me.Focus()
+                    Me.Focus()                    
 
             End Select
         End With

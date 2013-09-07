@@ -58,9 +58,8 @@ Public Class ctrl_DayEnd
                     Do While .WaitConnect
                         Threading.Thread.Sleep(100)
                     Loop
-                Else
-                    PrintForm()
                 End If
+                If .Connected Then PrintForm()
             End With
         End If
 
@@ -72,9 +71,8 @@ Public Class ctrl_DayEnd
                     Do While .WaitConnect
                         Threading.Thread.Sleep(100)
                     Loop
-                Else
-                    PrintForm()
                 End If
+                If .Connected Then PrintForm()
             End With
         End If
 
@@ -98,10 +96,11 @@ Public Class ctrl_DayEnd
     End Sub
 
     Public Sub PrintCash()
-        'Dim dv As XmlNode
+        Dim dv As XmlNode
 
         With thisForm
-            'dv = .FormData.SelectSingleNode(String.Format("{0}[ordinal='{1}']", .boundxPath, ListSort1.Selected))
+            dv = .FormData.SelectSingleNode("pdadata/home")
+
 
 
             Dim headerFont As New PrinterFont(50, 5, 2) 'variable width. 
@@ -114,8 +113,8 @@ Public Class ctrl_DayEnd
                                                     New FormattedColumn(32, 0, eAlignment.Left), _
                                                     New FormattedColumn(32, 32, eAlignment.Left))
                 rcptHead.AddRow("", "")
-                rcptHead.AddRow("Date:", "05/04/2013")
-                rcptHead.AddRow("Route Number:", "12")
+                rcptHead.AddRow("Date:", Now.ToString("dd/MM/yyyy"))
+                rcptHead.AddRow("Route Number:", dv.SelectSingleNode("routenumber").InnerText)
 
                 Dim rcptPayments As New ReceiptFormatter(64, _
                                                      New FormattedColumn(16, 0, eAlignment.Center), _
@@ -123,10 +122,29 @@ Public Class ctrl_DayEnd
                                                      New FormattedColumn(16, 32, eAlignment.Center), _
                                                      New FormattedColumn(16, 48, eAlignment.Center))
 
+                Dim payments As XmlNodeList = dv.SelectNodes("//delivery/payment[cash!=0 or cheque!=0]")
+
+                Dim cashTotal As Double = 0.0
+                Dim chequeTotal As Double = 0.0
+
                 rcptPayments.AddRow("Cust Code:", "Cust Name:", "Cash Amount:", "Cheque Amount:")
+
+                For Each payment As XmlNode In payments
+                    Dim cCode As String = payment.ParentNode.SelectSingleNode("customer/custnumber").InnerText
+                    Dim cName As String = payment.ParentNode.SelectSingleNode("customer/custname").InnerText
+                    Dim cash As Double = CDbl(payment.SelectSingleNode("cash").InnerText)
+                    Dim cheque As Double = CDbl(payment.SelectSingleNode("cheque").InnerText)
+
+
+                    rcptPayments.AddRow(cCode, cName, cash.ToString("c").Replace("£", "#"), cheque.ToString("c").Replace("£", "#"))
+                    cashTotal += cash
+                    chequeTotal += cheque
+                Next
+
+
+
+
                 'iterate through payments - nifty xpath needed.
-                rcptPayments.AddRow("ABC123", "ABC & Company", "#23.18", "#0.48")
-                rcptPayments.AddRow("DEF456", "DEF Ltd.", "#99.00", "#0.00")
 
 
                 Dim rcptTotals As New ReceiptFormatter(64, _
@@ -134,10 +152,10 @@ Public Class ctrl_DayEnd
                                                    New FormattedColumn(21, 22, eAlignment.Right), _
                                                    New FormattedColumn(21, 43, eAlignment.Right))
                 rcptTotals.AddRow("", "Total Cash Amount:", "Total Cheque Amount:")
-                rcptTotals.AddRow("", "#122.18", "#0.48")
+                rcptTotals.AddRow("", cashTotal.ToString("c").Replace("£", "#"), chequeTotal.ToString("c").Replace("£", "#"))
                 'calculated from the above data I suppose 
                 rcptTotals.AddRow("", "", "Total Payments:")
-                rcptTotals.AddRow("", "", "#122.66")
+                rcptTotals.AddRow("", "", (cashTotal + chequeTotal).ToString("c").Replace("£", "#"))
 
                 Dim rcptCashAnalysis As New ReceiptFormatter(64, _
                                                          New FormattedColumn(32, 0, eAlignment.Left), _
@@ -157,14 +175,14 @@ Public Class ctrl_DayEnd
                 rcptCashAnalysis.AddRow("Silver", "", "")
                 rcptCashAnalysis.AddRow("Bronze", "", "")
                 rcptCashAnalysis.AddRow("", "", "")
-                rcptCashAnalysis.AddRow("", "Total Cash:", "#122.18") 'is this a calculated column? 
+                rcptCashAnalysis.AddRow("", "Total Cash:", cashTotal.ToString("c").Replace("£", "#")) 'is this a calculated column? Yes, apparently. 
                 rcptCashAnalysis.AddRow("", "", "")
                 rcptCashAnalysis.AddRow("Cheque:", "", "")
                 rcptCashAnalysis.AddRow("Other:", "", "")
-                'are these calculated columns? 
-                rcptCashAnalysis.AddRow("", "Total Cheques:", "#0.48")
-                rcptCashAnalysis.AddRow("", "Grand Total:", "#122.66")
-
+                'are these calculated columns? Yes, apparently.
+                rcptCashAnalysis.AddRow("", "Total Cheques:", "#" & chequeTotal)
+                rcptCashAnalysis.AddRow("", "Grand Total:", (cashTotal + chequeTotal).ToString("c").Replace("£", "#"))
+                'though I wager these will want changing later when the drivers don't actually check their totals.
 
 
                 With lblCashAnalysis
@@ -272,36 +290,14 @@ Public Class ctrl_DayEnd
 
 
                 End With
-
-
-
-
-
-                'Line
-                'RcptFormatter 4x~ 16-16-16-16
-                'RcptFormatter 3x3 pad-1/3-1/3
-                'Line 
-                'Cash Analysis
-                'line
-                'RcptFormatter 3x11 - borders? 
-                'gap
-                'RcptFormatter 3x1 pad-15-10
-                'gap
-                'RcptFormatter 3x2 21-21-21
-                'gap
-                'RcptFormatter 3x3 2/3-1/6-1/6
-
             End Using
 
         End With
     End Sub
 
     Public Sub PrintReturns()
-        Dim dv As XmlNode
 
         With thisForm
-            'dv = .FormData.SelectSingleNode(String.Format("{0}[ordinal='{1}']", .boundxPath, ListSort1.Selected))
-
 
             Dim headerFont As New PrinterFont(50, 5, 2) 'variable width. 
             Dim largeFont As New PrinterFont(30, 0, 3) '16 
@@ -315,19 +311,37 @@ Public Class ctrl_DayEnd
                                                     New FormattedColumn(6, 32, eAlignment.Left), _
                                                     New FormattedColumn(26, 38, eAlignment.Left))
 
+                Dim returns As XmlNodeList = .FormData.SelectNodes("//creditnote/parts/part[reason[not(contains(., ""Faulty Goods""))] and qty!=0 and rcvdqty!=0]")
+
                 rcptReStock.AddRow("Part:", "Part Desc:", "Qty:", "Customer Reason:")
-                rcptReStock.AddRow("012232", "This is a part", "99", "Too many parts!")
-                rcptReStock.AddRow("1c1233", "Here's another", "12", "Incorrect type of part")
+
+
+                For Each pReturn As XmlNode In returns
+                    Dim name As String = pReturn.SelectSingleNode("name").InnerText
+                    Dim des As String = pReturn.SelectSingleNode("des").InnerText
+                    Dim qty As String = pReturn.SelectSingleNode("rcvdqty").InnerText
+                    Dim reason As String = pReturn.SelectSingleNode("reason").InnerText
+                    rcptReStock.AddRow(name, des, qty, reason)
+                Next
 
                 Dim rcptQuarantine As New ReceiptFormatter(64, _
                                                     New FormattedColumn(10, 0, eAlignment.Left), _
                                                     New FormattedColumn(22, 10, eAlignment.Left), _
-                                                    New FormattedColumn(6, 32, eAlignment.Left), _
+                                                    New FormattedColumn(6, 32, eAlignment.Center), _
                                                     New FormattedColumn(26, 38, eAlignment.Left))
 
                 rcptQuarantine.AddRow("Part:", "Part Desc:", "Qty:", "Customer Reason:")
-                rcptQuarantine.AddRow("11232", "First part", "3", "Quarantine-able problem")
-                rcptQuarantine.AddRow("91112", "Second part", "1", "Another similar problem")
+
+                Dim disposals As XmlNodeList = .FormData.SelectNodes("//creditnote/parts/part[reason[contains(., ""Faulty Goods"")] and qty!=0 and rcvdqty!=0]")
+
+                For Each disposal As XmlNode In disposals
+                    Dim name As String = disposal.SelectSingleNode("name").InnerText
+                    Dim des As String = disposal.SelectSingleNode("des").InnerText
+                    Dim qty As String = disposal.SelectSingleNode("qty").InnerText
+                    Dim reason As String = disposal.SelectSingleNode("reason").InnerText
+
+                    rcptQuarantine.AddRow(name, des, qty, reason)
+                Next
 
                 With lblReturnsAnalysis
                     .CharSet(eCountry.UK)
@@ -394,22 +408,29 @@ Public Class ctrl_DayEnd
                 If Not xmlForms.FormData.Post(postExcep) Then
                     Cursor.Current = Cursors.Default
                     MsgBox(postExcep.Message, MsgBoxStyle.Critical)
+
                 Else
                     Cursor.Current = Cursors.Default
-                    MsgBox("Data posted.")
-                    Dim changednodes As XmlNodeList = thisForm.FormData.SelectNodes("//*[@changed ='1']")
-                    While changednodes.Count > 0
-                        changednodes(0).Attributes.RemoveNamedItem("changed")
-                        changednodes = .SelectNodes("//*[@changed ='1']")
-                    End While
+                    MsgBox("Data posted. Closing Application.")
+                    xmlForms.FormData.DeleteLocalCache()
+                    Application.Exit()
 
-                    With thisForm
-                        .TopForm("Home").CloseForm()
-                        .TopForm("Home").CloseForm()
-                        .TopForm("Home").CurrentForm.Views(0).RefreshData()
-                        .RefreshForm()
-                        xmlForms.FormData.Sync()
-                    End With
+                    'Dim changednodes As XmlNodeList = xmlForms.FormData.Document.SelectNodes("//*[@changed ='1']")
+                    'While changednodes.Count > 0
+                    '    changednodes(0).Attributes.RemoveNamedItem("changed")
+                    '    thisForm.Save()
+                    '    changednodes = .SelectNodes("//*[@changed ='1']")
+                    'End While
+
+                    'With thisForm
+                    '    .TopForm("Home").CloseForm()
+                    '    .TopForm("Home").CloseForm()
+                    '    .TopForm("Home").CurrentForm.Views(0).RefreshData()
+                    '    .RefreshForm()
+                    '    'xmlForms.FormData.Sync()
+                    '    xmlForms.FormData.DeleteLocalCache()
+                    '    prioritymobile.formdata.
+                    'End With
 
                 End If
             End If

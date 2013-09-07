@@ -132,6 +132,12 @@
     <Compile Include="dialogs\dlgAddOrder.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="scan_Reg.Designer.vb">
+      <DependentUpon>scan_Reg.vb</DependentUpon>
+    </Compile>
+    <Compile Include="scan_Reg.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="usrCtrls\DayEnd\ctrl_DayEnd.Designer.vb">
       <DependentUpon>ctrl_DayEnd.vb</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -152,6 +158,12 @@
       <DependentUpon>ctrl_DeliveredItems.vb</DependentUpon>
     </Compile>
     <Compile Include="usrCtrls\Deliveries\ctrl_DeliveredItems.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Warehouse.Designer.vb">
+      <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\Maintainance\ctrl_Warehouse.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="usrCtrls\Maintainance\ctrl_Maintainance_End.Designer.vb">
@@ -325,6 +337,9 @@
     <EmbeddedResource Include="dialogs\dlgAddOrder.resx">
       <DependentUpon>dlgAddOrder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="scan_Reg.resx">
+      <DependentUpon>scan_Reg.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\ctrl_Home.resx">
       <DependentUpon>ctrl_Home.vb</DependentUpon>
     </EmbeddedResource>
@@ -390,6 +405,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.resx">
       <DependentUpon>ctrl_Orders.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Warehouse.resx">
+      <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance_End.resx">
       <DependentUpon>ctrl_Maintainance_End.vb</DependentUpon>

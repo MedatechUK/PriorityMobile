@@ -1,8 +1,10 @@
 ﻿Imports System.Runtime.InteropServices
+Imports System.IO
+Imports PriorityMobile
 
 Module StartUp
 
-    Public ClearCache As Boolean = False
+    Public StartFlags As New pdaStartFlags
 
 #Region " API Declarations "
 
@@ -45,11 +47,24 @@ Module StartUp
         For Each arg As String In args
             Select Case arg.ToLower
                 Case "clearcache"
-                    ClearCache = True
+                    StartFlags.ClearCache = True
+                Case "wipedata"
+                    StartFlags.WipeData = True
+                Case "noprovision"
+                    StartFlags.NoProvision = True
             End Select
         Next
-        Application.Run(New HostMainView) 'frmMain
+        Try
+            Application.Run(New HostMainView) 'frmMain
+        Catch ex As Exception
+            Using sw As New StreamWriter("appcrash.txt", True)
+                sw.WriteLine("{0}: {1}", Now.ToString, ex.Message)
+                sw.Write(ex.StackTrace)
+            End Using
+        End Try
 
     End Sub
 
 End Module
+
+

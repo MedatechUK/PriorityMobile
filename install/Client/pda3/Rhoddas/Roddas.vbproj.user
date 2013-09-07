@@ -5,6 +5,6 @@
     <ProjectView>ProjectFiles</ProjectView>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>clearcache</StartArguments>
+    <StartArguments>NOPROVISION</StartArguments>
   </PropertyGroup>
 </Project>

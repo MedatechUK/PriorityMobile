@@ -135,3 +135,5 @@ M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.exe
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.xml
 M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.pdb
 M:\install\Client\pda3\Rhoddas\bin\Debug2\InTheHand.Net.Personal.dll
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.ctrl_Warehouse.resources
+M:\install\Client\pda3\Rhoddas\obj\Debug\RoddasPDA.scan_Reg.resources

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="92f4a074-daed-462d-bd25-8f86eec0c682" name="Administrator@MARCHHARE 2013-07-31 13:24:59" runUser="WONDERLAND\Administrator" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2006">
+  <TestRunConfiguration name="Local SmartDevices Test Run" id="e27c04d7-6cd5-4996-9462-0ca5916b95af">
+    <Description>This is a default test run configuration for a local SmartDevice test run.</Description>
+    <Deployment runDeploymentRoot="M:\install\Client\pda3.1\TestResults\Administrator_MARCHHARE 2013-07-31 13_24_59">
+      <DeploymentItem filename="M:\components\frmControls\frmControls\bin\Debug2\frmControls.dll" />
+      <DeploymentItem filename="M:\bin\System.SR.dll" />
+    </Deployment>
+    <Hosts type="Smart Device">
+      <DeviceHostRunConfigData name="Smart Device" deviceId="4118C335-430C-497f-BE48-11C3316B135E84C861BE-14F9-4bfe-85D1-158180C89455" deviceName="Windows Mobile 5.0 Pocket PC Device R2" platformId="4118C335-430C-497f-BE48-11C3316B135E" platformName="Windows Mobile 5.0 Pocket PC SDK" uiPlatformId="4118C335-430C-497f-BE48-11C3316B135E" />
+    </Hosts>
+    <TestTypeSpecific />
+  </TestRunConfiguration>
+  <ResultSummary outcome="Error">
+    <Counters total="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="1" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="MARCHHARE" outcome="Error" timestamp="2013-07-31T13:25:05.2174143+01:00">
+        <Text>Failed to queue test run 'Administrator@MARCHHARE 2013-07-31 13:24:59': Test Run deployment issue: The location of the file or directory 'm:\install\client\pda3.1\testproject1\bin\debug\testproject1.dll' is not trusted.</Text>
+        <Exception>Microsoft.VisualStudio.TestTools.TestManagement.ExecutionException: Test Run deployment issue: The location of the file or directory 'm:\install\client\pda3.1\testproject1\bin\debug\testproject1.dll' is not trusted.
+   at Microsoft.VisualStudio.TestTools.TestManagement.DeploymentManager.DoDeployment(TestRun run, FileCopyService fileCopyService)
+   at Microsoft.VisualStudio.TestTools.TestManagement.ControllerProxy.SetupTestRun(TestRun run, Boolean isNewTestRun, FileCopyService&amp; fileCopyService)
+   at Microsoft.VisualStudio.TestTools.TestManagement.ControllerProxy.QueueTestRunWorker(Object state)</Exception>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <Times creation="2013-07-31T13:24:59.5398466+01:00" queuing="2013-07-31T13:24:59.5398466+01:00" start="2013-07-31T13:24:59.5398466+01:00" finish="2013-07-31T13:25:05.2424168+01:00" />
+  <TestDefinitions>
+    <UnitTest name="calcConstructorTest" storage="m:\install\client\pda3.1\testproject1\bin\debug\testproject1.dll" id="e1064e2a-6812-869e-81f7-90e36abc3168">
+      <Css projectStructure="" iteration="" />
+      <Owners>
+        <Owner name="" />
+      </Owners>
+      <TestMethod codeBase="M:\install\Client\pda3.1\TestProject1\bin\Debug\TestProject1.dll" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="TestProject1.calcTest, TestProject1" name="calcConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="e1064e2a-6812-869e-81f7-90e36abc3168" executionId="8d1bb813-3fc2-40f5-aeb4-1b14119978f7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="8d1bb813-3fc2-40f5-aeb4-1b14119978f7" testId="e1064e2a-6812-869e-81f7-90e36abc3168" testName="calcConstructorTest" computerName="MARCHHARE" duration="00:00:00" startTime="0001-01-01T00:00:00.0000000+00:00" endTime="0001-01-01T00:00:00.0000000+00:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d">
+    </UnitTestResult>
+  </Results>
+</TestRun>

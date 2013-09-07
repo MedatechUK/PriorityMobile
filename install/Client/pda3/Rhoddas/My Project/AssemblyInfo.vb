@@ -8,12 +8,12 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("StraussPDA")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("StraussPDA")>
-<Assembly: AssemblyCopyright("Copyright ©  2012")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyTitle("RoddasPDA")> 
+<Assembly: AssemblyDescription("Van Sales PDA")> 
+<Assembly: AssemblyCompany("eMerge-IT")> 
+<Assembly: AssemblyProduct("RoddasPDA")> 
+<Assembly: AssemblyCopyright("Copyright eMerge-IT©  2013")> 
+<Assembly: AssemblyTrademark("Future Proof Your Business")> 
 
 <Assembly: CLSCompliant(True)>
 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("3.1.0.453")> 
+<Assembly: AssemblyVersion("3.1.0.560")> 
 
 'Below attribute is to suppress FxCop warning "CA2232 : Microsoft.Usage : Add STAThreadAttribute to assembly"
 ' as Device app does not support STA thread.

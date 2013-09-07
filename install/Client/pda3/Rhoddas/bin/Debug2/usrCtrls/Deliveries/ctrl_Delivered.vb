@@ -148,9 +148,11 @@ Public Class ctrl_Delivered
         With thisForm.Printer
             If Not .Connected Then
                 .BeginConnect(thisForm.MACAddress)
-            Else
-                PrintForm()
+                Do While .WaitConnect
+                    Threading.Thread.Sleep(100)
+                Loop
             End If
+            If .Connected Then PrintForm()
         End With
     End Sub
 

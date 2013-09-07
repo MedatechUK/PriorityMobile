@@ -1,0 +1,1966 @@
+"DeployProject"
+{
+"VSVersion" = "3:701"
+"ProjectType" = "8:{AB322303-2255-48EF-A496-5904EB18DA55}"
+"IsWebType" = "8:FALSE"
+"ProjectName" = "8:RoddasPDA"
+"LanguageId" = "3:1033"
+"CodePage" = "3:1252"
+"SccProjectName" = "8:"
+"SccLocalPath" = "8:"
+"SccAuxPath" = "8:"
+"SccProvider" = "8:"
+    "Hierarchy"
+    {
+        "Entry"
+        {
+        "MsmKey" = "8:_06226FE810DD4A9BB15BB07CDAA30DDF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_07FDA8E0F48E43DABA2901D9F63DAB54"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_154685790F9E4B6848B3481EE06BA138"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_154685790F9E4B6848B3481EE06BA138"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_15F99D838B22417DB7AA2A904E6A5792"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1B880F27413CB2490AD8BECCEA10AAC9"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_CD5C848FEFF7CEEE4473C9FF14956937"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "OwnerKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "OwnerKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_280C207E48C44B3F9579AA181C469602"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_CD5C848FEFF7CEEE4473C9FF14956937"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "OwnerKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_154685790F9E4B6848B3481EE06BA138"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "OwnerKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_44AF078AB8014EEEA593A6D81F713703"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_488638643B404C9FAD4B94620A7E7750"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_CD5C848FEFF7CEEE4473C9FF14956937"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_FC9354B6CC488C02C27AAC495BE671DA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_5B7E26214D3CDF00540BABC8FDDA9DED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_154685790F9E4B6848B3481EE06BA138"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_64C264871A0B41D59632075D549DFB6B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4B1DC132D206DA62CE25CE9D55673636"
+        "OwnerKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "OwnerKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_554D262E8AC34030964F0E36161561E2"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_56646892ABF94D7C8F7F328CCD3D694C"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5B7E26214D3CDF00540BABC8FDDA9DED"
+        "OwnerKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_5B7E26214D3CDF00540BABC8FDDA9DED"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64C264871A0B41D59632075D549DFB6B"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_64C264871A0B41D59632075D549DFB6B"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_651258536E354DB985AA4AE011135964"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_6FCB54AF08A647A8AD4FAFF76D1DAD88"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_CD5C848FEFF7CEEE4473C9FF14956937"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_5B7E26214D3CDF00540BABC8FDDA9DED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_3018DA66263AE13BA36E9A4147DE3553"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7C1DE112324C12C7A4FF54F1B8F82A09"
+        "OwnerKey" = "8:_2E4B75C6A30B8B44EADA679D073D6D04"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8A87F17EB78A450B84B7719B9E95DD61"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_98F12113FFAFB425024D1DCBDF1E2E7E"
+        "OwnerKey" = "8:_5B7E26214D3CDF00540BABC8FDDA9DED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_98F12113FFAFB425024D1DCBDF1E2E7E"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_22C6E6BE953B7B825931ED040AF4F1DB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_384D881C73202767E054A920E9B05A5C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_154685790F9E4B6848B3481EE06BA138"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1255F7ADB7C474E528084C34E95FE5B"
+        "OwnerKey" = "8:_64C264871A0B41D59632075D549DFB6B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_AC9F87EA7F4E4BD68814667557DE329D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B221F92809474B82B0AD1931230A59AF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B672598F9EE64051A80293EA798E451F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_C826F170860BC8A41D62BB033A7720CD"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CA31BEC97B2E41C99F1039B527FC7225"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CD5C848FEFF7CEEE4473C9FF14956937"
+        "OwnerKey" = "8:_54B647B33A892236D30AAC908C7D81F6"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CEE45D87B2294C90AF5808D89D6C3445"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DC37B84A74A44A62970C6E9F8A86FD2E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E9B1FC0B90304202826342D1686DC03E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "OwnerKey" = "8:_64C264871A0B41D59632075D549DFB6B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "OwnerKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "OwnerKey" = "8:_2DB007CCB11B07C11FE6AEA2B371674C"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EE1B1A0FE32CF90C63860766E24B4039"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EECA0D948690428388823DDF11646703"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F071B45A678E4FA0A28193E33B7BD231"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F16345C578F64426AEDC87F0FAE68304"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F92993EC1167AA5F6C06D2059FD0293E"
+        "OwnerKey" = "8:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FC9354B6CC488C02C27AAC495BE671DA"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FF30B2C47F36493294D7BE778D78D0CE"
+        "OwnerKey" = "8:_0E6BD0A400A44FC2A6E1D048DC993172"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+    }
+    "Configurations"
+    {
+        "Debug"
+        {
+        "DisplayName" = "8:Debug"
+        "IsDebugOnly" = "11:TRUE"
+        "IsReleaseOnly" = "11:FALSE"
+        "OutputFilename" = "8:Debug\\RoddasPDA.cab"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "SignOutput" = "11:FALSE"
+        "CertificateHash" = "8:"
+        "TimeStampServer" = "8:"
+        }
+        "Release"
+        {
+        "DisplayName" = "8:Release"
+        "IsDebugOnly" = "11:FALSE"
+        "IsReleaseOnly" = "11:TRUE"
+        "OutputFilename" = "8:Release\\RoddasPDA.cab"
+        "PackageFileSize" = "3:-2147483648"
+        "CabType" = "3:1"
+        "SignOutput" = "11:FALSE"
+        "CertificateHash" = "8:"
+        "TimeStampServer" = "8:"
+        }
+    }
+    "Deployable"
+    {
+        "File"
+        {
+            "{BA458234-9B71-4F46-8107-E91156377184}:_06226FE810DD4A9BB15BB07CDAA30DDF"
+            {
+            "SourcePath" = "8:..\\..\\icons\\print.BMP"
+            "TargetName" = "8:print.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_07FDA8E0F48E43DABA2901D9F63DAB54"
+            {
+            "SourcePath" = "8:..\\..\\icons\\sync.BMP"
+            "TargetName" = "8:sync.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_154685790F9E4B6848B3481EE06BA138"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_154685790F9E4B6848B3481EE06BA138"
+                    {
+                    "Name" = "8:System.Xml.Linq.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Xml.Linq.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_15F99D838B22417DB7AA2A904E6A5792"
+            {
+            "SourcePath" = "8:..\\..\\icons\\edit.bmp"
+            "TargetName" = "8:edit.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_1B880F27413CB2490AD8BECCEA10AAC9"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsMobile.Telephony, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+                "ScatterAssemblies"
+                {
+                    "_1B880F27413CB2490AD8BECCEA10AAC9"
+                    {
+                    "Name" = "8:Microsoft.WindowsMobile.Telephony.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.WindowsMobile.Telephony.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_1BFC54A3CA9A19B84924CBA5A8A3F534"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Drawing, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_1BFC54A3CA9A19B84924CBA5A8A3F534"
+                    {
+                    "Name" = "8:System.Drawing.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Drawing.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_22C6E6BE953B7B825931ED040AF4F1DB"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CPCL, Version=1.0.4958.30960, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_22C6E6BE953B7B825931ED040AF4F1DB"
+                    {
+                    "Name" = "8:CPCL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CPCL.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_280C207E48C44B3F9579AA181C469602"
+            {
+            "SourcePath" = "8:..\\..\\icons\\Thumbs.db"
+            "TargetName" = "8:Thumbs.db"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_2DB007CCB11B07C11FE6AEA2B371674C"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:frmControls, Version=1.0.4958.30962, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_2DB007CCB11B07C11FE6AEA2B371674C"
+                    {
+                    "Name" = "8:frmControls.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:frmControls.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_2E4B75C6A30B8B44EADA679D073D6D04"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Windows.Forms, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_2E4B75C6A30B8B44EADA679D073D6D04"
+                    {
+                    "Name" = "8:System.Windows.Forms.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Windows.Forms.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_3018DA66263AE13BA36E9A4147DE3553"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Xml, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_3018DA66263AE13BA36E9A4147DE3553"
+                    {
+                    "Name" = "8:System.Xml.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Xml.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_384D881C73202767E054A920E9B05A5C"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ZSDK_API, Version=1.0.121.0, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_384D881C73202767E054A920E9B05A5C"
+                    {
+                    "Name" = "8:ZSDK_API.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ZSDK_API.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_44AF078AB8014EEEA593A6D81F713703"
+            {
+            "SourcePath" = "8:..\\..\\icons\\back.bmp"
+            "TargetName" = "8:back.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_488638643B404C9FAD4B94620A7E7750"
+            {
+            "SourcePath" = "8:..\\..\\icons\\DELETE.BMP"
+            "TargetName" = "8:DELETE.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_4B1DC132D206DA62CE25CE9D55673636"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:mscorlib, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_4B1DC132D206DA62CE25CE9D55673636"
+                    {
+                    "Name" = "8:mscorlib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:mscorlib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ViewControl2, Version=1.0.4958.30968, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_4CB9CC94CB9AF55F8E591AD7D77D53A4"
+                    {
+                    "Name" = "8:ViewControl2.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ViewControl2.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_54B647B33A892236D30AAC908C7D81F6"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.VisualBasic, Version=8.1.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_54B647B33A892236D30AAC908C7D81F6"
+                    {
+                    "Name" = "8:Microsoft.VisualBasic.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.VisualBasic.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_554D262E8AC34030964F0E36161561E2"
+            {
+            "SourcePath" = "8:..\\..\\icons\\PHONE.BMP"
+            "TargetName" = "8:PHONE.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_56646892ABF94D7C8F7F328CCD3D694C"
+            {
+            "SourcePath" = "8:..\\..\\icons\\add.bmp"
+            "TargetName" = "8:add.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_5B7E26214D3CDF00540BABC8FDDA9DED"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:ZebraBluetoothAdapter, Version=1.0.121.0, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_5B7E26214D3CDF00540BABC8FDDA9DED"
+                    {
+                    "Name" = "8:ZebraBluetoothAdapter.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:ZebraBluetoothAdapter.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_64C264871A0B41D59632075D549DFB6B"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_64C264871A0B41D59632075D549DFB6B"
+                    {
+                    "Name" = "8:System.Data.DataSetExtensions.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Data.DataSetExtensions.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_651258536E354DB985AA4AE011135964"
+            {
+            "SourcePath" = "8:..\\..\\icons\\ACTUAL.BMP"
+            "TargetName" = "8:ACTUAL.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_6FCB54AF08A647A8AD4FAFF76D1DAD88"
+            {
+            "SourcePath" = "8:..\\..\\icons\\UP1LVL.BMP"
+            "TargetName" = "8:UP1LVL.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_7C1DE112324C12C7A4FF54F1B8F82A09"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_7C1DE112324C12C7A4FF54F1B8F82A09"
+                    {
+                    "Name" = "8:System.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_8A87F17EB78A450B84B7719B9E95DD61"
+            {
+            "SourcePath" = "8:..\\..\\icons\\CALENDAR.BMP"
+            "TargetName" = "8:CALENDAR.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_98F12113FFAFB425024D1DCBDF1E2E7E"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:InTheHand.Net.Personal, Version=2.3.0.0, Culture=neutral, PublicKeyToken=ea38caa273134499"
+                "ScatterAssemblies"
+                {
+                    "_98F12113FFAFB425024D1DCBDF1E2E7E"
+                    {
+                    "Name" = "8:InTheHand.Net.Personal.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:InTheHand.Net.Personal.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_A1255F7ADB7C474E528084C34E95FE5B"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_A1255F7ADB7C474E528084C34E95FE5B"
+                    {
+                    "Name" = "8:System.Core.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_AC9F87EA7F4E4BD68814667557DE329D"
+            {
+            "SourcePath" = "8:..\\..\\icons\\COPY.BMP"
+            "TargetName" = "8:COPY.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_B221F92809474B82B0AD1931230A59AF"
+            {
+            "SourcePath" = "8:..\\..\\prnimg\\roddas.bmp"
+            "TargetName" = "8:roddas.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_623C087A8572442485C06BA4CAB4D1E5"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_B672598F9EE64051A80293EA798E451F"
+            {
+            "SourcePath" = "8:..\\..\\icons\\BALLOON.BMP"
+            "TargetName" = "8:BALLOON.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_C826F170860BC8A41D62BB033A7720CD"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:mnuControls, Version=1.0.4958.30966, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_C826F170860BC8A41D62BB033A7720CD"
+                    {
+                    "Name" = "8:mnuControls.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:mnuControls.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_CA31BEC97B2E41C99F1039B527FC7225"
+            {
+            "SourcePath" = "8:..\\..\\icons\\FIND.BMP"
+            "TargetName" = "8:FIND.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_CD5C848FEFF7CEEE4473C9FF14956937"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.WindowsCE.Forms, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_CD5C848FEFF7CEEE4473C9FF14956937"
+                    {
+                    "Name" = "8:Microsoft.WindowsCE.Forms.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.WindowsCE.Forms.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_CEE45D87B2294C90AF5808D89D6C3445"
+            {
+            "SourcePath" = "8:..\\..\\icons\\SORTASC.BMP"
+            "TargetName" = "8:SORTASC.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_DC37B84A74A44A62970C6E9F8A86FD2E"
+            {
+            "SourcePath" = "8:..\\..\\icons\\Plan.BMP"
+            "TargetName" = "8:Plan.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_E9B1FC0B90304202826342D1686DC03E"
+            {
+            "SourcePath" = "8:..\\..\\icons\\close.BMP"
+            "TargetName" = "8:close.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_EE1B1A0FE32CF90C63860766E24B4039"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Data, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_EE1B1A0FE32CF90C63860766E24B4039"
+                    {
+                    "Name" = "8:System.Data.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.Data.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_EECA0D948690428388823DDF11646703"
+            {
+            "SourcePath" = "8:..\\..\\icons\\PASTE.BMP"
+            "TargetName" = "8:PASTE.BMP"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{BA458234-9B71-4F46-8107-E91156377184}:_F071B45A678E4FA0A28193E33B7BD231"
+            {
+            "SourcePath" = "8:..\\..\\icons\\scan_reg.bmp"
+            "TargetName" = "8:scan_reg.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_DECC232CBA00443DA4EF1F18B5518B9C"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_F92993EC1167AA5F6C06D2059FD0293E"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:provision, Version=1.0.4958.30957, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_F92993EC1167AA5F6C06D2059FD0293E"
+                    {
+                    "Name" = "8:provision.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:provision.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_FC9354B6CC488C02C27AAC495BE671DA"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac"
+                "ScatterAssemblies"
+                {
+                    "_FC9354B6CC488C02C27AAC495BE671DA"
+                    {
+                    "Name" = "8:System.SR.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:System.SR.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:TRUE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{E4F2F62A-3940-4BF5-A031-F7FA98CAAFFA}:_FF30B2C47F36493294D7BE778D78D0CE"
+            {
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:btZebra, Version=1.0.4958.30971, Culture=neutral"
+                "ScatterAssemblies"
+                {
+                    "_FF30B2C47F36493294D7BE778D78D0CE"
+                    {
+                    "Name" = "8:btZebra.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:btZebra.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+        }
+        "Folder"
+        {
+            "{D5B00AC1-E6C3-4CC5-90FF-8E0F53D9E5E0}:_2686B792EA24472B91B2D1803E4163F3"
+            {
+            "DefaultLocation" = "8:%InstallDir%"
+            "Name" = "8:#1920"
+            "Condition" = "8:"
+            "Property" = "8:%InstallDir%"
+                "Folders"
+                {
+                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_623C087A8572442485C06BA4CAB4D1E5"
+                    {
+                    "Name" = "8:prnimg"
+                    "Condition" = "8:"
+                    "Property" = "8:_474136573A9943AE9E52185D0781889D"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{5943FCFD-5B64-4EE4-96C9-4618EC95352A}:_DECC232CBA00443DA4EF1F18B5518B9C"
+                    {
+                    "Name" = "8:icons"
+                    "Condition" = "8:"
+                    "Property" = "8:_3019E294C3B64AA181758720F059191A"
+                        "Folders"
+                        {
+                        }
+                    }
+                }
+            }
+            "{F6DFDB62-1DD1-498B-89B7-27BAC542EE5A}:_2ED11891164846B8A4615EDBFB8CB2D3"
+            {
+            "Name" = "8:#1919"
+            "Condition" = "8:"
+            "Property" = "8:%CE17%"
+                "Folders"
+                {
+                }
+            }
+            "{F6DFDB62-1DD1-498B-89B7-27BAC542EE5A}:_C347556022674AB28EADEA25B0E37F04"
+            {
+            "Name" = "8:#1911"
+            "Condition" = "8:"
+            "Property" = "8:%CE1%"
+                "Folders"
+                {
+                }
+            }
+        }
+        "Product"
+        {
+        "Name" = "8:Microsoft Visual Studio"
+        "ProductName" = "8:RoddasPDA"
+        "Manufacturer" = "8:eMerge-IT"
+        "OSVersionMin" = "8:4.0"
+        "OSVersionMax" = "8:6.99"
+        "NoUninstall" = "11:FALSE"
+        "Compress" = "11:FALSE"
+        "CESetupDLL" = "8:"
+        }
+        "ProjectOutput"
+        {
+            "{605BE39E-5046-48BD-AEC0-63C3A46626D5}:_0E6BD0A400A44FC2A6E1D048DC993172"
+            {
+            "SourcePath" = "8:..\\..\\obj\\Debug\\RoddasPDA.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:0"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{7D72660F-2A24-4F96-AFA6-30568842DB92}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{605BE39E-5046-48BD-AEC0-63C3A46626D5}:_F16345C578F64426AEDC87F0FAE68304"
+            {
+            "SourcePath" = "8:..\\..\\StartPDA\\StartPDA\\obj\\Debug\\StartPDA.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            "Condition" = "8:"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "Register" = "3:0"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:0"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:Built"
+            "OutputProjectGuid" = "8:{5D49DD59-6120-4B6A-8CF5-4C23379A1EBB}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+        }
+        "Registry"
+        {
+            "HKLM"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKCU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKCR"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKU"
+            {
+                "Keys"
+                {
+                }
+            }
+            "HKPU"
+            {
+                "Keys"
+                {
+                }
+            }
+        }
+        "Shortcut"
+        {
+            "{971D45E9-E38C-49AC-B36E-4C5BEA533350}:_DDD0EC677AF94455A01F38A013CF97C7"
+            {
+            "Name" = "8:RoddasPDA"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "Target" = "8:_F16345C578F64426AEDC87F0FAE68304"
+            "Folder" = "8:_2ED11891164846B8A4615EDBFB8CB2D3"
+            "WorkingFolder" = "8:_2686B792EA24472B91B2D1803E4163F3"
+            }
+        }
+    }
+}

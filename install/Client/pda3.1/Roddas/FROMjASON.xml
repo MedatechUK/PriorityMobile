@@ -1,0 +1,253 @@
+﻿<pdadata>
+
+  <curdate>13188697</curdate>
+  <routenumber>70</routenumber>
+  <vehiclereg>wa56fhv</vehiclereg>
+
+  <maintainance>
+
+    <maintained>0</maintained>
+
+    <text>
+      vehicle condition and cleanliness
+      drivers of road vehicles should check the following items on the vehicle they are driving on a daily basis because the road traffic act 1974 holds drivers resposible for the safety of their vehicle.
+      the company requires any faults to be reported immediatley to management
+      delivery vehicles are considered to "food premises" within the meaning of the food safety acts. as such, all drivers are requireed to maintain their vehicles in a clean and hygenic condition, inside and outside, including the cab.
+    </text>
+
+    <checks>
+      <question>
+        <number>1</number>
+        <text>tyres and wheel nuts ok?</text>
+        <option>
+          <text>no</text>
+          <value>1</value>
+        </option>
+        <option>
+          <text>yes</text>
+          <value>2</value>
+        </option>
+        <response>
+          <text></text>
+          <value></value>
+        </response>
+      </question>
+    </checks>
+
+    <cleanliness>
+      <question>
+        <number>2</number>
+        <text>tyres and wheel nuts ok?</text>
+        <option>
+          <text>no</text>
+          <value>1</value>
+        </option>
+        <option>
+          <text>yes</text>
+          <value>2</value>
+        </option>
+        <response>
+          <text></text>
+          <value></value>
+        </response>
+      </question>
+    </cleanliness>
+
+    <damage>
+      <question>
+        <number>3</number>
+        <text>tyres and wheel nuts ok?</text>
+        <option>
+          <text>no</text>
+          <value>1</value>
+        </option>
+        <option>
+          <text>yes</text>
+          <value>2</value>
+        </option>
+        <response>
+          <text></text>
+          <value></value>
+        </response>
+      </question>
+    </damage>
+
+    <mileage>
+      <question>
+        <number>4</number>
+        <text>start milage</text>
+        <response>
+          <text></text>
+          <value></value>
+        </response>
+      </question>
+      <question>
+        <number>5</number>
+        <text>end milage</text>
+        <response>
+          <text></text>
+          <value></value>
+        </response>
+      </question>
+    </mileage>
+
+  </maintainance>
+
+  <stdpricelist>
+    <families>
+      <family>
+        <familyname>family</familyname>
+        <parts>
+          <part>
+            <name>t6swupd</name>
+            <des>t6 software upgrade</des>
+            <barcode>1231231231234</barcode>
+            <price>9.99</price>
+          </part>
+        </parts>
+      </family>
+    </families>
+  </stdpricelist>
+
+  <deliveries>
+
+    <delivery>
+
+      <ordinal>1</ordinal>
+      <custnumber>ab123456</custnumber>
+      <postcode>abc123</postcode>
+      <time>300</time>
+      <sonum>so123456</sonum>
+      <showprices>0</showprices>
+      <delivered>0</delivered>
+      <nodeliveryreason>from drop down</nodeliveryreason>
+
+      <parts>
+        <!--delivery. order list by type p parts then by type r. if type p part expect lot number either by scan or manual input( possibility of multiple lots per despatch). if type r expect input of qty against so line item no lots -->
+        <part>
+          <ordi>0</ordi>
+          <name>t6swupd</name>
+          <des>t6 software upgrade</des>
+          <parttype>p/r</parttype>
+          <barcode>1231231231234</barcode>
+          <lotnumber>1231231231234</lotnumber>
+          <tquant>9</tquant>
+          <cquant>0</cquant>
+          <!-- allow multiple block weights for variable conversion of cheese to be entered against single product line. e.g. 3 blocks on so despatch 1 at 4.9 kg, 1 at 5.0, 1 at 5.1-->
+
+        </part>
+      </parts>
+
+      <customersignature>
+        <mandatory>1</mandatory>
+        <!--new column requied against customer, despatch signature mandatory y or n if y then customersignature is mandatory on post-->
+      </customersignature>
+
+      <customer>
+
+        <custnumber></custnumber>
+        <custname>0</custname>
+        <contact>0</contact>
+        <phone>0</phone>
+
+        <address1>0</address1>
+        <address2>0</address2>
+        <address3>0</address3>
+        <address4>0</address4>
+        <postcode>0</postcode>
+
+        <balances>
+          <paymentterms></paymentterms>
+          <overduepayment>0.00</overduepayment>
+          <dueamount>0.00</dueamount>
+          <todaysinvoicetotals></todaysinvoicetotals>
+        </balances>
+
+        <invoices>
+          <invoice>
+            <ivnum>iv123456</ivnum>
+            <ivdate>13188673</ivdate>
+            <duedate>13188673</duedate>
+            <total>99.99</total>
+            <parts>
+              <part>
+                <ordi>0</ordi>
+                <name>t6swupd</name>
+                <barcode>1231231231234</barcode>
+                <des>t6 software upgrade</des>
+                <qty>9</qty>
+                <unitprice>9.99</unitprice>
+              </part>
+            </parts>
+          </invoice>
+        </invoices>
+
+        <creditnote>
+          <parts>
+            <part>
+              <ivnum>iv123456</ivnum>
+              <!--it will be highly unlikely that a lot number or invoice no will be known when raising a return and credit so it be automatically selected 
+            against the last invoice for that product-->
+              <ordi>0</ordi>
+              <name>t6swupd</name>
+              <des>t6 software upgrade</des>
+              <qty>9</qty>
+              <unitprice>9.99</unitprice>
+              <rcvdqty>0</rcvdqty>
+            </part>
+          </parts>
+        </creditnote>
+
+        <orders>
+          <order>
+            <deliverydate>13188684</deliverydate>
+            <customerpurchaseordernumber></customerpurchaseordernumber>
+            <parts>
+              <part>
+                <name>t6swupd</name>
+                <barcode>1231231231234</barcode>
+                <des>t6 software upgrade</des>
+                <qty>0</qty>
+                <unitprice>9.99</unitprice>
+              </part>
+            </parts>
+          </order>
+        </orders>
+
+        <accountinfo>
+          newtextformoncustomers
+        </accountinfo>
+
+        <customerremarks>
+          textreadandwrite
+        </customerremarks>
+
+        <addremark>
+          textreadandwrite
+        </addremark>
+
+        <customerpricelist>
+          <parts>
+            <part>
+              <ordi>0</ordi>
+              <name>t6swupd</name>
+              <barcode>1231231231234</barcode>
+              <des>t6 software upgrade</des>
+              <tquant>9</tquant>
+              <price>9.99</price>
+            </part>
+          </parts>
+        </customerpricelist>
+
+      </customer>
+
+      <payment>
+        <cash></cash>
+        <cheque></cheque>
+      </payment>
+
+    </delivery>
+
+  </deliveries>
+
+</pdadata>

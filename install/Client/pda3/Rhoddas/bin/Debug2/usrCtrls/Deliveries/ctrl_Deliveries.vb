@@ -82,22 +82,23 @@ Public Class ctrl_Deliveries
             .Focus()
         End With
 
-        Dim doSave As Boolean = False
-        With thisForm
-            With .FormData
-                If IsNothing(.SelectSingleNode("pdadata/home").Attributes.GetNamedItem("changed")) Then
-                    Dim chNode As XmlNode = .SelectSingleNode("pdadata/home")
-                    chNode.Attributes.Append(xmlForms.changedAttribute)
-                    doSave = True
-                End If
-                If IsNothing(.SelectSingleNode("pdadata/warehouse").Attributes.GetNamedItem("changed")) Then
-                    Dim chNode As XmlNode = .SelectSingleNode("pdadata/warehouse")
-                    chNode.Attributes.Append(xmlForms.changedAttribute)
-                    doSave = True
-                End If
-            End With
-            If doSave Then .Save()
-        End With
+        If xmlForms.SetNodeChanged("pdadata/home") Or _
+            xmlForms.SetNodeChanged("pdadata/warehouse") Then thisForm.Save()
+
+        ''Dim doSave As Boolean = False
+        'With xmlForms.FormData.Document
+        '    If IsNothing(.SelectSingleNode("pdadata/home").Attributes.GetNamedItem("changed")) Then
+        '        .SelectSingleNode("pdadata/home").Attributes.Append(xmlForms.changedAttribute)
+        '        'doSave = True
+        '        thisForm.Save()
+        '    End If
+        '    If IsNothing(.SelectSingleNode("pdadata/warehouse").Attributes.GetNamedItem("changed")) Then
+        '        .SelectSingleNode("pdadata/warehouse").Attributes.Append(xmlForms.changedAttribute)
+        '        'doSave = True
+        '        thisForm.Save()
+        '    End If
+        '    'If doSave Then thisForm.Save()
+        'End With
 
         thisForm.RefreshSubForms()
         IsBinding = False
@@ -162,9 +163,11 @@ Public Class ctrl_Deliveries
         With thisForm.Printer
             If Not .Connected Then
                 .BeginConnect(thisForm.MACAddress)
-            Else
-                PrintForm()
+                Do While .WaitConnect
+                    Threading.Thread.Sleep(100)
+                Loop
             End If
+            If .Connected Then PrintForm()
         End With
     End Sub
 
@@ -331,59 +334,61 @@ Public Class ctrl_Deliveries
 
     Private Sub hCloseDelivery()
 
-        If Not PreClose(thisForm, thisForm.FormData.SelectSingleNode(thisForm.boundxPath)) Then Exit Sub
-        Dim dlg As New dlgCloseDelivery
-        With dlg
-            Dim NDReason As ComboBox = .FindControl("Reason")
-            With NDReason
-                With .Items
-                    .Clear()
-                    .Add("Please Select")
-                    For Each reason As XmlNode In thisForm.FormData.SelectSingleNode("pdadata/reasons/nodelivery").SelectNodes(".//reason")
-                        .Add(reason.InnerText)
-                    Next
-                End With
-                .SelectedIndex = 0
-            End With
-            thisForm.Dialog(dlg)
-        End With
+        Dim ex As New Exception
+        Dim dlg As dlgCloseDelivery = preClose(thisForm, thisForm.FormData.SelectSingleNode(thisForm.boundxPath), ex)
+
+        If IsNothing(ex) Then
+            If Not dlg.CompleteDelivery Then
+                thisForm.Dialog(dlg)
+            Else
+                dlg.Result = DialogResult.OK
+                CloseDialog(dlg)
+            End If
+        Else
+            MsgBox(ex.Message)
+        End If
 
     End Sub
 
     Public Overrides Sub CloseDialog(ByVal frmDialog As PriorityMobile.UserDialog)
 
-        With thisForm
-            If frmDialog.Result = DialogResult.OK Then
-                Dim Delivered As CheckBox = frmDialog.FindControl("Delivered")
-                Dim NDReason As ComboBox = frmDialog.FindControl("Reason")
-                If Not postclose(thisForm, .FormData.SelectSingleNode(.thisxPath), Delivered.Checked) Then Exit Sub
+        Dim dlg As dlgCloseDelivery = frmDialog
 
+        With thisForm
+            If dlg.Result = DialogResult.Cancel Then
+                .RefreshForm()
+                Exit Sub
+
+            Else
                 With .FormData.SelectSingleNode(String.Format("{0}[ordinal='{1}']", .boundxPath, .CurrentRow("ordinal")))
-                    Select Case Delivered.Checked
-                        Case True
-                            .SelectSingleNode("delivered").InnerText = "Y"
-                            .SelectSingleNode("nodeliveryreason").InnerText = ""
-                            If MsgBox("Print Delivery Note?", MsgBoxStyle.OkOnly) = MsgBoxResult.Ok Then
-                                With thisForm.Printer
-                                    If Not .Connected Then
-                                        .BeginConnect(thisForm.MACAddress)
-                                        Do While .WaitConnect
-                                            Threading.Thread.Sleep(100)
-                                        Loop
-                                    Else
-                                        PrintForm()
-                                    End If
-                                End With
-                            End If
-                        Case Else
-                            .SelectSingleNode("delivered").InnerText = "Y"
-                            .SelectSingleNode("nodeliveryreason").InnerText = NDReason.SelectedItem
-                    End Select
+                    .SelectSingleNode("delivered").InnerText = "Y"
+                    If Not (dlg.CompleteDelivery) Then
+                        Dim NDReason As ComboBox = dlg.FindControl("Reason")
+                        .SelectSingleNode("nodeliveryreason").InnerText = NDReason.SelectedItem
+                    End If
                 End With
+
+                If Not (dlg.NoDelivery) Then
+                    If MsgBox("Print Delivery Note?", MsgBoxStyle.OkOnly) = MsgBoxResult.Ok Then
+                        With thisForm.Printer
+                            If Not .Connected Then
+                                .BeginConnect(thisForm.MACAddress)
+                                Do While .WaitConnect
+                                    Threading.Thread.Sleep(100)
+                                Loop
+                            End If
+                            If .Connected Then PrintForm()
+                        End With
+                    End If
+                End If
+
                 .Save()
                 .Bind()
+
+                .RefreshForm()
+
             End If
-            .RefreshForm()
+
         End With
     End Sub
 
