@@ -12,6 +12,8 @@
         Dim m As eMode = eMode.Switch
         Dim thisSwitch As String = ""
 
+        If Args.Length = 0 Then Exit Sub
+
         Do
             Select Case Args(i).Substring(0, 1)
                 Case "-", "/"

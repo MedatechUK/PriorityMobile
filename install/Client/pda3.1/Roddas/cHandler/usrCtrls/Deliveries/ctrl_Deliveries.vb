@@ -170,25 +170,24 @@ Public Class ctrl_Deliveries
                 Loop
             Else
                 PrintForm()
-                If MsgBox("Print Duplicate?", MsgBoxStyle.OkOnly) = MsgBoxResult.Ok Then
-                    PrintForm()
-                End If
             End If
         End With
     End Sub
 
     Public Overrides Sub PrintForm()
         Dim dv As XmlNode
+        Do
+            With thisForm
+                dv = .FormData.SelectSingleNode(String.Format("{0}[ordinal='{1}']", .boundxPath, ListSort1.Selected))
+            End With
 
-        With thisForm
-            dv = .FormData.SelectSingleNode(String.Format("{0}[ordinal='{1}']", .boundxPath, ListSort1.Selected))
-        End With
+            If dv.SelectSingleNode("showprices").Value = "Y" Then
+                printDelivery(dv)
+            Else
+                PrintInvoice(dv)
+            End If
+        Loop Until Not MsgBox("Print Duplicate?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok
 
-        If dv.SelectSingleNode("showprices").Value = "Y" Then
-            printDelivery(dv)
-        Else
-            PrintInvoice(dv)
-        End If
     End Sub
 
     Public Sub printDelivery(ByVal dv As XmlNode)
