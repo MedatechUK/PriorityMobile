@@ -1,0 +1,12 @@
+M:\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulocityCli.exe
+M:\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulocityCli.pdb
+M:\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulocityCli.xml
+M:\MerchServProviders\Cumulocity\cumulocityCli\obj\Debug\ResolveAssemblyReference.cache
+M:\MerchServProviders\Cumulocity\cumulocityCli\obj\Debug\cumulocityCli.Resources.resources
+M:\MerchServProviders\Cumulocity\cumulocityCli\obj\Debug\cumulocityCli.vbproj.GenerateResource.Cache
+M:\MerchServProviders\Cumulocity\cumulocityCli\obj\Debug\cumulocityCli.exe
+M:\MerchServProviders\Cumulocity\cumulocityCli\obj\Debug\cumulocityCli.xml
+M:\MerchServProviders\Cumulocity\cumulocityCli\obj\Debug\cumulocityCli.pdb
+M:\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulicity.dll
+M:\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulicity.pdb
+M:\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulicity.xml
