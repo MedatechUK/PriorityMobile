@@ -124,7 +124,7 @@ Public Class Form1
         Select Case e.Button.ImageIndex
             Case 0 ' Send
                 Dim posted As Boolean = False
-                Dim strPostURL = "http://mobile.aerospheres.com:8080/postsig.ashx"
+                Dim strPostURL = "http://10.230.4.22:8080/postsig.ashx"
                 Dim xmldata As String = SendXML
                 Dim requestStream As Stream = Nothing
                 Dim uploadResponse As Net.HttpWebResponse = Nothing
