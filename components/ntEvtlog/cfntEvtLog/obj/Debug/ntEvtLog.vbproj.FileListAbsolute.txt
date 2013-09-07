@@ -1,0 +1,9 @@
+M:\components\ntEvtlog\cfntEvtLog\bin\Debug\ntEvtLog.dll
+M:\components\ntEvtlog\cfntEvtLog\bin\Debug\ntEvtLog.pdb
+M:\components\ntEvtlog\cfntEvtLog\bin\Debug\ntEvtLog.xml
+M:\components\ntEvtlog\cfntEvtLog\obj\Debug\ResolveAssemblyReference.cache
+M:\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEvtLog.Resources.resources
+M:\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEvtLog.vbproj.GenerateResource.Cache
+M:\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEvtLog.dll
+M:\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEvtLog.xml
+M:\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEvtLog.pdb
