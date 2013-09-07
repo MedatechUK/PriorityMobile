@@ -25,7 +25,12 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
 #Region "Overriden Methods"
 
     Public Overrides Sub Print(ByVal Bytes() As Byte)
-        connection.Write(Bytes)
+        Try
+            connection.Write(Bytes)
+        Catch EX As Exception
+            MsgBox(EX.Message)
+            disconnect()
+        End Try
     End Sub
 
     Public Overrides Sub StoreImage(ByVal Filename As String, ByVal Image As System.Drawing.Bitmap)
@@ -49,11 +54,12 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
 
 #Region "Connect to Printer"
 
-    Public Overrides Sub BeginConnect(ByVal macAddress As String, Optional ByVal PIN As String = Nothing, Optional ByVal RefreshImages As Boolean = False)
-        WaitConnect = True
+    Public Overrides Sub BeginConnect(ByVal macAddress As String, Optional ByVal PIN As String = Nothing, Optional ByVal RefreshImages As Boolean = False)        
         If IsNothing(macAddress) Then
             MsgBox("Printer MAC Address not set.")
             Exit Sub
+        Else
+            WaitConnect = True
         End If
         With Me
             .macAddress = macAddress.Trim()
@@ -138,6 +144,7 @@ Public Class LabelPrinter : Inherits CPCL.LabelPrinter
         Thread.Sleep(1000)
         RaiseDisconnect()
         connection = Nothing
+        WaitConnect = False
     End Sub
 
 #End Region
