@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cargo>
+  <state name="mining">
+    <action name="hascargo">
+      <condition name="hascargo" x="100" y ="100" r="255" g="0" b="0"/>
+      <result if="true" script="unload" nextstate="unload"/>
+      <result if="false" nextaction="cargofull"/>
+    </action>
+    <action name="cargofull">
+      <condition name="cargofull" x="100" y ="100" r="255" g="0" b="0"/>
+      <result if="true" script="tofleethanger" />
+      <result if="false"/>
+    </action>
+  </state>
+  <state name="unload">
+    <action name="hascargo" logic="">
+      <condition name="hascargo" x="100" y ="100" r="255" g="0" b="0"/>
+      <result if="true" script="unload" nextstate="mining"/>
+      <result if="false" nextaction="cargofull"/>
+    </action>
+    <action name="cargofull">
+      <condition name="cargofull" x="100" y ="100" r="255" g="0" b="0"/>
+      <result if="true" script="tofleethanger" />
+      <result if="false"/>
+    </action>
+  </state>
+  
+  <scripts>
+    <script name="tofleethanger">
+      <step type="drag" x1="100" y1 ="100" x2="100" y2 ="100"/>
+      <step type="wait" delay="20"/>
+      <step type="click" button="left" x="100" y ="100"/>
+      <step type="keypress" text="123"/>
+    </script>
+    <script name="unload">
+      <step type="drag" x1="100" y1 ="100" x2="100" y2 ="100"/>
+      <step type="wait" delay="20"/>
+      <step type="click" button="left" x="100" y ="100"/>
+      <step type="keypress" text="123"/>
+    </script>
+  </scripts>
+</cargo>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cargo>
+  <colours>
+    <rgb name="cargobar" r="1" g="1" b="1"/>
+    <rgb name="hicargobar" r="2" g="2" b="2"/>
+  </colours>
+  <coordinates>
+    <coordinate name="cargomax" x="100" y ="100"/>
+    <coordinate name="cargomin" x="200" y ="200"/>
+  </coordinates>
+  <conditions>
+    <condition name="hascargo" coordinate="cargomin">
+      <colour rgb="cargobar"/>
+      <colour rgb="hicargobar"/>    
+    </condition>
+    <condition name="cargofull" coordinate="cargomax">
+      <colour rgb="cargobar"/>
+      <colour rgb="hicargobar"/>
+    </condition>      
+  </conditions>  
+  <state name="mining">
+    <action name="hascargo">
+      <condition name="hascargo"/>
+      <result if="true" script="unload" nextstate="unload"/>
+      <result if="false" nextaction="cargofull"/>
+    </action>
+    <action name="cargofull">
+      <condition name="hascargo"/>
+      <result if="true" script="tofleethanger" />
+      <result if="false"/>
+    </action>
+  </state>
+  <state name="unload">
+    <action name="hascargo">
+      <condition name="hascargo"/>
+      <result if="true" script="unload" nextstate="mining"/>
+      <result if="false" nextaction="cargofull"/>
+    </action>
+    <action name="cargofull">
+      <condition name="hascargo"/>
+      <result if="true" script="tofleethanger" />
+      <result if="false"/>
+    </action>
+  </state>
+  <scripts>
+    <script name="tofleethanger">
+      <step type="drag" start="cargomax" end="cargomin"/>
+      <step type="wait" delay="20"/>
+      <step type="click" button="left" clickloc="cargomax"/>
+      <step type="keypress" text="123"/>
+    </script>
+    <script name="unload">
+      <step type="drag" start="cargomax" end="cargomin"/>
+      <step type="wait" delay="20"/>
+      <step type="click" button="left" clickloc="cargomax"/>
+      <step type="keypress" text="123"/>
+    </script>
+  </scripts>
+</cargo>

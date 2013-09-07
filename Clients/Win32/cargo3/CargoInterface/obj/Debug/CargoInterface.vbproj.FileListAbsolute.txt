@@ -1,0 +1,52 @@
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.exe
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.pdb
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.xml
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.dll
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.dll
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.dll
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.pdb
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.xml
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.pdb
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.xml
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.pdb
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.xml
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.vbproj.GenerateResource.Cache
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.exe
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.xml
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.pdb
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_Script.resources
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_State.resources
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_Main.resources
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.Resources.resources
+M:\Clients\Win32\cargo3\CargoInterface\bin\Debug\triggers.xml
+M:\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_Debug.resources
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.exe
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.xml
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.pdb
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\triggers.xml
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.exe
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.pdb
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.xml
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.dll
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.dll
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.dll
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.pdb
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.xml
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.pdb
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.xml
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.pdb
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.xml
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\ResolveAssemblyReference.cache
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_Debug.resources
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_Script.resources
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_State.resources
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.frm_Main.resources
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\cargo3.Resources.resources
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\obj\Debug\CargoInterface.vbproj.GenerateResource.Cache
+N:\PriorityMobileGIT\Clients\Win32\cargo3\CargoInterface\bin\Debug\CargoInterface.exe.config
+c:\program files\ntsa\cargo3\CargoInterface.exe.config
+c:\program files\ntsa\cargo3\triggers.xml
+c:\program files\ntsa\cargo3\CargoInterface.exe
+c:\program files\ntsa\cargo3\CargoInterface.pdb
+c:\program files\ntsa\cargo3\CargoInterface.xml

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CargoInterface
+</name>
+</assembly>
+<members>
+<member name="P:cargo3.prop_KeyPress.Keys">
+</member><member name="T:cargo3.prop_KeyPress">
+</member><member name="T:cargo3.prop_None">
+</member><member name="P:cargo3.prop_Delay.Delay">
+</member><member name="T:cargo3.prop_Delay">
+</member><member name="P:cargo3.prop_Click.ClickLocation">
+</member><member name="P:cargo3.prop_Click.Button">
+</member><member name="T:cargo3.prop_Click">
+</member><member name="P:cargo3.prop_State.Name">
+</member><member name="P:cargo3.prop_State.DefaultState">
+</member><member name="T:cargo3.prop_State">
+</member><member name="P:cargo3.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:cargo3.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:cargo3.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:cargo3.prop_Drag.StartLocation">
+</member><member name="P:cargo3.prop_Drag.EndLocation">
+</member><member name="T:cargo3.prop_Drag">
+</member><member name="P:cargo3.prop_Action.Name">
+</member><member name="P:cargo3.prop_Action.Logic">
+</member><member name="P:cargo3.prop_Action.Result_True">
+</member><member name="P:cargo3.prop_Action.Result_False">
+</member><member name="T:cargo3.prop_Action">
+</member><member name="P:cargo3.prop_Condition.Name">
+</member><member name="P:cargo3.prop_Condition.TolerancePercent">
+</member><member name="P:cargo3.prop_Condition.Location">
+</member><member name="P:cargo3.prop_Condition.Colour">
+</member><member name="T:cargo3.prop_Condition">
+</member>
+</members>
+</doc>

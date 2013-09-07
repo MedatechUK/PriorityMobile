@@ -1,0 +1,141 @@
+<html>
+<body bgcolor="#FFFFCC">
+<p><font face="Courier New, Courier, mono">Zie ook: <a href="faq.htm">FAQ</a>.</font></p>
+<p><font face="Courier New, Courier, mono">U kunt <b><font color="#CC0000">AutoEdit</font></b> 
+  gebruiken om uw scriptbestanden te wijzigen en foutvrij te maken. Het is gratis! Eenvoudig te gebruiken!</font></p>
+<p><font face="Courier New, Courier, mono" color="#3399FF">Functietoetsen wijzigen:</font><font face="Courier New, Courier, mono">
+  wanneer u de functietoetsen van AutoRecorder wilt wijzigen, gebruik dan AutoHotkey.exe 
+  (Dit programma vindt u in de installatie-map van AutoRecorder).</font></p>
+<p><font face="Courier New, Courier, mono" color="#3399FF">Het gebruik van de commandoregel</font><font face="Courier New, Courier, mono"> 
+  - Voorbeeld:</font></p>
+<p><font face="Courier New, Courier, mono">RUN(command /c copy c:\config.sys c:\config.bk1) 
+  (Voor Windows 98) </font></p>
+<p><font face="Courier New, Courier, mono">RUN(cmd /c copy c:\boot.ini d:\boot.bk1) 
+  (Voor Windows 2000) </font></p>
+<p><font face="Courier New, Courier, mono" color="#3399FF">Stoppen vanuit scriptbestanden:</font></p>
+<p><font face="Courier New, Courier, mono">RUN(auto stop)</font></p>
+<p><font face="Courier New, Courier, mono" color="#3399FF">Stoppen via een DOS-commando:</font></p>
+<p><font face="Courier New, Courier, mono">auto stop</font></p>
+<p><font face="Courier New, Courier, mono" color="#000099"><b>EEN PROFESSIONELE SCRIPT-TAAL
+  </b></font></p>
+<p><font face="Courier New, Courier, mono">Gebruik Kladblok om de bestanden *.scp te openen -
+  u ziet dan de script-commando's: </font></p>
+<p><font face="Courier New, Courier, mono">delay(xxx) - wacht gedurende xxx msec</font></p>
+<p><font face="Courier New, Courier, mono">M_LD(xxx,yyy) - druk de linkermuisknop 
+  in op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_LU(xxx,yyy) - laat de linkermuisknop 
+  los op schermpositie xxx,yyy </font></p>
+<p><font face="Courier New, Courier, mono">M_RD(xxx,yyy) - druk de rechtermuisknop
+  in op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_RU(xxx,yyy) - laat de rechtermuisknop 
+  los op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_LCLK(xxx,yyy) - klik de linkermuisknop
+  op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_RCLK(xxx,yyy) - klik de rechtermuisknop
+  op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_DCLK(xxx,yyy) - dubbelklik de linkermuisknop
+  op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_MV(xxx,yyy) - verplaats de muis naar 
+  schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_MD(xxx,yyy) - druk de middelste muisknop
+  in op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_MU(xxx,yyy) - laat de middelste muisknop 
+  los op schermpositie xxx,yyy</font></p>
+<p><font face="Courier New, Courier, mono">M_WHEEL(xxx,yyy,afstand) - draai de muiswiel 
+  vanaf schermpositie xxx,yyy over de opgegeven afstand (120 or -120 is gebruikelijk) </font></p>
+<p><font face="Courier New, Courier, mono">KD toets - druk de toets in </font></p>
+<p><font face="Courier New, Courier, mono">KU toets - laat de toets los </font></p>
+<p><font face="Courier New, Courier, mono">KB_CLK toets - sla de toets aan (in en los) </font></p>
+<p><font face="Courier New, Courier, mono">SYSKD toets - sla de toets aan samen met Alt </font></p>
+<p><font face="Courier New, Courier, mono">RUN(programma) - start dit programma
+  (bijv. Kladblok of C:\Windows\Verkenner.exe) </font></p>
+<p><font face="Courier New, Courier, mono">RUN(programma,1) - start dit programma
+  in een normaal venster</font></p>
+<p><font face="Courier New, Courier, mono">RUN(programma,0) - start dit programma 
+  in een gemaximaliseerd venster</font></p>
+<p><font face="Courier New, Courier, mono">/*() voor commentaar </font></p>
+<p><font face="Courier New, Courier, mono">MoveWindow(categorie,naam,a,b,c,d) -
+  verplaats het venster met de opgegeven naam en categorie naar schermpositie (a,b)
+  en geef dit venster de afmetingen c (breedte) en d (hoogte)</font></p>
+<p><font face="Courier New, Courier, mono">Het venster wordt automatisch actief 
+  (ook al geeft u dit niet aan) en wordt naar de opgegeven positie verplaatst.
+  Gebruik NULL wanneer u de categorie niet weet. </font></p>
+<p><font face="Courier New, Courier, mono">MOVEWINDOW(activewindow,null,a,b,c,d) -
+  verplaats het actieve venster naar de opgegeven positie</font></p>
+<p><font face="Courier New, Courier, mono">MINWINDOW(categorie,naam) - minimaliseer 
+  het venster met de opgegeven naam en categorie (hiervoor kunt u NULL invullen) 
+  </font></p>
+<p><font face="Courier New, Courier, mono">MINWINDOW(activewindow,null) - 
+  minimaliseer het actieve venster </font></p>
+<p><font face="Courier New, Courier, mono">MAXWINDOW(categorie,naam) - maximaliseer 
+  het venster met de opgegeven naam en categorie (hiervoor kunt u NULL invullen)
+  </font></p>
+<p><font face="Courier New, Courier, mono">MAXWINDOW(activewindow,null) - 
+  maximaliseer het actieve venster </font></p>
+<p><font face="Courier New, Courier, mono">CloseWindow(categorie,naam) - 
+  sluit het opgegeven venster met het commando WM_CLOSE</font></p>
+<p><font face="Courier New, Courier, mono">CloseWindow(activewindow,null) - 
+  sluit het actieve venster met het commando WM_CLOSE </font></p>
+<p><font face="Courier New, Courier, mono">GetWindow(categorie,naam) - 
+  verplaats dit venster naar de voorgrond</font></p>
+<p><font face="Courier New, Courier, mono">WaitforWindow(naam,10000,open(c:\boot.ini)) -
+  wacht 10 seconden en open c:\boot.ini in het opgegeven venster</font></p>
+<p><font face="Courier New, Courier, mono">EMAIL(mailto:fred@abc.com) - stuur een mailbericht</font></p>
+<p><font face="Courier New, Courier, mono">EXIT() - stop het afspelen</font></p>
+<p><font face="Courier New, Courier, mono">IF_WINDOW_EXIST(naam,open(c:\boot.ini),run(notepad))</font></p>
+<p><font face="Courier New, Courier, mono">IF_FILE_EXIST(bestand,open(c:\boot.ini),run(notepad))</font></p>
+<p><font face="Courier New, Courier, mono"> </font><font face="Courier New, Courier, mono">PowerOff(x) -
+  0 = afsluiten ; 1 = uitloggen ; 2 = uitschakelen ; 3 = herstarten</font></p>
+<p><font face="Courier New, Courier, mono">OPEN(bestand) - start programma of bestand, 
+  bijv. open(c:\boot.ini) of open(c:\abc.exe)</font></p>
+<p><font face="Courier New, Courier, mono">OPEN(bestand,1) - start programma of bestand 
+  in een normaal venster </font></p>
+<p><font face="Courier New, Courier, mono">OPEN(bestand,0) - start programma of bestand 
+  in een gemaximaliseerd venster</font></p>
+<p><font face="Courier New, Courier, mono">DoScp(bestand) - voer een .scp bestand 
+  uit vanuit een script, bijv. IF_FILE_EXIST(c:\setup.exe,UseScp(c:\a.scp),Exit()) </font></p>
+<p><font face="Courier New, Courier, mono">UseScp(filename)- gebruik een Use .scp bestand 
+  vanuit een script, bijv. UseScp(1.scp) </font></p>
+<p><font face="Courier New, Courier, mono">COPYSTRINGS(xxx) - kopieer een tekst 
+  naar het plakbord, bijv. copystrings(Ik ben superman) </font></p>
+<p><font face="Courier New, Courier, mono">PASTE() - kopieer de inhoud van het plakbord in 
+  </font></p>
+<p><font face="Courier New, Courier, mono">INPUT(xxx) - voer een tekst in; deze versie
+  ondersteunt uitsluitend kleine letters (a-z) </font></p>
+<p><font face="Courier New, Courier, mono">READTXTLINE2CLIPBOARD(x) - lees het met de
+  parameter x opgegeven aantal regels uit een .txt bestand (bijv. READTXTLINE2CLIPBOARD(c:\aa.txt,2)) 
+  en kopieer deze naar het plakbord (bijv. READTXTLINE2CLIPBOARD(c:\aa.txt,11) leest 11 regels)</font></p>
+<p><font face="Courier New, Courier, mono">Loop(x) - herhaal de navolgende  
+  scriptcommando's, tot aan NextLoop(), x maal </font></p>
+<p><font face="Courier New, Courier, mono">NextLoop() </font></p>
+<p><font face="Courier New, Courier, mono">PlayWav(bestand) - speel geluidsbestand af (bijvoorbeeld als gereedmelding)</font></p>
+<p><font face="Courier New, Courier, mono">Neem voor meer informatie contact met ons op.</font></p>
+<p><font color="#3333FF"><b><font face="Courier New, Courier, mono">Tips voor gebruik:</font></b></font></p>
+<p><font face="Courier New, Courier, mono">U kunt scriptbestanden starten vanaf de commandoregel met &quot;auto 
+  xxx.scp&quot; - dit is goed bruikbaar om uw PC op afstand te bedienen.</font></p>
+<p><font face="Courier New, Courier, mono">Met &quot;auto stop&quot; kunt u het script stoppen.</font></p>
+<p><font face="Courier New, Courier, mono">U kunt de afspeelsnelheid vergroten of verkleinen door 
+  de optie &quot;Afspeelsnelheid&quot; te wijzigen. Om de handelingen direct achter elkaar uit te 
+  voeren, kiest u de hoogste snelheid.</font></p>
+<p><font face="Courier New, Courier, mono">Met CTRL+ALT+A kunt u het icoon in de taakbak verbergen en weer zichtbaar maken.</font></p>
+<p><font face="Courier New, Courier, mono">Om AutoRecorder automatisch te laten afspelen na het 
+  opstarten van uw PC, vinkt u &quot;Start automatisch 'autostart.scp'&quot; aan in &quot;Optie Opstarten&quot;. 
+  Uiteraard dient er dan wel een scriptbestand met de naam &quot;autostart.scp&quot; in de werkmap van Autorecorder  
+  aanwezig te zijn.</font></p>
+<p><font face="Courier New, Courier, mono">Als u geen gebruik maakt van slepen &amp;plakken, kunt u 
+  &quot;Ja&quot; aanvinken in de &quot;Optie Muis&quot;</font></p>
+<p><font color="#3366FF">Belangrijke tips:</font></p>
+<p><font face="Courier New, Courier, mono">Bestanden kunnen niet worden opgeslagen in
+  een map waarvan de naam een "." bevat. </font></p>
+<p><font face="Courier New, Courier, mono">Bij het opnemen van muisbewegingen worden enkel
+  de schermcoordinaten van de muisaanwijzer en de toestand van de muisknoppen opgeslagen.
+  Als bij het afspelen het betreffende venster is verplaatst, zullen de acties niet correct worden uitgevoerd.  
+  </font></p>
+<p><font face="Courier New, Courier, mono">Tijdens het afspelen kan de reactiesnelheid 
+  van het programma soms licht afwijken. Voer tijdens de &quot;Opname&quot; uw acties dus 
+  langzaam uit, of kies de &quot;Vertraag afspeelsnelheid&quot; optie.</font></p>
+<p><font face="Courier New, Courier, mono">Bij het openen van een niet-gemaximaliseerd
+  venster, verschijnt dit op een willekeurige positie. Let dus op dat voor correct 
+  afspelen het venster gemaximaliseerd moet worden geopend.</font></p>
+<p>&nbsp;</p>
+</html>

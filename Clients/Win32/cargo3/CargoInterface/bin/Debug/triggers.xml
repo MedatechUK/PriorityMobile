@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cargo>
+  <state name="mining" default="">
+    <action name="hascargo" logic="hascargo AND NOT Test ">
+      <condition name="hascargo" x="1282" y="873" r="95" g="151" b="189" t="5" />
+      <condition name="Test" x="0" y="0" r="0" g="0" b="0" t="5" />
+      <result if="true" nextstate="unload" script="unload" />
+      <result if="false" nextaction="cargofull" />
+    </action>
+    <action name="cargofull">
+      <condition name="cargofull" x="100" y="100" r="255" g="0" b="0" t="5" />
+      <result if="true" script="tofleethanger" />
+      <result if="false" />
+    </action>
+  </state>
+  <state name="unload">
+    <action name="hascargo">
+      <condition name="hascargo" x="1216" y="871" r="245" g="236" b="165" t="5" />
+      <result if="true" nextstate="mining" script="unload" />
+      <result if="false" nextaction="cargofull" />
+    </action>
+    <action name="cargofull">
+      <condition name="cargofull" x="100" y="100" r="255" g="0" b="0" t="5" />
+      <result if="true" script="tofleethanger" />
+      <result if="false" />
+    </action>
+  </state>
+  <scripts>
+    <script name="tofleethanger">
+      <step type="drag" x1="1074" y1="693" x2="100" y2="100" />
+      <step type="wait" delay="2000" />
+      <step type="click" x="100" y="100" button="left" />
+      <step type="keypress" text="KD(ctrl),KD(67),KU(67),KU(ctrl)" />
+    </script>
+    <script name="unload">
+      <step type="click" x="198" y="290" button="left" />
+      <step type="wait" delay="1000" />
+      <step type="click" x="1076" y="218" button="left" />
+      <step type="wait" delay="1000" />
+      <step type="click" x="46" y="668" button="left" />
+      <step type="wait" delay="1000" />
+      <step type="click" x="1248" y="707" button="left" />
+      <step type="wait" delay="1000" />
+    </script>
+  </scripts>
+</cargo>

@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cargo>
+  <state name="Scan_Glacial">
+    <action name="Open_Scaner" logic="NOT ( Scanner_Open1 AND Scanner_Open2 AND Scanner_Open3 AND Scanner_Open4 AND Scanner_Open5 )">
+      <condition name="Scanner_Open1" x="2366" y="12" r="164" g="160" b="159" t="5" />
+      <condition name="Scanner_Open2" x="2344" y="7" r="155" g="150" b="149" t="5" />
+      <condition name="Scanner_Open3" x="2359" y="12" r="162" g="158" b="157" t="5" />
+      <condition name="Scanner_Open4" x="2342" y="9" r="162" g="158" b="157" t="5" />
+      <condition name="Scanner_Open5" x="2353" y="11" r="163" g="159" b="158" t="5" />
+      <result if="true" nextaction="Open_Scaner" script="Open_Scanner" />
+      <result if="false" script="Refresh_Scan" />
+    </action>
+    <action name="Ignore" logic="Anomoly AND NOT ( g1 AND g2 AND g3 AND g4  AND g5 )">
+      <condition name="Anomoly" x="2614" y="180" r="255" g="255" b="255" t="10" />
+      <condition name="g1" x="2555" y="176" r="170" g="202" b="170" t="5" />
+      <condition name="g2" x="2555" y="179" r="178" g="207" b="178" t="5" />
+      <condition name="g3" x="2572" y="180" r="188" g="214" b="188" t="5" />
+      <condition name="g4" x="2572" y="177" r="189" g="215" b="189" t="5" />
+      <condition name="g5" x="2577" y="180" r="165" g="200" b="165" t="5" />
+      <result if="true" nextaction="Ignore" script="Ignore_Anomoly" />
+    </action>
+    <action name="Warp_To" logic="Anomoly AND g1 AND g2 AND g3 AND g4 AND g5 ">
+      <condition name="Anomoly" x="2614" y="180" r="255" g="255" b="255" t="10" />
+      <condition name="g1" x="2555" y="176" r="170" g="202" b="170" t="5" />
+      <condition name="g2" x="2555" y="179" r="178" g="207" b="178" t="5" />
+      <condition name="g3" x="2572" y="180" r="188" g="214" b="188" t="5" />
+      <condition name="g4" x="2572" y="177" r="189" g="215" b="189" t="5" />
+      <condition name="g5" x="2577" y="180" r="165" g="200" b="165" t="5" />
+      <result if="true" nextstate="Warp_In" script="Warp_Squad_to_Ice" />
+      <result if="false" />
+    </action>
+  </state>
+  <state name="Mining" default="">
+    <action name="Has_Target">
+      <condition name="Ice_Target" x="951" y="47" r="236" g="243" b="247" t="5" />
+      <result if="false" nextstate="End_Miners" script="Broadcast_Align" />
+    </action>
+    <action name="Ship_to_FleetHanger" logic="NOT Ship_Has_Cargo ">
+      <condition name="Ship_Has_Cargo" x="47" y="650" r="0" g="0" b="0" t="5" />
+      <result if="true" nextstate="Load_Orca" script="drag_ship_to_Fleethanger" />
+    </action>
+  </state>
+  <state name="End_Miners">
+    <action name="End_Miner1">
+      <condition name="Miner1_Up" x="740" y="905" r="217" g="219" b="215" t="20" />
+      <result if="true" script="End_Miner1" />
+      <result if="false" />
+    </action>
+    <action name="End_Miner2">
+      <condition name="Miner2_Up" x="791" y="905" r="204" g="207" b="202" t="20" />
+      <result if="true" script="End_Miner2" />
+    </action>
+    <action name="End_Miner3">
+      <condition name="Miner3_Up" x="842" y="905" r="204" g="207" b="202" t="20" />
+      <result if="true" script="End_Miner3" />
+    </action>
+    <action name="End_All_Miner" logic="NOT(Miner1_Up) AND NOT(Miner2_Up) AND NOT(Miner3_Up) ">
+      <condition name="Miner1_Up" x="740" y="905" r="217" g="219" b="215" t="20" />
+      <condition name="Miner2_Up" x="791" y="905" r="204" g="207" b="202" t="20" />
+      <condition name="Miner3_Up" x="842" y="905" r="204" g="207" b="202" t="20" />
+      <result if="true" nextstate="Aquire_Target" />
+    </action>
+  </state>
+  <state name="Aquire_Target">
+    <action name="is_Mining" logic="Ice_Left AND Has_Target AND Miner_up">
+      <condition name="Ice_Left" x="1822" y="161" r="52" g="96" b="184" t="5" />
+      <condition name="Has_Target" x="955" y="47" r="130" g="177" b="200" t="5" />
+      <condition name="Miner_up" x="955" y="147" r="247" g="248" b="246" t="10" />
+      <result if="true" nextstate="Mining" script="Stop_miner" />
+    </action>
+    <action name="Still_Ice_Left">
+      <condition name="Ice_Left" x="1822" y="161" r="52" g="96" b="184" t="5" />
+      <result if="false" nextstate="End_Field" script="Warp_Squad_To_POS" />
+    </action>
+    <action name="Has_Target" logic="NOT Has_Target ">
+      <condition name="Has_Target" x="955" y="47" r="130" g="177" b="200" t="5" />
+      <result if="true" nextaction="is_Mining" script="Broadcast_Target" />
+      <result if="false" nextaction="is_Mining" script="Start_Mine" />
+    </action>
+  </state>
+  <state name="End_Field">
+    <action name="Check_InWarp" logic="Not_In_Warp ">
+      <condition name="Not_In_Warp" x="1999" y="711" r="146" g="144" b="144" t="5" />
+      <result if="true" nextstate="Scan_Glacial" script="Unload_To_Hanger" />
+      <result if="false" nextaction="Check_InWarp" />
+    </action>
+  </state>
+  <state name="Warp_In">
+    <action name="Check_InWarp" logic="Not_In_Warp ">
+      <condition name="Not_In_Warp" x="1999" y="711" r="146" g="144" b="144" t="5" />
+      <result if="true" nextstate="Mining" script="Warp_In_Setup" />
+      <result if="false" nextaction="Check_InWarp" />
+    </action>
+  </state>
+  <state name="Load_Orca">
+    <action name="Reset_Message">
+      <condition name="Mess1" x="1872" y="426" r="33" g="33" b="33" t="5" />
+      <condition name="Mess2" x="1857" y="381" r="180" g="180" b="180" t="5" />
+      <condition name="Mess3" x="1929" y="381" r="180" g="180" b="180" t="5" />
+      <condition name="Mess4" x="1977" y="381" r="161" g="161" b="161" t="5" />
+      <condition name="Mess5" x="1876" y="400" r="163" g="163" b="163" t="5" />
+      <result if="true" script="ok_Qty" />
+    </action>
+    <action name="Stack_Ship" logic="Left_Ice AND Right_Ice">
+      <condition name="Left_Ice" x="1390" y="327" r="2" g="2" b="2" t="5" />
+      <condition name="Right_Ice" x="1473" y="331" r="3" g="2" b="2" t="5" />
+      <result if="true" script="Stack_Ship" />
+    </action>
+    <action name="Stack_Hold" logic="Left_Ice AND Right_Ice">
+      <condition name="Left_Ice" x="1398" y="471" r="3" g="3" b="3" t="10" />
+      <condition name="Right_Ice" x="1475" y="472" r="3" g="2" b="2" t="10" />
+      <result if="true" script="Stack_Hold" />
+    </action>
+    <action name="Fleet_Has_Cargo">
+      <condition name="Fleet_Has_Cargo" x="1394" y="190" r="2" g="2" b="2" t="10" />
+      <result if="false" nextstate="Mining" />
+    </action>
+    <action name="Fleet_To_Hold" logic="Fleet_Has_Cargo AND Hold_Has_Room">
+      <condition name="Fleet_Has_Cargo" x="1398" y="188" r="2" g="2" b="2" t="5" />
+      <condition name="Hold_Has_Room" x="1569" y="394" r="0" g="0" b="0" t="10" />
+      <result if="true" nextaction="Reset_Message" script="Drag_Fleet_To_Hold" />
+    </action>
+    <action name="Fleet_To_Ship" logic="Fleet_Has_Cargo AND Ship_Has_Room ">
+      <condition name="Fleet_Has_Cargo" x="1394" y="191" r="2" g="2" b="2" t="5" />
+      <condition name="Ship_Has_Room" x="1565" y="254" r="0" g="0" b="0" t="10" />
+      <result if="true" nextaction="Reset_Message" script="Drag_Fleet_To_Ship" />
+    </action>
+    <action name="Fleet_Full" logic="Fleet_Has_Space ">
+      <condition name="Fleet_Has_Space" x="1556" y="114" r="0" g="0" b="0" t="5" />
+      <result if="true" nextstate="Mining" />
+      <result if="false" nextstate="Unload_And_Return" script="Warp_Orca_To_POS" />
+    </action>
+  </state>
+  <state name="Unload_And_Return">
+    <action name="Check_InWarp" logic="Not_In_Warp ">
+      <condition name="Not_In_Warp" x="1999" y="711" r="146" g="144" b="144" t="5" />
+      <result if="true" nextstate="Warp_In" script="Unload_To_Hanger_And_Return" />
+      <result if="false" nextaction="Check_InWarp" />
+    </action>
+  </state>
+  <scripts>
+    <script name="Warp_Squad_to_Ice">
+      <step type="click" x="2372" y="11" button="left" />
+      <step type="click" x="2508" y="178" button="right" />
+      <step type="click" x="2530" y="229" button="left" />
+      <step type="keypress" text="KD(alt),KD(68),KU(68),KU(alt)" />
+      <step type="wait" delay="60000" />
+    </script>
+    <script name="Broadcast_Target">
+      <step type="click" x="1618" y="161" button="left" />
+      <step type="click" x="1618" y="161" button="right" />
+      <step type="click" x="1681" y="344" button="left" />
+      <step type="click" x="1058" y="859" button="left" />
+      <step type="click" x="1058" y="859" button="right" />
+      <step type="click" x="1109" y="905" button="left" />
+      <step type="click" x="84" y="341" button="left" />
+      <step type="keypress" text="KD(ctrl)" />
+      <step type="click" x="84" y="341" button="left" />
+      <step type="keypress" text="KU(ctrl)" />
+      <step type="keypress" text="KD(ctrl)" />
+      <step type="click" x="84" y="341" button="left" />
+      <step type="keypress" text="KU(ctrl)" />
+    </script>
+    <script name="Broadcast_Align">
+      <step type="click" x="2192" y="667" button="left" />
+      <step type="click" x="817" y="922" button="left" />
+      <step type="wait" delay="5000" />
+      <step type="click" x="1618" y="161" button="left" />
+      <step type="click" x="1618" y="161" button="right" />
+      <step type="click" x="1681" y="344" button="left" />
+      <step type="click" x="1058" y="859" button="left" />
+      <step type="click" x="1058" y="859" button="right" />
+      <step type="click" x="1109" y="905" button="left" />
+    </script>
+    <script name="Ignore_Anomoly">
+      <step type="click" x="2517" y="184" button="left" />
+      <step type="click" x="2517" y="184" button="right" />
+      <step type="click" x="2535" y="335" button="left" />
+    </script>
+    <script name="Start_Mine">
+      <step type="click" x="951" y="48" button="left" />
+      <step type="keypress" text="KD(112),KU(112),KD(113),KU(113),KD(114),KU(114)" />
+    </script>
+    <script name="drag_ship_to_Fleethanger">
+      <step type="drag" x1="88" y1="698" x2="84" y2="570" />
+      <step type="click" x="815" y="926" button="left" />
+    </script>
+    <script name="Stop_miner">
+      <step type="click" x="949" y="51" button="left" />
+      <step type="click" x="1096" y="77" button="left" />
+      <step type="wait" delay="60000" />
+      <step type="click" x="953" y="52" button="left" />
+      <step type="keypress" text="KD(ctrl),KD(32),KU(32),KU(ctrl)" />
+      <step type="keypress" text="KD(ctrl),KD(32),KU(32),KU(ctrl)" />
+    </script>
+    <script name="Open_Scanner">
+      <step type="click" x="1374" y="29" button="left" />
+      <step type="keypress" text="KD(alt),KD(68),KU(68),KU(alt)" />
+    </script>
+    <script name="Warp_In_Setup">
+      <step type="click" x="1379" y="23" button="left" />
+      <step type="click" x="2067" y="624" button="left" />
+      <step type="click" x="2118" y="624" button="left" />
+      <step type="click" x="2467" y="641" button="left" />
+      <step type="click" x="2467" y="641" button="right" />
+      <step type="click" x="2508" y="547" button="left" />
+      <step type="click" x="2373" y="565" button="left" />
+      <step type="click" x="93" y="12" button="left" />
+      <step type="keypress" text="KD(ctrl)" />
+      <step type="click" x="1069" y="901" button="left" />
+      <step type="keypress" text="KU(ctrl)" />
+      <step type="wait" delay="25000" />
+      <step type="click" x="951" y="47" button="left" />
+      <step type="click" x="951" y="47" button="right" />
+      <step type="click" x="995" y="232" button="left" />
+      <step type="click" x="951" y="48" button="left" />
+      <step type="click" x="951" y="48" button="right" />
+      <step type="click" x="984" y="135" button="left" />
+    </script>
+    <script name="Warp_Squad_To_POS">
+      <step type="click" x="1356" y="10" button="left" />
+      <step type="click" x="1356" y="10" button="right" />
+      <step type="click" x="1396" y="273" button="left" />
+      <step type="click" x="1633" y="291" button="left" />
+      <step type="click" x="1826" y="373" button="left" />
+      <step type="wait" delay="60000" />
+    </script>
+    <script name="Drag_Fleet_To_Hold">
+      <step type="click" x="1368" y="163" button="left" />
+      <step type="drag" x1="1368" y1="163" x2="1479" y2="447" />
+    </script>
+    <script name="ok_Qty">
+      <step type="click" x="1936" y="459" button="left" />
+    </script>
+    <script name="Drag_Fleet_To_Ship">
+      <step type="click" x="1370" y="161" button="left" />
+      <step type="drag" x1="1370" y1="161" x2="1458" y2="308" />
+    </script>
+    <script name="Stack_Ship">
+      <step type="click" x="1550" y="347" button="left" />
+      <step type="click" x="1550" y="347" button="right" />
+      <step type="click" x="1594" y="415" button="left" />
+    </script>
+    <script name="Stack_Hold">
+      <step type="click" x="1556" y="486" button="left" />
+      <step type="click" x="1556" y="486" button="right" />
+      <step type="click" x="1596" y="556" button="left" />
+    </script>
+    <script name="Unload_To_Hanger">
+      <step type="click" x="2456" y="135" button="left" />
+      <step type="click" x="2423" y="176" button="right" />
+      <step type="click" x="2392" y="345" button="left" />
+      <step type="click" x="1804" y="518" button="left" />
+      <step type="click" x="1368" y="163" button="left" />
+      <step type="drag" x1="1368" y1="163" x2="2045" y2="390" />
+      <step type="click" x="1370" y="302" button="left" />
+      <step type="drag" x1="1370" y1="302" x2="2045" y2="390" />
+      <step type="click" x="1370" y="441" button="left" />
+      <step type="drag" x1="1370" y1="441" x2="2045" y2="390" />
+      <step type="click" x="2214" y="499" button="left" />
+      <step type="click" x="2214" y="499" button="right" />
+      <step type="click" x="2265" y="548" button="left" />
+      <step type="keypress" text="KD(alt),KD(67),KU(67),KU(alt)" />
+      <step type="click" x="2412" y="135" button="left" />
+      <step type="wait" delay="12600000" />
+    </script>
+    <script name="Unload_To_Hanger_And_Return">
+      <step type="click" x="2456" y="135" button="left" />
+      <step type="click" x="2423" y="176" button="right" />
+      <step type="click" x="2392" y="345" button="left" />
+      <step type="click" x="1817" y="518" button="left" />
+      <step type="click" x="1370" y="171" button="left" />
+      <step type="drag" x1="1368" y1="163" x2="2045" y2="390" />
+      <step type="click" x="1370" y="302" button="left" />
+      <step type="drag" x1="1370" y1="302" x2="2045" y2="390" />
+      <step type="click" x="1370" y="441" button="left" />
+      <step type="drag" x1="1370" y1="441" x2="2045" y2="390" />
+      <step type="click" x="2214" y="499" button="left" />
+      <step type="click" x="2214" y="499" button="right" />
+      <step type="click" x="2265" y="548" button="left" />
+      <step type="keypress" text="KD(alt),KD(67),KU(67),KU(alt)" />
+      <step type="click" x="2412" y="135" button="left" />
+      <step type="click" x="2425" y="643" button="left" />
+      <step type="click" x="2425" y="643" button="right" />
+      <step type="click" x="2451" y="509" button="left" />
+      <step type="wait" delay="60000" />
+    </script>
+    <script name="Warp_Orca_To_POS">
+      <step type="click" x="949" y="47" button="left" />
+      <step type="click" x="949" y="46" button="right" />
+      <step type="click" x="992" y="116" button="left" />
+      <step type="click" x="1361" y="26" button="left" />
+      <step type="click" x="1361" y="26" button="right" />
+      <step type="click" x="1433" y="290" button="left" />
+      <step type="click" x="1650" y="308" button="left" />
+      <step type="click" x="1870" y="307" button="left" />
+      <step type="wait" delay="60000" />
+    </script>
+    <script name="End_Miner1">
+      <step type="click" x="744" y="878" button="left" />
+    </script>
+    <script name="End_Miner2">
+      <step type="click" x="791" y="879" button="left" />
+    </script>
+    <script name="End_Miner3">
+      <step type="click" x="841" y="881" button="left" />
+    </script>
+    <script name="Refresh_Scan">
+      <step type="click" x="2623" y="331" button="left" />
+    </script>
+  </scripts>
+</cargo>
