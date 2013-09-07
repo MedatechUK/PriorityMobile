@@ -37,7 +37,7 @@ Public Class xmlForms
     Public Shared changedAttribute As XmlAttribute
     Public Shared postAttribute As XmlAttribute
     Public Shared changedRegex As Regex
-    
+
 #End Region
 
 #Region "initialisation and Finalisation"
@@ -61,8 +61,8 @@ Public Class xmlForms
             TopForm.Add(f.Attributes("name").Value, New TopLevelForm(New xForm(f, f.Attributes("xpath").Value, Nothing)))
         Next
 
-        changedAttribute = FormData.Document.CreateAttribute("changed")
-        changedAttribute.Value = "1"
+        'changedAttribute = FormData.Document.CreateAttribute("changed")
+        'changedAttribute.Value = "1"
 
         postAttribute = FormData.Document.CreateAttribute("post")
         postAttribute.Value = "1"
@@ -175,7 +175,7 @@ Public Class xmlForms
             Dim at As Xml.XmlAttribute = Nothing
             Select Case Rule
                 Case eStatusRule.beginreport
-                    At = st.Attributes("beginreport")
+                    at = st.Attributes("beginreport")
                 Case eStatusRule.prereport
                     at = st.Attributes("prereport")
                 Case eStatusRule.post
@@ -192,7 +192,7 @@ Public Class xmlForms
         End Get
     End Property
 
-    Public Shared ReadOnly Property StatusList(rule As eStatusRule) As List(Of String)
+    Public Shared ReadOnly Property StatusList(ByVal rule As eStatusRule) As List(Of String)
         Get
             Dim ret As New List(Of String)
             Dim act As Xml.XmlNodeList = StatusRules.Document.SelectNodes("//status")
@@ -211,8 +211,8 @@ Public Class xmlForms
         End Get
         Set(ByVal value As CPCL.LabelPrinter)
             prn = value
-            If File.Exists(UserEnv.LocalFolder & "\prnmac.txt") Then
-                Using sr As New StreamReader(UserEnv.LocalFolder & "\prnmac.txt")
+            If File.Exists(UserEnv.AppPath & "\prnmac.txt") Then
+                Using sr As New StreamReader(UserEnv.AppPath & "\prnmac.txt")
                     prnmac = sr.ReadToEnd
                 End Using
             Else
@@ -224,6 +224,31 @@ Public Class xmlForms
 #End Region
 
 #Region "Public Methods"
+
+    Public Shared Function SetNodeChanged(ByVal NodeSpec As String) As Boolean
+        With FormData.Document
+            Dim node As XmlNode = .SelectSingleNode(NodeSpec)
+            If IsNothing(node.Attributes.GetNamedItem("changed")) Then
+                Dim att As XmlAttribute = FormData.Document.CreateAttribute("changed")
+                att.Value = "1"
+                .SelectSingleNode(NodeSpec).Attributes.Append(att)
+                Return True ' We updated
+            Else
+                Return False ' No update required
+            End If
+        End With
+    End Function
+
+    Public Shared Function SetNodeChanged(ByVal Node As XmlNode) As Boolean        
+        If IsNothing(Node.Attributes.GetNamedItem("changed")) Then
+            Dim att As XmlAttribute = FormData.Document.CreateAttribute("changed")
+            att.Value = "1"
+            Node.Attributes.Append(att)
+            Return True ' We updated
+        Else
+            Return False ' No update required
+        End If
+    End Function
 
     Public Sub Sync()
         FormData.Sync()

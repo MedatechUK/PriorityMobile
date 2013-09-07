@@ -145,7 +145,7 @@ Public Class xForm
             Dim path As String = ""
             Dim p As xForm = Me
             Dim k As String
-            Dim repeat As Boolean = True
+            Dim repeat As Boolean = True            
             Do
                 If Not IsNothing(p.thisNode.Attributes("key")) And Not IsNothing(p.TableData.Current) Then
                     k = parseKey(p)
@@ -158,7 +158,7 @@ Public Class xForm
                 Else
                     repeat = False
                 End If
-            Loop Until Not repeat Or Not (String.Compare(path.Substring(0, 1), "/") = 0)
+            Loop Until Not repeat Or Not (String.Compare(path.Substring(0, 1), "/") = 0)            
             Return path
         End Get
     End Property
@@ -170,19 +170,21 @@ Public Class xForm
             Dim k As String
             Dim repeat As Boolean = True
             If Not IsNothing(p) Then
-                Do
-                    If Not IsNothing(p.thisNode.Attributes("key")) And Not IsNothing(p.TableData.Current) Then
-                        k = parseKey(p)
-                    Else
-                        k = ""
-                    End If
-                    path = String.Format("{0}{1}{2}", p.xPath, k, path)
-                    If Not IsNothing(p.Parent) Then
-                        p = p.Parent
-                    Else
-                        repeat = False
-                    End If
-                Loop Until Not repeat Or Not (String.Compare(path.Substring(0, 1), "/") = 0)
+                If String.Compare(path.Substring(0, 1), "/") = 0 Then
+                    Do
+                        If Not IsNothing(p.thisNode.Attributes("key")) And Not IsNothing(p.TableData.Current) Then
+                            k = parseKey(p)
+                        Else
+                            k = ""
+                        End If
+                        path = String.Format("{0}{1}{2}", p.xPath, k, path)
+                        If Not IsNothing(p.Parent) Then
+                            p = p.Parent
+                        Else
+                            repeat = False
+                        End If
+                    Loop Until Not repeat Or Not (String.Compare(path.Substring(0, 1), "/") = 0)
+                End If
             End If
             Return path
         End Get
@@ -315,7 +317,7 @@ Public Class xForm
 
                 StartBuildXML = Now
 
-
+                Dim changedStr As String = String.Format(" changed={0}1{0}", Chr(34))
                 Dim retstr As New System.Text.StringBuilder
                 retstr.AppendFormat("<{0}>", node.ParentNode.Name)
                 If String.Compare(Me.xPath.Substring(0, 1), "/") = 0 Then
@@ -323,7 +325,7 @@ Public Class xForm
                         retstr.AppendFormat("<{0}>", n.Name)
                         For Each i As XmlNode In n.ChildNodes
                             If String.Compare(i.InnerText, i.InnerXml.Replace("&amp;", "&")) = 0 Then
-                                retstr.AppendFormat(Replace(i.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text))
+                                retstr.Append(i.OuterXml.Replace(changedStr, ""))
                             End If
                         Next
                         retstr.AppendFormat("</{0}>", n.Name)
@@ -332,8 +334,8 @@ Public Class xForm
                     For Each n As XmlNode In xmlForms.FormData.Document.SelectNodes(Me.xPath)
                         retstr.AppendFormat("<{0}>", n.Name)
                         For Each i As XmlNode In n.ChildNodes
-                            If String.Compare(i.InnerText, i.InnerXml) = 0 Then
-                                retstr.AppendFormat(Replace(i.OuterXml, String.Format(" changed={0}1{0}", Chr(34)), "", , , CompareMethod.Text))
+                            If String.Compare(i.InnerText, i.InnerXml.Replace("&amp;", "&")) = 0 Then
+                                retstr.Append(i.OuterXml.Replace(changedStr, ""))
                             End If
                         Next
                         retstr.AppendFormat("</{0}>", n.Name)
@@ -539,7 +541,7 @@ Public Class xForm
         End Get
         Set(ByVal value As String)
             prnmac = value
-            Dim f As String = xmlForms.UserEnv.LocalFolder & "\prnmac.txt"
+            Dim f As String = xmlForms.UserEnv.AppPath & "\prnmac.txt"
             While File.Exists(f)
                 File.Delete(f)
                 System.Threading.Thread.Sleep(100)
@@ -570,7 +572,8 @@ Public Class xForm
                     If Not String.Compare(n.InnerText, e.ProposedValue) = 0 Then
                         With n
                             .InnerText = e.ProposedValue
-                            .Attributes.Append(xmlForms.changedAttribute)
+                            xmlForms.SetNodeChanged(n)
+                            '.Attributes.Append(xmlForms.changedAttribute)
                         End With
                         .Document.Save(.LocalFile)
                         For Each View As iView In Views

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5A0389F9-AF9A-40A4-947B-CE0773959815}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PriorityMobile</RootNamespace>
+    <AssemblyName>ViewControl2</AssemblyName>
+    <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.00</OSVersion>
+    <MyType>Windows</MyType>
+    <DeployDirSuffix>roddas</DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug2\</OutputPath>
+    <DocumentationFile>ViewControl2.xml</DocumentationFile>
+    <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>ViewControl2.xml</DocumentationFile>
+    <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\install\Client\pda3\StraussPDA\bin\System.SR.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\cePrinter.vb" />
+    <Compile Include="Classes\funcDate.vb" />
+    <Compile Include="Controls\iView.Designer.vb">
+      <DependentUpon>iView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\iView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\lookupData.vb" />
+    <Compile Include="Controls\MainView.Designer.vb">
+      <DependentUpon>MainView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\MainView.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\TopForm.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserDialog.Designer.vb">
+      <DependentUpon>UserDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\UserDialog.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Classes\xForm.vb" />
+    <Compile Include="Classes\xmlForms.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controls\MainView.resx">
+      <DependentUpon>MainView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\UserDialog.resx">
+      <DependentUpon>UserDialog.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Clients\ce_print\cpcl\CPCL\CPCL.vbproj">
+      <Project>{02BE755C-1DC9-47CE-9931-58DD9164C988}</Project>
+      <Name>CPCL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\frmControls\frmControls\frmControls.vbproj">
+      <Project>{51160138-3081-4533-8697-3C7778A42F5A}</Project>
+      <Name>frmControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\provision\provision\Provision.vbproj">
+      <Project>{C81127CE-7435-4555-961F-D43C4ADC6797}</Project>
+      <Name>Provision</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SlideMenu\SlideMenu\mnuControls.vbproj">
+      <Project>{BB0BE30E-005F-440A-81C3-B6B349B44D17}</Project>
+      <Name>mnuControls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -70,15 +70,23 @@
 
     Private ReadOnly Property Active() As TopLevelForm
         Get
-            With xmlForms.TopForm
-                Return .Item(.Keys(xf.ActiveForm))
-            End With
+            Try
+                With xmlForms.TopForm
+                    Return .Item(.Keys(xf.ActiveForm))
+                End With
+            Catch
+                Return Nothing
+            End Try
         End Get
     End Property
 
     Private ReadOnly Property Current() As xForm
         Get
-            Return Active.CurrentForm
+            Try
+                Return Active.CurrentForm
+            Catch
+                Return Nothing
+            End Try
         End Get
     End Property
 
@@ -239,9 +247,7 @@
 
         Active.CloseForm()
         Current.Views(Current.CurrentView).thisForm.PrinterConnected = False
-        DrawSubMenu()
         DrawForm()
-
         Cursor.Current = Cursors.Default
 
     End Sub
@@ -291,6 +297,10 @@
                 Case eSyncEventType.EndSync
                     ProgressBar.Visible = False
                     ToolStrip.Visible = True
+                    If Not IsNothing(Current) Then
+                        DrawSubMenu()
+                        DrawDirectActivations()
+                    End If
             End Select
 
         End With

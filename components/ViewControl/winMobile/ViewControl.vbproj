@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="cePrinter.vb" />
+    <Compile Include="FileLastWriteCompare.vb" />
     <Compile Include="frmProvisionDialog.Designer.vb">
       <DependentUpon>frmProvisionDialog.vb</DependentUpon>
     </Compile>
@@ -102,6 +103,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="OfflineXML.vb" />
+    <Compile Include="StartFlags.vb" />
     <Compile Include="SyncObject.vb" />
     <Compile Include="TopForm.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
