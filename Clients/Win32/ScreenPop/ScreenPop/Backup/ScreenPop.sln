@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ScreenPop", "ScreenPop.vbproj", "{B7DD1117-3FBA-46F4-BB18-64DB6F440F0F}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PriClient", "..\..\..\..\components\PriClient\PriClient\PriClient.vbproj", "{40A212ED-7F1F-4830-8449-5BEEE3AA3FC2}"

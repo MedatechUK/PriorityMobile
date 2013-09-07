@@ -1,0 +1,4 @@
+M:\Clients\Win32\ScreenPop\ScreenPop\bin\Debug\ScreenPop.exe.config
+M:\Clients\Win32\ScreenPop\ScreenPop\obj\Debug\ScreenPop.exe
+M:\Clients\Win32\ScreenPop\ScreenPop\obj\Debug\ScreenPop.xml
+M:\Clients\Win32\ScreenPop\ScreenPop\obj\Debug\ScreenPop.pdb
