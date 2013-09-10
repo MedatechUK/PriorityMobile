@@ -1,5 +1,6 @@
 ﻿Imports System
 Imports System.Xml
+Imports System.Windows.Forms
 
 Public Class uiColumn
     Inherits iFormChild
@@ -621,9 +622,9 @@ Public Class uiColumn
 #Region "Column Resizing"
 
     Private Sub uiColumn_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
-        Label.Width = 150
-        lbl_Value.Width = Me.Width - Label.Width - 2
-        list.Width = Me.Width - Label.Width - 2
+        Label.Width = Screen.PrimaryScreen.WorkingArea.Width / 3
+        lbl_Value.Width = Screen.PrimaryScreen.WorkingArea.Width - Label.Width - 2
+        list.Width = Screen.PrimaryScreen.WorkingArea.Width - Label.Width - 2
     End Sub
 
 #End Region

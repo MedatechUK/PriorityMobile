@@ -38,3 +38,4 @@ M:\Clients\xmlSFDC\sfdcData\obj\Debug\PrioritySFDC.about.resources
 M:\Clients\xmlSFDC\sfdcData\bin\Debug2\CPCL.dll
 M:\Clients\xmlSFDC\sfdcData\bin\Debug2\CPCL.pdb
 M:\Clients\xmlSFDC\sfdcData\bin\Debug2\CPCL.xml
+M:\Clients\xmlSFDC\sfdcData\obj\Debug\PrioritySFDC.BaseForm.resources

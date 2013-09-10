@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Public Class Menu
-    Inherits System.Windows.Forms.Form
+    Inherits PrioritySFDC.BaseForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -25,17 +25,17 @@ Partial Public Class Menu
         '
         'Logo
         '
-        Me.Logo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Logo.Dock = System.Windows.Forms.DockStyle.Top
         Me.Logo.Location = New System.Drawing.Point(0, 0)
         Me.Logo.Name = "Logo"
-        Me.Logo.Size = New System.Drawing.Size(638, 455)
-        Me.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
+        Me.Logo.Size = New System.Drawing.Size(621, 455)
+        Me.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         '
         'StatusBar
         '
-        Me.StatusBar.Location = New System.Drawing.Point(0, 431)
+        Me.StatusBar.Location = New System.Drawing.Point(0, 455)
         Me.StatusBar.Name = "StatusBar"
-        Me.StatusBar.Size = New System.Drawing.Size(638, 24)
+        Me.StatusBar.Size = New System.Drawing.Size(621, 24)
         '
         'Menu
         '
@@ -43,10 +43,8 @@ Partial Public Class Menu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(638, 455)
-        Me.ControlBox = False
         Me.Controls.Add(Me.StatusBar)
         Me.Controls.Add(Me.Logo)
-        Me.MinimizeBox = False
         Me.Name = "Menu"
         Me.Text = "sfdc3"
         Me.ResumeLayout(False)

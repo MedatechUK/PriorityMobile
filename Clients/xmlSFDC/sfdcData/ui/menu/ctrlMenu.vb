@@ -79,7 +79,7 @@ Public Class ctrlMenu
     End Sub
 
     Private Sub hAboutClick(ByVal sender As Object, ByVal e As System.EventArgs)
-        Dim frmAbout As New about(_ue)
+        Dim frmAbout As New About(_ue)
         frmAbout.ShowDialog()
         If frmAbout.Result = DialogResult.OK Then
             _update.Invoke(Me, New System.EventArgs)

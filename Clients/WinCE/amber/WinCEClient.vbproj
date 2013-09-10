@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.50727</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{8AE784AD-6848-40B7-9841-B4402ABA6F01}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -147,6 +147,7 @@
       <DependentUpon>_intGRV.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intGRV.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intPARTLU.Designer.vb">
       <DependentUpon>_intPARTLU.vb</DependentUpon>
@@ -161,6 +162,7 @@
       <DependentUpon>_intSTKCNT.vb</DependentUpon>
     </Compile>
     <Compile Include="Modules\_intSTKCNT.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Modules\_intUNTX.Designer.vb">
       <DependentUpon>_intUNTX.vb</DependentUpon>

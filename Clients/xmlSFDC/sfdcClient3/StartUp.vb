@@ -44,19 +44,30 @@ Module StartUp
 
     Public Sub Main(ByVal args As String())
 
-        For Each arg As String In args
-            Select Case arg.ToLower
-                Case "clearcache"
-                    StartFlags.ClearCache = True
-                Case "wipedata"
-                    StartFlags.WipeData = True
-                Case "noprovision"
-                    StartFlags.NoProvision = True
-            End Select
-        Next
+        Dim arg As New clArg(args)
 
         Try
-            ue = New UserEnv("PrioritySFDC", "cHandler.dll")
+            With arg.Keys
+                If .Contains("clearcache") Then
+                    StartFlags.ClearCache = True
+                End If
+                If .Contains("wipedata") Then
+                    StartFlags.WipeData = True
+                End If
+                If .Contains("noprovision") Then
+                    StartFlags.NoProvision = True
+                End If
+                If .Contains("handler") Then
+                    If File.Exists(arg("handler")) Then
+                        ue = New UserEnv("PrioritySFDC", arg("handler"))
+                    Else
+                        Throw New Exception(String.Format("Local Handler {0} file not found.", arg("handler")))
+                    End If
+                Else
+                    ue = New UserEnv("PrioritySFDC", "cHandler.dll")
+                End If
+            End With
+
             With ue
                 .SaveProvision = Not (StartFlags.NoProvision)
                 .Add("forms", _
@@ -79,6 +90,7 @@ Module StartUp
                 sw.WriteLine("{0}: {1}", Now.ToString, ex.Message)
                 sw.Write(ex.StackTrace)
             End Using
+            MsgBox(ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Fatal Error.")
         End Try
 
     End Sub

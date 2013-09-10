@@ -3,7 +3,7 @@ Imports PrioritySFDC
 Imports System.Reflection
 Imports System.IO
 
-Public Class iForm
+Public Class iForm : Inherits BaseForm
 
 #Region "Initialisation and Finalisation"
 
@@ -25,7 +25,7 @@ Public Class iForm
             Dim oType As System.Type = Nothing
             Dim oAssembly As System.Reflection.Assembly = _ue.CustomHandler
             If IsNothing(oAssembly) Then
-                Throw New cfmtException("Custom Handler Assembly not found.")                
+                Throw New cfmtException("Custom Handler Assembly not found.")
             End If
             Try
                 oType = oAssembly.GetType(String.Format("cHandler.{0}", intf.strHandler))
@@ -42,14 +42,6 @@ Public Class iForm
         _thisHandler.CloseHandler = closeHandler
 
         With Me
-
-            Width = Screen.PrimaryScreen.WorkingArea.Width
-            Height = Screen.PrimaryScreen.WorkingArea.Height - 50
-
-            Dim p As System.Drawing.Point
-            p.X = (Screen.PrimaryScreen.WorkingArea.Width - .Width) / 2
-            p.Y = (Screen.PrimaryScreen.WorkingArea.Height - .Height) / 2
-            .Location = p
 
             With .Controls
                 .Add(ViewDialog)
@@ -89,7 +81,7 @@ Public Class iForm
 
         Cursor.Current = Cursors.Default
         AddHandler _DataService.StartRead, AddressOf hStartRead
-        AddHandler _DataService.EndRead, AddressOf hEndRead        
+        AddHandler _DataService.EndRead, AddressOf hEndRead
 
     End Sub
 

@@ -47,23 +47,6 @@ Module StartUp
         Dim hm As New HostMainView
         Dim arg As New clArg(args)
 
-        'For Each arg As String In args
-        '    Select Case arg.ToLower
-        '        Case "clearcache"
-        '            StartFlags.ClearCache = True
-        '        Case "wipedata"
-        '            StartFlags.WipeData = True
-        '        Case "noprovision"
-        '            StartFlags.NoProvision = True
-        '        Case Else
-        '            If String.Compare(arg.Substring(0, 1), "-") = 0 Then
-        '                Select Case arg.Substring(1).ToLower
-        '                    Case "handler"
-        '                End Select
-        '            End If
-        '    End Select
-        'Next
-
         Try
 
             With arg.Keys
@@ -119,6 +102,7 @@ Module StartUp
                 sw.WriteLine("{0}: {1}", Now.ToString, ex.Message)
                 sw.Write(ex.StackTrace)
             End Using
+            MsgBox(ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Fatal Error.")
         End Try
 
     End Sub

@@ -1,6 +1,6 @@
 ﻿Imports System.Windows.Forms
 
-Public Class about
+Public Class About : Inherits BaseForm
 
     Private _ue As UserEnv
 
@@ -13,14 +13,13 @@ Public Class about
         _ue = ue
 
         With Me
-
-            Width = Screen.PrimaryScreen.WorkingArea.Width
-            Height = Screen.PrimaryScreen.WorkingArea.Height - 50
-
-            Dim p As System.Drawing.Point
-            p.X = (Screen.PrimaryScreen.WorkingArea.Width - .Width) / 2
-            p.Y = (Screen.PrimaryScreen.WorkingArea.Height - .Height) / 2
-            .Location = p
+            With .PictureBox1
+                If .Image.Width < Screen.PrimaryScreen.WorkingArea.Width Then
+                    .Height = .Image.Height * (.Image.Width / Screen.PrimaryScreen.WorkingArea.Width)
+                Else
+                    .Height = .Image.Height * (Screen.PrimaryScreen.WorkingArea.Width / .Image.Width)
+                End If
+            End With
 
             .lbl_sfdc_vers.Text = FrameworkVersion
             .lbl_Handler_vers.Text = HandlerVersion

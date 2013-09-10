@@ -1,19 +1,19 @@
 ﻿Imports System.Xml
 Imports PrioritySFDC
 
-Public Class Menu
+Public Class Menu : Inherits BaseForm
 
     Private thisPrinter As btZebra.LabelPrinter
-    Private TransactionWindow As New Dictionary(Of String, iForm)    
+    Private TransactionWindow As New Dictionary(Of String, iForm)
 
     Private ReadOnly Property Forms() As XmlDocument
         Get
             Return ue("forms").Document
-        End Get        
+        End Get
     End Property
 
     Private Sub hCloseInt(ByVal sender As Object, ByVal e As System.EventArgs)
-        TransactionWindow.Remove(TryCast(sender, iForm).thisInterface.GUID)        
+        TransactionWindow.Remove(TryCast(sender, iForm).thisInterface.GUID)
     End Sub
 
     Private Sub Menu_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
@@ -30,8 +30,10 @@ Public Class Menu
     Private Sub hLoad(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
         With Me
+
             .StatusBar.Text = String.Format("{0}@{1}", ue.User, ue.Server.Host.ToString)
             .Logo.Image = ue.LogoFile
+            .Logo.Height = ue.LogoFile.Height * (ue.LogoFile.Width / Screen.PrimaryScreen.WorkingArea.Width)
             .Menu = New ctrlMenu( _
                 ue, _
                 Forms.SelectSingleNode("sfdc"), _

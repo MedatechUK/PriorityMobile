@@ -8,3 +8,6 @@ C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj
 C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Release\htmlIndent.exe
 C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Release\htmlIndent.xml
 C:\Users\thomasm\Documents\Visual Studio 2008\Projects\htmlIndent\htmlIndent\obj\Release\htmlIndent.pdb
+M:\Clients\Win32\htmlIndent\htmlIndent\obj\Release\htmlIndent.exe
+M:\Clients\Win32\htmlIndent\htmlIndent\obj\Release\htmlIndent.xml
+M:\Clients\Win32\htmlIndent\htmlIndent\obj\Release\htmlIndent.pdb

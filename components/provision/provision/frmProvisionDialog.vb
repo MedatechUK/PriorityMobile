@@ -1,4 +1,7 @@
-﻿Public Class frmProvisionDialog
+﻿Imports System.Windows.Forms
+Imports Microsoft.WindowsCE.Forms
+
+Public Class frmProvisionDialog
 
     Public Sub New(Optional ByVal ProvisionString As String = Nothing)
 
@@ -6,7 +9,7 @@
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.        
-        With Me            
+        With Me
             .Menu = MainMenu1
         End With
     End Sub
@@ -23,14 +26,18 @@
     End Sub
 
     Public Sub HideSIPButton()
-        Capture = True
-        Dim hWnd As IntPtr = GetCapture()
-        Capture = False
-        SetFullScreen(hWnd, SHFS.HIDESIPBUTTON)
+         Select SystemSettings.Platform
+            Case WinCEPlatform.WinCEGeneric
+            Case Else
+                Capture = True
+                Dim hWnd As IntPtr = GetCapture()
+                Capture = False
+                SetFullScreen(hWnd, SHFS.HIDESIPBUTTON)
+        End Select
     End Sub
 
     Private Sub frmProvisionDialog_GotFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.GotFocus
-        With Me            
+        With Me
             HideSIPButton()
         End With
     End Sub

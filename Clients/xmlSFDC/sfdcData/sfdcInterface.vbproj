@@ -53,6 +53,7 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Windowsce.Forms" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -115,6 +116,12 @@
       <DependentUpon>about.vb</DependentUpon>
     </Compile>
     <Compile Include="ui\menu\about.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\Overidable\BaseForm.Designer.vb">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ui\Overidable\BaseForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ui\Overidable\defaultHandler.vb" />
@@ -186,6 +193,9 @@
     <EmbeddedResource Include="ui\menu\about.resx">
       <DependentUpon>about.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\Overidable\BaseForm.resx">
+      <DependentUpon>BaseForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\Overidable\UserDialog.resx">
       <DependentUpon>UserDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -210,7 +220,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

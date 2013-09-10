@@ -70,6 +70,7 @@ Public Class HostMainView
 
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.OkOnly + MsgBoxStyle.Critical, "Fatal Error.")
+            ue.Log(ex.Message)
             Application.Exit()
             Exit Sub
         End Try
