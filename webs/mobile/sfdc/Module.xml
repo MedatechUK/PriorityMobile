@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<module>
+
+  <start argument="*">
+    
+    <buttonstate>
+      <enabled/>
+      <init/>
+      <beginadd/>
+      <endadd/>
+      <beginedit/>
+      <endedit/>
+    </buttonstate>
+    
+    <form>
+      <column>
+        <type>text</type>
+        <name>WARHS</name>
+        <title>From W/H</title>
+        <validexp>tWarehouse</validexp>
+        <enabled>True</enabled>
+        <width>30</width>
+        <align>Left</align>
+        <sql name="list">SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE &lt;&gt; 'Y'</sql>
+        <sql name="validation">SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'</sql>
+        <sql name="onvalid">SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'</sql>
+      </column>
+      <column>
+        <type>text</type>
+        <name>BIN</name>
+        <title>From Loc</title>
+        <validexp>tBIN</validexp>
+        <enabled>True</enabled>
+        <width>30</width>
+        <align>Left</align>
+        <sql name="list">SELECT LOCNAME FROM WARHOUSE WHERE WARHSNAME = %WARHS%</sql>
+        <sql name="validation">SELECT LOCNAME FROM WARHOUSE WHERE WARHSNAME = %WARHS% and LOCNAME = '%ME%'</sql>
+        <sql name="onvalid">SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'</sql>
+      </column>      
+    </form>
+    
+    <table>
+      <column>
+        <type>text</type>
+        <name>WARHS</name>
+        <title>From W/H</title>
+        <validexp>tWarehouse</validexp>
+        <enabled>True</enabled>
+        <width>30</width>
+        <align>Left</align>
+        <sql name="list">SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE &lt;&gt; 'Y'</sql>
+        <sql name="validation">SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'</sql>
+        <sql name="onvalid">SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%'</sql>
+      </column>
+    </table>
+    
+  </start>
+  
+</module>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "mobile", ".", "{9EEC98C0-50FC-424F-8F5C-B046B9F8DC8E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/mobile"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\inetpub\mobile\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\mobile\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/mobile"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\..\..\..\inetpub\mobile\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\mobile\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62988"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EEC98C0-50FC-424F-8F5C-B046B9F8DC8E}.Debug|.NET.ActiveCfg = Debug|.NET
+		{9EEC98C0-50FC-424F-8F5C-B046B9F8DC8E}.Debug|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

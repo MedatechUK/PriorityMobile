@@ -1,0 +1,51 @@
+<%@ Master Language="VB" CodeFile="SoapService.master.vb" Inherits="SoapService" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <table style="width: 600px">
+            <tr>
+                <td style="font-size: large; width: 100px; color: white; font-family: Verdana; background-color: #ff9900">
+                    <br />
+                    Priority&nbsp;Mobile&nbsp;<asp:Label ID="txtServerName" runat="server" Font-Size="X-Small" Text="Label"></asp:Label><br />
+                </td>
+            </tr>
+            <tr>
+                <td style="font-size: x-small; width: 100px; color: white; font-family: Verdana;
+                    height: 24px; background-color: black">
+                    <table border="0" cellpadding="0" cellspacing="0" style="height: 0px; width: 600px">
+                        <tr>
+                            <td style="width: 10px; height: 27px;">
+                            &nbsp;
+                            </td>
+                            <td style="width: 590px; height: 27px;">
+                                <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" StaticSubMenuIndent="36px" StaticTopSeparatorImageUrl="~/images/top_spacer.jpg">
+                                    <StaticSelectedStyle ForeColor="White" />
+                                    <StaticMenuItemStyle ForeColor="White" />
+                                    <StaticHoverStyle ForeColor="#FF8000" />
+                                </asp:Menu>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+
+                <td style="width: 600px">
+                    <br />
+                    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                    </asp:contentplaceholder>
+                </td>
+            </tr>
+        </table>
+        <br />
+        &nbsp;</div>
+    </form>
+</body>
+</html>
