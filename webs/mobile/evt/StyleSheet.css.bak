@@ -1,0 +1,39 @@
+﻿body {
+}
+#dg {
+ float:left;
+ width:850px;
+}
+#pnl {
+ float:left;
+ width:400px;
+ padding: 10px
+}
+#main {
+ clear:both;
+}
+.hiddencol {display:none;}
+/*.GridviewDiv {font-size: 62.5%; font-family: 'Lucida Grande',
+    'Lucida Sans Unicode', Verdana, Arial, Helevetica, sans-serif; color: #303933;}
+Table.Gridview{border:solid 1px #df5015;}
+.GridviewTable{border:none}
+.GridviewTable td{margin-top:0;padding: 0; vertical-align:middle }
+.GridviewTable tr{color: White; background-color: #df5015; height: 30px; text-align:center}
+.Gridview th{color:#FFFFFF;border-right-color:#abb079;border-bottom-color:#abb079;
+    padding:0.5em 0.5em 0.5em 0.5em;text-align:center}
+.Gridview td{border-bottom-color:#f0f2da;border-right-color:#f0f2da;
+    padding:0.5em 0.5em 0.5em 0.5em;}
+.Gridview tr{color: Black; background-color: White; text-align:left}
+:link,:visited { color: #DF4F13; text-decoration:none }*/
+
+th.sortasc a  
+{
+   display:block; padding:0 4px 0 15px; 
+   background:url("images/uarrow.png") no-repeat;
+}
+
+th.sortdesc a 
+{
+   display:block; padding:0 4px 0 15px; 
+  background:url("images/darrow.png") no-repeat;
+}
