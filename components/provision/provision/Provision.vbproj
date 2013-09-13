@@ -14,7 +14,8 @@
     <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
     <OSVersion>5.0</OSVersion>
     <MyType>Windows</MyType>
-    <DeployDirSuffix>provision</DeployDirSuffix>
+    <DeployDirSuffix>
+    </DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
@@ -23,6 +24,7 @@
     <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <DeployDirPrefix>\</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

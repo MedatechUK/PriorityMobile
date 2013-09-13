@@ -181,7 +181,7 @@ Public Class ctrl_Deliveries
                 dv = .FormData.SelectSingleNode(String.Format("{0}[ordinal='{1}']", .boundxPath, ListSort1.Selected))
             End With
 
-            If dv.SelectSingleNode("showprices").Value = "Y" Then
+            If dv.SelectSingleNode("showprices").InnerText = "Y" Then
                 printDelivery(dv)
             Else
                 PrintInvoice(dv)
@@ -240,8 +240,8 @@ Public Class ctrl_Deliveries
 
             Dim partsList As New ReceiptFormatter(64, _
                                                   New FormattedColumn(8, 0, eAlignment.Right), _
-                                                  New FormattedColumn(45, 9, eAlignment.Left), _
-                                                  New FormattedColumn(4, 55, eAlignment.Left))
+                                                  New FormattedColumn(42, 10, eAlignment.Left), _
+                                                  New FormattedColumn(7, 54, eAlignment.Left))
             partsList.AddRow("Code:", "Description:", "Qty:")
             Dim lines As Integer
             Dim units As Integer
@@ -249,12 +249,19 @@ Public Class ctrl_Deliveries
             For Each deliverypart As XmlNode In dv.SelectNodes("parts/part[cquant>0]")
                 Dim name As String = deliverypart.SelectSingleNode("name").InnerText
                 Dim des As String = deliverypart.SelectSingleNode("des").InnerText
-                Dim qty As String = deliverypart.SelectSingleNode("cquant").InnerText
+                Dim qty As String
+                If deliverypart.SelectSingleNode("cheese").InnerText = "Y" Then
+                    qty = deliverypart.SelectSingleNode("weight").InnerText & "kg"
+                    units += 1
+                Else
+                    qty = deliverypart.SelectSingleNode("cquant").InnerText
+                    units += CInt(qty)
+                End If
 
-                partsList.AddRow(qty, des, name)
+                partsList.AddRow(name, des, qty)
 
                 lines += 1
-                units += CInt(qty)
+
 
             Next
 
@@ -388,8 +395,8 @@ Public Class ctrl_Deliveries
 
 
             Dim invoicePartsList As New ReceiptFormatter(64, _
-                                                  New FormattedColumn(3, 0, eAlignment.Right), _
-                                                  New FormattedColumn(40, 4, eAlignment.Left), _
+                                                  New FormattedColumn(7, 0, eAlignment.Right), _
+                                                  New FormattedColumn(36, 8, eAlignment.Left), _
                                                   New FormattedColumn(7, 45, eAlignment.Right), _
                                                   New FormattedColumn(7, 57, eAlignment.Right))
             invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
@@ -402,15 +409,27 @@ Public Class ctrl_Deliveries
                 Dim name As String = OrderPart.SelectSingleNode("name").InnerText
                 Dim des As String = OrderPart.SelectSingleNode("des").InnerText
                 Dim qty As Double = CDbl(OrderPart.SelectSingleNode("cquant").InnerText)
+
+
+                Dim qtyString As String
+
+                If OrderPart.SelectSingleNode("cheese").InnerText = "Y" Then
+                    qtyString = OrderPart.SelectSingleNode("weight").InnerText & "kg"
+                    units += 1
+                Else
+                    qtyString = qty
+                    units += qty
+                End If
+
                 Dim unitprice As Double = CDbl(OrderPart.SelectSingleNode("price").InnerText)
 
-                invoicePartsList.AddRow(qty, _
+                invoicePartsList.AddRow(qtyString, _
                                         des, _
                                         unitprice.ToString("c").Replace("£", "#"), _
                                         (qty * unitprice).ToString("c").Replace("£", "#") _
                                         )
                 lines += 1
-                units += qty
+
                 invoicetotal += CDbl(qty) * CDbl(unitprice)
             Next
 
