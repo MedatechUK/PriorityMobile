@@ -3,6 +3,10 @@ Imports PrioritySFDC
 
 Public Class Menu : Inherits BaseForm
 
+    Public Declare Sub keybd_event Lib "coredll.dll" (ByVal bVK As Byte, _
+    ByVal bScan As Byte, ByVal dwFlags As Integer, ByVal dwExtraInfo _
+    As Integer)
+
     Private thisPrinter As btZebra.LabelPrinter
     Private TransactionWindow As New Dictionary(Of String, iForm)
 
@@ -25,6 +29,19 @@ Public Class Menu : Inherits BaseForm
                 e.Cancel = True
             End If
         End If
+    End Sub
+
+    Private Sub Menu_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
+        Select Case e.KeyCode
+            Case Keys.Enter
+                e.Handled = True
+                SendKey(VK_MENU)
+        End Select
+    End Sub
+
+    Private Sub SendKey(ByVal Key As Byte)
+        keybd_event(key, 0, KEYEVENTF_KEYDOWN, 0)
+        keybd_event(key, 0, KEYEVENTF_KEYUP, 0)
     End Sub
 
     Private Sub hLoad(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

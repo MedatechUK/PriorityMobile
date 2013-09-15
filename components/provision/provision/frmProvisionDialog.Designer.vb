@@ -48,7 +48,7 @@ Partial Public Class frmProvisionDialog
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(240, 320)
+        Me.Panel1.Size = New System.Drawing.Size(640, 480)
         '
         'Panel2
         '
@@ -58,31 +58,32 @@ Partial Public Class frmProvisionDialog
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(240, 275)
+        Me.Panel2.Size = New System.Drawing.Size(640, 435)
         '
         'logo
         '
         Me.logo.Dock = System.Windows.Forms.DockStyle.Fill
         Me.logo.Location = New System.Drawing.Point(0, 0)
         Me.logo.Name = "logo"
-        Me.logo.Size = New System.Drawing.Size(240, 175)
+        Me.logo.Size = New System.Drawing.Size(640, 335)
         Me.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         '
         'Panel_Text
         '
+        Me.Panel_Text.BackColor = System.Drawing.Color.White
         Me.Panel_Text.Controls.Add(Me.txtProvisionString)
         Me.Panel_Text.Controls.Add(Me.Label1)
         Me.Panel_Text.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel_Text.Location = New System.Drawing.Point(0, 175)
+        Me.Panel_Text.Location = New System.Drawing.Point(0, 335)
         Me.Panel_Text.Name = "Panel_Text"
-        Me.Panel_Text.Size = New System.Drawing.Size(240, 40)
+        Me.Panel_Text.Size = New System.Drawing.Size(640, 40)
         '
         'txtProvisionString
         '
         Me.txtProvisionString.Dock = System.Windows.Forms.DockStyle.Top
         Me.txtProvisionString.Location = New System.Drawing.Point(0, 20)
         Me.txtProvisionString.Name = "txtProvisionString"
-        Me.txtProvisionString.Size = New System.Drawing.Size(240, 21)
+        Me.txtProvisionString.Size = New System.Drawing.Size(640, 23)
         Me.txtProvisionString.TabIndex = 0
         '
         'Label1
@@ -90,20 +91,21 @@ Partial Public Class frmProvisionDialog
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Location = New System.Drawing.Point(0, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(240, 20)
+        Me.Label1.Size = New System.Drawing.Size(640, 20)
         Me.Label1.Text = "Please scan or enter your provision code:"
         '
         'panel_reprovision
         '
+        Me.panel_reprovision.BackColor = System.Drawing.Color.White
         Me.panel_reprovision.Controls.Add(Me.txtServerName)
         Me.panel_reprovision.Controls.Add(Me.txtUsername)
         Me.panel_reprovision.Controls.Add(Me.Label3)
         Me.panel_reprovision.Controls.Add(Me.Label2)
         Me.panel_reprovision.Controls.Add(Me.btnReprovision)
         Me.panel_reprovision.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.panel_reprovision.Location = New System.Drawing.Point(0, 215)
+        Me.panel_reprovision.Location = New System.Drawing.Point(0, 375)
         Me.panel_reprovision.Name = "panel_reprovision"
-        Me.panel_reprovision.Size = New System.Drawing.Size(240, 60)
+        Me.panel_reprovision.Size = New System.Drawing.Size(640, 60)
         '
         'txtServerName
         '
@@ -146,18 +148,19 @@ Partial Public Class frmProvisionDialog
         '
         'Panel_btnConnect
         '
+        Me.Panel_btnConnect.BackColor = System.Drawing.Color.White
         Me.Panel_btnConnect.Controls.Add(Me.btnConnect)
         Me.Panel_btnConnect.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel_btnConnect.Location = New System.Drawing.Point(0, 275)
+        Me.Panel_btnConnect.Location = New System.Drawing.Point(0, 435)
         Me.Panel_btnConnect.Name = "Panel_btnConnect"
-        Me.Panel_btnConnect.Size = New System.Drawing.Size(240, 45)
+        Me.Panel_btnConnect.Size = New System.Drawing.Size(640, 45)
         '
         'btnConnect
         '
         Me.btnConnect.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.btnConnect.Location = New System.Drawing.Point(0, 10)
         Me.btnConnect.Name = "btnConnect"
-        Me.btnConnect.Size = New System.Drawing.Size(240, 35)
+        Me.btnConnect.Size = New System.Drawing.Size(640, 35)
         Me.btnConnect.TabIndex = 3
         Me.btnConnect.Text = "Connect"
         '
@@ -166,12 +169,12 @@ Partial Public Class frmProvisionDialog
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(240, 320)
+        Me.BackColor = System.Drawing.Color.White
+        Me.ClientSize = New System.Drawing.Size(640, 480)
         Me.ControlBox = False
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.KeyPreview = True
-        Me.Location = New System.Drawing.Point(0, 0)
         Me.MinimizeBox = False
         Me.Name = "frmProvisionDialog"
         Me.Text = "Provision"

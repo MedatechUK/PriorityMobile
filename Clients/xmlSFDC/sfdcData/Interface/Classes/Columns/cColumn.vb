@@ -201,16 +201,16 @@ Public Class cColumn
                 _isReadOnly = value
                 Select Case value
                     Case True                        
-                        If .Enabled And .Selected Then
-                            .Selected = False
-                            .Enabled = False
+                        If .Enabled Then 'And .Selected 
+                            '.Selected = False
+                            '.Enabled = False
                             .ColStyle = eColStyle.colReadOnly
 
-                            If Not IsNothing(.Parent.FocusedControl) Then
-                                .Parent.FocusedControl.ColStyle = eColStyle.colSelected
-                            Else
-                                .Parent.FirstControl()
-                            End If
+                            'If Not IsNothing(.Parent.FocusedControl) Then
+                            '    '.Parent.FocusedControl.ColStyle = eColStyle.colSelected
+                            'Else
+                            '    .Parent.FirstControl()
+                            'End If
                         End If
 
                     Case Else
@@ -266,7 +266,7 @@ Public Class cColumn
     Public ReadOnly Property BarcodeField() As String
         Get
             If Not IsNothing(thisNode.Attributes("barcode2d")) Then
-                Return CInt(thisNode.Attributes("barcode2d").Value)
+                Return thisNode.Attributes("barcode2d").Value
             Else
                 Return ""
             End If

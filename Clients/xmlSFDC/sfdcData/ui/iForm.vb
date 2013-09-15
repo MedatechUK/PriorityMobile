@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms
+Imports Microsoft.WindowsCE.Forms
 Imports PrioritySFDC
 Imports System.Reflection
 Imports System.IO
@@ -13,6 +14,13 @@ Public Class iForm : Inherits BaseForm
 
         InitializeComponent()
         Cursor.Current = Cursors.WaitCursor
+
+        Select Case SystemSettings.Platform
+            Case WinCEPlatform.WinCEGeneric
+                Me.Menu = Nothing
+            Case Else
+                Me.Menu = Me.MainMenu1
+        End Select
 
         intf.SetiForm(Me)
         _intf = intf
@@ -220,10 +228,10 @@ Public Class iForm : Inherits BaseForm
                         If Not .Visible Then
                             .Dock = DockStyle.Fill
                             .Visible = True
-                        End If
-                        .ResizeMe(Me, New System.EventArgs)
+                        End If                        
                         .BringToFront()
                         .Focus()
+                        .ResizeMe(Me, New System.EventArgs)
                     End With
 
             End Select

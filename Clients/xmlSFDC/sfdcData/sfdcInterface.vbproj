@@ -118,6 +118,12 @@
     <Compile Include="ui\menu\about.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ui\menu\PrinterSetting.Designer.vb">
+      <DependentUpon>PrinterSetting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ui\menu\PrinterSetting.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ui\Overidable\BaseForm.Designer.vb">
       <DependentUpon>BaseForm.vb</DependentUpon>
     </Compile>
@@ -193,6 +199,9 @@
     <EmbeddedResource Include="ui\menu\about.resx">
       <DependentUpon>about.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ui\menu\PrinterSetting.resx">
+      <DependentUpon>PrinterSetting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ui\Overidable\BaseForm.resx">
       <DependentUpon>BaseForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -220,7 +229,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -42,6 +42,11 @@ Public Class frmProvisionDialog
         End With
     End Sub
 
+    Private Sub frmProvisionDialog_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Menu = Nothing
+        Me.BackColor = Color.White
+    End Sub
+
     Private Sub frmMain_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
         HideSIPButton()
     End Sub

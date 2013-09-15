@@ -1,8 +1,10 @@
-﻿Imports PrioritySFDC.TableView
+﻿Imports System.Windows.Forms
+Imports Microsoft.WindowsCE.Forms
+Imports PrioritySFDC.TableView
 Imports Priority
 
 Public Class iFrmButtons
-    Inherits iFormChild 'System.Windows.Forms.UserControl
+    Inherits iFormChild 'System.Windows.Forms.UserControl '
 
 #Region "Inheritance"
 
@@ -27,6 +29,15 @@ Public Class iFrmButtons
 
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
+
+        Select Case SystemSettings.Platform
+            Case WinCEPlatform.WinCEGeneric
+                Me.btnEnabled.ImageSize = New Drawing.Size(32, 32)
+                Me.btnDisabled.ImageSize = New Drawing.Size(32, 32)
+            Case Else
+                Me.btnEnabled.ImageSize = New Drawing.Size(64, 64)
+                Me.btnDisabled.ImageSize = New Drawing.Size(64, 64)
+        End Select
 
         ' Add any initialization after the InitializeComponent() call.
         For Each ob As Object In Me.Controls
@@ -87,6 +98,7 @@ Public Class iFrmButtons
                         With ParentForm.ViewMain.TableView
                             .ViewForm.Clear()
                             .EditItem = New cTableItem(.ViewTable.TableItem)
+                            .ViewForm.FirstControl()
                         End With
                         .btn_AddPress(ParentForm)
                         With ParentForm.ViewMain.TableView
@@ -109,6 +121,7 @@ Public Class iFrmButtons
                         With ParentForm.ViewMain.TableView
                             .ViewForm.Clear()
                             .EditItem = .ViewTable.SelectedItem
+                            .ViewForm.FirstControl()
                         End With
                         .btn_EditPress(ParentForm)
                     Else

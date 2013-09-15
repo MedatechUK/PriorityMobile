@@ -135,6 +135,12 @@ Public Class UserEnv
             End If
         End If
 
+        If File.Exists(MACFile) Then
+            Using SR As New StreamReader(MACFile)
+                prnmac = SR.ReadToEnd
+            End Using
+        End If
+
         ClearLog()
 
     End Sub
@@ -278,15 +284,20 @@ Public Class UserEnv
         End Get
         Set(ByVal value As String)
             prnmac = value
-            Dim f As String = AppPath() & "\prnmac.txt"
-            While File.Exists(f)
-                File.Delete(f)
+            While File.Exists(MACFile)
+                File.Delete(MACFile)
                 System.Threading.Thread.Sleep(100)
             End While
-            Using sr As New StreamWriter(f)
+            Using sr As New StreamWriter(MACFile)
                 sr.Write(value)
             End Using
         End Set
+    End Property
+
+    Private ReadOnly Property MACFile() As String
+        Get
+            Return String.Format("{0}\prnmac.txt", AppPath())
+        End Get
     End Property
 
 #End Region

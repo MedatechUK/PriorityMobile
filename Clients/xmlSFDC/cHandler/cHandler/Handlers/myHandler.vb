@@ -18,8 +18,9 @@ Public Class myHandler : Inherits iHandler
                 Do While .WaitConnect
                     Threading.Thread.Sleep(100)
                 Loop
-            End If
-            If .Connected Then PrintForm(thisForm)
+            Else
+                PrintForm(thisForm)
+            End If            
         End With
     End Sub
 

@@ -21,6 +21,7 @@ Partial Public Class iForm
     Private Sub InitializeComponent()
         Me.MainMenu1 = New System.Windows.Forms.MainMenu
         Me.MenuItem1 = New System.Windows.Forms.MenuItem
+        Me.BlankMenu = New System.Windows.Forms.MainMenu
         Me.SuspendLayout()
         '
         'MainMenu1
@@ -45,5 +46,6 @@ Partial Public Class iForm
     End Sub
     Friend WithEvents MainMenu1 As System.Windows.Forms.MainMenu
     Friend WithEvents MenuItem1 As System.Windows.Forms.MenuItem
+    Friend WithEvents BlankMenu As System.Windows.Forms.MainMenu
 
 End Class

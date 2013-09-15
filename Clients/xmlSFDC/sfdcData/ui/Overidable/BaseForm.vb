@@ -9,8 +9,9 @@ Public Class BaseForm
             Select Case SystemSettings.Platform
                 Case WinCEPlatform.WinCEGeneric
                     .WindowState = FormWindowState.Maximized
-                    .MaximizeBox = True
-                    .MinimizeBox = True
+                    .MaximizeBox = False
+                    .MinimizeBox = False
+                    .Menu = Nothing
 
                 Case Else
                     .Width = Screen.PrimaryScreen.WorkingArea.Width

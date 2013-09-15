@@ -28,8 +28,8 @@ Public Class TablePanel
                                 .Width = CharWid * 6
                             Case Else
                                 .Width = CharWid * col.Width
-                                If .Width > 300 Then
-                                    .Width = 300
+                                If .Width > Screen.PrimaryScreen.WorkingArea.Width / 2 Then
+                                    .Width = Screen.PrimaryScreen.WorkingArea.Width / 2
                                 End If
                         End Select
 

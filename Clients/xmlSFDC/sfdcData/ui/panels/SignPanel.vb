@@ -19,6 +19,7 @@ Public Class SignPanel
 
 #Region "Private Properties"
 
+    Private btnPanel As New Panel
     Private myPen As System.Drawing.Pen = New System.Drawing.Pen(System.Drawing.Color.Black)
     Private coord As New List(Of Point)
 
@@ -120,12 +121,11 @@ Public Class SignPanel
                 .BackColor = Color.Red
             End With
 
-            Dim btnPanel As New Panel
             .Add(btnPanel)
             With btnPanel
                 .Dock = DockStyle.Bottom
 
-                With btnPanel.Controls
+                With .Controls
                     With dlgOk
                         .DialogResult = DialogResult.OK
                         .Text = "Ok"
@@ -149,7 +149,7 @@ Public Class SignPanel
                     End With
 
                 End With
-                .Height = btnPanel.Controls(0).Height
+
             End With
         End With
 
@@ -157,6 +157,7 @@ Public Class SignPanel
 
     Public Sub Load(ByRef thisForm As iForm)
         _ParentForm = thisForm
+        Me.ResizeMe(Me, New System.EventArgs)
     End Sub
 
 #End Region
@@ -195,6 +196,8 @@ Public Class SignPanel
 
         Select Case TryCast(sender, Button).DialogResult
             Case DialogResult.OK
+
+                Cursor.Current = Cursors.WaitCursor
 
                 Dim result As String = String.Empty
                 Dim posted As Boolean = False
@@ -266,6 +269,7 @@ Public Class SignPanel
                     If requestStream IsNot Nothing Then
                         requestStream.Close()
                     End If
+                    Cursor.Current = Cursors.Default
                     RaiseEvent SaveSignature(result)
                 End Try
 
@@ -307,20 +311,29 @@ Public Class SignPanel
 
     Public Sub ResizeMe(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize
 
-        With Signature
-            .Top = 3
-            .Left = 3
-            .Width = Screen.PrimaryScreen.WorkingArea.Width - 6
-            .Height = ParentForm.Height - (dlgOk.Height + 6)
-        End With
+        Try
+            Dim wah As Integer = Screen.PrimaryScreen.WorkingArea.Height - 24
 
-        With dlgOk
-            .Width = Screen.PrimaryScreen.WorkingArea.Width / 2
-        End With
+            btnPanel.Height = wah / 5
 
-        With dlgCancel
-            .Width = Screen.PrimaryScreen.WorkingArea.Width / 2
-        End With
+            With Signature
+                .Top = 3
+                .Left = 3
+                .Width = Screen.PrimaryScreen.WorkingArea.Width - 7
+                .Height = 4 * (wah / 5) - 6
+            End With
+
+            With dlgOk
+                .Width = Screen.PrimaryScreen.WorkingArea.Width / 2
+            End With
+
+            With dlgCancel
+                .Width = Screen.PrimaryScreen.WorkingArea.Width / 2
+            End With
+
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 

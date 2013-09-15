@@ -87,7 +87,14 @@ Public Class ctrlMenu
     End Sub
 
     Private Sub hPrnClick(ByVal sender As Object, ByVal e As System.EventArgs)
-        _ue.MACAddress = InputBox("MAC Address", "Printer", _ue.MACAddress)
+        Dim prnSet As New PrinterSetting
+        With prnSet
+            .MACAddress = _ue.MACAddress
+            .ShowDialog()
+            If .Result = DialogResult.OK Then
+                _ue.MACAddress = .MACAddress
+            End If
+        End With        
     End Sub
 
 End Class

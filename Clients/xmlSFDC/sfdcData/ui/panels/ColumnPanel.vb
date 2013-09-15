@@ -98,37 +98,53 @@ Public Class ColumnPanel
     End Sub
 
     Public Sub LastControl()
-        With Me.Controls
-            For i As Integer = 0 To .Count - 1
-                If Not TryCast(.Item(i), uiColumn).thisColumn.isReadOnly Then
-                    TryCast(.Item(i), uiColumn).Focus()
-                    Exit For
+        Dim ind As List(Of Integer)        
+        ind = Indicies(True)
+        If ind.Count = 0 Then            
+            ind = Indicies(False)
+        End If
+
+        For Each c As uiColumn In Me.Controls
+            If c.TabIndex = ind.Max Then
+                c.Selected = True
+                c.Focus()
+                If c.thisColumn.Value.Length > 0 Then
+                    c.ColStyle = eColStyle.colDeselected
+                Else
+                    c.ColStyle = eColStyle.colSelected
                 End If
-            Next            
-        End With
+                Exit For
+            End If
+        Next
     End Sub
 
     Public Sub FirstControl()
-        With Me.Controls
-            For i As Integer = .Count - 1 To 0 Step -1
-                If Not TryCast(.Item(i), uiColumn).thisColumn.isReadOnly Then
-                    TryCast(.Item(i), uiColumn).Focus()
-                    Exit For
+        Dim ind As List(Of Integer)
+        ind = Indicies(True)
+        If ind.Count = 0 Then
+            ind = Indicies(False)
+        End If
+
+        For Each c As uiColumn In Me.Controls
+            If c.TabIndex = ind.Min Then
+                c.Selected = True
+                c.Focus()
+                If c.thisColumn.Value.Length > 0 Then
+                    c.ColStyle = eColStyle.colDeselected
+                Else
+                    c.ColStyle = eColStyle.colSelected
                 End If
-            Next
-        End With
-        'Select Case _Parent.Container.NodeType.ToLower
-        '    Case "form"
-        '        _Parent.ParentForm.ViewMain.TableView.ViewTable.thisTable.Focus()
-        '    Case "table"
-        'End Select
+                Exit For
+            End If
+        Next
     End Sub
 
     Private Sub MoveFocus(ByVal Forward As Boolean, ByVal NextUnfilled As Boolean)
 
-        Dim repeat As Boolean = NextUnfilled
+        'Dim repeat As Boolean = NextUnfilled
         Dim Controlindex As Integer
-        Dim NoControl As Boolean = False
+        Dim FirstIndex As Integer
+        'Dim NoControl As Boolean = False
 
         Try
             If IsNothing(FocusedControl) Then
@@ -139,46 +155,47 @@ Public Class ColumnPanel
         Finally
             With FocusedControl
                 Controlindex = .TabIndex
-                .Deselect()
+                FirstIndex = .TabIndex
+                .Selected = False
             End With
         End Try
 
         'SelectNextControl(FocusedControl, Forward, True, False, True)
-        ShiftFocus(FocusedControl, Forward)
+        ShiftFocus(Controlindex, Forward, NextUnfilled)
 
-        While repeat
-            With FocusedControl()
-                Select Case .ColStyle
-                    Case eColStyle.colReadOnly
-                        'SelectNextControl(FocusedControl, Forward, True, False, True)
-                        ShiftFocus(FocusedControl, Forward)
-                    Case Else
-                        If .thisColumn.Value.Length > 0 And NextUnfilled Then
-                            'SelectNextControl(FocusedControl, Forward, True, False, True)
-                            .Deselect()
-                            ShiftFocus(FocusedControl, Forward)
-                        Else
-                            repeat = False
-                        End If
-                End Select
-                If Controlindex = .TabIndex Then
-                    NoControl = True
-                    repeat = False
-                End If
-            End With
-        End While
+        'While repeat
+        '    With FocusedControl()
+        '        If .thisColumn.Value.Length > 0 And NextUnfilled Then
+        '            'SelectNextControl(FocusedControl, Forward, True, False, True)
+        '            .Deselect()
+        '            ShiftFocus(Controlindex, Forward)
+        '        Else
+        '            repeat = False
+        '        End If
+        '        If FirstIndex = .TabIndex Then
+        '            NoControl = True
+        '            repeat = False
+        '        End If
+        '    End With
+        'End While
 
-        If Not (NoControl) Then
+        If Not Controlindex = FirstIndex Then
             With FocusedControl
                 .ColStyle = eColStyle.colSelected
                 .Selected = True
             End With
         Else
+            With FocusedControl
+                .ColStyle = eColStyle.colDeselected
+                .Selected = True
+            End With
+
             If Not IsNothing(TryCast(_Parent, FormView)) Then
                 ParentForm.ViewMain.TableView.Focus()
             ElseIf Not IsNothing(TryCast(_Parent, TableView)) Then
-                FocusedControl.Deselect()                
+                'FocusedControl.Deselect()
             End If
+
         End If
 
     End Sub
@@ -186,7 +203,7 @@ Public Class ColumnPanel
     Public ReadOnly Property FocusedControl() As uiColumn
         Get
             For Each ctrl As uiColumn In Me.Controls
-                If ctrl.Label.Focused Then
+                If ctrl.Selected Then
                     Return ctrl
                 End If
             Next
@@ -195,16 +212,21 @@ Public Class ColumnPanel
     End Property
 
     Public Sub Defocus(ByRef excep As Exception)
+        excep = Nothing
         For Each ctrl As uiColumn In Me.Controls
-            If ctrl.Selected Then
-                ctrl.ProcessBuffer(excep)
-                If Not IsNothing(excep) Then
-                    ctrl.Focus()
-                    Exit For
-                Else
-                    ctrl.Deselect()
+            With ctrl
+                If .Selected Then
+                    If .HasScanBuffer Then
+                        .ProcessBuffer(excep)
+                        If Not IsNothing(excep) Then
+                            .Focus()
+                            Exit For
+                        End If
+                    End If
+                    .Deselect()
+                    .Selected = False
                 End If
-            End If
+            End With
         Next
     End Sub
 
@@ -226,55 +248,84 @@ Public Class ColumnPanel
         For Each uicol As uiColumn In Controls
             If String.Compare(uicol.thisColumn.Name, Name, True) = 0 Then
                 uicol.Focus()
+            Else
+                uicol.Deselect()
+                uicol.Selected = False
             End If
         Next
     End Sub
 
-    Private Function Indicies() As List(Of Integer)
+    Private Function Indicies(ByVal NextUnfilled As Boolean) As List(Of Integer)
         Dim l As New List(Of Integer)
         For Each c As uiColumn In Me.Controls
-            If Not c.thisColumn.isReadOnly And c.Enabled Then
-                l.Add(c.TabIndex)
+
+            Dim MissingDepend As Boolean = False
+            For Each dep As cColumn In c.thisColumn.Depends
+                If dep.Value.Length = 0 Then
+                    MissingDepend = True
+                    Exit For
+                End If
+            Next
+
+            If Not MissingDepend And Not c.thisColumn.isReadOnly And c.Enabled Then
+                If Not NextUnfilled Then
+                    l.Add(c.TabIndex)
+                Else
+                    If c.thisColumn.Value.Length = 0 Then
+                        l.Add(c.TabIndex)
+                    End If
+                End If
             End If
+
         Next
+
         l.Sort()
         Return l
     End Function
 
-    Private Sub ShiftFocus(ByRef ctrl As Control, ByVal Forward As Boolean)
+    Private Sub ShiftFocus(ByRef Controlindex As Integer, ByVal Forward As Boolean, Optional ByVal NextUnfilled As Boolean = False)
 
         Dim sel As Integer
-        Dim ind As List(Of Integer) = Indicies()
+        Dim ind As List(Of Integer) = Indicies(NextUnfilled)
 
-        If Forward Then
-            If ind.Max = ctrl.TabIndex Then
-                sel = ind.Min
+        If ind.Count > 0 Then
+
+            If Forward Then
+                If ind.Max = Controlindex Then
+                    sel = ind.Min
+                Else
+                    For Each i As Integer In ind
+                        If i > Controlindex Then
+                            sel = i
+                            Exit For
+                        End If
+                    Next
+                End If
             Else
-                For Each i As Integer In ind
-                    If i > ctrl.TabIndex Then
-                        sel = i
-                        Exit For
-                    End If
-                Next
+                Dim last As Integer = ind.Min
+                If ind.Min = Controlindex Then
+                    sel = ind.Max
+                Else
+                    For Each i As Integer In ind
+                        If i = Controlindex Then
+                            sel = last
+                            Exit For
+                        Else
+                            last = i
+                        End If
+                    Next
+                End If
             End If
+
+            Controlindex = sel
+
         Else
-            Dim last As Integer = ind.Min
-            If ind.Min = ctrl.TabIndex Then
-                sel = ind.Max
-            Else
-                For Each i As Integer In ind
-                    If i = ctrl.TabIndex Then
-                        sel = last
-                        Exit For
-                    Else
-                        last = i
-                    End If
-                Next
-            End If
+            sel = Controlindex
         End If
 
-        For Each c As Control In Me.Controls
+        For Each c As uiColumn In Me.Controls
             If c.TabIndex = sel Then
+                c.Selected = True
                 c.Focus()
                 Exit For
             End If
@@ -291,10 +342,16 @@ Public Class ColumnPanel
             With col
                 .NoPostField = True
                 .Value = ""
-                If Not IsNothing(.uiCol) Then .uiCol.Deselect()
+                If Not IsNothing(.uiCol) Then
+                    With .uiCol
+                        .Deselect()
+                        .Selected = False
+                    End With
+                End If
                 .NoPostField = False
             End With
         Next
+        'FirstControl()
     End Sub
 
 #End Region

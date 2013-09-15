@@ -50,10 +50,16 @@ Public Class ScanBuffer
         Get
             Dim ret As New Dictionary(Of String, String)
             Dim doc As New Xml.XmlDocument
-            doc.LoadXml(Value)
-            For Each item As XmlNode In doc.SelectNodes("in/i")
-                ret.Add(item.Attributes("n").Value, item.Attributes("v").Value)
-            Next
+            Try
+                doc.LoadXml(Value)
+                For Each item As XmlNode In doc.SelectNodes("in/i")
+                    ret.Add(item.Attributes("n").Value, item.Attributes("v").Value)
+                Next
+
+            Catch
+                MsgBox("Invalid data.", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly)
+            End Try
+
             Return ret
         End Get
     End Property
