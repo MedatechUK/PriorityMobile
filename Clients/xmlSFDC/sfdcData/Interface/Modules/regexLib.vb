@@ -12,6 +12,7 @@ Module regexLib
     Public rxIntoFrom As Regex = New Regex("INTO.*FROM", RegexOptions.IgnoreCase + RegexOptions.Multiline)
     Public rxWhere As Regex = New Regex("WHERE.*;", RegexOptions.IgnoreCase + RegexOptions.Multiline)
     Public rxErrMsg As Regex = New Regex("ERRMSG [0-9]+", RegexOptions.IgnoreCase + RegexOptions.Multiline)
+    Public rxMAC As Regex = New Regex("^([0-9A-F]{2}){5}([0-9A-F]{2})$", RegexOptions.IgnoreCase)
 
     Public rxINT As Regex = New Regex("^[\-]?[0-9]+$", RegexOptions.IgnoreCase)
     Public rxREAL As Regex = New Regex("^[\-]?[0-9]+[\.]?[0-9]*$", RegexOptions.IgnoreCase)

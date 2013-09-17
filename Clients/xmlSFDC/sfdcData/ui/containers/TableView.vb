@@ -35,7 +35,7 @@ Public Class TableView
                     With .ViewForm
                         .Visible = True
                         .Dock = DockStyle.Fill
-                        .NextControl(True)
+                        '.NextControl(True)
                     End With
 
                 Case eTableView.vTable

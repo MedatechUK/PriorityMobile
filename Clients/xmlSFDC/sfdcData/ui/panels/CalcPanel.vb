@@ -206,6 +206,8 @@ Public Class CalcPanel
                 Btn_Click(Me.btn(9), New System.EventArgs)
             Case Keys.Subtract
                 Btn_Click(Me.btn(11), New System.EventArgs)
+            Case Keys.Enter
+                Btn_Click(Me.btn(13), New System.EventArgs)
         End Select
     End Sub
 

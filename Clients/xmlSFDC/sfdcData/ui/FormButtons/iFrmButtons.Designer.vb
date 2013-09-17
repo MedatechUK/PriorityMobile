@@ -27,7 +27,7 @@ Partial Public Class iFrmButtons
         Me.btn_Copy = New System.Windows.Forms.PictureBox
         Me.btn_Delete = New System.Windows.Forms.PictureBox
         Me.btn_Print = New System.Windows.Forms.PictureBox
-        Me.btn_Post = New System.Windows.Forms.PictureBox        
+        Me.btn_Post = New System.Windows.Forms.PictureBox
         Me.SuspendLayout()
         '
         'btn_Add
@@ -97,7 +97,7 @@ Partial Public Class iFrmButtons
         'iFrmButtons
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi        
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.Controls.Add(Me.btn_Post)
         Me.Controls.Add(Me.btn_Print)
         Me.Controls.Add(Me.btn_Delete)

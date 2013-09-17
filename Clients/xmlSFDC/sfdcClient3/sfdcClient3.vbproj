@@ -76,6 +76,7 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="KeyConst.vb" />
     <Compile Include="Menu.vb">
       <SubType>Form</SubType>
     </Compile>

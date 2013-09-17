@@ -43,8 +43,10 @@ Partial Public Class Menu
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
         Me.ClientSize = New System.Drawing.Size(638, 455)
+        Me.ControlBox = False
         Me.Controls.Add(Me.StatusBar)
         Me.Controls.Add(Me.Logo)
+        Me.MaximizeBox = False
         Me.Name = "Menu"
         Me.Text = "sfdc3"
         Me.ResumeLayout(False)

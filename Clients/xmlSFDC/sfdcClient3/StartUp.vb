@@ -91,6 +91,7 @@ Module StartUp
                 sw.Write(ex.StackTrace)
             End Using
             MsgBox(ex.Message, MsgBoxStyle.Critical + MsgBoxStyle.OkOnly, "Fatal Error.")
+            Application.Exit()
         End Try
 
     End Sub

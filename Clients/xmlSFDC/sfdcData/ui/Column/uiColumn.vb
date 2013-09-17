@@ -104,9 +104,8 @@ Public Class uiColumn
         Select Case ColStyle
             Case eColStyle.colList
                 thisColumn.Value = list.SelectedItem
-                lbl_Value.Text = list.SelectedItem
+                lbl_Value.Text = list.SelectedItem                
                 ColStyle = eColStyle.colSelected
-                Parent.NextControl(True)
 
             Case eColStyle.colSelected
                 Select Case _ScanBuffer.is2d
@@ -189,7 +188,7 @@ Public Class uiColumn
                     _ColStyle = value
                     Me.Enabled = True
 
-                    If thisColumn.isReadOnly Then
+                    If thisColumn.isReadOnly Then                    
                         Me.Enabled = False
                         _ColStyle = eColStyle.colReadOnly
                     Else
@@ -241,6 +240,7 @@ Public Class uiColumn
                             End With
 
                         Case eColStyle.colReadOnly
+                            If Not _mode = eMode.label Then ShowCtrl(eMode.label)
                             With .lbl_Value
                                 .Visible = True
                                 .ForeColor = Drawing.Color.Black
@@ -383,12 +383,12 @@ Public Class uiColumn
                     End If
                 End If
 
-            Case 40, 39, 38, 37
+            Case 40, 39, 38, 37, 237, 238
                 e.Handled = True
                 Dim ex As New Exception
 
                 Select Case e.KeyValue
-                    Case 40, 39
+                    Case 40, 39, 238
                         If HasScanBuffer Then
                             ProcessBuffer(ex)
                             If IsNothing(ex) Then
@@ -402,7 +402,7 @@ Public Class uiColumn
                             Parent.NextControl(False)
                         End If
 
-                    Case 38, 37
+                    Case 38, 37, 237
                         If HasScanBuffer Then
                             ProcessBuffer(ex)
                             If IsNothing(ex) Then
@@ -418,15 +418,11 @@ Public Class uiColumn
 
                 End Select
 
-            Case 32
-                e.Handled = True                
+            Case 32, 113
+                e.Handled = True
 
                 If _ScanBuffer.Length = 0 Then
                     ParentForm.thisHandler.AltEntry(Me)
-                Else
-                    If Not _ScanBuffer.Length = 0 Then
-                        _ScanBuffer.Append(e.KeyValue)
-                    End If
                 End If
 
             Case 10
@@ -442,19 +438,23 @@ Public Class uiColumn
                         ProcessBuffer(ex)
 
                         If IsNothing(ex) Then
+
+                        If thisColumn.Value.Length > 0 Then
                             Deselect()
                             Parent.NextControl(True)
+                        End If
+
                         Else
                             MsgBox(ex.Message, , thisColumn.Title)
                         End If
 
                     End If
 
-            Case 63, 46
-                    e.Handled = True
-                    With thisColumn
-                        MsgBox(.Help, MsgBoxStyle.OkOnly, .Title)
-                    End With
+            Case 63, 46, 112
+                e.Handled = True
+                With thisColumn
+                    MsgBox(.Help, MsgBoxStyle.OkOnly, .Title)
+                End With
 
         End Select
 
@@ -463,24 +463,9 @@ Public Class uiColumn
     Private Sub list_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles list.KeyDown
 
         Select Case e.KeyValue
-            Case 13
-                If list.SelectedIndex > -1 Then
-                    e.Handled = True
-                    Dim seltext As String = list.SelectedItem
-                    If seltext.Length > 0 Then
-                        Dim ex As New Exception
-                        ProcessBuffer(ex)
-                    End If
-                End If
-        End Select
-
-    End Sub
-
-    Private Sub list_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles list.KeyDown
-
-        Select Case e.KeyValue
 
             Case 40, 39, 38, 37
+
                 e.Handled = True
                 Dim ex As New Exception
 
@@ -496,6 +481,26 @@ Public Class uiColumn
                         End If
 
                 End Select
+
+            Case 13
+
+                e.Handled = True
+                If list.SelectedIndex > -1 Then
+                    Dim seltext As String = list.SelectedItem
+                    If seltext.Length > 0 Then
+                        Dim ex As New Exception
+                        Dim SelCol As String = Parent.FocusedControl.thisColumn.Name
+                        ProcessBuffer(ex)
+                        If IsNothing(ex) Then
+                            If Parent.FocusedControl.thisColumn.Name = SelCol Then
+                                Deselect()
+                                Parent.NextControl(True)
+                            End If
+                        Else
+                            MsgBox(ex.Message, , thisColumn.Title)
+                        End If
+                    End If
+                End If
 
         End Select
 
@@ -572,6 +577,7 @@ Public Class uiColumn
                                 .ProcessBuffer(ex)
                                 If IsNothing(ex) Then
                                     .Deselect()
+                                    .Selected = False
                                 Else
                                     MsgBox(ex.Message, , thisColumn.Title)
                                     .Focus()
@@ -579,6 +585,7 @@ Public Class uiColumn
                                 End If
                             Else
                                 .Deselect()
+                                .Selected = False
                             End If
                         End If
                     End If
@@ -586,9 +593,12 @@ Public Class uiColumn
             Next
 
             With Me
-                If .Selected Then
-                    .Deselect()
+                .Selected = True
+                If .ColStyle = eColStyle.colSelected Then
+                    .ColStyle = eColStyle.colDeselected
+                    '                    .Focus()
                 Else
+                    .ColStyle = eColStyle.colSelected
                     .Focus()
                 End If
             End With
@@ -612,7 +622,7 @@ Public Class uiColumn
             If Not _mode = eMode.label Then ShowCtrl(eMode.label)
             lbl_Value.Text = _thisColumn.Value
             .ColStyle = eColStyle.colDeselected
-            .Selected = False
+            '.Selected = False
             _ScanBuffer.Clear()
         End With
     End Sub
