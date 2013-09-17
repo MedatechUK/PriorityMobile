@@ -10,9 +10,9 @@
     <RootNamespace>Priority</RootNamespace>
     <AssemblyName>xmlLoadCE</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
-    <PlatformFamilyName>PocketPC</PlatformFamilyName>
-    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
-    <OSVersion>5.1</OSVersion>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.00</OSVersion>
     <MyType>Windows</MyType>
     <DeployDirSuffix>SmartDeviceProject1</DeployDirSuffix>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
-    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <NativePlatformName>Windows CE</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
   </PropertyGroup>

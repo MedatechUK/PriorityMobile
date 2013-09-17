@@ -44,6 +44,32 @@ Public Class myHandler : Inherits iHandler
                 .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
                          New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
 
+                ' qr code
+                '<in>
+                '  <i n="PART" v="PART123"/>
+                '  <i n="CUST" v="Goods"/>
+                '  <i n="SERIAL" v="123-456-789"/>
+                '  <i n="LOT" v="123-456-789"/>
+                '  <i n="ACT" v="123-456-789"/>
+                '</in>
+                Dim code As New qrCode
+                'code.Add("WARHS", "Main")
+                'code.Add("BIN", "0")
+                code.Add("PART", "PART123")
+                code.Add("CUST", "Goods")
+                code.Add("SERIAL", "123-456-789")
+                code.Add("LOT", "123-456-789")
+                code.Add("ACT", "Release")
+                .AddBarcode( _
+                    code.Encode, _
+                        New Point( _
+                            (thisForm.Printer.Dimensions.Width / 2) - 223, _
+                            thisForm.Printer.Dimensions.Height + 10 _
+                        ), _
+                    250, _
+                    Symbology.QRCODE _
+                )
+
                 'tear 'n' print!
                 .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
                 thisForm.Printer.Print(.toByte)

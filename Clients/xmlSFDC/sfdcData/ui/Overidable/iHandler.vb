@@ -96,20 +96,31 @@ Public MustInherit Class iHandler
         With thisForm.ViewMain
 
             For Each thisCol As cColumn In .FormView.ViewForm.Columns.Values
-                If Not thisCol.isReadOnly Then
-                    xl.AddColumn(1) = New LoadColumn(thisCol.Name, xl.NamedType(thisCol.ColumnType))
+                If thisCol.Postable Then
+                    Select Case thisCol.ColumnType.ToLower
+                        Case "int"
+                            xl.AddColumn(1) = New LoadColumn(thisCol.Name, xl.NamedType(thisCol.ColumnType), , thisCol.Decimals)
+                        Case Else
+                            xl.AddColumn(1) = New LoadColumn(thisCol.Name, xl.NamedType(thisCol.ColumnType))
+                    End Select
+
                 End If
             Next
 
             For Each thisCol As cColumn In .TableView.ViewTable.Columns.Values
-                If Not thisCol.isReadOnly Then
-                    xl.AddColumn(2) = New LoadColumn(thisCol.Name, xl.NamedType(thisCol.ColumnType))
+                If thisCol.Postable Then
+                    Select Case thisCol.ColumnType.ToLower
+                        Case "int"
+                            xl.AddColumn(2) = New LoadColumn(thisCol.Name, xl.NamedType(thisCol.ColumnType), , thisCol.Decimals)
+                        Case Else
+                            xl.AddColumn(2) = New LoadColumn(thisCol.Name, xl.NamedType(thisCol.ColumnType))
+                    End Select
                 End If
             Next
 
             args = Nothing
             For Each thisCol As cColumn In .FormView.ViewForm.Columns.Values
-                If Not thisCol.isReadOnly Then
+                If thisCol.Postable Then
                     Try
                         ReDim Preserve args(UBound(args) + 1)
                     Catch ex As Exception
@@ -126,7 +137,7 @@ Public MustInherit Class iHandler
                     args = Nothing
                     Dim i As Integer = 0
                     For Each thisCol As cColumn In .Columns.Values
-                        If Not thisCol.isReadOnly Then
+                        If thisCol.Postable Then
                             Try
                                 ReDim Preserve args(UBound(args) + 1)
                             Catch ex As Exception

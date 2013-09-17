@@ -98,11 +98,16 @@ Public Class iForm : Inherits BaseForm
     End Sub
 
     Private Sub iForm_Closing(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs) Handles MyBase.Closing
-        If MsgBox("Close this form?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+        If Not Posted Then
+            If MsgBox("Close this form?", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
+                thisHandler.Close(Me)
+                Me.Close()
+            Else
+                e.Cancel = True
+            End If
+        Else
             thisHandler.Close(Me)
             Me.Close()
-        Else
-            e.Cancel = True
         End If
     End Sub
 
@@ -113,6 +118,16 @@ Public Class iForm : Inherits BaseForm
 #End Region
 
 #Region "Public Properties"
+
+    Private _Posted As Boolean = False
+    Public Property Posted() As Boolean
+        Get
+            Return _Posted
+        End Get
+        Set(ByVal value As Boolean)
+            _Posted = value
+        End Set
+    End Property
 
     Private _intf As cInterface
     Public ReadOnly Property thisInterface() As cInterface

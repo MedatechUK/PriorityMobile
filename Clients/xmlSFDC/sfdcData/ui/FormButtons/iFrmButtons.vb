@@ -194,12 +194,14 @@ Public Class iFrmButtons
                                     If Not IsNothing(ex) Then
                                         MsgBox(ex.Message)
                                     Else
+                                        ParentForm.Posted = True
+                                        MsgBox("Transaction Posted", MsgBoxStyle.Information + MsgBoxStyle.OkOnly, "Posted.")
                                         .Close(ParentForm)
                                         ParentForm.Close()
                                     End If
 
                                 Catch excep As Exception
-                                    MsgBox(ex.Message)
+                                    MsgBox(excep.Message)
                                 End Try
 
                             End Using

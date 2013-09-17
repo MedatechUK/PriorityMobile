@@ -17,16 +17,19 @@ End Enum
 
 Public Class LoadColumn
 
-    Public Sub New(ByVal ColumnName As String, ByVal ColumnType As tColumnType, ByVal Length As Integer)
+    Public Sub New(ByVal ColumnName As String, ByVal ColumnType As tColumnType, Optional ByVal Length As Integer = -1, Optional ByVal Decimals As Integer = -1)
         _ColumnName = ColumnName
         _ColumnType = ColumnType
         _Length = Length
-    End Sub
-
-    Public Sub New(ByVal ColumnName As String, ByVal ColumnType As tColumnType)
-        _ColumnName = ColumnName
-        _ColumnType = ColumnType
-        _Length = -1
+        If _ColumnType = tColumnType.typeINT Then
+            If Not Decimals = -1 Then
+                _Decimals = Decimals
+            Else
+                _Decimals = 3
+            End If
+        Else
+            _Decimals = Nothing
+        End If
     End Sub
 
     Private _ColumnName As String
@@ -56,6 +59,16 @@ Public Class LoadColumn
         End Get
         Set(ByVal value As Integer)
             _Length = value
+        End Set
+    End Property
+
+    Private _Decimals As Integer
+    Public Property Decimals() As Integer
+        Get
+            Return _Decimals
+        End Get
+        Set(ByVal value As Integer)
+            _Decimals = value
         End Set
     End Property
 
@@ -281,7 +294,7 @@ Public Class Loading
                                     LoadingColumns(RecordType)(i).ColumnName _
                                  ) _
                             )
-                        Row.Data(i) = String.Format("dbo.INTQUANT({0})", Row.Data(i))
+                        Row.Data(i) = String.Format("dbo.DECQUANT({0},{1})", Row.Data(i), LoadingColumns(RecordType)(i).Decimals)
 
                     Case tColumnType.typeREAL
                         If Row.Data(i).Trim.Length = 0 Then Row.Data(i) = "0"

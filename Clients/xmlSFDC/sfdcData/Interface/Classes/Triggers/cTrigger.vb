@@ -74,6 +74,8 @@ Public Class cTrigger
             If ret.Count = 0 Then
                 With ret
                     .Add("SQL.DATE8", "dbo.DATETOMIN(GETDATE())")
+                    '.Add("SQL.DATE", "dbo.DATETOMIN(GETDATE())")
+                    .Add("ITOA(", "STR(")
                 End With
             End If
             Return ret

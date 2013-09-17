@@ -42,6 +42,7 @@ Public Class cColumn
                 _thisRegex = New Regex(thisNode.Attributes("regex").Value)                
             End If
             _isReadOnly = Not IsNothing(thisNode.Attributes("readonly"))
+            _Postable = IsNothing(thisNode.Attributes("readonly"))
 
             For Each dt As String In _Triggers.Keys
                 For Each colRef As String In _Triggers(dt).ColumnRefs
@@ -191,6 +192,13 @@ Public Class cColumn
         End Get
     End Property
 
+    Private _Postable As Boolean = True
+    Public ReadOnly Property Postable() As Boolean
+        Get
+            Return _Postable
+        End Get
+    End Property
+
     Private _isReadOnly As Boolean = False
     Public Property isReadOnly() As Boolean
         Get
@@ -269,6 +277,16 @@ Public Class cColumn
                 Return thisNode.Attributes("barcode2d").Value
             Else
                 Return ""
+            End If
+        End Get
+    End Property
+
+    Public ReadOnly Property Decimals() As Integer
+        Get
+            If Not IsNothing(thisNode.Attributes("decimal")) Then
+                Return CInt(thisNode.Attributes("decimal").Value)
+            Else
+                Return 3
             End If
         End Get
     End Property
