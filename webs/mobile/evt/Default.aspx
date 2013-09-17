@@ -20,40 +20,7 @@
     });
 </script>
 
-<script type="text/javascript">
 
-
-        function printTextBox(elementId) {
-            var printContent = document.getElementById(elementId).value;
-            var windowUrl = 'about:blank';
-            var windowName = 'Print' + new Date().getTime();
-            var printWindow = window.open(windowUrl, windowName, 'left=50000,top=50000,width=0,height=0');
-            
-
-            var rex = /\n/g;
-            printContent = printContent.replace(rex, "<br>");
-
-
-            printWindow.document.write(printContent);
-            printWindow.document.close();
-            printWindow.focus();
-            printWindow.print();
-            printWindow.close();
-        }
-
-
-    </script>
-	<script type="text/javascript" src="tcal.js"></script> 
-    <style type="text/css">
-        .style1
-        {
-            width: 160px;
-        }
-        .style2
-        {
-            width: 178px;
-        }
-    </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -107,18 +74,7 @@
                
                 
                
-                <Columns>
-<%--                <asp:CommandField SelectText="Select" ButtonType="Button" 
-                        ItemStyle-Width="108px">
-<ItemStyle Width="108px"></ItemStyle>
-                    </asp:CommandField>--%>
-                    <%--<asp:BoundField DataField="Index" HeaderText="Index" SortExpression="Index" />--%>
-                                        
-<%--                    <asp:BoundField DataField="Source" HeaderText="Source" SortExpression="Source" 
-                        ItemStyle-Width="150px">
-<ItemStyle Width="150px"></ItemStyle>
-                    </asp:BoundField>--%>
-                    
+                <Columns>                   
          <asp:TemplateField>
             <ItemTemplate>
                 <img alt = "" style="cursor: pointer" src="Images/plus.png" />
@@ -158,11 +114,7 @@
                 </Columns>
                 <PagerStyle 
                     BorderStyle="Solid" />
-                
-<%--                <SortedAscendingCellStyle BackColor="#FBFBF2" />
-                <SortedAscendingHeaderStyle BackColor="#848384"/>
-                <SortedDescendingCellStyle BackColor="#EAEAD3" />
-                <SortedDescendingHeaderStyle BackColor="#575357" />--%><EditRowStyle 
+<EditRowStyle 
                     BorderStyle="Solid" />
                 <AlternatingRowStyle BorderStyle="Solid" />
 
@@ -171,11 +123,7 @@
 
 </asp:Panel>
             </div>
-    <%--                <asp:CommandField SelectText="Select" ButtonType="Button" 
-                        ItemStyle-Width="108px">
-<ItemStyle Width="108px"></ItemStyle>
-                    </asp:CommandField>--%>
-            
+        
 
     
     </form>

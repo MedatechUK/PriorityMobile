@@ -5,9 +5,31 @@ Imports System.Data.SqlClient
 
 Partial Class _Default
     Inherits System.Web.UI.Page
+#Region "Variable Decleration"
+    Private Property GridViewSortDirection() As String
+        Get
+            Return If(TryCast(ViewState("SortDirection"), String), "ASC")
+        End Get
+        Set(ByVal value As String)
+            ViewState("SortDirection") = value
+        End Set
+    End Property
+    Private Function ConvertSortDirectionToSql(ByVal sortDirection As SortDirection) As String
+        Select Case GridViewSortDirection
+            Case "ASC"
+                GridViewSortDirection = "DESC"
+                Exit Select
 
+            Case "DESC"
+                GridViewSortDirection = "ASC"
+                Exit Select
+        End Select
 
-    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        Return GridViewSortDirection
+    End Function
+#End Region
+#Region "Initialisiation"
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
             pnlGrid.Visible = False
             pnlLoader.Visible = True
@@ -15,8 +37,20 @@ Partial Class _Default
 
         End If
     End Sub
+
+    Protected Overrides Sub OnInit(ByVal e As EventArgs)
+        MyBase.OnInit(e)
+        pnlLoader.Visible = True
+        pnlGrid.Visible = False
+    End Sub
+#End Region
+#Region "Log Reading"
     Private Sub getlogdata(ByVal days As Integer, ByVal query As String, ByVal sortby As String)
+        'This sub reads all the events from the log using a WMI Query. I build the query up based on the values in the filters box.
+        'it should be noted that when working with dates in WMI it uses a variant date type. As you can see in tjhe variable que  the wmi script is (almost) written is sql. The first thing we need to put in is which 
+        'logfile to read from and then what the source of the events should be. Application and PriProc4. We also want to time limit the query (for speed).
         Dim que As String = "Select * from Win32_NTLogEvent Where Logfile = 'Application' and SourceName = 'PRIPROC4'  and TimeWritten >= '"
+        'we have to be very careful when forming the date as it is in a structure dependant form  
         Dim yr, day, mo, hr, min, sec As String
 
         Dim g As Date = DateAdd(DateInterval.Minute, days, Now)
@@ -30,33 +64,28 @@ Partial Class _Default
         min = "01"
         sec = "01"
 
-
+        'we need the month to be 2 digits
         If Len(mo) = 1 Then
             mo = "0" & mo
         End If
 
 
 
-
+        'and the day needs to be 2digits
         If Len(day) = 1 Then
             day = "0" & day
         End If
 
+        'after the decimal point we have miliseconds and after the dash we have the gmt offset
         finaldate = yr & mo & day & hr & min & sec & ".000000-000"
 
 
         Dim strComputer As String = "."
         Dim ObjWMIEvt As Object = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
-        Dim colTimeZone As Object = ObjWMIEvt.ExecQuery _
-        ("SELECT * FROM Win32_TimeZone")
-        Dim strBias As String = ""
-        For Each objTimeZone In colTimeZone
-            strBias = objTimeZone.Bias
-        Next
-        'finaldate &= strBias
+
         que = que & finaldate & "' and " & query
 
-        Dim LoggedEvents As Object = ObjWMIEvt.ExecQuery(que) ' AND EventType = 1
+        Dim LoggedEvents As Object = ObjWMIEvt.ExecQuery(que)
         Dim dterr As New DataTable
         dterr.Rows.Clear()
         dterr.Clear()
@@ -64,7 +93,6 @@ Partial Class _Default
         dterr.Columns.Add("Index", GetType(Integer))
         dterr.Columns.Add("EntryType", GetType(String))
         dterr.Columns.Add("TimeGenerated", GetType(String))
-        'dterr.Columns.Add("Source", GetType(String))
         dterr.Columns.Add("Message", GetType(String))
 
         For Each objEvent As Object In LoggedEvents
@@ -74,44 +102,36 @@ Partial Class _Default
 
             dtErrRow("EntryType") = objEvent.EventType
             dtErrRow("TimeGenerated") = objEvent.TimeGenerated
-            'dtErrRow("Source") = objEvent.SourceName
             dtErrRow("Message") = objEvent.Message
             dterr.Rows.Add(dtErrRow)
         Next
-
-
         Session("dterr") = dterr
-       
+    End Sub
 
-    End Sub
-    Protected Overrides Sub OnInit(ByVal e As EventArgs)
-        MyBase.OnInit(e)
-        pnlLoader.Visible = True
-        pnlGrid.Visible = False
-    End Sub
+#End Region
+
+#Region "Set Grid & fill"
     Private Sub GetEvents(ByVal sort As String, ByVal item As String)
         If IsPostBack Then
 
             Dim ft As String = ViewState("FilterText")
             Dim filter, fitem As String
-            'If ft Is Nothing = False Or ft <> "" Then
-            '    filter = "'%" & ViewState("FilterText") & "%'"
-            'Else
-            '    filter = "'%'"
-            'End If
+
             Select Case ft
                 Case ""
                     filter = "'%'"
                 Case Else
                     filter = "'%" & ViewState("FilterText") & "%'"
             End Select
+
             If ViewState("FilterItem") Is Nothing = False Then
-                '
                 fitem = ViewState("FilterItem")
             Else
                 fitem = "NONE"
             End If
+
             Dim days As Integer
+
             If ViewState("FilterDate") Is Nothing = True Then
                 days = -1
             Else
@@ -130,11 +150,14 @@ Partial Class _Default
                         days = 999 * (24 * 60)
                 End Select
             End If
+
             If sort = "" Then
                 sort = 0
             End If
+
             ViewState("sort") = sort
             ViewState("item") = item
+
             With GridView1
                 .AutoGenerateColumns = False
                 .DataKeyNames = New String() {"Index", "Message"}
@@ -149,26 +172,17 @@ Partial Class _Default
 
 
 
-
-            'getlogdata(days, fitem, Convert.ToString(item & " " & ConvertSortDirectionToSql(sort)))
-            'dterr = DirectCast(Session("dterr"), DataTable)
-
-
-
-
-
             Select Case fitem
                 Case "NONE"
                     Select Case sort
                         Case ""
-                            'dv = New DataView(dterr, "EntryType like '%'", "Index desc", DataViewRowState.CurrentRows)
+
                         Case Else
 
                             If item = "" Then
                                 item = "TGENERATED"
                             End If
-                            'dv = New DataView(dterr, "EntryType like '%'", "Index desc", DataViewRowState.CurrentRows)
-                            'dv.Sort = Convert.ToString(item & " " & ConvertSortDirectionToSql(sort))
+
                     End Select
                 Case Else
                     If item = "" Then
@@ -182,11 +196,6 @@ Partial Class _Default
                             fitem &= " and Message like " & filter
                         End If
                     End If
-
-                    'dv = New DataView(dterr, fitem, "Index desc", DataViewRowState.CurrentRows)
-
-                    'dv.Sort = Convert.ToString(item & " " & ConvertSortDirectionToSql(sort))
-
             End Select
 
 
@@ -195,14 +204,9 @@ Partial Class _Default
 
             dterr = DirectCast(Session("dterr"), DataTable)
 
-            'dv = New DataView(dtErr, "EntryType='Error'", "TimeGenerated DESC", DataViewRowState.CurrentRows)
-
-
-
             GridView1.DataSource = dterr
             GridView1.DataBind()
 
-            'GridView1.Columns(4).Visible = False
         Else
             Dim i As ListItem
             Dim h As String = "(EventType = "
@@ -246,23 +250,20 @@ Partial Class _Default
                 .AllowSorting = True
 
             End With
-            
+
 
             Dim dtErr As New DataTable
-            Dim dv As DataView
             Select Case fitem
                 Case "NONE"
                     Select Case sort
                         Case ""
-                            'dv = New DataView(dtErr, "EntryType like '%'", "Index desc", DataViewRowState.CurrentRows)
-                        Case Else
 
+                        Case Else
                             If item = "" Then
                                 item = "TGENERATED"
                             End If
-                            'dv = New DataView(dtErr, "EntryType like '%'", "Index ASC", DataViewRowState.CurrentRows)
-                            'dv.Sort = Convert.ToString(item & " " & ConvertSortDirectionToSql(sort))
                     End Select
+
                 Case Else
                     If item = "" Then
                         item = "TGENERATED"
@@ -271,23 +272,17 @@ Partial Class _Default
                     Else
                         If fitem = "" Then
                             fitem = "MESSAGE like " & filter
+
                         Else
                             'fitem &= " and MESSAGE like" & filter
+
                         End If
                     End If
-                    'dv = New DataView(dtErr, fitem, "Index desc", DataViewRowState.CurrentRows)
-
-                    'dv.Sort = Convert.ToString(item & " " & ConvertSortDirectionToSql(sort))
-
             End Select
 
             getlogdata(days, fitem, Convert.ToString(item & " " & ConvertSortDirectionToSql(sort)))
 
             dtErr = DirectCast(Session("dterr"), DataTable)
-
-
-            'dv = New DataView(dtErr, "EntryType='Error'", "TimeGenerated DESC", DataViewRowState.CurrentRows)
-
             pnlGrid.Visible = True
             GridView1.Visible = True
             GridView1.DataSource = dtErr
@@ -299,77 +294,6 @@ Partial Class _Default
 
     End Sub
 
-    Protected Sub GridView1_PageIndexChanging(sender As Object, e As GridViewPageEventArgs) Handles GridView1.PageIndexChanging
-        GridView1.PageIndex = e.NewPageIndex
-        GetEvents("", "")
-    End Sub
-
-    'Protected Sub GridView1_SelectedIndexChanged(sender As Object, e As System.EventArgs) Handles GridView1.SelectedIndexChanged
-    '    Dim i As String = GridView1.SelectedRow.Cells(1).Text
-    '    lblID.Text = i
-    '    Label1.Text = GridView1.SelectedRow.Cells(2).Text
-    '    Label2.Text = GridView1.SelectedRow.Cells(3).Text
-    '    TextBox1.Text = GridView1.DataKeys(GridView1.SelectedRow.RowIndex).Values("Message")
-
-    'End Sub
-
-
-    Protected Sub GridView1_Sorting(ByVal sender As Object, ByVal e As GridViewSortEventArgs)
-        Dim i, j As String
-        i = e.SortDirection
-        j = e.SortExpression
-        GetEvents(i, j)
-    
-    End Sub
-    Private Property GridViewSortDirection() As String
-        Get
-            Return If(TryCast(ViewState("SortDirection"), String), "ASC")
-        End Get
-        Set(ByVal value As String)
-            ViewState("SortDirection") = value
-        End Set
-    End Property
-
-    Private Function ConvertSortDirectionToSql(ByVal sortDirection As SortDirection) As String
-        Select Case GridViewSortDirection
-            Case "ASC"
-                GridViewSortDirection = "DESC"
-                Exit Select
-
-            Case "DESC"
-                GridViewSortDirection = "ASC"
-                Exit Select
-        End Select
-
-        Return GridViewSortDirection
-    End Function
-
-
-
-    'Protected Sub cmdSearch_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles cmdSearch.Click
-    '    If txtSearch.Text = "" Then
-    '        Exit Sub
-    '    End If
-    '    If IsPostBack = True Then
-
-    '    End If
-    'End Sub
-
-    Protected Sub DropDownList1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles DropDownList1.SelectedIndexChanged, DropDownList1.TextChanged
-        If DropDownList1.Text = "" Then
-            Exit Sub
-        End If
-       
-        If IsPostBack = True Then
-
-
-        End If
-    End Sub
-
-    Protected Sub CheckBoxList1_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CheckBoxList1.SelectedIndexChanged
-
-    End Sub
-
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         If IsPostBack = True Then
             txtSearch.Text = txtSearch.Text.Replace("'", "")
@@ -377,12 +301,8 @@ Partial Class _Default
             txtSearch.Text = txtSearch.Text.Replace("[", "")
             txtSearch.Text = txtSearch.Text.Replace("]", "")
             ViewState("FilterText") = txtSearch.Text
-            'ViewState("FilterItem") = "Message"
-            'GetEvents(ViewState("sort"), ViewState("item"))
             ViewState("FilterDate") = DropDownList1.Text
 
-
-            'GetEvents(ViewState("sort"), ViewState("item"))
             Dim i As ListItem
             Dim h As String = "(EventType = "
             Dim j As Integer = 0
@@ -408,6 +328,21 @@ Partial Class _Default
             GetEvents(ViewState("sort"), "")
         End If
     End Sub
+#End Region
+
+#Region "Grid Events"
+    Protected Sub GridView1_PageIndexChanging(ByVal sender As Object, ByVal e As GridViewPageEventArgs) Handles GridView1.PageIndexChanging
+        GridView1.PageIndex = e.NewPageIndex
+        GetEvents("", "")
+    End Sub
+    Protected Sub GridView1_Sorting(ByVal sender As Object, ByVal e As GridViewSortEventArgs)
+        Dim i, j As String
+        i = e.SortDirection
+        j = e.SortExpression
+        GetEvents(i, j)
+
+    End Sub
+
 
     Protected Sub OnRowDataBound(ByVal sender As Object, ByVal e As GridViewRowEventArgs) Handles GridView1.RowDataBound
         If e.Row.RowType = DataControlRowType.DataRow Then
@@ -452,5 +387,17 @@ Partial Class _Default
 
         End If
     End Sub
+#End Region
+
+
+
+
+
+
+
+
+
+
+
 
 End Class
