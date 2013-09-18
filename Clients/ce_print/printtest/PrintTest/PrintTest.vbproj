@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A01B1A32-4CE0-4BC7-AAFF-D17E4D64F6D4}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>PrintTest.EoDReturnsAnalysis</StartupObject>
+    <StartupObject>PrintTest.Form2</StartupObject>
     <RootNamespace>PrintTest</RootNamespace>
     <AssemblyName>PrintTest</AssemblyName>
     <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
@@ -106,6 +106,12 @@
     <Compile Include="EoDreturnsAnalysis.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form2.Designer.vb">
+      <DependentUpon>Form2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Invoice.Designer.vb">
       <DependentUpon>Invoice.vb</DependentUpon>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EoDreturnsAnalysis.resx">
       <DependentUpon>EoDreturnsAnalysis.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Invoice.resx">
       <DependentUpon>Invoice.vb</DependentUpon>

@@ -50,3 +50,6 @@ C:\ce_print\printtest\PrintTest\obj\Debug\PrintTest.exe
 C:\ce_print\printtest\PrintTest\obj\Debug\PrintTest.xml
 C:\ce_print\printtest\PrintTest\obj\Debug\PrintTest.pdb
 C:\ce_print\printtest\PrintTest\obj\Debug\PrintTest.EoDReturnsAnalysis.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.EoDCashAnalysis.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.EoDReturnsAnalysis.resources
+M:\Clients\ce_print\printtest\PrintTest\obj\Debug\PrintTest.Form2.resources

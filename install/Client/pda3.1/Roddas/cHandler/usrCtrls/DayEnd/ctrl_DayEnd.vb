@@ -169,7 +169,7 @@ Public Class ctrl_DayEnd
                              New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10, 15)
 
                     'header = 222.5px wide
-                    .AddText("PAYMENTS RECEIVED", New Point((thisForm.Printer.Dimensions.Width / 2) - 223, thisForm.Printer.Dimensions.Height + 10), _
+                    .AddText("REJECTS ANALYSIS", New Point((thisForm.Printer.Dimensions.Width / 2) - 205, thisForm.Printer.Dimensions.Height + 10), _
                              headerFont)
 
                     .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _

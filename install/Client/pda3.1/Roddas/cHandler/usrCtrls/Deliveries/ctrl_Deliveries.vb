@@ -412,25 +412,34 @@ Public Class ctrl_Deliveries
 
 
                 Dim qtyString As String
-
+                Dim unitprice As Double = CDbl(OrderPart.SelectSingleNode("price").InnerText)
                 If OrderPart.SelectSingleNode("cheese").InnerText = "Y" Then
                     qtyString = OrderPart.SelectSingleNode("weight").InnerText & "kg"
                     units += 1
+                    invoicePartsList.AddRow(qtyString, _
+                                       des, _
+                                       unitprice.ToString("c").Replace("£", "#"), _
+                                       (CDbl(OrderPart.SelectSingleNode("weight").InnerText) * unitprice).ToString("c").Replace("£", "#") _
+                                       )
+                    invoicetotal += CDbl(OrderPart.SelectSingleNode("weight").InnerText) * CDbl(unitprice)
                 Else
+                    invoicePartsList.AddRow(qty, _
+                                       des, _
+                                       unitprice.ToString("c").Replace("£", "#"), _
+                                       (qty * unitprice).ToString("c").Replace("£", "#") _
+                                       )
+
                     qtyString = qty
                     units += qty
+                    invoicetotal += CDbl(qty) * CDbl(unitprice)
                 End If
 
-                Dim unitprice As Double = CDbl(OrderPart.SelectSingleNode("price").InnerText)
 
-                invoicePartsList.AddRow(qtyString, _
-                                        des, _
-                                        unitprice.ToString("c").Replace("£", "#"), _
-                                        (qty * unitprice).ToString("c").Replace("£", "#") _
-                                        )
+
+                
                 lines += 1
 
-                invoicetotal += CDbl(qty) * CDbl(unitprice)
+
             Next
 
 
