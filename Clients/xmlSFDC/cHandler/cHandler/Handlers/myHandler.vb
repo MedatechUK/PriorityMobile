@@ -136,4 +136,16 @@ Public Class myHandler : Inherits iHandler
 
     End Function
 
+    Public Overrides Sub Scan2d(ByRef sb As PrioritySFDC.TablePanel)
+        With sb.ParentForm
+            Dim c As calcSetting = .Calc(New calcSetting(CInt(0), -10, 100, "Test"))
+            If c.Result = DialogResult.OK Then
+
+            End If
+        End With
+        For Each k As String In sb.ScanBuffer.ScanDictionary.Keys
+
+        Next
+    End Sub
+
 End Class

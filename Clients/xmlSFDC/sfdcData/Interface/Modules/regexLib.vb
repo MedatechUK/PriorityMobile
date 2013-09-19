@@ -8,9 +8,9 @@ Module regexLib
     Public rxPar As Regex = New Regex("\:PAR[0-9]+", RegexOptions.IgnoreCase)    
     Public rxColPar As Regex = New Regex("\:\$+\.[0-9A-Za-z\-_]+|\:[0-9A-Za-z\-_]+", RegexOptions.IgnoreCase)
     Public rxArgs As Regex = New Regex("%[a-zA-Z]+%", RegexOptions.IgnoreCase)
-    Public rxSelectInto As Regex = New Regex("SELECT.*INTO", RegexOptions.IgnoreCase + RegexOptions.Multiline)
-    Public rxIntoFrom As Regex = New Regex("INTO.*FROM", RegexOptions.IgnoreCase + RegexOptions.Multiline)
-    Public rxWhere As Regex = New Regex("WHERE.*;", RegexOptions.IgnoreCase + RegexOptions.Multiline)
+    Public rxSelectInto As Regex = New Regex("SELECT.*?INTO", RegexOptions.IgnoreCase + RegexOptions.Multiline)
+    Public rxIntoFrom As Regex = New Regex("INTO.*?FROM", RegexOptions.IgnoreCase + RegexOptions.Multiline)
+    Public rxWhere As Regex = New Regex("WHERE.*?;", RegexOptions.IgnoreCase + RegexOptions.Multiline)
     Public rxErrMsg As Regex = New Regex("ERRMSG [0-9]+", RegexOptions.IgnoreCase + RegexOptions.Multiline)
     Public rxMAC As Regex = New Regex("^([0-9A-F]{2}){5}([0-9A-F]{2})$", RegexOptions.IgnoreCase)
 

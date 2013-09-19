@@ -76,7 +76,7 @@ Public Class FormPanel
                 Exit Sub
             End If
         Next
-        FormView.ViewForm.NextControl()
+        TableView.ViewTable.thisTable.Focus()
     End Sub
 
     Private Sub iForm_Resize(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Resize

@@ -76,6 +76,7 @@
   <ItemGroup>
     <Compile Include="Interface\Classes\BaseClasses\qrCode.vb" />
     <Compile Include="Interface\Classes\CalcSetting.vb" />
+    <Compile Include="Interface\Classes\Triggers\PriSQLFunc.vb" />
     <Compile Include="Interface\Modules\cePrinter.vb" />
     <Compile Include="Interface\Classes\Columns\cColumn.vb" />
     <Compile Include="Interface\Classes\Columns\cColumns.vb" />

@@ -337,6 +337,35 @@ Public Class iForm : Inherits BaseForm
 
 #Region "User Dialogs"
 
+    Private calcResult As calcSetting
+    Private calcFinish As Boolean = False
+
+    Public Function Calc(ByVal setting As calcSetting) As calcSetting
+        With Me
+            calcFinish = False
+
+            .ViewCalc.InitSetting(setting)
+            AddHandler .ViewCalc.SetNumber, AddressOf hCalc
+            .View = iForm.eiFromView.ViewCalc
+
+            While Not calcFinish
+                Application.DoEvents()
+            End While
+
+            RemoveHandler .ViewCalc.SetNumber, AddressOf hCalc
+            .View = iForm.eiFromView.ViewMain
+
+            Return calcResult
+        End With
+    End Function
+
+    Private Sub hCalc(ByRef cSetting As calcSetting)
+        With Me
+            calcResult = cSetting
+            calcFinish = True
+        End With
+    End Sub
+
     Public Sub Dialog(ByRef frmDialog As PrioritySFDC.UserDialog, Optional ByVal frmName As String = "")
         frmDialog.frmName = frmName
         With Me

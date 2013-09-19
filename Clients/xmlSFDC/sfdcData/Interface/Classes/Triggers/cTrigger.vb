@@ -68,14 +68,16 @@ Public Class cTrigger
         End Get
     End Property
 
-    Private ReadOnly Property SQLFuncs() As Dictionary(Of String, String)
+    Private ReadOnly Property SQLFuncs() As List(Of PriSQLFunc) 'Dictionary(Of String, String)
         Get
-            Static ret As New Dictionary(Of String, String)
+            Static ret As New List(Of PriSQLFunc) 'Dictionary(Of String, String)
             If ret.Count = 0 Then
                 With ret
-                    .Add("SQL.DATE8", "dbo.DATETOMIN(GETDATE())")
-                    '.Add("SQL.DATE", "dbo.DATETOMIN(GETDATE())")
-                    .Add("ITOA(", "STR(")
+                    .Add(New PriSQLFunc("SQL.DATE8", "dbo.DATETOMIN(getdate())"))
+                    .Add(New PriSQLFunc("ITOA(%1)", "ltrim(rtrim(str(%1)))"))
+                    '.Add("SQL.DATE8", "dbo.DATETOMIN(GETDATE())")
+                    ''.Add("SQL.DATE", "dbo.DATETOMIN(GETDATE())")
+                    '.Add("ITOA(", "STR(")
                 End With
             End If
             Return ret
@@ -243,8 +245,9 @@ Public Class cTrigger
 
     Private Sub ParseFormValues(ByRef ThisSQL As String, ByRef thisContainer As cContainer)
 
-        For Each func As String In SQLFuncs.Keys
-            ThisSQL = ThisSQL.Replace(func, SQLFuncs(func))
+        For Each func As PriSQLFunc In SQLFuncs
+            func.Parse(ThisSQL)
+            'ThisSQL = ThisSQL.Replace(func, SQLFuncs(func))
         Next
 
         For Each InsertIntoClause As String In rxMatch(rxSelectInto, ThisSQL)

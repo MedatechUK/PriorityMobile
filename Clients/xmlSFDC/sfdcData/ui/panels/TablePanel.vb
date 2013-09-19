@@ -197,6 +197,7 @@ Public Class TablePanel
                         _ScanBuffer.Clear()
                     End With
                 End If
+                Me.thisTable.Focus()
 
             Case 63, 46
                 e.Handled = True
