@@ -10,7 +10,7 @@ Partial Class SoapService
             With mnu.Items
                 .Clear()
                 .Add(New MenuItem("General", "General", "", "default.aspx"))
-                '.Add(New MenuItem("Install Checklist", "Install Checklist", "", "selftest.aspx"))
+                .Add(New MenuItem("Event Log", "Events", "", "events.aspx"))
                 '.Add(New MenuItem("Console", "Console", "", "AsyncTest.aspx"))
                 .Add(New MenuItem("Uptime", "Uptime", "", "Uptime.aspx"))
             End With
