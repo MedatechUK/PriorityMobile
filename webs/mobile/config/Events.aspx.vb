@@ -83,7 +83,7 @@ Partial Class config_Events
             For Each i As ListItem In chkList.Items
                 With i
                     If .Selected Then
-                        evtLev.Add(String.Format("EventType = {0}{1}{0}", "", .Value)) 'Chr(34)
+                        evtLev.Add(String.Format("EventType = {0}", .Value))
                     End If
                 End With
             Next
