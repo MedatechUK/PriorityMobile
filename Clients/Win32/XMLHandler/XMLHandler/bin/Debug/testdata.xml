@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<devices>
+<user ProvisionString="O6NVGBFLGG">
+    <username>rumplestiltskin</username>
+    <url>http://mobile.andy.com:8080</url>
+  </user>
+  <user ProvisionString="CHDIS4CJSL">
+    <username>barry.white</username>
+    <url>http://mobile.andy.co.uk:8080</url>
+  </user>
+ </devices>
