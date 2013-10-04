@@ -253,7 +253,8 @@ Public Class ctrl_Orders
 
                     '###order header####
                     Dim poNum As String = po.SelectSingleNode("ponum").InnerText
-                    Dim poDate As Date = CDate("01/01/1988 00:00").AddMinutes(CInt(po.SelectSingleNode("deliverydate").InnerText))
+                    Dim poDueDate As Date = CDate("01/01/1988 00:00").AddMinutes(CInt(po.SelectSingleNode("deliverydate").InnerText))
+                    Dim poDate As String = Now.ToString("dd/MM/yy")
                     Dim poTime As String = Now.ToString("HH:mm")
 
 
@@ -263,7 +264,7 @@ Public Class ctrl_Orders
                                                         New FormattedColumn(21, 21, eAlignment.Center), _
                                                         New FormattedColumn(21, 42, eAlignment.Center))
                     docHead.AddRow("Number", "Date", "Time")
-                    docHead.AddRow(poNum, poDate.ToString("dd/MM/yy"), poTime)
+                    docHead.AddRow(poNum, poDate, poTime)
 
 
                     '####customer header####
@@ -276,6 +277,7 @@ Public Class ctrl_Orders
                                                             New FormattedColumn(13, 0, eAlignment.Right), _
                                                             New FormattedColumn(48, 16, eAlignment.Left))
                     custDetails.AddRow("Customer:", custNumber)
+                    custDetails.AddRow("Due Date:", poDueDate.ToString("dd/MM/yy"))
                     custDetails.AddRow("", custName)
                     custDetails.AddRow("", custPostCode)
 

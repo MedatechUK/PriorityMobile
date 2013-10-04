@@ -246,7 +246,7 @@ Public Class ctrl_Payment
                              New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
 
                     For Each StrVal In paymentDetails.FormattedText
-                        .AddText(StrVal, New Point(44, thisForm.Printer.Dimensions.Height), smallFont)
+                        .AddText(StrVal, New Point(44, thisForm.Printer.Dimensions.Height), largeFont)
                     Next
 
                     'line

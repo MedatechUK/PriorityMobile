@@ -203,31 +203,69 @@ Public Class ctrl_Invoices
 
 
                 Dim invoicePartsList As New ReceiptFormatter(64, _
-                                                      New FormattedColumn(3, 0, eAlignment.Right), _
-                                                      New FormattedColumn(40, 4, eAlignment.Left), _
-                                                      New FormattedColumn(7, 45, eAlignment.Right), _
-                                                      New FormattedColumn(7, 57, eAlignment.Right))
+                                                  New FormattedColumn(7, 0, eAlignment.Right), _
+                                                  New FormattedColumn(36, 8, eAlignment.Left), _
+                                                  New FormattedColumn(7, 45, eAlignment.Right), _
+                                                  New FormattedColumn(7, 57, eAlignment.Right))
                 invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
                 Dim lines As Integer = 0
                 Dim units As Integer = 0
                 Dim invoicetotal As Double = 0
+                Dim partsDict As New Dictionary(Of String, List(Of String))
 
-                For Each OrderPart As XmlNode In iv.SelectNodes("parts/part")
+
+                For Each OrderPart As XmlNode In iv.SelectNodes("parts/part[cquant>0]")
 
                     Dim name As String = OrderPart.SelectSingleNode("name").InnerText
                     Dim des As String = OrderPart.SelectSingleNode("des").InnerText
-                    Dim qty As Double = CDbl(OrderPart.SelectSingleNode("qty").InnerText)
-                    Dim unitprice As Double = CDbl(OrderPart.SelectSingleNode("unitprice").InnerText)
 
-                    invoicePartsList.AddRow(qty, _
-                                            des, _
-                                            unitprice.ToString("c").Replace("£", "#"), _
-                                            (qty * unitprice).ToString("c").Replace("£", "#") _
-                                            )
-                    lines += 1
-                    units += qty
-                    invoicetotal += CDbl(qty) * CDbl(unitprice)
+                    Dim qty As String
+
+                    If OrderPart.SelectSingleNode("cheese").InnerText = "Y" Then
+                        qty = OrderPart.SelectSingleNode("weight").InnerText
+                    Else
+                        qty = OrderPart.SelectSingleNode("cquant").InnerText
+                    End If
+
+                    Dim price As Double = CDbl(OrderPart.SelectSingleNode("price").InnerText)
+                    Dim rcList As New List(Of String)
+
+                    If OrderPart.SelectSingleNode("cheese").InnerText = "Y" Then
+                        invoicePartsList.AddRow(qty & "kg", _
+                                                des, _
+                                                price.ToString("c").Replace("£", "#"), _
+                                                (CDbl(price) * CDbl(qty)).ToString("c").Replace("£", "#") _
+                                                )
+
+                        units += 1
+                        lines += 1
+
+                    ElseIf Not partsDict.Keys.Contains(name) Then
+                        rcList.Add(qty)
+                        rcList.Add(des)
+                        rcList.Add(price)
+                        rcList.Add(CDbl(price) * CDbl(qty))
+                        partsDict.Add(name, rcList)
+                        units += CDbl(qty)
+                        lines += 1
+
+                    Else
+                        partsDict(name)(0) = CStr(CDbl(partsDict(name)(0) + CDbl(qty)))
+                        partsDict(name)(3) = CDbl(partsDict(name)(3)) + (CDbl(qty) * CDbl(price))
+                        units += CDbl(qty)
+
+                    End If
+                    invoicetotal += (CDbl(price) * CDbl(qty))
                 Next
+
+                For Each k As String In partsDict.Keys
+                    invoicePartsList.AddRow(partsDict(k)(0), _
+                                            partsDict(k)(1), _
+                                            CDbl(partsDict(k)(2)).ToString("c").Replace("£", "#"), _
+                                            CDbl(partsDict(k)(3)).ToString("c").Replace("£", "#") _
+                                            )
+                Next
+
 
 
 

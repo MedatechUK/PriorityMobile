@@ -129,14 +129,14 @@ Public Class ctrl_DayEnd
                 Dim rcptHead As New ReceiptFormatter(64, _
                                                      New FormattedColumn(32, 0, eAlignment.Left), _
                                                      New FormattedColumn(32, 32, eAlignment.Left) _
-                                                     )
+                                                     ) ''partname 15 custname 16
                 rcptHead.AddRow("", "")
                 rcptHead.AddRow("Date:", Now.ToString("dd/MM/yyyy"))
                 rcptHead.AddRow("Route Number:", dv.SelectSingleNode("routenumber").InnerText)
 
                 Dim rcptRejects As New ReceiptFormatter(64, _
                                                         New FormattedColumn(48, 0, eAlignment.Left), _
-                                                        New FormattedColumn(16, 48, eAlignment.Left) _
+                                                        New FormattedColumn(16, 48, eAlignment.Right) _
                                                         )
                 Dim rejects As XmlNodeList = dv.SelectNodes("//delivery[nodeliveryreason[text()]]")
 
@@ -153,7 +153,7 @@ Public Class ctrl_DayEnd
                     rcptRejects.AddRow("Part:", "Undelivered:")
 
                     For Each part As XmlNode In reject.SelectNodes("parts//part[tquant > 0]")
-                        rcptRejects.AddRow(part.SelectSingleNode("name").InnerText, _
+                        rcptRejects.AddRow(part.SelectSingleNode("name").InnerText & "  " & part.SelectSingleNode("des").InnerText, _
                                            part.SelectSingleNode("tquant").InnerText)
                     Next
                 Next
