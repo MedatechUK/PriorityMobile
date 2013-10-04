@@ -1,0 +1,12 @@
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\bin\Release\Scraper.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\bin\Release\Scraper.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\bin\Release\Scraper.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\bin\Release\WatiN.Core.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\bin\Release\Interop.SHDocVw.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\bin\Release\WatiN.Core.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\obj\Release\ResolveAssemblyReference.cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\obj\Release\ConsoleApplication1.Resources.resources
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\obj\Release\Scraper.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\obj\Release\Scraper.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\obj\Release\Scraper.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\Scraper\Scraper\obj\Release\Scraper.pdb

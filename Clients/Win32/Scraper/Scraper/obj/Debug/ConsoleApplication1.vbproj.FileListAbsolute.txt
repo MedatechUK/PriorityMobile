@@ -1,0 +1,12 @@
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\bin\Debug\ConsoleApplication1.xml
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\bin\Debug\WatiN.Core.dll
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\bin\Debug\Interop.SHDocVw.dll
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\bin\Debug\WatiN.Core.xml
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\obj\Debug\ConsoleApplication1.Resources.resources
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\obj\Debug\ConsoleApplication1.vbproj.GenerateResource.Cache
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\obj\Debug\ConsoleApplication1.xml
+C:\Users\thomasm\AppData\Local\Temporary Projects\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
