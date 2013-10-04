@@ -479,7 +479,7 @@ Public Class interfaceCheckByCustomer
                                         "0", _
                                         Me.Argument("HoldWARHS"), _
                                        "0", _
-                                        " ", " ", " ", 0, 0)
+                                        " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                         FINALLIST.Add(finlist)
 
                                         With CtrlTable
@@ -500,7 +500,7 @@ Public Class interfaceCheckByCustomer
                                        "0", _
                                        Me.Argument("HoldWARHS"), _
                                       "0", _
-                                       " ", " ", " ", 0, 0)
+                                       " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                         FINALLIST.Add(finlist)
                                         Dim err As New ErrorLog("Return", it.SubItems(1).Text, amount)
                                         changelist.Add(err)
@@ -521,7 +521,7 @@ Public Class interfaceCheckByCustomer
                                        "0", _
                                        Me.Argument("HoldWARHS"), _
                                       "0", _
-                                       " ", " ", " ", 0, 0)
+                                       " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                         FINALLIST.Add(finlist)
                                         Dim err As New ErrorLog("Take", it.SubItems(1).Text, -amount)
                                         changelist.Add(err)
@@ -582,7 +582,7 @@ Public Class interfaceCheckByCustomer
                                        "0", _
                                        Me.Argument("HoldWARHS"), _
                                       "0", _
-                                       " ", " ", " ", 0, 0)
+                                       " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                     FINALLIST.Add(finlist)
                                     'the check is fine, this line can be hidden
                                     'TODO add hiding ability or add a boolean field to check against so that any attempts to recheck a done line error out
@@ -732,8 +732,9 @@ Public Class interfaceCheckByCustomer
 
 
                 Dim startdate As Date = FormatDateTime("1/1/1988", DateFormat.LongDate)
+                Dim nowdate As Integer = DateDiff(DateInterval.Minute, startdate, Now())
                 Dim t1() As String = { _
-                                    PickDate, _
+                                    nowdate, _
                                     CtrlForm.ItemValue("ROUTE") & "PI", _
                                     "0", _
                                     CtrlForm.ItemValue("ROUTE"), _
@@ -794,6 +795,9 @@ Public Class interfaceCheckByCustomer
 
 
     Public Overrides Sub TableRXData(ByVal Data(,) As String)
+        If Data Is Nothing Then
+            Exit Sub
+        End If
         Try
             For y As Integer = 0 To UBound(Data, 2)
                 Dim lvi As New ListViewItem

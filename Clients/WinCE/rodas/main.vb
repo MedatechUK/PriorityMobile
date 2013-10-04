@@ -199,6 +199,7 @@ Module main
         tPar28 = 11
         tPar1415 = 12
         tGSI128 = 13
+        tMANDS = 14
 
     End Enum
 
@@ -225,7 +226,7 @@ Module main
                 Case tRegExValidation.tNumeric
                     ret = "^[0-9.]+$"
                 Case tRegExValidation.tString
-                    ret = "^[0-9A-Z]+$"
+                    ret = "^[0-9A-Za-z]+$"
                 Case tRegExValidation.tSerial
                     ret = "^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tPackingSlip
@@ -234,6 +235,8 @@ Module main
                     ret = "^[0-9A-Z]" '"^[A-Za-z]{2}[0-9]{10}$" 'TODO reset the numerics to 12"^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tPartType
                     ret = "^[A-Za-z]{1}$"
+                Case tRegExValidation.tMANDS
+                    ret = "^[0]{2}[0-9]{20}"
             End Select
             Return ret
         End Get
@@ -297,6 +300,15 @@ Module main
                 .ModuleName = "Check By Customer"
                 .SubMenu = "Checking"
                 .Argument("PickDate") = " "
+                .SetBaseForm(frmMenu)
+            End With
+
+            .AddRSS(o.IWHTX, New InterfaceWHTX(frmMenu))
+            With rss(o.IWHTX)
+                .Argument("MANUAL") = "N"
+                .Argument("TXTYPE") = "INTERWHTX"
+                .ModuleName = "Inter-Warehouse Transfer"
+                .SubMenu = "Stock Transfer"
                 .SetBaseForm(frmMenu)
             End With
 

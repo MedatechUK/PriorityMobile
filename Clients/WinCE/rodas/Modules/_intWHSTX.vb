@@ -937,9 +937,69 @@ Public Class InterfaceWHTX
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        Dim vas As String
+        Try
+            If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Or System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode2)) Then
+                ' Scanning a barcode
 
+                vas = Value
+
+
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tPar28)) Then
+
+                Dim tycheck As String = Value.Substring(1, 2)
+
+                Select Case tycheck
+                    Case "01"
+                        Dim pa As String = Value.Substring(4, 14)
+
+                        vas = pa
+
+                    Case "00"
+
+                        Dim pa As String = Value.Substring(4, 10)
+
+                        vas = pa
+
+                    Case Else
+                        MsgBox("Barcode not recognised")
+                        Exit Select
+
+                End Select
+
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tGSI128)) Then
+
+                Dim tycheck As String = Value.Substring(0, 2)
+
+                Select Case tycheck
+                    Case "01"
+
+                        Dim pa As String = Value.Substring(2, 14)
+                        vas = pa
+                    Case "00"
+
+                        Dim pa As String = Value.Substring(2, 10)
+                        vas = pa
+                    Case Else
+                        MsgBox("Barcode not recognised")
+                        Exit Select
+
+                End Select
+
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tPar1415)) Then
+                vas = Value
+            Else
+                MsgBox("Barcode not recognised")
+
+
+            End If
+
+        Catch EX As Exception
+            MsgBox(String.Format("{0}", EX.Message))
+        End Try
         Select Case Argument("TXTYPE")
             Case "INTERWHTX", "CHSTATUS"
+
                 mInvoke = tInvoke.iBarcode
                 InvokeData("SELECT PARTNAME, BARCODE " & _
                                             "FROM PART, WARHSBAL, WAREHOUSES, CUSTOMERS " & _
@@ -950,27 +1010,27 @@ Public Class InterfaceWHTX
                                             "AND WAREHOUSES.LOCNAME = '%LOCNAME%'  " & _
                                             "AND WARHSBAL.BALANCE > 0 " & _
                                             "AND CUSTNAME = '%STATUS%' " & _
-                                            "AND BARCODE = '" & Value & "'")
+                                            "AND BARCODE = '" & vas & "'")
 
-            Case "PUTAWAY"
-                If Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
-                    mInvoke = tInvoke.iBarcode
-                    InvokeData("SELECT PARTNAME, BARCODE " & _
-                                                "FROM PART, WARHSBAL, WAREHOUSES, CUSTOMERS " & _
-                                                "WHERE PART.PART = WARHSBAL.PART  " & _
-                                                "AND WARHSBAL.WARHS = WAREHOUSES.WARHS  " & _
-                                                "AND WARHSBAL.CUST = CUSTOMERS.CUST " & _
-                                                "AND WAREHOUSES.WARHSNAME = " & _
-                                                "(SELECT WARHSNAME FROM v_USERS where USERLOGIN = '" & UserName & "')  " & _
-                                                "AND WAREHOUSES.LOCNAME = '%LOCNAME%'  " & _
-                                                "AND WARHSBAL.BALANCE > 0 " & _
-                                                "AND CUSTOMERS.CUST = -1 " & _
-                                                "AND BARCODE = '" & Value & "'")
-                ElseIf Regex.IsMatch(Value, ValidStr(tRegExValidation.tLocname)) Then
-                    mInvoke = tInvoke.iLoc
-                    InvokeData("SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '" & Value & "' AND WARHSNAME = " & _
-                        "(SELECT WARHSNAME FROM v_USERS where USERLOGIN = '" & UserName & "') AND LOCNAME <> '" & CtrlForm.el(0).Data & "'")
-                End If
+                'Case "PUTAWAY"
+                '    If Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
+                '        mInvoke = tInvoke.iBarcode
+                '        InvokeData("SELECT PARTNAME, BARCODE " & _
+                '                                    "FROM PART, WARHSBAL, WAREHOUSES, CUSTOMERS " & _
+                '                                    "WHERE PART.PART = WARHSBAL.PART  " & _
+                '                                    "AND WARHSBAL.WARHS = WAREHOUSES.WARHS  " & _
+                '                                    "AND WARHSBAL.CUST = CUSTOMERS.CUST " & _
+                '                                    "AND WAREHOUSES.WARHSNAME = " & _
+                '                                    "(SELECT WARHSNAME FROM v_USERS where USERLOGIN = '" & UserName & "')  " & _
+                '                                    "AND WAREHOUSES.LOCNAME = '%LOCNAME%'  " & _
+                '                                    "AND WARHSBAL.BALANCE > 0 " & _
+                '                                    "AND CUSTOMERS.CUST = -1 " & _
+                '                                    "AND BARCODE = '" & Value & "'")
+                '    ElseIf Regex.IsMatch(Value, ValidStr(tRegExValidation.tLocname)) Then
+                '        mInvoke = tInvoke.iLoc
+                '        InvokeData("SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '" & Value & "' AND WARHSNAME = " & _
+                '            "(SELECT WARHSNAME FROM v_USERS where USERLOGIN = '" & UserName & "') AND LOCNAME <> '" & CtrlForm.el(0).Data & "'")
+                '    End If
 
         End Select
 

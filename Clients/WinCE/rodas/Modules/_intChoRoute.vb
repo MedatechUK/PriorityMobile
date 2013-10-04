@@ -1,4 +1,6 @@
 ﻿Imports System.Linq
+Imports System.Collections.Generic
+
 
 Public Class interfaceChoRoute
     Inherits SFDCData.iForm
@@ -18,11 +20,12 @@ Public Class interfaceChoRoute
     Private custid As Integer
     Private CustName As String = ""
     Private oline As Integer = 0
-    Private oname As String = ""
+    Private pType As String = ""
     Private NOSCAN As Boolean = False
     Private bcodetype As String = "s"
     Private OrderList As New List(Of PSLIPITEMS)
     Private CUSTMINPICK As Integer = 0
+    Private Pick_Type As String = ""
 
     Private pick_amount As Integer = 0
 
@@ -44,6 +47,7 @@ Public Class interfaceChoRoute
             .MandatoryOnPost = True
         End With
         CtrlForm.AddField(field)
+
         '1
         With field 'using the tfield structure from the ctrlForm
             .Name = "PDATE"
@@ -60,6 +64,20 @@ Public Class interfaceChoRoute
 
         '2
         With field 'using the tfield structure from the ctrlForm
+            .Name = "FAMILY"
+            .Title = "Family"
+            .ValidExp = ".*"
+            .SQLValidation = "SELECT '%ME%'"
+            .SQLList = "SELECT 'All' AS FTNAME UNION ALL SELECT DISTINCT FTNAME FROM V_PICK_MONITOR where ROUTENAME = '%ROUTE%' AND PICKDATE = '%PDATE%'"
+            .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
+            .ctrlEnabled = True
+            .MandatoryOnPost = False
+            .Data = ""
+        End With
+        CtrlForm.AddField(field)
+
+        '3
+        With field 'using the tfield structure from the ctrlForm
             .Name = "PART"
             .Title = "Part"
             .ValidExp = ValidStr(tRegExValidation.tString)
@@ -75,7 +93,7 @@ Public Class interfaceChoRoute
         End With
         CtrlForm.AddField(field)
 
-        '3
+        '4
         With field 'using the tfield structure from the ctrlForm
             .Name = "WHS"
             .Title = "WHouse"
@@ -89,20 +107,21 @@ Public Class interfaceChoRoute
         End With
         CtrlForm.AddField(field)
 
-        '4   .SQLValidation = "select CUSTNAME from V_PICK_MONITOR where CUSTNAME = '%ME%'"
+        '5   .SQLValidation = "select CUSTNAME from V_PICK_MONITOR where CUSTNAME = '%ME%'"
         With field 'using the tfield structure from the ctrlForm
             .Name = "PACKING_SLIP"
-            .Title = "Customer ID"
-            .ValidExp = ValidStr(tRegExValidation.tString)
-            .SQLValidation = "select '%ME%'"
+            .Title = "Cust"
+            .ValidExp = ".+"
+            .SQLValidation = "SELECT '%ME%'"
+            .SQLList = "select distinct CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND PICKDATE = '%PDATE%'"
             .Data = ""
-            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
-            .ctrlEnabled = False
+            .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
+            .ctrlEnabled = True
             .MandatoryOnPost = False
         End With
         CtrlForm.AddField(field)
 
-        '5
+        '6
         With field 'using the tfield structure from the ctrlForm
             .Name = "LOT"
             .Title = "Lot No"
@@ -123,7 +142,7 @@ Public Class interfaceChoRoute
         CtrlForm.AddField(field)
         '.SQLList = "select Distinct SERIALNAME from dbo.V_PICKLIST_PARTS where PARTNAME = '%PART%'"
 
-        '6
+        '7
         With field 'using the tfield structure from the ctrlForm
             .Name = "AVAILABLE"
             .Title = "Amount in Bin"
@@ -136,7 +155,7 @@ Public Class interfaceChoRoute
         End With
         CtrlForm.AddField(field)
 
-        '7
+        '8
         With field 'using the tfield structure from the ctrlForm
             .Name = "AMOUNT"
             .Title = "Amount"
@@ -150,7 +169,7 @@ Public Class interfaceChoRoute
         End With
         CtrlForm.AddField(field)
 
-        '8
+        '9
         With field 'using the tfield structure from the ctrlForm
             .Name = "TYPE"
             .Title = "Type"
@@ -164,7 +183,7 @@ Public Class interfaceChoRoute
         End With
         CtrlForm.AddField(field)
 
-        '9
+        '10
         With field 'using the tfield structure from the ctrlForm
             .Name = "BIN"
             .Title = "Type"
@@ -178,7 +197,7 @@ Public Class interfaceChoRoute
         End With
         CtrlForm.AddField(field)
 
-        '10
+        '11
         With field 'using the tfield structure from the ctrlForm
             .Name = "EXPIRY"
             .Title = "Expiry"
@@ -605,10 +624,10 @@ Public Class interfaceChoRoute
                         Else
                             Dim g As String
                             g = it.SubItems(0).Text
-                            CtrlForm.el(2).DataEntry.Text = g
-                            CtrlForm.el(2).Text = g
-                            CtrlForm.el(2).Update()
-                            CtrlForm.el(2).ProcessEntry()
+                            CtrlForm.el(3).DataEntry.Text = g
+                            CtrlForm.el(3).Text = g
+                            CtrlForm.el(3).Update()
+                            CtrlForm.el(3).ProcessEntry()
 
                         End If
 
@@ -664,6 +683,7 @@ Public Class interfaceChoRoute
         CustName = 22
         getOname = 23
         getminpick = 24
+        getPickType = 25
     End Enum
     'The endinvoke is called to handle the data sent by the calling query. The call syntax is InvokeData(<sql query>). this call must be preceded by a 
     'sendtype so that the data can be handled correctly.
@@ -688,7 +708,7 @@ Public Class interfaceChoRoute
                             If Data(5, y) <> 1 Then
                                 Data(2, y) *= Data(5, y)
                             End If
-                            Dim d As New PSLIPITEMS(Data(0, y), "", "", Data(1, y), Data(2, y), "", "", "", "", "", Data(3, y), Data(4, y), 0, Data(5, y))
+                            Dim d As New PSLIPITEMS(Data(0, y), "", "", Data(1, y), Data(2, y), "", "", "", "", "", Data(3, y), Data(4, y), 0, Data(5, y), CtrlForm.el(5).Data)
                             OrderList.Add(d)
                         Next
                     Catch e As Exception
@@ -705,6 +725,9 @@ Public Class interfaceChoRoute
                 CtrlTable.DisableButtons(True, False, True, True, False)
                 CtrlTable.EnableToolbar(True, True, True, True, True)
 
+            Case tSendType.getPickType
+                Pick_Type = Data(0, 0)
+
             Case tSendType.Route
                 'this fires after a route has been chosen and validated
 
@@ -718,7 +741,7 @@ Public Class interfaceChoRoute
                 Do
                     If IsNothing(Data) Then
                         Me.Text = "Picking"
-                        With CtrlForm.el(4)
+                        With CtrlForm.el(5)
 
                             .DataEntry.Text = ""
                             cust = ""
@@ -728,14 +751,14 @@ Public Class interfaceChoRoute
                         End With
 
                     Else
-                        With CtrlForm.el(4)
+                        With CtrlForm.el(5)
                             .DataEntry.Text = Data(1, 0)
                             .Data = Data(1, 0)
 
                         End With
                         cust = Data(1, 0)
                         CustName = Data(2, 0)
-                        Me.Text = "Picking for - " & CustName
+                        Me.Text = CustName
 
                         custid = Data(0, 0)
                         CtrlTable.Focus()
@@ -744,19 +767,52 @@ Public Class interfaceChoRoute
 
                     Dim dd As Integer = Convert.ToInt32(Argument("pickdate"))
                     ' Set the query to load recordtype 2s
-                    CtrlTable.RecordsSQL = _
+                    Select Case CtrlForm.el(2).Data
+                        Case "All"
+                            CtrlTable.RecordsSQL = _
                         "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED, '' as TYPE, '0' as ORDI,  '' as ORDNAME, '' as  OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE,CONV,PACKING,NOTFIXEDCONV " & _
                         "from V_PICK_MONITOR " & _
                         "WHERE ROUTENAME = '" & CtrlForm.el(0).Data & "'" & _
                         " AND CUSTNAME = '" & cust & "' AND DUEDATE = " & Argument("PickDate") & _
                        " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
                     " ORDER by ZROD_PICKORDER"
+
+                            '*************************************************************************************************
+                            SendType = tSendType.GetParts
+                            InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
+                                "from V_PICK_MONITOR " & _
+                                "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'")
+                            'InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate"))
+                        Case Else
+                            CtrlTable.RecordsSQL = _
+                        "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED, '' as TYPE, '0' as ORDI,  '' as ORDNAME, '' as  OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE,CONV,PACKING,NOTFIXEDCONV " & _
+                        "from V_PICK_MONITOR " & _
+                        "WHERE ROUTENAME = '" & CtrlForm.el(0).Data & "'" & _
+                        " AND CUSTNAME = '" & cust & "' AND DUEDATE = " & Argument("PickDate") & " and FTNAME = '%FAMILY%'" & _
+                       " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
+                    " ORDER by ZROD_PICKORDER"
+
+                            '*************************************************************************************************
+                            SendType = tSendType.GetParts
+                            InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
+                                "from V_PICK_MONITOR " & _
+                                "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'  and FTNAME = '%FAMILY%'")
+                            'InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate") & " AND FTNAME = '%FAMILY%'")
+                    End Select
+
+                    'CtrlTable.RecordsSQL = _
+                    '    "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED, '' as TYPE, '0' as ORDI,  '' as ORDNAME, '' as  OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE,CONV,PACKING,NOTFIXEDCONV " & _
+                    '    "from V_PICK_MONITOR " & _
+                    '    "WHERE ROUTENAME = '" & CtrlForm.el(0).Data & "'" & _
+                    '    " AND CUSTNAME = '" & cust & "' AND DUEDATE = " & Argument("PickDate") & _
+                    '   " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
+                    '" ORDER by ZROD_PICKORDER"
                     Dim S As String = Argument("PickDate")
                     '*************************************************************************************************
-                    SendType = tSendType.GetParts
-                    InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
-                        "from V_PICK_MONITOR " & _
-                        "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'")
+                    'SendType = tSendType.GetParts
+                    'InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
+                    '    "from V_PICK_MONITOR " & _
+                    '    "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'")
                     f = True
                     ' 
                 Loop Until True
@@ -769,18 +825,35 @@ Public Class interfaceChoRoute
                         rou = .el(.ColNo("ROUTE")).Data
                     End With
                     Dim i As String = Argument("PickDate")
-                    CtrlTable.RecordsSQL = _
-                        "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED,TYPE,'' as ORDI, ' ' as ORDNAME,' '  AS OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE ,CONV,PACKING,NOTFIXEDCONV " & _
-                        "from V_PICK_MONITOR " & _
-                        "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & _
-                        " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
-                    " ORDER by ZROD_PICKORDER"
+                    Select Case CtrlForm.el(2).Data
+                        Case "All"
+                            CtrlTable.RecordsSQL = _
+                                                   "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED,TYPE,'' as ORDI, ' ' as ORDNAME,' '  AS OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE ,CONV,PACKING,NOTFIXEDCONV " & _
+                                                   "from V_PICK_MONITOR " & _
+                                                   "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & _
+                                                   " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
+                                               " ORDER by ZROD_PICKORDER"
+                            '*************************************************************************************************
+                            SendType = tSendType.GetParts
+                            InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
+                                "from V_PICK_MONITOR " & _
+                                "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate"))
+                        Case Else
+                            CtrlTable.RecordsSQL = _
+                                                  "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED,TYPE,'' as ORDI, ' ' as ORDNAME,' '  AS OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE ,CONV,PACKING,NOTFIXEDCONV " & _
+                                                  "from V_PICK_MONITOR " & _
+                                                  "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " and FTNAME = '%FAMILY%'" & _
+                                                  " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
+                                              " ORDER by ZROD_PICKORDER"
+                            '*************************************************************************************************
+                            SendType = tSendType.GetParts
+                            InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
+                                "from V_PICK_MONITOR " & _
+                                "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " and FTNAME = '%FAMILY%'")
+                    End Select
+
                     Dim S As String = Argument("PickDate")
-                    '*************************************************************************************************
-                    SendType = tSendType.GetParts
-                    InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
-                        "from V_PICK_MONITOR " & _
-                        "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate"))
+
                 End If
 
                 'once the query is set we now ensure that the table is empty and then fill it with data and give it focus.
@@ -862,7 +935,7 @@ Public Class interfaceChoRoute
                     If NOSCAN = False Then
                         If CtrlForm.el(4).Data <> "" Then
                             SendType = tSendType.getminpick
-                            InvokeData("select ZROD_MINSHELF from CUSTMINPICKDAYS where CUSTNAME = '" & CtrlForm.el(4).Data & "' AND PARTNAME = '" & Data(4, 0) & "'")
+                            InvokeData("select ZROD_MINSHELF from CUSTMINPICKDAYS where CUSTNAME = '" & CtrlForm.el(5).Data & "' AND PARTNAME = '" & Data(4, 0) & "'")
                         End If
                         If CUSTMINPICK <> 0 Then
                             Dim fn As Integer = 0
@@ -902,24 +975,24 @@ Public Class interfaceChoRoute
                 With CtrlForm
                     If NOSCAN = False Then
                         'Part
-                        .el(2).Data = Data(4, 0)
-                        .el(2).DataEntry.Text = Data(4, 0)
-                        .el(2).ProcessEntry()
+                        .el(3).Data = Data(4, 0)
+                        .el(3).DataEntry.Text = Data(4, 0)
+                        .el(3).ProcessEntry()
                     End If
                     NOSCAN = False
                     'warhs
-                    .el(3).Data = Data(1, 0)
-                    .el(3).DataEntry.Text = Data(1, 0)
+                    .el(4).Data = Data(1, 0)
+                    .el(4).DataEntry.Text = Data(1, 0)
                     'lot
-                    .el(5).DataEntry.Text = Data(0, 0)
-                    .el(5).Data = Data(0, 0)
+                    .el(6).DataEntry.Text = Data(0, 0)
+                    .el(6).Data = Data(0, 0)
                     '.el(5).ProcessEntry()
 
-                    .el(8).Data = Data(5, 0)
-                    .el(6).Data = Data(6, 0)
+                    .el(9).Data = Data(5, 0)
+                    .el(7).Data = Data(6, 0)
 
-                    .el(9).Data = Data(2, 0)
-                    .el(10).Data = Data(3, 0)
+                    .el(10).Data = Data(2, 0)
+                    .el(11).Data = Data(3, 0)
 
 
 
@@ -945,10 +1018,11 @@ Public Class interfaceChoRoute
                     End If
                 Next
                 'we check to see if the part is on the list of parts still needing to be picked. I do this by iterating through the list of parts in the table
+                Dim expstring As String = ""
                 If fnd = True Then
                     'if its a manufactured part and there is no lot then we raise an error
-                    If CtrlForm.el(8).Data <> "R" Then
-                        If CtrlForm.el(5).Data = "" Then
+                    If CtrlForm.el(9).Data <> "R" Then
+                        If CtrlForm.el(6).Data = "" Then
                             err = True
                         End If
                     End If
@@ -965,6 +1039,11 @@ Public Class interfaceChoRoute
                                     If it.SubItems(0).Text = Data(4, 0) Then
 
                                         it.Selected = True
+                                        If it.SubItems(17).Text <> "0" Then
+                                            expstring = it.SubItems(2).Text & " Units (" & it.SubItems(17).Text & " Pks, " & it.SubItems(18).Text & " Sngls)"
+                                        Else
+                                            expstring = it.SubItems(2).Text
+                                        End If
                                         expected = it.SubItems(2).Text
                                         If it.SubItems(12).Text = "" Then
                                             it.SubItems(12).Text = Data(0, 0)
@@ -984,6 +1063,11 @@ Public Class interfaceChoRoute
                                 If it.SubItems(0).Text = Data(4, 0) Then
 
                                     it.Selected = True
+                                    If it.SubItems(17).Text <> "0" Then
+                                        expstring = it.SubItems(2).Text & " Units (" & it.SubItems(17).Text & " Pks, " & it.SubItems(18).Text & " Sngls)"
+                                    Else
+                                        expstring = "Expected = " & it.SubItems(2).Text
+                                    End If
                                     expected = it.SubItems(2).Text
                                     If it.SubItems(12).Text = "" Then
                                         it.SubItems(12).Text = Data(0, 0)
@@ -997,7 +1081,7 @@ Public Class interfaceChoRoute
                         Dim add As Integer
                         Dim num As New frmNumber
                         With num
-                            .Text = "Expected = " & expected
+                            .Text = expstring
                             .ShowDialog()
                             add = .number
 
@@ -1057,13 +1141,13 @@ Public Class interfaceChoRoute
             Case tSendType.LotFillNew
                 If Data Is Nothing Then
                     MsgBox("Using the last available parts from the present lot and there are no more available lots for this item")
-                    CtrlForm.el(5).Data = ""
+                    CtrlForm.el(6).Data = ""
                 Else
-                    CtrlForm.el(5).Data = Data(0, 0)
-                    CtrlForm.el(3).Data = Data(1, 0)
-                    CtrlForm.el(9).Data = Data(2, 0)
-                    CtrlForm.el(6).Data = Data(6, 0)
-                    CtrlForm.el(10).Data = Data(3, 0)
+                    CtrlForm.el(6).Data = Data(0, 0)
+                    CtrlForm.el(4).Data = Data(1, 0)
+                    CtrlForm.el(10).Data = Data(2, 0)
+                    CtrlForm.el(7).Data = Data(6, 0)
+                    CtrlForm.el(11).Data = Data(3, 0)
                 End If
         End Select
         CtrlTable.Focus()
@@ -1111,7 +1195,8 @@ Public Class interfaceChoRoute
                         Select Case ctrl.Name
                             Case "ROUTE"
                                 CtrlForm.el(1).Focus()
-
+                                SendType = tSendType.getPickType
+                                InvokeData("Select ZROD_PICKTYPE from ZROD_ROUTES where ROUTENAME ='%ROUTE%'")
                             Case "PDATE"
                                 Me.CtrlTable.Table.Items.Clear()
                                 SendType = tSendType.PickDate
@@ -1126,27 +1211,48 @@ Public Class interfaceChoRoute
                                 End Try
 
 
-                                SendType = tSendType.Route
-                                Dim dp As String = Argument("PickDate")
-                                InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%'AND DUEDATE =" & Argument("PickDate"))
+                            Case "FAMILY"
+                                CtrlForm.el(5).Focus()
+                                If Pick_Type <> "S" Then
+                                    SendType = tSendType.Route
+                                    InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate"))
+                                    CtrlForm.el(5).Enabled = False
+                                Else
+                                    CtrlForm.el(5).Focus()
+                                End If
+                                'Select Case CtrlForm.el(2).Data
+                                '    Case "All"
+                                '        InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate"))
+                                '    Case Else
+                                '        InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate") & " AND FTNAME = '%FAMILY%'")
+                                'End Select
+
 
 
                                 'This procedure finds if there are Customers associated with the chosen route annd displays the first available one, then it fills in the data table and the date argument
 
                             Case "PACKING_SLIP"
                                 CtrlTable.Focus()
+                                If CtrlForm.el(5).Data <> "" Then
+                                    SendType = tSendType.Route
 
+                                    InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND REPLACE(CUSTDES,'''','') = '%PACKING_SLIP%'")
+                                Else
+                                    SendType = tSendType.Route
+                                    InvokeData("select '' as nodata")
+                                End If
+                                Dim dp As String = Argument("PickDate")
                             Case "LOT"
                                 CtrlTable.Focus()
 
                             Case "AMOUNT"
                                 If pick_amount = 0 Then Exit Sub
-                                Dim AMOUNT_IN_LOT As Integer = CtrlForm.el(6).Data
+                                Dim AMOUNT_IN_LOT As Integer = CtrlForm.el(7).Data
                                 Dim order_quant As Integer = 0
                                 Try
                                     For Each pick_row As ListViewItem In CtrlTable.Table.Items
 
-                                        If pick_row.SubItems(0).Text = CtrlForm.el(2).Data Then
+                                        If pick_row.SubItems(0).Text = CtrlForm.el(3).Data Then
                                             pick_row.Selected = True
                                             If pick_amount > Convert.ToInt32(pick_row.SubItems(2).Text) Then
                                                 MsgBox("Too many items picked!")
@@ -1155,10 +1261,10 @@ Public Class interfaceChoRoute
                                             'check to see if there is enough in balance for this pick
                                             If bcodetype = "l" Then
                                                 Dim adder As Integer = 0
-                                                Dim avam As Integer = Convert.ToInt32(CtrlForm.el(6).Data)
+                                                Dim avam As Integer = Convert.ToInt32(CtrlForm.el(7).Data)
                                                 For Each a As PSLIPITEMS In PickedItems
-                                                    If a.PART = CtrlForm.el(2).Data Then
-                                                        If a.Lot = CtrlForm.el(5).Data Then
+                                                    If a.PART = CtrlForm.el(3).Data Then
+                                                        If a.Lot = CtrlForm.el(6).Data Then
                                                             adder = a.Quant
 
                                                         End If
@@ -1200,34 +1306,34 @@ Public Class interfaceChoRoute
 
                                                             If AMOUNT_IN_LOT = 0 Then
                                                                 'IF THERE ARE NO ITEMS LEFT IN THIS LOT WE MUST GET ANOTHER BEFORE WE CONTINUE
-                                                                Dim IBN As String = "Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(5).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC"
+                                                                Dim IBN As String = "Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(6).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC"
                                                                 SendType = tSendType.LotFillNew
-                                                                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(5).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
+                                                                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(6).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
                                                                 'check that we have a lot if not we cant proceed
-                                                                If CtrlForm.el(5).Data = "" Then ' check to see if a lot no was written by the query
+                                                                If CtrlForm.el(6).Data = "" Then ' check to see if a lot no was written by the query
                                                                     'MsgBox("No more lots available for picking")
                                                                     Exit Sub
                                                                 Else
-                                                                    pick_row.SubItems(3).Text = CtrlForm.el(3).Data 'set the rows whs = to the forms whs
-                                                                    pick_row.SubItems(4).Text = CtrlForm.el(9).Data 'set the rows bin = to the forms bin
-                                                                    pick_row.SubItems(11).Text = CtrlForm.el(6).Data 'set the rows balance = to the forms available balance
-                                                                    AMOUNT_IN_LOT = CtrlForm.el(6).Data 'reset the amount_in_lot variable
-                                                                    pick_row.SubItems(12).Text = CtrlForm.el(5).Data 'set the rows LOT = to the forms LOT
-                                                                    pick_row.SubItems(13).Text = CtrlForm.el(10).Data 'set the rows expiry = to the forms expiry
+                                                                    pick_row.SubItems(3).Text = CtrlForm.el(4).Data 'set the rows whs = to the forms whs
+                                                                    pick_row.SubItems(4).Text = CtrlForm.el(10).Data 'set the rows bin = to the forms bin
+                                                                    pick_row.SubItems(11).Text = CtrlForm.el(7).Data 'set the rows balance = to the forms available balance
+                                                                    AMOUNT_IN_LOT = CtrlForm.el(7).Data 'reset the amount_in_lot variable
+                                                                    pick_row.SubItems(12).Text = CtrlForm.el(6).Data 'set the rows LOT = to the forms LOT
+                                                                    pick_row.SubItems(13).Text = CtrlForm.el(11).Data 'set the rows expiry = to the forms expiry
                                                                 End If
 
 
                                                             Else
                                                                 Dim to_write As Integer = 0
                                                                 Dim g As Integer = 0
-                                                                order.Lot = CtrlForm.el(5).Data 'update the orders lot
-                                                                order.Bin = pick_row.SubItems(4).Text 'update the orders bin
-                                                                order.WARHS = CtrlForm.el(3).Data 'update the orders whs
+                                                                order.Lot = CtrlForm.el(6).Data 'update the orders lot
+                                                                order.Bin = CtrlForm.el(10).Data 'update the orders bin
+                                                                order.WARHS = CtrlForm.el(4).Data 'update the orders whs
                                                                 'we use the remaining amount in the lot as the quantity
                                                                 g = AMOUNT_IN_LOT
 
                                                                 'write the order to the picked items line using the amount in lot for the quantity
-                                                                Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                                Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                                 PickedItems.Add(NEWLINE)
                                                                 'first we calculate the remaining quantity in the table line and the order quant
                                                                 Dim j As Integer = 0
@@ -1246,7 +1352,7 @@ Public Class interfaceChoRoute
                                                                 'as we have finished this lot we will set its amount to 0 to prevent it being used again
                                                                 AMOUNT_IN_LOT = 0
 
-                                                                Dim CurrLot As String = CtrlForm.el(5).Data
+                                                                Dim CurrLot As String = CtrlForm.el(6).Data
                                                                 Do While pick_amount > 0
                                                                     'as there is still some outstanding items that have been picked we need to deal with them now
                                                                     'first up we have exhausted that lot so we need a new one
@@ -1254,21 +1360,21 @@ Public Class interfaceChoRoute
                                                                     Dim IBN As String = "Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CurrLot & "' order by EXPIRYDATE ASC,SERIALNAME DESC"
                                                                     InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CurrLot & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
                                                                     'check that we have a lot if not we cant proceed
-                                                                    If CtrlForm.el(5).Data = "" Then
+                                                                    If CtrlForm.el(6).Data = "" Then
                                                                         MsgBox("No more lots available for picking")
                                                                         Exit Sub
                                                                     Else
-                                                                        pick_row.SubItems(3).Text = CtrlForm.el(3).Data 'set the rows whs = to the forms whs
-                                                                        pick_row.SubItems(4).Text = CtrlForm.el(9).Data 'set the rows bin = to the forms bin
-                                                                        pick_row.SubItems(11).Text = CtrlForm.el(6).Data 'set the rows balance = to the forms available balance
-                                                                        AMOUNT_IN_LOT = CtrlForm.el(6).Data 'reset the amount_in_lot variable
-                                                                        pick_row.SubItems(12).Text = CtrlForm.el(5).Data 'set the rows LOT = to the forms LOT
-                                                                        pick_row.SubItems(13).Text = CtrlForm.el(10).Data 'set the rows expiry = to the forms expiry
+                                                                        pick_row.SubItems(3).Text = CtrlForm.el(4).Data 'set the rows whs = to the forms whs
+                                                                        pick_row.SubItems(4).Text = CtrlForm.el(10).Data 'set the rows bin = to the forms bin
+                                                                        pick_row.SubItems(11).Text = CtrlForm.el(7).Data 'set the rows balance = to the forms available balance
+                                                                        AMOUNT_IN_LOT = CtrlForm.el(7).Data 'reset the amount_in_lot variable
+                                                                        pick_row.SubItems(12).Text = CtrlForm.el(6).Data 'set the rows LOT = to the forms LOT
+                                                                        pick_row.SubItems(13).Text = CtrlForm.el(11).Data 'set the rows expiry = to the forms expiry
                                                                     End If
                                                                     'we update the lot in use in the order
-                                                                    order.Lot = CtrlForm.el(5).Data
-                                                                    order.Bin = pick_row.SubItems(4).Text
-                                                                    order.WARHS = CtrlForm.el(3).Data
+                                                                    order.Lot = CtrlForm.el(6).Data
+                                                                    order.Bin = CtrlForm.el(10).Data
+                                                                    order.WARHS = CtrlForm.el(4).Data
                                                                     'next we see if there is enough in this lot
                                                                     'AMOUNT_IN_LOT
                                                                     If pick_amount <= AMOUNT_IN_LOT Then
@@ -1282,7 +1388,7 @@ Public Class interfaceChoRoute
                                                                         pick_row.SubItems(2).Text = hh 'we take the amount picked off the expected quantity in the data row
                                                                         'we set the pick amount to 0 to stop the iteration of this part
                                                                         'now we will write a line using the amount in pick
-                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, pick_amount, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, pick_amount, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                                         PickedItems.Add(NEWLINE2)
                                                                         pick_amount = 0
                                                                     Else ' there is not enough in the lot to allow us to take the full amount outstanding
@@ -1294,7 +1400,7 @@ Public Class interfaceChoRoute
                                                                         Dim hh As Integer = Convert.ToInt32(pick_row.SubItems(2).Text) - pick_amount 'we will reset the table line quant to reflect the amount picked
                                                                         pick_row.SubItems(2).Text = hh
                                                                         'now we will write a line using the amount in lot
-                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                                         PickedItems.Add(NEWLINE2)
                                                                     End If
 
@@ -1310,11 +1416,11 @@ Public Class interfaceChoRoute
                                                             exp -= pick_amount ' we need to update the table row to represent the pick
                                                             pick_row.SubItems(2).Text = exp
 
-                                                            order.Lot = CtrlForm.el(5).Data
-                                                            order.Bin = pick_row.SubItems(4).Text
-                                                            order.WARHS = CtrlForm.el(3).Data
+                                                            order.Lot = CtrlForm.el(6).Data
+                                                            order.Bin = CtrlForm.el(10).Data
+                                                            order.WARHS = CtrlForm.el(4).Data
                                                             'now we add the order line to the final pick and then we update the order line amount
-                                                            Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, pick_amount, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                            Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, pick_amount, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                             PickedItems.Add(NEWLINE)
                                                             order.Quant -= pick_amount 'we update the order now to reflect the pick
                                                             Dim j As Integer = AMOUNT_IN_LOT - pick_amount
@@ -1329,29 +1435,29 @@ Public Class interfaceChoRoute
                                                             'then we will get a new lot
                                                             If AMOUNT_IN_LOT = 0 Then
                                                                 'IF THERE ARE NO ITEMS LEFT IN THIS LOT WE MUST GET ANOTHER BEFORE WE CONTINUE
-                                                                Dim IBN As String = "Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(5).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC"
-                                                                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(5).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
+                                                                Dim IBN As String = "Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(6).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC"
+                                                                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CtrlForm.el(6).Data & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
                                                                 'check that we have a lot if not we cant proceed
-                                                                If CtrlForm.el(5).Data = "" Then
+                                                                If CtrlForm.el(6).Data = "" Then
                                                                     MsgBox("No more lots available for picking")
                                                                     Exit Sub
                                                                 Else
-                                                                    pick_row.SubItems(3).Text = CtrlForm.el(3).Data 'set the rows whs = to the forms whs
-                                                                    pick_row.SubItems(4).Text = CtrlForm.el(9).Data 'set the rows bin = to the forms bin
-                                                                    pick_row.SubItems(11).Text = CtrlForm.el(6).Data 'set the rows balance = to the forms available balance
-                                                                    AMOUNT_IN_LOT = CtrlForm.el(6).Data 'reset the amount_in_lot variable
-                                                                    pick_row.SubItems(12).Text = CtrlForm.el(5).Data 'set the rows LOT = to the forms LOT
-                                                                    pick_row.SubItems(13).Text = CtrlForm.el(10).Data 'set the rows expiry = to the forms expiry
+                                                                    pick_row.SubItems(3).Text = CtrlForm.el(4).Data 'set the rows whs = to the forms whs
+                                                                    pick_row.SubItems(4).Text = CtrlForm.el(10).Data 'set the rows bin = to the forms bin
+                                                                    pick_row.SubItems(11).Text = CtrlForm.el(7).Data 'set the rows balance = to the forms available balance
+                                                                    AMOUNT_IN_LOT = CtrlForm.el(7).Data 'reset the amount_in_lot variable
+                                                                    pick_row.SubItems(12).Text = CtrlForm.el(6).Data 'set the rows LOT = to the forms LOT
+                                                                    pick_row.SubItems(13).Text = CtrlForm.el(11).Data 'set the rows expiry = to the forms expiry
                                                                 End If
                                                             Else
-                                                                order.Lot = CtrlForm.el(5).Data
-                                                                order.Bin = pick_row.SubItems(4).Text
-                                                                order.WARHS = CtrlForm.el(3).Data
+                                                                order.Lot = CtrlForm.el(6).Data
+                                                                order.Bin = CtrlForm.el(10).Data
+                                                                order.WARHS = CtrlForm.el(4).Data
                                                                 'we use the remaining amount in the lot as the quantity
                                                                 order.Quant -= AMOUNT_IN_LOT
                                                                 'pick_amount -= Convert.ToInt32(pick_row.SubItems(11).Text)
                                                                 'we write a line using the amount in this lot
-                                                                Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                                Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                                 PickedItems.Add(NEWLINE)
                                                                 'first we calculate the remaining quantity in the order line
                                                                 Dim j As Integer = 0
@@ -1367,32 +1473,32 @@ Public Class interfaceChoRoute
                                                                 'now we need to redo the lot
                                                                 AMOUNT_IN_LOT = 0
 
-                                                                Dim CurrLot As String = CtrlForm.el(5).Data
+                                                                Dim CurrLot As String = CtrlForm.el(6).Data
                                                                 Do While order.Quant <> 0
                                                                     SendType = tSendType.LotFillNew
                                                                     InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance from dbo.V_PICKLIST_PARTS WHERE PARTNAME = '" & pick_row.SubItems(0).Text & "' and EXPIRYDATE >= " & pick_row.SubItems(13).Text & " AND SERIALNAME <> '" & CurrLot & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
                                                                     'check that we have a lot if not we cant proceed
-                                                                    If CtrlForm.el(5).Data = "" Then
+                                                                    If CtrlForm.el(6).Data = "" Then
                                                                         MsgBox("No more lots available for picking")
                                                                         Exit Sub
                                                                     Else
-                                                                        pick_row.SubItems(3).Text = CtrlForm.el(3).Data
-                                                                        pick_row.SubItems(4).Text = CtrlForm.el(9).Data
-                                                                        pick_row.SubItems(11).Text = CtrlForm.el(6).Data
-                                                                        AMOUNT_IN_LOT = CtrlForm.el(6).Data
-                                                                        pick_row.SubItems(12).Text = CtrlForm.el(5).Data
-                                                                        pick_row.SubItems(13).Text = CtrlForm.el(10).Data
+                                                                        pick_row.SubItems(3).Text = CtrlForm.el(4).Data
+                                                                        pick_row.SubItems(4).Text = CtrlForm.el(10).Data
+                                                                        pick_row.SubItems(11).Text = CtrlForm.el(7).Data
+                                                                        AMOUNT_IN_LOT = CtrlForm.el(7).Data
+                                                                        pick_row.SubItems(12).Text = CtrlForm.el(6).Data
+                                                                        pick_row.SubItems(13).Text = CtrlForm.el(11).Data
                                                                     End If
-                                                                    order.Lot = CtrlForm.el(5).Data
-                                                                    order.Bin = pick_row.SubItems(4).Text
-                                                                    order.WARHS = CtrlForm.el(3).Data
+                                                                    order.Lot = CtrlForm.el(6).Data
+                                                                    order.Bin = CtrlForm.el(10).Data
+                                                                    order.WARHS = CtrlForm.el(4).Data
                                                                     'next we see if there is enough in this lot
 
                                                                     If order.Quant <= AMOUNT_IN_LOT Then
 
                                                                         'we will take the full amount outstanding from this lot
 
-                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, order.Quant, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, order.Quant, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                                         PickedItems.Add(NEWLINE2)
                                                                         'we now need to update the various areas
                                                                         pick_amount -= order.Quant 'we update the amount still needing picking
@@ -1412,7 +1518,7 @@ Public Class interfaceChoRoute
                                                                         order.Quant -= AMOUNT_IN_LOT
 
                                                                         pick_amount -= AMOUNT_IN_LOT
-                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                                        Dim NEWLINE2 As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, AMOUNT_IN_LOT, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                                         PickedItems.Add(NEWLINE2)
                                                                         Dim g As Int32 = Convert.ToInt32(pick_row.SubItems(2).Text)
                                                                         g -= order_quant
@@ -1433,11 +1539,11 @@ Public Class interfaceChoRoute
                                                             Dim exp As Integer = Convert.ToInt32(pick_row.SubItems(2).Text)
                                                             exp -= order.Quant
                                                             pick_row.SubItems(2).Text = exp
-                                                            order.Lot = CtrlForm.el(5).Data
-                                                            order.Bin = pick_row.SubItems(4).Text
-                                                            order.WARHS = CtrlForm.el(3).Data
+                                                            order.Lot = CtrlForm.el(6).Data
+                                                            order.Bin = CtrlForm.el(10).Data
+                                                            order.WARHS = CtrlForm.el(4).Data
                                                             'now we add the order line to the final pick and then we set the order line amount to 0 to show that it is finished
-                                                            Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, order.Quant, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text)
+                                                            Dim NEWLINE As New PSLIPITEMS(order.ORDI, order.ROUTE, order.PSlipNo, order.PART, order.Quant, order.Desc, order.Lot, order.WARHS, order.Bin, order.Type, order.oname, order.oline, order.Amount, pick_row.SubItems(14).Text, CtrlForm.el(5).Data)
                                                             PickedItems.Add(NEWLINE)
 
 
@@ -1497,9 +1603,9 @@ Public Class interfaceChoRoute
 
                             Case "PART"
                                 If NOSCAN = True Then
-                                    If CtrlForm.el(4).Data <> "" Then
+                                    If CtrlForm.el(5).Data <> "" Then
                                         SendType = tSendType.getminpick
-                                        InvokeData("select ZROD_MINSHELF from CUSTMINPICKDAYS where CUSTNAME = '" & CtrlForm.el(4).Data & "' AND PARTNAME = '%PART%'")
+                                        InvokeData("select ZROD_MINSHELF from CUSTMINPICKDAYS where CUSTNAME = '" & CtrlForm.el(5).Data & "' AND PARTNAME = '%PART%'")
                                     End If
                                     If CUSTMINPICK <> 0 Then
                                         CUSTMINPICK *= 1440
@@ -1589,16 +1695,27 @@ Public Class interfaceChoRoute
 
                 Dim t1() As String = { _
                                      curdate, _
-                                    cust, _
+                                    PickedItems(0).Cust, _
                                     CtrlForm.ItemValue("ROUTE") & "PI", _
                                     UserName _
                                     }
                 p.AddRecord(1) = t1
-
+                Dim c As String = PickedItems(0).Cust
+                PickedItems.Sort(Function(x, y) x.cust.compareto(y.cust))
 
 
                 ' Type 1 records --- pitems
                 For y As Integer = 0 To (PickedItems.Count - 1)
+                    If y > 0 And PickedItems(y).Cust <> c Then
+                        Dim t3() As String = { _
+                                     curdate, _
+                                    PickedItems(y).Cust, _
+                                    CtrlForm.ItemValue("ROUTE") & "PI", _
+                                    UserName _
+                                    }
+
+                        p.AddRecord(1) = t3
+                    End If
                     If PickedItems(y).Con <> 1 Then
                         PickedItems(y).Quant /= PickedItems(y).Con
                     End If
@@ -1734,8 +1851,57 @@ Public Class interfaceChoRoute
         End If
         SendType = tSendType.None
         Dim pd As Integer = Me.Argument("PickDate")
-        'SET THE IN PICK FLAG
-        Dim sqlstring As String = "EXEC dbo.SP_SFDC_UPDATEITEMS '%ROUTE%' , " & pd
+        If Pick_Type = "S" And PickedItems.Count > 0 Then
+            Dim lv As ListViewItem
+            Dim it As PSLIPITEMS
+
+            For Each lv In CtrlTable.Table.Items
+                For Each it In PickedItems
+                    If it.Cust = CtrlForm.el(5).Data Then
+                        If lv.SubItems(0).Text = it.PART Then
+                            Dim currq As Integer = Convert.ToInt32(lv.SubItems(2).Text)
+                            currq -= it.Quant
+                            lv.SubItems(2).Text = currq
+                        End If
+
+                    End If
+                Next
+
+            Next
+
+            'after that we need to remove anylines that are fully picked
+            Dim ite As ListViewItem
+            Dim itemcount As Integer
+            Dim StillLive As Boolean = False
+            itemcount = CtrlTable.Table.Items.Count
+            For pos As Integer = (itemcount - 1) To 0 Step -1
+
+                ite = CtrlTable.Table.Items(pos)
+                'it In CtrlTable.Table.Items
+                ite.Selected = False
+                Dim g As Integer
+                g = Convert.ToInt16(ite.SubItems(2).Text)
+                If ite.SubItems(2).Text <= 0 Then
+                    CtrlTable.Table.Items.Remove(ite)
+                Else
+                    If ite.SubItems(15).Text <> 0 And ite.SubItems(16).Text <> "Y" Then
+                        Dim tot As Integer = Convert.ToInt32(ite.SubItems(2).Text)
+                        Dim pack, unit, pamount As Integer
+                        pamount = Convert.ToInt32(ite.SubItems(15).Text)
+                        If tot < pamount Then
+                            pack = 0
+                            unit = tot Mod pamount
+                        Else
+                            pack = tot \ pamount
+                            unit = tot Mod pamount
+                        End If
+                        ite.SubItems(17).Text = pack
+                        ite.SubItems(18).Text = unit
+
+                    End If
+                End If
+            Next
+        End If
 
 
 
@@ -1767,6 +1933,27 @@ Public Class interfaceChoRoute
                     End With
 
                 End With
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tMANDS)) Then
+                Dim tycheck As String = Value.Substring(0, 2)
+                With CtrlForm
+                    If Not (.el(.ColNo("ROUTE")).Data.Length > 0) Then Throw New Exception("Please select a route.")
+                    'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then Throw New Exception("Please select a warehouse.")
+
+                End With
+                LotScan = True
+                bcodetype = "l"
+                Dim dstring As String = Value.Substring(12, 6)
+                Dim SDATE As Date = FormatDateTime("1/1/1988", DateFormat.ShortDate)
+                Dim pa As String = Value.Substring(2, 10)
+                Dim X, y As Integer
+                Dim dholder As String = dstring.Substring(4, 2) & "/" & dstring.Substring(2, 2) & "/" & dstring.Substring(0, 2)
+                Dim S As Date = FormatDateTime(dholder, DateFormat.ShortDate)
+                X = DateDiff(DateInterval.Minute, SDATE, S)
+                y = DateDiff(DateInterval.Minute, SDATE, Today)
+                SendType = tSendType.Part
+                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance,ZSFDC_MINPICKDAYS from dbo.V_PICKLIST_PARTS WHERE BARCODE = '" & pa & "' and EXPIRYDATE = " & X & " order by EXPIRYDATE ASC,SERIALNAME DESC")
+
+
             ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tPar28)) Then
 
                 Dim tycheck As String = Value.Substring(1, 2)
@@ -1796,9 +1983,9 @@ Public Class interfaceChoRoute
                     Case "00"
                         LotScan = True
                         bcodetype = "l"
-                        Dim dstring As String = Value.Substring(14, 6)
+                        Dim dstring As String = Value.Substring(4, 6)
                         Dim SDATE As Date = FormatDateTime("1/1/1988", DateFormat.ShortDate)
-                        Dim pa As String = Value.Substring(4, 10)
+                        Dim pa As String = Value.Substring(7, 10)
                         Dim X, y As Integer
                         Dim dholder As String = dstring.Substring(4, 2) & "/" & dstring.Substring(2, 2) & "/" & dstring.Substring(0, 2)
                         Dim S As Date = FormatDateTime(dholder, DateFormat.ShortDate)

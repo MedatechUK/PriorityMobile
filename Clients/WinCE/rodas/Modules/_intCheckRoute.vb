@@ -497,7 +497,7 @@
                                         "0", _
                                         Me.Argument("HoldWARHS"), _
                                        "0", _
-                                        " ", " ", " ", 0, 0)
+                                        " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                         FINALLIST.Add(finlist)
 
                                         With CtrlTable
@@ -518,7 +518,7 @@
                                        "0", _
                                        Me.Argument("HoldWARHS"), _
                                       "0", _
-                                       " ", " ", " ", 0, 0)
+                                       " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                         FINALLIST.Add(finlist)
                                         Dim err As New ErrorLog("Return", it.SubItems(1).Text, amount)
                                         changelist.Add(err)
@@ -539,7 +539,7 @@
                                        "0", _
                                        Me.Argument("HoldWARHS"), _
                                       "0", _
-                                       " ", " ", " ", 0, 0)
+                                       " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                         FINALLIST.Add(finlist)
                                         Dim err As New ErrorLog("TAKE", it.SubItems(1).Text, amount)
                                         changelist.Add(err)
@@ -592,7 +592,7 @@
                                        "0", _
                                        Me.Argument("HoldWARHS"), _
                                       "0", _
-                                       " ", " ", " ", 0, 0)
+                                       " ", " ", " ", 0, 0, CtrlForm.el(3).Data)
                                     FINALLIST.Add(finlist)
 
                                     'the check is fine, this line can be hidden
@@ -712,8 +712,8 @@
                 .Procedure = "ZSFDC_LOADZROD_CHECK"
                 .Table = "ZSFDC_LOADZROD_CHECK"
                 .RecordType1 = "PICKEDDATE,TOWARHSNAME,ISCHECKED,PACKSLIP,USERLOGIN,WARHSNAME"
-                .RecordType2 = "PARTNAME,AMOUNTPICKED,ORDNAME,OLINE,SERIALNAME"
-                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,,TEXT,TEXT,TEXT"
+                .RecordType2 = "PARTNAME,AMOUNTPICKED,ORDNAME,OLINE,SERIALNAME,EXPECTED"
+                .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,,TEXT,TEXT,TEXT,"
             End With
             SendType = tSendType.Time
             InvokeData("select getdate() as curdate")
@@ -728,7 +728,7 @@
                                 CtrlForm.ItemValue("PACKING_SLIP"), _
                                 UserName, _
                                 CtrlForm.ItemValue("ROUTE") & "PI" _
-                                }
+                                 }
             p.AddRecord(1) = t1
             
 
@@ -746,18 +746,43 @@
                             trList(y).trORD, _
                             trList(y).trLine, _
                             trList(y).trSerial _
+                            , 0 _
                             }
                 'SendType = tSendType.None
                 'InvokeData("UPDATE ORDERITEMS SET ZROD_IN_CHECK = 'Y', ZROD_CHECKED_ON = " & DateDiff(DateInterval.Minute, startdate, curdate) & ", ZROD_CHECKED_BY = '" & UserName & "' WHERE ORDI = " & trList(y).trOrdi)
-
                 p.AddRecord(2) = t2
 
             Next
+            'DISABLED FOR TESTING
+            'Dim t3() As String = { _
+            '                     DateDiff(DateInterval.Minute, startdate, curdate), _
+            '                    CtrlForm.ItemValue("ROUTE"), _
+            '                    "Y", _
+            '                    CtrlForm.ItemValue("PACKING_SLIP"), _
+            '                    UserName, _
+            '                    CtrlForm.ItemValue("ROUTE") & "PI" _
+            '                    , 3 _
+            '                    }
+            'p.AddRecord(1) = t3
+
+            'For y As Integer = 0 To (FINALLIST.Count - 1)
 
 
 
+            '    Dim t4() As String = { _
+            '                FINALLIST(y).PART, _
+            '                (FINALLIST(y).Amount * 1000), _
+            '                0, _
+            '                0, _
+            '                0 _
+            '                , FINALLIST(y).Amount, 4 _
+            '                }
+            '    'SendType = tSendType.None
+            '    'InvokeData("UPDATE ORDERITEMS SET ZROD_IN_CHECK = 'Y', ZROD_CHECKED_ON = " & DateDiff(DateInterval.Minute, startdate, curdate) & ", ZROD_CHECKED_BY = '" & UserName & "' WHERE ORDI = " & trList(y).trOrdi)
+            '    p.AddRecord(2) = t4
 
-            ' Type 1 records
+            'Next
+
 
             FINALLIST.Clear()
             trList.Clear()

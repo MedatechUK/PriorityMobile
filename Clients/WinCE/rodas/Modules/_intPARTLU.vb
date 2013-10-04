@@ -27,7 +27,7 @@ Public Class InterfacePARTLU
         With field
             .Name = "PARTNAME"
             .Title = "Part No"
-            .ValidExp = ValidStr(tRegExValidation.tBarcode)
+            .ValidExp = ValidStr(tRegExValidation.tString)
             .SQLValidation = "SELECT BARCODE, PARTNAME " & _
                             "FROM PART " & _
                             "WHERE BARCODE = '%ME%'"
@@ -308,6 +308,79 @@ Public Class InterfacePARTLU
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        Try
+            If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Or System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode2)) Then
+                ' Scanning a barcode
+                With CtrlForm
+                    CtrlForm.el(0).DataEntry.Text = Value
+                    CtrlForm.el(0).ProcessEntry()
+                End With
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tPar28)) Then
+
+                Dim tycheck As String = Value.Substring(1, 2)
+                
+                Select Case tycheck
+                    Case "01"
+                        Dim pa As String = Value.Substring(4, 14)
+                        With CtrlForm
+                            CtrlForm.el(0).DataEntry.Text = pa
+                            CtrlForm.el(0).ProcessEntry()
+                        End With
+                       
+                    Case "00"
+                       
+                        Dim pa As String = Value.Substring(4, 10)
+
+                        With CtrlForm
+                            CtrlForm.el(0).DataEntry.Text = pa
+                            CtrlForm.el(0).ProcessEntry()
+                        End With
+
+                    Case Else
+                        MsgBox("Barcode not recognised")
+                        Exit Select
+
+                End Select
+
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tGSI128)) Then
+
+                Dim tycheck As String = Value.Substring(0, 2)
+               
+                Select Case tycheck
+                    Case "01"
+                       
+                        Dim pa As String = Value.Substring(2, 14)
+                        With CtrlForm
+                            CtrlForm.el(0).DataEntry.Text = pa
+                            CtrlForm.el(0).ProcessEntry()
+                        End With
+                    Case "00"
+                       
+                        Dim pa As String = Value.Substring(2, 10)
+                        With CtrlForm
+                            CtrlForm.el(0).DataEntry.Text = pa
+                            CtrlForm.el(0).ProcessEntry()
+                        End With
+                    Case Else
+                        MsgBox("Barcode not recognised")
+                        Exit Select
+
+                End Select
+
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tPar1415)) Then
+                With CtrlForm
+                    CtrlForm.el(0).DataEntry.Text = Value
+                    CtrlForm.el(0).ProcessEntry()
+                End With
+            Else
+                MsgBox("Barcode not recognised")
+
+
+            End If
+
+        Catch EX As Exception
+            MsgBox(String.Format("{0}", EX.Message))
+        End Try
 
     End Sub
 

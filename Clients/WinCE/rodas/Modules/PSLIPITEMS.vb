@@ -13,6 +13,7 @@
     Private mOLine As String
     Private mAmount As Integer
     Private mConv As Decimal
+    Private pCust As String
     Public Property ORDI() As Integer
         Get
             Return mORDI
@@ -125,7 +126,15 @@
             mConv = value
         End Set
     End Property
-    Public Sub New(ByVal ord As Integer, ByVal ro As String, ByVal pslip As String, ByVal par As String, ByVal qua As Integer, ByVal des As String, ByVal lt As String, ByVal wrh As String, ByVal bi As String, ByVal ty As String, ByVal ona As String, ByVal ol As String, ByVal am As Integer, ByVal cnv As Decimal)
+    Public Property Cust() As String
+        Get
+            Return pCust
+        End Get
+        Set(ByVal value As String)
+            pCust = value
+        End Set
+    End Property
+    Public Sub New(ByVal ord As Integer, ByVal ro As String, ByVal pslip As String, ByVal par As String, ByVal qua As Integer, ByVal des As String, ByVal lt As String, ByVal wrh As String, ByVal bi As String, ByVal ty As String, ByVal ona As String, ByVal ol As String, ByVal am As Integer, ByVal cnv As Decimal, ByVal cst As String)
         ORDI = ord
         ROUTE = ro
         PSlipNo = pslip
@@ -140,5 +149,6 @@
         oline = ol
         Amount = am
         Con = cnv
+        Cust = cst
     End Sub
 End Class
