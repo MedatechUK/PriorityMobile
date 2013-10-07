@@ -142,7 +142,7 @@ Partial Public Class frmProvisionDialog
         Me.btnReprovision.Location = New System.Drawing.Point(163, 42)
         Me.btnReprovision.Name = "btnReprovision"
         Me.btnReprovision.Size = New System.Drawing.Size(71, 20)
-        Me.btnReprovision.TabIndex = 0
+        Me.btnReprovision.TabIndex = 99
         Me.btnReprovision.Text = "Reprovision"
         Me.btnReprovision.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
@@ -161,7 +161,7 @@ Partial Public Class frmProvisionDialog
         Me.btnConnect.Location = New System.Drawing.Point(0, 10)
         Me.btnConnect.Name = "btnConnect"
         Me.btnConnect.Size = New System.Drawing.Size(640, 35)
-        Me.btnConnect.TabIndex = 3
+        Me.btnConnect.TabIndex = 0
         Me.btnConnect.Text = "Connect"
         '
         'frmProvisionDialog

@@ -3,6 +3,8 @@ Imports Microsoft.WindowsCE.Forms
 
 Public Class frmProvisionDialog
 
+    Private ftimer As Timer
+
     Public Sub New(Optional ByVal ProvisionString As String = Nothing)
 
         ' This call is required by the Windows Form Designer.
@@ -26,7 +28,7 @@ Public Class frmProvisionDialog
     End Sub
 
     Public Sub HideSIPButton()
-         Select SystemSettings.Platform
+        Select Case SystemSettings.Platform
             Case WinCEPlatform.WinCEGeneric
             Case Else
                 Capture = True
@@ -45,6 +47,20 @@ Public Class frmProvisionDialog
     Private Sub frmProvisionDialog_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.Menu = Nothing
         Me.BackColor = Color.White
+        ftimer = New Timer
+        With ftimer
+            .Interval = 100
+            AddHandler .Tick, AddressOf hFtimer
+            .Enabled = True
+        End With
+    End Sub
+
+    Private Sub hFtimer(ByVal sender As Object, ByVal e As EventArgs)
+        With ftimer
+            .Enabled = False
+            .Dispose()
+        End With
+        btnConnect.Focus()
     End Sub
 
     Private Sub frmMain_Paint(ByVal sender As Object, ByVal e As System.Windows.Forms.PaintEventArgs) Handles MyBase.Paint
