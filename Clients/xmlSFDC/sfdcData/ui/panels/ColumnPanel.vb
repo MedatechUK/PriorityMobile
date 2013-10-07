@@ -57,6 +57,16 @@ Public Class ColumnPanel
 
 #Region "Public Properties"
 
+    Public ReadOnly Property Column() As Dictionary(Of String, String)
+        Get
+            Dim ret As New Dictionary(Of String, String)
+            For Each c As cColumn In Columns.Values
+                ret.Add(String.Format(":$.{0}", c.Name), c.Value)
+            Next
+            Return ret
+        End Get
+    End Property
+
     Private _Columns As cColumns
     Public Property Columns() As cColumns
         Get
@@ -134,7 +144,9 @@ Public Class ColumnPanel
                 Else
                     c.ColStyle = eColStyle.colSelected
                 End If
-                Exit For
+            Else
+                c.Selected = False
+                c.ColStyle = eColStyle.colDeselected
             End If
         Next
     End Sub

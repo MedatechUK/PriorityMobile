@@ -110,46 +110,23 @@ Public Class uiColumn
             Case eColStyle.colSelected
                 Select Case _ScanBuffer.is2d
                     Case True
-                        For Each k As String In _ScanBuffer.ScanDictionary.Keys
-                            Dim ScanCol As cColumn = _thisColumn.Parent.ScanColumn(k)
-                            If Not IsNothing(ScanCol) Then
-                                With ScanCol
-                                    .Validate(_ScanBuffer.ScanDictionary(k), excep)
-                                    If Not IsNothing(excep) Then
-                                        'MsgBox(excep.Message, , ScanCol.Title)
-                                        .uiCol.Label.Focus()
-                                        _ScanBuffer.Clear()
-                                        Exit Sub
-                                    Else
-                                        .uiCol.lbl_Value.Text = _ScanBuffer.ScanDictionary(k)
-                                    End If
-                                End With
+                        Dim ValidKeys As Dictionary(Of String, String) = _ScanBuffer.ScanDictionary(Parent.Columns)
+                        For i As Integer = 0 To ValidKeys.Keys.Count - 1
+                            Dim ScanCol As cColumn = Parent.Columns(ValidKeys.Keys(i))
+                            If Not ScanCol.Validate(ValidKeys(ValidKeys.Keys(i)), excep) Then
+                                ScanCol.uiCol.Label.Focus()
+                                _ScanBuffer.Clear()
+                                Exit Sub
+                            Else
+                                ScanCol.uiCol.lbl_Value.Text = ValidKeys(ValidKeys.Keys(i))
                             End If
+
                         Next
 
                         _ScanBuffer.Clear()
                         If IsNothing(Parent.FocusedControl) Then
                             Parent.FirstControl()
                         End If
-
-                        'Dim doc As New Xml.XmlDocument
-                        'doc.LoadXml(_ScanBuffer.Value)
-                        'For Each item As XmlNode In doc.SelectNodes("in/i")
-                        '    Dim ScanCol As cColumn = _thisColumn.Parent.ScanColumn(item.Attributes("n").Value)
-                        '    If Not IsNothing(ScanCol) Then
-                        '        With ScanCol
-                        '            .Validate(item.Attributes("v").Value, excep)
-                        '            If Not IsNothing(excep) Then
-                        '                MsgBox(excep.Message, , ScanCol.Title)
-                        '                .uiCol.Label.Focus()
-                        '                _ScanBuffer.Clear()
-                        '                Exit Sub
-                        '            Else
-                        '                .uiCol.lbl_Value.Text = item.Attributes("v").Value
-                        '            End If
-                        '        End With
-                        '    End If
-                        'Next
 
                     Case Else
                         If _ScanBuffer.Length > 0 Then
@@ -596,7 +573,6 @@ Public Class uiColumn
                 .Selected = True
                 If .ColStyle = eColStyle.colSelected Then
                     .ColStyle = eColStyle.colDeselected
-                    '                    .Focus()
                 Else
                     .ColStyle = eColStyle.colSelected
                     .Focus()

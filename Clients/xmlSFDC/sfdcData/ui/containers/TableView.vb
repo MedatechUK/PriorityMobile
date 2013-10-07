@@ -1,4 +1,5 @@
 ﻿Imports System.Windows.Forms
+
 Public Class TableView
     Inherits iFormChild
 
@@ -35,11 +36,13 @@ Public Class TableView
                     With .ViewForm
                         .Visible = True
                         .Dock = DockStyle.Fill
+                        '.Focus()
                         '.NextControl(True)
                     End With
 
                 Case eTableView.vTable
                     With .ViewForm
+                        .Clear()
                         .Dock = DockStyle.None
                         .Visible = False
                     End With
@@ -54,6 +57,16 @@ Public Class TableView
 
         End With
     End Sub
+
+    Private _ThisTable As cTable
+    Private Property ThisTable() As cTable
+        Get
+            Return _ThisTable
+        End Get
+        Set(ByVal value As cTable)
+            _ThisTable = value
+        End Set
+    End Property
 
 #End Region
 
@@ -104,6 +117,8 @@ Public Class TableView
 
         _Parent = Parent
         _Container = thisTable
+        _ThisTable = thisTable
+        _ScannedRecord = New cTableItem(thisTable.Columns, thisTable.Unique)
 
         ViewForm = New ColumnPanel(Me, thisTable.Columns)
         ViewTable = New TablePanel(Me, thisTable.Columns)
@@ -158,6 +173,110 @@ Public Class TableView
             Next
         End Set
     End Property
+
+    Public ReadOnly Property Unique() As Boolean
+        Get
+            For Each row As cTableItem In Me.ViewTable.Items
+                If Not row.EditItem.Equals(EditItem.EditItem) Then
+                    For Each keys As List(Of String) In _ThisTable.Unique
+                        Dim un As Boolean = True
+                        For Each key As String In keys
+                            If Not String.Compare(row(key), EditItem(key)) = 0 Then
+                                un = False
+                                Exit For
+                            End If
+                        Next
+                        If un Then
+                            Return False
+                        End If
+                    Next
+                End If
+            Next
+            Return True
+        End Get        
+    End Property
+
+#End Region
+
+#Region "Build Table Scanned record"
+
+    Private _ScannedRecord As cTableItem
+    Public Property ScannedRecord() As cTableItem
+        Get
+            Return _ScannedRecord
+        End Get
+        Set(ByVal value As cTableItem)
+            _ScannedRecord = value
+        End Set
+    End Property
+
+    Public Sub ProcessScanned(ByVal ValidColumns As Dictionary(Of String, String))
+
+        For Each k As String In ValidColumns.Keys
+            _ScannedRecord(String.Format(":$.{0}", k)) = ValidColumns(k)
+        Next
+
+        Dim hk As List(Of String) = _ScannedRecord.HasKeys
+        If hk.Count > 0 Then
+
+            Dim changed As New List(Of String)
+            Dim mch As Boolean = False
+
+            For Each row As cTableItem In Me.ViewTable.Items
+                If row.Equals(_ScannedRecord, hk) Then
+                    mch = True
+                    EditItem = row
+                    For Each key As String In _Container.Columns.Keys
+                        If _ScannedRecord(String.Format(":$.{0}", key)).Length > 0 Then
+                            If Not String.Compare( _
+                                EditItem(String.Format(":$.{0}", key)), _
+                                _ScannedRecord(String.Format(":$.{0}", key)) _
+                            ) = 0 Then
+                                EditItem(String.Format(":$.{0}", key)) = _ScannedRecord(String.Format(":$.", key))
+                                changed.Add(key)
+                            End If
+                        End If
+                    Next
+                    Exit For
+                End If
+            Next
+
+            If mch Or (Not (mch) And ParentForm.ViewMain.FormButtons.Buttons(eFormButtons.btn_Add).Enabled) Then
+                If Not mch Then
+                    EditItem = _ScannedRecord
+                    EditItem.EditItem = Nothing
+
+                    For Each key As String In _Container.Columns.Keys
+                        If EditItem(String.Format(":$.{0}", key)).Length > 0 Then
+                            changed.Add(key)
+                        End If
+                    Next
+
+                    With Me.Container
+                        If .Triggers.Keys.Contains("PRE-INSERT") Then
+                            .Triggers("PRE-INSERT").Execute()
+                        End If
+                    End With
+
+                End If
+
+                For Each ch As String In changed
+                    With ViewForm.Columns(ch).Triggers
+                        If .Keys.Contains("POST-FIELD") Then _
+                            .Item("POST-FIELD").Execute()
+                    End With
+                Next
+
+                TableView = eTableView.vForm
+                ViewForm.FirstControl()
+
+            End If
+
+        End If
+
+        _ScannedRecord = New cTableItem(ThisTable.Columns, ThisTable.Unique)
+
+    End Sub
 
 #End Region
 

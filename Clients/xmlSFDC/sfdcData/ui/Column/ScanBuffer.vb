@@ -46,23 +46,26 @@ Public Class ScanBuffer
         End Get
     End Property
 
-    Public ReadOnly Property ScanDictionary() As Dictionary(Of String, String)
-        Get
-            Dim ret As New Dictionary(Of String, String)
-            Dim doc As New Xml.XmlDocument
-            Try
-                doc.LoadXml(Value)
-                For Each item As XmlNode In doc.SelectNodes("in/i")
-                    ret.Add(item.Attributes("n").Value, item.Attributes("v").Value)
-                Next
+    Public Function ScanDictionary(ByRef cols As cColumns) As Dictionary(Of String, String)
 
-            Catch
-                MsgBox("Invalid data.", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly)
-            End Try
+        Dim ret As New Dictionary(Of String, String)
+        Dim doc As New Xml.XmlDocument
+        Try
+            doc.LoadXml(Value)
+            For Each item As XmlNode In doc.SelectNodes("in/i")
+                Dim col As cColumn = cols.ColumnAlias(item.Attributes("n").Value)
+                If Not IsNothing(col) Then
+                    ret.Add(col.Name, item.Attributes("v").Value)
+                End If
+            Next
 
-            Return ret
-        End Get
-    End Property
+        Catch
+            MsgBox("Invalid data.", MsgBoxStyle.Critical + MsgBoxStyle.OkOnly)
+        End Try
+
+        Return ret
+
+    End Function
 #End Region
 
 #Region "Initialisation and Finalisation"
@@ -130,7 +133,7 @@ Public Class ScanBuffer
             Case 32
                 If Not _ScanBuffer.Length = 0 Then
                     _ScanBuffer.Append(" ")
-                End If                
+                End If
 
             Case 60
                 If _ScanBuffer.Length = 0 Then

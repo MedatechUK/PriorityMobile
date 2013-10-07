@@ -182,7 +182,7 @@ Public Class iForm : Inherits BaseForm
     End Property
 
     Private Sub hPrinterConnect()
-        thisHandler.PrintForm(Me)
+        'thisHandler.PrintForm(Me)
     End Sub
 
 #Region "Form Views"

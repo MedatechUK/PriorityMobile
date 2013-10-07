@@ -23,12 +23,13 @@ Public MustInherit Class iHandler
 
 #Region "Overridable Button Methods"
 
-    Public Overridable Sub DisabledButtons(ByRef Add As Boolean, ByRef Edit As Boolean, ByRef Copy As Boolean, ByRef Delete As Boolean, ByRef Print As Boolean)
+    Public Overridable Sub DisabledButtons(ByRef Add As Boolean, ByRef Edit As Boolean, ByRef Copy As Boolean, ByRef Delete As Boolean, ByRef FormPrint As Boolean, ByRef TablePrint As Boolean)
         Add = True
         Edit = True
         Copy = True
         Delete = True
-        Print = True
+        FormPrint = True
+        TablePrint = True
     End Sub
 
     Public Overridable Sub btn_AddPress(ByRef thisForm As iForm)
@@ -55,7 +56,7 @@ Public MustInherit Class iHandler
         End With
     End Sub
 
-    Public Overridable Sub btn_PrintPress(ByRef thisForm As iForm)
+    Public Overridable Sub btn_PrintPress(ByRef thisForm As iForm, ByVal PrintWhat As ePrintWhat)
         With thisForm.ViewMain
 
         End With
@@ -77,6 +78,10 @@ Public MustInherit Class iHandler
 
     End Sub
 
+    Public Overridable Sub PrintTable(ByRef thisForm As iForm)
+
+    End Sub
+
 #End Region
 
 #Region "Dialogs"
@@ -84,6 +89,33 @@ Public MustInherit Class iHandler
     Public Overridable Sub CloseDialog(ByRef thisForm As iForm, ByRef frmDialog As UserDialog)
 
     End Sub
+
+    Public Overridable Function InitCalc(ByRef uiCol As uiColumn) As calcSetting
+
+        Dim Val As Double = 0.0
+        Dim cs As calcSetting = Nothing
+
+        With uiCol
+            If .thisColumn.Value.Length > 0 Then
+                If IsNumeric(.thisColumn.Value) Then
+                    Val = CDbl(.thisColumn.Value)
+                End If
+            End If
+
+            Select Case EvalType(.thisColumn.ColumnType)
+                Case ePriorityType.INT_Type
+                    cs = New calcSetting(CInt(Val), -999, , .thisColumn.Title)
+                Case ePriorityType.REAL_Type
+                    cs = New calcSetting(CDbl(Val), -999, , .thisColumn.Title)
+                Case ePriorityType.UNSIGNED_Type
+                    cs = New calcSetting(CInt(Val), 0, , .thisColumn.Title)
+            End Select
+
+        End With
+
+        Return cs
+
+    End Function
 
 #End Region
 
@@ -193,33 +225,6 @@ Public MustInherit Class iHandler
 
     End Sub
 
-    Public Overridable Function InitCalc(ByRef uiCol As uiColumn) As calcSetting
-
-        Dim Val As Double = 0.0
-        Dim cs As calcSetting = Nothing
-
-        With uiCol
-            If .thisColumn.Value.Length > 0 Then
-                If IsNumeric(.thisColumn.Value) Then
-                    Val = CDbl(.thisColumn.Value)
-                End If
-            End If
-
-            Select Case EvalType(.thisColumn.ColumnType)
-                Case ePriorityType.INT_Type
-                    cs = New calcSetting(CInt(Val), -999, , .thisColumn.Title)
-                Case ePriorityType.REAL_Type
-                    cs = New calcSetting(CDbl(Val), -999, , .thisColumn.Title)
-                Case ePriorityType.UNSIGNED_Type
-                    cs = New calcSetting(CInt(Val), 0, , .thisColumn.Title)
-            End Select
-
-        End With
-
-        Return cs
-
-    End Function
-
     Public Overridable Sub CheckField(ByRef Validate As Boolean, ByVal uiCol As uiColumn)
 
     End Sub
@@ -230,12 +235,60 @@ Public MustInherit Class iHandler
 
     Public Overridable Sub Scan1d(ByRef sb As TablePanel)
 
+        Dim f As New Dictionary(Of String, String)
+
+        Try
+            For i As Integer = 0 To sb.Columns.Count - 1                
+                Select Case sb.Columns.Values(i).ColumnType
+                    Case "INT", "REAL", "UNSIGNED"
+                        ' Ignore these types
+                    Case Else
+                        If Not IsNothing(sb.Columns.Values(i).rxPattern) Then
+                            If rxIsPattern(sb.Columns.Values(i).rxPattern, sb.ScanBuffer.Value) Then
+                                If f.Count = 0 Then
+                                    f.Add(sb.Columns.Values(i).Name, sb.ScanBuffer.Value)
+                                Else
+                                    Throw New Exception("Data matches the format of multiple columns.")
+                                End If
+                            End If
+                        End If
+                End Select
+            Next
+
+            If f.Count = 1 Then
+                Dim ex As New Exception
+                If Not (sb.Columns(f.Keys(0)).Validate(f(f.Keys(0)), ex)) Then
+                    MsgBox(ex.Message, , sb.Columns(f.Keys(0)).Title)
+                    Exit Sub
+                Else
+                    TryCast(sb.Parent, TableView).ProcessScanned(f)
+                End If
+            Else
+                Throw New Exception("Data does not match the format of any column.")
+            End If
+
+        Catch ex As Exception
+            MsgBox(ex.Message, , "Scan Fail.")
+        End Try
+
     End Sub
 
     Public Overridable Sub Scan2d(ByRef sb As TablePanel)
-        For Each k As String In sb.ScanBuffer.ScanDictionary.Keys
 
+        Dim ValidColumns As Dictionary(Of String, String) = sb.ScanBuffer.ScanDictionary(sb.Columns)
+        For i As Integer = 0 To ValidColumns.Keys.Count - 1
+            Dim col As cColumn = sb.Columns(ValidColumns.Keys(i))
+            Dim ex As New Exception
+            If Not (col.Validate(ValidColumns(ValidColumns.Keys(i)), ex)) Then
+                MsgBox(ex.Message, , col.Title)
+                Exit Sub
+            End If
         Next
+
+        If ValidColumns.Count > 0 Then
+            TryCast(sb.Parent, TableView).ProcessScanned(ValidColumns)
+        End If
+
     End Sub
 
 #End Region

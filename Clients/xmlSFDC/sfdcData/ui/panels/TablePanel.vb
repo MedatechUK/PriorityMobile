@@ -130,18 +130,32 @@ Public Class TablePanel
         Get
             For Each i As ListViewItem In lv.Items
                 If i.Selected Then
-                    Dim item As New cTableItem(_TableItem, i)
-                    Dim c As Integer = 0
-                    For Each col As cColumn In Columns.Values
-                        item(String.Format(":$.{0}", col.Name)) = i.SubItems(c).Text
-                        c += 1
-                    Next
-                    Return item
+                    Return ItemFromLV(i)
                 End If
             Next
             Return New cTableItem(_TableItem)
         End Get
     End Property
+
+    Public ReadOnly Property Items() As list(of cTableItem)
+        Get
+            Dim ret As New List(Of cTableItem)
+            For Each i As ListViewItem In lv.Items                                
+                ret.Add(ItemFromLV(i))
+            Next
+            Return ret
+        End Get
+    End Property
+
+    Private Function ItemFromLV(ByVal i As ListViewItem) As cTableItem
+        Dim item As New cTableItem(_TableItem, i)
+        Dim c As Integer = 0
+        For Each col As cColumn In Columns.Values
+            item(String.Format(":$.{0}", col.Name)) = i.SubItems(c).Text
+            c += 1
+        Next
+        Return item
+    End Function
 
     Public ReadOnly Property HasMandatory() As Boolean
         Get
@@ -175,9 +189,6 @@ Public Class TablePanel
             Case 8
                 e.Handled = True
 
-            Case 40, 39, 38, 37, 9
-                e.Handled = True
-
             Case 32
                 e.Handled = True
 
@@ -196,8 +207,14 @@ Public Class TablePanel
                         End Select
                         _ScanBuffer.Clear()
                     End With
+                Else
+                    ParentForm.ViewMain.FormButtons.Buttons(eFormButtons.btn_Edit).Click()
                 End If
-                Me.thisTable.Focus()
+
+                Select Case ParentForm.ViewMain.TableView.TableView
+                    Case TableView.eTableView.vTable
+                        Me.thisTable.Focus()
+                End Select
 
             Case 63, 46
                 e.Handled = True

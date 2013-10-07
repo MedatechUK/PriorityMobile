@@ -20,21 +20,39 @@ Public Class cTable
         End Get
     End Property
 
+    Private _Unique As New List(Of List(Of String))
+    Public ReadOnly Property Unique() As List(Of List(Of String))
+        Get
+            Return _Unique
+        End Get
+    End Property
+
     Public Sub New(ByRef Parent As cInterface, ByRef Node As XmlNode)
         Try
             LoadNode(Node)
             _Columns = New cColumns(Me, thisNode)
-            _Triggers = New cTriggers(Me, thisNode)            
+            _Triggers = New cTriggers(Me, thisNode)
             _iMsg = New iMessages(thisNode)
             _Parent = Parent
 
             For Each formTrigger As cTrigger In _Triggers.Values
-                For Each strTrig As String In rxMatch(rxUpperColumn, formTrigger.SQL)
-                    If Not _strDepends.Contains(strTrig) Then
-                        _strDepends.Add(strTrig)
-                    End If
-                Next
+                If String.Compare(formTrigger.TriggerName, "UNIQ") = 0 Then
+                    For Each unStr As String In formTrigger.SQL.Split(";")
+                        Dim un As New List(Of String)
+                        For Each uCol As String In rxMatch(rxColumn, unStr)
+                            un.Add(uCol)
+                        Next
+                        If un.Count > 0 Then _Unique.Add(un)
+                    Next
+                Else
+                    For Each strTrig As String In rxMatch(rxUpperColumn, formTrigger.SQL)
+                        If Not _strDepends.Contains(strTrig) Then
+                            _strDepends.Add(strTrig)
+                        End If
+                    Next
+                End If
             Next
+
             For Each thiscolumn As cColumn In _Columns.Values
                 For Each columnTigger As cTrigger In thiscolumn.Triggers.Values
                     For Each strTrig As String In rxMatch(rxUpperColumn, columnTigger.SQL)
@@ -57,6 +75,7 @@ Public Class cTable
         Catch ex As Exception
             Throw New cfmtException("Failed to load {0}. {1}", NodeType, ex.Message)
         End Try
+
     End Sub
 
     Private Sub hTableDepends()

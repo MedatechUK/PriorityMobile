@@ -83,7 +83,7 @@
     <Compile Include="Interface\Classes\BaseClasses\cContainer.vb" />
     <Compile Include="Interface\Classes\Containers\iMessages.vb" />
     <Compile Include="Interface\Modules\cfmtException.vb" />
-    <Compile Include="Interface\cInterface.vb" />
+    <Compile Include="Interface\Classes\Containers\cInterface.vb" />
     <Compile Include="Interface\Classes\BaseClasses\cNode.vb" />
     <Compile Include="Interface\Modules\ColRef.vb" />
     <Compile Include="Interface\Modules\PriorityTypes.vb" />
@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="ui\Column\uiColumnEnums.vb" />
     <Compile Include="Interface\Classes\Containers\cTableItem.vb" />
+    <Compile Include="ui\FormButtons\ButtonEnums.vb" />
     <Compile Include="ui\FormButtons\iButton.vb" />
     <Compile Include="ui\FormButtons\iFrmButtons.Designer.vb">
       <DependentUpon>iFrmButtons.vb</DependentUpon>
@@ -118,6 +119,12 @@
       <DependentUpon>about.vb</DependentUpon>
     </Compile>
     <Compile Include="ui\menu\about.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ui\menu\frmCopies.Designer.vb">
+      <DependentUpon>frmCopies.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ui\menu\frmCopies.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ui\menu\PrinterSetting.Designer.vb">
@@ -200,6 +207,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ui\menu\about.resx">
       <DependentUpon>about.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ui\menu\frmCopies.resx">
+      <DependentUpon>frmCopies.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ui\menu\PrinterSetting.resx">
       <DependentUpon>PrinterSetting.vb</DependentUpon>
