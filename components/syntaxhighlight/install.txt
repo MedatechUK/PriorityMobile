@@ -1,0 +1,2 @@
+Install notes:
+Copy to and replace all files in your AppCode/Extensions/CodeFormatter/ folder.

@@ -1,0 +1,5 @@
+M:\components\syntaxhighlight\SyntaxHighLight\obj\Debug\ResolveAssemblyReference.cache
+M:\components\syntaxhighlight\SyntaxHighLight\bin\Debug\SyntaxHighLight.dll
+M:\components\syntaxhighlight\SyntaxHighLight\bin\Debug\SyntaxHighLight.pdb
+M:\components\syntaxhighlight\SyntaxHighLight\obj\Debug\SyntaxHighLight.dll
+M:\components\syntaxhighlight\SyntaxHighLight\obj\Debug\SyntaxHighLight.pdb
