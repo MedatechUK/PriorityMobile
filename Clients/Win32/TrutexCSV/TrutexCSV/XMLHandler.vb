@@ -341,7 +341,7 @@ Public Class XMLHandler
     Public Shared Sub createloading(ByVal fi As String)
         'This procedure will read the data from a csv file (line by line). I will be using the first 4 columns of the csv to determine the type of data row. There are 3 apparent types contained in the csv (apart from blank rows) they are Header (has an H in the first column) which contains the header data (type 1) for the order but also contains an order line, Order line (type 2) which contains a line of item data and lastly a block ending line which just contains the cust Ref with nothing else.
 
-        Dim ServiceURL As String = "http://mobile.trutex.com:8080" '"http://localhost:8080"
+        Dim ServiceURL As String = "http://10.0.0.164:8080" '"http://localhost:8080"
         Dim filereader As StreamReader
         Dim line_no As Integer = 1
         Dim exp As Exception

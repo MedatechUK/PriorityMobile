@@ -85,7 +85,7 @@
                                 <asp:TextBox ID="txtMessage" runat="server" Text="" TextMode="MultiLine" Width="350"
                                     Height="150" BorderStyle="Solid" BackColor="LightYellow"></asp:TextBox>
                             </asp:Panel>
-                            </asp:Panel>
+                            
                         </ItemTemplate>
                         <HeaderStyle BackColor="#666666" ForeColor="White" />
                     </asp:TemplateField>

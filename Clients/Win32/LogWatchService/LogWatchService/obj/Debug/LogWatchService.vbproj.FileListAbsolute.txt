@@ -1,0 +1,11 @@
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.Resources.resources
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.vbproj.GenerateResource.Cache
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Debug\LogWatchService.exe
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Debug\LogWatchService.pdb
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Debug\LogWatchService.xml
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.exe
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.xml
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.pdb
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.ProjectInstaller.resources
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Debug\LogWatchService.PriProcLogWatcher.resources

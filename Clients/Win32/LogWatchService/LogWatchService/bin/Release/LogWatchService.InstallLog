@@ -1,0 +1,97 @@
+﻿Installing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Installing service PriProcLogWatcher...
+Service PriProcLogWatcher has been successfully installed.
+Creating EventLog source PriProcLogWatcher in log Application...
+Committing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Uninstalling assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Removing EventLog source PriProcLogWatcher.
+Service PriProcLogWatcher is being removed from the system...
+Service PriProcLogWatcher was successfully removed from the system.
+Installing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Installing service PriProcLogWatcher...
+Service PriProcLogWatcher has been successfully installed.
+Creating EventLog source PriProcLogWatcher in log Application...
+Committing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Uninstalling assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Removing EventLog source PriProcLogWatcher.
+Service PriProcLogWatcher is being removed from the system...
+Service PriProcLogWatcher was successfully removed from the system.
+Installing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Installing service PriProcLogWatcher...
+Service PriProcLogWatcher has been successfully installed.
+Creating EventLog source PriProcLogWatcher in log Application...
+Committing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Uninstalling assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Removing EventLog source PriProcLogWatcher.
+Service PriProcLogWatcher is being removed from the system...
+Service PriProcLogWatcher was successfully removed from the system.
+Installing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Installing service PriProcLogWatcher...
+Service PriProcLogWatcher has been successfully installed.
+Creating EventLog source PriProcLogWatcher in log Application...
+Committing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Uninstalling assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Removing EventLog source PriProcLogWatcher.
+Service PriProcLogWatcher is being removed from the system...
+Service PriProcLogWatcher was successfully removed from the system.
+Installing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
+Installing service PriProcLogWatcher...
+Service PriProcLogWatcher has been successfully installed.
+Creating EventLog source PriProcLogWatcher in log Application...
+Committing assembly 'C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+   logfile = C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.InstallLog
