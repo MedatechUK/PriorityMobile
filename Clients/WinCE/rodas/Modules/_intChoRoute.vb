@@ -2000,6 +2000,38 @@ Public Class interfaceChoRoute
 
                 End Select
 
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tRod2)) Then
+
+                Dim tycheck As String = Value.Substring(1, 2)
+                With CtrlForm
+                    If Not (.el(.ColNo("ROUTE")).Data.Length > 0) Then Throw New Exception("Please select a route.")
+                    'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then Throw New Exception("Please select a warehouse.")
+
+                End With
+
+                LotScan = True
+                bcodetype = "l"
+                Dim dstring As String = Value.Substring(6, 6)
+                Dim SDATE As Date = FormatDateTime("1/1/1988", DateFormat.ShortDate)
+                Dim pa As String = Value.Substring(0, 6)
+                Dim X, y As Integer
+                Dim dholder As String = dstring.Substring(4, 2) & "/" & dstring.Substring(2, 2) & "/" & dstring.Substring(0, 2)
+                Dim S As Date = FormatDateTime(dholder, DateFormat.ShortDate)
+                X = DateDiff(DateInterval.Minute, SDATE, S)
+                y = DateDiff(DateInterval.Minute, SDATE, Today)
+                SendType = tSendType.Part
+                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance,ZSFDC_MINPICKDAYS from dbo.V_PICKLIST_PARTS WHERE BARCODE = '" & pa & "' and EXPIRYDATE = " & X & " order by EXPIRYDATE ASC,SERIALNAME DESC")
+
+
+            ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tRod1)) Then
+                With CtrlForm
+                    If Not (.el(.ColNo("ROUTE")).Data.Length > 0) Then Throw New Exception("Please select a route.")
+                    'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then Throw New Exception("Please select a warehouse.")
+
+                End With
+                SendType = tSendType.Part
+                InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance,ZSFDC_MINPICKDAYS from dbo.V_PICKLIST_PARTS WHERE SERIALNAME = '" & Value & "' order by EXPIRYDATE ASC,SERIALNAME DESC")
+
             ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tGSI128)) Then
 
                 Dim tycheck As String = Value.Substring(0, 2)
@@ -2008,7 +2040,8 @@ Public Class interfaceChoRoute
                     'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then Throw New Exception("Please select a warehouse.")
 
                 End With
-
+                LotScan = True
+                bcodetype = "l"
 
 
                 Select Case tycheck

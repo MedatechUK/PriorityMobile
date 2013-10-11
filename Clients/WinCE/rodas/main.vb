@@ -200,6 +200,8 @@ Module main
         tPar1415 = 12
         tGSI128 = 13
         tMANDS = 14
+        tRod1 = 15
+        tRod2 = 16
 
     End Enum
 
@@ -237,6 +239,10 @@ Module main
                     ret = "^[A-Za-z]{1}$"
                 Case tRegExValidation.tMANDS
                     ret = "^[0]{2}[0-9]{20}"
+                Case tRegExValidation.tRod1
+                    ret = "^[a-zA-Z]{2}[0-9]{7}(J)[0-9]{3}"
+                Case tRegExValidation.tRod2
+                    ret = "^[a-zA-Z]{3}[0-9]{9}"
             End Select
             Return ret
         End Get
