@@ -41,13 +41,8 @@ Partial Class PriProcLogWatcher
     ' Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Timers.Timer
         CType(Me.Timer2, System.ComponentModel.ISupportInitialize).BeginInit()
-        '
-        'Timer1
-        '
         '
         'Timer2
         '
@@ -59,7 +54,6 @@ Partial Class PriProcLogWatcher
         CType(Me.Timer2, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Timer2 As System.Timers.Timer
 
 End Class

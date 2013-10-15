@@ -10,3 +10,15 @@ C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\Lo
 C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Release\LogWatchService.pdb
 C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\obj\Release\LogWatchService.PriProcLogWatcher.resources
 C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe.config
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe.config
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.exe
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.xml
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.pdb
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\bin\Release\LogWatchService.exe
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\bin\Release\LogWatchService.pdb
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\bin\Release\LogWatchService.xml
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\ResolveAssemblyReference.cache
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.Resources.resources
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.ProjectInstaller.resources
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.PriProcLogWatcher.resources
+M:\PriorityMobile\Clients\Win32\LogWatchService\LogWatchService\obj\Release\LogWatchService.vbproj.GenerateResource.Cache
