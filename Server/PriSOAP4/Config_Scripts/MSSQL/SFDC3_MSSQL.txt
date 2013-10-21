@@ -1,0 +1,1122 @@
+USE [system]
+GO
+/****** Object:  UserDefinedFunction [dbo].[DATETOMIN]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DATETOMIN]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date, ,>
+-- Description:	<Description, ,>
+-- =============================================
+create FUNCTION [dbo].[DATETOMIN] 
+(
+	-- Add the parameters for the function here
+	@DT as datetime
+)
+RETURNS int
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @ResultVar as int
+
+	-- Add the T-SQL statements to compute the return value here
+	SELECT @ResultVar = (DATEdiff(MI, ''19880101'',@DT ))
+
+	-- Return the result of the function
+	RETURN @ResultVar
+
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[UserGroup]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserGroup]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Hagit (Modified by Si)
+-- Create date: 17/07/2013
+-- Description:	Get The Priority Group of the User
+-- =============================================
+CREATE FUNCTION [dbo].[UserGroup]
+(
+	-- Add the parameters for the function here
+	@user VARCHAR(20)
+)
+RETURNS int
+AS
+BEGIN
+	-- Declare the return variable here
+	DECLARE @ResultVar int
+
+	-- Add the T-SQL statements to compute the return value here
+	SET @ResultVar = (select USERGROUP from USERS where upper(USERLOGIN) = upper(@user))
+	
+	if @ResultVar = 0 
+	begin
+		set @ResultVar = (select T$USER from USERS WHERE upper(USERLOGIN) = upper(@user))
+	end
+	
+	-- Return the result of the function
+	RETURN @ResultVar
+
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[TriggerSQL]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TriggerSQL]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Si
+-- Create date: 29/04/2013
+-- Description:	Get coallesced Trigger SQL
+-- =============================================
+CREATE FUNCTION [dbo].[TriggerSQL]
+(
+	-- Add the parameters for the function here
+	@form int,
+	@name varchar(100),
+	@trigger varchar(100)
+)
+RETURNS varchar(max)
+AS
+BEGIN
+
+	declare @trig varchar(max)    
+	select @trig = coalesce(@trig,'''','''') + '' '' + FORMCLTRIGTEXT.TEXT    
+	FROM FORMCLTRIG, FORMCLTRIGTEXT, TRIGGERS
+	WHERE FORMCLTRIG.FORM = FORMCLTRIGTEXT.FORM
+	AND  FORMCLTRIG.TRIG = FORMCLTRIGTEXT.TRIG
+	AND TRIGGERS.TRIG = FORMCLTRIG.TRIG
+	AND FORMCLTRIG.FORM = @form
+	AND FORMCLTRIGTEXT.NAME = @name
+	AND FORMCLTRIG.NAME = @name
+	and TRIGGERS.TRIGNAME = @trigger
+    and TEXTLINE > 0    
+    order by TEXTORD		
+    
+	return @trig
+	
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[MessageText]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MessageText]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Si
+-- Create date: 06/07/2013
+-- Description:	Get coallesced message text
+-- =============================================
+CREATE FUNCTION [dbo].[MessageText]
+(
+	-- Add the parameters for the function here
+	@form int,
+	@num int	
+)
+RETURNS varchar(max)
+AS
+BEGIN
+	declare @text varchar(max)
+	declare @mess varchar(max)
+	
+	set @text = (SELECT MESSAGE from TRIGMSG where T$EXEC = @form and NUM = @num)
+	select @mess = coalesce(@mess,'''','''') + '' '' + TRIGMSGTEXT.TEXT
+	FROM         dbo.TRIGMSG 
+		INNER JOIN dbo.TRIGMSGTEXT ON dbo.TRIGMSG.NUM = dbo.TRIGMSGTEXT.NUM 
+		AND dbo.TRIGMSG.T$EXEC = dbo.TRIGMSGTEXT.T$EXEC
+	WHERE     (dbo.TRIGMSG.T$EXEC = @form) AND (dbo.TRIGMSG.NUM = @num)
+	ORDER BY dbo.TRIGMSG.T$EXEC, dbo.TRIGMSG.NUM, dbo.TRIGMSGTEXT.TEXTORD		
+    
+	return @text + isnull(@mess,'''')
+	
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[FORMTRIGGERS]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FORMTRIGGERS]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Si
+-- Create date: 29/04/2013
+-- Description:	List of form Triggers
+-- =============================================
+create FUNCTION [dbo].[FORMTRIGGERS]
+(
+	-- Add the parameters for the function here
+	@form int
+)
+RETURNS 
+@trig TABLE 
+(	
+	TriggerName varchar(100)
+)
+AS
+BEGIN	
+	insert into @trig
+	SELECT     dbo.TRIGGERS.TRIGNAME
+	FROM         dbo.FORMTRIG INNER JOIN
+						  dbo.TRIGGERS ON dbo.FORMTRIG.TRIG = dbo.TRIGGERS.TRIG
+	WHERE     (dbo.FORMTRIG.FORM = @form)
+	RETURN 
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[ColumnProperty]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ColumnProperty]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		si
+-- Create date: 17/07/2013
+-- Description:	Gets a property value for the 
+--				specified column
+-- =============================================
+create FUNCTION [dbo].[ColumnProperty]
+(
+	-- Add the parameters for the function here
+	@e int,
+	@Col varchar(max),
+	@Property varchar(max)
+)
+RETURNS varchar(256)
+AS
+BEGIN
+	declare @result varchar(64)
+	declare @lang int
+	set @lang = (select LANG FROM LANGUAGES WHERE LANGNAME = @Property)
+	set @result = (
+		SELECT TITLE from LANGFORMCLMNS 
+		where FORM = @e 	
+		and LANG = @lang
+		and NAME = @Col
+	)
+	
+	return @result
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[COLUMNTRIGGERS]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[COLUMNTRIGGERS]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Si
+-- Create date: 29/04/2013
+-- Description:	List of Column Triggers
+-- =============================================
+CREATE FUNCTION [dbo].[COLUMNTRIGGERS]
+(
+	-- Add the parameters for the function here
+	@form int,
+	@name varchar(100)
+)
+RETURNS 
+@trig TABLE 
+(	
+	TriggerName varchar(100)
+)
+AS
+BEGIN	
+	insert into @trig
+	SELECT     dbo.TRIGGERS.TRIGNAME
+	FROM         dbo.FORMCLTRIG INNER JOIN
+						  dbo.TRIGGERS ON dbo.FORMCLTRIG.TRIG = dbo.TRIGGERS.TRIG
+	WHERE     (dbo.FORMCLTRIG.FORM = @form) AND (dbo.FORMCLTRIG.NAME = @name)
+	RETURN 
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[FIRSTCHILDFORM]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FIRSTCHILDFORM]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		si
+-- Create date: 29/04/13
+-- Description:	Get the first child form T$EXEC
+-- =============================================
+CREATE FUNCTION [dbo].[FIRSTCHILDFORM] 
+(
+	-- Add the parameters for the function here
+	@e int
+)
+RETURNS int
+AS
+BEGIN
+
+	DECLARE @ResultVar int
+	set @ResultVar = 
+	(
+		SELECT top 1 SONFORM 
+		FROM FORMLINKS 
+		where FATFORM = @e
+		order by POS
+	)
+	
+	RETURN @ResultVar
+
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[HelpText]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[HelpText]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Si
+-- Create date: 29/04/2013
+-- Description:	Get coallesced column help
+-- =============================================
+CREATE FUNCTION [dbo].[HelpText]
+(
+	-- Add the parameters for the function here
+	@form int,
+	@name varchar(100)
+)
+RETURNS varchar(max)
+AS
+BEGIN
+
+	declare @trig varchar(max)    
+	    	
+	select @trig = coalesce(@trig,'''','''') + TEXT
+	FROM         dbo.FORMCLTRIGTEXT
+	WHERE     (FORM = 0 + @form) AND (NAME = @name) AND (TRIG = 0 + 12)
+    and TEXTLINE > 0    order by TEXTORD
+	return @trig
+	
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[FormTriggerSQL]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FormTriggerSQL]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		Si
+-- Create date: 29/04/2013
+-- Description:	Get coallesced Form Trigger SQL
+-- =============================================
+CREATE FUNCTION [dbo].[FormTriggerSQL]
+(
+	-- Add the parameters for the function here
+	@form int,
+	@trigger varchar(100)
+)
+RETURNS varchar(max)
+AS
+BEGIN
+
+	declare @trig varchar(max)    
+	select @trig = coalesce(@trig,'''','''') + '' '' +FORMTRIGTEXT.TEXT    
+	FROM FORMTRIG, FORMTRIGTEXT, TRIGGERS
+	WHERE FORMTRIG.FORM = FORMTRIGTEXT.FORM
+	AND  FORMTRIG.TRIG = FORMTRIGTEXT.TRIG
+	AND TRIGGERS.TRIG = FORMTRIG.TRIG
+	AND FORMTRIG.FORM = @form
+	and TRIGGERS.TRIGNAME = @trigger
+	and TEXTLINE > 0    
+	order by TEXTORD
+	return @trig
+	
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[FormProperty]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FormProperty]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		si
+-- Create date: 17/07/2013
+-- Description:	Gets a property value for the 
+--				specified column
+-- =============================================
+create FUNCTION [dbo].[FormProperty]
+(
+	-- Add the parameters for the function here
+	@e int,	
+	@Property varchar(max)
+)
+RETURNS varchar(256)
+AS
+BEGIN
+	declare @result varchar(64)
+	declare @lang int
+	set @lang = (select LANG FROM LANGUAGES WHERE LANGNAME = @Property)
+	set @result = (
+		SELECT TITLE from LANGEXEC 
+		where T$EXEC = @e 	
+		and LANG = @lang		
+	)
+	
+	return @result
+END
+' 
+END
+GO
+/****** Object:  UserDefinedFunction [dbo].[FormColumns]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FormColumns]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+CREATE FUNCTION [dbo].[FormColumns] 
+(
+	@e int
+)
+RETURNS 
+@T TABLE 
+(
+	CNAME VARCHAR(100),
+	CPOS int,
+	CTYPE VARCHAR(20),
+	CWIDTH INT,
+	CDECIMAL INT,
+	CTITLE VARCHAR(20),
+	CREADONLY VARCHAR(1),
+	CHIDE VARCHAR(1),
+	MANDATORY VARCHAR(1),
+	REGEX varchar(max),
+	BARCODE2D varchar(max)
+)
+AS
+BEGIN
+	-- Fill the table variable with the rows for your result set
+	INSERT INTO @T
+	SELECT 		
+				FORMCLMNS.NAME,
+				FORMCLMNS.POS,
+				CASE WHEN (COLUMNS.TYPE = '''') THEN  dbo.FORMCLMNSA.TYPE ELSE COLUMNS.TYPE END,
+				CASE WHEN (COLUMNS.WIDTH ='''') THEN dbo.FORMCLMNS.WIDTH ELSE  COLUMNS.WIDTH END,	
+				COLUMNSA.DECIMAL,						
+				CASE WHEN (FORMCLMNS.TITLE = '''') THEN COLUMNS.TITLE ELSE FORMCLMNS.TITLE END,
+				CASE WHEN (FORMCLMNS.READONLY = ''R'') THEN '''' ELSE NULL END,
+				CASE WHEN (FORMCLMNS.HIDE = ''H'') THEN '''' ELSE NULL END,
+				CASE WHEN (FORMCLMNS.READONLY = ''M'') THEN '''' ELSE NULL END	,
+				dbo.ColumnProperty(@e, FORMCLMNS.NAME, ''Regex''), 
+				dbo.ColumnProperty(@e, FORMCLMNS.NAME,''2dBarcode'')
+	FROM         dbo.COLUMNSA RIGHT OUTER JOIN
+                      dbo.COLUMNS INNER JOIN
+                      dbo.FORMCLMNS ON dbo.COLUMNS.T$COLUMN = dbo.FORMCLMNS.T$COLUMN ON dbo.COLUMNSA.T$COLUMN = dbo.COLUMNS.T$COLUMN LEFT OUTER JOIN
+                      dbo.FORMCLMNSA ON dbo.FORMCLMNS.FORM = dbo.FORMCLMNSA.FORM AND dbo.FORMCLMNS.NAME = dbo.FORMCLMNSA.NAME
+	WHERE  FORMCLMNS.FORM = @e
+	AND FORMCLMNS.T$JOIN = 0
+	and COLUMNS.CNAME not in (''RECORDTYPE'',''LINE'',''LOADED'',''KEY1'',''KEY2'',''KEY3'',''BUBBLEID'',''DUMMY'',''ME'',''TABLE'')
+	ORDER BY FORMCLMNS.POS
+	RETURN 
+END
+' 
+END
+GO
+/****** Object:  View [dbo].[v_ExecMenu]    Script Date: 10/11/2013 12:32:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_ExecMenu]'))
+EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[v_ExecMenu]
+AS
+SELECT     dbo.MENU.POS, dbo.MENU.EXECRUN, dbo.T$EXEC.ENAME, dbo.T$EXEC.T$EXEC AS FORM, dbo.T$EXEC.TITLE, dbo.T$EXEC.T$TABLE, dbo.T$EXEC.TYPE, 
+                      dbo.T$EXEC.APPEND, dbo.T$EXEC.EDES, dbo.T$EXEC.INS, dbo.T$EXEC.DEL, dbo.T$EXEC.UPD, dbo.T$EXEC.ZOOM, dbo.T$EXEC.HDATE
+FROM         dbo.MENU RIGHT OUTER JOIN
+                      dbo.T$EXEC ON dbo.MENU.T$EXEC = dbo.T$EXEC.T$EXEC
+ 
+'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'v_ExecMenu', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "MENU"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 99
+               Right = 189
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "T$EXEC"
+            Begin Extent = 
+               Top = 6
+               Left = 227
+               Bottom = 114
+               Right = 378
+            End
+            DisplayFlags = 280
+            TopColumn = 8
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 15
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_ExecMenu'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'v_ExecMenu', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_ExecMenu'
+GO
+/****** Object:  UserDefinedFunction [dbo].[MENUFORMCOUNT]    Script Date: 10/11/2013 12:32:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[MENUFORMCOUNT]') AND type in (N'FN', N'IF', N'TF', N'FS', N'FT'))
+BEGIN
+execute dbo.sp_executesql @statement = N'
+CREATE FUNCTION [dbo].[MENUFORMCOUNT]
+(
+	@E int
+)
+RETURNS INT
+AS
+BEGIN
+	
+	DECLARE @ResultVar int
+
+	set @ResultVar = (SELECT count(*)
+	FROM dbo.v_ExecMenu
+	WHERE FORM IN (SELECT EXECRUN FROM MENU WHERE T$EXEC = @E)
+	and TYPE = ''F'' 
+	and EDES = ''SFDC'') --
+
+	RETURN @ResultVar
+
+END
+' 
+END
+GO
+/****** Object:  View [dbo].[v_SfdcPriv]    Script Date: 10/11/2013 12:32:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_SfdcPriv]'))
+EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[v_SfdcPriv]
+AS
+SELECT DISTINCT 
+                      TOP (100) PERCENT t060613.dbo.EXECUSERPRIV.T$EXEC AS FORM, t060613.dbo.EXECUSERPRIV.FATEXEC AS PARENT, t060613.dbo.EXECUSERPRIV.T$USER AS UGROUP
+FROM         t060613.dbo.EXECUSERPRIV INNER JOIN
+                      dbo.v_ExecMenu ON dbo.v_ExecMenu.FORM = t060613.dbo.EXECUSERPRIV.T$EXEC
+WHERE     (t060613.dbo.EXECUSERPRIV.PRIV = N''W'') AND (dbo.v_ExecMenu.TYPE = N''F'')
+ORDER BY FORM
+'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'v_SfdcPriv', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "EXECUSERPRIV (t060613.dbo)"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 114
+               Right = 189
+            End
+            DisplayFlags = 280
+            TopColumn = 1
+         End
+         Begin Table = "v_ExecMenu"
+            Begin Extent = 
+               Top = 6
+               Left = 227
+               Bottom = 114
+               Right = 378
+            End
+            DisplayFlags = 280
+            TopColumn = 3
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 20
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_SfdcPriv'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'v_SfdcPriv', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_SfdcPriv'
+GO
+/****** Object:  View [dbo].[v_SfdcMenu]    Script Date: 10/11/2013 12:32:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_SfdcMenu]'))
+EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[v_SfdcMenu]
+AS
+SELECT     dbo.T$EXEC.T$EXEC, dbo.T$EXEC.TITLE, dbo.T$EXEC.TYPE, dbo.ZEMG_EXEC.SFDC
+FROM         dbo.T$EXEC INNER JOIN
+                      dbo.ZEMG_EXEC ON dbo.T$EXEC.T$EXEC = dbo.ZEMG_EXEC.T$EXEC
+WHERE     (dbo.T$EXEC.TYPE = N''M'') AND (dbo.ZEMG_EXEC.SFDC IS NOT NULL) AND (dbo.MENUFORMCOUNT(dbo.T$EXEC.T$EXEC) > 0)
+'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'v_SfdcMenu', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "T$EXEC"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 114
+               Right = 189
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "ZEMG_EXEC"
+            Begin Extent = 
+               Top = 6
+               Left = 227
+               Bottom = 84
+               Right = 378
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 9
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_SfdcMenu'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'v_SfdcMenu', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_SfdcMenu'
+GO
+/****** Object:  View [dbo].[v_SfdcForms]    Script Date: 10/11/2013 12:32:39 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[v_SfdcForms]'))
+EXEC dbo.sp_executesql @statement = N'CREATE VIEW [dbo].[v_SfdcForms]
+AS
+SELECT     dbo.v_SfdcPriv.PARENT, menutable.FORM, dbo.v_SfdcPriv.UGROUP
+FROM         dbo.v_SfdcMenu INNER JOIN
+                      dbo.v_SfdcPriv ON dbo.v_SfdcMenu.T$EXEC = dbo.v_SfdcPriv.PARENT INNER JOIN
+                      dbo.v_ExecMenu AS menutable ON dbo.v_SfdcPriv.FORM = menutable.FORM
+'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPane1' , N'SCHEMA',N'dbo', N'VIEW',N'v_SfdcForms', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "v_SfdcPriv"
+            Begin Extent = 
+               Top = 133
+               Left = 648
+               Bottom = 226
+               Right = 799
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "v_SfdcMenu"
+            Begin Extent = 
+               Top = 163
+               Left = 244
+               Bottom = 271
+               Right = 395
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "menutable"
+            Begin Extent = 
+               Top = 20
+               Left = 80
+               Bottom = 128
+               Right = 231
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+      Begin ColumnWidths = 15
+         Width = 284
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+         Width = 1500
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_SfdcForms'
+GO
+IF NOT EXISTS (SELECT * FROM ::fn_listextendedproperty(N'MS_DiagramPaneCount' , N'SCHEMA',N'dbo', N'VIEW',N'v_SfdcForms', NULL,NULL))
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'v_SfdcForms'
+GO
