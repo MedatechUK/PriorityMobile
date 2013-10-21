@@ -14,3 +14,6 @@ M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.vbproj.GenerateResource.
 M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.dll
 M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.xml
 M:\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.pdb
+M:\install\Client\pda3.1\bin\mnuControls.dll
+M:\install\Client\pda3.1\bin\mnuControls.pdb
+M:\install\Client\pda3.1\bin\mnuControls.xml

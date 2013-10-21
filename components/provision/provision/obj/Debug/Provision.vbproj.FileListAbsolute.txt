@@ -8,3 +8,6 @@ M:\components\provision\provision\obj\Debug\Provision.vbproj.GenerateResource.Ca
 M:\components\provision\provision\obj\Debug\provision.dll
 M:\components\provision\provision\obj\Debug\provision.xml
 M:\components\provision\provision\obj\Debug\provision.pdb
+M:\install\Client\bin\provision.dll
+M:\install\Client\bin\provision.pdb
+M:\install\Client\bin\provision.xml

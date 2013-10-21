@@ -19,3 +19,6 @@ M:\components\frmControls\frmControls\obj\Debug\frmControls.vbproj.GenerateResou
 M:\components\frmControls\frmControls\obj\Debug\frmControls.dll
 M:\components\frmControls\frmControls\obj\Debug\frmControls.xml
 M:\components\frmControls\frmControls\obj\Debug\frmControls.pdb
+M:\install\Client\pda3.1\bin\frmControls.dll
+M:\install\Client\pda3.1\bin\frmControls.pdb
+M:\install\Client\pda3.1\bin\frmControls.xml

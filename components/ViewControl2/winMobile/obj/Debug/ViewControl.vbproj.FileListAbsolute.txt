@@ -57,3 +57,6 @@ M:\components\ViewControl2\winMobile\obj\Debug\ViewControl.vbproj.GenerateResour
 M:\components\ViewControl2\winMobile\obj\Debug\ViewControl2.dll
 M:\components\ViewControl2\winMobile\obj\Debug\ViewControl2.xml
 M:\components\ViewControl2\winMobile\obj\Debug\ViewControl2.pdb
+M:\install\Client\pda3.1\bin\ViewControl2.dll
+M:\install\Client\pda3.1\bin\ViewControl2.pdb
+M:\install\Client\pda3.1\bin\ViewControl2.xml

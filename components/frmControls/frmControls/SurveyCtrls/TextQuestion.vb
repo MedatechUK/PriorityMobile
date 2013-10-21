@@ -25,7 +25,7 @@
                 .Add(CH)
             End With
 
-            AddHandler CH.LostFocus, AddressOf hValueChange
+            AddHandler CH.KeyPress, AddressOf hValueChange
 
         End With
     End Sub

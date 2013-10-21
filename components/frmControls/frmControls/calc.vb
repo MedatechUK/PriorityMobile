@@ -3,7 +3,7 @@
     Dim btn(14) As Button
     Private _cSetting As calcSetting
     Private mclosing As Boolean = True    
-    Private PressDot As Boolean = False
+    'Private PressDot As Boolean = False
 
     Public Event SetNumber(ByRef cSetting As calcSetting)
 
@@ -110,56 +110,78 @@
         Dim btn As Button = sender
         Select Case Strings.Left(btn.Text, 1)
             Case "O"
-                PressDot = False
+                'PressDot = False
                 Me.isClosing = True
                 RaiseEvent SetNumber(_cSetting)
             Case "C"
-                PressDot = False
+                'PressDot = False
                 _cSetting.DNUM = 0
+                txt_Number.Text = 0
             Case "<"
-                PressDot = False
-                If Len(_cSetting.DNUM.ToString) > 1 Then
+                'PressDot = False
+                If Len(txt_Number.Text) > 1 Then
                     Try
-                        _cSetting.DNUM = CDbl(Strings.Left(_cSetting.DNUM.ToString, Len(_cSetting.DNUM.ToString) - 1))
+                        txt_Number.Text = txt_Number.Text.Substring(0, txt_Number.Text.Length - 1)
+                        _cSetting.DNUM = CDbl(txt_Number.Text)
                     Catch
+                        txt_Number.Text = "0"
                         _cSetting.DNUM = 0
                     End Try
                 Else
+                    txt_Number.Text = "0"
                     _cSetting.DNUM = 0
                 End If
             Case "."
                 If InStr(txt_Number.Text, ".") = 0 Then
-                    PressDot = True
-                    txt_Number.Text = _cSetting.DNUM.ToString & "."
+                    'PressDot = True
+                    txt_Number.Text = txt_Number.Text & "."
                 End If
             Case "X"
                 _cSetting.Result = DialogResult.Cancel
-                PressDot = False
+                'PressDot = False
                 Me.isClosing = True
                 RaiseEvent SetNumber(_cSetting)
             Case "-"
                 Try
-                    _cSetting.DNUM = _cSetting.DNUM - (_cSetting.DNUM * 2)
+                    txt_Number.Text = CDbl(txt_Number.Text) - (CDbl(txt_Number.Text) * 2)
+                    _cSetting.DNUM = CDbl(txt_Number.Text)
                 Catch
+                    txt_Number.Text = 0
                     _cSetting.DNUM = 0
                 End Try
             Case Else
-                If PressDot Then
-                    _cSetting.DNUM = CDbl(_cSetting.DNUM.ToString & "." & btn.Text)
-                    PressDot = False
-                Else
-                    _cSetting.DNUM = CDbl(_cSetting.DNUM.ToString & btn.Text)
-                End If
+                txt_Number.Text = txt_Number.Text & btn.Text
+                'If PressDot Then
+                '    txt_Number.Text = txt_Number.Text & "."
+                '    '_cSetting.DNUM = CDbl(_cSetting.DNUM.ToString & "." & btn.Text)
+                '    PressDot = False
+                'Else
+                '    txt_Number.Text = txt_Number.Text & btn.Text
+                '    '_cSetting.DNUM = CDbl(_cSetting.DNUM.ToString & btn.Text)
+                'End If
         End Select
 
-        If Not IsNumeric(_cSetting.DNUM) Then
+        If Not IsNumeric(txt_Number.Text) Then
+            txt_Number.Text = "0"
             _cSetting.DNUM = 0
         Else
-            If _cSetting.DNUM > _cSetting.Max Then _cSetting.DNUM = _cSetting.Max
-            If _cSetting.DNUM < _cSetting.Min Then _cSetting.DNUM = _cSetting.Min
+            _cSetting.DNUM = CDbl(txt_Number.Text)
+            If _cSetting.DNUM > _cSetting.Max Then
+                _cSetting.DNUM = _cSetting.Max
+                txt_Number.Text = _cSetting.Max.ToString
+            End If
+            If _cSetting.DNUM < _cSetting.Min Then
+                _cSetting.DNUM = _cSetting.Min
+                txt_Number.Text = _cSetting.Min.ToString
+            End If
         End If
 
-        txt_Number.Text = _cSetting.DNUM.ToString
+        'txt_Number.Text = _cSetting.DNUM.ToString
+
+        While String.Compare(txt_Number.Text.Substring(0, 1), "0") = 0 _
+            And txt_Number.Text.Length > 1
+            txt_Number.Text = txt_Number.Text.Substring(1)
+        End While
 
         Me.btn(9).Focus()
 
