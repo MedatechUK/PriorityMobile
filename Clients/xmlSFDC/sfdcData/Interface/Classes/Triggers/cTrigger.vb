@@ -4,6 +4,8 @@ Imports Priority
 Public Class cTrigger
     Inherits cNode
 
+#Region "Public Properties"
+
     Public Overrides ReadOnly Property NodeType() As String
         Get
             Return "triggers"
@@ -68,21 +70,9 @@ Public Class cTrigger
         End Get
     End Property
 
-    Private ReadOnly Property SQLFuncs() As List(Of PriSQLFunc) 'Dictionary(Of String, String)
-        Get
-            Static ret As New List(Of PriSQLFunc) 'Dictionary(Of String, String)
-            If ret.Count = 0 Then
-                With ret
-                    .Add(New PriSQLFunc("SQL.DATE8", "dbo.DATETOMIN(getdate())"))
-                    .Add(New PriSQLFunc("ITOA(%1)", "ltrim(rtrim(str(%1)))"))
-                    '.Add("SQL.DATE8", "dbo.DATETOMIN(GETDATE())")
-                    ''.Add("SQL.DATE", "dbo.DATETOMIN(GETDATE())")
-                    '.Add("ITOA(", "STR(")
-                End With
-            End If
-            Return ret
-        End Get
-    End Property
+#End Region
+
+#Region "Initailisation and Finalisation"
 
     Public Sub New(ByRef Parent As cNode, ByRef Node As XmlNode)
         Try
@@ -95,6 +85,10 @@ Public Class cTrigger
             Throw New cfmtException("Failed to load {0}. {1}", NodeType, ex.Message)
         End Try
     End Sub
+
+#End Region
+
+#Region "Public Methods"
 
     Public Function Execute() As Data.DataTable
 
@@ -110,7 +104,7 @@ Public Class cTrigger
             int = thisContainer.Parent
         ElseIf Not IsNothing(TryCast(Parent, cColumn)) Then ' Column Triggers
             thisContainer = Parent.Parent
-            int = thisContainer.Parent        
+            int = thisContainer.Parent
             thisSQL = thisSQL.Replace(":$.@", String.Format(":$.{0}", TryCast(Parent, cColumn).Name))
         End If
         arg = int.Arguments
@@ -145,7 +139,7 @@ Public Class cTrigger
                                 Dim pi As String = thisContainer.Triggers("PRE-INSERT").SQL
                                 ParseFormValues(pi, thisContainer)
                                 ParseArgValues(pi, int)
-                                Dim piIntoFrom As List(Of String) = rxMatch(rxIntoFrom, pi)                                
+                                Dim piIntoFrom As List(Of String) = rxMatch(rxIntoFrom, pi)
                                 Dim pidata As Data.DataTable = _
                                     int.iForm.DataService.ExecuteReader( _
                                         pi.Replace( _
@@ -243,6 +237,10 @@ Public Class cTrigger
 
     End Function
 
+#End Region
+
+#Region "Private Methods"
+
     Private Sub ParseFormValues(ByRef ThisSQL As String, ByRef thisContainer As cContainer)
 
         For Each func As PriSQLFunc In SQLFuncs
@@ -278,8 +276,8 @@ Public Class cTrigger
             Dim ii As String = InsertIntoClause
             For Each strArgRef As String In rxMatch(rxArg, InsertIntoClause)
                 If rxIsPattern(rxArg, strArgRef) And Not rxIsPattern(rxPar, strArgRef) Then
-                    If Int.Arguments.Keys.Contains(strArgRef.Substring(1)) Then
-                        ii = ii.Replace(strArgRef, String.Format("'{0}'", Int.Arguments(strArgRef.Substring(1))))
+                    If int.Arguments.Keys.Contains(strArgRef.Substring(1)) Then
+                        ii = ii.Replace(strArgRef, String.Format("'{0}'", int.Arguments(strArgRef.Substring(1))))
                     Else
                         Throw New cfmtException("Argument {0} not found.", strArgRef)
                     End If
@@ -292,8 +290,8 @@ Public Class cTrigger
             Dim ii As String = WhereClause
             For Each strArgRef As String In rxMatch(rxArg, WhereClause)
                 If rxIsPattern(rxArg, strArgRef) And Not rxIsPattern(rxPar, strArgRef) Then
-                    If Int.Arguments.Keys.Contains(strArgRef.Substring(1)) Then
-                        ii = ii.Replace(strArgRef, String.Format("'{0}'", Int.Arguments(strArgRef.Substring(1))))
+                    If int.Arguments.Keys.Contains(strArgRef.Substring(1)) Then
+                        ii = ii.Replace(strArgRef, String.Format("'{0}'", int.Arguments(strArgRef.Substring(1))))
                     Else
                         Throw New cfmtException("Argument {0} not found.", strArgRef)
                     End If
@@ -303,5 +301,7 @@ Public Class cTrigger
         Next
 
     End Sub
+
+#End Region
 
 End Class

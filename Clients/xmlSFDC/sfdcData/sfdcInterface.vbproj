@@ -86,6 +86,7 @@
     <Compile Include="Interface\Classes\Containers\cInterface.vb" />
     <Compile Include="Interface\Classes\BaseClasses\cNode.vb" />
     <Compile Include="Interface\Modules\ColRef.vb" />
+    <Compile Include="Interface\Modules\PriorityFunctions.vb" />
     <Compile Include="Interface\Modules\PriorityTypes.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
@@ -241,7 +242,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

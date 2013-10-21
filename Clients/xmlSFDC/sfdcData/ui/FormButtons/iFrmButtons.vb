@@ -108,6 +108,24 @@ Public Class iFrmButtons
 
     Public Sub Load(ByRef Parent As FormPanel)
         _Parent = Parent
+
+        If ParentForm.ViewMain.FormView.Container.Triggers.Keys.Contains("PRE-FORM") Then
+            For Each btn As String In rxMatch(rxBtn, ParentForm.ViewMain.FormView.Container.Triggers("PRE-FORM").SQL)
+                Select Case btn.ToLower
+                    Case "add"
+                        _Buttons(eFormButtons.btn_Add).Disabled = True
+                    Case "delete"
+                        _Buttons(eFormButtons.btn_Delete).Disabled = True
+                    Case "copy"
+                        _Buttons(eFormButtons.btn_Copy).Disabled = True
+                    Case "printform"
+                        DisablePrintForm = True
+                    Case "printtable"
+                        DisablePrintTable = True
+                End Select
+            Next
+        End If
+
         ParentForm.thisHandler.DisabledButtons( _
             _Buttons(eFormButtons.btn_Add).Disabled, _
             _Buttons(eFormButtons.btn_Edit).Disabled, _
