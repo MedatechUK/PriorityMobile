@@ -99,7 +99,7 @@ Public Class ctrl_Delivered
         With Me
             If IsNothing(.Selected) Then Return False
             If IsNothing(.thisForm.TableData.Current) Then Return False
-            If IsNothing(ListSort1.Selected) Then Return False                        
+            If IsNothing(ListSort1.Selected) Then Return False
             Select Case Name.ToUpper
                 Case "DELIVERY"
                     Return False
@@ -141,7 +141,15 @@ Public Class ctrl_Delivered
 #Region "Direct Activations"
 
     Public Overrides Sub DirectActivations(ByRef ToolBar As daToolbar)
-        ToolBar.Add(AddressOf hPrint, "print.BMP", Not ListSort1.SelectedIndex = -1)        
+        With ToolBar
+            .Add(AddressOf hClearSort, "SORTASC.BMP")
+            .Add(AddressOf hPrint, "print.BMP", Not ListSort1.SelectedIndex = -1)
+        End With
+    End Sub
+
+    Private Sub hClearSort()
+        ListSort1.Sort = "ordinal"
+        Bind()
     End Sub
 
     Private Sub hPrint()
@@ -151,7 +159,8 @@ Public Class ctrl_Delivered
                 Do While .WaitConnect
                     Threading.Thread.Sleep(100)
                 Loop
-            Else
+            End If
+            If .Connected Then
                 PrintForm()
             End If
         End With
@@ -186,9 +195,10 @@ Public Class ctrl_Delivered
 
             '#####delivery header####
 
-            Dim dvNum As String = String.Format("{0}-{1}-{2}", dv.ParentNode.ParentNode.SelectSingleNode("curdate").InnerText, _
-                                dv.ParentNode.ParentNode.SelectSingleNode("routenumber").InnerText, _
-                                dv.SelectSingleNode("ordinal").InnerText)
+            Dim dvNum As String = dv.SelectSingleNode("sonum").InnerText
+            'String.Format("{0}-{1}-{2}", dv.ParentNode.ParentNode.SelectSingleNode("curdate").InnerText, _
+            '                    dv.ParentNode.ParentNode.SelectSingleNode("routenumber").InnerText, _
+            '                    dv.SelectSingleNode("ordinal").InnerText)
             Dim dvDate As String = Now.ToString("dd/MM/yy")
             Dim dvTime As String = Now.ToString("hh:mm")
             Dim van As String = dv.ParentNode.ParentNode.SelectSingleNode("vehiclereg").InnerText.ToUpper
@@ -202,7 +212,7 @@ Public Class ctrl_Delivered
 
 
 
-            docHead.AddRow("Number", "Date", "Time", "Van")
+            docHead.AddRow("SO Num", "Date", "Time", "Van")
             docHead.AddRow(dvNum, dvDate, dvTime, van)
 
 
@@ -219,7 +229,9 @@ Public Class ctrl_Delivered
             custDetails.AddRow("", dvCustName)
             custDetails.AddRow("", dvCustPostCode)
 
-
+            If Not IsNothing(dv.SelectSingleNode("ponum")) Then
+                custDetails.AddRow("Your PO:", dv.SelectSingleNode("ponum").InnerText)
+            End If
 
             Dim partsList As New ReceiptFormatter(64, _
                                                   New FormattedColumn(8, 0, eAlignment.Right), _
@@ -347,9 +359,10 @@ Public Class ctrl_Delivered
             'font 0 - 8/16 for size 2/3 respectively, font 5 is variable width ~20-30.
 
             '####invoice header'####
-            Dim ivnum As String = String.Format("{0}-{1}-{2}", dv.ParentNode.ParentNode.SelectSingleNode("curdate").InnerText, _
-                                dv.ParentNode.ParentNode.SelectSingleNode("routenumber").InnerText, _
-                                dv.SelectSingleNode("ordinal").InnerText)
+            Dim ivnum As String = dv.SelectSingleNode("sonum").InnerText
+            'String.Format("{0}-{1}-{2}", dv.ParentNode.ParentNode.SelectSingleNode("curdate").InnerText, _
+            '                    dv.ParentNode.ParentNode.SelectSingleNode("routenumber").InnerText, _
+            '                    dv.SelectSingleNode("ordinal").InnerText)
             Dim ivdate As String = Now.ToString("dd/MM/yy")
             Dim ivtime As String = Now.ToString("HH:mm")
             Dim van As String = dv.ParentNode.ParentNode.SelectSingleNode("vehiclereg").InnerText.ToUpper
@@ -359,7 +372,7 @@ Public Class ctrl_Delivered
                                                 New FormattedColumn(16, 16, eAlignment.Center), _
                                                 New FormattedColumn(16, 32, eAlignment.Center), _
                                                 New FormattedColumn(16, 48, eAlignment.Center))
-            docHead.AddRow("Number:", "Date:", "Time:", "Van:")
+            docHead.AddRow("SO Num:", "Date:", "Time:", "Van:")
             docHead.AddRow(ivnum.ToUpper(), ivdate, ivtime, van)
 
             '####customer details####
@@ -373,6 +386,10 @@ Public Class ctrl_Delivered
             custDetails.AddRow("Customer:", custnumber)
             custDetails.AddRow("", custname)
             custDetails.AddRow("", postcode)
+
+            If Not IsNothing(dv.SelectSingleNode("ponum")) Then
+                custDetails.AddRow("Your PO:", dv.SelectSingleNode("ponum").InnerText)
+            End If
 
             '####parts list#####
 

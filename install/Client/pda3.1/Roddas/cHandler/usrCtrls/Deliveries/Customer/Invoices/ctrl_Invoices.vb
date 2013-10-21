@@ -23,7 +23,7 @@ Public Class ctrl_Invoices
         With Me
             With ListSort1
                 .FormLabel = "Invoices"
-                .Sort = "ivdate"                
+                .Sort = "ivdate"
                 .AddColumn("ivnum", "Invoice", 130, True)
                 .AddColumn("ivdate", "Date", 130, , eColumnFormat.fmt_Date)
                 .AddColumn("duedate", "Due", 130, , eColumnFormat.fmt_Date)
@@ -144,7 +144,8 @@ Public Class ctrl_Invoices
                 Do While .WaitConnect
                     Threading.Thread.Sleep(100)
                 Loop
-            Else
+            End If
+            If .Connected Then
                 PrintForm()
             End If
         End With

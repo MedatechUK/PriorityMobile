@@ -32,7 +32,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug2\</OutputPath>
+    <OutputPath>bin\</OutputPath>
     <DefineConstants>$(PlatformFamilyName)=TRUE</DefineConstants>
     <DocumentationFile>RoddasPDA.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -56,7 +56,34 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.WindowsMobile.Telephony, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="btZebra, Version=1.0.5038.39387, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\btZebra.dll</HintPath>
+    </Reference>
+    <Reference Include="CPCL, Version=1.0.5038.39399, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\CPCL.dll</HintPath>
+    </Reference>
+    <Reference Include="frmControls, Version=1.0.5038.39172, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\frmControls.dll</HintPath>
+    </Reference>
+    <Reference Include="InTheHand.Net.Personal, Version=2.3.0.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\InTheHand.Net.Personal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsMobile.Telephony, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\Microsoft.WindowsMobile.Telephony.dll</HintPath>
+    </Reference>
+    <Reference Include="mnuControls, Version=1.0.5038.39189, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\mnuControls.dll</HintPath>
+    </Reference>
+    <Reference Include="provision, Version=1.0.5038.39367, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\provision.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
@@ -69,13 +96,17 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Data" />
+    <Reference Include="ViewControl2, Version=1.0.5038.39238, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\bin\ViewControl2.dll</HintPath>
+    </Reference>
     <Reference Include="ZebraBluetoothAdapter, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Clients\ce_print\btZebra\btZebra\ZebraBluetoothAdapter.dll</HintPath>
+      <HintPath>..\..\bin\ZebraBluetoothAdapter.dll</HintPath>
     </Reference>
     <Reference Include="ZSDK_API, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Clients\ce_print\btZebra\btZebra\ZSDK_API.dll</HintPath>
+      <HintPath>..\..\bin\ZSDK_API.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -189,32 +220,6 @@
     <Content Include="prnimg\roddas.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Clients\ce_print\btZebra\btZebra\btZebra.vbproj">
-      <Project>{ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513}</Project>
-      <Name>btZebra</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Clients\ce_print\cpcl\CPCL\CPCL.vbproj">
-      <Project>{02BE755C-1DC9-47CE-9931-58DD9164C988}</Project>
-      <Name>CPCL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\components\frmControls\frmControls\frmControls.vbproj">
-      <Project>{51160138-3081-4533-8697-3C7778A42F5A}</Project>
-      <Name>frmControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\components\provision\provision\Provision.vbproj">
-      <Project>{C81127CE-7435-4555-961F-D43C4ADC6797}</Project>
-      <Name>Provision</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\components\SlideMenu\SlideMenu\mnuControls.vbproj">
-      <Project>{BB0BE30E-005F-440A-81C3-B6B349B44D17}</Project>
-      <Name>mnuControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\components\ViewControl2\winMobile\ViewControl.vbproj">
-      <Project>{5A0389F9-AF9A-40A4-947B-CE0773959815}</Project>
-      <Name>ViewControl</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>

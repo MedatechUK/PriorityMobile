@@ -210,7 +210,11 @@ Public Class ctrl_Credit
         With thisForm.Printer
             If Not .Connected Then
                 .BeginConnect(thisForm.MACAddress)
-            Else
+                Do While .WaitConnect
+                    Threading.Thread.Sleep(100)
+                Loop
+            End If
+            If .Connected Then
                 PrintForm()
             End If
         End With

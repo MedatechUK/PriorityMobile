@@ -234,7 +234,11 @@ Public Class ctrl_Orders
         With thisForm.Printer
             If Not .Connected Then
                 .BeginConnect(thisForm.MACAddress)
-            Else
+                Do While .WaitConnect
+                    Threading.Thread.Sleep(100)
+                Loop
+            End If
+            If .Connected Then
                 PrintForm()
             End If
         End With
@@ -263,7 +267,7 @@ Public Class ctrl_Orders
                                                         New FormattedColumn(21, 0, eAlignment.Center), _
                                                         New FormattedColumn(21, 21, eAlignment.Center), _
                                                         New FormattedColumn(21, 42, eAlignment.Center))
-                    docHead.AddRow("Number", "Date", "Time")
+                    docHead.AddRow("Your P/O", "Date", "Time")
                     docHead.AddRow(poNum, poDate, poTime)
 
 

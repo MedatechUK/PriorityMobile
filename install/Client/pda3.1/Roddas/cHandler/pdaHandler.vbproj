@@ -31,7 +31,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\bin\</OutputPath>
     <DocumentationFile>pdaHandler.xml</DocumentationFile>
     <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -45,7 +45,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>C:\inetpub\mobile\</OutputPath>
     <DocumentationFile>pdaHandler.xml</DocumentationFile>
     <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -55,14 +55,54 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="btZebra, Version=1.0.5038.39387, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\btZebra.dll</HintPath>
+    </Reference>
+    <Reference Include="CPCL, Version=1.0.5038.39399, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\CPCL.dll</HintPath>
+    </Reference>
+    <Reference Include="frmControls, Version=1.0.5038.39172, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\frmControls.dll</HintPath>
+    </Reference>
+    <Reference Include="InTheHand.Net.Personal, Version=2.3.0.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\InTheHand.Net.Personal.dll</HintPath>
+    </Reference>
+    <Reference Include="mnuControls, Version=1.0.5038.39189, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\mnuControls.dll</HintPath>
+    </Reference>
+    <Reference Include="provision, Version=1.0.5038.39367, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\provision.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\System.SR.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ViewControl2, Version=1.0.5038.39238, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\ViewControl2.dll</HintPath>
+    </Reference>
+    <Reference Include="ZebraBluetoothAdapter, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\ZebraBluetoothAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="ZSDK_API, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\ZSDK_API.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -290,132 +330,147 @@
   <ItemGroup>
     <EmbeddedResource Include="dialogs\dlgAddCredit.resx">
       <DependentUpon>dlgAddCredit.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="dialogs\dlgAddOrder.resx">
       <DependentUpon>dlgAddOrder.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="dialogs\dlgAddPlanned.resx">
       <DependentUpon>dlgAddPlanned.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="dialogs\dlgCloseDelivery.resx">
       <DependentUpon>dlgCloseDelivery.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="dialogs\dlgDeliver.resx">
       <DependentUpon>dlgDeliver.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="dialogs\dlgManualCredit.resx">
       <DependentUpon>dlgManualCredit.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="dialogs\dlgPrnSetup.resx" />
-    <EmbeddedResource Include="dialogs\dlgScanDeliver.resx" />
+    <EmbeddedResource Include="dialogs\dlgPrnSetup.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\dlgScanDeliver.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\ctrl_DataGrid.resx">
       <DependentUpon>ctrl_DataGrid.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\ctrl_Home.resx">
       <DependentUpon>ctrl_Home.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\DayEnd\ctrl_DayEnd.resx">
       <DependentUpon>ctrl_DayEnd.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Customer.resx">
       <DependentUpon>ctrl_Customer.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Delivered.resx">
       <DependentUpon>ctrl_Delivered.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_DeliveredItems.resx">
       <DependentUpon>ctrl_DeliveredItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Deliveries.resx">
       <DependentUpon>ctrl_Deliveries.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_DeliveryItems.resx">
       <DependentUpon>ctrl_DeliveryItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Payment.resx">
       <DependentUpon>ctrl_Payment.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\ctrl_Signature.resx">
       <DependentUpon>ctrl_Signature.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_AccInfo.resx">
       <DependentUpon>ctrl_AccInfo.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_AddRemark.resx">
       <DependentUpon>ctrl_AddRemark.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_Credit.resx">
       <DependentUpon>ctrl_Credit.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\ctrl_Remarks.resx">
       <DependentUpon>ctrl_Remarks.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_InvoiceItems.resx">
       <DependentUpon>ctrl_InvoiceItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Invoices\ctrl_Invoices.resx">
       <DependentUpon>ctrl_Invoices.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_OrderItems.resx">
       <DependentUpon>ctrl_OrderItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\ctrl_Orders.resx">
       <DependentUpon>ctrl_Orders.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_Families.resx">
       <DependentUpon>ctrl_cust_Families.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_cust_FamilyItems.resx">
       <DependentUpon>ctrl_cust_FamilyItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_Families.resx">
       <DependentUpon>ctrl_Families.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Deliveries\Customer\Orders\Pricelist\ctrl_FamilyItems.resx">
       <DependentUpon>ctrl_FamilyItems.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance_End.resx">
       <DependentUpon>ctrl_Maintainance_End.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Maintainance_Start.resx">
       <DependentUpon>ctrl_Maintainance_Start.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Survey.resx">
       <DependentUpon>ctrl_Survey.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="usrCtrls\Maintainance\ctrl_Warehouse.resx">
       <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\components\frmControls\frmControls\frmControls.vbproj">
-      <Project>{51160138-3081-4533-8697-3C7778A42F5A}</Project>
-      <Name>frmControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\..\components\SlideMenu\SlideMenu\mnuControls.vbproj">
-      <Project>{BB0BE30E-005F-440A-81C3-B6B349B44D17}</Project>
-      <Name>mnuControls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\Clients\ce_print\cpcl\CPCL\CPCL.vbproj">
-      <Project>{02BE755C-1DC9-47CE-9931-58DD9164C988}</Project>
-      <Name>CPCL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\components\provision\provision\Provision.vbproj">
-      <Project>{C81127CE-7435-4555-961F-D43C4ADC6797}</Project>
-      <Name>Provision</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\..\components\ViewControl2\winMobile\ViewControl.vbproj">
-      <Project>{5A0389F9-AF9A-40A4-947B-CE0773959815}</Project>
-      <Name>ViewControl</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>
@@ -423,7 +478,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
+      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

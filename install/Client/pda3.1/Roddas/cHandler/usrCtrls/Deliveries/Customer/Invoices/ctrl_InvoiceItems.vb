@@ -257,7 +257,7 @@ Public Class ctrl_InvoiceItems
                     AddCreditNote( _
                         thisForm, _
                         CreditNote, _
-                        CreditQty.Value.ToString, _
+                        .CurrentRow("ordi"), _
                         .FormData.SelectSingleNode(.boundxPath).ParentNode.ParentNode.SelectSingleNode("ivnum").InnerText, _
                         .CurrentRow("name"), _
                         .CurrentRow("des"), _
