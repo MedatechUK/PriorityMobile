@@ -1,0 +1,5 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>M:\Clients\xmlSFDC\ui\ui.sln M:\install\Client\pda3.1\pda3.1.sln M:\Server\PriSOAP4\full.sln</StartArguments>
+  </PropertyGroup>
+</Project>

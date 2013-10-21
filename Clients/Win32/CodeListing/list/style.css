@@ -1,0 +1,69 @@
+BODY {
+	
+	Background-color: #ffffff;
+}
+
+.folder
+{
+ font-size: 16px;
+ color: blue;
+ font-family: Consolas, "Courier New", Courier, Monospace;
+ background-color: white;
+ line-height: normal;
+}
+
+.folder .tab1 { padding-left: 0px; }
+
+.folder .tab2 { padding-left: 25px; }
+
+.folder .tab3 { padding-left: 50px; }
+
+.folder .tab4 { padding-left: 75px; }
+
+.folder .tab5 { padding-left: 100px; }
+
+.folder .tab6 { padding-left: 125px; }
+
+.folder .tab7 { padding-left: 150px; }
+
+.folder .tab8 { padding-left: 175px; }
+
+.folder .tab9 { padding-left: 200px; }
+
+.folder .tab10 { padding-left: 225px; }
+
+.code
+{
+ font-size: 12px;
+ color: black;
+ font-family: Consolas, "Courier New", Courier, Monospace;
+ background-color: #F1F1F1;
+ line-height: normal;
+}
+
+.code p{ padding: 5px; }
+
+.code .tab { color: #F1F1F1; }
+
+.code .type { color: #2BA5D8; }
+
+.code .rem { color: #008000; }
+
+.code .kwrd { color: #0000ff; }
+
+.code .str { color: #A31515; }
+
+.code .op { color: #0000c0; }
+
+.code .preproc { color: #0000ff; }
+
+.code .asp { background-color: #ffff00; }
+
+.code .html { color: #800000; }
+
+.code .attr { color: #ff0000; }
+
+.code .alt { background-color: #f4f4f4; }
+
+.code .lnum { color: #606060; }
+

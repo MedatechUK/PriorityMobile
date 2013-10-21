@@ -1,0 +1,11 @@
+M:\Clients\Win32\CodeListing\list\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\CodeListing\list\obj\Debug\list.vbproj.GenerateResource.Cache
+M:\Clients\Win32\CodeListing\list\obj\Debug\list.Resources.resources
+M:\Clients\Win32\CodeListing\list\obj\Debug\list.pdb
+M:\Clients\Win32\CodeListing\list\bin\Debug\list.exe
+M:\Clients\Win32\CodeListing\list\bin\Debug\list.pdb
+M:\Clients\Win32\CodeListing\list\bin\Debug\list.xml
+M:\Clients\Win32\CodeListing\list\bin\Debug\SyntaxHighLight.dll
+M:\Clients\Win32\CodeListing\list\bin\Debug\SyntaxHighLight.pdb
+M:\Clients\Win32\CodeListing\list\obj\Debug\list.exe
+M:\Clients\Win32\CodeListing\list\obj\Debug\list.xml

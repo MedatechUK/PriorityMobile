@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <link href="style.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="folder">
+ <h2 class="tab5">qrCode.vb</h2>
+</div>
+
+<div class="code">
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;1:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;2:&nbsp;&nbsp;</span><span class="rem">'********************************************************************************</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;3:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;4:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;Project:&nbsp;sfdcInterface&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;5:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;Project&nbsp;File:&nbsp;M:\Clients\xmlSFDC\sfdcData\sfdcInterface.vbproj&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;6:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;File&nbsp;Name:&nbsp;cColumns.vb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;7:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;File&nbsp;Path:&nbsp;\Interface\Classes\Columns\cColumns.vb&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;8:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;Author:&nbsp;Simon&nbsp;Barnett&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;&nbsp;9:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;Created&nbsp;:&nbsp;07/05/13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;10:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;Last&nbsp;Modified:&nbsp;22/09/13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;11:&nbsp;&nbsp;</span><span class="rem">'***&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;***</span></div>
+<div><span class="lnum">&nbsp;&nbsp;12:&nbsp;&nbsp;</span><span class="rem">'********************************************************************************</span></div>
+<div><span class="lnum">&nbsp;&nbsp;13:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;14:&nbsp;&nbsp;</span><span class="kwrd">Imports</span> System.Xml</div>
+<div><span class="lnum">&nbsp;&nbsp;15:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;16:&nbsp;&nbsp;</span><span class="kwrd">Public</span> <span class="kwrd">Class</span> cColumns</div>
+<div><span class="lnum">&nbsp;&nbsp;17:&nbsp;&nbsp;</span><span class="tab">____</span><span class="kwrd">Inherits</span> System.Collections.Generic.Dictionary(Of <span class="kwrd">String</span>, cColumn)</div>
+<div><span class="lnum">&nbsp;&nbsp;18:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;19:&nbsp;&nbsp;</span><span class="tab">____</span><span class="kwrd">Public</span> <span class="kwrd">Sub</span> <span class="kwrd">New</span>(<span class="kwrd">ByRef</span> Parent <span class="kwrd">As</span> cContainer, <span class="kwrd">ByRef</span> thisNode <span class="kwrd">As</span> XmlNode)</div>
+<div><span class="lnum">&nbsp;&nbsp;20:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Try</span></div>
+<div><span class="lnum">&nbsp;&nbsp;21:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'Dim index As New List(Of Integer)</span></div>
+<div><span class="lnum">&nbsp;&nbsp;22:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;23:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">For</span> <span class="kwrd">Each</span> col <span class="kwrd">As</span> XmlNode <span class="kwrd">In</span> thisNode.SelectNodes(<span class="str">"column"</span>)</div>
+<div><span class="lnum">&nbsp;&nbsp;24:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Me</span>.Add(col.Attributes(<span class="str">"name"</span>).Value, <span class="kwrd">New</span> cColumn(Parent, col))</div>
+<div><span class="lnum">&nbsp;&nbsp;25:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'If Not index.Contains(CInt(col.Attributes("pos").Value)) Then _</span></div>
+<div><span class="lnum">&nbsp;&nbsp;26:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'    index.Add(CInt(col.Attributes("pos").Value))</span></div>
+<div><span class="lnum">&nbsp;&nbsp;27:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Next</span></div>
+<div><span class="lnum">&nbsp;&nbsp;28:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;29:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'index.Sort(AddressOf sortPOS)</span></div>
+<div><span class="lnum">&nbsp;&nbsp;30:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'For Each pos As Integer In index                </span></div>
+<div><span class="lnum">&nbsp;&nbsp;31:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'    For Each col As XmlNode In thisNode.SelectNodes(String.Format("column[@pos='{0}']", pos.ToString))</span></div>
+<div><span class="lnum">&nbsp;&nbsp;32:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'        Me.Add(col.Attributes("name").Value, New cColumn(Parent, col))</span></div>
+<div><span class="lnum">&nbsp;&nbsp;33:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'    Next                </span></div>
+<div><span class="lnum">&nbsp;&nbsp;34:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="rem">'Next</span></div>
+<div><span class="lnum">&nbsp;&nbsp;35:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;36:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Catch</span> ex <span class="kwrd">As</span> Exception</div>
+<div><span class="lnum">&nbsp;&nbsp;37:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Throw</span> <span class="kwrd">New</span> cfmtException(<span class="str">"Failed to load columns. {0}"</span>, ex.Message)</div>
+<div><span class="lnum">&nbsp;&nbsp;38:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">End</span> <span class="kwrd">Try</span></div>
+<div><span class="lnum">&nbsp;&nbsp;39:&nbsp;&nbsp;</span><span class="tab">____</span><span class="kwrd">End</span> <span class="kwrd">Sub</span></div>
+<div><span class="lnum">&nbsp;&nbsp;40:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;41:&nbsp;&nbsp;</span><span class="tab">____</span><span class="kwrd">Public</span> <span class="kwrd">Function</span> ColumnAlias(<span class="kwrd">ByRef</span> Name <span class="kwrd">As</span> <span class="kwrd">String</span>) <span class="kwrd">As</span> cColumn</div>
+<div><span class="lnum">&nbsp;&nbsp;42:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">If</span> <span class="kwrd">Me</span>.Keys.Contains(Name) <span class="kwrd">Then</span></div>
+<div><span class="lnum">&nbsp;&nbsp;43:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Return</span> <span class="kwrd">Me</span>(Name)</div>
+<div><span class="lnum">&nbsp;&nbsp;44:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Else</span></div>
+<div><span class="lnum">&nbsp;&nbsp;45:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">For</span> <span class="kwrd">Each</span> c <span class="kwrd">As</span> cColumn <span class="kwrd">In</span> <span class="kwrd">Me</span>.Values</div>
+<div><span class="lnum">&nbsp;&nbsp;46:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">If</span> <span class="kwrd">String</span>.Compare(Name, c.BarcodeField) = 0 <span class="kwrd">Then</span></div>
+<div><span class="lnum">&nbsp;&nbsp;47:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Return</span> c</div>
+<div><span class="lnum">&nbsp;&nbsp;48:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">End</span> <span class="kwrd">If</span></div>
+<div><span class="lnum">&nbsp;&nbsp;49:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Next</span></div>
+<div><span class="lnum">&nbsp;&nbsp;50:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">End</span> <span class="kwrd">If</span></div>
+<div><span class="lnum">&nbsp;&nbsp;51:&nbsp;&nbsp;</span><span class="tab">____</span><span class="tab">____</span><span class="kwrd">Return</span> <span class="kwrd">Nothing</span></div>
+<div><span class="lnum">&nbsp;&nbsp;52:&nbsp;&nbsp;</span><span class="tab">____</span><span class="kwrd">End</span> <span class="kwrd">Function</span></div>
+<div><span class="lnum">&nbsp;&nbsp;53:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;54:&nbsp;&nbsp;</span><span class="tab">____</span><span class="rem">'Private Shared Function sortPOS(ByVal x As Integer, ByVal y As Integer)</span></div>
+<div><span class="lnum">&nbsp;&nbsp;55:&nbsp;&nbsp;</span><span class="tab">____</span><span class="rem">'    Return x.CompareTo(y)</span></div>
+<div><span class="lnum">&nbsp;&nbsp;56:&nbsp;&nbsp;</span><span class="tab">____</span><span class="rem">'End Function</span></div>
+<div><span class="lnum">&nbsp;&nbsp;57:&nbsp;&nbsp;</span>&nbsp;</div>
+<div><span class="lnum">&nbsp;&nbsp;58:&nbsp;&nbsp;</span><span class="kwrd">End</span> <span class="kwrd">Class</span></div>
+<div><span class="lnum">&nbsp;&nbsp;59:&nbsp;&nbsp;</span>&nbsp;</div>
+</div>
+</body>
+</html>
