@@ -13,3 +13,9 @@ M:\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.vbproj.GenerateResource.Ca
 M:\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.dll
 M:\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.xml
 M:\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.pdb
+M:\install\Client\bin\InTheHand.Net.Personal.dll
+M:\install\Client\bin\ZebraBluetoothAdapter.dll
+M:\install\Client\bin\ZSDK_API.dll
+M:\install\Client\bin\btZebra.dll
+M:\install\Client\bin\btZebra.pdb
+M:\install\Client\bin\btZebra.xml
