@@ -2,6 +2,7 @@
 
 Module regexLib
 
+    Public rxUpdate As Regex = New Regex("UPDATE.*;", RegexOptions.IgnoreCase + RegexOptions.Multiline)
     Public rxColumn As Regex = New Regex("\:\$+\.[0-9A-Za-z\-_]+", RegexOptions.IgnoreCase)
     Public rxUpperColumn As Regex = New Regex("\:\$\$\.[0-9A-Za-z\-_]+", RegexOptions.IgnoreCase)
     Public rxArg As Regex = New Regex("\:[0-9A-Za-z\-_]+", RegexOptions.IgnoreCase)

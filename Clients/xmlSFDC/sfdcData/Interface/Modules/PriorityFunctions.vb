@@ -8,6 +8,7 @@
                     .Add(New PriSQLFunc("SQL.DATE8", "dbo.DATETOMIN(getdate())"))
                     .Add(New PriSQLFunc("ITOA(%1)", "ltrim(rtrim(str(%1)))"))
                     .Add(New PriSQLFunc("(%1 = %2 ? %3 : %4)", "CASE %1 WHEN %2 THEN %3 ELSE %4 END"))
+                    .Add(New PriSQLFunc("SQL.USER", "SELECT loginame from master..sysprocesses where spid = @@SPID"))
                     '.Add("SQL.DATE8", "dbo.DATETOMIN(GETDATE())")
                     ''.Add("SQL.DATE", "dbo.DATETOMIN(GETDATE())")
                     '.Add("ITOA(", "STR(")

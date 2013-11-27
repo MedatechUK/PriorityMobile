@@ -226,7 +226,10 @@ Public Class cTrigger
             Select Case TriggerName
                 Case "CHOOSE-FIELD"
                     Return int.iForm.DataService.ExecuteReader(bsql.ToString)
-                Case Else
+                Case Else                    
+                    For Each upd As String In rxMatch(rxUpdate, bsql.ToString)
+                        int.iForm.DataService.ExecuteNonQuery(upd)
+                    Next
                     Return Nothing
             End Select
 
