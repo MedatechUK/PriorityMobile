@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "restart", "restart.vbproj", "{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}"
+EndProject
+Project("{B900F1C2-3D47-4FEC-85B3-04AAF18C3634}") = "Setup-RestartCE", "Setup-RestartCE\Setup-RestartCE.vddproj", "{7BA9D4BD-4CFC-4900-8DEC-86597707AF11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3287DB6E-D8CF-4634-85C1-33CB348D1FF9}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7BA9D4BD-4CFC-4900-8DEC-86597707AF11}.Debug|Any CPU.ActiveCfg = Debug
+		{7BA9D4BD-4CFC-4900-8DEC-86597707AF11}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

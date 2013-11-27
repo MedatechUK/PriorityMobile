@@ -1,0 +1,9 @@
+M:\Clients\WinCE\restart\bin\Debug\restart.exe
+M:\Clients\WinCE\restart\bin\Debug\restart.pdb
+M:\Clients\WinCE\restart\bin\Debug\restart.xml
+M:\Clients\WinCE\restart\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\WinCE\restart\obj\Debug\restart.Resources.resources
+M:\Clients\WinCE\restart\obj\Debug\restart.vbproj.GenerateResource.Cache
+M:\Clients\WinCE\restart\obj\Debug\restart.exe
+M:\Clients\WinCE\restart\obj\Debug\restart.xml
+M:\Clients\WinCE\restart\obj\Debug\restart.pdb
