@@ -1,0 +1,9 @@
+M:\Clients\Win32\xhttpost\xhttpost\bin\Debug\xhttpost.exe
+M:\Clients\Win32\xhttpost\xhttpost\bin\Debug\xhttpost.pdb
+M:\Clients\Win32\xhttpost\xhttpost\bin\Debug\xhttpost.xml
+M:\Clients\Win32\xhttpost\xhttpost\obj\Debug\ResolveAssemblyReference.cache
+M:\Clients\Win32\xhttpost\xhttpost\obj\Debug\xhttpost.Resources.resources
+M:\Clients\Win32\xhttpost\xhttpost\obj\Debug\xhttpost.vbproj.GenerateResource.Cache
+M:\Clients\Win32\xhttpost\xhttpost\obj\Debug\xhttpost.exe
+M:\Clients\Win32\xhttpost\xhttpost\obj\Debug\xhttpost.xml
+M:\Clients\Win32\xhttpost\xhttpost\obj\Debug\xhttpost.pdb

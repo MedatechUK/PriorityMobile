@@ -1,0 +1,5 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>-t *.xml -f c:\xpost -u http://dev.emerge-it.co.uk:8080/posthandler.ashx -d</StartArguments>
+  </PropertyGroup>
+</Project>
