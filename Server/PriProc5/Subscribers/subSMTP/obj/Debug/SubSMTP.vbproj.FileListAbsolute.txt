@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\subSMTP.exe
+M:\Server\PriProc5\bin\subSMTP.pdb
+M:\Server\PriProc5\bin\subSMTP.xml
+M:\Server\PriProc5\Subscribers\subSMTP\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Subscribers\subSMTP\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Subscribers\subSMTP\obj\Debug\SubSMTP.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Subscribers\subSMTP\obj\Debug\subSMTP.exe
+M:\Server\PriProc5\Subscribers\subSMTP\obj\Debug\subSMTP.xml
+M:\Server\PriProc5\Subscribers\subSMTP\obj\Debug\subSMTP.pdb

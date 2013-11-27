@@ -1,0 +1,9 @@
+\\Redknave\c$\inetpub\mobile\hConsole.dll
+\\Redknave\c$\inetpub\mobile\hConsole.pdb
+\\Redknave\c$\inetpub\mobile\hConsole.xml
+M:\Server\PriProc5\svcHandler\hConsole\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hConsole\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hConsole\obj\Debug\hConsole.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hConsole\obj\Debug\hConsole.dll
+M:\Server\PriProc5\svcHandler\hConsole\obj\Debug\hConsole.xml
+M:\Server\PriProc5\svcHandler\hConsole\obj\Debug\hConsole.pdb

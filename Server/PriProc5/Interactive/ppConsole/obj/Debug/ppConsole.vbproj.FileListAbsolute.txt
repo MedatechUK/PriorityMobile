@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\ppConsole.exe
+M:\Server\PriProc5\bin\ppConsole.pdb
+M:\Server\PriProc5\bin\ppConsole.xml
+M:\Server\PriProc5\Interactive\ppConsole\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Interactive\ppConsole\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Interactive\ppConsole\obj\Debug\ppConsole.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Interactive\ppConsole\obj\Debug\ppConsole.exe
+M:\Server\PriProc5\Interactive\ppConsole\obj\Debug\ppConsole.xml
+M:\Server\PriProc5\Interactive\ppConsole\obj\Debug\ppConsole.pdb

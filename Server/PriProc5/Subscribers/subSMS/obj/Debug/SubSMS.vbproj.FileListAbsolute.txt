@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\subSMS.exe
+M:\Server\PriProc5\bin\subSMS.pdb
+M:\Server\PriProc5\bin\subSMS.xml
+M:\Server\PriProc5\Subscribers\subSMS\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Subscribers\subSMS\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Subscribers\subSMS\obj\Debug\SubSMS.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Subscribers\subSMS\obj\Debug\subSMS.exe
+M:\Server\PriProc5\Subscribers\subSMS\obj\Debug\subSMS.xml
+M:\Server\PriProc5\Subscribers\subSMS\obj\Debug\subSMS.pdb

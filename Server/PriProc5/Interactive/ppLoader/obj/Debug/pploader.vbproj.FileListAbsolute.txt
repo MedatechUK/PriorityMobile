@@ -1,0 +1,15 @@
+M:\Server\PriProc5\Services\ppLoader\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\ppLoader\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\ppLoader\obj\Debug\pploader.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\bin\ppLoader.exe
+M:\Server\PriProc5\bin\ppLoader.pdb
+M:\Server\PriProc5\bin\ppLoader.xml
+M:\Server\PriProc5\Services\ppLoader\obj\Debug\ppLoader.exe
+M:\Server\PriProc5\Services\ppLoader\obj\Debug\ppLoader.xml
+M:\Server\PriProc5\Services\ppLoader\obj\Debug\ppLoader.pdb
+M:\Server\PriProc5\interactive\ppLoader\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\interactive\ppLoader\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\interactive\ppLoader\obj\Debug\pploader.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\interactive\ppLoader\obj\Debug\ppLoader.exe
+M:\Server\PriProc5\interactive\ppLoader\obj\Debug\ppLoader.xml
+M:\Server\PriProc5\interactive\ppLoader\obj\Debug\ppLoader.pdb

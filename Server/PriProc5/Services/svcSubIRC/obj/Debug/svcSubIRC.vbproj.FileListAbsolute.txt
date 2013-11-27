@@ -1,0 +1,20 @@
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcSubIRC.exe
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcSubIRC.pdb
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcSubIRC.xml
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\PriSock.dll
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcDefinition.dll
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\PriSock.pdb
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\PriSock.xml
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcDefinition.pdb
+M:\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcDefinition.xml
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\PriPROC.svcInstaller.resources
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\svcSubIRC.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\svcSubIRC.exe
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\svcSubIRC.xml
+M:\Server\PriProc5\Services\svcSubIRC\obj\Debug\svcSubIRC.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcSubIRC.exe
+C:\Program Files\eMerge-IT\PriPROC5\svcSubIRC.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcSubIRC.xml

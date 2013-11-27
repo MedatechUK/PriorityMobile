@@ -1,0 +1,12 @@
+M:\Server\PriProc5\bin\hLoader.dll
+M:\Server\PriProc5\bin\hLoader.pdb
+M:\Server\PriProc5\bin\hLoader.xml
+M:\Server\PriProc5\svcHandler\hLoader\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hLoader\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hLoader\obj\Debug\hLoader.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hLoader\obj\Debug\hLoader.dll
+M:\Server\PriProc5\svcHandler\hLoader\obj\Debug\hLoader.xml
+M:\Server\PriProc5\svcHandler\hLoader\obj\Debug\hLoader.pdb
+\\Redknave\c$\inetpub\mobile\hLoader.dll
+\\Redknave\c$\inetpub\mobile\hLoader.pdb
+\\Redknave\c$\inetpub\mobile\hLoader.xml

@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\svcDefinition.dll
+M:\Server\PriProc5\bin\svcDefinition.pdb
+M:\Server\PriProc5\bin\svcDefinition.xml
+M:\Server\PriProc5\svcDefinition\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcDefinition\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcDefinition\obj\Debug\svcDefinition.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcDefinition\obj\Debug\svcDefinition.dll
+M:\Server\PriProc5\svcDefinition\obj\Debug\svcDefinition.xml
+M:\Server\PriProc5\svcDefinition\obj\Debug\svcDefinition.pdb

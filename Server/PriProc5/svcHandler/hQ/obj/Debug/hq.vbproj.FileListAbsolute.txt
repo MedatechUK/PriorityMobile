@@ -1,0 +1,12 @@
+M:\Server\PriProc5\bin\hQ.dll
+M:\Server\PriProc5\bin\hQ.pdb
+M:\Server\PriProc5\bin\hQ.xml
+M:\Server\PriProc5\svcHandler\hQ\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hQ\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hQ\obj\Debug\hq.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hQ\obj\Debug\hQ.dll
+M:\Server\PriProc5\svcHandler\hQ\obj\Debug\hQ.xml
+M:\Server\PriProc5\svcHandler\hQ\obj\Debug\hQ.pdb
+\\Redknave\c$\inetpub\mobile\hQ.dll
+\\Redknave\c$\inetpub\mobile\hQ.pdb
+\\Redknave\c$\inetpub\mobile\hQ.xml

@@ -1,0 +1,15 @@
+M:\Server\PriProc5\Services\ppLog\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\ppLog\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\ppLog\obj\Debug\ppLog.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\bin\ppLog.exe
+M:\Server\PriProc5\bin\ppLog.pdb
+M:\Server\PriProc5\bin\ppLog.xml
+M:\Server\PriProc5\Services\ppLog\obj\Debug\ppLog.exe
+M:\Server\PriProc5\Services\ppLog\obj\Debug\ppLog.xml
+M:\Server\PriProc5\Services\ppLog\obj\Debug\ppLog.pdb
+M:\Server\PriProc5\interactive\ppLog\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\interactive\ppLog\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\interactive\ppLog\obj\Debug\ppLog.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\interactive\ppLog\obj\Debug\ppLog.exe
+M:\Server\PriProc5\interactive\ppLog\obj\Debug\ppLog.xml
+M:\Server\PriProc5\interactive\ppLog\obj\Debug\ppLog.pdb

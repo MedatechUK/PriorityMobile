@@ -1,0 +1,21 @@
+M:\Server\PriProc5\bin\svcDiscovery.exe
+M:\Server\PriProc5\bin\svcDiscovery.pdb
+M:\Server\PriProc5\bin\svcDiscovery.xml
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\svcDiscovery.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\svcDiscovery.exe
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\svcDiscovery.xml
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\svcDiscovery.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcDiscovery.exe
+C:\Program Files\eMerge-IT\PriPROC5\svcDiscovery.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcDiscovery.xml
+M:\Server\PriProc5\svc\svcDiscovery\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\svcDiscovery.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\svcDiscovery.exe
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\svcDiscovery.xml
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\svcDiscovery.pdb
+M:\Server\PriProc5\Services\svcDiscovery\obj\Debug\PriPROC.svcInstaller.resources

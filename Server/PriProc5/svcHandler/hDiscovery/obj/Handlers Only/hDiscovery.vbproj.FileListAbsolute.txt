@@ -1,0 +1,6 @@
+M:\Server\PriProc5\svcHandler\hDiscovery\bin\Handlers Only\PriSock.dll
+M:\Server\PriProc5\svcHandler\hDiscovery\bin\Handlers Only\svcDefinition.dll
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Handlers Only\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Handlers Only\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Handlers Only\hDiscovery.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Handlers Only\hDiscovery.dll

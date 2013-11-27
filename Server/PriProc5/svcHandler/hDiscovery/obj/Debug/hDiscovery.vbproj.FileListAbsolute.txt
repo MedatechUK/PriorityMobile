@@ -1,0 +1,12 @@
+M:\Server\PriProc5\bin\hDiscovery.dll
+M:\Server\PriProc5\bin\hDiscovery.pdb
+M:\Server\PriProc5\bin\hDiscovery.xml
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\hDiscovery.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\hDiscovery.dll
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\hDiscovery.xml
+M:\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\hDiscovery.pdb
+\\REDKNAVE\C$\INETPUB\MOBILE\hDiscovery.dll
+\\REDKNAVE\C$\INETPUB\MOBILE\hDiscovery.pdb
+\\REDKNAVE\C$\INETPUB\MOBILE\hDiscovery.xml

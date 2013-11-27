@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "PriSock", "..\..\..\components\PriSock\PriSock.vbproj", "{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{8325F326-D120-43BB-8492-D037AD179B47}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "handler", "handler", "{A236A790-A72E-49A1-AF00-E93B1E2A332B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StartUp Project", "StartUp Project", "{ACC57559-2EA5-4123-8FF1-5C43D211D9AE}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "svcDefinition", "..\svcDefinition\svcDefinition.vbproj", "{71FB99F8-B999-46AD-BEDE-B632B9085D3B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Subscriber", "..\Subscribers\Subscriber\Subscriber.vbproj", "{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "hSubSMTP", "..\svcHandler\hSubSMTP\hSubSMTP.vbproj", "{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SubSMTP", "..\Subscribers\subSMTP\SubSMTP.vbproj", "{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Handlers Only|Any CPU = Handlers Only|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}.Handlers Only|Any CPU.ActiveCfg = Handlers Only|Any CPU
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}.Handlers Only|Any CPU.Build.0 = Handlers Only|Any CPU
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B}.Handlers Only|Any CPU.ActiveCfg = Handlers Only|Any CPU
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B}.Handlers Only|Any CPU.Build.0 = Handlers Only|Any CPU
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}.Handlers Only|Any CPU.ActiveCfg = Handlers Only|Any CPU
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}.Handlers Only|Any CPU.Build.0 = Handlers Only|Any CPU
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}.Handlers Only|Any CPU.ActiveCfg = Handlers Only|Any CPU
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}.Handlers Only|Any CPU.Build.0 = Handlers Only|Any CPU
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}.Handlers Only|Any CPU.ActiveCfg = Handlers Only|Any CPU
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}.Handlers Only|Any CPU.Build.0 = Handlers Only|Any CPU
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41FB05E6-A5C2-46A9-816C-BBD42A6424C5} = {8325F326-D120-43BB-8492-D037AD179B47}
+		{71FB99F8-B999-46AD-BEDE-B632B9085D3B} = {8325F326-D120-43BB-8492-D037AD179B47}
+		{5EA0E2AA-E6AB-47DC-972A-6CCB1B1627E3} = {8325F326-D120-43BB-8492-D037AD179B47}
+		{56FEDE3A-C90B-4BBB-8A2F-D8F9E5F78A45} = {A236A790-A72E-49A1-AF00-E93B1E2A332B}
+		{9053A5F4-2CF3-4E92-9487-9BFFCB50405B} = {ACC57559-2EA5-4123-8FF1-5C43D211D9AE}
+	EndGlobalSection
+EndGlobal

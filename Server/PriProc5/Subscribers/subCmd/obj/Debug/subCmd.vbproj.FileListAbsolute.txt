@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\subCmd.exe
+M:\Server\PriProc5\bin\subCmd.pdb
+M:\Server\PriProc5\bin\subCmd.xml
+M:\Server\PriProc5\Subscribers\subCmd\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Subscribers\subCmd\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Subscribers\subCmd\obj\Debug\subCmd.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Subscribers\subCmd\obj\Debug\subCmd.exe
+M:\Server\PriProc5\Subscribers\subCmd\obj\Debug\subCmd.xml
+M:\Server\PriProc5\Subscribers\subCmd\obj\Debug\subCmd.pdb

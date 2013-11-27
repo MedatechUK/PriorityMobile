@@ -1,0 +1,17 @@
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcPriSQL.exe
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcPriSQL.pdb
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcPriSQL.xml
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\PriSock.dll
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcDefinition.dll
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\PriSock.pdb
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\PriSock.xml
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcDefinition.pdb
+M:\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcDefinition.xml
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\PriPROC.svcInstaller.resources
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\svcPriSQL.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\svcPriSQL.exe
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\svcPriSQL.xml
+M:\Server\PriProc5\Services\svcPriSQL\obj\Debug\svcPriSQL.pdb

@@ -1,0 +1,9 @@
+M:\Server\PriProc5\svcHandler\hprisql\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hprisql\obj\Debug\PriProc.Resources.resources
+M:\Server\PriProc5\svcHandler\hprisql\obj\Debug\hprisql.vbproj.GenerateResource.Cache
+\\Redknave\c$\inetpub\mobile\hprisql.dll
+\\Redknave\c$\inetpub\mobile\hprisql.pdb
+\\Redknave\c$\inetpub\mobile\hprisql.xml
+M:\Server\PriProc5\svcHandler\hprisql\obj\Debug\hprisql.dll
+M:\Server\PriProc5\svcHandler\hprisql\obj\Debug\hprisql.xml
+M:\Server\PriProc5\svcHandler\hprisql\obj\Debug\hprisql.pdb

@@ -1,0 +1,6 @@
+M:\Server\PriProc5\svcHandler\hSubCmd\bin\Handlers Only\subscriber.dll
+M:\Server\PriProc5\svcHandler\hSubCmd\bin\Handlers Only\svcDefinition.dll
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Handlers Only\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Handlers Only\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Handlers Only\hSubCmd.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Handlers Only\hSubCmd.dll

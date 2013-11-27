@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\SubIRC.exe
+M:\Server\PriProc5\bin\SubIRC.pdb
+M:\Server\PriProc5\bin\SubIRC.xml
+M:\Server\PriProc5\Subscribers\SubIRC\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Subscribers\SubIRC\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Subscribers\SubIRC\obj\Debug\SubIRC.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Subscribers\SubIRC\obj\Debug\SubIRC.exe
+M:\Server\PriProc5\Subscribers\SubIRC\obj\Debug\SubIRC.xml
+M:\Server\PriProc5\Subscribers\SubIRC\obj\Debug\SubIRC.pdb

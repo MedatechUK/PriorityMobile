@@ -1,0 +1,6 @@
+M:\Server\PriProc5\svcHandler\hprisql\bin\Handlers Only\PriSock.dll
+M:\Server\PriProc5\svcHandler\hprisql\bin\Handlers Only\svcDefinition.dll
+M:\Server\PriProc5\svcHandler\hprisql\obj\Handlers Only\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hprisql\obj\Handlers Only\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hprisql\obj\Handlers Only\hprisql.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hprisql\obj\Handlers Only\hprisql.dll

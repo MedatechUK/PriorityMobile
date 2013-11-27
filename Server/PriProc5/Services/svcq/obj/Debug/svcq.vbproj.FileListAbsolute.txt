@@ -1,0 +1,17 @@
+M:\Server\PriProc5\Services\svcq\bin\Debug\svcq.exe
+M:\Server\PriProc5\Services\svcq\bin\Debug\svcq.pdb
+M:\Server\PriProc5\Services\svcq\bin\Debug\svcq.xml
+M:\Server\PriProc5\Services\svcq\bin\Debug\PriSock.dll
+M:\Server\PriProc5\Services\svcq\bin\Debug\svcDefinition.dll
+M:\Server\PriProc5\Services\svcq\bin\Debug\PriSock.pdb
+M:\Server\PriProc5\Services\svcq\bin\Debug\PriSock.xml
+M:\Server\PriProc5\Services\svcq\bin\Debug\svcDefinition.pdb
+M:\Server\PriProc5\Services\svcq\bin\Debug\svcDefinition.xml
+M:\Server\PriProc5\Services\svcq\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcq\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcq\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcq\obj\Debug\PriPROC.svcInstaller.resources
+M:\Server\PriProc5\Services\svcq\obj\Debug\svcq.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcq\obj\Debug\svcq.exe
+M:\Server\PriProc5\Services\svcq\obj\Debug\svcq.xml
+M:\Server\PriProc5\Services\svcq\obj\Debug\svcq.pdb

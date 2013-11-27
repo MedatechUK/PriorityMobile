@@ -1,0 +1,20 @@
+M:\Server\PriProc5\Services\svcLog\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcLog\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcLog\obj\Debug\svcLog.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcLog\bin\Debug\svcLog.exe
+M:\Server\PriProc5\Services\svcLog\bin\Debug\svcLog.pdb
+M:\Server\PriProc5\Services\svcLog\bin\Debug\svcLog.xml
+M:\Server\PriProc5\Services\svcLog\bin\Debug\PriSock.dll
+M:\Server\PriProc5\Services\svcLog\bin\Debug\svcDefinition.dll
+M:\Server\PriProc5\Services\svcLog\bin\Debug\PriSock.pdb
+M:\Server\PriProc5\Services\svcLog\bin\Debug\PriSock.xml
+M:\Server\PriProc5\Services\svcLog\bin\Debug\svcDefinition.pdb
+M:\Server\PriProc5\Services\svcLog\bin\Debug\svcDefinition.xml
+M:\Server\PriProc5\Services\svcLog\obj\Debug\svcLog.exe
+M:\Server\PriProc5\Services\svcLog\obj\Debug\svcLog.xml
+M:\Server\PriProc5\Services\svcLog\obj\Debug\svcLog.pdb
+M:\Server\PriProc5\Services\svcLog\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcLog\obj\Debug\PriPROC.svcInstaller.resources
+C:\Program Files\eMerge-IT\PriPROC5\svcLog.exe
+C:\Program Files\eMerge-IT\PriPROC5\svcLog.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcLog.xml

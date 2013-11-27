@@ -1,0 +1,12 @@
+\\Redknave\c$\inetpub\mobile\hSubIRC.dll
+\\Redknave\c$\inetpub\mobile\hSubIRC.pdb
+\\Redknave\c$\inetpub\mobile\hSubIRC.xml
+M:\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\hSubIRC.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\hSubIRC.dll
+M:\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\hSubIRC.xml
+M:\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\hSubIRC.pdb
+M:\Server\PriProc5\bin\hSubIRC.dll
+M:\Server\PriProc5\bin\hSubIRC.pdb
+M:\Server\PriProc5\bin\hSubIRC.xml

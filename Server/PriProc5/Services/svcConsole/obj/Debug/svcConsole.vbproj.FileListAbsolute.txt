@@ -1,0 +1,17 @@
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\svcConsole.exe
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\svcConsole.pdb
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\svcConsole.xml
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\PriSock.dll
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\svcDefinition.dll
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\PriSock.pdb
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\PriSock.xml
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\svcDefinition.pdb
+M:\Server\PriProc5\Services\svcConsole\bin\Debug\svcDefinition.xml
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\PriPROC.svcInstaller.resources
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\svcConsole.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\svcConsole.exe
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\svcConsole.xml
+M:\Server\PriProc5\Services\svcConsole\obj\Debug\svcConsole.pdb

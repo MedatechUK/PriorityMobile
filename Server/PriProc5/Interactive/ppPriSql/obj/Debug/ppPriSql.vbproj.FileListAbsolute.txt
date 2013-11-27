@@ -1,0 +1,15 @@
+M:\Server\PriProc5\bin\ppPriSql.exe
+M:\Server\PriProc5\bin\ppPriSql.pdb
+M:\Server\PriProc5\bin\ppPriSql.xml
+M:\Server\PriProc5\Services\ppPriSql\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\ppPriSql\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\ppPriSql\obj\Debug\ppPriSql.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\ppPriSql\obj\Debug\ppPriSql.exe
+M:\Server\PriProc5\Services\ppPriSql\obj\Debug\ppPriSql.xml
+M:\Server\PriProc5\Services\ppPriSql\obj\Debug\ppPriSql.pdb
+M:\Server\PriProc5\interactive\ppPriSql\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\interactive\ppPriSql\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\interactive\ppPriSql\obj\Debug\ppPriSql.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\interactive\ppPriSql\obj\Debug\ppPriSql.exe
+M:\Server\PriProc5\interactive\ppPriSql\obj\Debug\ppPriSql.xml
+M:\Server\PriProc5\interactive\ppPriSql\obj\Debug\ppPriSql.pdb

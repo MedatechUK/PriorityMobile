@@ -1,0 +1,12 @@
+M:\Server\PriProc5\bin\hSubCmd.dll
+M:\Server\PriProc5\bin\hSubCmd.pdb
+M:\Server\PriProc5\bin\hSubCmd.xml
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\hSubCmd.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\hSubCmd.dll
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\hSubCmd.xml
+M:\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\hSubCmd.pdb
+\\Redknave\c$\inetpub\mobile\hSubCmd.dll
+\\Redknave\c$\inetpub\mobile\hSubCmd.pdb
+\\Redknave\c$\inetpub\mobile\hSubCmd.xml

@@ -1,0 +1,12 @@
+\\Redknave\c$\inetpub\mobile\hSubSMS.dll
+\\Redknave\c$\inetpub\mobile\hSubSMS.pdb
+\\Redknave\c$\inetpub\mobile\hSubSMS.xml
+M:\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\hSubSMS.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\hSubSMS.dll
+M:\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\hSubSMS.xml
+M:\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\hSubSMS.pdb
+M:\Server\PriProc5\bin\hSubSMS.dll
+M:\Server\PriProc5\bin\hSubSMS.pdb
+M:\Server\PriProc5\bin\hSubSMS.xml

@@ -1,0 +1,5 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>/dir D:\priority /user tabula /pwd Sund1al /env eve /proc ZSFDCP_LOAD_GRV</StartArguments>
+  </PropertyGroup>
+</Project>

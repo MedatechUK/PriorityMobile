@@ -1,0 +1,20 @@
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcSubSMTP.exe
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcSubSMTP.pdb
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcSubSMTP.xml
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\PriSock.dll
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcDefinition.dll
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\PriSock.pdb
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\PriSock.xml
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcDefinition.pdb
+M:\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcDefinition.xml
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\PriPROC.ppService.resources
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\PriPROC.svcInstaller.resources
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\svcSubSMTP.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\svcSubSMTP.exe
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\svcSubSMTP.xml
+M:\Server\PriProc5\Services\svcSubSMTP\obj\Debug\svcSubSMTP.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcSubSMTP.exe
+C:\Program Files\eMerge-IT\PriPROC5\svcSubSMTP.pdb
+C:\Program Files\eMerge-IT\PriPROC5\svcSubSMTP.xml

@@ -1,0 +1,12 @@
+\\Redknave\c$\inetpub\mobile\hSubSMTP.dll
+\\Redknave\c$\inetpub\mobile\hSubSMTP.pdb
+\\Redknave\c$\inetpub\mobile\hSubSMTP.xml
+M:\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\hSubSMTP.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\hSubSMTP.dll
+M:\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\hSubSMTP.xml
+M:\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\hSubSMTP.pdb
+M:\Server\PriProc5\bin\hSubSMTP.dll
+M:\Server\PriProc5\bin\hSubSMTP.pdb
+M:\Server\PriProc5\bin\hSubSMTP.xml

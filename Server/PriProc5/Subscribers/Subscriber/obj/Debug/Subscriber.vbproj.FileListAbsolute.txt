@@ -1,0 +1,9 @@
+M:\Server\PriProc5\bin\subscriber.dll
+M:\Server\PriProc5\bin\subscriber.pdb
+M:\Server\PriProc5\bin\subscriber.xml
+M:\Server\PriProc5\subscribers\subscriber\obj\Debug\ResolveAssemblyReference.cache
+M:\Server\PriProc5\subscribers\subscriber\obj\Debug\PriPROC.Resources.resources
+M:\Server\PriProc5\subscribers\subscriber\obj\Debug\Subscriber.vbproj.GenerateResource.Cache
+M:\Server\PriProc5\subscribers\subscriber\obj\Debug\subscriber.dll
+M:\Server\PriProc5\subscribers\subscriber\obj\Debug\subscriber.xml
+M:\Server\PriProc5\subscribers\subscriber\obj\Debug\subscriber.pdb
