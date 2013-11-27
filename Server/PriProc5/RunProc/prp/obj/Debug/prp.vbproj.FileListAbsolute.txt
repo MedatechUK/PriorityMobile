@@ -2,8 +2,11 @@ M:\Server\PriProc5\RunProc\prp\bin\Debug\prp.exe
 M:\Server\PriProc5\RunProc\prp\bin\Debug\prp.pdb
 M:\Server\PriProc5\RunProc\prp\bin\Debug\prp.xml
 M:\Server\PriProc5\RunProc\prp\obj\Debug\ResolveAssemblyReference.cache
-M:\Server\PriProc5\RunProc\prp\obj\Debug\prp.Resources.resources
 M:\Server\PriProc5\RunProc\prp\obj\Debug\prp.vbproj.GenerateResource.Cache
 M:\Server\PriProc5\RunProc\prp\obj\Debug\prp.exe
 M:\Server\PriProc5\RunProc\prp\obj\Debug\prp.xml
 M:\Server\PriProc5\RunProc\prp\obj\Debug\prp.pdb
+\\dutchess\c$\prp.exe
+\\dutchess\c$\prp.pdb
+\\dutchess\c$\prp.xml
+M:\Server\PriProc5\RunProc\prp\obj\Debug\PriPROC.Resources.resources

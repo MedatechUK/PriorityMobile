@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E49436FF-CE56-4E82-9516-420505D22614}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>PriPROC.Module1</StartupObject>
+    <StartupObject>PriPROC.Main</StartupObject>
     <RootNamespace>PriPROC</RootNamespace>
     <AssemblyName>prp</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -24,7 +24,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>\\dutchess\c%24\</OutputPath>
     <DocumentationFile>prp.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -68,7 +68,7 @@
     <Compile Include="clArg.vb" />
     <Compile Include="ExitCodes.vb" />
     <Compile Include="wmiQuery.vb" />
-    <Compile Include="Module1.vb" />
+    <Compile Include="Main.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

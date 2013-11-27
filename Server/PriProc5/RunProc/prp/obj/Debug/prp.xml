@@ -6,20 +6,20 @@ prp
 </name>
 </assembly>
 <members>
-<member name="P:prp.My.Resources.Resources.ResourceManager">
+<member name="P:PriPROC.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:prp.My.Resources.Resources.Culture">
+</member><member name="P:PriPROC.My.Resources.Resources.Culture">
 	<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:prp.My.Resources.Resources.syntax">
+</member><member name="P:PriPROC.My.Resources.Resources.syntax">
 	<summary>
   Looks up a localized string similar to Some text.
 </summary>
-</member><member name="T:prp.My.Resources.Resources">
+</member><member name="T:PriPROC.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
