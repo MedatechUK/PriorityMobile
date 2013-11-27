@@ -1,0 +1,9 @@
+M:\components\svcMsg\svcMsg\bin\Debug\svcMsg.dll
+M:\components\svcMsg\svcMsg\bin\Debug\svcMsg.pdb
+M:\components\svcMsg\svcMsg\bin\Debug\svcMsg.xml
+M:\components\svcMsg\svcMsg\obj\Debug\ResolveAssemblyReference.cache
+M:\components\svcMsg\svcMsg\obj\Debug\svcMsg.Resources.resources
+M:\components\svcMsg\svcMsg\obj\Debug\svcMsg.vbproj.GenerateResource.Cache
+M:\components\svcMsg\svcMsg\obj\Debug\svcMsg.dll
+M:\components\svcMsg\svcMsg\obj\Debug\svcMsg.xml
+M:\components\svcMsg\svcMsg\obj\Debug\svcMsg.pdb

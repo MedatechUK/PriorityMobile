@@ -1,0 +1,9 @@
+M:\components\tcpSock\tcpSock\obj\Debug\ResolveAssemblyReference.cache
+M:\components\tcpSock\tcpSock\obj\Debug\tcpSock.vbproj.GenerateResource.Cache
+M:\components\tcpSock\tcpSock\bin\Debug\tcpSock.dll
+M:\components\tcpSock\tcpSock\bin\Debug\tcpSock.pdb
+M:\components\tcpSock\tcpSock\bin\Debug\tcpSock.xml
+M:\components\tcpSock\tcpSock\obj\Debug\tcpSock.dll
+M:\components\tcpSock\tcpSock\obj\Debug\tcpSock.xml
+M:\components\tcpSock\tcpSock\obj\Debug\tcpSock.pdb
+M:\components\tcpSock\tcpSock\obj\Debug\tcpSock.Resources.resources

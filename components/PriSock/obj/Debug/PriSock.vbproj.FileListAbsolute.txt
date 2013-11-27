@@ -1,0 +1,12 @@
+M:\components\PriSock\bin\Debug\PriSock.dll
+M:\components\PriSock\bin\Debug\PriSock.pdb
+M:\components\PriSock\bin\Debug\PriSock.xml
+M:\components\PriSock\obj\Debug\ResolveAssemblyReference.cache
+M:\components\PriSock\obj\Debug\PriSock.vbproj.GenerateResource.Cache
+M:\components\PriSock\obj\Debug\PriSock.dll
+M:\components\PriSock\obj\Debug\PriSock.xml
+M:\components\PriSock\obj\Debug\PriSock.pdb
+M:\Server\PriProc5\bin\PriSock.dll
+M:\Server\PriProc5\bin\PriSock.pdb
+M:\Server\PriProc5\bin\PriSock.xml
+M:\components\PriSock\obj\Debug\PriPROC.Resources.resources

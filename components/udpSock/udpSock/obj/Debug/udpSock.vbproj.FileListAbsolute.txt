@@ -1,0 +1,9 @@
+M:\components\udpSock\udpSock\bin\Debug\udpSock.dll
+M:\components\udpSock\udpSock\bin\Debug\udpSock.pdb
+M:\components\udpSock\udpSock\bin\Debug\udpSock.xml
+M:\components\udpSock\udpSock\obj\Debug\ResolveAssemblyReference.cache
+M:\components\udpSock\udpSock\obj\Debug\udpSock.vbproj.GenerateResource.Cache
+M:\components\udpSock\udpSock\obj\Debug\udpSock.dll
+M:\components\udpSock\udpSock\obj\Debug\udpSock.xml
+M:\components\udpSock\udpSock\obj\Debug\udpSock.pdb
+M:\components\udpSock\udpSock\obj\Debug\udpSock.Resources.resources

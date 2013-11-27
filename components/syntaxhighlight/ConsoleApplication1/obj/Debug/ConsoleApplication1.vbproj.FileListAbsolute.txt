@@ -1,0 +1,12 @@
+M:\components\syntaxhighlight\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+M:\components\syntaxhighlight\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+M:\components\syntaxhighlight\ConsoleApplication1\bin\Debug\ConsoleApplication1.xml
+M:\components\syntaxhighlight\ConsoleApplication1\obj\Debug\ResolveAssemblyReference.cache
+M:\components\syntaxhighlight\ConsoleApplication1\obj\Debug\ConsoleApplication1.Resources.resources
+M:\components\syntaxhighlight\ConsoleApplication1\obj\Debug\ConsoleApplication1.vbproj.GenerateResource.Cache
+M:\components\syntaxhighlight\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+M:\components\syntaxhighlight\ConsoleApplication1\obj\Debug\ConsoleApplication1.xml
+M:\components\syntaxhighlight\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+M:\components\syntaxhighlight\ConsoleApplication1\bin\Debug\udpSock.dll
+M:\components\syntaxhighlight\ConsoleApplication1\bin\Debug\udpSock.pdb
+M:\components\syntaxhighlight\ConsoleApplication1\bin\Debug\udpSock.xml

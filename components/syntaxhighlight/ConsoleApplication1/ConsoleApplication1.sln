@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "udpSock", "..\..\udpSock\udpSock\udpSock.vbproj", "{187313D8-1424-4993-A906-6441BCD83AA2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ppDiscovery", "..\..\udpSock\ppDiscovery\ppDiscovery\ppDiscovery.vbproj", "{63657416-40AF-4B76-A22D-55101342A64B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ppq", "..\..\udpSock\ppq\ppq\ppq.vbproj", "{5C18A0E8-253E-4533-A844-7A9F419BB475}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "tcpSock", "..\..\tcpSock\tcpSock\tcpSock.vbproj", "{21A8BDC6-612F-496B-893B-FA0F2F281FEF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sockets", "Sockets", "{BE4D7E0A-EB81-4EAF-B30B-8E78A4098DED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3A7ED949-8034-4D52-B337-E86DF87313D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Messages", "Messages", "{390C8F1C-063D-4212-8777-525E297B4FE0}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "svcMsg", "..\..\svcMsg\svcMsg\svcMsg.vbproj", "{58F9BD14-73D1-489F-B078-4866666F6863}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "msgDef", "..\..\svcMsg\msgDef\msgDef\msgDef.vbproj", "{578AC713-41A3-45CC-B618-1FE3449EAE46}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{187313D8-1424-4993-A906-6441BCD83AA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{187313D8-1424-4993-A906-6441BCD83AA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{187313D8-1424-4993-A906-6441BCD83AA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{187313D8-1424-4993-A906-6441BCD83AA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63657416-40AF-4B76-A22D-55101342A64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63657416-40AF-4B76-A22D-55101342A64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63657416-40AF-4B76-A22D-55101342A64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63657416-40AF-4B76-A22D-55101342A64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C18A0E8-253E-4533-A844-7A9F419BB475}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C18A0E8-253E-4533-A844-7A9F419BB475}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C18A0E8-253E-4533-A844-7A9F419BB475}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C18A0E8-253E-4533-A844-7A9F419BB475}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A8BDC6-612F-496B-893B-FA0F2F281FEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A8BDC6-612F-496B-893B-FA0F2F281FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A8BDC6-612F-496B-893B-FA0F2F281FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A8BDC6-612F-496B-893B-FA0F2F281FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F9BD14-73D1-489F-B078-4866666F6863}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F9BD14-73D1-489F-B078-4866666F6863}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F9BD14-73D1-489F-B078-4866666F6863}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F9BD14-73D1-489F-B078-4866666F6863}.Release|Any CPU.Build.0 = Release|Any CPU
+		{578AC713-41A3-45CC-B618-1FE3449EAE46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{578AC713-41A3-45CC-B618-1FE3449EAE46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{578AC713-41A3-45CC-B618-1FE3449EAE46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{578AC713-41A3-45CC-B618-1FE3449EAE46}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{21A8BDC6-612F-496B-893B-FA0F2F281FEF} = {BE4D7E0A-EB81-4EAF-B30B-8E78A4098DED}
+		{187313D8-1424-4993-A906-6441BCD83AA2} = {BE4D7E0A-EB81-4EAF-B30B-8E78A4098DED}
+		{63657416-40AF-4B76-A22D-55101342A64B} = {3A7ED949-8034-4D52-B337-E86DF87313D3}
+		{5C18A0E8-253E-4533-A844-7A9F419BB475} = {3A7ED949-8034-4D52-B337-E86DF87313D3}
+		{58F9BD14-73D1-489F-B078-4866666F6863} = {390C8F1C-063D-4212-8777-525E297B4FE0}
+		{578AC713-41A3-45CC-B618-1FE3449EAE46} = {390C8F1C-063D-4212-8777-525E297B4FE0}
+	EndGlobalSection
+EndGlobal
