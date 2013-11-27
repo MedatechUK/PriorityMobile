@@ -142,7 +142,7 @@ Public Class ctrl_DeliveryItems
                             New calcSetting( _
                                 CDbl(0), _
                                 , _
-                                , _
+                                 30, _
                                 String.Format( _
                                     "{0} * {1}", _
                                     thisForm.CurrentRow("tquant").ToString, _
@@ -372,7 +372,8 @@ Public Class ctrl_DeliveryItems
                     OrderItem.SelectSingleNode("price").InnerText, _
                     lots(0).Attributes("name").Value, _
                     Qty.ToString, _
-                    weight.ToString _
+                    weight.ToString, _
+                    OrderItem.SelectSingleNode("vat").InnerText _
                 )
             End If
 

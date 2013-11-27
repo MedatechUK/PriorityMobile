@@ -14,7 +14,12 @@
 
     Private Sub txtReg_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtReg.KeyDown
         If e.KeyValue = 13 Then
-            Me.Close()
+            If txtReg.Text.Length <= 7 Then
+                Me.Close()
+            Else
+                txtReg.Text = String.Empty
+                Beep()
+            End If
         End If
     End Sub
 

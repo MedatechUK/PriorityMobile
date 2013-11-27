@@ -35,8 +35,8 @@ Public Class ctrl_FamilyItems
             With ListSort1
                 .FormLabel = "Parts"
                 .Sort = "name"
-                .AddColumn("name", "Part", 130, True)
-                .AddColumn("des", "Description", 260)
+                .AddColumn("name", "Part", 120, True)
+                .AddColumn("des", "Description", 400)
                 '.AddColumn("barcode", "Barcode", 130)
             End With
         End With
@@ -153,7 +153,7 @@ Public Class ctrl_FamilyItems
     Private Sub hCalc()
         thisForm.Calc( _
             New calcSetting( _
-                CInt(0), , , thisForm.CurrentRow("des").ToString _
+                CInt(0),  , , thisForm.CurrentRow("des").ToString _
             ) _
         )
     End Sub

@@ -31,7 +31,7 @@
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>bin\debug\</OutputPath>
     <DocumentationFile>pdaHandler.xml</DocumentationFile>
     <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -55,53 +55,33 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="btZebra, Version=1.0.5038.39387, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CPCL, Version=1.0.4958.30960, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\btZebra.dll</HintPath>
+      <HintPath>bin\Debug\CPCL.dll</HintPath>
     </Reference>
-    <Reference Include="CPCL, Version=1.0.5038.39399, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="frmControls, Version=1.0.4961.41941, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\CPCL.dll</HintPath>
+      <HintPath>bin\Debug\frmControls.dll</HintPath>
     </Reference>
-    <Reference Include="frmControls, Version=1.0.5038.39172, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="mnuControls, Version=1.0.4958.30966, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\frmControls.dll</HintPath>
+      <HintPath>bin\Debug\mnuControls.dll</HintPath>
     </Reference>
-    <Reference Include="InTheHand.Net.Personal, Version=2.3.0.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
+    <Reference Include="provision, Version=1.0.4959.28005, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\InTheHand.Net.Personal.dll</HintPath>
-    </Reference>
-    <Reference Include="mnuControls, Version=1.0.5038.39189, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\mnuControls.dll</HintPath>
-    </Reference>
-    <Reference Include="provision, Version=1.0.5038.39367, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\provision.dll</HintPath>
+      <HintPath>bin\Debug\provision.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\System.SR.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="ViewControl2, Version=1.0.5038.39238, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ViewControl2, Version=1.0.4961.26123, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bin\ViewControl2.dll</HintPath>
-    </Reference>
-    <Reference Include="ZebraBluetoothAdapter, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\ZebraBluetoothAdapter.dll</HintPath>
-    </Reference>
-    <Reference Include="ZSDK_API, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\bin\ZSDK_API.dll</HintPath>
+      <HintPath>bin\Debug\ViewControl2.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -323,7 +303,7 @@
     <Compile Include="usrCtrls\Maintainance\ctrl_Warehouse.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usrCtrls\SharedXMLFunc.vb">
+    <Compile Include="SharedXMLFunc.vb">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -478,7 +458,7 @@
       <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
         <HostingProcess disable="1" />
       </FlavorProperties>
-      <UserProperties BuildVersion_UpdateAssemblyVersion="True" BuildVersion_BuildVersioningStyle="None.None.None.Increment" />
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

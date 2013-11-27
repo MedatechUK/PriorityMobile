@@ -411,15 +411,17 @@ Public Class ctrl_Deliveries
 
             Dim invoicePartsList As New ReceiptFormatter(64, _
                                                   New FormattedColumn(7, 0, eAlignment.Right), _
-                                                  New FormattedColumn(36, 8, eAlignment.Left), _
-                                                  New FormattedColumn(7, 45, eAlignment.Right), _
-                                                  New FormattedColumn(7, 57, eAlignment.Right))
-            invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:")
+                                                  New FormattedColumn(34, 8, eAlignment.Left), _
+                                                  New FormattedColumn(7, 43, eAlignment.Right), _
+                                                  New FormattedColumn(7, 55, eAlignment.Right), _
+                                                  New FormattedColumn(1, 63, eAlignment.Right) _
+                                                  )
+            invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:", "")
             Dim lines As Integer = 0
             Dim units As Integer = 0
             Dim invoicetotal As Double = 0
             Dim partsDict As New Dictionary(Of String, List(Of String))
-
+            Dim vattotal As Double = 0.0 'vat
 
             For Each OrderPart As XmlNode In dv.SelectNodes("parts/part[cquant>0]")
 
@@ -435,13 +437,22 @@ Public Class ctrl_Deliveries
                 End If
 
                 Dim price As Double = CDbl(OrderPart.SelectSingleNode("price").InnerText)
-                Dim rcList As New List(Of String)
+                'vat addition 
+                Dim vat As Double = CDbl(OrderPart.SelectSingleNode("vat").InnerText)
+                Dim vatMark As String = ""
+                If vat > 0.0 Then
+                    vattotal += vat
+                    vatMark = "+"
+                End If
 
+                Dim rcList As New List(Of String)
+                'vat
                 If OrderPart.SelectSingleNode("cheese").InnerText = "Y" Then
                     invoicePartsList.AddRow(qty & "kg", _
                                             des, _
                                             price.ToString("c").Replace("£", "#"), _
-                                            (CDbl(price) * CDbl(qty)).ToString("c").Replace("£", "#") _
+                                            (CDbl(price) * CDbl(qty)).ToString("c").Replace("£", "#"), _
+                                            vatMark _
                                             )
 
                     units += 1
@@ -452,6 +463,7 @@ Public Class ctrl_Deliveries
                     rcList.Add(des)
                     rcList.Add(price)
                     rcList.Add(CDbl(price) * CDbl(qty))
+                    rcList.Add(vatMark)
                     partsDict.Add(name, rcList)
                     units += CDbl(qty)
                     lines += 1
@@ -469,7 +481,8 @@ Public Class ctrl_Deliveries
                 invoicePartsList.AddRow(partsDict(k)(0), _
                                         partsDict(k)(1), _
                                         CDbl(partsDict(k)(2)).ToString("c").Replace("£", "#"), _
-                                        CDbl(partsDict(k)(3)).ToString("c").Replace("£", "#") _
+                                        CDbl(partsDict(k)(3)).ToString("c").Replace("£", "#"), _
+                                        partsDict(k)(4) _
                                         )
             Next
 
@@ -478,6 +491,12 @@ Public Class ctrl_Deliveries
                                               New FormattedColumn(6, 10, eAlignment.Right), _
                                               New FormattedColumn(47, 16, eAlignment.Right))
             RcptTotal.AddRow("Total:", CDbl(invoicetotal).ToString("c").Replace("£", "#"))
+            RcptTotal.AddRow("", "")
+            RcptTotal.AddRow("", "VAT on lines marked")
+            RcptTotal.AddRow("VAT:", vattotal.ToString("c").Replace("£", "#"))
+            RcptTotal.AddRow("", "")
+            RcptTotal.AddRow("Total", "")
+            RcptTotal.AddRow("& VAT:", (invoicetotal + vattotal).ToString("c").Replace("£", "#"))
 
 
             With lblInvoice

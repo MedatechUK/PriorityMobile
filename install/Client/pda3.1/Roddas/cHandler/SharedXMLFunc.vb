@@ -112,7 +112,7 @@ Module SharedXMLFunc
 
 #Region "delivery"
 
-    Public Sub DeliverItem(ByVal thisform As xForm, ByVal Delivery As XmlNode, ByVal ordi As String, ByVal name As String, ByVal des As String, ByVal parttype As String, ByVal cheese As String, ByVal barcode As String, ByVal price As String, ByVal lotnumber As String, ByVal cquant As String, ByVal weight As String)
+    Public Sub DeliverItem(ByVal thisform As xForm, ByVal Delivery As XmlNode, ByVal ordi As String, ByVal name As String, ByVal des As String, ByVal parttype As String, ByVal cheese As String, ByVal barcode As String, ByVal price As String, ByVal lotnumber As String, ByVal cquant As String, ByVal weight As String, ByVal VAT As String)
         With thisform
             Dim warehouse As XmlNode = .FormData.SelectSingleNode("pdadata/warehouse")
             Dim lot As XmlNode = warehouse.SelectSingleNode(String.Format(".//lot[@name='{0}']", lotnumber))
@@ -133,6 +133,7 @@ Module SharedXMLFunc
                 .CreateNode(part, "tquant", "0")
                 .CreateNode(part, "cquant", cquant)
                 .CreateNode(part, "weight", weight)
+                .CreateNode(part, "vat", VAT)
             Else
                 deliveredPart.SelectSingleNode("cquant").InnerText = CDbl(deliveredPart.SelectSingleNode("cquant").InnerText) + CDbl(cquant)
             End If
@@ -240,7 +241,13 @@ Module SharedXMLFunc
     Public Function DeliveryValue(ByRef thisform As xForm, ByVal Delivery As XmlNode) As Double
         Dim total As Double = 0
         For Each item As XmlNode In Delivery.SelectNodes("parts/part[cquant != '0']")
-            total += CDbl(item.SelectSingleNode("cquant").InnerText) * CDbl(item.SelectSingleNode("price").InnerText)
+            Select Case item.SelectSingleNode("cheese").InnerText
+                Case "Y"
+                    total += CDbl(item.SelectSingleNode("weight").InnerText) * CDbl(item.SelectSingleNode("price").InnerText)
+                Case Else
+                    total += CDbl(item.SelectSingleNode("cquant").InnerText) * CDbl(item.SelectSingleNode("price").InnerText)
+            End Select
+
         Next
         Return total
     End Function

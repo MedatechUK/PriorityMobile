@@ -96,6 +96,12 @@ Module StartUp
             End With
 
             Application.Run(hm) 'frmMain
+            Try
+                Dim h As IntPtr = FindWindow("HHTaskBar", "")
+                ShowWindow(h, &H1)
+                EnableWindow(h, True)
+            Catch
+            End Try
 
         Catch ex As Exception
             Using sw As New StreamWriter("appcrash.txt", True)

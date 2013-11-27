@@ -94,6 +94,3 @@ D:\Emerge\pdaHandler\obj\Debug\pdaHandler.pdb
 C:\inetpub\mobile\pdaHandler.dll
 C:\inetpub\mobile\pdaHandler.pdb
 C:\inetpub\mobile\pdaHandler.xml
-M:\install\Client\pda3.1\Roddas\bin\pdaHandler.dll
-M:\install\Client\pda3.1\Roddas\bin\pdaHandler.pdb
-M:\install\Client\pda3.1\Roddas\bin\pdaHandler.xml
