@@ -2,4 +2,10 @@
   <PropertyGroup>
     <DeployDeviceID>81551346-886F-43a2-B707-A91FAE1B33A7</DeployDeviceID>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <StartArguments>-handler \pdahandler.dll</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <StartArguments>-handler \pdahandler.dll</StartArguments>
+  </PropertyGroup>
 </Project>

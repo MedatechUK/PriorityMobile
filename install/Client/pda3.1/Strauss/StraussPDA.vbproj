@@ -42,7 +42,7 @@
     <NoConfig>true</NoConfig>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>Full</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
@@ -54,6 +54,7 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="btZebra, Version=1.0.5038.39387, Culture=neutral, processorArchitecture=MSIL">
@@ -214,6 +215,9 @@
     <Content Include="prnimg\roddas.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Shortcut to StraussPDA.lnk" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
   <ProjectExtensions>

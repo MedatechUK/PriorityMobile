@@ -14,7 +14,7 @@ Module clearcache
         With p
             With .StartInfo
                 .UseShellExecute = True
-                .FileName = AppPath() & "\StraussPDA.exe"                
+                .FileName = AppPath() & "\StraussPDA.exe /handler ""\pdaHandler.dll"""
             End With
             .Start()
         End With

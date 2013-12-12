@@ -1,0 +1,20 @@
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\XpathTester.frmXpather.resources
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\XpathTester.Resources.resources
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\XpathTester.vbproj.GenerateResource.Cache
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\bin\Debug\XpathTester.exe
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\bin\Debug\XpathTester.pdb
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\bin\Debug\XpathTester.xml
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\XpathTester.exe
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\XpathTester.xml
+C:\Users\andymackintosh\AppData\Local\Temporary Projects\XpathTester\obj\Debug\XpathTester.pdb
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\XpathTester.exe
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\XpathTester.xml
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\XpathTester.pdb
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\bin\Debug\XpathTester.exe
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\bin\Debug\XpathTester.pdb
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\bin\Debug\XpathTester.xml
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\XpathTester.frmXpather.resources
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\XpathTester.Resources.resources
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\XpathTester\XpathTester\obj\Debug\XpathTester.vbproj.GenerateResource.Cache
