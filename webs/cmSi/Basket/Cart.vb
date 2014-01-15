@@ -66,21 +66,47 @@ Public Class Cart
         End Get
     End Property
 
+    Private _fullPrice As String = "0.00"
+    Public ReadOnly Property FullPrice() As String
+        Get
+            Dim t As Double = 0.0
+            For Each i As CartItem In Me.CartItems.Values
+                If Not CBool(cmsData.Settings("ShowVAT")) Then
+                    t += CDbl(i.PARTPRICE) * (1 + CDbl(i.SALESTAX / 100))
+                Else
+                    t += i.LINETOTAL
+                End If
+            Next
+            Return FormatDouble(CStr(t))
+        End Get
+    End Property
+
+    Private _Discount As Double
+    Public Property Discount() As Double
+        Get
+            Return FormatDouble(CStr(_Discount))
+        End Get
+        Set(ByVal value As Double)
+            _Discount = value
+        End Set
+    End Property
+
     Private _Total As String = "0.00"
     Public ReadOnly Property Total() As String
         Get
             Dim t As Double = 0
             For Each i As CartItem In Me.CartItems.Values
                 If Not CBool(cmsData.Settings("ShowVAT")) Then
-                    t += i.QTY * ((1 + CDbl(i.SALESTAX / 100)) * CDbl(i.PARTPRICE))
+                    t += CDbl(i.LINETOTAL) * (1 + CDbl(i.SALESTAX / 100))
                 Else
-                    t += i.QTY * (CDbl(i.PARTPRICE))
+                    t += i.LINETOTAL
                 End If
-
             Next
+            t -= Discount
             Return FormatDouble(CStr(t))
         End Get
     End Property
+
 
     Public ReadOnly Property PACKFAMILY() As List(Of Integer)
         Get
@@ -126,11 +152,21 @@ Public Class Cart
         End Set
     End Property
 
+    Private _custPO As String = ""
+    Public ReadOnly Property custPO() As String
+        Get
+            Dim id As Integer = CInt(cmSi.cmsData.rtSettings.SelectSingleNode("settings/last_order").InnerText)
+            id += 1
+            Return String.Format("{0}-{1}-{2}", cmSi.cmsData.Settings.Get("orderPrefix"), Today.ToString("yy"), id.ToString("00000000"))
+        End Get
+    End Property
+
 #End Region
 
 #Region "Private Functions"
 
     Private Function FormatDouble(ByVal str As String) As String
+        str = Math.Round(CDbl(str), 2)
         If InStr(str, ".") Then
             Return Split(str, ".")(0) & "." & Left(Split(str, ".")(1) & "00", 2)
         Else
@@ -155,12 +191,15 @@ Public Class Cart
             .CartItems.Clear()
             .PostGuid = OrderID
             Dim order_post As XmlNode = ord.SelectSingleNode("order_post")
-
             .CustomerID = order_post.SelectSingleNode("customer_id").InnerText
 
             With .DeliveryAddress
                 Dim deladd As XmlNode = order_post.SelectSingleNode("delivery_address")
                 If Not IsNothing(deladd) Then
+
+                    .First = deladd.ParentNode.SelectSingleNode("name/first").InnerText
+                    .Last = deladd.ParentNode.SelectSingleNode("name/last").InnerText
+
                     .Address1 = deladd.SelectSingleNode("address_1").InnerText
                     .Address2 = deladd.SelectSingleNode("address_2").InnerText
                     .Address3 = deladd.SelectSingleNode("address_3").InnerText
@@ -173,12 +212,20 @@ Public Class Cart
             End With
 
             For Each line As XmlNode In order_post.SelectNodes("lines/line")
+                Dim uPrice As String = ""
+                Select Case CBool(cmsData.Settings("ShowVAT"))
+                    Case True
+                        uPrice = CStr(CDbl(line.SelectSingleNode("unit_price").InnerText) _
+                        * (1 + CDbl(line.SelectSingleNode("sales_tax").InnerText) / 100))
+                    Case Else
+                        uPrice = line.SelectSingleNode("unit_price").InnerText
+                End Select
                 .CartItems.Add( _
                 line.SelectSingleNode("sku").InnerText, _
                     New cmSi.CartItem( _
                         line.SelectSingleNode("sku").InnerText, _
                         line.SelectSingleNode("part_des").InnerText, _
-                        line.SelectSingleNode("unit_price").InnerText, _
+                        uPrice, _
                         line.SelectSingleNode("qty").InnerText, _
                         line.SelectSingleNode("pack_family").InnerText, _
                         line.SelectSingleNode("sales_tax").InnerText, _
@@ -211,7 +258,20 @@ Public Class Cart
             .WriteStartElement("order_post")
             If CInt(cmsData.Settings.Get("LiveOrders")) = 0 Then .WriteAttributeString("test", "1")
             .WriteElementString("order_id", _PostGuid)
+            .WriteElementString("cust_po", custPO)
+            Dim prf As Profile.ProfileBase = HttpContext.Current.Profile
+
+            If Not IsNothing(ts.Basket.vouchers) Then
+                .WriteStartElement("discounts")
+                For Each v As Voucher In ts.Basket.vouchers
+                    .WriteElementString("voucher", v.Code)
+                Next
+                .WriteElementString("total_discount", Discount)
+                .WriteEndElement()
+            End If
+
             .WriteElementString("customer_id", ts.cart.CustomerID)
+            .WriteElementString("ORDERSOURCE", cmsData.Settings("WebName"))
 
             If ts.cart.Payment.trans.Length > 0 Then
                 .WriteStartElement("payment")
@@ -220,6 +280,11 @@ Public Class Cart
                 .WriteElementString("amount", ts.cart.Payment.amount)
                 .WriteEndElement() 'End Settings 
             End If
+
+            .WriteStartElement("name")
+            .WriteElementString("first", ts.cart.DeliveryAddress.First)
+            .WriteElementString("last", ts.cart.DeliveryAddress.Last)
+            .WriteEndElement()
 
             .WriteStartElement("delivery_address")
             .WriteElementString("address_1", ts.cart.DeliveryAddress.Address1)
@@ -238,9 +303,14 @@ Public Class Cart
                 .WriteElementString("sku", ci.PARTNAME)
                 .WriteElementString("part_des", ci.PARTDES)
                 .WriteElementString("qty", ci.QTY)
-                .WriteElementString("unit_price", ci.PARTPRICE)
+                Select Case CBool(cmsData.Settings("ShowVAT"))
+                    Case True
+                        .WriteElementString("unit_price", FormatDouble(CStr(CDbl(ci.PARTPRICE) / (1 + (ci.RETAILTAX / 100)))))
+                    Case Else
+                        .WriteElementString("unit_price", FormatDouble(ci.PARTPRICE))
+                End Select
                 .WriteElementString("pack_family", ci.PackFamily)
-                .WriteElementString("sales_tax", ci.SALESTAX)
+                .WriteElementString("sales_tax", ci.RETAILTAX)
                 .WriteElementString("referer", ci.REFERER)
                 .WriteElementString("delivery_date", String.Format("{0}-{1}-{2}", Year(Now).ToString, Month(Now).ToString, Day(Now).ToString))
 
@@ -273,7 +343,7 @@ Public Class Cart
                 If cmsData.Settings("LiveOrders") = 0 Then
                     TestOrder = "*TEST*"
                 End If
-                .Body = String.Format("A new {2} order was placed on {0}. The order referenence was: {1}.", cmSi.cmsData.Settings.Get("WebName"), Order.ToString, TestOrder)
+                .Body = String.Format("A new {2} order was placed on {0}. The order referenence was: {1}.", cmSi.cmsData.Settings.Get("WebName"), custPO & " (" & Order.ToString & ") ", TestOrder)
                 .IsBodyHtml = False
             End With
             smtp.Send(mm)
@@ -332,6 +402,10 @@ Public Class Cart
                 requestStream.Close()
             End If
         End Try
+        With cmSi.cmsData.rtSettings
+            .SelectSingleNode("settings/last_order").InnerText = (CInt(custPO.Split("-").Last)).ToString("00000000")
+            .Save(cmSi.cmsData.rtSettingsPath)
+        End With
 
         Return result
 

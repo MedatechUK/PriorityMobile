@@ -28,7 +28,7 @@ Public Class cmsCleanHTML
         html = Regex.Replace(html, String.Format("<{0}.+/{0}>", tag), "", RegexOptions.Singleline Or RegexOptions.IgnoreCase)
     End Sub
 
-    Public Shared Function htmlEncode(ByVal Str As String, Optional ByVal chars As String = "'&") As String
+    Public Shared Function htmlEncode(ByVal Str As String, Optional ByVal chars As String = "'""&") As String
         For i As Integer = 0 To chars.Length - 1
             Str = Str.Replace(chars.Substring(i, 1), String.Format("&#{0};", Asc(chars.Substring(i, 1)).ToString))
         Next

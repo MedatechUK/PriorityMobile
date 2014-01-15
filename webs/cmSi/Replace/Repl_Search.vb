@@ -86,22 +86,27 @@ Friend Class Repl_Search
                         .AppendFormat("pagetitle='{0}' ", Result.PageTitle)
                         .AppendFormat("loc='{0}' ", Result.Loc)
                         .AppendFormat("description='{0}' ", Result.Description)
-                        .AppendFormat("img='{0}' ", Result.Image)
+                        .AppendFormat("img='{0}' ", Result.Image.Replace("~", ""))
                         .AppendFormat("score='{0}' ", Result.Score)
                         .Append("/>")
                         .AppendLine()
 
                     End If
                 Next
-                scores.Remove(scores.Max)
+                If Found.Count > 0 Then
+                    scores.Remove(scores.Max)
+                Else
 
+                End If
             Loop While scores.Count > 0
 
             .AppendLine("</results>")
+
             ds.Data = .ToString
 
-        End With
 
+
+        End With
         dl.Page.Controls.Add(ds)
 
         Try
@@ -119,7 +124,6 @@ Friend Class Repl_Search
                 ) _
             )
         End Try
-
     End Sub
 
 #End Region

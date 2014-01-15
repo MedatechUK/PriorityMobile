@@ -20,13 +20,46 @@ Public Class CartItem
         _PARTDES = PARTDES
         _PARTPRICE = PARTPRICE
         _QTY = QTY
-        _SALESTAX = SALESTAX
+        _RETAILTAX = SALESTAX
+        If Not CBool(cmsData.Settings("ShowVAT")) Then
+            _SALESTAX = SALESTAX
+        Else
+            _SALESTAX = 0
+        End If
+
         _REFERER = REFERER
+
+        Try
+            _WEBDES = cmsData.doc.SelectSingleNode(String.Format("//page[@id='{0}']/@title", REFERER.TrimStart("/"))).Value
+        Catch
+            _WEBDES = PARTDES
+        End Try
     End Sub
 
 #End Region
 
 #Region "Public Properties"
+
+    Private _DISCOUNT As Double
+    Public Property Discount() As Double
+        Get
+            Return _DISCOUNT
+        End Get
+        Set(ByVal value As Double)
+            _DISCOUNT = value
+        End Set
+    End Property
+
+
+    Private _RETAILTAX As String = ""
+    Public Property RETAILTAX() As String
+        Get
+            Return _RETAILTAX
+        End Get
+        Set(ByVal value As String)
+            _RETAILTAX = value
+        End Set
+    End Property
 
     Private _PARTNAME As String = ""
     Public Property PARTNAME() As String
@@ -81,7 +114,7 @@ Public Class CartItem
     Private _LINETOTAL As String = ""
     Public ReadOnly Property LINETOTAL() As String
         Get
-            Return FormatDouble(CStr(CInt(_QTY) * (CDbl(_PARTPRICE))))
+            Return FormatDouble(CStr(CInt(_QTY) * (CDbl(_PARTPRICE)) - Discount))
         End Get
     End Property
 
@@ -105,6 +138,15 @@ Public Class CartItem
         End Set
     End Property
 
+    Private _WEBDES As String = ""
+    Public Property WEBDES() As String
+        Get
+            Return _WEBDES
+        End Get
+        Set(ByVal value As String)
+            _WEBDES = value
+        End Set
+    End Property
 #End Region
 
 #Region "Private Functions"

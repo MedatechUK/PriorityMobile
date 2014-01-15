@@ -1,5 +1,27 @@
 ﻿Public Class Address
 
+
+
+    Private _First As String
+    Public Property First() As String
+        Get
+            Return _First
+        End Get
+        Set(ByVal value As String)
+            _First = value
+        End Set
+    End Property
+
+    Private _Last As String
+    Public Property Last() As String
+        Get
+            Return _Last
+        End Get
+        Set(ByVal value As String)
+            _Last = value
+        End Set
+    End Property
+
     Private _Address1 As String
     Public Property Address1() As String
         Get

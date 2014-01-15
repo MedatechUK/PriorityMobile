@@ -4,6 +4,7 @@ Imports System.Xml
 Imports System.IO
 Imports System.Web
 Imports System.Web.UI.WebControls
+Imports cmSi
 
 Public Class BasketCls
 
@@ -41,6 +42,16 @@ Public Class BasketCls
 #End Region
 
 #Region "public properties"
+    Private _VOUCHERS As New List(Of Voucher)
+    Public Property vouchers() As List(Of Voucher)
+        Get
+            Return _VOUCHERS
+        End Get
+        Set(ByVal value As List(Of Voucher))
+            _VOUCHERS = value
+        End Set
+    End Property
+
 
     Private _CURRENCY As String = "GBP"
     Public Property CURRENCY() As String
@@ -159,7 +170,8 @@ Public Class BasketCls
     End Sub
 
     Public Sub BindBasket(ByRef Grid As System.Web.UI.WebControls.GridView)
-
+        ts.cart.CartItems.Clear()
+        ts.cart.Discount = 0.0
         ts.cart.CartItems.Clear()
         For Each key As String In BasketItems.Keys
             Dim part As XmlNode = xmlFunc.Part(cmsData.part, BasketItems(key).PARTNAME)
@@ -176,7 +188,7 @@ Public Class BasketCls
                     .Add(part.SelectSingleNode("PARTNAME").InnerText, _
                         New CartItem(part.SelectSingleNode("PARTNAME").InnerText, _
                         part.SelectSingleNode("PARTDES").InnerText, _
-                        CStr(QTYPrice(cur, BasketItems(key).QTY, CBool(cmsData.Settings("ShowVAT")))), _
+                        String.Format("{0:f2}", QTYPrice(cur, BasketItems(key).QTY, CBool(cmsData.Settings("ShowVAT")))), _
                         BasketItems(key).QTY, _
                         part.SelectSingleNode("PACKFAMILY").InnerText, _
                          cur.Attributes("TAXRATE").InnerText, _
@@ -196,7 +208,7 @@ Public Class BasketCls
         End With
 
         With ts.cart
-            Dim del As XmlNode = CurrentDelivery(cmsData.part, CURRENCY, .DELIVERY.DELIVERYPART)
+            Dim del As XmlNode = CurrentDelivery(cmSi.cmsData.part, CURRENCY, .DELIVERY.DELIVERYPART)
             Dim cur As XmlNode = DeliveryCurrency(del, CURRENCY)
             .CartItems.Add(del.SelectSingleNode("PARTNAME").InnerText, _
                 New CartItem(del.SelectSingleNode("PARTNAME").InnerText, _
@@ -209,7 +221,10 @@ Public Class BasketCls
                 ) _
             )
         End With
+        For Each v As Voucher In vouchers
+            v.Apply()
 
+        Next
         With Grid
             .DataSource = ts.cart.CartItems.Values
             .DataBind()
@@ -248,6 +263,11 @@ Public Class BasketCls
 
         Dim PARTNAME As String = SelectedPart(sender, e.Row.RowIndex)
         With ts.cart
+            Dim discTotal As Double
+            For Each ci As CartItem In ts.cart.CartItems.Values
+                discTotal += ci.Discount
+            Next
+            discTotal += .Discount
             If e.Row.RowType = DataControlRowType.Footer Then
                 If CBool(cmsData.Settings("ShowVAT")) Then
                     With e.Row.Cells(1)
@@ -258,11 +278,25 @@ Public Class BasketCls
                     For n As Integer = 2 To 3
                         e.Row.Cells(n).Visible = False
                     Next
-                    e.Row.Cells(4).Text = _
-                        "<b>Total:</b>"
-                    e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
-                    e.Row.Cells(5).Text = _
-                    .Total
+
+                    If discTotal > 0 Then
+                        e.Row.Cells(4).Text = _
+                            "<b>Discounts:</b>" & _
+                            "<br />" & _
+                            "<b>Total:</b>"
+                        e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
+                        e.Row.Cells(5).Text = _
+                        "£" & discTotal.ToString("F2") & _
+                        "<br />" & _
+                        "£" & .Total
+                    Else
+                        e.Row.Cells(4).Text = _
+                            "<b>Total:</b>"
+                        e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
+                        e.Row.Cells(5).Text = _
+                        "£" & .Total
+                    End If
+
                     e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
                     e.Row.Cells(6).Text = _
                         .CURRENCY
@@ -275,18 +309,37 @@ Public Class BasketCls
                     For n As Integer = 2 To 3
                         e.Row.Cells(n).Visible = False
                     Next
-                    e.Row.Cells(4).Text = _
-                        "<b>Sub Total:</b><br/>" & _
-                        "<b>VAT:</b><br/>" & _
-                        "<b>Total:</b>"
-                    e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
-                    e.Row.Cells(5).Text = _
-                        .Value & "<br/>" & _
-                        .TotalTax & "<br/>" & _
-                        .Total
-                    e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
-                    e.Row.Cells(6).Text = _
-                        .CURRENCY
+                    If discTotal > 0 Then
+                        e.Row.Cells(4).Text = _
+                            "<b>Discounts:</b><br/>" & _
+                            "<b>Sub Total:</b><br/>" & _
+                            "<b>VAT:</b><br/>" & _
+                            "<b>Total:</b>"
+                        e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
+                        e.Row.Cells(5).Text = _
+                            "£" & discTotal.ToString("F2") & "<br />" & _
+                            "£" & .Value & "<br/>" & _
+                            "£" & .TotalTax & "<br/>" & _
+                            "£" & .Total
+                        e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
+                        e.Row.Cells(6).Text = _
+                            .CURRENCY
+                    Else
+                        e.Row.Cells(4).Text = _
+                            "<b>Sub Total:</b><br/>" & _
+                            "<b>VAT:</b><br/>" & _
+                            "<b>Total:</b>"
+                        e.Row.Cells(5).HorizontalAlign = HorizontalAlign.Left
+                        e.Row.Cells(5).Text = _
+                            "£" & .Value & "<br/>" & _
+                            "£" & .TotalTax & "<br/>" & _
+                            "£" & .Total
+                        e.Row.Cells(6).VerticalAlign = VerticalAlign.Bottom
+                        e.Row.Cells(6).Text = _
+                            .CURRENCY
+
+                    End If
+
                 End If
 
             End If

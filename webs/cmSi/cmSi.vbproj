@@ -31,7 +31,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>E:\Users\Websites\cmsBinaries\</OutputPath>
     <DocumentationFile>cmSi.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
@@ -110,6 +110,17 @@
     <Compile Include="Replace\repl_Blog.vb" />
     <Compile Include="Replace\repl_Base.vb" />
     <Compile Include="Replace\repl_ChildTable.vb" />
+    <Compile Include="Vouchers\derived\part\multibuy\linksave\linkSaveVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\multibuy\linksave\pcLinkSaveVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\multibuy\linksave\pcPoolVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\multibuy\linksave\poolVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\multibuy\multiBuyVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\multibuy\pcMultiBuyVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\partVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\pcPartVoucher.vb" />
+    <Compile Include="Vouchers\derived\pcSpendVoucher.vb" />
+    <Compile Include="Vouchers\derived\spendVoucher.vb" />
+    <Compile Include="Vouchers\Voucher.vb" />
     <Compile Include="xmlFunc.vb" />
   </ItemGroup>
   <ItemGroup>

@@ -315,8 +315,8 @@ Public Class repl_Part
                             l.Items.Add(New ListItem(String.Format("{0}: {1} {2}", _
                                  b.Attributes("QTY").Value, _
                                  cur.Attributes("CURSTR").Value, _
-                                 String.Format("{0:f2}", CDbl(b.Attributes("PRICE").Value))), _
-                                 b.Attributes("QTY").Value))
+                                 String.Format("{0:f2}", CDbl(xmlFunc.QTYPrice(cur, b.Attributes("QTY").Value, CBool(cmsData.Settings("ShowVAT"))))) _
+                                 ), b.Attributes("QTY").Value))
 
                             If .IsPostBack Then
                                 l.Items(l.Items.Count - 1).Selected = CBool(CInt(b.Attributes("QTY").Value) = CInt(.Request("ctl00$basketlist")))
@@ -325,6 +325,8 @@ Public Class repl_Part
                             End If
                         Next
                         quant = CInt(l.SelectedValue)
+
+
                     End If
 
                     If Not IsNothing(q) Then
