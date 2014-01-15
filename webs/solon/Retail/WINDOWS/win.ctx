@@ -1,0 +1,8 @@
+; for 16-bit app support
+[fonts]
+[extensions]
+[mci extensions]
+[files]
+[MCI Extensions.BAK]
+m2v=MPEGVideo
+mod=MPEGVideo

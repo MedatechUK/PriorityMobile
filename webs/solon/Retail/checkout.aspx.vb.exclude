@@ -1,0 +1,202 @@
+﻿
+Partial Class checkout
+    Inherits System.Web.UI.Page
+    Dim olu As New OnlineUsers
+
+    Private ReadOnly Property thisSession() As Session
+        Get
+            Return olu.CurrentSession(HttpContext.Current)
+        End Get
+    End Property
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Profile.CUSTNAME.Length > 0 Then
+            Me.MultiView1.ActiveViewIndex = 0
+            If User.IsInRole("webmaster") Then Address_Postcode.Enabled = True
+
+            'btnProceed_Click(Me, New System.EventArgs)
+        Else
+            Me.MultiView1.ActiveViewIndex = 2
+        End If
+
+        For Each c As Control In Me.MultiView1.Views(0).Controls
+            searchControl(c)
+        Next
+    End Sub
+
+    Private Sub searchControl(ByVal c As Control)
+
+        Select Case c.ToString
+            Case "System.Web.UI.WebControls.TextBox"
+                If Not Page.IsPostBack Then
+                    Try
+                        Dim tx As System.Web.UI.WebControls.TextBox = c
+                        If InStr(tx.ID, "_") > 0 Then
+                            Dim g As String = Split(c.ID, "_")(0)
+                            Dim i As String = Split(c.ID, "_")(1)
+                            tx.Text = Profile.GetProfileGroup(g).Item(i)
+                        Else
+                            tx.Text = Profile.Item(tx.ID)
+                        End If
+                    Catch ex As Exception
+
+                    End Try
+                End If
+        End Select
+        For Each sc As Control In c.Controls
+            searchControl(sc)
+        Next
+
+    End Sub
+
+    Protected Sub btnProceed_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnProceed.Click
+        Select Case Request("method")
+            Case "card"
+                Me.MultiView1.ActiveViewIndex = 2
+                With Me
+
+                    .lbl_amount.Text = thisSession.cart.Total
+                    .lbl_currency.Text = thisSession.cart.CURRENCY
+
+                    For m As Integer = 1 To 12
+                        .lstMonth.Items.Add(m.ToString)
+                    Next
+                    For y As Integer = Year(Now) To Year(Now) + 10
+                        .lstYear.Items.Add(y.ToString)
+                    Next
+                End With
+            Case "invoice"
+                Me.MultiView1.ActiveViewIndex = 1
+                With thisSession
+                    With .cart
+                        Dim Order As System.Guid
+                        Dim RESULT As Exception
+                        If .PostGuid.CompareTo(System.Guid.Empty) = 0 Then
+                            Order = .SaveCart()
+                            RESULT = .PostCart(Order)
+                        Else
+                            Order = .PostGuid
+                            RESULT = Nothing
+                        End If
+                        If Not IsNothing(RESULT) Then
+                            Me.lbl_Result.Text = RESULT.Message
+                        Else
+                            Me.lbl_Result.Text = String.Format("Thank you for using the Age UK requisition system. A confirmation email will be sent to you soon.", Order.ToString)
+                        End If
+                    End With
+                    With .Basket
+                        .Clear()
+                    End With
+                End With
+
+        End Select
+    End Sub
+
+    Protected Sub btn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btn.Click
+
+        Dim tReq As RealexPayments.RealAuth.TransactionRequest
+        Dim ccReq As RealexPayments.RealAuth.CreditCard
+        Dim tResp As RealexPayments.RealAuth.TransactionResponse
+
+        Dim backgroundColour As Drawing.Color
+        Dim displayMessage As String
+
+        Try
+
+            Dim orderID As String
+            orderID = Now().ToString("yyyyMMddhhmmss")
+
+            With ConfigurationManager.AppSettings
+                If IsNothing(.Get("MerchantName")) Then _
+                    Throw New Exception("The selected environment does not have a Realex account configured.")
+
+                tReq = New RealexPayments.RealAuth.TransactionRequest( _
+                    .Get("MerchantName"), _
+                    .Get("normalPassword"), _
+                    .Get("rebatePassword"), _
+                    .Get("refundPassword") _
+                )
+
+                ccReq = New RealexPayments.RealAuth.CreditCard( _
+                    lstCardType.Text, _
+                    txtCardNum.Text, _
+                    Right("00" & lstMonth.SelectedValue.ToString, 2) & Right("00" & lstYear.SelectedValue.ToString, 2), _
+                    txtCardHolder.Text, _
+                    txtCVN.Text, _
+                    RealexPayments.RealAuth.CreditCard.CVN_PRESENT _
+                )
+
+                Dim part() As String = Split(thisSession.cart.Total, ".")
+                If UBound(part) = 0 Then
+                    ReDim Preserve part(1)
+                    part(1) = "00"
+                Else
+                    part(1) = Left(part(1) & "00", 2)
+                End If
+
+                tResp = tReq.Authorize(.Get("transAccount"), _
+                    orderID, _
+                    thisSession.cart.CURRENCY, _
+                    CInt(part(0) & part(1)), _
+                    ccReq _
+                )
+            End With
+
+            If (tResp.ResultCode = 0 Or tResp.ResultCode = 200) Then
+
+                With thisSession
+                    With .cart
+                        With .Payment
+                            .authcode = tResp.ResultAuthCode
+                            .amount = thisSession.cart.Total
+                            .trans = tResp.ResultPASRef
+                        End With
+
+                        Me.MultiView1.ActiveViewIndex = 1
+
+                        Dim Order As System.Guid
+                        Dim RESULT As Exception
+
+                        If .PostGuid.CompareTo(System.Guid.Empty) = 0 Then
+                            Order = .SaveCart()
+                            RESULT = .PostCart(Order)
+                        Else
+                            Order = .PostGuid
+                            RESULT = Nothing
+                        End If
+
+                        If Not IsNothing(RESULT) Then
+                            Me.lbl_Result.Text = RESULT.Message
+                        Else
+                            Me.lbl_Result.Text = "Your order number is: " & Order.ToString
+                        End If
+
+                    End With
+
+                    With .Basket
+                        .Clear()
+                    End With
+
+                End With
+            Else
+                displayMessage = "Transaction failed. " & vbCrLf & "[" & tResp.ResultCode & "] " & vbCrLf & tResp.ResultMessage
+                backgroundColour = Drawing.Color.Red
+            End If
+
+        Catch ex As Exception
+            ' transaction failed
+            Me.MultiView1.ActiveViewIndex = 2
+            displayMessage = ex.Message
+            backgroundColour = Drawing.Color.Yellow
+        End Try
+
+        With Me.txtresult
+            .Text = displayMessage
+            .BackColor = backgroundColour
+        End With
+
+        Me.btn.Enabled = True
+
+    End Sub
+End Class

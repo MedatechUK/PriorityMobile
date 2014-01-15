@@ -1,0 +1,198 @@
+<%@ Master Language="VB" %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body class="product_detail offers">
+    
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+
+            <!-- #include file="sidebar.inc" -->
+
+            
+            <article class="hproduct main" itemscope="" itemtype="http://data-vocabulary.org/Product">
+
+	            <header class="column grid_1-3">
+		            <hgroup>
+			            <h1 itemprop="name" class="column grid_4 product-title fn">
+			                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+			            </h1>
+			              
+			            <h2>Was:  <mark class="price" itemprop="price"><asp:Label ID="unitprice_special" runat="server"></asp:Label></mark> | 
+			            <span class="highlight_text">Now: <span class="price"><asp:Label ID="unitprice" runat="server"></asp:Label></span></span> </h2>
+			                
+			            
+		            </hgroup>
+		            <a itemprop="category" class="category" rel="tag" href="/Window-Locks/Lockable-Handles">Lockable Handles</a>
+	            </header>
+
+	            <figure class="column grid_2-3 slider-wrapper theme-solon-overlay">
+					<div itemprop="image" id="slider" class="product-thumb photo group">
+		                <asp:PlaceHolder id="main_product_images" runat="server"></asp:PlaceHolder>
+					</div>
+	            </figure>
+
+	            <div class="column grid_1-3">
+		               
+                            		
+		            <br />
+                            		
+		            <div class="features"><asp:Literal ID="PARTREMARK" runat="server"></asp:Literal></div>
+		           <!--
+	
+RATINGS (star rating given by users - out of 10)
+EXAMPLE: <meta itemprop="value" content="8.5"><meta itemprop="best" content="10"><meter value="8.5" min="0" max="10">8.5 / 10</meter>
+WITH PLACHOLDER: <meta itemprop="value" content="{rating}"><meta itemprop="best" content="10"><meter value="{rating}" min="0" max="10">{rating} / 10</meter>
+
+REVIEW (star rating given by reviewers - out of 5}
+EXAMPLE: <meta itemprop="rating" content="4.4"><meter value="4.4" min="0" max="5">Based on <span itemprop="count">89</span> reviews.</meter>
+WITH PLACHOLDER: <meta itemprop="rating" content="{review}"><meter value="{review}" min="0" max="5">Based on <span itemprop="count">{reviewcount}</span> reviews.</meter>
+
+-->
+                        
+                        <asp:ListView ID="PartSpec" runat="server" >
+                             <LayoutTemplate>
+                                 
+                                 <table class="identifier details-table"><tbody>
+        			              <asp:PlaceHolder runat="server" ID="itemPlaceholder"/>
+        			              	<!--tr><th scope="row">Rating</th>
+        			              	<td itemprop="rating" class="rating" itemscope="" itemtype="http://data-vocabulary.org/Rating">
+        			              	    [RATINGS]
+        			              	</td></tr>
+			                        <tr><th scope="row">Review</th>
+			                        <td itemprop="review" class="review" itemscope="" itemtype="http://data-vocabulary.org/Review">
+			                            [REVIEW]
+			                         </td></tr-->
+        			              </tbody></table>
+        		                        		             
+                             </LayoutTemplate>
+                         
+                             <ItemTemplate>
+                                <tr>
+                                    <th scope="row"><%#Eval("name")%></th>
+                                    <td class="value" itemprop="model"><%#Eval("value")%></td>
+                                </tr>
+                             </ItemTemplate>
+                        
+                        </asp:ListView>
+                     
+	                </div>
+
+	            <footer class="hlisting column grid_1-3" itemprop="offerdetails" itemscope="" itemtype="http://schema.org/Offer">
+
+            	<label>Quantity
+                <!-- ADD NUMBER OF ITEMS IN STOCK AS max ATTRIBUTE -->
+                            <asp:TextBox ID="basketqty" runat="server" Width="37px" AutoPostBack="True">1</asp:TextBox>&nbsp;<asp:DropDownList 
+                                            ID="basketlist" runat="server" Visible="False"  AutoPostBack="True">
+                                        </asp:DropDownList>
+                                        <asp:DropDownList ID="lstBoxCount" runat="server" AutoPostBack="True">
+                                        </asp:DropDownList>
+                </label>
+			                <dl>
+				                <dt class="listing">Lister</dt><dd class="lister vcard"><a class="fn org url" href="<%#Eval("listerurl")%>"><%#Eval("lister")%></a></dd>
+				                <dt>Currency</dt><dd itemprop="priceCurrency"><asp:Label ID="CURRENCY" runat="server"></asp:Label></dd>
+				                <dt>Price</dt><dd class="money price" itemprop="price"><asp:Label ID="UNITPRICE2" runat="server"></asp:Label></dd>
+				                <dt>Availability</dt><dd itemprop="availability"><%# Eval("instock") %></dd>
+			                </dl>
+                		        
+			                <ul class="group">
+				                <li><asp:LinkButton ID="lAddToBasket" runat="server">Add To Basket</asp:LinkButton></li>
+				                <li><asp:LinkButton ID="lViewPDF" runat="server">View PDF</asp:LinkButton></li>			                
+			                    <li><asp:LinkButton ID="lBuyNow" runat="server">Buy Now</asp:LinkButton></li>
+			                </ul>
+			                <asp:Panel ID="InBasket" runat="server">
+			                    <mark class="show" id="add-to-basket">This product has been added to your <a href="basket.aspx" title="View your shopping basket">shopping basket</a></mark>
+			                </asp:Panel>			                
+                		    <br />
+                		    <div class="links" itemprop="description">
+		                 <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+    		            
+		                </asp:ContentPlaceHolder>
+		            </div> 
+	                </footer>
+<div class="description" itemprop="description">
+		                <asp:ContentPlaceHolder ID="Main" runat="server">
+    		            
+		                </asp:ContentPlaceHolder>
+		            </div>     
+                </article>
+
+                <hr class="column grid_4 gap_2">
+                            
+                <aside class="related_products">
+                <h3 class="column grid_4">Related Products:</h3>
+                
+                <asp:ListView ID="SiblingPart" runat="server" >
+                 <LayoutTemplate>
+                     <section class="products">
+        			  <asp:PlaceHolder runat="server" ID="itemPlaceholder"/>
+        		     </section>
+                 </LayoutTemplate>
+             
+                 <ItemTemplate>
+                  
+                     <article class="column grid_1 hproduct" itemscope="" itemtype="http://schema.org/SomeProducts">
+                     
+                        <a href="<%# Eval("loc") %>" class="url" rel="product" title="<%# Eval("description") %>">
+                            <figure>
+                                <img itemprop="image" class="product-thumb photo" src="<%# Eval("image") %>" alt="<%# Eval("description") %> <%# Eval("keywords") %>">
+                            </figure>
+                            <h4 itemprop="name" class="product-title fn"><%#Eval("partdes")%></h4>
+                        </a>
+
+                        <div class="hidden">
+                            <a class="category" rel="tag" href="<%#Eval("parentloc")%>"><%#Eval("parenttitle")%></a>
+
+                            <dl class="identifier">
+                                <dt>Make</dt><dd class="brand vcard">
+                                <a class="fn org url" href="<%#Eval("manufacturerurl")%>"><%#Eval("manufacturer")%></a></dd>
+                                <dt class="type">model</dt><dd class="value" itemprop="model"><%#Eval("model")%></dd>
+                            </dl>
+
+                            <dl class="identifier"><dt class="type">SKU</dt><dd><%#Eval("sku")%></dd></dl>
+                        </div>
+
+                        <p itemprop="description"><%#Eval("description")%></p>
+
+                        <footer class="hlisting" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="GBP">
+                            <dl>
+                                <dt class="listing"><%#Eval("lister")%>
+                                </dt>
+                                <dd class="lister vcard">
+                                    <a class="fn org url" href="<%#Eval("listerurl")%>"><%#Eval("lister")%></a>
+                                </dd>
+                            </dl>
+                            <p class="money price" itemprop="price"><%#Eval("price")%></p>
+                            <p class="product-buy">
+                                <a href="<%# Eval("loc") %>" title="Buy this online" class="url offerURL" rel="product" itemprop="availability">
+                                    <%# Eval("instock") %>
+                                </a>
+                            </p>
+                        </footer>
+                                 
+                    </article>
+
+                 </ItemTemplate>
+                 
+            </asp:ListView>            
+             </aside>
+            
+            <!-- #include file="footer.inc" -->
+
+        </form>
+        
+    </body>
+</html>

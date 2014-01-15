@@ -1,0 +1,157 @@
+@import url("solon.css");
+/* CREATED BY USING PHP ARRAYS SET FOR EACH SITE */
+/* PHP COLOURS 
+Windows Security Direct       #005C9F      .windows-direct
+Fraud Reduction               #43266A      .fraud-reduction
+Personal Attack Alarms        #A61448      .personal-attack
+The Security Manager          #2C2F77      .security-manager
+Home Security Products        #E48415      .home-security-p
+Door Security Direct          #0E6F31      .door-security
+Home Security Store           #E35210      .home-security-s
+Key Safe Store                #028878      .key-safe
+Crime Prevention Direct       #5E247C      .crime-prevention
+Redline Security              #A61916      .redline-security
+*/
+
+
+/* THIS SITE COLOUR 
+Windows Security Direct       #005C9F      .windows-direct
+*/
+
+body{background-color:#575757;}
+body:before{background-color:#005C9F;}/*header bar bg color*/
+
+.page{background-color:#FFFFFF}
+
+/* HEADER colours */
+.header .icons a:hover{color:#FFFFFF}
+.header .icons a{color:#FFFFFF!important}
+
+
+.content,.footer{background-color:#FFFFFF}
+
+/* MAIN BODY colours */
+
+.highlight_text *,
+.highlight_text{color:#005C9F!important}
+
+.content p{color:#3C3C3B}
+
+.content .featured_image h2,
+.content .category a h2{color:#FFFFFF;background:#005C9F}
+.content .category a{color:#FFFFFF}
+.content .readmore{color: black;}
+
+/*homepage categories*/
+.home .content .category a:hover h2{background-color:#3C3C3B;color:#FFFFFF!important;}
+
+
+/*sidebars*/
+.sidebar h3{background:#3C3C3B;color:#FFFFFF}
+.sidebar ul li a{color:#3C3C3B}
+
+hr{border-top: 1px solid #3C3C3B;}
+
+
+/* LINKS colours */
+.navigation ul li a{color:#FFFFFF}
+.logo a{color:#FFFFFF;}
+.footer .links li a{color:#3C3C3B}
+.footer .links h4{background:#B2B2B1;color:#3C3C3B}
+
+/* HOVER colours */
+a:hover{color:#005C9F!important}
+.conent a{color:#005C9F}
+.navigation a:hover,
+.navigation a:active,
+.navigation li.active a{background-color:#FFFFFF;color:#005C9F!important}
+
+.header .logo h1 a:hover{color:#FFFFFF!important}
+
+
+/* ACTIVE colors */
+.sidebar ul li.active a{color:#005C9F}
+
+
+
+/*products intro colours*/
+.products_intro {}
+.products_intro h3{color:#3C3C3B;}
+.products_intro article {}
+.products_intro article a{background-color:#005C9F;color:#FFFFFF;}
+.products_intro article a:hover{background-color:#3C3C3B;color:#FFFFFF!important;}
+.products_intro article a img{}
+.products_intro article a h4{color:#FFFFFF}
+.products_intro article p{}
+
+
+/*products colours */
+.products article *{border-color:#3C3C3B!important;}
+.products article a h4.product-title{color:#3C3C3B}
+.products article a:hover h4.product-title{color:#005C9F}
+.products article footer p{color:#FFFFFF; background-color:#005C9F}
+.products article footer .product-buy a{color:#FFFFFF}
+.products article footer .product-buy a:hover{color:#FFFFFF!important;background-color:#3C3C3B}
+
+
+/*product details colors*/
+.product_detail .hproduct *{color:#3C3C3B}
+.product_detail .hproduct h1{color:#FFFFFF}
+.product_detail .hproduct details dl{}
+.product_detail .hproduct details dl dt,
+.product_detail .hproduct details dl dd{background-color:#B2B2B1}
+.product_detail .hproduct details dl &gt; *:nth-of-type(2n){background-color:#DADAD9}
+.product_detail .hproduct details dl dd meter::-webkit-meter-optimum-value {background:#005C9F;}
+.product_detail .hproduct footer form button{background:transparent;color:#FFFFFF}
+.product_detail .hproduct footer ul li {background-color:#005C9F;color:#FFFFFF;}
+.product_detail .hproduct footer ul li a{color:#FFFFFF;}
+.product_detail .hproduct footer form button:hover,
+.product_detail .hproduct footer ul li a:hover,
+.product_detail .hproduct footer ul li input:hover{color:#FFFFFF!important;background-color:#3C3C3B}
+
+/* related products colours */
+.product_detail .related_products article *{border-color:#3C3C3B!important;}
+.product_detail .related_products article a h4.product-title{color:#3C3C3B}
+.product_detail .related_products article a:hover h4.product-title{color:#005C9F}
+.product_detail .related_products article footer p{color:#FFFFFF; background-color:#005C9F}
+.product_detail .related_products article footer .product-buy a{color:#FFFFFF}
+.product_detail .related_products article footer .product-buy a:hover{color:#FFFFFF!important;background-color:#3C3C3B}
+
+/*special offers detail page*/
+body.product_detail.offers .hproduct.main figure:before{background-image:url(../images/overlays/windowsecurity-specialoffer-lrg.png);}
+/*special offers list page*/
+body.offers .products article a.url.with-overlay::before {background-image:url(../images/overlays/windowsecurity-specialoffer-sml.png);}
+
+
+
+
+
+/*search results*/
+
+.results a:hover h3{color:#005C9F}
+
+/* cart page colours */
+.basket-summery table tr.basket-header th{color:#FFFFFF;background-color:#3C3C3B}
+.basket-summery table tr.basket-footer td{background-color:#DADAD9}
+.basket-summery .buy-buttons a{background-color:#005c9f;color:white}
+
+
+/* FORMS colours */
+.header .search input{border:1px solid #005CA5;}
+button{background-color:#005C9F;color:#FFFFFF}
+
+input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,input[type=number]:focus,input[type=tel]:focus, textarea:focus {
+  -webkit-box-shadow: 0 0 5px #005C9F;
+  -moz-box-shadow: 0 0 5px #005C9F;
+  box-shadow: 0 0 5px #005C9F;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid #005C9F;
+}
+
+/*FIXED HEADER OPTION
+.header,body:before{position:fixed}
+body:before{-webkit-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);	-moz-box-shadow: 0 8px 6px -6px rgba(0,0,0,.3); box-shadow: 0 8px 6px -6px rgba(0,0,0,.3);}
+zooming issue on touch device.
+might want to make another header bar that is shorter*/
+

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pages>
+  <page menutitle="Community" loc="" pagetitle="" description="">
+    <page menutitle="facebook" loc="http://www.facebook.com" pagetitle="Facebook" description="" class="facebook"/>
+    <page menutitle="twitter" loc="http://www.twitter.com" pagetitle="Twitter" description="" class="twitter"/>
+    <page menutitle="linkedin" loc="http://www.linkedin.com" pagetitle="Linked In" description="" class="linkedin"/>
+  </page>
+  <page menutitle="Anonymous" loc="" pagetitle="" description="">
+    <page menutitle="Log In" loc="~/login.aspx" pagetitle="Log In" description="" />
+    <page menutitle="Sign Up" loc="~/register.aspx" pagetitle="Sign Up" description="" />
+    <page menutitle="Forgot Password" loc="~/lostpassword.aspx" pagetitle="Forgot Password" description="" />
+  </page>
+  <page menutitle="LoggedIn" loc="" pagetitle="" description="">
+    <page menutitle="Profile" loc="~/profile.aspx" pagetitle="Profile" description="" />
+    <page menutitle="Change Password" loc="~/chpass.aspx" pagetitle="Change Password" description="" />
+    <page menutitle="Log out" loc="~/logoff.aspx" pagetitle="Log out" description="" />
+  </page>
+  <page menutitle="webmaster" loc="" pagetitle="" description="">    
+    <page menutitle="Refresh Feed Data" loc="~/cmsData.aspx" pagetitle="Refresh Feed Data" description="" />
+    <page menutitle="Refresh Feed Images" loc="~/cmsImg.aspx" pagetitle="Refresh Feed Images" description="" />
+    <page menutitle="Profile" loc="~/profile.aspx" pagetitle="Profile" description="" />
+    <page menutitle="Change Password" loc="~/chpass.aspx" pagetitle="Change Password" description="" />
+    <page menutitle="Log out" loc="~/logoff.aspx" pagetitle="Log out" description="" />
+  </page>
+  <page menutitle="Subsites" loc="" pagetitle="" description="">
+    <page menutitle="Windows Security Direct" loc="#" pagetitle="Go to Windows Security Direct »" description="" image="images/other-sites-174x120.jpg" cssClass="windows-direct" />
+    <page menutitle="Fraud Reduction" loc="#" pagetitle="Go to Fraud Reduction »" description="" image="images/other-sites-174x120.jpg" cssClass="fraud-reduction" />
+    <page menutitle="Personal Attack Alarms" loc="#" pagetitle="Go to Personal Attack Alarms »" description="" image="images/other-sites-174x120.jpg" cssClass="personal-attack" />
+    <page menutitle="The Security Manager" loc="#" pagetitle="Go to The Security Manager »" description="" image="images/other-sites-174x120.jpg" cssClass="security-manager" />
+    <page menutitle="Home Security Products" loc="#" pagetitle="Go to Home Security Products »" description="" image="images/other-sites-174x120.jpg" cssClass="home-security-p" />
+    <page menutitle="Door Security Direct" loc="#" pagetitle="Go to Door Security Direct »" description="" image="images/other-sites-174x120.jpg" cssClass="door-security" />
+    <page menutitle="Home Security Store" loc="#" pagetitle="Go to Home Security Store »" description="" image="images/other-sites-174x120.jpg" cssClass="home-security-s" />
+    <page menutitle="Key Safe Store" loc="#" pagetitle="Go to Key Safe Store »" description="" image="images/other-sites-174x120.jpg" cssClass="key-safe" />
+    <page menutitle="Crime Prevention Direct" loc="#" pagetitle="Go to Crime Prevention Direct »" description="" image="images/other-sites-174x120.jpg" cssClass="crime-prevention" />
+    <page menutitle="Redline Security" loc="#" pagetitle="Go to Redline Security »" description="" image="images/other-sites-174x120.jpg" cssClass="redline-security" />
+  </page>
+</pages>

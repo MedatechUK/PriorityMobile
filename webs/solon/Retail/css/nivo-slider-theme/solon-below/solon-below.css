@@ -1,0 +1,152 @@
+/* Skin Name: Nivo Slider - Solon - Thumnails Below
+Skin URI: <a href="http://matrix10.net">matrix10.net</a>
+Description: The thumnail skin for the Solon Security websites. Thumbs below.
+Version: 1.0
+Author: Emrys, Matrix10
+Author URI: <a href="http://matrix10.net">http://matrix10.net</a>
+Support Thumbs: true */
+
+
+.theme-solon-below.slider-wrapper {
+	width:465px;
+	height:560px;
+	position:relative;
+	overflow:visible;
+}
+
+#slider {overflow: visible}
+#slider.nivoSlider {overflow: visible}
+
+.theme-solon-below .nivoSlider {
+	position:relative;
+	background:url(loader.gif) no-repeat 50% 50%;
+}
+.theme-solon-below .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-solon-below .nivoSlider a {
+	border:0;
+	display:block;
+}
+
+
+
+
+
+.theme-solon-below .nivo-controlNav {
+    position: absolute;
+    left: 0;
+    bottom:0;
+    z-index: 10;
+	height:50px;
+	width:463px;
+	text-align: left;
+	text-indent:30px;
+	padding: 5px 0;
+	border-top: 0px solid #B2B2B1;
+	background: #3C3C3B;
+}
+
+.theme-solon-below:hover .nivo-controlNav {
+    bottom:0px;
+}
+.theme-solon-below .nivo-controlNav a {
+	display:inline-block;
+	width:22px;
+	height:22px;
+	background:url(bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 5px 2px 0 2px;
+}
+.theme-solon-below .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.theme-solon-below .nivo-directionNav a {
+	display:block;
+	border:0;
+	color: #fff;
+	text-transform: uppercase;
+	z-index: 11;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+	text-indent:-999px;
+	background-image:url(arrows.png);
+	background-repeat:no-repeat;
+	width:17px;
+	height:45px;
+	top:auto;
+	bottom:-45px;
+}
+
+.theme-solon-below a.nivo-nextNav,
+.theme-solon-below a.nivo-prevNav {
+	opacity:0.8;
+}
+.theme-solon-below a.nivo-nextNav:hover,
+.theme-solon-below a.nivo-prevNav:hover {
+	opacity:1;
+}
+
+.theme-solon-below a.nivo-nextNav { 
+    right: 7px; 
+	background-position:100% 50%;
+}
+.theme-solon-below a.nivo-prevNav { 
+    left: 7px; 
+	background-position:0 50%;
+}
+
+.theme-solon-below .nivo-directionNav a:hover { color: #ddd; }
+
+.theme-solon-below .nivo-caption {
+    font-size:.825em;
+	bottom:10px;
+    -webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+	color:white;
+	background-color:#3C3C3B;
+}
+.theme-solon-below:hover .nivo-caption {
+
+}
+.theme-solon-below .nivo-caption a {
+    color:#fff;
+    border-bottom:0px dotted #fff;
+}
+.theme-solon-below .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-solon-below .nivo-controlNav.nivo-thumbs-enabled {
+	width: 465px;
+	bottom: -62px;
+	border: 1px solid rgb(178, 178, 177);
+	border-top: 0px solid;
+	background: white;
+	left:-1px;
+}
+.theme-solon-below .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin: 2px;
+}
+.theme-solon-below .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: auto;
+	height: 44px;
+	border:1px solid #B2B2B1!important;
+}
+.theme-solon-below .nivo-controlNav.nivo-thumbs-enabled a.active img{
+	border:1px solid #3C3C3B!important;
+}
+}

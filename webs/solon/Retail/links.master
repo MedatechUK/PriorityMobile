@@ -1,0 +1,61 @@
+<%@ Master Language="VB"  %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body class="useful-links">
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+
+            <h1 class="column grid_4">
+                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+            </h1>
+
+            <!-- #include file="sidebar.inc" -->
+             
+            <section class="other-sites">
+                <div class="column grid_4">
+                    <asp:ContentPlaceHolder ID="Main" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            
+            <asp:ListView ID="SubSiteList" runat="server" DataSourceID="SubSiteListSource">
+                <LayoutTemplate><asp:PlaceHolder runat="server" ID="itemPlaceholder" /></LayoutTemplate>
+
+                <ItemTemplate>
+                    <a class="column grid_1 site" href="<%# Eval("loc") %>" title="<%# Eval("pagetitle") %>">
+                        <img src="<%# Eval("image") %>" alt="<%# Eval("pagetitle") %>">
+                        <h3 class="<%# Eval("cssClass") %>"><%#Eval("menutitle")%></h3>
+                    </a>
+                </ItemTemplate>
+
+            </asp:ListView>
+            
+            <asp:XmlDataSource 
+                ID="SubSiteListSource" 
+                runat="server" 
+                DataFile="~/links.xml" 
+                XPath="/pages/page[@menutitle='Subsites']/page">
+            </asp:XmlDataSource> 
+            
+            
+               
+            </section>
+
+
+            <!-- #include file="footer.inc" -->
+
+        </form>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "W:", ".", "{A9CE2324-67BD-4CEF-9B90-142A7C2AD2F9}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/W:"
+		Debug.AspNetCompiler.PhysicalPath = "W:\"
+		Debug.AspNetCompiler.TargetPath = "D:\Users\matrix10\Documents\Visual Studio 2008\Projects\W\PrecompiledWeb\W:\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/W:"
+		Release.AspNetCompiler.PhysicalPath = "W:\"
+		Release.AspNetCompiler.TargetPath = "D:\Users\matrix10\Documents\Visual Studio 2008\Projects\W\PrecompiledWeb\W:\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "62573"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9CE2324-67BD-4CEF-9B90-142A7C2AD2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9CE2324-67BD-4CEF-9B90-142A7C2AD2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

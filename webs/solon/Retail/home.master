@@ -1,0 +1,103 @@
+<%@ Master Language="VB" %><!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+    
+    <body class="home">
+
+        <form id="form1" runat="server">      
+        
+        <!-- #include file="page-header.inc" -->
+
+            <div class="column grid_4 featured_image">
+                <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+                </asp:ContentPlaceHolder>
+			</div>
+            
+            <!-- EOF featured_image -->				
+				
+            <!-- #include file="sidebar.inc" -->			
+
+            <!-- CATEGORY LINKS -->
+            <asp:ListView ID="ChildPage" runat="server" parentNode="ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e">
+                 <LayoutTemplate>
+                     <aside class="category_link group">
+			            <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
+                     </aside>  
+                 </LayoutTemplate>
+             
+                 <ItemTemplate>
+                 
+					<div class="column grid_1 category">
+						<a href="<%# Eval("loc") %>" title="<%# Eval("description") %>&hellip;">
+							<img class="category-image" src="<%# Eval("image") %>" alt="<%# Eval("description") %> <%# Eval("keywords") %>">
+							<h2><%#Eval("pagetitle")%></h2>
+						</a>
+					</div>
+	
+                 </ItemTemplate>
+                 
+            </asp:ListView>
+	        <!--aside class="category_link group">
+		
+		
+                <asp:Menu ID="Menu1" runat="server" DataSourceID="Cat">
+     
+                    <DataBindings>
+                        <asp:MenuItemBinding DataMember="cat" TextField="name" NavigateUrlField="id" />
+                    </DataBindings>
+                    
+                    <DynamicItemTemplate>
+                    
+                    <div class="column grid_1 category">
+                        <a href="<%# Eval("loc") %>" title="<%# Eval("pagetitle") %>">
+				        <img class="category-image" src="<%# Eval("img") %>" alt="<%# Eval("pagetitle") %>">
+				        <h2><%#Eval("pagetitle")%></h2></a>
+				    </div>
+    				
+                    </DynamicItemTemplate>
+                </asp:Menu>
+            
+                <asp:XmlDataSource ID="Cat" runat="server" DataFile="~/cat.xml" XPath="/*[position()=1]/cat[@name='Categories']/cat">
+                </asp:XmlDataSource>
+    			
+	        </aside-->
+		
+	        <!--eof category_links-->
+
+			<hr class="column grid_4" />
+
+
+            <!-- FEATURED TEXT -->
+
+            <section class="group featured_text">
+	            <article class="column grid_2">
+		            <asp:PlaceHolder id="LEFT_BODY_PLACEHOLDER" runat="server">
+        			
+        					
+		            </asp:PlaceHolder>
+	            </article>
+	            <article class="column grid_2">
+		            <asp:PlaceHolder id="RIGHT_BODY_PLACEHOLDER" runat="server">
+
+		            </asp:PlaceHolder>
+	            </article>
+            </section>
+
+            <!-- EOF Featured Text -->
+
+            <!-- #include file="footer.inc" -->
+
+        </form>
+    </body>
+</html>

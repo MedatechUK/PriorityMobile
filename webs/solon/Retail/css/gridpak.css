@@ -1,0 +1,97 @@
+/*!
+ * Gridpak Beta CSS
+ *
+ * Generator - http://gridpak.com/
+ * Created by @erskinedesign
+ */
+ 
+ 
+
+/* Reusable column setup */
+.col {
+    border:0px solid rgba(0,0,0,0);
+    float:left;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    box-sizing:border-box;
+    -moz-background-clip:padding-box !important;
+    -webkit-background-clip:padding-box !important;
+    background-clip:padding-box !important;
+}
+
+
+
+/* 1. 10 Column Grid 
+----------------------------------------------------------------------------- 
+
+Span 1:    10%
+Span 2:    20%
+Span 3:    30%
+Span 4:    40%
+Span 5:    50%
+Span 6:    60%
+Span 7:    70%
+Span 8:    80%
+Span 9:    90%
+Span 10:    100%
+
+----------------------------------------------------------------------------- */
+
+
+
+.row {
+    margin-left:-20px;
+}
+.col {
+    border-left-width:20px;
+	padding:0 0px;
+}
+
+
+/*
+Add your semantic classnames in alongside their corresponding spans here. e.g.
+
+.span_3,
+.my_semantic_class_name {
+    ...
+}
+*/
+
+.span_1 {
+    width:10%;
+}
+.span_2 {
+    width:20%;
+}
+.span_3 {
+    width:30%;
+}
+.span_4 {
+    width:40%;
+}
+.span_5 {
+    width:50%;
+}
+.span_6 {
+    width:60%;
+}
+.span_7 {
+    width:70%;
+}
+.span_8 {
+    width:80%;
+}
+.span_9 {
+    width:90%;
+}
+.span_10 {
+    margin-left:0;
+    width:100%;
+}
+
+.group{clear:both}
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}

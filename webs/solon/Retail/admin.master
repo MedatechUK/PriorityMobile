@@ -1,0 +1,57 @@
+﻿<%@ Master Language="VB"  %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body>
+        <form id="form1" runat="server">        
+        
+            <DIV class="adminbar">
+                <table>
+                    <tr>
+                        <td width="100%">
+                            <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/ckeditor/btn/btnEditMenu.png" PostBackUrl="~/cat.aspx" />
+                            <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/ckeditor/btn/btnEditRes.png" PostBackUrl="~/files.aspx" />
+                            <asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/ckeditor/btn/btnhome.png" PostBackUrl="~/default.aspx" />
+                        </td>
+                        <td NOWRAP>
+                            <asp:HyperLink ID="ChPass1" runat="server" ImageUrl="~/ckeditor/btn/btnConfig.png" NavigateUrl="~/config.aspx">Web Config</asp:HyperLink>
+                            <asp:HyperLink ID="btnMember" runat="server" ImageUrl="~/ckeditor/btn/btnMembership.png" NavigateUrl="~/members.aspx">Members</asp:HyperLink>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- #include file="page-header.inc" -->
+
+            <!-- #include file="~/sidebar.inc" -->
+            
+            <section class="column grid_5-6">
+
+            <hr />
+
+            </section>
+                        
+            <section class="column grid_5-6">
+               <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+               </asp:ContentPlaceHolder>
+
+            
+            </section>            
+            
+            <!-- #include file="~/footer.inc" -->
+
+        </form>
+    </body>
+</html>

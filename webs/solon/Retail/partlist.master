@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body>
+    
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+
+            <h1 class="column grid_4">
+                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+            </h1>
+
+            <!-- #include file="sidebar.inc" -->
+                        
+            <section class="column grid_5-6">
+               <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+               </asp:ContentPlaceHolder>
+            </section>
+            
+            
+
+                <asp:ListView ID="ChildPart" runat="server" >
+                 <LayoutTemplate>
+                     <section class="products">
+        			  <asp:PlaceHolder runat="server" ID="itemPlaceholder"/>
+        		     </section>
+                 </LayoutTemplate>
+             
+                 <ItemTemplate>
+                  
+                     <article class="column grid_1 hproduct" itemscope="" itemtype="http://schema.org/SomeProducts">
+                     
+                        <a href="<%# Eval("loc") %>" class="url" rel="product" title="<%# Eval("description") %>">
+                            <figure>
+                                <img itemprop="image" class="product-thumb photo" src="<%# Eval("image") %>" alt="<%# Eval("description") %> <%# Eval("keywords") %>">
+                            </figure>
+                            <h4 itemprop="name" class="product-title fn"><%#Eval("pagetitle")%></h4>
+                        </a>
+
+                        <div class="hidden">
+                            <a class="category" rel="tag" href="<%#Eval("parentloc")%>"><%#Eval("parenttitle")%></a>
+
+                            <dl class="identifier">
+                                <dt>Make</dt><dd class="brand vcard">
+                                <a class="fn org url" href="<%#Eval("manufacturerurl")%>"><%#Eval("manufacturer")%></a></dd>
+                                <dt class="type">model</dt><dd class="value" itemprop="model"><%#Eval("model")%></dd>
+                            </dl>
+
+                            <dl class="identifier"><dt class="type">SKU</dt><dd><%#Eval("sku")%></dd></dl>
+                        </div>
+
+                        <p itemprop="description"><%#Eval("description")%></p>
+
+                        <footer class="hlisting" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+                            <meta itemprop="priceCurrency" content="GBP">
+                            <dl>
+                                <dt class="listing"><%#Eval("lister")%></dt>
+                                <dd class="lister vcard">
+                                    <a class="fn org url" href="<%#Eval("listerurl")%>"><%#Eval("lister")%></a>
+                                </dd>
+                            </dl>
+                            <p class="money price" itemprop="price"><%#Eval("price")%></p>
+                            <p class="product-buy">
+                                <a href="<%# Eval("loc") %>" title="Buy this online" class="url offerURL" rel="product" itemprop="availability">
+                                    <%# Eval("instock") %>
+                                </a>
+                            </p>
+                        </footer>
+                                 
+                    </article>
+
+                 </ItemTemplate>
+                 
+            </asp:ListView>
+        
+            
+            
+            <!-- #include file="footer.inc" -->
+
+        </form>
+        
+    </body>
+    
+</html>

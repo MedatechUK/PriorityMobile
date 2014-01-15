@@ -1,0 +1,44 @@
+<%@ Master Language="VB"  %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body class="login">
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+
+            <h1 class="column grid_4">
+                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+            </h1>
+
+            <!-- #include file="sidebar.inc" -->
+
+            <section class="column grid_5-6">
+               <div class="form_intro"><asp:PlaceHolder ID="toptext" runat="server">
+                
+               </asp:PlaceHolder></div>
+               
+               <hr />
+
+               <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+               </asp:ContentPlaceHolder>
+            
+            </section>            
+            
+            <!-- #include file="footer.inc" -->
+
+        </form>
+    </body>
+</html>

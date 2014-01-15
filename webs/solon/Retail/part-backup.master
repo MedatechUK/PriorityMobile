@@ -1,0 +1,92 @@
+<%@ Master Language="VB" %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body>
+    
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+            <h1 class="column grid_4">
+                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+            </h1>
+
+            <!-- #include file="sidebar.inc" -->
+
+            
+                
+                <table cellspacing="10" style="width: 571px">
+                    <tr>
+                        <td style="vertical-align: top; width: 100px; text-align: center">
+                            <asp:Image ID="PriImage" runat="server" Width="300px" />
+                        </td>
+                        <td style="vertical-align: bottom; width: 250px; text-align: left">
+                            <asp:Label ID="PARTNAME" runat="server"></asp:Label>
+                            <br />
+                            <asp:Label ID="PARTDES" runat="server"></asp:Label>
+                            <br />
+                            Price: <asp:Label ID="UNITPRICE" runat="server"></asp:Label>
+                            <asp:Label ID="CURRENCY" runat="server"></asp:Label>
+                            <br />
+                            <asp:Label ID="AVAILABLE" runat="server"></asp:Label>
+                            <br />
+                            <br />
+                            Qty:
+                            <asp:TextBox ID="basketqty" runat="server" Width="37px" AutoPostBack="True">1</asp:TextBox>                            
+                            <asp:DropDownList ID="basketlist" runat="server" Visible="False" AutoPostBack="True"/>
+                            <asp:DropDownList ID="lstBoxCount" runat="server" AutoPostBack="True"/>
+                            <br />
+                            <asp:Button ID="addtobasket" runat="server" Text="Add to Basket" />
+                        </td>
+                    </tr>
+                                        
+                </table>       
+            
+            <BR/>
+            
+            <h1 class="column grid_4">
+                Part Remarks
+            </h1>           
+            <p>             
+                <asp:Literal ID="PARTREMARK" runat="server"></asp:Literal>
+            </p>
+
+            <h1 class="column grid_4">
+                Part Additional details
+            </h1>
+            
+            <p>
+                <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+                </asp:ContentPlaceHolder>
+            </p>
+            <h1 class="column grid_4">
+                Part Specs
+            </h1>            
+            
+            <p>
+                <asp:Table ID="tbl_spec" runat="server" Width="100%">
+                
+                </asp:Table>
+            </p>
+            
+            <br />
+            
+            
+            <!-- #include file="footer.inc" -->
+
+        </form>
+        
+    </body>
+</html>

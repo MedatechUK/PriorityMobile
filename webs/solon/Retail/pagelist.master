@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+        
+    </head>
+
+    <body class="pagelist">
+    
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+
+            <h1 class="column grid_4">
+                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+            </h1>
+
+            <!-- #include file="sidebar.inc" -->
+                        
+            <section class="column grid_5-6">
+               <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+               </asp:ContentPlaceHolder>
+                
+            </section>
+            
+          
+                <asp:ListView ID="ChildPage" runat="server" >
+                 <LayoutTemplate>
+                     <aside class="category_link">
+			            <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
+                     </aside>  
+                 </LayoutTemplate>
+             
+                 <ItemTemplate>
+                 
+					<div class="column grid_1 category">
+						<a href="<%# Eval("loc") %>" title="<%# Eval("description") %>&hellip;">
+							<img class="category-image" src="<%# Eval("image") %>" alt="<%# Eval("description") %> <%# Eval("keywords") %>">
+							<h2><%#Eval("pagetitle")%></h2>
+						</a>
+					</div>
+	
+                 </ItemTemplate>
+                 
+            </asp:ListView>
+        
+            
+            
+            <!-- #include file="footer.inc" -->
+
+        </form>
+        
+    </body>
+    
+</html>
