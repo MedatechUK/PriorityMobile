@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <pages>
   <page menutitle="Community" loc="" pagetitle="" description="">
-    <page menutitle="facebook" loc="http://www.facebook.com" pagetitle="Facebook" description="" class="facebook"/>
-    <page menutitle="twitter" loc="http://www.twitter.com" pagetitle="Twitter" description="" class="twitter"/>
+    <page menutitle="facebook" loc="https://www.facebook.com/windowsecuritydirect" pagetitle="Facebook" description="" class="facebook"/>
+    <page menutitle="twitter" loc="https://twitter.com/WindowSecurityD" pagetitle="Twitter" description="" class="twitter"/>
     <page menutitle="linkedin" loc="http://www.linkedin.com" pagetitle="Linked In" description="" class="linkedin"/>
   </page>
   <page menutitle="Anonymous" loc="" pagetitle="" description="">
@@ -23,15 +23,17 @@
     <page menutitle="Log out" loc="~/logoff.aspx" pagetitle="Log out" description="" />
   </page>
   <page menutitle="Subsites" loc="" pagetitle="" description="">
-    <page menutitle="Windows Security Direct" loc="#" pagetitle="Go to Windows Security Direct »" description="" image="images/other-sites-174x120.jpg" cssClass="windows-direct" />
-    <page menutitle="Fraud Reduction" loc="#" pagetitle="Go to Fraud Reduction »" description="" image="images/other-sites-174x120.jpg" cssClass="fraud-reduction" />
-    <page menutitle="Personal Attack Alarms" loc="#" pagetitle="Go to Personal Attack Alarms »" description="" image="images/other-sites-174x120.jpg" cssClass="personal-attack" />
-    <page menutitle="The Security Manager" loc="#" pagetitle="Go to The Security Manager »" description="" image="images/other-sites-174x120.jpg" cssClass="security-manager" />
-    <page menutitle="Home Security Products" loc="#" pagetitle="Go to Home Security Products »" description="" image="images/other-sites-174x120.jpg" cssClass="home-security-p" />
-    <page menutitle="Door Security Direct" loc="#" pagetitle="Go to Door Security Direct »" description="" image="images/other-sites-174x120.jpg" cssClass="door-security" />
+    <page menutitle="Home Security Store" loc="http://www.home-security-store.co.uk" pagetitle="Home Security Store »" description="Home Security Store" image="my_documents/images/links/HomeSecurityStore2.jpg" cssClass="windows-direct" />
+    <page menutitle="Redline Security" loc="http://soloncopy.test/" pagetitle="Go to Redline Security »" description="Redline Security" image="my_documents/images/links/Redline.jpg" cssClass="fraud-reduction" />
+    <page menutitle="Personal Attack Alarms" loc="http://personal-attack-alarms.net/" pagetitle="Go to Personal Attack Alarms »" description="Personal Attack Alarms" image="my_documents/images/links/PAA.jpg" cssClass="personal-attack" />
+    <page menutitle="Met Police Burglary Advice" loc="http://content.met.police.uk/Site/crimepreventionbumblebee" pagetitle="Go to Met Police Burglary Advice »" description="Met Police Burglary Advice" image="my_documents/images/links/MetPolice.jpg" cssClass="security-manager" />
+    <page menutitle="Age UK Burglary Prevention" loc="http://www.ageuk.org.uk/home-and-care/home-safety-and-security/crime-prevention/burglary-prevention/" pagetitle="Go to Age UK Burglary Prevention »" description="Age UK Burglary Prevention" image="my_documents/images/links/AgeUK.jpg" cssClass="home-security-p" />
+    <page menutitle="Thames Valley Summertime Burglary" loc="http://www.thamesvalley.police.uk/crprev/crprev-home.htm" pagetitle="Go to Thames Valley Summertime Burglary »" description="Thames Valley Summertime Burglary" image="my_documents/images/links/ThamesValley.jpg" cssClass="door-security" />    
+  </page>
+  <page>
     <page menutitle="Home Security Store" loc="#" pagetitle="Go to Home Security Store »" description="" image="images/other-sites-174x120.jpg" cssClass="home-security-s" />
     <page menutitle="Key Safe Store" loc="#" pagetitle="Go to Key Safe Store »" description="" image="images/other-sites-174x120.jpg" cssClass="key-safe" />
     <page menutitle="Crime Prevention Direct" loc="#" pagetitle="Go to Crime Prevention Direct »" description="" image="images/other-sites-174x120.jpg" cssClass="crime-prevention" />
-    <page menutitle="Redline Security" loc="#" pagetitle="Go to Redline Security »" description="" image="images/other-sites-174x120.jpg" cssClass="redline-security" />
+    <page menutitle="Redline Security" loc="#" pagetitle="Go to Redline Security »" description="" image="images/other-sites-174x120.jpg" cssClass="redline-security" />   
   </page>
-</pages>
+ </pages>

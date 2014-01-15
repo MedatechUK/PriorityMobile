@@ -1,25 +1,25 @@
 @import url("solon.css");
 /* CREATED BY USING PHP ARRAYS SET FOR EACH SITE */
 /* PHP COLOURS 
-Windows Security Direct       #005C9F      .windows-direct
-Fraud Reduction               #43266A      .fraud-reduction
+Windows Security Direct       #A61916     .windows-direct
+Fraud Reduction               #A61916      .fraud-reduction
 Personal Attack Alarms        #A61448      .personal-attack
 The Security Manager          #2C2F77      .security-manager
 Home Security Products        #E48415      .home-security-p
-Door Security Direct          #0E6F31      .door-security
+Door Security Direct          #A61916     .door-security
 Home Security Store           #E35210      .home-security-s
-Key Safe Store                #028878      .key-safe
+Key Safe Store                #A61916     .key-safe
 Crime Prevention Direct       #5E247C      .crime-prevention
 Redline Security              #A61916      .redline-security
 */
 
 
 /* THIS SITE COLOUR 
-Windows Security Direct       #005C9F      .windows-direct
+Windows Security Direct       #A61916     .windows-direct
 */
 
 body{background-color:#575757;}
-body:before{background-color:#005C9F;}/*header bar bg color*/
+body:before{background-color:#A61916;}/*header bar bg color*/
 
 .page{background-color:#FFFFFF}
 
@@ -33,12 +33,12 @@ body:before{background-color:#005C9F;}/*header bar bg color*/
 /* MAIN BODY colours */
 
 .highlight_text *,
-.highlight_text{color:#005C9F!important}
+.highlight_text{color:#A61916!important}
 
 .content p{color:#3C3C3B}
 
 .content .featured_image h2,
-.content .category a h2{color:#FFFFFF;background:#005C9F}
+.content .category a h2{color:#FFFFFF;background:#A61916}
 .content .category a{color:#FFFFFF}
 .content .readmore{color: black;}
 
@@ -60,17 +60,17 @@ hr{border-top: 1px solid #3C3C3B;}
 .footer .links h4{background:#B2B2B1;color:#3C3C3B}
 
 /* HOVER colours */
-a:hover{color:#005C9F!important}
-.conent a{color:#005C9F}
+a:hover{color:#A61916!important}
+.conent a{color:#A61916}
 .navigation a:hover,
 .navigation a:active,
-.navigation li.active a{background-color:#FFFFFF;color:#005C9F!important}
+.navigation li.active a{background-color:#FFFFFF;color:#A61916!important}
 
 .header .logo h1 a:hover{color:#FFFFFF!important}
 
 
 /* ACTIVE colors */
-.sidebar ul li.active a{color:#005C9F}
+.sidebar ul li.active a{color:#A61916}
 
 
 
@@ -78,7 +78,7 @@ a:hover{color:#005C9F!important}
 .products_intro {}
 .products_intro h3{color:#3C3C3B;}
 .products_intro article {}
-.products_intro article a{background-color:#005C9F;color:#FFFFFF;}
+.products_intro article a{background-color:#A61916;color:#FFFFFF;}
 .products_intro article a:hover{background-color:#3C3C3B;color:#FFFFFF!important;}
 .products_intro article a img{}
 .products_intro article a h4{color:#FFFFFF}
@@ -88,8 +88,8 @@ a:hover{color:#005C9F!important}
 /*products colours */
 .products article *{border-color:#3C3C3B!important;}
 .products article a h4.product-title{color:#3C3C3B}
-.products article a:hover h4.product-title{color:#005C9F}
-.products article footer p{color:#FFFFFF; background-color:#005C9F}
+.products article a:hover h4.product-title{color:#A61916}
+.products article footer p{color:#FFFFFF; background-color:#A61916}
 .products article footer .product-buy a{color:#FFFFFF}
 .products article footer .product-buy a:hover{color:#FFFFFF!important;background-color:#3C3C3B}
 
@@ -101,9 +101,9 @@ a:hover{color:#005C9F!important}
 .product_detail .hproduct details dl dt,
 .product_detail .hproduct details dl dd{background-color:#B2B2B1}
 .product_detail .hproduct details dl &gt; *:nth-of-type(2n){background-color:#DADAD9}
-.product_detail .hproduct details dl dd meter::-webkit-meter-optimum-value {background:#005C9F;}
+.product_detail .hproduct details dl dd meter::-webkit-meter-optimum-value {background:#A61916;}
 .product_detail .hproduct footer form button{background:transparent;color:#FFFFFF}
-.product_detail .hproduct footer ul li {background-color:#005C9F;color:#FFFFFF;}
+.product_detail .hproduct footer ul li {background-color:#A61916;color:#FFFFFF;}
 .product_detail .hproduct footer ul li a{color:#FFFFFF;}
 .product_detail .hproduct footer form button:hover,
 .product_detail .hproduct footer ul li a:hover,
@@ -112,8 +112,8 @@ a:hover{color:#005C9F!important}
 /* related products colours */
 .product_detail .related_products article *{border-color:#3C3C3B!important;}
 .product_detail .related_products article a h4.product-title{color:#3C3C3B}
-.product_detail .related_products article a:hover h4.product-title{color:#005C9F}
-.product_detail .related_products article footer p{color:#FFFFFF; background-color:#005C9F}
+.product_detail .related_products article a:hover h4.product-title{color:#A61916}
+.product_detail .related_products article footer p{color:#FFFFFF; background-color:#A61916}
 .product_detail .related_products article footer .product-buy a{color:#FFFFFF}
 .product_detail .related_products article footer .product-buy a:hover{color:#FFFFFF!important;background-color:#3C3C3B}
 
@@ -128,25 +128,25 @@ body.offers .products article a.url.with-overlay::before {background-image:url(.
 
 /*search results*/
 
-.results a:hover h3{color:#005C9F}
+.results a:hover h3{color:#A61916}
 
 /* cart page colours */
 .basket-summery table tr.basket-header th{color:#FFFFFF;background-color:#3C3C3B}
 .basket-summery table tr.basket-footer td{background-color:#DADAD9}
-.basket-summery .buy-buttons a{background-color:#005c9f;color:white}
+.basket-summery .buy-buttons a{background-color:#A61916;color:white}
 
 
 /* FORMS colours */
 .header .search input{border:1px solid #005CA5;}
-button{background-color:#005C9F;color:#FFFFFF}
+button{background-color:#A61916;color:#FFFFFF}
 
 input[type=text]:focus,input[type=password]:focus,input[type=email]:focus,input[type=number]:focus,input[type=tel]:focus, textarea:focus {
-  -webkit-box-shadow: 0 0 5px #005C9F;
-  -moz-box-shadow: 0 0 5px #005C9F;
-  box-shadow: 0 0 5px #005C9F;
+  -webkit-box-shadow: 0 0 5px #A61916;
+  -moz-box-shadow: 0 0 5px #A61916;
+  box-shadow: 0 0 5px #A61916;
   padding: 3px 0px 3px 3px;
   margin: 5px 1px 3px 0px;
-  border: 1px solid #005C9F;
+  border: 1px solid #A61916;
 }
 
 /*FIXED HEADER OPTION

@@ -6,7 +6,47 @@
 		</ul>
 	</section>
 
-	<section>
+  <asp:xmldatasource
+              ID="rpt2"
+              runat="server"
+              datafile="~/cat.xml"
+              xpath='cat/cat[@name="sidemenus"]/cat[@showonmenu="True"]'>
+  </asp:xmldatasource>
+  <asp:Repeater ID="rpt" runat="server" datasourceid="rpt2">
+    <itemtemplate>
+      <section>
+        <h3>
+          <%#Eval("name")%>                   
+            </h3>
+        <asp:xmldatasource
+            ID="rpt3"
+            runat="server"
+            datafile="~/cat.xml"
+            xpath="cat/cat[@showonmenu='True']/cat[@showonmenu='True']">
+        </asp:xmldatasource>
+
+        <asp:ListView ID="SIDEBAR_MENU_STYLE_3" runat="server" DataSource='<%# Xpathselect("cat[@showonmenu=""True""]") %>' >
+          <LayoutTemplate>
+            <ul>
+              <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
+            </ul>
+          </LayoutTemplate>
+          <ItemTemplate>
+            <li>
+              <asp:HyperLink
+                  ID="HyperLink2"
+                  runat="server"
+                  NavigateUrl='<%# Xpath("@id") %>'
+                            Text='<%# xpath("@name") %>' 
+                            ToolTip='<%# Eval("name") %>'/>
+            </li>
+          </ItemTemplate>
+
+        </asp:ListView>
+      </section>
+    </itemtemplate>
+  </asp:Repeater>
+	<!--<section>
 		<h3>Products By Category</h3>
 
         <asp:ListView ID="CategoryList" runat="server" DataSourceID="Category">
@@ -100,7 +140,7 @@
        XPath="//cat/cat[@id='53d4e203-6d31-4bc3-87d0-a67f0cf8bfa1']/cat[@showonmenu='True']">
     </asp:XmlDataSource>
 
-  </section>
+  </section>-->
   <section>
     <h3>Useful Links</h3>
 

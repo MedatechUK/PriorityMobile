@@ -2,7 +2,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" Runat="Server">
     <TABLE>
-<tr><td align="left" valign="top">Address:</td><td align="left" valign="top">
+<tr><td align="left" valign="top" style="height: 89px">Name:</td><td align="left" 
+        valign="top" style="height: 89px">
+ <asp:TextBox ID="Name_First" runat="server" Width="50%"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
+                                 ControlToValidate="Name_First" 
+        ErrorMessage="Missing"></asp:RequiredFieldValidator>
+    <br />
+ <asp:TextBox ID="Name_Last" runat="server" Width="50%"></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
+                                 ControlToValidate="Name_Last" 
+        ErrorMessage="Missing"></asp:RequiredFieldValidator>
+ </td></tr>
+<tr><td align="left" valign="top" style="height: 175px">Address:</td>
+    <td align="left" valign="top" style="height: 175px">
  <asp:TextBox ID="Address_Address1" runat="server" Width="50%"></asp:TextBox>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
                                  ControlToValidate="Address_Address1" ErrorMessage="Missing"></asp:RequiredFieldValidator>

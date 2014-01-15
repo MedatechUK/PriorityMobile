@@ -2,19 +2,26 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" Runat="Server">
     <TABLE>
-<tr><td valign="top" style="text-align: right">First Name</td><td align="left" valign="top">
+<tr><td valign="top" style="text-align: right">First Name:</td><td align="left" valign="top">
                             <asp:TextBox ID="Name_First" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" 
                                 ControlToValidate="Name_First" ErrorMessage="* Please enter your name"></asp:RequiredFieldValidator>
  </td></tr>
-<tr><td valign="top" style="text-align: right">Last Name</td><td align="left" valign="top">
+<tr><td valign="top" style="text-align: right">Last Name:</td><td align="left" valign="top">
                             <asp:TextBox ID="Name_Last" runat="server"></asp:TextBox>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" 
                                 ControlToValidate="Name_Last" ErrorMessage="* Please enter your surname"></asp:RequiredFieldValidator>
  </td></tr>
+<tr><td valign="top" style="text-align: right">Phone:</td><td align="left" valign="top">
+                            <asp:TextBox ID="Address_Phone" runat="server"></asp:TextBox>
+                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" 
+                                ControlToValidate="Address_Phone" 
+        ErrorMessage="* Please enter your phone number."></asp:RequiredFieldValidator>
+    </td></tr>
 <tr><td valign="top" style="text-align: right">&nbsp;</td><td align="left" valign="top">
     &nbsp;</td></tr>
-<tr><td valign="top" style="text-align: right">Address:</td><td align="left" valign="top">
+<tr><td valign="top" style="text-align: right; height: 30px;">Address:</td>
+    <td align="left" valign="top" style="height: 30px">
  <asp:TextBox ID="Address_Address1" runat="server" Width="50%"></asp:TextBox>
                              <span style="color: #FF0000">* </span>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" 
@@ -41,7 +48,7 @@
                              <span style="color: #FF0000">* </span>
                              <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
                                  ControlToValidate="Address_Postcode" ErrorMessage="Not a valid postcode." 
-                                 ValidationExpression="^((([A-PR-UWYZ])([0-9][0-9A-HJKS-UW]?))|(([A-PR-UWYZ][A-HK-Y])([0-9][0-9ABEHMNPRV-Y]?))\s{0,2}(([0-9])([ABD-HJLNP-UW-Z])([ABD-HJLNP-UW-Z])))|(((GI)(R))\s{0,2}((0)(A)(A)))$"></asp:RegularExpressionValidator>
+                                 ValidationExpression="^((([aA-pPrR-uUwWyYzZ])([0-9][0-9aA-hHjJkKsS-uUwW]?))|(([aA-pPrR-uUwWyYzZ][aA-hHkK-yY])([0-9][0-9aAbBeEhHmMnNpPrRvV-yY]?))\s{0,2}(([0-9])([aAbBdD-hHjJlLnNpP-uUwW-zZ])([aAbBdD-hHjJlLnNpP-uUwW-zZ])))|(((GI)(R))\s{0,2}((0)(A)(A)))$"></asp:RegularExpressionValidator>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                                  ControlToValidate="Address_Postcode" ErrorMessage="Missing"></asp:RequiredFieldValidator>
  </td></tr>

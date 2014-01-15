@@ -1,5 +1,5 @@
 ﻿    <header class="header row group">
-
+      <asp:Button ID="btnDisableEnter" runat="server" Text="" OnClientClick="return false" style="display:none;"/>
         <div class="logo column grid_4">            
             <h1><a href="Default.aspx" title="Home">
               <asp:Image ID="MainLogo" runat="server" />
@@ -66,7 +66,7 @@
          <asp:XmlDataSource                      
              ID="Mainmenu" 
              runat="server" 
-             DataFile="http://www.windowsecuritydirect.co.uk/topmenu.ashx" 
+             DataFile="http://www.doorsecuritydirect.co.uk/topmenu.ashx" 
              XPath="//cat/cat[@showonmenu='True']"
              EnableCaching="false">
         </asp:XmlDataSource>             

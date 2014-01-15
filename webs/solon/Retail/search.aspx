@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/membership.master" AutoEventWireup="false" CodeFile="search.aspx.vb" Inherits="search" title="Seach Results" ValidateRequest="false"%>
+﻿<%@ Page Language="VB" MasterPageFile="~/membership.master" AutoEventWireup="false" CodeFile="search.aspx.vb" Inherits="search" title="Seach Results" ValidateRequest="False" EnableEventValidation="False" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" Runat="Server">                  
         
@@ -8,9 +8,9 @@
                 
                 <asp:DataPager ID="DataPager1" runat="server" PageSize="5">
                     <Fields>
-                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                        <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                         <asp:NumericPagerField />
-                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                       <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="False"  ShowLastPageButton="true" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                     </Fields>
                 </asp:DataPager>
                 
@@ -24,10 +24,10 @@
                 
                 <asp:DataPager ID="DataPager2" runat="server" PageSize="5" >
                     <Fields>
-                        <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                       <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
                         <asp:NumericPagerField />
-                        <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
-                    </Fields>
+                       <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="False"  ShowLastPageButton="true" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                      </Fields>
                 </asp:DataPager>
                 
                 <br/>

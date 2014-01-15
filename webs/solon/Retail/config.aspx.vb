@@ -24,41 +24,47 @@ Partial Class config
         End If
 
         For Each k As String In ConfigurationManager.AppSettings.Keys
-            Dim r As New TableRow
-            With r
-                Dim c1 As New TableCell
-                With c1
-                    Dim l As New Label()
-                    l.Text = k
-                    l.Font.Name = "Verdana"
-                    .Controls.Add(l)
-                End With
-                Dim c2 As New TableCell
-                With c2
-                    Dim t As New TextBox
-                    With t
-                        .ID = k
-                        .Width = 500
-                        .Font.Name = "Verdana"
-                        If Not Page.IsPostBack Then
-                            .Text = ConfigurationManager.AppSettings.Item(k)
-                        End If
+            If Not k = "lastOrd" Then
+                Dim r As New TableRow
+                With r
+                    Dim c1 As New TableCell
+                    With c1
+                        Dim l As New Label()
+                        l.Text = k
+                        l.Font.Name = "Verdana"
+                        .Controls.Add(l)
                     End With
-                    .Controls.Add(t)
+                    Dim c2 As New TableCell
+                    With c2
+                        Dim t As New TextBox
+                        With t
+                            .ID = k
+                            .Width = 500
+                            .Font.Name = "Verdana"
+                            If Not Page.IsPostBack Then
+                                .Text = ConfigurationManager.AppSettings.Item(k)
+                            End If
+                        End With
+                        .Controls.Add(t)
+                    End With
+                    .Cells.Add(c1)
+                    .Cells.Add(c2)
                 End With
-                .Cells.Add(c1)
-                .Cells.Add(c2)
-            End With
-            tbl_citem.Rows.Add(r)
+                tbl_citem.Rows.Add(r)
+            End If
         Next
+
+
     End Sub
 
     Protected Sub Button1_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Button1.Click
         Dim kv As New Dictionary(Of String, String)
         For Each k As String In ConfigurationManager.AppSettings.Keys
-            Dim ph As ContentPlaceHolder = Master.FindControl("Main")            
-            Dim t As TextBox = ph.FindControl(k)
-            kv.Add(k, t.Text)
+            If Not k = "lastOrd" Then
+                Dim ph As ContentPlaceHolder = Master.FindControl("Main")
+                Dim t As TextBox = ph.FindControl(k)
+                kv.Add(k, t.Text)
+            End If
         Next
         Dim config As System.Configuration.Configuration = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~")        
 

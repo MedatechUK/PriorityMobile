@@ -9,7 +9,7 @@ Public Class topmenu : Implements IHttpHandler
         With mnu
             .Add()
             .Add(New cmsMenuItem("~/ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e", "Products", ""))
-            .Add(New cmsMenuItem("~/1531a949-b307-4a6a-90b2-2b49af2b413a", "Special Offers", ""))
+            .Add(New cmsMenuItem("~/e0aadc83-7484-46a0-8730-397e4c609e79", "Special Offers", ""))
             .Add("//cat/cat[@name='topmenu']/cat")
             .ProcessRequest()
         End With

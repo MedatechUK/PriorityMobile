@@ -23,7 +23,7 @@
 
             
             <article class="hproduct main" itemscope="" itemtype="http://data-vocabulary.org/Product">
-
+                <div class="pushdesc">
 	            <header class="column grid_1-3">
 		            <hgroup>
 			            <h1 itemprop="name" class="column grid_4 product-title fn">
@@ -124,13 +124,17 @@ WITH PLACHOLDER: <meta itemprop="rating" content="{review}"><meter value="{revie
     		            
 		                </asp:ContentPlaceHolder>
 		            </div> 
+		            
                 		    
 	                </footer>
+	                
+                </div>	                
                     <div class="description" itemprop="description">
 		                <asp:ContentPlaceHolder ID="Main" runat="server">
     		            
 		                </asp:ContentPlaceHolder>
 		            </div> 
+		        
                 </article>
                 <br /> 
                 <hr class="column grid_4 gap_2">
@@ -153,7 +157,7 @@ WITH PLACHOLDER: <meta itemprop="rating" content="{review}"><meter value="{revie
                             <figure>
                                 <img itemprop="image" class="product-thumb photo" src="<%# Eval("image") %>" alt="<%# Eval("description") %> <%# Eval("keywords") %>">
                             </figure>
-                            <h4 itemprop="name" class="product-title fn"><%#Eval("partdes")%></h4>
+                            <h4 itemprop="name" class="product-title fn"><%#Eval("pagetitle")%></h4>
                         </a>
 
                         <div class="hidden">

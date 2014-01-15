@@ -72,7 +72,7 @@ Partial Class files
         If Not IsNothing(ListBox1.SelectedValue) Then
             Me.delete.Enabled = True
             Dim tf As Literal = FileInfo.FindControl("fileURL")
-            tf.Text = ListBox1.SelectedValue
+            tf.Text = String.Format("{0}/{1}", cmSi.cmsData.Settings("URL"), ListBox1.SelectedValue)
             Dim p As Image = FileInfo.FindControl("imagepreview")
             Dim hl As HyperLink = FileInfo.FindControl("Filelink")
             Select Case Right(tf.Text.ToLower, 3)

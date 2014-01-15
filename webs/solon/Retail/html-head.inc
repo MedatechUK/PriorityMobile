@@ -2,13 +2,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/normalize.min.css" />
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/main.css" />
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/html5reset.css" />
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/pxtoem.css" />
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/970_5_10_10.css" />
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/solon.css" />
-    <link rel="stylesheet" href="http://www.windowsecuritydirect.co.uk/css/sites.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/normalize.min.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/main.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/html5reset.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/pxtoem.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/970_5_10_10.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/solon.css" />
+    <link rel="stylesheet" href="http://soloncopy.test/css/sites.css" />
     <!--[if IE 7]>
     <link rel="stylesheet" href="~/css/ie7.css">
     <![endif]-->
@@ -29,3 +29,7 @@
       <link rel="stylesheet" href="css/nivo-slider-theme/solon/solon.css" />
       <link rel="stylesheet" href="css/nivo-slider-theme/solon-overlay/solon-overlay.css" />
       <link rel="stylesheet" href="css/nivo-slider-theme/solon-below/solon-below.css" />
+
+<script>
+
+</script>

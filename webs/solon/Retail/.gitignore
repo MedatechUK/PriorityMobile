@@ -1,0 +1,19 @@
+# Unwanted cms stuff
+
+orders/
+my_documents/
+images/
+
+[Ww}eb.conifg
+
+# Images
+
+*.jpg
+*.png
+*.gif
+
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+

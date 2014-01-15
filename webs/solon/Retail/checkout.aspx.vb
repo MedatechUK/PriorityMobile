@@ -12,9 +12,7 @@ Partial Class checkout
     End Function
 
     Public Overrides Sub PageLoaded(ByVal sender As Object, ByVal e As System.EventArgs)
-        If ValidAddress() Then            
-            Redirect()
-        End If
+       
     End Sub
 
     Private Function ValidAddress() As Boolean
@@ -23,6 +21,10 @@ Partial Class checkout
             If .Address3.Length = 0 Then Return False
             If .Address4.Length = 0 Then Return False
             If .Postcode.Length = 0 Then Return False
+        End With
+        With Profile.Name
+            If .First.Length = 0 Then Return False
+            If .Last.Length = 0 Then Return False
         End With
         Return True
     End Function
@@ -38,17 +40,24 @@ Partial Class checkout
         With ts.cart
             .CustomerID = prf("CUSTNAME")
             With .DeliveryAddress
+                .First = prf.GetProfileGroup("Name").Item("First")
+                .Last = prf.GetProfileGroup("Name").Item("Last")
+                If IsNothing(.First) Or IsNothing(.Last) Then
+                    Response.Write("Error: please visit profile")
+                End If
                 .Address1 = prf.GetProfileGroup("Address").Item("Address1")
                 .Address2 = prf.GetProfileGroup("Address").Item("Address2")
                 .Address3 = prf.GetProfileGroup("Address").Item("Address3")
                 .Address4 = prf.GetProfileGroup("Address").Item("Address4")
                 .Address5 = prf.GetProfileGroup("Address").Item("Address5")
                 .Address_Postcode = prf.GetProfileGroup("Address").Item("Postcode")
+                .Phone = prf.GetProfileGroup("Address").Item("Phone")
                 .eMail = User.Identity.Name
             End With
 
             realAuth = New MerchantRedirect.realAuth( _
                 cmSi.cmsData.Settings.Get("MerchantName"), _
+                cmSi.cmsData.Settings.Get("transAccount"), _
                 .SaveCart, _
                 .Total.ToString.Replace(".", ""), _
                 .CURRENCY.ToString, _
@@ -67,4 +76,9 @@ Partial Class checkout
         End Try
     End Sub
 
+    Protected Sub btnSaveProfile_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSaveProfile.Click
+        If ValidAddress() Then
+            Redirect()
+        End If
+    End Sub
 End Class

@@ -1,15 +1,16 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="Register.aspx.vb" Inherits="Register" MasterPageFile="~/membership.master" Title = "Sign Up" validateRequest="false"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" Runat="Server">
-                    <asp:CreateUserWizard 
+                    <asp:CreateUserWizard
                         ID="CreateUserWizard1" 
                         runat="server"                          
                         FinishDestinationPageUrl="/profile.aspx" 
                         CancelDestinationPageUrl="~/default.aspx" 
                         ContinueDestinationPageUrl="/profile.aspx" 
                         DisplayCancelButton="false" 
-                        RequireEmail="False" CreateUserButtonType="Link">                        
-                        <WizardSteps>
+                        RequireEmail="False" CreateUserButtonType="Link"
+                        DuplicateUserNameErrorMessage="Email address already in use, forgot password?"                        
+                        ><WizardSteps>
                             <asp:CreateUserWizardStep runat="server">
                             
                                 <ContentTemplate>
@@ -26,6 +27,9 @@
                                                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" 
                                                     ControlToValidate="UserName" ErrorMessage="E-mail is required." 
                                                     ToolTip="E-mail is required." ValidationGroup="CreateUserWizard1">*</asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ControlToValidate="UserName" runat="server"  
+                                             ValidationExpression="([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" ID="emailReg" 
+                                             ErrorMessage="Your email address was not recognised." ValidationGroup="CreateUserWizard1"></asp:RegularExpressionValidator>
                                             </td>
                                         </tr>
                                         <tr>

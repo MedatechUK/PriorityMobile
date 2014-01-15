@@ -7,7 +7,9 @@ Partial Class cmsData
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         data.Load(Server, ConfigurationManager.AppSettings)
-        Response.Redirect("~/")
+
+        Response.Redirect(String.Format("{0}", Request.UrlReferrer))
+
 
     End Sub
 

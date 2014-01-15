@@ -30,11 +30,12 @@ Partial Class PaymentResponse
                             With .Payment
                                 .trans = Request("PASREF")
                                 .authcode = Request("AUTHCODE")
-                                .amount = CDbl(ts.cart.Total)
+                                .amount = CDbl(Request("AMOUNT")) / 100
                             End With
                             .SaveCart(.PostGuid)
                             .PostCart(.PostGuid)
                             cmSi.cmsSessions.CurrentSession(HttpContext.Current).cart.CartItems.Clear()
+                            cmSi.cmsSessions.CurrentSession(HttpContext.Current).Basket.Clear()
                             
                         End With
                     Catch ex As Exception
