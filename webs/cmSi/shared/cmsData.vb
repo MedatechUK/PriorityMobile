@@ -11,6 +11,10 @@ Public Class cmsData
     Public Shared CatPath As String
     Public Shared DocPath As String
     Public Shared Settings As System.Collections.Specialized.NameValueCollection
+    Public Shared rtSettings As New XmlDocument
+    Public Shared rtSettingsPath As String
+    Public Shared offersPath As String
+    Public Shared offers As New XmlDocument
 
     Public Sub Load(ByRef thisServer As HttpServerUtility, ByRef AppSettings As System.Collections.Specialized.NameValueCollection)
 
@@ -18,6 +22,32 @@ Public Class cmsData
 
             Settings = AppSettings
             rootpath = .MapPath("")
+
+            rtSettingsPath = .MapPath("settings.xml")
+            Dim rtSettingsLoaded As Boolean = False
+            While Not rtSettingsLoaded
+                Try
+                    Using sr As New StreamReader(rtSettingsPath)
+                        rtSettings.LoadXml(sr.ReadToEnd)
+                    End Using
+                    rtSettingsLoaded = True
+                Catch ex As Exception
+                    Threading.Thread.Sleep(1000)
+                End Try
+            End While
+
+            offersPath = .MapPath("offers.xml")
+            Dim offersLoaded As Boolean = False
+            While Not offersLoaded
+                Try
+                    Using sr As New StreamReader(offersPath)
+                        offers.LoadXml(sr.ReadToEnd)
+                    End Using
+                    offersLoaded = True
+                Catch ex As Exception
+                    Threading.Thread.Sleep(1000)
+                End Try
+            End While
 
             CatPath = .MapPath("cat.xml")
             Dim CatLoaded As Boolean = False

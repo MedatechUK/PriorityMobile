@@ -237,10 +237,10 @@ Public Class repl_ChildTable : Inherits repl_Base
                             End If
 
                             .Append("   <child ")
-                            .AppendFormat("pagetitle='{0}' ", p.Attributes("title").Value)
+                            .AppendFormat("pagetitle='{0}' ", cmsCleanHTML.htmlEncode(p.Attributes("title").Value))
                             .AppendFormat("loc='{0}' ", p.Attributes("id").Value)
                             .AppendFormat("image='{0}' ", image)
-                            .AppendFormat("description='{0}' ", p.Attributes("description").Value)
+                            .AppendFormat("description='{0}' ", cmsCleanHTML.htmlEncode(p.Attributes("description").Value))
                             .AppendFormat("keywords='{0}' ", p.Attributes("keywords").Value)
                             .Append("/>")
                             .AppendLine()

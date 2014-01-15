@@ -61,7 +61,11 @@ Public Class repl_Profile : Inherits repl_Base
                 Try
                     Dim KeyVal As String = k.Split("$").Last
                     If InStr(KeyVal, "_") > 0 Then
-                        .Profile.GetProfileGroup(KeyVal.Split("_")(0)).Item(KeyVal.Split("_")(1)) = P.FormDictionary(KeyVal)
+                        If KeyVal = "Address_Postcode" Then
+                            .Profile.GetProfileGroup(KeyVal.Split("_")(0)).Item(KeyVal.Split("_")(1)) = P.FormDictionary(KeyVal).ToUpper
+                        Else
+                            .Profile.GetProfileGroup(KeyVal.Split("_")(0)).Item(KeyVal.Split("_")(1)) = P.FormDictionary(KeyVal)
+                        End If
                     Else
                         .Profile(k) = P.FormDictionary(KeyVal)
                     End If

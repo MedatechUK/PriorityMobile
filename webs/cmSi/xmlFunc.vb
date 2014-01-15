@@ -4,7 +4,7 @@ Imports System.Collections.Generic
 Imports System.Xml
 Imports System.Web
 
-Module xmlFunc
+Public Module xmlFunc
 
     Private ReadOnly Property ts() As Session
         Get
@@ -174,14 +174,14 @@ Module xmlFunc
                 Return 0
             Else
                 If CBool(cmsData.Settings("ShowVAT")) Then
-                    Return CDbl(price + famprice.Max) * (1 + (CDbl(Cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
+                    Return CDbl(price + famprice.Max) * (1 + (CDbl(cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
                 Else
                     Return CDbl(price + famprice.Max)
                 End If
             End If
         Else
             If CBool(cmsData.Settings("ShowVAT")) Then
-                Return CDbl(price + famprice.Max) * (1 + (CDbl(Cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
+                Return CDbl(price + famprice.Max) * (1 + (CDbl(cur.Attributes.GetNamedItem("TAXRATE").Value) / 100))
             Else
                 Return CDbl(price + famprice.Max)
             End If

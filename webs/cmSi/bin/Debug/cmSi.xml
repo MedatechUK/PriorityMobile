@@ -6,6 +6,27 @@ cmSi
 </name>
 </assembly>
 <members>
-
+<member name="F:cmSi.spendVoucher._spend">
+	<summary>
+ Inherits Voucher type. Instantiates voucher with discount on entire order, with optional minimum spend.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:cmSi.partVoucher">
+	<summary> 
+ inherits base voucher type. If cart item is in buyPart list, apply discount.
+ </summary>
+</member><member name="M:cmSi.pcSpendVoucher.#ctor(System.Xml.XmlNode)">
+	<summary>
+ Inherits spendVoucher type. Instantiates base voucher with 
+ percentage discount (overrides discount property)
+ on entire order, with optional minimum spend.
+ </summary>
+	<remarks></remarks>
+</member><member name="F:cmSi.Voucher._des">
+	<summary>
+ Voucher base class
+ </summary>
+	<remarks>inherit voucher implementations from here. Apply must be overidden </remarks>
+</member>
 </members>
 </doc>

@@ -572,12 +572,11 @@ Public Class cmsPage
                 .Text = "No part"
             End With
             .Items.Add(nit)
-
             For Each node As XmlNode In cmsData.part.SelectNodes("/*[position()=1]/PARTS/PART[not(@DELIVERY)]")
                 Dim it As New ListItem
                 With it
                     .Value = node.SelectSingleNode("PARTNAME").InnerText
-                    .Text = node.SelectSingleNode("PARTDES").InnerText
+                    .Text = node.SelectSingleNode("PARTNAME").InnerText & " - " & node.SelectSingleNode("PARTDES").InnerText
                 End With
                 .Items.Add(it)
             Next
