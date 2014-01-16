@@ -1,8 +1,0 @@
-﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <StartArguments>-d C:\SO120140116134411.htm -k -z 80 -dbg -h -f -p b c</StartArguments>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <StartArguments>-d C:\SO120140116134411.htm -k -z 80 -dbg -h -f -p b c</StartArguments>
-  </PropertyGroup>
-</Project>
