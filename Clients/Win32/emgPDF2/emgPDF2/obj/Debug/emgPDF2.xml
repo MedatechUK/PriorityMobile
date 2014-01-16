@@ -1,0 +1,210 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+emgPDF2
+</name>
+</assembly>
+<members>
+<member name="P:emgPDF2.PDFShared.Serial">
+	<summary>
+ Returns serial key for HiQPDF
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PDFShared.PDFParams">
+	<summary>
+ Static member to hold dictionary of parameters for PDF creation.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:emgPDF2.PDFShared.#ctor">
+	<summary>
+ This class is for static members only!
+ </summary>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSourceCollection.CSS">
+	<summary>
+ Property for containing the origin document's CSS.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:emgPDF2.HTMLSourceCollection.#ctor(HtmlAgilityPack.HtmlDocument)">
+	<summary>
+ Constructs the collection of HTMLSource objects, filling the CSS property from the origin document.
+ </summary>
+	<param name="inputFile"></param>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.Header">
+	<summary>
+ Returns header html, if any.
+</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.HeaderHeight">
+	<summary>
+ Returns Header's height as integer. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.FooterHeight">
+	<summary>
+ Returns Footer's height as integer. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.Footer">
+	<summary>
+ Returns footer html, if any.
+</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.Body">
+	<summary>
+ Returns body html
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:emgPDF2.HTMLSource.#ctor(HtmlAgilityPack.HtmlNode,System.String)">
+	<summary>
+ Instantiates new HTMLSource from string input
+ </summary>
+	<param name="html"></param>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.Author">
+	<summary>
+ Gets the Author parameter for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.Subject">
+	<summary>
+ Gets the Subject parameter for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.InputFile">
+	<summary>
+ Gets the file path for the input HTML file.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.IsReadOnly">
+	<summary>
+ Gets the IsReadOnly property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.KeepSource">
+	<summary>
+ Gets the KeepSource property for the PDF document. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.FooterPaginate">
+	<summary>
+ Gets the FooterPaginate property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.HeaderPaginate">
+	<summary>
+ Gets the HeaderPaginate property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.HasHeader">
+	<summary>
+ Gets the HasHeader property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.HasFooter">
+	<summary>
+ Gets the HasFooter property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.HeaderHeight">
+	<summary>
+ Gets or sets the headerheight property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.FooterHeight">
+	<summary>
+ Gets or sets the FooterHeight property for the PDF document. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.Width">
+	<summary>
+ Gets the Width property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.Margins">
+	<summary>
+ Gets the Margins property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.PaginationAlign">
+	<summary>
+ Gets the PaginationAlign property for the PDF document. 
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.PageSize">
+	<summary>
+ Gets the PageSize property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.PdfParameters.Orientation">
+	<summary>
+ Gets the Orientation property for the PDF document.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.emgPDFDoc.HTML">
+	<summary>
+ Returns emgPDFDoc instance's list of HTMLSource objects
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:emgPDF2.emgPDFDoc.#ctor(emgPDF2.PdfParameters)">
+	<summary>
+ Instantiates new emgPDFDoc object, taking parameters (including html) as input.
+ Object's primary purpose is contain HiQPDF document objects for merge.
+ </summary>
+	<param name="params"></param>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

@@ -21,7 +21,7 @@ Friend Class emgPDFDoc
     ''' Instantiates new emgPDFDoc object, taking parameters (including html) as input.
     ''' Object's primary purpose is contain HiQPDF document objects for merge.
     ''' </summary>
-    ''' <param name="pdfParams"></param>
+    ''' <param name="params"></param>
     ''' <remarks></remarks>
     Public Sub New(ByVal params As PdfParameters)
         If IsNothing(params.InputFile) Then
@@ -38,37 +38,43 @@ Friend Class emgPDFDoc
     ''' <param name="html"></param>
     ''' <returns></returns>
     ''' <remarks></remarks>
-    Public Function CreateHTMLDocuments(ByVal path As String) As HTMLSourceCollection
-        Dim ret As HTMLSourceCollection
+    Private Function CreateHTMLDocuments(ByVal path As String) As HTMLSourceCollection
         Dim inputDoc As New HtmlDocument()
         inputDoc.Load(path)
-        ret = New HTMLSourceCollection(inputDoc)
 
-        Return ret
+        Return New HTMLSourceCollection(inputDoc)
+        'todo debug html and the weird lack thereof.
     End Function
 
-    Public Sub Convert()
-        'todo: convert method
+    Public Sub Convert(ByVal outPath As String)
+
         If IsNothing(HTML) Then
             Throw New Exception("Conversion cannot take place with empty source.")
             Exit Sub
         End If
 
         Dim outputDocument As New PdfDocument
+
+        outputDocument.SerialNumber = PDFShared.Serial
         With PDFShared.PDFParams
             For Each document As HTMLSource In HTML
-                'do work to turn composite parts into single pdf document
-                Dim documentHTML As New PdfDocument
+
+                Dim pdfConvert As New HtmlToPdf
+                pdfConvert.Document.FitPageWidth = True
+                AddHandler pdfConvert.PageCreatingEvent, AddressOf pagecreate
+
+                Dim PDFDoc As New PdfDocument
                 Dim headerHTML As PdfHtml
                 Dim footerHTML As PdfHtml
 
 
                 Dim headerPosition As Integer = 0
 
-                'push 'rest' of header below pagination 
+                'push rest of header below pagination 
                 If .HeaderPaginate Then
                     headerPosition += 15
                 End If
+
 
                 If .HasHeader Then
                     headerHTML = New PdfHtml(0, headerPosition, document.Header, Nothing)
@@ -79,15 +85,37 @@ Friend Class emgPDFDoc
                     footerHTML = New PdfHtml(0, 0, document.Footer, Nothing)
                 End If
 
+                If Not IsNothing(headerHTML) Then
+                    setheader(pdfConvert.Document, headerHTML, document.HeaderHeight, .HeaderPaginate, .PaginationAlign)
+                End If
 
-                'document.Header
-                'document.HeaderHeight !!!
-                document.Body
-                'document.Footer
-                'document.FooterHeight
+                If Not IsNothing(footerHTML) Then
+                    setfooter(pdfConvert.Document, footerHTML, document.FooterHeight, .FooterPaginate, .PaginationAlign)
+                End If
+
+                pdfConvert.Document.Margins = New PdfMargins(.Margins)
+                pdfConvert.Document.ForceFitPageWidth = True
+
+                Try
+                    PDFDoc = pdfConvert.ConvertHtmlToPdfDocument(document.Body, Nothing)
+                Catch ex As Exception
+                    'todo?
+                End Try
+                outputDocument.AddDocument(PDFDoc)
+                RemoveHandler pdfConvert.PageCreatingEvent, AddressOf pagecreate
             Next
+
+            outputDocument.WriteToFile(outPath)
+
+            If .IsReadOnly Then
+                Dim rOnly As System.IO.FileAttributes = FileAttribute.ReadOnly
+                System.IO.File.SetAttributes(outPath, rOnly)
+            End If
+
+
+
         End With
-        'save output doc
+
     End Sub
 
     Private Sub setheader(ByVal doc As PdfDocumentControl, ByVal header As PdfHtml, ByVal headerHeight As Integer, ByVal hasPagination As Boolean, _
@@ -141,6 +169,15 @@ Friend Class emgPDFDoc
             .Layout(footer)
         End With
 
+    End Sub
+
+    Private Sub pagecreate(ByVal eventparams As PdfPageCreatingParams)
+        Dim pdfpage As PdfPage = eventparams.PdfPage
+        pdfpage.DisplayFooter = True
+        pdfpage.DisplayHeader = True
+        If eventparams.PdfPageNumber > 1000 Then
+            eventparams.CancelConversion = True
+        End If
     End Sub
 
 

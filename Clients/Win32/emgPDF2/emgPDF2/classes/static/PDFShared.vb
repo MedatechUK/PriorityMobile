@@ -1,4 +1,5 @@
-﻿
+﻿Imports HiQPdf
+
 Friend Class PDFShared
 
     ''' <summary>
@@ -28,7 +29,6 @@ Friend Class PDFShared
             _pdfparams = value
         End Set
     End Property
-
 
     ''' <summary>
     ''' This class is for static members only!

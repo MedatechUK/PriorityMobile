@@ -122,8 +122,13 @@ Friend Class HTMLSource
     ''' <remarks></remarks>
     Public Sub New(ByVal html As HtmlNode, ByVal css As String)
 
-        Dim footer As String = ""
-        Dim header As String = ""
+        'hiqpdf automatically page breaks for distinct documents, apparently. Priority sticks this in so page breaking occurs correctly 
+        'when html documents are printed. 
+        'ergo, the purpose of this is to prevent the library from adding in blank pages by enacting this style rule, effectively, twice.
+        Try
+            html.SetAttributeValue("style", html.Attributes("style").Value.Replace("page-break-after: always;", ""))
+        Catch : End Try
+
         Dim footerTables As HtmlNodeCollection = html.SelectNodes(".//tr[contains(@class, ""footer"")] | .//tr[contains(@class, ""FOOTER"")]")
         Dim headerTables As HtmlNodeCollection = html.SelectNodes(".//tr[contains(@class, ""header"")] | .//tr[contains(@class, ""HEADER"")]")
         With PDFShared.PDFParams
@@ -140,14 +145,15 @@ Friend Class HTMLSource
                     _header += table.OuterHtml
                 Next
                 _header += "</table>"
+                For Each table As HtmlNode In headerTables
+                    table.RemoveAll()
+                Next
             End If
-            For Each table As HtmlNode In headerTables
-                table.RemoveAll()
-            Next
+
 
             'footers
             If IsNothing(footerTables) Then
-                PDFShared.PDFParams.HasFooter = False
+                .HasFooter = False
             End If
 
             If .HasFooter Then
@@ -157,10 +163,11 @@ Friend Class HTMLSource
                     _footer += table.OuterHtml
                 Next
                 _footer += "</table>"
+                For Each table As HtmlNode In footerTables
+                    table.RemoveAll()
+                Next
             End If
-            For Each table As HtmlNode In footerTables
-                table.RemoveAll()
-            Next
+
 
 
             'fixes alignment
@@ -169,8 +176,6 @@ Friend Class HTMLSource
             html.SelectSingleNode("//html/body").SetAttributeValue("rightmargin", "7px")
 
 
-
-            'todo: is this important? pdfConvert.Document.FitPageWidth = True
 
             ''obtains header & footer height
             With PDFShared.PDFParams
@@ -183,7 +188,7 @@ Friend Class HTMLSource
                     tempconvert.Document.PageOrientation = .Orientation
                     tempconvert.Document.FitPageWidth = True
                     tempconvert.Document.PostCardMode = True
-                    tempconvert.ConvertHtmlToMemory(header, Nothing)
+                    tempconvert.ConvertHtmlToMemory(_header, Nothing)
                     _headerheight += tempconvert.ConversionInfo.PdfRegions(0).Height
                 End If
 
@@ -196,9 +201,12 @@ Friend Class HTMLSource
                     tempconvertfoot.Document.PageOrientation = .Orientation
                     tempconvertfoot.Document.FitPageWidth = True
                     tempconvertfoot.Document.PostCardMode = True
-                    tempconvertfoot.ConvertHtmlToMemory(footer, Nothing)
+                    tempconvertfoot.ConvertHtmlToMemory(_footer, Nothing)
                     _footerheight += tempconvertfoot.ConversionInfo.PdfRegions(0).Height
                 End If
+
+
+                _body += css & html.OuterHtml
             End With
         End With
     End Sub

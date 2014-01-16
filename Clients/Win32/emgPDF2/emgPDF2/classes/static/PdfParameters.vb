@@ -1,7 +1,40 @@
 ﻿Imports HiQPdf
 
+Public Enum Size As Integer
+    A0 = 0
+    A1 = 1
+    A2 = 2
+    A3 = 3
+    A4 = 4
+    A5 = 5
+    A6 = 6
+    A7 = 7
+    A8 = 8
+    A9 = 9
+    A10 = 10
+    ArchA = 11
+    ArchB = 12
+    ArchC = 13
+    ArchD = 14
+    ArchE = 15
+    B0 = 16
+    B1 = 17
+    B2 = 18
+    B3 = 19
+    B4 = 20
+    B5 = 21
+    Flsa = 22
+    HalfLetter = 23
+    Ledger = 24
+    Legal = 25
+    Letter = 26
+    Letter11x17 = 27
+    Note = 28
+End Enum
+
 Friend Class PdfParameters
 
+#Region "Properties"
     Private _author As String
     ''' <summary>
     ''' Gets the Author parameter for the PDF document.
@@ -222,41 +255,12 @@ Friend Class PdfParameters
         End Get
     End Property
 
+#End Region
+
 #Region "Handling HiQPDF page sizing"
     'HiQPDF's page sizing is handled through property access methods. As such, you can't set an optional param's default. 
-    'For the sake of nice intellisense, I have included the enum.
+    'For the sake of nice intellisense, I have included the enum @ top of file
     'For the sake of not cluttering up the ctor, I have included the SetSize function. 
-    Protected Friend Enum Size As Integer
-        A0 = 0
-        A1 = 1
-        A2 = 2
-        A3 = 3
-        A4 = 4
-        A5 = 5
-        A6 = 6
-        A7 = 7
-        A8 = 8
-        A9 = 9
-        A10 = 10
-        ArchA = 11
-        ArchB = 12
-        ArchC = 13
-        ArchD = 14
-        ArchE = 15
-        B0 = 16
-        B1 = 17
-        B2 = 18
-        B3 = 19
-        B4 = 20
-        B5 = 21
-        Flsa = 22
-        HalfLetter = 23
-        Ledger = 24
-        Legal = 25
-        Letter = 26
-        Letter11x17 = 27
-        Note = 28
-    End Enum
 
     Protected Friend Function SetSize(ByVal inSize As Size) As PdfPageSize
         Dim ret As PdfPageSize = PdfPageSize.A4
@@ -320,8 +324,8 @@ Friend Class PdfParameters
         End Select
 
         Return ret
-
     End Function
+
 #End Region
 
     Protected Friend Sub New(ByVal InputFile As String, _
@@ -357,7 +361,6 @@ Friend Class PdfParameters
         _hasheader = HasHeader
         _headerheight += HeaderHeight
 
-
         'pagination overrides any flagged settings, you have been warned.
         If FooterPaginate Then
             _footerpaginate = True
@@ -378,170 +381,8 @@ Friend Class PdfParameters
         _orientation = PageOrientation
         _pagesize = SetSize(PSize) 'Psize named for clarity wrt PageSize property
         _margins = Margins
+
+        _inputfile = InputFile
     End Sub
-
-
-    'TODO: HANDLE ARGS IN IMPLEMENTATION (COPY, PASTE, FIX, COMPILE LOL) 
-
-
-    'Public Sub New(ByVal args As String())
-    '    SetDefaultParams()
-    '    For i As Integer = 1 To args.Length - 1
-    '        Select Case Left(args(i), 1)
-    '            Case "/", "-"
-    '                Select Case Right(args(i), args(i).Length - 1).ToLower
-
-    '                    Case "a"
-
-    '                        Try
-    '                            _author = args(i + 1)
-    '                        Catch : End Try
-
-    '                    Case "u"
-    '                        Try
-    '                            _subject = args(i + 1)
-    '                        Catch : End Try
-
-    '                    Case "k"
-    '                        _keepsource = True
-
-    '                    Case "w"
-    '                        _isreadonly = False
-
-    '                    Case "f"
-    '                        _hasfooter = True
-    '                        Try
-    '                            'if present, take next value to be pixel height
-    '                            If IsNumeric(args(i + 1)) Then
-    '                                FooterHeight += CInt(args(i + 1))
-    '                            End If
-    '                        Catch : End Try
-
-
-    '                    Case "h"
-    '                        _hasheader = True
-    '                        Try
-    '                            'if present, take next value to be pixel height 
-    '                            If IsNumeric(args(i + 1)) Then
-    '                                HeaderHeight += CInt(args(i + 1))
-    '                            End If
-    '                        Catch : End Try
-
-
-    '                    Case "m"
-    '                        Try
-    '                            If IsNumeric(args(i + 1)) Then
-    '                                _margins = CInt(args(i + 1))
-    '                            End If
-    '                        Catch : End Try
-
-
-    '                    Case "s"
-    '                        Select Case args(i + 1).ToLower
-    '                            Case "letter"
-    '                                _pagesize = PdfPageSize.Letter
-    '                                Dim s As Char = "s"
-    '                                asci()
-    '                            Case "legal"
-    '                                _pagesize = PdfPageSize.Legal
-    '                            Case "ledger"
-    '                                _pagesize = PdfPageSize.Ledger
-    '                            Case "b0"
-    '                                _pagesize = PdfPageSize.B0
-    '                            Case "b1"
-    '                                _pagesize = PdfPageSize.B1
-    '                            Case "b2"
-    '                                _pagesize = PdfPageSize.B2
-    '                            Case "b3"
-    '                                _pagesize = PdfPageSize.B3
-    '                            Case "b4"
-    '                                _pagesize = PdfPageSize.B4
-    '                            Case "b5"
-    '                                _pagesize = PdfPageSize.B5
-    '                            Case "a10"
-    '                                _pagesize = PdfPageSize.A10
-    '                            Case "a9"
-    '                                _pagesize = PdfPageSize.A9
-    '                            Case "a8"
-    '                                _pagesize = PdfPageSize.A8
-    '                            Case "a7"
-    '                                _pagesize = PdfPageSize.A7
-    '                            Case "a6"
-    '                                _pagesize = PdfPageSize.A6
-    '                            Case "a5"
-    '                                _pagesize = PdfPageSize.A5
-    '                            Case "a3"
-    '                                _pagesize = PdfPageSize.A3
-    '                            Case "a2"
-    '                                _pagesize = PdfPageSize.A2
-    '                            Case "a1"
-    '                                _pagesize = PdfPageSize.A1
-    '                            Case "a0"
-    '                                _pagesize = PdfPageSize.A0
-    '                            Case Else
-    '                                _pagesize = PdfPageSize.A4
-    '                        End Select
-
-
-    '                    Case "p"
-    '                        Try
-    '                            Select Case args(i + 1).ToLower
-
-    '                                Case "t"
-    '                                    _footerpaginate = False
-    '                                    _headerpaginate = True
-    '                                    _hasheader = True
-    '                                    _headerheight += 15
-
-    '                                Case "b"
-    '                                    _footerpaginate = True
-    '                                    _headerpaginate = False
-    '                                    _footerheight += 15
-    '                                    _hasfooter = True
-
-    '                            End Select
-    '                            Try
-    '                                Select Case args(i + 2).ToLower
-    '                                    Case "l"
-    '                                        _paginationalign = PdfTextHAlign.Left
-    '                                    Case "r"
-    '                                        _paginationalign = PdfTextHAlign.Right
-    '                                    Case "c"
-    '                                        _paginationalign = PdfTextHAlign.Center
-    '                                End Select
-
-    '                            Catch ex As Exception
-    '                                _paginationalign = PdfTextHAlign.Center
-    '                            End Try
-
-    '                        Catch
-    '                            _footerpaginate = True
-    '                            _hasfooter = True
-    '                            _footerheight += 15
-    '                            _paginationalign = PdfTextHAlign.Center
-    '                        End Try
-
-
-    '                    Case "d"
-    '                        _inputfile = args(i + 1)
-
-    '                    Case "z"
-    '                        Try
-    '                            _width = 2000 - 10 * (CInt(args(i + 1)))
-    '                        Catch ex As Exception
-    '                            Console.WriteLine(ex.Message)
-    '                        End Try
-
-    '                    Case "o"
-    '                        _orientation = PdfPageOrientation.Landscape
-    '                End Select
-    '            Case Else
-    '        End Select
-    '    Next
-
-    'End Sub
-
-
-
 
 End Class

@@ -7,7 +7,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BD407E2A-72F3-4941-8967-90EB1D070899}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <StartupObject>emgPDF2.Module1</StartupObject>
+    <StartupObject>
+    </StartupObject>
     <RootNamespace>emgPDF2</RootNamespace>
     <AssemblyName>emgPDF2</AssemblyName>
     <FileAlignment>512</FileAlignment>
@@ -74,7 +75,7 @@
     <Compile Include="classes\HTMLSource.vb" />
     <Compile Include="classes\PDFDoc.vb" />
     <Compile Include="classes\static\PdfParameters.vb" />
-    <Compile Include="Module1.vb" />
+    <Compile Include="emgPDF2cli.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
