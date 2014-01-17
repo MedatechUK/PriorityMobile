@@ -1,0 +1,16 @@
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2cli.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2cli.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2cli.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\HiQPdf.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\HtmlAgilityPack.dll
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\HiQPdf.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2.pdb
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\bin\Debug\HiQPdf.dep
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\obj\Debug\emgPDF2cli.Resources.resources
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\obj\Debug\emgPDF2cli.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\obj\Debug\emgPDF2cli.exe
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\obj\Debug\emgPDF2cli.xml
+C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2cli\emgPDF2cli\obj\Debug\emgPDF2cli.pdb
