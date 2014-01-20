@@ -934,4 +934,10 @@
     <section placeholder="ContentPlaceHolder2" html="" />
     <section placeholder="Main" html="" />
   </page>
+  <page id="d1c336d8-70b8-49a3-935b-4dc8bdb08fa3" masterpage="part.master" title="whatever" description="" keywords="" part="OT00488">
+    <section placeholder="main" html="" />
+    <section placeholder="main_product_images" html="" />
+    <section placeholder="ContentPlaceHolder2" html="" />
+    <section placeholder="Main" html="" />
+  </page>
 </pages>

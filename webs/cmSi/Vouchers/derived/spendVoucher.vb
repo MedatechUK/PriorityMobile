@@ -9,7 +9,7 @@ Public Class spendVoucher : Inherits Voucher
 #Region "Public Properties"
 
     Private _spend As Double
-    Public Property Spend() As Double
+    Public Overridable Property Spend() As Double
         Get
             Return _spend
         End Get

@@ -4,7 +4,7 @@
 ''' </summary>
 Public Class partVoucher
 
-    Inherits Voucher
+    Inherits spendVoucher
     Private _buyPart As List(Of String)
     Public Property BuyPart() As List(Of String)
         Get
@@ -21,10 +21,8 @@ Public Class partVoucher
         For Each Part As XmlNode In VoucherData.SelectNodes("buy/part")
             BuyPart.Add(Part.Attributes("name").Value)
         Next
-
-        Discount = CDbl(VoucherData.SelectSingleNode("get/discount").Attributes("amount").Value)
-
     End Sub
+
     Protected Overrides Sub Enact()
         For Each item As CartItem In ts.cart.CartItems.Values
             If BuyPart.Contains(item.PARTNAME) Then

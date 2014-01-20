@@ -123,7 +123,9 @@
         <cat id="7b1a4a29-bc7a-4cae-af1c-a66c542d2d5c" name="Padlock Alarm U Bar" img="" showonmenu="False" />
         <cat id="548af5cf-3318-4a6b-b612-ad61bd919a79" name="Bike Marking Kit" img="" showonmenu="True" />
       </cat>
-      <cat id="e3602b85-09f1-47a0-ac5b-6ba5e32ed5c3" name="Road Safety" img="http://soloncopy.test/my_documents/images/RoadSafety.gif " showonmenu="False" />
+      <cat id="e3602b85-09f1-47a0-ac5b-6ba5e32ed5c3" name="Road Safety" img="http://soloncopy.test/my_documents/images/RoadSafety.gif " showonmenu="False">
+        <cat id="d1c336d8-70b8-49a3-935b-4dc8bdb08fa3" name="whatever" img="" showonmenu="True" />
+      </cat>
       <cat id="42bcc99b-6b24-4d71-be0c-811267d50c89" name="Door &amp; Window Security" img="http://soloncopy.test/my_documents/images/DoorWindow.gif " showonmenu="False" />
       <cat id="17269128-480f-4cf2-84b2-6e54f873b7eb" name="Student Safety" img="http://soloncopy.test/my_documents/images/Student.gif " showonmenu="True">
         <cat id="29273a8a-1bec-4780-a2ea-e88013a0fab4" name="Defender Mini Purse/Bag Alarm" img="" showonmenu="True" />

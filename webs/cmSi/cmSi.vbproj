@@ -110,6 +110,7 @@
     <Compile Include="Replace\repl_Blog.vb" />
     <Compile Include="Replace\repl_Base.vb" />
     <Compile Include="Replace\repl_ChildTable.vb" />
+    <Compile Include="Vouchers\derived\part\groupPartVoucher.vb" />
     <Compile Include="Vouchers\derived\part\multibuy\linksave\linkSaveVoucher.vb" />
     <Compile Include="Vouchers\derived\part\multibuy\linksave\pcLinkSaveVoucher.vb" />
     <Compile Include="Vouchers\derived\part\multibuy\linksave\pcPoolVoucher.vb" />
@@ -117,6 +118,7 @@
     <Compile Include="Vouchers\derived\part\multibuy\multiBuyVoucher.vb" />
     <Compile Include="Vouchers\derived\part\multibuy\pcMultiBuyVoucher.vb" />
     <Compile Include="Vouchers\derived\part\partVoucher.vb" />
+    <Compile Include="Vouchers\derived\part\pcGroupPartVoucher.vb" />
     <Compile Include="Vouchers\derived\part\pcPartVoucher.vb" />
     <Compile Include="Vouchers\derived\pcSpendVoucher.vb" />
     <Compile Include="Vouchers\derived\spendVoucher.vb" />

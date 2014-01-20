@@ -205,6 +205,41 @@
       <part name="CC00260" />
     </buy>
   </offer>
+  <offer code="TESTY1" type="groupPartVoucher" des="£5 off if you spend £25 or more on Road Safety" expiry="31/01/2014">
+    <get>
+      <discount amount="5" />
+    </get>
+    <buy>
+      <spend amount="25" />
+      <part name="OT00488" />
+      <part name="OT00614" />
+      <part name="OT00383" />
+      <part name="OT00465" />
+      <part name="OT00221" />
+      <part name="OT00232" />
+      <part name="OT00233" />
+      <part name="OT00234" />
+      <part name="OT00453" />
+      <part name="OT00482" />
+      <part name="OT00522" />
+      <part name="OT00601" />
+      <part name="OT00606" />
+      <part name="OT00607" />
+      <part name="OT00609" />
+      <part name="OT00610" />
+      <part name="OT00611" />
+      <part name="OT00613" />
+      <part name="OT00622" />
+      <part name="OT00690" />
+      <part name="OT00733" />
+      <part name="OT00657" />
+      <part name="OT00735" />
+      <part name="OT00777" />
+      <part name="OT00778" />
+      <part name="OT00780" />
+      <part name="OT00784" />
+    </buy>
+  </offer>
   <offer code="pooltest1200" type="poolVoucher" des="12" expiry="04/01/2014">
     <get qty="2">
       <discount amount="123" />
