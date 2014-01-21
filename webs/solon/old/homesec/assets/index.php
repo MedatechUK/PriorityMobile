@@ -1,0 +1,1 @@
+<? header ("location:/dev/D026/404.php"); ?>

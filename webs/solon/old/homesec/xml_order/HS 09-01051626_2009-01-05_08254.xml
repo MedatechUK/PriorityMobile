@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<Order xmlns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01 http://www.ebis-xml.net/schemas/order-v3.xsd">
+  <OrderHead>
+    <Schema>
+      <Version>3</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML-sylesheet.xsl</StylesheetName>
+      <Version>3</Version>
+      <StylesheetType>XSL</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en-GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>20.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag TestReference="Complex">1
+      <Test ExpectedReply="Fail" Mode="Manual"/>
+    </TestFlag>
+    <Order_Function Code="TEO"/>
+    <OrderType Code="WEO">Web Order</OrderType>
+    <OrderCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </OrderCurrency>
+    <InvoiceCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>08254</Checksum>
+  </OrderHead>
+  <OrderReferences>
+		<BuyersOrderNumber Preserve="true">HS 09-01051626</BuyersOrderNumber>
+    <ProjectCode Preserve="true">EB5</ProjectCode>
+    <ProjectAnalysisCode Preserve="true">Web</ProjectAnalysisCode>
+    <SuppliersOrderReference Preserve="true">HS 09-01051626</SuppliersOrderReference>
+  </OrderReferences>
+  <OrderDate>2009-01-05</OrderDate>
+   <Buyer>
+    <BuyerReferences>
+      <SuppliersCodeForBuyer>BIGRED</SuppliersCodeForBuyer>
+    </BuyerReferences>
+    <Party>Big Red Elephant Group</Party>
+    <Address>
+      <AddressLine>Unit 40</AddressLine>
+      <Street>Manor Industrial Estate</Street>
+      <City>Flint</City>
+      <State></State>
+      <PostCode>CH6 5UY</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>John Fearnall</Name>
+      <Switchboard></Switchboard>
+      <Fax></Fax>
+      <Email>john.fearnall@solonsecurity.co.uk</Email>
+      </Contact>
+  </Buyer>
+  <Delivery>
+    <DeliverTo>
+      <DeliverToReferences>
+      </DeliverToReferences>
+      <Party>Mrs Maria Lloyd</Party>
+      <Address>
+      <AddressLine>3 Primrose Lane</AddressLine>
+      <Street> Winnersh</Street>
+      <City>Wokingham</City>
+      <State>Berkshire</State>
+      <PostCode>RG41 5UR</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Mrs Maria Lloyd</Name>
+      <Switchboard>0118 989 1635</Switchboard>
+      <Fax></Fax>
+      <Email>lloydsw54@hotmail.com</Email>
+      </Contact>
+    </DeliverTo>
+    </Delivery>
+  <InvoiceTo>
+    <InvoiceToReferences>
+      <GLN></GLN>
+    </InvoiceToReferences>
+    <Party>Mrs Maria Lloyd</Party>
+          <Address>
+          <AddressLine></AddressLine>
+          <Street>Winnersh</Street>
+          <City>Wokingham</City>
+          <State>Berkshire</State>
+          <PostCode>RG41 5UR</PostCode>
+          <Country Code="GBR">United Kingdom</Country>
+    </Address>
+<Contact>
+      <Name>Mrs Maria Lloyd</Name>
+      <Switchboard>0118 989 1635</Switchboard>
+      <Fax></Fax>
+      <Email>lloydsw54@hotmail.com</Email>
+      </Contact>
+  </InvoiceTo><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">1</LineNumber><Product>
+      <SuppliersProductCode>136</SuppliersProductCode>
+      <BuyersProductCode>100-15</BuyersProductCode>
+      <Description>ERA Patio Door Lock</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>12.76</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>2.23</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>12.76</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">2</LineNumber><Product>
+      <SuppliersProductCode>50</SuppliersProductCode>
+      <BuyersProductCode>EA0222</BuyersProductCode>
+      <Description>Magnetic Door andamp; Window Alarm</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>3.82</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.67</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>3.82</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+    <LineNumber Preserve="true">3</LineNumber><Product>
+      <SuppliersProductCode></SuppliersProductCode>
+      <BuyersProductCode>DELPOST</BuyersProductCode>
+      <Description>Postage and Packing</Description>
+    </Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>3.36</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.59</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>3.36</LineTotal>
+  </OrderLine><OrderTotal>  
+    <GoodsValue>19.94</GoodsValue>
+    <FreightCharges>3.95</FreightCharges>
+    <TaxTotal>3.49</TaxTotal>
+    <GrossValue>23.43</GrossValue>
+  </OrderTotal></Order>

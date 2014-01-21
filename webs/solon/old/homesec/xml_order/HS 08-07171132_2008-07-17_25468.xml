@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<Order xmlns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01 http://www.ebis-xml.net/schemas/order-v3.xsd">
+  <OrderHead>
+    <Schema>
+      <Version>3</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML-sylesheet.xsl</StylesheetName>
+      <Version>3</Version>
+      <StylesheetType>XSL</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en-GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>20.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag TestReference="Complex">1
+      <Test ExpectedReply="Fail" Mode="Manual"/>
+    </TestFlag>
+    <Order_Function Code="TEO"/>
+    <OrderType Code="WEO">Web Order</OrderType>
+    <OrderCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </OrderCurrency>
+    <InvoiceCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>25468</Checksum>
+  </OrderHead>
+  <OrderReferences>
+		<BuyersOrderNumber Preserve="true">HS 08-07171132</BuyersOrderNumber>
+    <ProjectCode Preserve="true">EB5</ProjectCode>
+    <ProjectAnalysisCode Preserve="true">Web</ProjectAnalysisCode>
+    <SuppliersOrderReference Preserve="true">HS 08-07171132</SuppliersOrderReference>
+  </OrderReferences>
+  <OrderDate>2008-07-17</OrderDate>
+   <Buyer>
+    <BuyerReferences>
+      <SuppliersCodeForBuyer>TIHS</SuppliersCodeForBuyer>
+    </BuyerReferences>
+    <Party>TIHS Limited</Party>
+    <Address>
+      <AddressLine>Oak House</AddressLine>
+      <Street>Groes Lwyd</Street>
+      <City>Abergele</City>
+      <State></State>
+      <PostCode>LL22 7SU</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Pete Smith</Name>
+      <Switchboard></Switchboard>
+      <Fax></Fax>
+      <Email>peter.smith@theitc.co.uk</Email>
+      </Contact>
+  </Buyer>
+  <Delivery>
+    <DeliverTo>
+      <DeliverToReferences>
+      </DeliverToReferences>
+      <Party>Mrs Iris Chaplain</Party>
+      <Address>
+      <AddressLine>Barnett Hill Landscapes</AddressLine>
+      <Street> Countryside Nurseries</Street>
+      <City>Crossway Green</City>
+      <State>Stourport on seven</State>
+      <PostCode>DY13 9SE</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Mrs Iris Chaplain</Name>
+      <Switchboard>01299 253682</Switchboard>
+      <Fax></Fax>
+      <Email>iris.chaplain@bjgroup.co.uk</Email>
+      </Contact>
+    </DeliverTo>
+    </Delivery>
+  <InvoiceTo>
+    <InvoiceToReferences>
+      <GLN></GLN>
+    </InvoiceToReferences>
+    <Party>Mrs Iris Chaplain</Party>
+          <Address>
+          <AddressLine></AddressLine>
+          <Street>Countryside Nurseries</Street>
+          <City>Crossway Green</City>
+          <State>Stourport on seven</State>
+          <PostCode>DY13 9SE</PostCode>
+          <Country Code="GBR">United Kingdom</Country>
+    </Address>
+<Contact>
+      <Name>Mrs Iris Chaplain</Name>
+      <Switchboard>01299 253682</Switchboard>
+      <Fax></Fax>
+      <Email>iris.chaplain@bjgroup.co.uk</Email>
+      </Contact>
+  </InvoiceTo><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">1</LineNumber><Product>
+      <SuppliersProductCode>212</SuppliersProductCode>
+      <BuyersProductCode>AM0101</BuyersProductCode>
+      <Description>Counterfeit Detector Pen</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>24</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>24</Units>
+      <UnitPrice>1.27</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>5.33</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>30.43</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+    <LineNumber Preserve="true">2</LineNumber><Product>
+      <SuppliersProductCode></SuppliersProductCode>
+      <BuyersProductCode></BuyersProductCode>
+      <Description></Description>
+    </Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>2.94</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.51</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>2.94</LineTotal>
+  </OrderLine><OrderTotal>  
+    <GoodsValue>33.37</GoodsValue>
+    <FreightCharges>3.45</FreightCharges>
+    <TaxTotal>5.84</TaxTotal>
+    <GrossValue>39.21</GrossValue>
+  </OrderTotal></Order>

@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<Order xmlns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01 http://www.ebis-xml.net/schemas/order-v3.xsd">
+  <OrderHead>
+    <Schema>
+      <Version>3</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML-sylesheet.xsl</StylesheetName>
+      <Version>3</Version>
+      <StylesheetType>XSL</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en-GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>20.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag TestReference="Complex">1
+      <Test ExpectedReply="Fail" Mode="Manual"/>
+    </TestFlag>
+    <Order_Function Code="TEO"/>
+    <OrderType Code="WEO">Web Order</OrderType>
+    <OrderCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </OrderCurrency>
+    <InvoiceCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>73767</Checksum>
+  </OrderHead>
+  <OrderReferences>
+		<BuyersOrderNumber Preserve="true">HS 08-03261046</BuyersOrderNumber>
+    <ProjectCode Preserve="true">EB5</ProjectCode>
+    <ProjectAnalysisCode Preserve="true">Web</ProjectAnalysisCode>
+    <SuppliersOrderReference Preserve="true">HS 08-03261046</SuppliersOrderReference>
+  </OrderReferences>
+  <OrderDate>2008-03-26</OrderDate>
+   <Buyer>
+    <BuyerReferences>
+      <SuppliersCodeForBuyer>TIHS</SuppliersCodeForBuyer>
+    </BuyerReferences>
+    <Party>TIHS Limited</Party>
+    <Address>
+      <AddressLine>Oak House</AddressLine>
+      <Street>Groes Lwyd</Street>
+      <City>Abergele</City>
+      <State></State>
+      <PostCode>LL22 7SU</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Pete Smith</Name>
+      <Switchboard></Switchboard>
+      <Fax></Fax>
+      <Email>peter.smith@theitc.co.uk</Email>
+      </Contact>
+  </Buyer>
+  <Delivery>
+    <DeliverTo>
+      <DeliverToReferences>
+      </DeliverToReferences>
+      <Party>Miss Jill Fogden</Party>
+      <Address>
+      <AddressLine>5 Chiswick Road</AddressLine>
+      <Street> </Street>
+      <City>Didsbury</City>
+      <State>Manchester</State>
+      <PostCode>M20 6RZ</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Miss Jill Fogden</Name>
+      <Switchboard>0161 4462282</Switchboard>
+      <Fax></Fax>
+      <Email>jill.fogden@stockport.gov.uk</Email>
+      </Contact>
+    </DeliverTo>
+    </Delivery>
+  <InvoiceTo>
+    <InvoiceToReferences>
+      <GLN></GLN>
+    </InvoiceToReferences>
+    <Party>Miss Jill Fogden</Party>
+          <Address>
+          <AddressLine></AddressLine>
+          <Street></Street>
+          <City>Didsbury</City>
+          <State>Manchester</State>
+          <PostCode>M20 6RZ</PostCode>
+          <Country Code="GBR">United Kingdom</Country>
+    </Address>
+<Contact>
+      <Name>Miss Jill Fogden</Name>
+      <Switchboard>0161 4462282</Switchboard>
+      <Fax></Fax>
+      <Email>jill.fogden@stockport.gov.uk</Email>
+      </Contact>
+  </InvoiceTo><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">1</LineNumber><Product>
+      <SuppliersProductCode>53</SuppliersProductCode>
+      <BuyersProductCode>EA0215</BuyersProductCode>
+      <Description>Window Shock Alarm</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>5</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>5</Units>
+      <UnitPrice>5.52</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>4.83</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>27.62</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">2</LineNumber><Product>
+      <SuppliersProductCode>198</SuppliersProductCode>
+      <BuyersProductCode>DP0116</BuyersProductCode>
+      <Description>Black Cooper Torch</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>5.1</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.89</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>5.1</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">3</LineNumber><Product>
+      <SuppliersProductCode>153</SuppliersProductCode>
+      <BuyersProductCode>BD0501</BuyersProductCode>
+      <Description>Anti Intruder Paint / Anti Climb Paint</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>21.27</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>3.72</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>21.27</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">4</LineNumber><Product>
+      <SuppliersProductCode>179</SuppliersProductCode>
+      <BuyersProductCode>CT0115</BuyersProductCode>
+      <Description>Bulkhead Courtesy Light with Sensor</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>21.27</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>3.72</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>21.27</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">5</LineNumber><Product>
+      <SuppliersProductCode>139</SuppliersProductCode>
+      <BuyersProductCode>BD2102</BuyersProductCode>
+      <Description>Anti-intruder / Anti-climb Warning Sign</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>2</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>2</Units>
+      <UnitPrice>0.67</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.24</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>1.34</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+    <LineNumber Preserve="true">6</LineNumber><Product>
+      <SuppliersProductCode></SuppliersProductCode>
+      <BuyersProductCode></BuyersProductCode>
+      <Description></Description>
+    </Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>2.94</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.51</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>2.94</LineTotal>
+  </OrderLine><OrderTotal>  
+    <GoodsValue>79.54</GoodsValue>
+    <FreightCharges>3.45</FreightCharges>
+    <TaxTotal>13.91</TaxTotal>
+    <GrossValue>93.45</GrossValue>
+  </OrderTotal></Order>

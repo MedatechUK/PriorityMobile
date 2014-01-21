@@ -1,0 +1,154 @@
+#house {
+
+ width: 520px;
+ height: 450px;
+ background: url(http://www.home-security-store.co.uk/assets/images/house/animation.gif) no-repeat;
+ margin: 10px auto; padding: 0;
+ position: relative;
+ border: 2px solid #ddd;
+
+}
+
+#house li {margin: 0; padding: 0; list-style: none; display: block; position: absolute;}
+
+#house a {display: block; text-indent: -9999px; text-decoration: none;}
+
+#cat1 {left: 173px; top: 224px; width: 20px; height: 60px; z-index: 40;}
+#cat2 {left: 265px; top: 167px; width: 10px; height: 20px;}
+#cat3 {left: 194px; top: 128px; width: 30px; height: 50px;}
+#cat4 {left: 227px; top: 179px; width: 15px; height: 15px;}
+#cat5 {left: 433px; top: 119px; width: 10px; height: 37px;}
+#cat6 {left: 300px; top: 244px; width: 50px; height: 70px;}
+#cat7 {left: 415px; top: 164px; width: 20px; height: 20px;}
+#cat8 {left: 465px; top: 94px; width: 30px; height: 10px;}
+#cat9 {left: 460px; top: 269px; width: 20px; height: 20px;}
+
+#cat1 a {height: 60px; border: none;}
+#cat2 a {height: 20px; border: none;}
+#cat3 a {height: 50px; border: none;}
+#cat4 a {height: 15px; border: none;}
+#cat5 a {height: 37px; border: none;}
+#cat6 a {height: 70px; border: none;}
+#cat7 a {height: 20px; border: none;}
+#cat8 a {height: 10px; border: none;}
+#cat9 a {height: 20px; border: none;}
+
+#cat1 a:hover {
+position: relative;
+left: 0px; 
+top:1px;
+height: 169px; 
+width: 245px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_door.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat2 a:hover {
+position: relative; 
+left: -1px; 
+top:0px;
+height: 172px; 
+width: 249px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_panic_alarms.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat3 a:hover {
+position: relative; 
+left: 0; 
+top:1px; 
+height: 172px; 
+width: 250px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_window.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat4 a:hover {
+position: relative;
+left: -1px; 
+top:0px;
+height: 170px; 
+width: 245px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_cctv.jpg) no-repeat; 
+border:none; 
+text-indent: 0px;
+}
+
+#cat5 a:hover {
+position: relative; 
+left: -239px;
+top:1px; 
+height: 172px; 
+width: 249px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_window2.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat6 a:hover {
+position: relative; 
+left: -199px;
+top:1px; 
+height: 172px; 
+width: 249px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_window3.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat7 a:hover {
+position: relative;
+left: -229px; 
+top:4px;
+height: 172px; 
+width: 249px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_cctv2.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat8 a:hover {
+position: relative;
+left: -217px; 
+top:1px;
+height: 169px; 
+width: 245px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_prikka_wall.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat9 a:hover {
+position: relative;
+left: -213px; 
+top:3px;
+height: 171px; 
+width: 246px; 
+background: url(http://www.home-security-store.co.uk/assets/images/house/hover_garage.jpg) no-repeat; 
+border:none;
+text-indent: 0px;
+}
+
+#cat1 a:hover span, 
+#cat2 a:hover span, 
+#cat3 a:hover span, 
+#cat4 a:hover span {margin: 60px 0 0 172px; display: block; width: 60px; font-size: 10px; color: #fff;}
+
+
+
+#cat5 a:hover span, 
+#cat7 a:hover span, 
+#cat8 a:hover span,
+#cat9 a:hover span, 
+#cat6 a:hover span{
+margin: 60px 0 0 11px; 
+display: block; 
+width: 60px; 
+font-size: 10px; 
+color: #fff;}
+.tip {text-align: center; font-weight: bold; font-size: 8pt;}
+
+

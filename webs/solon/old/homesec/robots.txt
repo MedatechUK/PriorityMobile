@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /cgi-scripts/
+Disallow: /bin/
+Disallow: /admin
+Disallow: /admin/
+Disallow: /assets/

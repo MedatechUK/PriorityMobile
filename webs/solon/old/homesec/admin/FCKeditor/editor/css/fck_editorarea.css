@@ -1,0 +1,99 @@
+/*
+ * FCKeditor - The text editor for internet
+ * Copyright (C) 2003-2006 Frederico Caldeira Knabben
+ * 
+ * Licensed under the terms of the GNU Lesser General Public License:
+ * 		http://www.opensource.org/licenses/lgpl-license.php
+ * 
+ * For further information visit:
+ * 		http://www.fckeditor.net/
+ * 
+ * "Support Open Source software. What about a donation today?"
+ * 
+ * File Name: fck_editorarea.css
+ * 	This is the default CSS file used by the editor area. It defines the
+ * 	initial font of the editor and background color.
+ * 
+ * 	A user can configure the editor to use another CSS file. Just change
+ * 	the value of the FCKConfig.EditorAreaCSS key in the configuration
+ * 	file.
+ * 
+ * File Authors:
+ * 		Frederico Caldeira Knabben (fredck@fckeditor.net)
+ */
+
+/*
+    The "body" styles should match your editor web site, mainly regarding
+    background color and font family and size.
+*/
+
+body
+{
+	background-color: #ffffff;
+	padding: 5px 5px 5px 5px;
+	margin: 0px;
+}
+
+body, td
+{
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+a {
+color: #4c7a08 !important;
+font-weight: bold;
+}
+
+a:hover {
+color: #4c7a08;
+text-decoration:none;
+}
+
+h1, h2 {margin: 0; padding: 5px 0 5px 0; font-size: 140%; color: #9fc100 !important}
+#main_content h3 {color: #000 !important; font-size: 100%;}
+
+
+.imgleft {float: left; margin: 10px 10px 10px 0;}
+.imgright {float: right; margin: 10px 0 10px 10px;}
+
+/* 
+	Just uncomment the following block if you want to avoid spaces between 
+	paragraphs. Remember to apply the same style in your output front end page.
+*/
+
+/*
+P, UL, LI
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+*/
+
+/*
+    The following are some sample styles used in the "Styles" toolbar command.
+    You should instead remove them, and include the styles used by the site
+    you are using the editor in.
+*/
+
+.Bold
+{
+	font-weight: bold;
+}
+
+.Title
+{
+	font-weight: bold;
+	font-size: 18px;
+	color: #cc3300;
+}
+
+.Code
+{
+	border: #8b4513 1px solid;
+	padding-right: 5px;
+	padding-left: 5px;
+	color: #000066;
+	font-family: 'Courier New' , Monospace;
+	background-color: #ff9933;
+}

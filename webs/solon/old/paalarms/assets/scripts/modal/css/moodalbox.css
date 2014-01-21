@@ -1,0 +1,79 @@
+/* moodalbox CSS */
+h1, h2 {padding: 5px 0 5px 0; font-size: 140%; color: #9fc100;text-align: left;}
+h3 {color: #000; font-size: 100%;text-align: left;}
+
+#bitesize {padding: 0 20px; background:#fff; text-align: left; width: 90%; margin: 0 auto;}
+#bitesize fieldset {font-size: 90%; border: 1px solid #999; padding: 10px; margin: 10px;}
+#bitesize label span {float: left; width: 150px;}
+#bitesize legend {padding: 0 15px; font-weight: bold; color: #5c7300;}
+
+h1, h2 {padding: 5px 0 5px 0; font-size: 140%; color: #9fc100; text-align: left;}
+h3 {color: #000; font-size: 100%; text-align: left;}
+
+
+div#mb_overlay {
+position: absolute;
+left: 0;
+width: 100%;
+background-color: #000;
+cursor: pointer;
+}
+
+div#mb_center, div#mb_bottom {
+position: absolute;
+left: 50%;
+overflow: hidden;
+background-color: #DDD;
+}
+
+div#mb_center {
+background-color: #FFF;
+}
+
+div#mb_contents {
+width: 400px;
+height: 400px;
+border: 10px solid #DDD;
+overflow: auto;
+visibility: hidden;
+}
+
+.mb_loading {
+background: #DDD url(../img/loading.gif) no-repeat center center;
+}
+
+#mb_error {
+font-size: 1.2em;
+color: #CD0000;
+font-weight: bold;
+text-align: left;
+padding: 0.5em;
+font-family: Verdana, Helvetica, sans-serif;
+}
+
+#mb_error em {
+font-size: 0.8em;
+}
+
+div#mb_bottom {
+font-family: Verdana, Helvetica, sans-serif;
+font-size: 10px;
+color: #666;
+line-height: 1.4em;
+text-align: left;
+border: 10px solid #DDD;
+border-top-style: none;
+}
+
+a#mb_close_link {
+display: block;
+float: right;
+width: 66px;
+height: 22px;
+background: transparent url(../img/closelabel.gif) no-repeat center;
+margin: 5px 0;
+}
+
+div#mb_caption {
+margin-right: 71px;
+}

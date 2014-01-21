@@ -1,0 +1,25 @@
+.balloonstyle{
+position:absolute;
+top: -500px;
+left: 0;
+padding: 5px;
+visibility: hidden;
+border:1px solid #f7941d;
+font:normal 11px Verdana;
+z-index: 100;
+background: url(../images/shell/product_bg.gif) repeat-x #fff;
+width: 250px;
+}
+
+.balloonstyle img{float: right; margin: 5px 0 5px 5px; border: 1px solid #ddd; width: 75px; height: 75px;}
+.balloonstyle ul {margin: 0; padding: 10px 0 0 0;}
+.balloonstyle li {margin: 0 0 0 0px; padding: 0;}
+.balloonstyle .price {clear: both;font-size: 160%; font-weight: bold; padding: 5px 0; margin: 0; float: right}
+
+#arrowhead{
+z-index: 99;
+position:absolute;
+top: -500px;
+left: 0;
+visibility: hidden;
+}

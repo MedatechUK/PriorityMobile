@@ -1,0 +1,92 @@
+body
+{
+text-align: center;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+padding: 0;
+font-size: 90%;
+background: #fff;
+width: 90%;
+}
+
+a {color: #4c7a08;font-weight: bold;}
+a:hover {color: #4c7a08;text-decoration:none;}
+
+#hide {}
+#hide h1 {display: none;}
+#hide img {border: none}
+
+#hidden {margin:0 auto;font-weight: bold;font-size: 120%;}
+#hidden p{padding-top: 20px;}
+
+#container {text-align: left;}
+
+#header {display: none}
+#navigation {text-align: center; font-size: 90%; color: #000;}
+#navigation ul {list-style: none; margin: 0; padding: 10px 0 0 0;}
+#navigation li {display: inline; padding: 0 10px 0 10px;}
+#navigation a{color: #4c7a08; font-weight:bold; text-decoration: none;}
+#navigation a:hover{color: #4c7a08; text-decoration: underline;}
+
+#main_content {padding: 10px 20px 20px 20px; margin: 0;}
+#main_content h1, #main_content h2 {margin: 0; padding: 5px 0 5px 0; font-size: 140%; color: #9fc100}
+#main_content h3 {color: #000; font-size: 100%;}
+#main_content fieldset {font-size: 90%; border: 1px solid #999; padding: 10px; margin-bottom: 10px;}
+#main_content label span {float: left; width: 200px;}
+#main_content legend {padding: 0 15px; font-weight: bold; color: #5c7300;}
+
+.product{border: 1px solid #999;margin: 0 10px 10px 0;padding: 10px;}
+.product h3 {font-size: 100%; background: #acd700; padding: 4px; margin: 0 0 20px 0; color:#000;}
+.product p {font-size: 80%}
+.product img {float: left; margin-right: 10px; border: none}
+.product form {text-align: right; border-top: 1px solid #999; padding-top: 5px; margin: 0; font-size: 80%}
+.product label {float: left; padding-top: 5px;}
+.product .info {text-align: right;padding: 0; margin: 0; font-size: 80%; font-weight: bold;}
+.product .price {text-align: right; font-size: 120%; font-weight: bold; padding: 5px 0; margin: 0}
+.product ul, .product ol {height: 90px}
+.product li {font-size: 80%; margin-left: 20px;}
+
+.product_info h3 {font-size: 100%; background:#acd700; padding: 4px; margin: 0 0 20px 0;}
+.product_info p {font-size: 90%; margin-left: 220px;}
+.product_info img {float: left}
+.product_info form {text-align: right; padding-top: 10px;}
+.product_info form img {float: none; border: none;}
+.product_info label {}
+.product_info .price {text-align: right; font-size: 120%; font-weight: bold;}
+
+#basket {border-collapse: collapse; font-size: 90%; width: 100%; border: 1px solid #999;}
+#basket th {padding: 3px; background:#acd700;border-bottom: 1px solid #999;}
+#basket td {padding: 3px;}
+#basket a {color: #F00; }
+#basket a:hover {color: #F00; text-decoration: none;}
+#basket .total {text-align: right; border-top: 1px solid #999;}
+#confirm {font-size: 80%;}
+
+#basketconfirm {border-collapse: collapse; width: 100%; border: 1px solid #999;font-size: 90%; }
+#basketconfirm th {padding: 3px; background:URL("../images/product_h3_bg.gif") #acd700; text-align:left}
+#basketconfirm td {padding: 3px;}
+#basketconfirm a {color: #F00; }
+#basketconfirm a:hover {color: #F00; text-decoration: none;}
+#basketconfirm .subtotal {background: #ededed;text-align: right; border-top: 3px double #999;}
+#basketconfirm .postage {background: #ededed;text-align: right;}
+#basketconfirm .vat {background: #ededed;text-align: right;}
+#basketconfirm .total {background: #ededed; text-align: right; font-size: 150%;}
+
+.errormessage {color: #f00; border: 1px solid #F00; padding: 5px; background: #ffc6c6; font-weight: bold;}
+.error {color: #f00;}
+.alert {color: #f00; font-weight: bold; font-size: 80%; margin: 0;}
+.step {background: #666; border: 1px solid #999; padding: 3px; font-size: 80%; color: #fff}
+.step strong {color: #acd700}
+.print_page {display:none}
+.buttons {text-align: right;}
+.buttons img {border: none}
+.summary_delivery {width: 45%; float: left;}
+
+.imgleft {float: left; margin: 10px 10px 10px 0; border: none}
+.imgright {float: right; margin: 10px 0 10px 10px; border: none}
+
+#footer {height: 95px; clear:both; font-size: 70%; color: #999; margin-top: 20px;}
+#footer p {margin: 0px; padding: 5px 10px;}
+#footer img {display: none}
+#footer a {color: #acd700}
+#footer a:hover {text-decoration:none}
+

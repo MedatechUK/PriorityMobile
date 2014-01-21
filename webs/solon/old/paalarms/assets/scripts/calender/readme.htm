@@ -1,0 +1,225 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Xin's Popup Calendar Script- Installation and customization info</title>
+</head>
+
+<body>
+
+<p><b>Xin's Popup Calendar Script- Installation and customization info (Copied
+from original, by Xin Yang):</b></p>
+<p><b># To prepare the HTML page</b>:</p>
+<p>1. Put the following lines within the &lt;HEAD&gt; section:<br>
+<font color="blue">&lt;script language="javascript" src="cal2.js"><br>
+/*<br>
+Xin's Popup calendar script-  Xin Yang (http://www.yxscripts.com/)<br>
+Script featured on/available at http://www.dynamicdrive.com/<br>
+This notice must stay intact for use<br>
+*/<br>
+&lt;/script><br>
+&lt;script language="javascript" src="cal_conf2.js">&lt;/script></font><br>
+<br>
+You will define the calendar(s) and the settings in the
+&quot;cal_conf2.js&quot;, the name of the file doesn't matter though.<br>
+<br>
+You don't have to put the &quot;cal2.js&quot; and &quot;cal_conf2.js&quot; under
+the same directory of the HTML page, as long as you can specify the web path for
+them in the SRC.</p>
+<p>2. For the form field to store the date selected, just make it a normal one:<br>
+<font color="blue">&lt;input type=&quot;text&quot;
+name=&quot;CalendarFormFieldName&quot; value=&quot;...&quot;
+size=&quot;...&quot;&gt;</font><br>
+<br>
+You can put in a date string, in a supported format, as the initial value. The
+SIZE depends on the date string format you decide.</p>
+<p>3. Use a link or your own Javascript codes to pop up the calendar. For the
+link, make it this way:<br>
+<font color="blue">&lt;a
+href=&quot;javascript:showCal('CalendarName')&quot;&gt;...&lt;/a&gt;</font><br>
+<br>
+This link is kind of like a position mark for the calendar window to pop up, so
+put it close to the date field.</p>
+<p><b># To setup the calendar(s)</b>:</p>
+<p>The following function calls should be put into the &quot;cal_conf2.js&quot;,
+and the settings sampled here are the default settings.</p>
+<p>1. To add a calendar:<br>
+<font color="blue">addCalendar(&quot;CalendarName&quot;,
+&quot;CalendarWindowTitle&quot;, &quot;CalendarFormFieldName&quot;,
+&quot;CalendarFormName&quot;);</font><br>
+<br>
+If you have more than one form field defined above, repeat the
+&quot;addCalendar()&quot; call with different calendar names and their form
+field names.<br>
+<br>
+If your HTML page only has one FORM, then you can leave the CalendarFormName
+blank(&quot;&quot;), otherwise, specify the form names accordingly.</p>
+<p>2. To define the font:<br>
+<font color="blue">setFont(&quot;verdana&quot;, 9);</font></p>
+<p>3. To define the calendar width:<br>
+<font color="blue">setWidth(90, 1, 12, 1);</font><br>
+<br>
+When a calendar pops up, it will show its current year and month as the title,
+along with arrow symbols to choose the previous/next year or month.<br>
+<br>
+The first parameter in the &quot;setWidth(<font color="blue">90</font>, 1, 12,
+1)&quot; call is to define the width for the title in pixels. You can adjust it
+to test different fonts and font sizes.<br>
+<br>
+The second parameter in the &quot;setWidth(90, <font color="blue">1</font>, 12,
+1)&quot; call is to define whether to show the year and month in one line or two
+lines. You can use 1 or 2 here. If you use two lines, you will have arrow
+symbols for both year and month so that you can scroll them individually.<br>
+<br>
+The third parameter in the &quot;setWidth(90, 1, <font color="blue">12</font>,
+1)&quot; call is to define the width of a day cell in pixels.<br>
+<br>
+The last paramenter in the &quot;setWidth(90, 1, 12, <font color="blue">1</font>)&quot;
+call is to define how you want the days in short. Usually you will use 1 or 3
+here, so Sunday will be shown as &quot;S&quot; if you use 1, or as
+&quot;Sun&quot; if you use 3.</p>
+<p>4. To define the background colors:<br>
+<font color="blue">setColor(&quot;#cccccc&quot;, &quot;#cccccc&quot;,
+&quot;#ffffff&quot;, &quot;#ffffff&quot;, &quot;#333333&quot;,
+&quot;#cccccc&quot;, &quot;#333333&quot;);</font><br>
+<br>
+Just play with the background colors above.</p>
+<p>5. To define the font colors:<br>
+<font color="blue">setFontColor(&quot;#333333&quot;, &quot;#333333&quot;,
+&quot;#333333&quot;, &quot;#ffffff&quot;, &quot;#333333&quot;);</font><br>
+<br>
+Just play with the font colors above.</p>
+<p>6. To define the date string format:<br>
+<font color="blue">setFormat(&quot;yyyy/mm/dd&quot;);</font><br>
+<br>
+To define a date string format, you will use &quot;yyyy&quot;, &quot;mm&quot;
+and &quot;dd&quot; for the year, month and day in numbers, and use
+&quot;DAY&quot; for week day in format of &quot;SUN&quot;, or &quot;Day&quot;
+for week day in format of &quot;Sun&quot;, and &quot;MON&quot; for month in
+format of &quot;JAN&quot;, or &quot;Mon&quot; for month in format of
+&quot;Jan&quot;.<br>
+<br>
+Single &quot;/&quot; is the default separator, but you can use any combinations
+of symbols(except for &quot;yyyy&quot;, &quot;mm&quot;, &quot;dd&quot;,
+&quot;day&quot; and &quot;mon&quot;) as separators or none, so you can have date
+formats such as &quot;yyyymmdd&quot;, &quot;Date: yyyy-mm(Mon)-dd&quot;,
+&quot;mm dd, yyyy&quot; and &quot;Day. dd-Mon-yyyy is a good date&quot;, etc.</p>
+<p>7. To define the popup window size and offsets:<br>
+<font color="blue">setSize(200, 200, -200, 16);</font><br>
+<br>
+The first two parameters, [200,200], define the size of the popup window, you
+might want to adjust them for different font and font size. The last two
+parameters, [-200,16], define the position offsets for the popup window. The
+script will detect where you click on the link, and apply the offsets before it
+pops up the calendar.<br>
+<br>
+In this sample, an image link is used to pop up the calendar, the image link
+sits to the right of its date field and the calendar window has a size of
+200x200 and is expected to pop up under the date field. Thus, basing on where
+you click the image link, -200 is to &quot;move&quot; the popup window to the
+left, and 16 is good enough to &quot;move&quot; the window down under the date
+field. You can adjust them for different form layouts.</p>
+<p><b>8. To define week day format(optional)</b>:<br>
+<font color="blue">setWeekDay(0);</font><br>
+<br>
+Set to 0 to show Sunday first, or set to 1 to show Monday first for the week
+days.</p>
+<p><b>9. To show the titles in another language rather than English(optional)</b>:<br>
+<font color="blue">setMonthNames(&quot;January&quot;, &quot;February&quot;,
+&quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;,
+&quot;July&quot;, &quot;August&quot;, &quot;September&quot;,
+&quot;October&quot;, &quot;November&quot;, &quot;December&quot;);</font><br>
+<font color="blue">setDayNames(&quot;Sunday&quot;, &quot;Monday&quot;,
+&quot;Tuesday&quot;, &quot;Wednesday&quot;, &quot;Thursday&quot;,
+&quot;Friday&quot;, &quot;Saturday&quot;);</font><br>
+<font color="blue">setLinkNames(&quot;[Close]&quot;, &quot;[Clear]&quot;);</font><br>
+<br>
+Above are the default titles in English shown in the calendar. If you want to
+display another language, or display titles in another way, replace those
+English titles with titles in your own language. Of course, you might also need
+to adjust the font and digits for the day titles.<br>
+<br>
+<font color="blue">Please note that</font> if your language uses double-byte
+characters, like Chinese, you should avoid using the &quot;day&quot; and
+&quot;mon&quot; in the date format.<br>
+<br>
+Following is a sample to set titles in Chinese:<br>
+<br>
+setFont(&quot;ËÎÌå&quot;, 12);<br>
+setWidth(90, 1, 15, 2);<br>
+setMonthNames(&quot;Ò» ÔÂ&quot;, &quot;¶þ ÔÂ&quot;, &quot;Èý ÔÂ&quot;,
+&quot;ËÄ ÔÂ&quot;, &quot;Îå ÔÂ&quot;, &quot;Áù ÔÂ&quot;, &quot;Æß
+ÔÂ&quot;, &quot;°Ë ÔÂ&quot;, &quot;¾Å ÔÂ&quot;, &quot;Ê® ÔÂ&quot;,
+&quot;Ê®Ò»ÔÂ&quot;, &quot;Ê®¶þÔÂ&quot;);<br>
+setDayNames(&quot;ÈÕ&quot;, &quot;Ò»&quot;, &quot;¶þ&quot;, &quot;Èý&quot;,
+&quot;ËÄ&quot;, &quot;Îå&quot;, &quot;Áù&quot;);<br>
+setLinkNames(&quot;[¹Ø±Õ]&quot;, &quot;[Çå¿Õ]&quot;);<br>
+</p>
+<p><b># Some useful functions</b>:</p>
+<p>Since you can define your dates in any format, the following Javascript
+functions help you to deal with them.</p>
+<p>1. <font color="blue">checkDate(CalendarName)</font><br>
+<br>
+The &quot;checkDate()&quot; call returns 0 if the value of the form field that
+stores the date picked from the specified calendar passes the format checking,
+returns 1 if the value is empty or doesn't pass the checking, or returns 2 if
+the specified calendar is not defined.<br>
+<br>
+Click <a href="javascript:alert(checkDate('Date1'))">here</a> to test the first
+date field in this page.</p>
+<p>2. <font color="blue">getCurrentDate()</font><br>
+<br>
+The &quot;getCurrentDate()&quot; call returns the current date as a string in
+the format you define with the &quot;setFormat()&quot; call.<br>
+<br>
+Click <a href="javascript:alert(getCurrentDate())">here</a> to show the current
+date.</p>
+<p>3. <font color="blue">compareDates(date1, date2)</font><br>
+<br>
+The &quot;compareDates()&quot; call compares the two date strings given. If a
+date string given doesn't pass the date format checking, the string returned by
+the &quot;getCurrentDate()&quot; will be used. It returns 0 if date1 equals to
+date2, or -1 is date1 is earlier than date2, or 1 if date1 is later than date2.<br>
+<br>
+Click <a href="javascript:alert(compareDates(document.forms[0].date1.value,document.forms[0].date2.value))">here</a>
+to compare the first two date fields in this page.</p>
+<p>4. <font color="blue">getNumbers(date)</font><br>
+<br>
+The &quot;getNumbers()&quot; call returns an string array with the year, month
+and day parsed from the date string given. If you have something like
+&quot;myNumbers = getNumbers(myDate);&quot;, then &quot;myNumbers[0]&quot; is
+the year, &quot;myNumbers[1]&quot; is the month and &quot;myNumbers[2] is the
+day.<br>
+<br>
+If the date given doesn't pass the format checking, it returns an array of three
+empty strings(&quot;&quot;).<br>
+<br>
+Click <a href="javascript:alert(getNumbers(document.forms[0].date1.value))">here</a>
+to show the numbers of the first date field in this page.</p>
+<p><b># Browser support</b>:<br>
+<br>
+This script should work with IE4+/Win, IE5+/Mac, NN4x, N6+, Opera6+/Win and
+Konqueror3/Linux.</p>
+<p># Update history
+<ul>
+  <li type="circle">options added to show titles in another language or just in
+    another way, thanks to Eric DELATTRE's suggestion and efforts ...
+    14-Oct-2002
+  <li type="circle">option added to show Monday first, thanks to Hans Merilo's
+    suggestion ... 14-Oct-2002
+  <li type="circle">fixed a bug in the &quot;compareDates()&quot; call ...
+    12-Oct-2002
+  <li type="circle">for one-line title, year-scrolling arrows added, for
+    two-line title, 10-year-scrolling arrows added, thanks to Narayanan's
+    suggestion, he wanted to scroll from 2002 to 1950 faster to fill a birthday
+    ... 12-Oct-2002
+  <li type="circle">this script was created with Ulmer's suggestion ...
+    09-Oct-2002</li>
+</ul>
+<p align="center">~~ The End ~~</p>
+
+</body>
+
+</html>

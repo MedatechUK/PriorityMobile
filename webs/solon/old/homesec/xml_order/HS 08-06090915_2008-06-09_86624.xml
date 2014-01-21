@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<Order xmlns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01 http://www.ebis-xml.net/schemas/order-v3.xsd">
+  <OrderHead>
+    <Schema>
+      <Version>3</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML-sylesheet.xsl</StylesheetName>
+      <Version>3</Version>
+      <StylesheetType>XSL</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en-GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>20.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag TestReference="Complex">1
+      <Test ExpectedReply="Fail" Mode="Manual"/>
+    </TestFlag>
+    <Order_Function Code="TEO"/>
+    <OrderType Code="WEO">Web Order</OrderType>
+    <OrderCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </OrderCurrency>
+    <InvoiceCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>86624</Checksum>
+  </OrderHead>
+  <OrderReferences>
+		<BuyersOrderNumber Preserve="true">HS 08-06090915</BuyersOrderNumber>
+    <ProjectCode Preserve="true">EB5</ProjectCode>
+    <ProjectAnalysisCode Preserve="true">Web</ProjectAnalysisCode>
+    <SuppliersOrderReference Preserve="true">HS 08-06090915</SuppliersOrderReference>
+  </OrderReferences>
+  <OrderDate>2008-06-09</OrderDate>
+   <Buyer>
+    <BuyerReferences>
+      <SuppliersCodeForBuyer>TIHS</SuppliersCodeForBuyer>
+    </BuyerReferences>
+    <Party>TIHS Limited</Party>
+    <Address>
+      <AddressLine>Oak House</AddressLine>
+      <Street>Groes Lwyd</Street>
+      <City>Abergele</City>
+      <State></State>
+      <PostCode>LL22 7SU</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Pete Smith</Name>
+      <Switchboard></Switchboard>
+      <Fax></Fax>
+      <Email>peter.smith@theitc.co.uk</Email>
+      </Contact>
+  </Buyer>
+  <Delivery>
+    <DeliverTo>
+      <DeliverToReferences>
+      </DeliverToReferences>
+      <Party>Miss C Thomas</Party>
+      <Address>
+      <AddressLine>32 Carew Road</AddressLine>
+      <Street> </Street>
+      <City>Tibington</City>
+      <State>Devon</State>
+      <PostCode>EX16 6BN</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Miss C Thomas</Name>
+      <Switchboard>01884 257479</Switchboard>
+      <Fax></Fax>
+      <Email>admin@theitc.co.uk</Email>
+      </Contact>
+    </DeliverTo>
+    </Delivery>
+  <InvoiceTo>
+    <InvoiceToReferences>
+      <GLN></GLN>
+    </InvoiceToReferences>
+    <Party>Miss C Thomas</Party>
+          <Address>
+          <AddressLine></AddressLine>
+          <Street></Street>
+          <City>Tibington</City>
+          <State>Devon</State>
+          <PostCode>EX16 6BN</PostCode>
+          <Country Code="GBR">United Kingdom</Country>
+    </Address>
+<Contact>
+      <Name>Miss C Thomas</Name>
+      <Switchboard>01884 257479</Switchboard>
+      <Fax></Fax>
+      <Email>admin@theitc.co.uk</Email>
+      </Contact>
+  </InvoiceTo><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">1</LineNumber><Product>
+      <SuppliersProductCode>100</SuppliersProductCode>
+      <BuyersProductCode>BD1002</BuyersProductCode>
+      <Description>Safe T-Bar</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>6.8</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>1.19</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>6.8</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+    <LineNumber Preserve="true">2</LineNumber><Product>
+      <SuppliersProductCode></SuppliersProductCode>
+      <BuyersProductCode></BuyersProductCode>
+      <Description></Description>
+    </Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>2.94</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>0.51</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>2.94</LineTotal>
+  </OrderLine><OrderTotal>  
+    <GoodsValue>9.74</GoodsValue>
+    <FreightCharges>3.45</FreightCharges>
+    <TaxTotal>1.7</TaxTotal>
+    <GrossValue>11.44</GrossValue>
+  </OrderTotal></Order>

@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<Order xmlns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01 http://www.ebis-xml.net/schemas/order-v3.xsd">
+  <OrderHead>
+    <Schema>
+      <Version>3</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML-sylesheet.xsl</StylesheetName>
+      <Version>3</Version>
+      <StylesheetType>XSL</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en-GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>20.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag TestReference="Complex">1
+      <Test ExpectedReply="Fail" Mode="Manual"/>
+    </TestFlag>
+    <Order_Function Code="TEO"/>
+    <OrderType Code="WEO">Web Order</OrderType>
+    <OrderCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </OrderCurrency>
+    <InvoiceCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>00888</Checksum>
+  </OrderHead>
+  <OrderReferences>
+		<BuyersOrderNumber Preserve="true">HS 08-02111708</BuyersOrderNumber>
+    <ProjectCode Preserve="true">EB5</ProjectCode>
+    <ProjectAnalysisCode Preserve="true">Web</ProjectAnalysisCode>
+    <SuppliersOrderReference Preserve="true">HS 08-02111708</SuppliersOrderReference>
+  </OrderReferences>
+  <OrderDate>2008-02-11</OrderDate>
+   <Buyer>
+    <BuyerReferences>
+      <SuppliersCodeForBuyer>TIHS</SuppliersCodeForBuyer>
+    </BuyerReferences>
+    <Party>TIHS Limited</Party>
+    <Address>
+      <AddressLine>Oak House</AddressLine>
+      <Street>Groes Lwyd</Street>
+      <City>Abergele</City>
+      <State></State>
+      <PostCode>LL22 7SU</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Pete Smith</Name>
+      <Switchboard></Switchboard>
+      <Fax></Fax>
+      <Email>peter.smith@theitc.co.uk</Email>
+      </Contact>
+  </Buyer>
+  <Delivery>
+    <DeliverTo>
+      <DeliverToReferences>
+      </DeliverToReferences>
+      <Party>Mr Rob Motyer</Party>
+      <Address>
+      <AddressLine>Well Done</AddressLine>
+      <Street> 1 & 2 Station Approach</Street>
+      <City>South Oxher</City>
+      <State>Watford</State>
+      <PostCode>WD19 7DT</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Mr Rob Motyer</Name>
+      <Switchboard>02083868788</Switchboard>
+      <Fax></Fax>
+      <Email>rob@welldonegroup.com</Email>
+      </Contact>
+    </DeliverTo>
+    </Delivery>
+  <InvoiceTo>
+    <InvoiceToReferences>
+      <GLN></GLN>
+    </InvoiceToReferences>
+    <Party>Mr Rob Motyer</Party>
+          <Address>
+          <AddressLine></AddressLine>
+          <Street>1 & 2 Station Approach</Street>
+          <City>South Oxher</City>
+          <State>Watford</State>
+          <PostCode>WD19 7DT</PostCode>
+          <Country Code="GBR">United Kingdom</Country>
+    </Address>
+<Contact>
+      <Name>Mr Rob Motyer</Name>
+      <Switchboard>02083868788</Switchboard>
+      <Fax></Fax>
+      <Email>rob@welldonegroup.com</Email>
+      </Contact>
+  </InvoiceTo><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">1</LineNumber><Product>
+      <SuppliersProductCode>114</SuppliersProductCode>
+      <BuyersProductCode>BW0101</BuyersProductCode>
+      <Description>Rhino Bar Restrictor</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>3</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>3</Units>
+      <UnitPrice>8.93</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>4.69</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>26.78</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">2</LineNumber><Product>
+      <SuppliersProductCode>106</SuppliersProductCode>
+      <BuyersProductCode>BW0510</BuyersProductCode>
+      <Description>Redline Patio Door Lock</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>2</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>2</Units>
+      <UnitPrice>6.37</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>2.23</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>12.75</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+    <LineNumber Preserve="true">3</LineNumber><Product>
+      <SuppliersProductCode></SuppliersProductCode>
+      <BuyersProductCode>DELIVERY</BuyersProductCode>
+      <Description>Special Delivery</Description>
+    </Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>7.62</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>1.33</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>7.62</LineTotal>
+  </OrderLine><OrderTotal>  
+    <GoodsValue>47.15</GoodsValue>
+    <FreightCharges>8.95</FreightCharges>
+    <TaxTotal>8.25</TaxTotal>
+    <GrossValue>55.4</GrossValue>
+  </OrderTotal></Order>

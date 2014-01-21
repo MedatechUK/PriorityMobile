@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<Order xmlns="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:schemas-basda-org:2000:purchaseOrder:xdr:3.01 http://www.ebis-xml.net/schemas/order-v3.xsd">
+  <OrderHead>
+    <Schema>
+      <Version>3</Version>
+    </Schema>
+    <Stylesheet>
+      <StylesheetOwner>BASDA</StylesheetOwner>
+      <StylesheetName>eBIS-XML-sylesheet.xsl</StylesheetName>
+      <Version>3</Version>
+      <StylesheetType>XSL</StylesheetType>
+    </Stylesheet>
+    <Parameters>
+      <Language>en-GB</Language>
+      <DecimalSeparator>.</DecimalSeparator>
+      <Precision>20.3</Precision>
+    </Parameters>
+    <OriginatingSoftware>
+      <SoftwareManufacturer>BASDA</SoftwareManufacturer>
+      <SoftwareProduct>eBIS-XML</SoftwareProduct>
+      <SoftwareVersion>3.0</SoftwareVersion>
+    </OriginatingSoftware>
+    <TestFlag TestReference="Complex">1
+      <Test ExpectedReply="Fail" Mode="Manual"/>
+    </TestFlag>
+    <Order_Function Code="TEO"/>
+    <OrderType Code="WEO">Web Order</OrderType>
+    <OrderCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </OrderCurrency>
+    <InvoiceCurrency>
+      <Currency Code="GBP">GB Pounds Sterling</Currency>
+    </InvoiceCurrency>
+    <Checksum>72622</Checksum>
+  </OrderHead>
+  <OrderReferences>
+		<BuyersOrderNumber Preserve="true">HS 08-10222121</BuyersOrderNumber>
+    <ProjectCode Preserve="true">EB5</ProjectCode>
+    <ProjectAnalysisCode Preserve="true">Web</ProjectAnalysisCode>
+    <SuppliersOrderReference Preserve="true">HS 08-10222121</SuppliersOrderReference>
+  </OrderReferences>
+  <OrderDate>2008-10-22</OrderDate>
+   <Buyer>
+    <BuyerReferences>
+      <SuppliersCodeForBuyer>BIGRED</SuppliersCodeForBuyer>
+    </BuyerReferences>
+    <Party>Big Red Elephant Group</Party>
+    <Address>
+      <AddressLine>Unit 40</AddressLine>
+      <Street>Manor Industrial Estate</Street>
+      <City>Flint</City>
+      <State></State>
+      <PostCode>CH6 5UY</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>John Fearnall</Name>
+      <Switchboard></Switchboard>
+      <Fax></Fax>
+      <Email>john.fearnall@solonsecurity.co.uk</Email>
+      </Contact>
+  </Buyer>
+  <Delivery>
+    <DeliverTo>
+      <DeliverToReferences>
+      </DeliverToReferences>
+      <Party>Mr Ralph Fors</Party>
+      <Address>
+      <AddressLine>Flat 1</AddressLine>
+      <Street> 117 Leigham Court Road</Street>
+      <City>Streatham</City>
+      <State>London</State>
+      <PostCode>SW16 2NT</PostCode>
+      <Country Code="GBR">United Kingdom</Country>
+    </Address>
+    <Contact>
+      <Name>Mr Ralph Fors</Name>
+      <Switchboard>07912842762</Switchboard>
+      <Fax></Fax>
+      <Email>rfors@locatel.net</Email>
+      </Contact>
+    </DeliverTo>
+    </Delivery>
+  <InvoiceTo>
+    <InvoiceToReferences>
+      <GLN></GLN>
+    </InvoiceToReferences>
+    <Party>Mr Ralph Fors</Party>
+          <Address>
+          <AddressLine></AddressLine>
+          <Street>117 Leigham Court Road</Street>
+          <City>Streatham</City>
+          <State>London</State>
+          <PostCode>SW16 2NT</PostCode>
+          <Country Code="GBR">United Kingdom</Country>
+    </Address>
+<Contact>
+      <Name>Mr Ralph Fors</Name>
+      <Switchboard>07912842762</Switchboard>
+      <Fax></Fax>
+      <Email>rfors@locatel.net</Email>
+      </Contact>
+  </InvoiceTo><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+  	<LineNumber Preserve="true">1</LineNumber><Product>
+      <SuppliersProductCode>53</SuppliersProductCode>
+      <BuyersProductCode>EA0215</BuyersProductCode>
+      <Description>Window Shock Alarm</Description></Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>3</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>3</Units>
+      <UnitPrice>5.52</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>2.9</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>16.57</LineTotal>
+  </OrderLine><OrderLine Action="Add" TypeCode="GDS" TypeDescription="Goods &amp; Services">
+    <LineNumber Preserve="true">2</LineNumber><Product>
+      <SuppliersProductCode></SuppliersProductCode>
+      <BuyersProductCode>DELIVERY</BuyersProductCode>
+      <Description>Special Delivery</Description>
+    </Product><Quantity UOMCode="Pieces" UOMDescription="PCE">
+      <Amount>1</Amount>
+    </Quantity>
+    <Price UOMCode="PCE" UOMDescription="Piece">
+      <Units>1</Units>
+      <UnitPrice>7.62</UnitPrice>
+     </Price><LineTax>
+      <MixedRateIndicator>1</MixedRateIndicator>
+      <TaxRate Code="S">17.5</TaxRate>
+      <TaxValue>1.33</TaxValue>
+      <TaxRef Code="UKC" Codelist="">UK Chargeable</TaxRef>
+    </LineTax>
+    <LineTotal>7.62</LineTotal>
+  </OrderLine><OrderTotal>  
+    <GoodsValue>24.19</GoodsValue>
+    <FreightCharges>8.95</FreightCharges>
+    <TaxTotal>4.23</TaxTotal>
+    <GrossValue>28.42</GrossValue>
+  </OrderTotal></Order>

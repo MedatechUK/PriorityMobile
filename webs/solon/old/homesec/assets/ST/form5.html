@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Home Security Store | Live Payment</title>
+<link rel="stylesheet" href="http://www.home-security-store.co.uk/assets/css/screen.css" type="text/css" media="screen" />
+<script language="javascript" type="text/javascript">
+<!--
+
+var requiredFields = new Array("ccnumber","name","address","postcode");
+var field;
+var complete = "Please Complete!";
+
+function submitpayment()
+{
+  if (checkRequiredFields()==1)
+  {
+    return (false);
+  }
+  return (true);
+}
+
+function checkRequiredFields()
+{
+var returnValue = 0;
+for (loop=0;loop < requiredFields.length; loop++)
+  {
+  field = eval("document.paymentpage." + requiredFields[loop]);
+  if (field.value=="" || field.value==complete)
+    {
+      field.value=complete;
+      field.style.backgroundColor = "#9ed34a";
+      returnValue=1;
+    }
+  }
+return (returnValue);
+}
+
+function resetFieldValue(resetField)
+{
+if (resetField.value==complete)
+  {
+  resetField.value="";
+  resetField.style.backgroundColor = "#fff";
+  }
+
+}
+
+//-->
+</script>
+</head>
+<body>
+
+<noscript>
+<div class="mainalert">
+<h1>Javascript is disabled</h1>
+<p class="noscript">We recommend you enable javascript on your web browser to use this website.</p>
+</div>
+</noscript>  <div id="hidden">
+<a href="http://www.home-security-store.co.uk" title="Home Page"><img src="http://www.home-security-store.co.uk/assets/images/logo.gif" alt="Home Security Store" /></a>
+</div><div id="container">
+  <div id="header">
+    <h2>Home Security Store</h2>
+	<p><a href="http://www.home-security-store.co.uk/index.php" class="homelink" title="Home Page"><img src="http://www.home-security-store.co.uk/assets/images/clear.gif" alt="Link to Home Page" width="300px" height="50px"/></a></p>
+
+	
+
+  </div>  <div id="navigation">
+
+<p>
+01745 828429</p>
+<ul>
+<li><a href="http://www.home-security-store.co.uk/index.php" title="Click here to go to our home page">Home</a></li>
+<li><a href="http://www.home-security-store.co.uk/products.php" title="Click here to go to our product list">Products</a></li>
+<li><a href="http://www.home-security-store.co.uk/about.php" title="Click here to find out who we are">About us</a></li>
+<li><a href="http://www.home-security-store.co.uk/contact.php" title="Click here to go to get information on how to contact us">Contact us</a></li>
+<li><a href="http://www.home-security-store.co.uk/home_security_tips.php" title="Tips on how to secure your home and it's content">Home Security Tips</a></li>
+
+</ul>
+
+
+
+
+
+</div> 
+  <div id="main_content">
+    <form method="post" action="https://securetrading.net/authorize/process.cgi" id="paymentpage" name="paymentpage" onsubmit="return submitpayment();">
+      <input type="hidden" name="merchant" value="$merchant"/>
+      <input type="hidden" name="orderref" value="$orderref"/>
+      <input type="hidden" name="amount" value="$amount"/>
+	  <input type="hidden" name="total" value="$formattedamount"/>
+      <input type="hidden" name="currency" value="$currency"/>
+      <input type="hidden" name="requiredfields" value="$requiredfields"/>
+      <input type="hidden" name="merchantemail" value="$merchantemail"/>
+      <input type="hidden" name="customeremail" value="$customeremail"/>
+      <input type="hidden" name="callbackurl" value="$callbackurl"/>
+      <input type="hidden" name="failureurl" value="$failureurl"/>
+      <input type="hidden" name="settlementday" value="$settlementday"/>
+      <input type="hidden" name="formref" value="$formref"/>
+	  <input type="hidden" name="postage" value="$postage"/>
+	  <input type="hidden" name="delivery_name" value="$delivery_name"/>
+	  <input type="hidden" name="delivery_address" value="$delivery_address"/>
+	  <input type="hidden" name="delivery_address2" value="$delivery_address2"/>
+	  <input type="hidden" name="delivery_town" value="$delivery_town"/>
+	  <input type="hidden" name="delivery_county" value="$delivery_county"/>
+	  <input type="hidden" name="delivery_postcode" value="$delivery_postcode"/>
+	  <input type="hidden" name="delivery_tel" value="$delivery_tel"/>
+	  <input type="hidden" name="delivery_email" value="$delivery_email"/>
+	  <input type="hidden" name="deliverymethod" value="$deliverymethod"/>
+	  <input type="hidden" name="orderinfo" value="$orderinfo"/>
+	  <input type="hidden" name="cartinfo" value="$cartinfo"/>
+	  <input type="hidden" name="cartdetail" value="$cartdetail"/>
+	  
+      <h2>Checkout > Payment</h2>
+      <p class="step">Checkout > Delivery information > Confirmation > <strong>Payment</strong> > Complete</p>
+      <p>Order Reference: <strong>$orderref</strong></p>
+	  <p>Amount: <strong>$formattedamount</strong></p>
+      <fieldset>
+      <legend>Card Holder Details</legend>
+      <p><label><span>Name:</span>
+      <input type="text" value="$name" onclick="resetFieldValue(this)" name="name"/>
+      </label></p>
+      <p><label><span>Street address:</span>
+      <input type="text" value="$address" onclick="resetFieldValue(this)" name="address"/>
+      </label></p>
+      <p><label><span>Address Line 2:</span>
+      <input type="text" value="$address2" onclick="resetFieldValue(this)" name="address2"/>
+      </label></p>
+      <p><label><span>Town or City:</span>
+      <input type="text" value="$town" name="town"/>
+      </label></p>
+      <p><label><span>County:</span>
+      <input type="text" value="$county" name="county"/>
+      </label></p>
+      <p><label><span>Postcode:</span>
+      <input type="text" value="$postcode" onclick="resetFieldValue(this)" name="postcode"/>
+      </label></p>
+      <p><label><span>Country:</span>
+      <input type="text" value="$country" name="country"/>
+      </label></p>
+      <p><label><span>Email:</span>
+      <input type="text" value="$email" name="email"/>
+      </label></p>
+      <p><label><span>Telephone:</span>
+      <input type="text" value="$telephone" name="telephone"/>
+      </label></p>
+      </fieldset>
+      <fieldset>
+      <legend>Payment Details</legend>
+      <p><label><span>Card Type:</span>
+      <select name="cctype">
+        <option>$cctype</option>
+        <option value="Visa">Visa</option>
+        <option value="Mastercard">MasterCard</option>
+        <option value="Switch">Switch/UK Maestro</option>
+        <option value="Solo">Solo</option>
+        <option value="Delta">Visa Delta</option>
+      </select>
+      </label></p>
+      <p><label><span>Card Number:</span>
+      <input type="text" value="$ccnumber" autocomplete="off" onclick="resetFieldValue(this)" name="ccnumber"/>
+      </label></p>
+      <p><label><span>Issue Number:</span>
+      <input type="text" size="2" value="$ccissue" name="ccissue"/>  (Switch/UK Maestro/Solo only)
+      </label></p>
+      <p><label><span>Security Code:</span>
+      <input type="text" size="4" value="$securitycode" name="securitycode"/>
+      <INPUT type=button name=btnseccode value="What's this?" onClick="JAVASCRIPT:window.open('https://securetrading.net/securitycodespopup.htm','popup','width=480,height=320');" class='paymentbutton'>
+      </label></p>
+      <p><label><span>Start Date (if applicable):</span></label>
+      <select name="month">
+        <option>$startmonth</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      $st_startyears</p>
+      <p><label><span>Expiry Date:</label></span>
+      <select name="month">
+        <option>$month</option>
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+        <option>06</option>
+        <option>07</option>
+        <option>08</option>
+        <option>09</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+      </select>
+      $st_expiryyears</p>
+	  <p>
+	  Please only click the pay and confirm button once.
+	  </p>
+      <p>
+        <!-- <input type="submit" value="Pay and Confirm" name="submitpaymentbutton" class='paymentbutton'/> -->
+		<input name="submitpaymentbutton" type="image" value="Submit" src="http://www.home-security-store.co.uk/assets/images/buttons/pay_confirm.jpg" alt="Pay and Confirm" />
+      </p>
+	  </fieldset>
+     <div class="stsmall">
+        <h3>Secure online payment though SecureTrading</h3>
+        <img src='/images/st_merchant_col.jpg' alt='&copy; SecureTrading&nbsp;2007'>
+        <p>The URL of this page begins with https:// - this means that the page is hosted on a secure server and all transactions taking place are encrypted, so your card details are protected.</p>
+        <p>SecureTrading's online payment system is the most sophisticated available. All financial transactions are processed securely behind protected firewalls, allowing us to safely process your card payment with the bank.  Financial details are never left unencrypted on any part of our system, and are never sent by Internet email.</p>
+        <p>For more details about SecureTrading or to find out how its payment system could benefit your business, visit the SecureTrading website at <a href='http://www.securetrading.com'>www.securetrading.com</a></p></div>
+    </form>
+    </div>
+  <div id="footer">
+    <p><a href="http://www.securetrading.com" title="A link to the SecureTrading website (This will open in a new window)" target="_blank"><img src="http://www.home-security-store.co.uk/assets/images/shell/secure_trading_logo.jpg" alt="Secure Trading Merchant Logo" /></a></p>
+
+<p><a href="http://www.home-security-store.co.uk/terms_and_conditions.php" title="Click here to view our terms and conditions">Terms and Conditions</a> | <a href="http://www.home-security-store.co.uk/deliveries_and_returns.php" title="Click here to view information regarding deliveries and returns">Deliveries and Returns</a> | <a href="http://www.home-security-store.co.uk/privacy_policy.php" title="Click here to view our privacy policy">Privacy Policy</a> | <a href="http://www.home-security-store.co.uk/site_map.php" title="Click here to view our site map">Site Map</a></p>
+<p class="copyright">&copy; <a href="http://www.home-security-store.co.uk/copyright.php" title="Click here to view our copyright notice">Copyright</a> 2004-2007 <a href="http://www.redlinesecurity.co.uk" title="A link to our parent website (This will open in a new window)">Redline Security</a> E&amp;OE. All Rights Reserved. Redline Security is a trading name of TIHS Ltd. Our registered office is: Oak House, Groes Lwyd, Abergele, Conwy LL22 7SU. We are registered in England and Wales. Company No 5325603. VAT Number 855446109. </p>
+
+  </div>
+</div>
+
+</body>
+</html>
