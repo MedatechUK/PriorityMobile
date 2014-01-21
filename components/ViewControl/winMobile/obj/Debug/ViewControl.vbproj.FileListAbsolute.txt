@@ -33,3 +33,12 @@ M:\components\ViewControl\winMobile\bin\Debug2\frmControls.pdb
 M:\components\ViewControl\winMobile\bin\Debug2\frmControls.xml
 M:\components\ViewControl\winMobile\bin\Debug2\mnuControls.pdb
 M:\components\ViewControl\winMobile\bin\Debug2\mnuControls.xml
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\ResolveAssemblyReference.cache
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\PriorityMobile.frmProvisionDialog.resources
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\PriorityMobile.MainView.resources
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\PriorityMobile.Resources.resources
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\PriorityMobile.UserDialog.resources
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\ViewControl.vbproj.GenerateResource.Cache
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\ViewControl.dll
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\ViewControl.xml
+M:\PriorityMobile\components\ViewControl\winMobile\obj\Debug\ViewControl.pdb

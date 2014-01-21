@@ -242,8 +242,10 @@ Public Class OfflineXML
                     End If
 
                     x.Load(FileURL)
+                    'x.Save(LocalFile)
                     sourceError = HasErrors(x)
                     download = True
+                    'Loaded = False
                 Catch
                     download = False
                     retry = MsgBox( _
@@ -262,6 +264,7 @@ Public Class OfflineXML
 
             With Document
                 If download Then
+                    'DeleteLocalCache()
                     Dim syncObjectNodes As XmlNodeList = x.SelectNodes("//sync/object")
                     Select Case syncObjectNodes.Count
                         Case 0
@@ -382,6 +385,7 @@ Public Class OfflineXML
                 soPath = .xPathQuery(thispath, SourceNode)
 
                 Dim TargetNode As XmlNode = Document.SelectSingleNode(soPath)
+                'cant find in current xml so it is a new node so add it
                 If IsNothing(TargetNode) Then
                     obParent = Document.SelectSingleNode(thispath.Substring(0, thispath.LastIndexOf("/")))
                     obParent.AppendChild(obParent.OwnerDocument.ImportNode(SourceNode, True))
@@ -393,21 +397,25 @@ Public Class OfflineXML
                     End If
 
                 Else
+                    'node exists in current
                     If Not IsNothing(syncHandler) Then
                         _CurrentPath = soPath
                         _SyncEventType = eSyncEventType.EditNode
                         syncHandler.Invoke(Me, New System.EventArgs)
                     End If
                     If IsNothing(TargetNode.Attributes("changed")) Then
-                        If .sObject.Count > 0 Then
-                            For Each so As SyncObject In .sObject
-                                doSyncObject(SourceXML, so, soPath)
-                            Next
-                        Else
-                            TargetNode.InnerXml = SourceNode.InnerXml
-                            'If Not String.Compare(SourceNode.InnerXml, Left(TargetNode.InnerXml, SourceNode.InnerXml.Length)) = 0 Then
-                            'RecurseCompare(SourceNode, TargetNode, soPath, .ListObjects)
-                        End If
+                        'the node has no clientside changes so update the xml with the new data
+                        TargetNode.InnerXml = SourceNode.InnerXml
+                        'If .sObject.Count > 0 Then
+                        '    For Each so As SyncObject In .sObject
+                        '        doSyncObject(SourceXML, so, soPath)
+                        '    Next
+                        'Else
+
+                        '    'If Not String.Compare(SourceNode.InnerXml, Left(TargetNode.InnerXml, SourceNode.InnerXml.Length)) = 0 Then
+                        '    'RecurseCompare(SourceNode, TargetNode, soPath, .ListObjects)
+                        'End If
+                    Else
 
                     End If
 
