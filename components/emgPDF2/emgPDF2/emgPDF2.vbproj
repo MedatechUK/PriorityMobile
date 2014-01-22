@@ -38,11 +38,11 @@
   <ItemGroup>
     <Reference Include="HiQPdf, Version=6.0.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\pdf\HiQPdf.dll</HintPath>
+      <HintPath>bin\Debug\HiQPdf.dll</HintPath>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\HtmlAgilityPack.dll</HintPath>
+      <HintPath>bin\Debug\HtmlAgilityPack.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />

@@ -6,59 +6,24 @@ emgPDF2
 </name>
 </assembly>
 <members>
-<member name="P:emgPDF2.HTMLSourceCollection.CSS">
+<member name="P:emgPDF2.PDFShared.Serial">
 	<summary>
- Property for containing the origin document's CSS.
+ Returns serial key for HiQPDF
  </summary>
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:emgPDF2.HTMLSourceCollection.#ctor(HtmlAgilityPack.HtmlDocument)">
+</member><member name="P:emgPDF2.PDFShared.PDFParams">
 	<summary>
- Constructs the collection of HTMLSource objects, filling the CSS property from the origin document.
- </summary>
-	<param name="inputFile"></param>
-	<remarks></remarks>
-</member><member name="P:emgPDF2.HTMLSource.Header">
-	<summary>
- Returns header html, if any.
-</summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:emgPDF2.HTMLSource.HeaderHeight">
-	<summary>
- Returns Header's height as integer. 
+ Static member to hold dictionary of parameters for PDF creation.
  </summary>
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:emgPDF2.HTMLSource.FooterHeight">
+</member><member name="M:emgPDF2.PDFShared.#ctor">
 	<summary>
- Returns Footer's height as integer. 
+ This class is for static members only!
  </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:emgPDF2.HTMLSource.Footer">
-	<summary>
- Returns footer html, if any.
-</summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="P:emgPDF2.HTMLSource.Body">
-	<summary>
- Returns body html
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
-</member><member name="M:emgPDF2.HTMLSource.#ctor(HtmlAgilityPack.HtmlNode,System.String)">
-	<summary>
- Instantiates new HTMLSource from string input
- </summary>
-	<param name="html"></param>
 	<remarks></remarks>
 </member><member name="P:emgPDF2.PdfParameters.Author">
 	<summary>
@@ -193,24 +158,59 @@ emgPDF2
 	<param name="path"></param>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:emgPDF2.PDFShared.Serial">
+</member><member name="P:emgPDF2.HTMLSourceCollection.CSS">
 	<summary>
- Returns serial key for HiQPDF
+ Property for containing the origin document's CSS.
  </summary>
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="P:emgPDF2.PDFShared.PDFParams">
+</member><member name="M:emgPDF2.HTMLSourceCollection.#ctor(HtmlAgilityPack.HtmlDocument)">
 	<summary>
- Static member to hold dictionary of parameters for PDF creation.
+ Constructs the collection of HTMLSource objects, filling the CSS property from the origin document.
+ </summary>
+	<param name="inputFile"></param>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.Header">
+	<summary>
+ Returns header html, if any.
+</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.HeaderHeight">
+	<summary>
+ Returns Header's height as integer. 
  </summary>
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:emgPDF2.PDFShared.#ctor">
+</member><member name="P:emgPDF2.HTMLSource.FooterHeight">
 	<summary>
- This class is for static members only!
+ Returns Footer's height as integer. 
  </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.Footer">
+	<summary>
+ Returns footer html, if any.
+</summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:emgPDF2.HTMLSource.Body">
+	<summary>
+ Returns body html
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:emgPDF2.HTMLSource.#ctor(HtmlAgilityPack.HtmlNode,System.String)">
+	<summary>
+ Instantiates new HTMLSource from string input
+ </summary>
+	<param name="html"></param>
 	<remarks></remarks>
 </member>
 </members>

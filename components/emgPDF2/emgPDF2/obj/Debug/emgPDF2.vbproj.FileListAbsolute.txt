@@ -11,3 +11,14 @@ C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2\emgPDF2\obj\Debug
 C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2\emgPDF2\obj\Debug\emgPDF2.dll
 C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2\emgPDF2\obj\Debug\emgPDF2.xml
 C:\Users\thomasm\Documents\Visual Studio 2008\Projects\emgPDF2\emgPDF2\obj\Debug\emgPDF2.pdb
+M:\components\emgPDF2\emgPDF2\bin\Debug\emgPDF2.dll
+M:\components\emgPDF2\emgPDF2\bin\Debug\emgPDF2.pdb
+M:\components\emgPDF2\emgPDF2\bin\Debug\emgPDF2.xml
+M:\components\emgPDF2\emgPDF2\bin\Debug\HiQPdf.xml
+M:\components\emgPDF2\emgPDF2\bin\Debug\HiQPdf.dep
+M:\components\emgPDF2\emgPDF2\obj\Debug\ResolveAssemblyReference.cache
+M:\components\emgPDF2\emgPDF2\obj\Debug\emgPDF2.Resources.resources
+M:\components\emgPDF2\emgPDF2\obj\Debug\emgPDF2.vbproj.GenerateResource.Cache
+M:\components\emgPDF2\emgPDF2\obj\Debug\emgPDF2.dll
+M:\components\emgPDF2\emgPDF2\obj\Debug\emgPDF2.xml
+M:\components\emgPDF2\emgPDF2\obj\Debug\emgPDF2.pdb
