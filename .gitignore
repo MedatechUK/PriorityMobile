@@ -9,6 +9,7 @@ obj/*
 *.zip
 *.rar
 *.exe
+*.dll
 
 # Windows crap
 #
