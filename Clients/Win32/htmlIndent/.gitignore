@@ -1,0 +1,5 @@
+#
+# negation for 3rd party library
+#
+
+!htmlAgilityPack.dll 

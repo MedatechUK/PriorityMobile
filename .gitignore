@@ -1,0 +1,18 @@
+# say no to tracking binaries
+#
+# remember to negate inside projects using compiled third party libraries
+
+bin/*
+obj/* 
+*.user
+*.suo
+*.zip
+*.rar
+*.exe
+
+# Windows crap
+#
+#
+
+[Tt]humbs.db
+*.DS_Store
