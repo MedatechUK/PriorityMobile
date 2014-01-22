@@ -1,0 +1,1130 @@
+C:\PriorityMobile.git\bin\System.SR.dll
+C:\PriorityMobile.git\bin\WinCE\ceLoadData.dll
+C:\PriorityMobile.git\bin\WinCE\ceMyCls.dll
+C:\PriorityMobile.git\bin\WinCE\SFDCData.dll
+C:\PriorityMobile.git\bin\WinCE\System.SR.dll
+C:\PriorityMobile.git\bin\WinCE\arcflex\ceLoadData.dll
+C:\PriorityMobile.git\bin\WinCE\arcflex\ceMyCls.dll
+C:\PriorityMobile.git\bin\WinCE\arcflex\SFDCData.dll
+C:\PriorityMobile.git\bin\WinCE\arcflex\System.SR.dll
+C:\PriorityMobile.git\bin\WinCE\trutex\ceLoadData.dll
+C:\PriorityMobile.git\bin\WinCE\trutex\ceMyCls.dll
+C:\PriorityMobile.git\bin\WinCE\trutex\SFDCData.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\ZSDK_API.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Debug\btZebra.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Debug\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Debug\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Debug\ZSDK_API.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Release\btZebra.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Release\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Release\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\bin\Release\ZSDK_API.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\obj\Debug\btZebra.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\obj\Release\btZebra.dll
+C:\PriorityMobile.git\Clients\ce_print\btZebra\btZebra\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\ce_print\cpcl\CPCL\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\cpcl\CPCL\bin\Release\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\cpcl\CPCL\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\ce_print\cpcl\CPCL\obj\Release\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\cpcl\CPCL\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Debug\btZebra.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Debug\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Debug\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Debug\ZSDK_API.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Release\btZebra.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Release\CPCL.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Release\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\bin\Release\ZSDK_API.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\ce_print\printtest\PrintTest\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\nslookup\nslookup\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\bin\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\bin\Debug\Priority.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\obj\Debug\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\cfPriLoadSvc\obj\Release\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\cfPriLoadSVC\cfPriLoadSvc\obj\Debug\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadClient\PriLoadClient\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadSVC\PriLoadSVC\bin\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadSVC\PriLoadSVC\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadSVC\PriLoadSVC\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadSVC\PriLoadSVC\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadSVC\PriLoadSVC\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\PriLoadSVC\PriLoadSVC\PriLoadSVC\obj\Debug\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Realex\realex\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Realex\realex\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Realex\realex\bin\Debug\RealAuth.dll
+C:\PriorityMobile.git\Clients\Realex\realex\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Realex\realex\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\sigcapture\sigCapture\sigCapture\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\cargo3\bin\Debug\cargo3.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\cargo3\obj\Debug\cargo3.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\cargo3\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\asr100.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\cargo3.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\hookey.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\jkui.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\keyhook.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\mousehook.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\prnscn.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\SimuDll.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\bin\Debug\XTP8610Lib.dll
+C:\PriorityMobile.git\Clients\Win32\cargo3\CargoInterface\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\CodeListing\list\bin\Debug\SyntaxHighLight.dll
+C:\PriorityMobile.git\Clients\Win32\conSign\conSign\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\conSign\conSign\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\ContactConsole\ContactConsole\bin\Debug\edtFTPnet.dll
+C:\PriorityMobile.git\Clients\Win32\ContactConsole\ContactConsole\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\ContactConsole\ContactConsole\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\ContactConsole\ContactConsole\obj\Debug\TempPE\Web References.pcode.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\DocScanSingle\BatchScan\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\DocScanSingle\DocScanSingle\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\DocScanSingle\DocScanSingle\bin\Debug\PdfSharp.dll
+C:\PriorityMobile.git\Clients\Win32\DocScanSingle\DocScanSingle\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\Clients\Win32\DocScanSingle\DocScanSingle\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\emgPDF2cli\emgPDF2cli\bin\Debug\emgPDF2.dll
+C:\PriorityMobile.git\Clients\Win32\emgPDF2cli\emgPDF2cli\bin\Debug\HiQPdf.dll
+C:\PriorityMobile.git\Clients\Win32\emgPDF2cli\emgPDF2cli\bin\Debug\HtmlAgilityPack.dll
+C:\PriorityMobile.git\Clients\Win32\emgPDF2cli\emgPDF2cli\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\Debug\DTI.ImageMan.Barcode.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\Debug\DTI.ImageMan.Codecs.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\Debug\DTI.ImageMan.Core.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\Release\DTI.ImageMan.Barcode.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\Release\DTI.ImageMan.Codecs.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\Release\DTI.ImageMan.Core.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\x64\Release\DTI.ImageMan.Barcode.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\x64\Release\DTI.ImageMan.Codecs.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\bin\x64\Release\DTI.ImageMan.Core.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\obj\x64\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\emgQR\emgQR\obj\x64\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\ExchangeRates\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\ExchangeRates\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\bin\fxsapi.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\bin\fxscomex.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\bin\Debug\fxscomex.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\bin\Debug\Interop.FAXCOMEXLib.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\bin\Debug\ntSettings.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\obj\Debug\Interop.FAXCOMEXLib.dll
+C:\PriorityMobile.git\Clients\Win32\faxClient\faxClient\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\HookPriority\hPriority\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\HookPriority\hPriority\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\HookPriority\hPriority\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\HookPriority\hPriority\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\htmlIndent\htmlIndent\bin\Debug\HtmlAgilityPack.dll
+C:\PriorityMobile.git\Clients\Win32\htmlIndent\htmlIndent\bin\Release\HtmlAgilityPack.dll
+C:\PriorityMobile.git\Clients\Win32\htmlIndent\htmlIndent\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\htmlIndent\htmlIndent\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\ieprint\ieprint\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\imgView\imgView\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\BoEExchange\BoEExchange\bin\Release\licensing.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\BoEExchange\BoEExchange\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\BoEExchange\BoEExchange\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\clGenerate\clGenerate\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\licensing\bin\Release\licensing.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\licensing\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\licensing\obj\Release\licensing.dll
+C:\PriorityMobile.git\Clients\Win32\licensing\licensing\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\LogWatchService\LogWatchService\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\LogWatchService\LogWatchService\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\lspace\lspace\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\Minumerate\Minumerate\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\MultiDocScan\MultiDocScan\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\MultiDocScan\MultiDocScan\bin\Debug\PdfSharp.dll
+C:\PriorityMobile.git\Clients\Win32\MultiDocScan\MultiDocScan\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\cfLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\cfMyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\cfOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\CustomMarshalers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\PDAOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Release\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Release\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Release\PDA.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Release\PDAOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\bin\Release\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\obj\Debug\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\obj\Release\PDA.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\atg\obj\Release\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Debug\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Debug\PDAOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Release\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Release\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Release\PDA.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Release\PDAOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\bin\Release\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\obj\Debug\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\obj\Release\PDA.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\clearimage\obj\Release\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Debug\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Debug\PDAOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Release\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Release\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Release\PDA.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Release\PDAOnBoardData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\bin\Release\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\obj\Debug\Demo App.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\obj\Release\PDA.XmlSerializers.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDA\emerge\obj\Release\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\bin\Debug\Bind.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\bin\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\bin\Debug\Loading.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\dataclasses\dataclasses\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDAGen\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\appSelect\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\pdfPrintfrm\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\pdfPrintfrm\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PDFPrint\Source\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\ntSoxLib.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\System.Data.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\System.Data.OracleClient.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\System.EnterpriseServices.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\System.EnterpriseServices.Wrapper.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\System.Transactions.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\bin\Debug\System.Web.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\ConsoleApplication1\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\DeviceApplication1\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\pingtest\PingIMPSetup\DeviceApplication2\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\pixie\pixie\pixie\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\Hammock.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\Newtonsoft.Json.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\SocialMediaLibrary.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\TweetSharp.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\TweetSharp.Twitter.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\TwitterSample.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Debug\Common.Logging.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Debug\Spring.Rest.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Debug\Spring.Rest.Testing.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Debug\Spring.Social.Core.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Debug\Spring.Social.Twitter.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Release\Common.Logging.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Release\Spring.Rest.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Release\Spring.Rest.Testing.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Release\Spring.Social.Core.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\bin\Release\Spring.Social.Twitter.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\PostAggregate\PostAggregate\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\precursor\WindowsApplication5\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\RandomStudent\RandomStudent\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\RealexCli\compile\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\RealexCli\RealexCli\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\RealexCli\RealexCli\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\RealexCli\RealexFrm\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\rmxCli\rmxCli\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\Scraper\Scraper\bin\Debug\Interop.SHDocVw.dll
+C:\PriorityMobile.git\Clients\Win32\Scraper\Scraper\bin\Debug\WatiN.Core.dll
+C:\PriorityMobile.git\Clients\Win32\Scraper\Scraper\bin\Release\Interop.SHDocVw.dll
+C:\PriorityMobile.git\Clients\Win32\Scraper\Scraper\bin\Release\WatiN.Core.dll
+C:\PriorityMobile.git\Clients\Win32\Scraper\Scraper\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\Scraper\Scraper\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\ScreenPop\ScreenPop\bin\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\Clients\Win32\ScreenPop\ScreenPop\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Clients\Win32\ScreenPop\ScreenPop\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\Win32\ScreenPop\ScreenPop\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\Clients\Win32\ScreenPop\ScreenPop\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\SetWidth\SetWidth\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\atg\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\atg\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\atg\bin\Debug\w32SFDCData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\atg\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\atg\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\dunlop\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\dunlop\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\dunlop\bin\Debug\w32SFDCData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\dunlop\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\dunlop\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\emerge\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\emerge\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\emerge\bin\Debug\w32SFDCData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\emerge\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\emerge\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\trutex\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\trutex\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\trutex\bin\Debug\w32SFDCData.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\trutex\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\sfdc\trutex\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\stroppy\stroppy\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\SupportMail\Pop3MimeClient\bin\Debug\Pop3MimeClient.dll
+C:\PriorityMobile.git\Clients\Win32\SupportMail\Pop3MimeClient\obj\Debug\Pop3MimeClient.dll
+C:\PriorityMobile.git\Clients\Win32\SupportMail\popmail\bin\Debug\popmail.dll
+C:\PriorityMobile.git\Clients\Win32\SupportMail\SupportMail\bin\Debug\Pop3MimeClient.dll
+C:\PriorityMobile.git\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Clients\Win32\TrutexCSV\TrutexCSV\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\Clients\Win32\TrutexCSV\TrutexCSV\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\RadComboBox.Net2.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\RadGrid.Net2.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\RadTabStrip.Net2.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\_vti_cnf\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\_vti_cnf\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\_vti_cnf\RadComboBox.Net2.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\_vti_cnf\RadGrid.Net2.dll
+C:\PriorityMobile.git\Clients\Win32\webs\hillier\bin\_vti_cnf\RadTabStrip.Net2.dll
+C:\PriorityMobile.git\Clients\Win32\wpfDesktop\wpfDesktop\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\Clients\Win32\wpfDesktop\wpfDesktop\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\Clients\Win32\wpfDesktop\wpfDesktop\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\wpfDesktop\wpfDesktop\obj\Debug\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\Win32\wpfLocalhttp\wpfLocalhttp\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\Win32\wpfLocalhttp\wpfLocalhttp\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\XMLHandler\XMLHandler\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\Win32\XpathTester\XpathTester\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\amber\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\amber\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\amber\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\amber\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Arcflex\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\ATG\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\ATG\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\ATG\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\ATG\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\dunlop\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\dunlop\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\dunlop\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\dunlop\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\emerge\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\emerge\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\emerge\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\emerge\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\GSM\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\GSM\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\GSM\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\GSM\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\rodas\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\rodas\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\rodas\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\rodas\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Trutex\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Trutex\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Trutex\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\Trutex\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\TrutexDev\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\TrutexDev\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\TrutexDev\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinCE\TrutexDev\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinCE3\test_sfdc3\bin\Debug\sfdc3ui.dll
+C:\PriorityMobile.git\Clients\WinCE3\test_sfdc3\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\bin\Debug\cfLoadData.dll
+C:\PriorityMobile.git\Clients\WinMobile\bin\Debug\cfMyCls.dll
+C:\PriorityMobile.git\Clients\WinMobile\bin\Debug\cfOnBoardData.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Debug\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Debug\TempPE\Web References.priwebsvc1.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Debug\TempPE\Web References.priwesvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Debug\TempPE\Web References.uk.co.eclipse-ip.mobile.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Debug\TempPE\Web References.uk.co.eclipse-ip.mobile1.Reference.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\WinMobile\obj\Release\TempPE\Web References.PriWebSvc.Reference.vb.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\bin\Debug\Bind.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\bin\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\bin\Debug\Loading.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\obj\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\dataclasses\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\bin\Debug\Bind.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\bin\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\bin\Debug\Loading.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\bin\Debug\uiCtrls.dll
+C:\PriorityMobile.git\Clients\winMobile3\Win32\pda32\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\bin\Debug\Bind.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\bin\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\bin\Debug\Loading.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\obj\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\dataclasses\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\Bind.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\dataclasses.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\Loading.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\bin\Debug\uiCtrls.dll
+C:\PriorityMobile.git\Clients\winMobile3\WinMobile\pda\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\cHandler.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\cHandler\cHandler\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\btZebra.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\provision.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\sfdc3interface.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\xmlLoadCE.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\bin\Debug\ZSDK_API.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcClient3\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug\provision.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug\sfdcData.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug\xmlLoadCE.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug2\CPCL.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug2\ntEvtLog.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug2\provision.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug2\sfdc3interface.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug2\System.Data.SqlClient.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\bin\Debug2\xmlLoadCE.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\obj\Debug\sfdc3interface.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\obj\Debug\sfdcData.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\sfdcData\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\ui\bin\Debug\ui.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\ui\obj\Debug\ui.dll
+C:\PriorityMobile.git\Clients\xmlSFDC\ui\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\AjaxPro.2.dll
+C:\PriorityMobile.git\components\Bind\pda\bin\Debug\Bind.dll
+C:\PriorityMobile.git\components\Bind\pda\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\Bind\pda\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\Bind\pda\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\Bind\pda\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\components\Bind\pda\obj\Debug\Bind.dll
+C:\PriorityMobile.git\components\Bind\pda\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\Bind\pda\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\components\Bind\win32\bin\Debug\Bind.dll
+C:\PriorityMobile.git\components\Bind\win32\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\Bind\win32\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\Bind\win32\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\Bind\win32\obj\Debug\Bind.dll
+C:\PriorityMobile.git\components\Bind\win32\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\Bind\win32\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\components\clArg\SmartDeviceProject1\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\consoleApp\ConsoleApp\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\components\consoleApp\ConsoleApp\obj\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\components\consoleApp\ConsoleApp\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\consoleApp\ConsoleApp\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\DirectActivation\DirectActivation\bin\Debug\DirectActivation.dll
+C:\PriorityMobile.git\components\DirectActivation\DirectActivation\obj\Debug\DirectActivation.dll
+C:\PriorityMobile.git\components\DirectActivation\DirectActivation\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\emgPDF2\emgPDF2\bin\Debug\emgPDF2.dll
+C:\PriorityMobile.git\components\emgPDF2\emgPDF2\bin\Debug\HiQPdf.dll
+C:\PriorityMobile.git\components\emgPDF2\emgPDF2\bin\Debug\HtmlAgilityPack.dll
+C:\PriorityMobile.git\components\emgPDF2\emgPDF2\obj\Debug\emgPDF2.dll
+C:\PriorityMobile.git\components\emgPDF2\emgPDF2\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\frmControls\frmControls\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\components\frmControls\frmControls\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\components\frmControls\frmControls\bin\Debug2\frmControls.dll
+C:\PriorityMobile.git\components\frmControls\frmControls\bin\Debug2\System.SR.dll
+C:\PriorityMobile.git\components\frmControls\frmControls\obj\Debug\frmControls.dll
+C:\PriorityMobile.git\components\frmControls\frmControls\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\frmControls\SmartDeviceProject1\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\GoogleChartSharp\GoogleChartSharp\bin\Debug\GoogleChartSharp.dll
+C:\PriorityMobile.git\components\GoogleChartSharp\GoogleChartSharp\obj\Debug\GoogleChartSharp.dll
+C:\PriorityMobile.git\components\hookey\hookey\bin\Debug\hookey.dll
+C:\PriorityMobile.git\components\hookey\hookey\obj\Debug\hookey.dll
+C:\PriorityMobile.git\components\hookey\hookey\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Version3\pda\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\LoadData\Version3\pda\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\LoadData\Version3\pda\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\LoadData\Version3\pda\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\components\LoadData\Version3\pda\obj\Debug\Loading.dll
+C:\PriorityMobile.git\components\LoadData\Version3\pda\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\Csh\Csh_Example\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\Csh\Csh_Example\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\Csh\Csh_Example\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\Csh\Csh_Example\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\Csh\Csh_Example\obj\Debug\TempPE\Web References.PriWebSVC.Reference.cs.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\Csh\Csh_Example\obj\Release\TempPE\Web References.PriWebSVC.Reference.cs.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Debug\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Examples\vb\VB_Example\obj\Release\TempPE\Web References.PriWebSVC.Reference.vb.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Loading\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Loading\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Loading\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Loading\obj\Debug\Loading.dll
+C:\PriorityMobile.git\components\LoadData\Version3\win32\Loading\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\bin\Release\PriLoadData.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\obj\Debug\PriLoadData.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\obj\Release\PriLoadData.dll
+C:\PriorityMobile.git\components\LoadData\Win32\PriLoadData\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\WindowsApplication1\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\components\LoadData\Win32\WindowsApplication1\DemoProject\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\WindowsApplication1\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\WindowsApplication1\obj\Debug\TempPE\Web References.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\WindowsApplication1\obj\Debug\TempPE\Web References.uk.org.ntsa.priwebsvc.Reference.vb.dll
+C:\PriorityMobile.git\components\LoadData\Win32\WindowsApplication1\obj\Debug\TempPE\Web References.uk.org.ntsa.priwebsvc1.Reference.vb.dll
+C:\PriorityMobile.git\components\LoadData\WinCE\bin\Debug\ceLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinCE\obj\Debug\ceLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinCE\obj\Release\ceLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinCE\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\WinMobile\bin\Debug\cfLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinMobile\bin\Release\cfLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinMobile\obj\Debug\cfLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinMobile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\LoadData\WinMobile\obj\Release\cfLoadData.dll
+C:\PriorityMobile.git\components\LoadData\WinMobile\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\MyCls\Win32\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\components\MyCls\Win32\bin\Release\MyCls.dll
+C:\PriorityMobile.git\components\MyCls\Win32\obj\Debug\MyCls.dll
+C:\PriorityMobile.git\components\MyCls\Win32\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\MyCls\Win32\obj\Release\MyCls.dll
+C:\PriorityMobile.git\components\MyCls\Win32\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\ceMyCls.dll
+C:\PriorityMobile.git\components\MyCls\WinCE\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\MyCls\WinCE\obj\Release\ceMyCls.dll
+C:\PriorityMobile.git\components\MyCls\WinCE\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\MyCls\WinMobile\bin\Debug\cfMyCls.dll
+C:\PriorityMobile.git\components\MyCls\WinMobile\bin\Release\cfMyCls.dll
+C:\PriorityMobile.git\components\MyCls\WinMobile\obj\Debug\cfMyCls.dll
+C:\PriorityMobile.git\components\MyCls\WinMobile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\MyCls\WinMobile\obj\Release\cfMyCls.dll
+C:\PriorityMobile.git\components\MyCls\WinMobile\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntEvtlog\cfntEvtLog\bin\Debug\ntEventLog.dll
+C:\PriorityMobile.git\components\ntEvtlog\cfntEvtLog\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEventLog.dll
+C:\PriorityMobile.git\components\ntEvtlog\cfntEvtLog\obj\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\ntEvtlog\cfntEvtLog\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntEvtlog\cfntEvtLog\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\bin\AdminTelnet\ntEvtlog.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\obj\AdminTelnet\ntEvtlog.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\obj\AdminTelnet\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\obj\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntEvtlog\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntRegisterEvt\RegisterEventLog\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\ntEvtlog\ntRegisterEvt\RegisterEventLog\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ntSettings\ntSettings\bin\Debug\ntSettings.dll
+C:\PriorityMobile.git\components\ntSettings\ntSettings\obj\Debug\ntSettings.dll
+C:\PriorityMobile.git\components\ntSettings\ntSettings\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\Roddas\obj\Debug\SFDCData.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\bin\Debug\MyCls.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\bin\Debug\PDAOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\bin\Debug\PriLoadData.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\obj\Debug\PDAOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\obj\Release\PDAOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\pda\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\SFDC\obj\Debug\w32SFDCData.dll
+C:\PriorityMobile.git\components\OnBoardData\Win32\SFDC\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\WinCE\bin\Release\SFDCData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData (administrator v1).dll
+C:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\SFDCData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Release\SFDCData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinCE\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\bin\Debug\cfLoadData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\bin\Debug\cfMyCls.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\bin\Debug\cfOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\bin\Release\cfLoadData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\bin\Release\cfMyCls.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\bin\Release\cfOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\obj\Debug\cfOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\obj\Release\cfOnBoardData.dll
+C:\PriorityMobile.git\components\OnBoardData\WinMobile\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\PriClient\cfPriClient\PriClient\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\PriClient\cfPriClient\PriClient\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\PriClient\cfPriClient\PriClient\bin\Debug\Priority.dll
+C:\PriorityMobile.git\components\PriClient\cfPriClient\PriClient\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\components\PriClient\cfPriClient\PriClient\obj\Debug\Priority.dll
+C:\PriorityMobile.git\components\PriClient\cfPriClient\PriClient\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\PriClient\PriClient\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\PriClient\PriClient\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\PriClient\PriClient\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\components\PriClient\PriClient\obj\Debug\PriClient.dll
+C:\PriorityMobile.git\components\PriClient\PriClient\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\PriClient\testPriLoad\testPriLoad\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\PriClient\testPriLoad\testPriLoad\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\PriClient\testPriLoad\testPriLoad\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\components\PRIRUN\PRIRUN\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\PriSock\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\components\PriSock\obj\Debug\PriSock.dll
+C:\PriorityMobile.git\components\PriSock\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\PriSock\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\PriSock\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\prnscn\prnscn\bin\Debug\prnscn.dll
+C:\PriorityMobile.git\components\prnscn\prnscn\obj\Debug\prnscn.dll
+C:\PriorityMobile.git\components\provision\provision\bin\Debug\provision.dll
+C:\PriorityMobile.git\components\provision\provision\obj\Debug\provision.dll
+C:\PriorityMobile.git\components\provision\provision\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\SFDC3ui\sfdc3ui\bin\Debug\sfdc3ui.dll
+C:\PriorityMobile.git\components\SFDC3ui\sfdc3ui\obj\Debug\sfdc3ui.dll
+C:\PriorityMobile.git\components\SFDC3ui\sfdc3ui\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\bin\Debug\SlideMenu.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\bin\Debug2\mnuControls.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\bin\Debug2\System.SR.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\obj\Debug\SlideMenu.dll
+C:\PriorityMobile.git\components\SlideMenu\SlideMenu\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\svcMsg\svcMsg\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\components\svcMsg\svcMsg\obj\Debug\svcMsg.dll
+C:\PriorityMobile.git\components\syntaxhighlight\ConsoleApplication1\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\components\syntaxhighlight\SyntaxHighLight\bin\Debug\SyntaxHighLight.dll
+C:\PriorityMobile.git\components\syntaxhighlight\SyntaxHighLight\obj\Debug\SyntaxHighLight.dll
+C:\PriorityMobile.git\components\tcpSock\tcpSock\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\components\tcpSock\tcpSock\obj\Debug\tcpSock.dll
+C:\PriorityMobile.git\components\tcpSock\tcpSock\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\udpSock\ppDiscovery\ppDiscovery\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\components\udpSock\ppDiscovery\ppDiscovery\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\components\udpSock\ppDiscovery\ppDiscovery\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\components\udpSock\ppq\ppq\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\components\udpSock\ppq\ppq\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\components\udpSock\ppq\ppq\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\components\udpSock\udpSock\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\components\udpSock\udpSock\obj\Debug\udpSock.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\Bind.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\System.Data.SqlServerCe.dll
+C:\PriorityMobile.git\components\v3ui\pda\bin\Debug\uiCtrls.dll
+C:\PriorityMobile.git\components\v3ui\pda\obj\Debug\uiCtrls.dll
+C:\PriorityMobile.git\components\v3ui\pda\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\v3ui\pda\obj\Debug\TempPE\priTabs.Designer.vb.dll
+C:\PriorityMobile.git\components\v3ui\win32\bin\Debug\Bind.dll
+C:\PriorityMobile.git\components\v3ui\win32\bin\Debug\Loading.dll
+C:\PriorityMobile.git\components\v3ui\win32\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\v3ui\win32\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\v3ui\win32\bin\Debug\uiCtrls.dll
+C:\PriorityMobile.git\components\v3ui\win32\obj\Debug\uiCtrls.dll
+C:\PriorityMobile.git\components\v3ui\win32\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ViewControl\win32\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl\win32\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug2\CPCL.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug2\frmControls.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug2\mnuControls.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug2\System.SR.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\bin\Debug2\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\obj\Debug\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl\winMobile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ViewControl2\win32\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl2\win32\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\CPCL.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\frmControls.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\mnuControls.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\provision.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\System.SR.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\bin\Debug2\ViewControl2.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\obj\Debug\ViewControl.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\obj\Debug\ViewControl2.dll
+C:\PriorityMobile.git\components\ViewControl2\winMobile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntDict\bin\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\components\win32ntDict\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\win32ntDict\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\win32ntDict\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\components\win32ntDict\cfntDict\bin\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\components\win32ntDict\cfntDict\obj\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\components\win32ntDict\cfntDict\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntDict\cfntDict\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntDict\obj\Debug\ntDictionaryLib.dll
+C:\PriorityMobile.git\components\win32ntDict\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntSox\cfntSox\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\win32ntSox\cfntSox\obj\Debug\ntSox.dll
+C:\PriorityMobile.git\components\win32ntSox\cfntSox\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntSox\cfntSox\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\bin\AdminTelnet\ntSox.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\bin\Debug\ClassLibrary1.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\obj\AdminTelnet\ntSox.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\obj\AdminTelnet\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\obj\Debug\ClassLibrary1.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\obj\Debug\ntSox.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\win32ntSox\ntSox\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\GetData\GetData\bin\Debug\GetData.dll
+C:\PriorityMobile.git\components\xmlLoad\GetData\GetData\obj\Debug\GetData.dll
+C:\PriorityMobile.git\components\xmlLoad\GetData\test\bin\Debug\GetData.dll
+C:\PriorityMobile.git\components\xmlLoad\GetData\test\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\test\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\components\xmlLoad\test\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\components\xmlLoad\test\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\test\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\bin\AdminTelnet\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\obj\AdminTelnet\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\obj\AdminTelnet\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\obj\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoad\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\bin\AdminTelnet\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\bin\Debug\ntEvtLog.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\bin\Debug\System.Data.SqlClient.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\bin\Debug\xmlLoadCE.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\obj\AdminTelnet\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\obj\AdminTelnet\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\obj\Debug\xmlLoad.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\obj\Debug\xmlLoadCE.dll
+C:\PriorityMobile.git\components\xmlLoad\xmlLoadCE\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\docs\presentations\cms_ppt\INTLDATE.DLL
+C:\PriorityMobile.git\docs\presentations\cms_ppt\msvcm80.dll
+C:\PriorityMobile.git\docs\presentations\cms_ppt\msvcp80.dll
+C:\PriorityMobile.git\docs\presentations\cms_ppt\MSVCR80.dll
+C:\PriorityMobile.git\docs\presentations\cms_ppt\OGL.DLL
+C:\PriorityMobile.git\docs\presentations\cms_ppt\PPVWINTL.DLL
+C:\PriorityMobile.git\docs\presentations\cms_ppt\SAEXT.DLL
+C:\PriorityMobile.git\docs\presentations\pda_ppt\INTLDATE.DLL
+C:\PriorityMobile.git\docs\presentations\pda_ppt\msvcm80.dll
+C:\PriorityMobile.git\docs\presentations\pda_ppt\msvcp80.dll
+C:\PriorityMobile.git\docs\presentations\pda_ppt\MSVCR80.dll
+C:\PriorityMobile.git\docs\presentations\pda_ppt\OGL.DLL
+C:\PriorityMobile.git\docs\presentations\pda_ppt\PPVWINTL.DLL
+C:\PriorityMobile.git\docs\presentations\pda_ppt\SAEXT.DLL
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\INTLDATE.DLL
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\msvcm80.dll
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\msvcp80.dll
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\MSVCR80.dll
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\OGL.DLL
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\PPVWINTL.DLL
+C:\PriorityMobile.git\docs\presentations\sfdc_PPT\SAEXT.DLL
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\INTLDATE.DLL
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\msvcm80.dll
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\msvcp80.dll
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\MSVCR80.dll
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\OGL.DLL
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\PPVWINTL.DLL
+C:\PriorityMobile.git\docs\presentations\w1st_ppt2\SAEXT.DLL
+C:\PriorityMobile.git\install\Client\bin\btZebra.dll
+C:\PriorityMobile.git\install\Client\bin\CPCL.dll
+C:\PriorityMobile.git\install\Client\bin\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\bin\provision.dll
+C:\PriorityMobile.git\install\Client\bin\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\bin\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3\ReadXML\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\ReadXML\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\bin\Debug2\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\cHandler\cHandler\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3\Rhoddas\StartPDA\StartPDA\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\bin\Debug\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3\StraussPDA\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\bin\Debug\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3\WinPhone\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3.1\bin\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\bin\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Debug\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Debug\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Debug\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Release\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Release\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Release\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Release\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Release\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\bin\Release\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\obj\Debug\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\obj\Release\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\cHandler\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Eclipse\StartPDA\StartPDA\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug2\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\bin\Debug2\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Debug\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Debug\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Debug\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Release\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Release\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Release\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Release\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Release\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\bin\Release\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\obj\Debug\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\obj\Release\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\cHandler\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Roddas\StartPDA\StartPDA\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\btZebra.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\InTheHand.Net.Personal.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\System.SR.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\ZebraBluetoothAdapter.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug\ZSDK_API.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug2\Microsoft.WindowsMobile.Telephony.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\bin\Debug2\ViewControl.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Debug\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Debug\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Debug\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Debug\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Debug\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Debug\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Release\CPCL.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Release\frmControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Release\mnuControls.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Release\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Release\provision.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\bin\Release\ViewControl2.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\obj\Debug\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\obj\Release\pdaHandler.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\cHandler\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\pda3.1\Strauss\StartPDA\StartPDA\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\Win32\pda3\bin\Debug\ViewControl.dll
+C:\PriorityMobile.git\install\Client\Win32\pda3\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\Client\Win32\PriExeTest\PRIEXE\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\install\WINCE_Installer\winceinst\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\MerchServProviders\Cumulocity\cumulicity\bin\Debug\cumulicity.dll
+C:\PriorityMobile.git\MerchServProviders\Cumulocity\cumulicity\obj\Debug\cumulicity.dll
+C:\PriorityMobile.git\MerchServProviders\Cumulocity\cumulocityCli\bin\Debug\cumulicity.dll
+C:\PriorityMobile.git\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\bin\Debug\RealAuth.dll
+C:\PriorityMobile.git\MerchServProviders\Realex\ASPNET Remote\RealAuth\RealAuth\obj\Debug\RealAuth.dll
+C:\PriorityMobile.git\MerchServProviders\Realex\ASPNET Remote\RealexRemoteSample_ASP.NET\Backup\RealexRemoteSample_ASP\Bin\RealAuth.dll
+C:\PriorityMobile.git\MerchServProviders\Realex\ASPNET Remote\RealexRemoteSample_ASP.NET\Bin\RealAuth.dll
+C:\PriorityMobile.git\MerchServProviders\Realex\RealAuthRedirect\bin\Debug\MerchantRedirect.dll
+C:\PriorityMobile.git\MerchServProviders\Realex\RealAuthRedirect\obj\Debug\MerchantRedirect.dll
+C:\PriorityMobile.git\Server\logParser\logParser\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hdiscovery.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hloader.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hlog.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hprisql.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hq.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hsubcmd.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hsubirc.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hsubsms.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\hsubsmtp.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\subscriber.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\svcDefinition2.dll
+C:\PriorityMobile.git\Server\PriProc5\bin\svcHandler.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppConsole\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppDiscovery\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppDiscovery\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppDiscovery\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppDiscovery\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppDiscovery\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppDiscovery\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLoader\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLoader\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLoader\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLoader\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLoader\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLoader\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLog\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLog\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLog\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLog\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLog\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppLog\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppPriSql\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppPriSql\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppPriSql\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppQ\bin\Debug\svcMsg.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppQ\bin\Debug\tcpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppQ\bin\Debug\udpSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppQ\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppQ\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Interactive\ppQ\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\RunProc\prp\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcConsole\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcConsole\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcConsole\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcDiscovery\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcDiscovery\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcDiscovery\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLoader\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLoader\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLoader\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLog\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLog\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLog\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLog\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcLog\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcPriSQL\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcPriSQL\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcPriSQL\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcq\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcq\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcq\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubIRC\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubIRC\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubIRC\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubSMS\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubSMS\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubSMS\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubSMTP\bin\Debug\PriSock.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubSMTP\bin\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\Services\svcSubSMTP\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\subCmd\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\subCmd\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\subCmd\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\SubIRC\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\Subscriber\obj\Debug\subscriber.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\Subscriber\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\Subscriber\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\Subscriber\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\Subscribers\subSMTP\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcDefinition\obj\Debug\svcDefinition.dll
+C:\PriorityMobile.git\Server\PriProc5\svcDefinition\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcDefinition\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcDefinition\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hConsole\obj\Debug\hConsole.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\hDiscovery.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hDiscovery\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hDiscovery\obj\Handlers Only\hDiscovery.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hDiscovery\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hDiscovery\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLoader\obj\Debug\hLoader.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLoader\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLoader\obj\Handlers Only\hLoader.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLoader\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLoader\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLog\obj\Debug\hLog.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLog\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLog\obj\Handlers Only\hLog.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLog\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hLog\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hprisql\obj\Debug\hprisql.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hprisql\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hprisql\obj\Handlers Only\hprisql.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hprisql\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hprisql\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hQ\obj\Debug\hQ.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hQ\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hQ\obj\Handlers Only\hQ.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hQ\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hQ\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\hSubCmd.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubCmd\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubCmd\obj\Handlers Only\hSubCmd.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubCmd\obj\Handlers Only\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubCmd\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubIRC\obj\Debug\hSubIRC.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubSMS\obj\Debug\hSubSMS.dll
+C:\PriorityMobile.git\Server\PriProc5\svcHandler\hSubSMTP\obj\Debug\hSubSMTP.dll
+C:\PriorityMobile.git\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP\ConnectionConfig\RefreshEnv\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAP\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAP\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAP\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAP\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAPSetup\res\bin\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAPSetup\res\bin\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP\PriSOAPSetup\res\bin\PriClient.dll
+C:\PriorityMobile.git\Server\PriSOAP\SetupCustomisation\PassData\bin\Debug\PassData.dll
+C:\PriorityMobile.git\Server\PriSOAP\SetupCustomisation\PassData\obj\Debug\PassData.dll
+C:\PriorityMobile.git\Server\PriSOAP\testini\testini\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP\testini\testini\bin\Debug\PriClient.dll
+C:\PriorityMobile.git\Server\PriSOAP\testini\testini\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriSOAP4\adminClient\priTelnet\bin\AdminTelnet\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP4\adminClient\priTelnet\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP4\adminClient\priTelnet\obj\AdminTelnet\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriSOAP4\adminClient\priTelnet\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.BatchParser.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.ConnectionInfo.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.RegSvrEnum.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.Replication.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.Rmo.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.ServiceBrokerEnum.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.Smo.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.SmoEnum.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.SqlEnum.dll
+C:\PriorityMobile.git\Server\PriSOAP4\dlls\Microsoft.SqlServer.WmiEnum.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\c#.net\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\c#.net\examples_LoadClient_csharp\obj\Debug\TempPE\Properties.Resources.Designer.cs.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\vb.net\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\examples\vb.net\examples_LoadClient_vb\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\bin\AdminTelnet\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\bin\AdminTelnet\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\bin\AdminTelnet\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\bin\Debug\ntSox.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\bin\Debug\xmlLoad.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\obj\AdminTelnet\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\PriSOAP4\PriProc\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\priwebsvc\Bin\MyCls.dll
+C:\PriorityMobile.git\Server\priwebsvc\Bin\PriLoadData.dll
+C:\PriorityMobile.git\Server\ProcSVC\ProcSVC\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\sqludf\keygen\keygen\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\Server\sqludf\licence\plicence.dll
+C:\PriorityMobile.git\Server\sqludf\licence\bin\Debug\licence.dll
+C:\PriorityMobile.git\Server\sqludf\licence\obj\Debug\licence.dll
+C:\PriorityMobile.git\Server\sqludf\SQLProject\SqlServerProject\pLicence.dll
+C:\PriorityMobile.git\Server\sqludf\SQLProject\SqlServerProject\bin\SqlServerProject.dll
+C:\PriorityMobile.git\Server\sqludf\SQLProject\SqlServerProject\obj\Debug\SqlServerProject.dll
+C:\PriorityMobile.git\Server\wevl\wevl\wevl\bin\Debug\ConsoleApp.dll
+C:\PriorityMobile.git\Server\wevl\wevl\wevl\bin\Debug\ntEvtlog.dll
+C:\PriorityMobile.git\webs\cmSi\bin\Debug\cmSi.dll
+C:\PriorityMobile.git\webs\cmSi\obj\Debug\cmSi.dll
+C:\PriorityMobile.git\webs\cmSi\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\webs\cmSi\obj\Release\cmSi.dll
+C:\PriorityMobile.git\webs\cmSi\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\webs\mobile\cHandler.dll
+C:\PriorityMobile.git\webs\mobile\CPCL.dll
+C:\PriorityMobile.git\webs\mobile\ntEvtLog.dll
+C:\PriorityMobile.git\webs\mobile\provision.dll
+C:\PriorityMobile.git\webs\mobile\sfdc3interface.dll
+C:\PriorityMobile.git\webs\mobile\System.Data.SqlClient.dll
+C:\PriorityMobile.git\webs\mobile\xmlLoadCE.dll
+C:\PriorityMobile.git\webs\mobile\Bin\ntEvtlog.dll
+C:\PriorityMobile.git\webs\mobile\Bin\System.Data.SqlClient.dll
+C:\PriorityMobile.git\webs\mobile\Bin\xmlLoad.dll
+C:\PriorityMobile.git\webs\mobile\sfdc\ntEvtLog.dll
+C:\PriorityMobile.git\webs\mobile\sfdc\provision.dll
+C:\PriorityMobile.git\webs\mobile\sfdc\sfdc3interface.dll
+C:\PriorityMobile.git\webs\mobile\sfdc\System.Data.SqlClient.dll
+C:\PriorityMobile.git\webs\mobile\sfdc\xmlLoadCE.dll
+C:\PriorityMobile.git\webs\Provisioning xml\ProvisioningXMLFile\ProvisioningXMLFile\obj\Debug\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\webs\realauthRedirect\RealAuthRedirect\bin\Debug\MerchantRedirect.dll
+C:\PriorityMobile.git\webs\realauthRedirect\RealAuthRedirect\obj\Debug\MerchantRedirect.dll
+C:\PriorityMobile.git\webs\realauthRedirect\RealAuthRedirect\obj\Release\MerchantRedirect.dll
+C:\PriorityMobile.git\webs\realauthRedirect\RealAuthRedirect\obj\Release\TempPE\My Project.Resources.Designer.vb.dll
+C:\PriorityMobile.git\webs\solon\Retail\bin\cmSi.dll
+C:\PriorityMobile.git\webs\solon\Retail\bin\MerchantRedirect.dll
+C:\PriorityMobile.git\webs\solon\Retail\bin\RealAuth.dll
+C:\PriorityMobile.git\webs\solon\Retail\bin\RealAuthRedirect.dll
+C:\PriorityMobile.git\webs\solon\Retail\bk\cmSi.dll
+C:\PriorityMobile.git\webs\solon\Retail\bk\MerchantRedirect.dll
