@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MultiDocScan", "MultiDocScan\MultiDocScan.vbproj", "{8F0140B5-CE23-456A-A872-085083673DC5}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MultiScanSetup", "MultiScanSetup\MultiScanSetup.vdproj", "{A92D7511-3CFF-4F7D-A1D8-E7A796ED4252}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8F0140B5-CE23-456A-A872-085083673DC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F0140B5-CE23-456A-A872-085083673DC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F0140B5-CE23-456A-A872-085083673DC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F0140B5-CE23-456A-A872-085083673DC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A92D7511-3CFF-4F7D-A1D8-E7A796ED4252}.Debug|Any CPU.ActiveCfg = Debug
+		{A92D7511-3CFF-4F7D-A1D8-E7A796ED4252}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
