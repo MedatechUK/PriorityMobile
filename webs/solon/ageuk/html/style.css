@@ -1,0 +1,108 @@
+BODY {
+	
+	Background-color: #ffffff;
+}
+
+td {
+	font-family: Tahoma,  Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #5E5E5E; 
+	font-weight:normal; 
+	line-height:15px;
+}
+
+.menu {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #5B5B5B; 
+	line-height:18px; 
+	text-decoration:none; 
+	font-weight:bold;
+}
+.menu:hover {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #5B5B5B; 
+	line-height:18px; 
+	text-decoration:underline; 
+	font-weight:bold;
+}
+
+.menu2 {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #000000; 
+	line-height:18px; 
+	text-decoration:underline; 
+	font-weight:bold;
+}
+.menu2:hover {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #000000; 
+	line-height:18px; 
+	text-decoration:none; 
+	font-weight:bold;
+}
+
+.cart {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #BB1000; 
+	line-height:18px; 
+	text-decoration:underline; 
+	font-weight:bold;
+}
+.cart:hover {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #BB1000; 
+	line-height:18px; 
+	text-decoration:none; 
+	font-weight:bold;
+}
+
+.big {
+	font-family: Tahoma, verdana, Arial, Helvetica, sans-serif; 
+	font-size: 15px; 
+	color: #ffffff; 
+	line-height:16px; 
+	text-decoration:none; 
+	font-weight: bold; 
+}
+
+.large {
+	font-family: Tahoma, verdana, Arial, Helvetica, sans-serif; 
+	font-size: 13px; 
+	color: #ffffff; 
+	line-height:15px; 
+	text-decoration:none; 
+	font-weight: bold; 
+}
+
+.caption {
+	font-family: Tahoma, verdana, Arial, Helvetica, sans-serif; 
+	font-size: 12px; 
+	color: #4A6663; 
+	line-height:15px; 
+	text-decoration:none; 
+	font-weight: bold; 
+}
+
+.footermenu {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #ffffff; 
+	line-height:18px; 
+	text-decoration:none; 
+	font-weight:bold;
+}
+.footermenu:hover {
+	font-family:   Tahoma, Verdana, Arial, Helvetica, sans-serif; 
+	font-size: 11px; 
+	color: #ffffff; 
+	line-height:18px; 
+	text-decoration:underline; 
+	font-weight:bold;
+}
+

@@ -1,9 +1,0 @@
-E:\Users\Websites\cmsBinaries\MerchantRedirect.dll
-E:\Users\Websites\cmsBinaries\MerchantRedirect.pdb
-E:\Users\Websites\cmsBinaries\MerchantRedirect.xml
-C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Release\ResolveAssemblyReference.cache
-C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Release\MerchantRedirect.Resources.resources
-C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Release\MerchantRedirect.vbproj.GenerateResource.Cache
-C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Release\MerchantRedirect.dll
-C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Release\MerchantRedirect.xml
-C:\Users\Administrator\Documents\Visual Studio 2008\Projects\realauthRedirect\RealAuthRedirect\obj\Release\MerchantRedirect.pdb
