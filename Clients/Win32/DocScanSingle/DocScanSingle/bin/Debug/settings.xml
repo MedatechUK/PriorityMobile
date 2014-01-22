@@ -1,0 +1,10 @@
+<Settings>
+  <PixType>0</PixType>
+  <MaxPage>-1</MaxPage>
+  <UsrIntFc>1</UsrIntFc>
+  <Res>72</Res>
+  <DBServ>POTTER\PRI</DBServ>
+  <DBUname>tabula</DBUname>
+  <DBPass>Tabula123!</DBPass>
+  <DBName>demo</DBName>
+</Settings>
