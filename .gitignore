@@ -1,5 +1,4 @@
 *.exe
-!*.dll
 *.zip
 *.rar
 *.gif
@@ -16,14 +15,17 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
+[Dd]ebug/* 
 [Dd]ebugPublic/
-[Rr]elease/
+[Rr]elease/*
 x64/
 build/
 bld/
 [Bb]in/
 [Oo]bj/
+
+#sorry
+!*.dll 
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
