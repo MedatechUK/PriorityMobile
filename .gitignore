@@ -1,4 +1,5 @@
 *.exe
 *.zip
 *.rar
-[Tt]humbs.DB 
+[Tt]humbs.DB
+*.suo
