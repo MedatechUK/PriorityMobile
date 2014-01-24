@@ -216,6 +216,7 @@ Module emgPDF2cli
         outPath = InputFile.Replace(InputFile.Split(".").Last, "pdf")
 
         Try
+            Console.WriteLine("Converting document...")
             Docs.Convert(outPath)
         Catch ex As Exception
             Console.WriteLine(ex.Message)

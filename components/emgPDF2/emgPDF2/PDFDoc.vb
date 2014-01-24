@@ -112,6 +112,9 @@ Public Class emgPDFDoc
                 System.IO.File.SetAttributes(outPath, rOnly)
             End If
 
+            If Not .KeepSource Then
+                My.Computer.FileSystem.DeleteFile(.InputFile)
+            End If
 
 
         End With
