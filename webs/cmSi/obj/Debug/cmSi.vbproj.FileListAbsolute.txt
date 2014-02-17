@@ -1,0 +1,27 @@
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.Resources.resources
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.vbproj.GenerateResource.Cache
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\bin\Debug\cmSi.dll
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\bin\Debug\cmSi.pdb
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\bin\Debug\cmSi.xml
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.dll
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.xml
+C:\Users\Administrator.WONDERLAND\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\bin\Debug\cmSi.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\bin\Debug\cmSi.pdb
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\bin\Debug\cmSi.xml
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.xml
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Debug\cmSi.pdb
+C:\inetpub\cmSi\bin\Debug\cmSi.dll
+C:\inetpub\cmSi\bin\Debug\cmSi.pdb
+C:\inetpub\cmSi\bin\Debug\cmSi.xml
+C:\inetpub\cmSi\obj\Debug\ResolveAssemblyReference.cache
+C:\inetpub\cmSi\obj\Debug\cmSi.Resources.resources
+C:\inetpub\cmSi\obj\Debug\cmSi.vbproj.GenerateResource.Cache
+C:\inetpub\cmSi\obj\Debug\cmSi.dll
+C:\inetpub\cmSi\obj\Debug\cmSi.xml
+C:\inetpub\cmSi\obj\Debug\cmSi.pdb

@@ -1,0 +1,9 @@
+E:\Users\Websites\cmsBinaries\cmSi.dll
+E:\Users\Websites\cmsBinaries\cmSi.pdb
+E:\Users\Websites\cmsBinaries\cmSi.xml
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Release\cmSi.Resources.resources
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Release\cmSi.vbproj.GenerateResource.Cache
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Release\cmSi.dll
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Release\cmSi.xml
+C:\Users\Administrator\Documents\Visual Studio 2008\Projects\cmSi\obj\Release\cmSi.pdb

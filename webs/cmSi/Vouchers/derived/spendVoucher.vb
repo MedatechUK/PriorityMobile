@@ -37,7 +37,11 @@ Public Class spendVoucher : Inherits Voucher
 #Region "Constructor"
     Public Sub New(ByVal data As XmlNode)
         MyBase.New(data)
-        Spend = CDbl(VoucherData.SelectSingleNode("buy/spend").Attributes("amount").Value)
+        Try
+            Spend = CDbl(VoucherData.SelectSingleNode("buy/spend").Attributes("amount").Value)
+        Catch
+            Spend = 0
+        End Try
         Discount = CDbl(VoucherData.SelectSingleNode("get/discount").Attributes("amount").Value)
     End Sub
 #End Region

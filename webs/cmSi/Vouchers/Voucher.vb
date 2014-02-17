@@ -82,7 +82,7 @@ Public MustInherit Class Voucher
 
         Try
             If Expiry < DateTime.Now And Not IsNothing(Expiry) Then
-                Throw New Exception("Voucher expired!")
+                Return "Voucher expired!"
             End If
             Enact()
             Return "Discount added."

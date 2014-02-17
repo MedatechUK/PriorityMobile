@@ -402,6 +402,7 @@ Public Class cmsPage
             .CommandName = "edit"
             .CommandArgument = placeholder
             .CssClass = "cmsBtn"
+            ' .OnClientClick = "sheet = document.getElementById(""ctl00_remove""); sheet.parentNode.removeChild(sheet);"
         End With
         AddHandler link.Click, AddressOf hbtnEdit
         Return link
@@ -535,6 +536,7 @@ Public Class cmsPage
                         .Controls.Clear()
                         .Controls.Add(NewEditHTML(section.Attributes("html").Value))
                         Dim tb As Control = .FindControl("htmlTextBox")
+                        .Controls.Add(New LiteralControl("<script type=""text/javascript"">sheet = document.getElementById(""ctl00_remove""); sheet.parentNode.removeChild(sheet);</script>"))
                         .Controls.Add(New LiteralControl(String.Format("<script type={0}text/javascript{0}>CKEDITOR.replace('{1}');</script>", Chr(34), tb.ClientID)))
                         .Controls.Add(NewHiddenField("act", "save"))
                         .Controls.Add(NewHiddenField("ph", section.Attributes("placeholder").Value))
