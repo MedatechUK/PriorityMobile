@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <offers>
-  <offer code="062131" type="pcSpendVoucher" des="25% off everything" expiry="20/01/2014">
-    <buy>
-      <spend amount="0" />
-      <part />
-    </buy>
-    <get>
-      <discount amount="25" />
-      <part />
-    </get>
-  </offer>
-  <offer code="HW101" type="pcSpendVoucher" des="10% off everything" expiry="08/01/2014">
-    <buy>
-      <spend amount="0" />
-      <part />
-    </buy>
-    <get>
-      <discount amount="100" />
-      <part />
-    </get>
-  </offer>
   <!--
        percentage part
        voucher type allows discounts off specified parts. No buy requirements 
@@ -35,17 +15,6 @@
        - fixed discount amount to be applied.
        - enforce no discount amount greater than the minimum part price. 
        -->
-  <offer code="part" type="pcPartVoucher" des="£1 off selected items" expiry="20/01/2014">
-    <buy>
-      <spend />
-      <part name="OT00329" />
-      <part name="AL00013" />
-    </buy>
-    <get>
-      <discount amount="1" />
-      <part />
-    </get>
-  </offer>
   <!-- 
        percentage pool
        type allows for buy any of these, get any of these w/percent discount (eg mix & match
@@ -56,18 +25,6 @@
        - percentage discount
        - buy get qty
        -->
-  <offer code="ppool" type="pcPoolVoucher" des="buy any 1..." expiry="20/01/2014">
-    <buy qty="2">
-      <spend />
-      <part name="OT00329" />
-      <part name="AL00013" />
-      <part name="CC00260" />
-    </buy>
-    <get qty="1">
-      <discount amount="50" />
-      <part />
-    </get>
-  </offer>
   <!-- 
        linksave
        -->
@@ -79,16 +36,6 @@
        -buy/get qty
        -multiple parts per voucher
        -->
-  <offer code="mb" type="multiBuyVoucher" des="buy 2 get 5 off a third" expiry="20/01/2014">
-    <buy qty="2">
-      <spend />
-      <part name="AL00013" />
-    </buy>
-    <get qty="1">
-      <discount amount="2" />
-      <part name="OT00329" />
-    </get>
-  </offer>
   <!-- 
        percentage multibuy
        type allows for buy x get x - quantity and discounts (eg, buy 2 get 1 half price)
@@ -97,17 +44,6 @@
        -buy/get qty
        - multiple parts per voucher
        -->
-  <offer code="percentmb" type="pcMultiBuyVoucher" des="buy 2 get 5 off a third" expiry="20/01/2014">
-    <buy qty="2">
-      <spend />
-      <part name="OT00329" />
-      <part name="AL00013" />
-    </buy>
-    <get qty="1">
-      <discount amount="100" />
-      <part />
-    </get>
-  </offer>
   <!--
       percentage spend
       type allows percentage off any order with this voucher (eg, 20% off all orders)
@@ -115,160 +51,47 @@
       -spend parameter - set to zero for all orders, anything else enforces minimum spend
       -percentage discount
       -->
-  <offer code="4CRIME" type="pcSpendVoucher" des="10% off everything" expiry="20/01/2014">
-    <buy>
-      <spend amount="0" />
-      <part />
-    </buy>
-    <get>
-      <discount amount="10" />
-      <part />
-    </get>
-  </offer>
-  <offer code="CW1013" type="pcSpendVoucher" des="10% off everything" expiry="20/01/2014">
-    <buy>
-      <spend amount="0" />
-      <part />
-    </buy>
-    <get>
-      <discount amount="10" />
-      <part />
-    </get>
-  </offer>
-  <offer code="TR1011" type="pcSpendVoucher" des="10% off everything" expiry="20/01/2014">
-    <buy>
-      <spend amount="0" />
-      <part />
-    </buy>
-    <get>
-      <discount amount="10" />
-      <part />
-    </get>
-  </offer>
   <!-- 
       spend
       type allows fixed price off any order with this voucher (eg, 20 quid off all orders)
       -no parts requirements
       -spend parameter - set to zero for all orders, anything else enforces minimum spend
       -->
-  <offer code="1a2531" type="spendVoucher" des="Padlock alarm only £10" expiry="20/01/2014">
-    <buy>
-      <spend amount="15.31" />
-      <part />
-    </buy>
+  <offer code="testinggroup" type="groupPartVoucher" des="testing grouppart" expiry="20/02/2014">
     <get>
-      <discount amount="5.31" />
-      <part />
-    </get>
-  </offer>
-  <offer code="PADLOCK10" type="spendVoucher" des="Padlock alarm only £10" expiry="20/01/2014">
-    <buy>
-      <spend amount="15.31" />
-      <part />
-    </buy>
-    <get>
-      <discount amount="5.31" />
-      <part />
-    </get>
-  </offer>
-  <offer code="TESTY" type="pcPartVoucher" des="123" expiry="03/01/2014">
-    <get>
-      <discount amount="" />
+      <discount amount="3" />
     </get>
     <buy>
-      <spend amount="0" />
-      <part name="AL00004" />
-      <part name="AL00009" />
-    </buy>
-  </offer>
-  <offer code="multitest2k14" type="multiBuyVoucher" des="11" expiry="02/01/2014">
-    <get qty="1">
-      <discount amount="2" />
-    </get>
-    <buy qty="3">
       <spend />
       <part name="AL00001" />
       <part name="AL00002" />
       <part name="AL00003" />
-      <part name="AL00004" />
-      <part name="AL00008" />
-      <part name="AL00009" />
-      <part name="AL00010" />
-      <part name="AL00011" />
-      <part name="AL00013" />
-      <part name="AL00014" />
-      <part name="AL00015" />
-      <part name="AL00016" />
-      <part name="AL00019" />
-      <part name="AL00030" />
-      <part name="CC00250" />
-      <part name="CC00260" />
     </buy>
   </offer>
-  <offer code="TESTY1" type="groupPartVoucher" des="£5 off if you spend £25 or more on Road Safety" expiry="31/01/2014">
+  <offer code="testingspend" type="spendVoucher" des="Testing the SpendVoucher" expiry="21/02/2014">
     <get>
-      <discount amount="5" />
+      <discount amount="2" />
     </get>
     <buy>
-      <spend amount="25" />
-      <part name="OT00488" />
-      <part name="OT00614" />
-      <part name="OT00383" />
-      <part name="OT00465" />
-      <part name="OT00221" />
-      <part name="OT00232" />
-      <part name="OT00233" />
-      <part name="OT00234" />
-      <part name="OT00453" />
-      <part name="OT00482" />
-      <part name="OT00522" />
-      <part name="OT00601" />
-      <part name="OT00606" />
-      <part name="OT00607" />
-      <part name="OT00609" />
-      <part name="OT00610" />
-      <part name="OT00611" />
-      <part name="OT00613" />
-      <part name="OT00622" />
-      <part name="OT00690" />
-      <part name="OT00733" />
-      <part name="OT00657" />
-      <part name="OT00735" />
-      <part name="OT00777" />
-      <part name="OT00778" />
-      <part name="OT00780" />
-      <part name="OT00784" />
+      <spend amount="5" />
     </buy>
   </offer>
-  <offer code="pooltest1200" type="poolVoucher" des="12" expiry="04/01/2014">
-    <get qty="2">
-      <discount amount="123" />
+  <offer code="testingpart" type="partVoucher" des="testing part voucher" expiry="20/02/2014">
+    <get>
+      <discount amount="2" />
     </get>
-    <buy qty="1">
-      <part name="AL00004" />
+    <buy>
+      <spend amount="10" />
+      <part name="AL00001" />
     </buy>
   </offer>
-  <offer code="123" type="linkSaveVoucher" des="des" expiry="06/01/2014">
-    <get qty="2">
+  <offer code="testingmulti" type="multiBuyVoucher" des="testing multibuy vouchers " expiry="20/02/2014">
+    <get qty="1">
       <discount amount="1" />
     </get>
     <buy qty="1">
       <spend />
-      <part name="AL00001">
-        <gpart name="AL00003" />
-      </part>
-      <part name="AL00002">
-        <gpart name="AL00009" />
-      </part>
-    </buy>
-  </offer>
-  <offer code="1" type="partVoucher" des="2" expiry="09/01/2014">
-    <get>
-      <discount amount="1" />
-    </get>
-    <buy>
-      <spend amount="0" />
-      <part name="All" />
+      <part name="AL00001" />
     </buy>
   </offer>
 </offers>

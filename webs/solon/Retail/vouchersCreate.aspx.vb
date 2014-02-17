@@ -35,6 +35,8 @@ Partial Class VouchersCreate
             {"pcSpendVoucher", "Spend Voucher (Percentage)", "Use this voucher type to define a percentage amount off the order, with an optional minimum spend"}, _
             {"partVoucher", "Part Specific Voucher", "Use this voucher type to define a fixed amount off (a) specific part(s)."}, _
             {"pcPartVoucher", "Part Specific Voucher (Percentage)", "Use this voucher type to define a percentage amount off (a) specific part(s)"}, _
+            {"groupPartVoucher", "Group Parts Voucher", "Use this voucher type to define a fixed amount off (a) specific part(s). Spend will be calculated based on all applicable parts bought."}, _
+            {"pcGroupPartVoucher", "Group Parts Voucher (Percentage)", "Use this voucher type to define a percentage amount off (a) specific part(s). Spend will be calculated based on all applicable parts bought."}, _
             {"multiBuyVoucher", "Multi-Buy Voucher", "Use this voucher type to define a fixed amount off when multiples of the same part are purchased."}, _
             {"pcMultiBuyVoucher", "Multi-Buy Voucher (Percentage)", _
                                             "Use this voucher type to define a percentage amount off when multiples of the same part are purchased."}, _
@@ -47,32 +49,36 @@ Partial Class VouchersCreate
 #End Region
 
     Protected Sub Page_Init(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Init
-        clist = New List(Of Control)
-      
-        For Each param As String In Request.Form.AllKeys
-            If param.Contains("gpLbx_") Then
-                clist.Add(New Label)
-                Dim lbx As New ListBox
-                lbx.ID = param
-                addParts(lbx)
-                For Each gp As String In Request.Form(param).Split(",")
-                    For Each gpItem As ListItem In lbx.Items
-                        If gpItem.Value = gp Then
-                            gpItem.Selected = True
-                        End If
-                    Next
-                Next
-                clist.Add(lbx)
-                clist.Add(New Label)
-            End If
-        Next
-    
-        Dim idx As Integer = 0
-        For Each c As Control In clist
-            Page.Controls(0).FindControl("Main").Controls.AddAt(idx, c)
-            idx += 1
-        Next
+        Try
 
+       
+            clist = New List(Of Control)
+
+            For Each param As String In Request.Form.AllKeys
+                If param.Contains("gpLbx_") Then
+                    clist.Add(New Label)
+                    Dim lbx As New ListBox
+                    lbx.ID = param
+                    addParts(lbx)
+                    For Each gp As String In Request.Form(param).Split(",")
+                        For Each gpItem As ListItem In lbx.Items
+                            If gpItem.Value = gp Then
+                                gpItem.Selected = True
+                            End If
+                        Next
+                    Next
+                    clist.Add(lbx)
+                    clist.Add(New Label)
+                End If
+            Next
+
+            Dim idx As Integer = 0
+            For Each c As Control In clist
+                Page.Controls(0).FindControl("Main").Controls.AddAt(idx, c)
+                idx += 1
+            Next
+        Catch
+        End Try
     End Sub
 
 
@@ -124,6 +130,10 @@ Partial Class VouchersCreate
                 initLinkSaveVoucher()
             Case "pcLinkSaveVoucher"
                 initLinkSaveVoucher()
+            Case "groupPartVoucher"
+                initPartVoucher()
+            Case "pcGroupPartVoucher"
+                initPartVoucher(pc:=True)
         End Select
     End Sub
 
@@ -158,7 +168,7 @@ Partial Class VouchersCreate
             End If
         End If
 
-            AddHandler addVoucher.Click, AddressOf addSpendVoucher
+        AddHandler addVoucher.Click, AddressOf addSpendVoucher
     End Sub
 
     Protected Sub addSpendVoucher()
@@ -289,7 +299,11 @@ Partial Class VouchersCreate
                 .Attributes("expiry").Value = vexpiry
                 .SelectSingleNode("buy").RemoveAll()
                 Dim spendnode As XmlNode = cmSi.cmsData.offers.CreateElement("spend")
+
+                spendnode.Attributes.Append(cmSi.cmsData.offers.CreateAttribute("amount"))
+                spendnode.Attributes("amount").Value = vspend
                 .SelectSingleNode("buy").AppendChild(spendnode)
+
                 For Each i As ListItem In buyParts.Items
                     If i.Selected = True Then
                         Dim xPart As XmlElement = cmSi.cmsData.offers.CreateElement("part")
@@ -298,7 +312,6 @@ Partial Class VouchersCreate
                         .SelectSingleNode("buy").AppendChild(xPart)
                     End If
                 Next
-                .SelectSingleNode("buy/spend").Attributes("amount").Value = vspend
                 .SelectSingleNode("get/discount").Attributes("amount").Value = vdiscount
             End With
         Else
@@ -794,5 +807,5 @@ Partial Class VouchersCreate
         addLinkSaveVoucher()
     End Sub
 
- 
+
 End Class

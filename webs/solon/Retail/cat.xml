@@ -160,7 +160,9 @@
         <cat id="7e371639-108a-41b0-88fb-1264d9536476" name="Thieves Beware Eyes Sticker" img="" showonmenu="True" />
         <cat id="7d1c38d9-dbdf-4c55-8e95-3f1b5992e5ce" name="Decoy Dome Camera with Real IR" img="" showonmenu="True" />
       </cat>
-      <cat id="e0aadc83-7484-46a0-8730-397e4c609e79" name="Special Offers" img="http://soloncopy.test/my_documents/images/SpecialOffer.jpg " showonmenu="False" />
+      <cat id="e0aadc83-7484-46a0-8730-397e4c609e79" name="Special Offers" img="http://soloncopy.test/my_documents/images/SpecialOffer.jpg " showonmenu="False">
+        <cat id="abb8b82e-fe7d-47f2-8c70-e84d7fd9ee18" name="blah" img="" showonmenu="True" />
+      </cat>
     </cat>
     <cat id="91262cf9-2be4-4f57-b132-356c332ee1af" name="Security Advice" img="" showonmenu="True">
       <cat id="07627a61-8136-41eb-bbd8-4a8ccda49ee0" name="Home Security" img="" showonmenu="True" />

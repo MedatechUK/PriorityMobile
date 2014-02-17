@@ -286,8 +286,8 @@ html.details .product_detail .hproduct details summary::details-marker{display:n
 
 /* SHIFT THESE PAGES DOWN A COUPLE OF PIXELS TO MATCH THE RIGHT HAND SIDE */
 
-
-
+*[class^='cke'] { z-index: 999;}
+.cke_skin_kama { z-index: 999;}
 .basket-summery .content h1,
 .pagelist .content h1,
 .offers .content h1,
@@ -315,16 +315,7 @@ body.offers .products article a.url.with-overlay:before{
 	background-repeat: no-repeat;
 }
 
-        body.product_detail.layout4 .hproduct.main figure:before,
-        body.product_detail.offers .hproduct.main figure:before {
-                content: '';
-                position: absolute;
-                width: 465px;
-                height: 560px;
-                background-position: 100% 0px;
-                background-repeat: no-repeat;
-                z-index: 1;
-        }
+
 
 .product_detail .hproduct h2 mark.price{background-color:transparent;font-style:normal}
 
@@ -483,8 +474,8 @@ body.offers .products article a.url.with-overlay:before{
 .header .icons{height:60px;margin-top:20px;padding-top:13px;margin-bottom:0px}
 
 .header .icons .social{list-style-type:none;float:left;margin:0;padding:0}
-.header .icons .social li{list-style-type:none;float:left;margint0;padding:0}
-.header .icons .social li a{display:block;text-indent:-9999px;overflow-hidden;height:30px;background:transparent url(../images/sprite.png) no-repeat 0px 0px;}
+.header .icons .social li{list-style-type:none;float:left; margin: 0;padding:0}
+.header .icons .social li a{display:block;text-indent:-9999px; overflow: hidden; height:30px;background:transparent url(../images/sprite.png) no-repeat 0px 0px;}
 .header .icons .social li a{-webkit-transition: all 0.2s;  -moz-transition: all 0.2s;  -ms-transition: all 0.2s;  -o-transition: all 0.2s;  transition: all 0.2s;}
 .header .icons .social .twitter a{background-position: -78px 0px;width:20px;margin-right:17px}
 .header .icons .social .facebook a{background-position:-115px 0px;width:10px;margin-right:17px}

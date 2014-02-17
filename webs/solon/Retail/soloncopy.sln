@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Retail", ".", "{A9CE2324-67BD-4CEF-9B90-142A7C2AD2F9}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SolonCopy", ".", "{A9CE2324-67BD-4CEF-9B90-142A7C2AD2F9}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "3.5"
 		ProjectReferences = "{2C39EEDC-4EE4-4C63-8808-8995867464B8}|cmSi.dll;{FC565F7A-4BF4-4E5B-9FE0-FFC7D0847A62}|MerchantRedirect.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/W:"
-		Debug.AspNetCompiler.PhysicalPath = "..\Retail\"
+		Debug.AspNetCompiler.PhysicalPath = "..\SolonCopy\"
 		Debug.AspNetCompiler.TargetPath = "D:\Users\matrix10\Documents\Visual Studio 2008\Projects\W\PrecompiledWeb\W:\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/W:"
-		Release.AspNetCompiler.PhysicalPath = "..\Retail\"
+		Release.AspNetCompiler.PhysicalPath = "..\SolonCopy\"
 		Release.AspNetCompiler.TargetPath = "D:\Users\matrix10\Documents\Visual Studio 2008\Projects\W\PrecompiledWeb\W:\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
@@ -22,9 +22,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Retail", ".", "{A9CE2324-67
 		VWDPort = "50366"
 	EndProjectSection
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "cmSi", "..\..\cmSi\cmSi.vbproj", "{2C39EEDC-4EE4-4C63-8808-8995867464B8}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "cmSi", "..\cmSi\cmSi.vbproj", "{2C39EEDC-4EE4-4C63-8808-8995867464B8}"
 EndProject
-Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MerchantRedirect", "..\..\realauthRedirect\RealAuthRedirect\MerchantRedirect.vbproj", "{FC565F7A-4BF4-4E5B-9FE0-FFC7D0847A62}"
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "MerchantRedirect", "..\realauthRedirect\RealAuthRedirect\MerchantRedirect.vbproj", "{FC565F7A-4BF4-4E5B-9FE0-FFC7D0847A62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

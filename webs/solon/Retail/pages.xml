@@ -8,6 +8,7 @@
     <section placeholder="bottomtext" html="" />
   </page>
   <page id="ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e" masterpage="pagelist.master" title=" Products" description="" keywords="">
+    <!-- todo: adjust things so we can just sub in page names, handle crud.-->
     <section placeholder="main" html="" />
     <section placeholder="Main" html="" />
   </page>
@@ -935,6 +936,12 @@
     <section placeholder="Main" html="" />
   </page>
   <page id="d1c336d8-70b8-49a3-935b-4dc8bdb08fa3" masterpage="part.master" title="whatever" description="" keywords="" part="OT00488">
+    <section placeholder="main" html="" />
+    <section placeholder="main_product_images" html="" />
+    <section placeholder="ContentPlaceHolder2" html="" />
+    <section placeholder="Main" html="" />
+  </page>
+  <page id="abb8b82e-fe7d-47f2-8c70-e84d7fd9ee18" masterpage="special.master" title="blah" description="" keywords="" part="AL00004">
     <section placeholder="main" html="" />
     <section placeholder="main_product_images" html="" />
     <section placeholder="ContentPlaceHolder2" html="" />

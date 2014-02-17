@@ -249,7 +249,7 @@ Partial Class members
 
     Private Sub addlink(ByVal hl As HyperLink)
         If IsNothing(lnktbl) Then
-            lnktbl = FindControl("tbl_Links")
+            lnktbl = Master.FindControl("main").FindControl("tbl_Links")
         End If
         If Not IsNothing(lnktbl) Then
             linkcell = lnktbl.Rows(0).Cells(0)
@@ -264,7 +264,7 @@ Partial Class members
 
     Private Sub addlinkbutton(ByVal hl As LinkButton)
         If IsNothing(lnktbl) Then
-            lnktbl = FindControl("tbl_Links")
+            lnktbl = Master.FindControl("Main").FindControl("tbl_Links")
         End If
         If Not IsNothing(lnktbl) Then
             linkcell = lnktbl.Rows(0).Cells(0)

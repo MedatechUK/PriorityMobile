@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="http://soloncopy.test/css/970_5_10_10.css" />
     <link rel="stylesheet" href="http://soloncopy.test/css/solon.css" />
     <link rel="stylesheet" href="http://soloncopy.test/css/sites.css" />
+      <link rel="stylesheet" id ="remove" href="http://soloncopy.test/css/specoff.css" />
     <!--[if IE 7]>
     <link rel="stylesheet" href="~/css/ie7.css">
     <![endif]-->
