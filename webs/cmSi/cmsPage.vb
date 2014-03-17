@@ -18,14 +18,10 @@ Public Class cmsPage
                 If InStr(arui, "?404;") > 0 Then
                     If Right(arui, 1) = "/" Then arui = Left(arui, arui.Length - 1)
                     e = Split(arui, ":" & _thisContext.Request.Url.Port.ToString & "/")(1)
-                Else
-                    If PhysicalFile Then
-                        e = arui.Split("/").Last.ToLower.Split("?").First
-                    Else
-                        e = ""
-                    End If
+                ElseIf Not PhysicalFile Then
+                    e = ""
                 End If
-                CachedValue = e
+                CachedValue = e.Split("/").Last.ToLower.Split("?").First
             End If
             Return CachedValue
         End Get
@@ -91,7 +87,7 @@ Public Class cmsPage
             If _FormDictionary.Keys.Contains(key.ToLower) Then
                 Return _FormDictionary(key.ToLower)
             Else
-                If String.Compare(key, "id", True) = 0 Then
+                If key.ToLower = "id" Then
                     If AbsoluteUri.Length = 0 Then
                         Return cmsData.cat.SelectSingleNode("cat").Attributes("id").Value ' home page
                     Else
@@ -204,8 +200,8 @@ Public Class cmsPage
 
         _thisPage = thisPage
 
-        If Not IsNothing(_PageNode) Then            
-            thisPage.Form.Controls.Add(NewHiddenField("id", FormDictionary("id")))            
+        If Not IsNothing(_PageNode) Then
+            thisPage.Form.Controls.Add(NewHiddenField("id", FormDictionary("id")))
 
             ' iterate through placeholders
             For Each c As Control In thisPage.Master.Controls
