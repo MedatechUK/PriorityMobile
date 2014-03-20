@@ -18,10 +18,12 @@ Public Class cmsPage
                 If InStr(arui, "?404;") > 0 Then
                     If Right(arui, 1) = "/" Then arui = Left(arui, arui.Length - 1)
                     e = Split(arui, ":" & _thisContext.Request.Url.Port.ToString & "/")(1)
+                    CachedValue = e.Split("/").Last.ToLower.Split("?").First
                 ElseIf Not PhysicalFile Then
                     e = ""
+                Else
+                    CachedValue = arui.Split("/").Last.ToLower.Split("?").First
                 End If
-                CachedValue = e.Split("/").Last.ToLower.Split("?").First
             End If
             Return CachedValue
         End Get
@@ -88,7 +90,7 @@ Public Class cmsPage
                 Return _FormDictionary(key.ToLower)
             Else
                 If key.ToLower = "id" Then
-                    If AbsoluteUri.Length = 0 Then
+                    If IsNothing(AbsoluteUri) OrElse AbsoluteUri.Length = 0 Then
                         Return cmsData.cat.SelectSingleNode("cat").Attributes("id").Value ' home page
                     Else
                         Return AbsoluteUri
