@@ -1,4 +1,4 @@
-﻿Imports System.Xml
+Imports System.Xml
 Imports System.Web.UI.WebControls
 Imports System.Web
 
@@ -47,7 +47,7 @@ Public Class repl_ChildTable : Inherits repl_Base
             .AppendLine("<childpart>")
 
             Dim NoNodes As Boolean = False
-            Dim ChildNodes As XmlNodeList = e.thisCMSPage.thisCat.ChildNodes            
+            Dim ChildNodes As XmlNodeList = e.thisCMSPage.thisCat.SelectNodes(".//*[@showonmenu='True']")
             If IsNothing(ChildNodes) Then NoNodes = True
             If ChildNodes.Count = 0 Then NoNodes = True
 
