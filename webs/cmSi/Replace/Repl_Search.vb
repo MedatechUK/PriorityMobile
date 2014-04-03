@@ -145,7 +145,6 @@ Friend Class Repl_Search
 #Region "Private Methods"
 
     Private Function isVisible(ByVal pageID As String) As Boolean
-        'TODO: SORT THIS ARGGHGHH
         Try
 
             If CBool(cmsData.cat.SelectSingleNode( _
