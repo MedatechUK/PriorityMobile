@@ -1,4 +1,4 @@
-﻿Imports System.Web.UI.WebControls
+Imports System.Web.UI.WebControls
 Imports System.Xml
 Imports System.Web
 
@@ -144,6 +144,24 @@ Friend Class Repl_Search
 
 #Region "Private Methods"
 
+    Private Function isVisible(ByVal pageID As String) As Boolean
+        'TODO: SORT THIS ARGGHGHH
+        Try
+
+            If CBool(cmsData.cat.SelectSingleNode( _
+                    String.Format("//*[@id={0}{1}{0}]", _
+                    Chr(34), _
+                    pageID)).Attributes("showonmenu").Value) Then
+                Return True
+            Else
+                Return False
+            End If
+
+        Catch ex As NullReferenceException
+            Return False
+        End Try
+    End Function
+
     Private Sub SearchPageNode(ByRef Found As Dictionary(Of String, sResult), ByVal SearchTerm As String, ByVal NodeName As String)
 
         For Each n As XmlNode In cmsData.doc.SelectNodes( _
@@ -153,18 +171,21 @@ Friend Class Repl_Search
                 SearchTerm _
             ) _
         )
-            With n.ParentNode
 
-                If Not Found.Keys.Contains(.Attributes("id").Value) Then
+            Dim id As String = n.ParentNode.Attributes("id").Value
+
+            If Not Found.Keys.Contains(id) Then
+                If isVisible(id) Then
                     Found.Add( _
-                        .Attributes("id").Value, _
+                        id, _
                         New sResult(n.ParentNode) _
                     )
-                Else
-                    Found(.Attributes("id").Value).IncrementScore()
                 End If
+            Else
+                Found(id).IncrementScore()
+            End If
 
-            End With
+
 
         Next
     End Sub
@@ -179,20 +200,23 @@ Friend Class Repl_Search
         )
 
             For Each p As XmlNode In cmsData.doc.SelectNodes(String.Format("//page[@part='{0}']", n.SelectSingleNode("PARTNAME").InnerText))
-                If Not Found.Keys.Contains(p.Attributes("id").Value) Then
-                    With p
-                        Found.Add(.Attributes("id").Value, _
-                            New sResult( _
-                                cmsCleanHTML.htmlEncode(.Attributes("title").Value), _
-                                cmsCleanHTML.htmlEncode(.Attributes("description").Value), _
-                                .Attributes("id").Value, _
-                                String.Format("priImage.aspx?image={0}", n.SelectSingleNode("PRIIMG").InnerText) _
-                            ) _
-                        )
-                    End With
+                Dim id As String = p.Attributes("id").Value
+                If Not Found.Keys.Contains(id) Then
+                    If isVisible(id) Then
+                        With p
+                            Found.Add(id, _
+                                New sResult( _
+                                    cmsCleanHTML.htmlEncode(.Attributes("title").Value), _
+                                    cmsCleanHTML.htmlEncode(.Attributes("description").Value), _
+                                    id, _
+                                    String.Format("priImage.aspx?image={0}", n.SelectSingleNode("PRIIMG").InnerText) _
+                                ) _
+                            )
+                        End With
+                    End If
                 Else
-                    Found(p.Attributes("id").Value).IncrementScore()
-                    Found(p.Attributes("id").Value).Image = String.Format("~/priImage.aspx?image={0}", n.SelectSingleNode("PRIIMG").InnerText)
+                    Found(id).IncrementScore()
+                    Found(id).Image = String.Format("~/priImage.aspx?image={0}", n.SelectSingleNode("PRIIMG").InnerText)
                 End If
             Next
 
