@@ -334,8 +334,14 @@ Public Class ctrl_Delivered
                 .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
                          New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
                 'please quote
-                .AddText("Please quote account number in all correspondence.", New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
-                                                                                         thisForm.Printer.Dimensions.Height + 10), _
+                .AddText("Please quote account number in all correspondence.", _
+                         New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                                   thisForm.Printer.Dimensions.Height + 10), _
+                         smallFont)
+                'the above products
+                .AddText("The above products conform to current specifications.", _
+                         New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                                   thisForm.Printer.Dimensions.Height + 10), _
                          smallFont)
 
                 'tear 'n' print!
@@ -572,7 +578,11 @@ Public Class ctrl_Delivered
                          New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
                                    thisForm.Printer.Dimensions.Height + 10), _
                          smallFont)
-
+                'the above products
+                .AddText("The above products conform to current specifications.", _
+                         New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                                   thisForm.Printer.Dimensions.Height + 10), _
+                         smallFont)
                 '    'tear 'n' print!
                 .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
                 thisForm.Printer.Print(.toByte)
