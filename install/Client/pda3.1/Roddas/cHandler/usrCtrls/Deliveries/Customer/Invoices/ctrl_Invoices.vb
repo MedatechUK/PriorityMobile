@@ -377,9 +377,14 @@ Public Class ctrl_Invoices
 
                     'please quote
                     .AddText("Please quote account number in all correspondence.", _
+                            New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                                   thisForm.Printer.Dimensions.Height + 10), _
+                         smallFont)
+                    'the above products
+                    .AddText("The above products conform to current specifications.", _
                              New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
-                                       thisForm.Printer.Dimensions.Height + 10), _
-                             smallFont)
+                                   thisForm.Printer.Dimensions.Height + 10), _
+                         smallFont)
 
                     '    'tear 'n' print!
                     .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
