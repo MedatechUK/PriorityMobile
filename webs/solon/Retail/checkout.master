@@ -1,0 +1,68 @@
+<%@ Master Language="VB"  %>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+ <!--<![endif]-->
+ 
+    <head id="Head" runat="server">
+    
+        <!-- #include file="html-head.inc" -->
+           <script type = "text/javascript">
+
+        function ValidateCheckBox(sender, args) {
+        
+        if (document.getElementById("ctl00_CheckBox1").checked == true) {
+        args.IsValid = true;
+        } else {
+        args.IsValid = false;
+        }
+        }
+      </script>
+    </head>
+
+    <body class="login">
+        <form id="form1" runat="server">        
+            <!-- #include file="page-header.inc" -->
+
+
+            <h1 class="column grid_4">
+                <asp:Literal ID="PageTitle" runat="server"></asp:Literal>
+            </h1>
+
+            <!-- #include file="sidebar.inc" -->
+
+            <section class="column grid_5-6 forceinline">
+               <div class=""><asp:PlaceHolder ID="toptext" runat="server">
+                
+               </asp:PlaceHolder></div>
+               
+               <hr />
+
+               <asp:ContentPlaceHolder ID="Main" runat="server">
+                
+               </asp:ContentPlaceHolder>
+                
+             
+                                   
+                         <asp:CheckBox ID="CheckBox1" runat="server" />                        
+                         <asp:PlaceHolder ID="PlaceHolder1" runat="server" />    
+                                      
+            <asp:CustomValidator ID="CustomValidator1" display="Static" runat="server" ErrorMessage="Required"
+                         ClientValidationFunction="ValidateCheckBox" ></asp:CustomValidator>     
+                            <br />
+                             <asp:CheckBox ID="etc_subscribed" runat="server" Checked="true" />                        
+                         <asp:PlaceHolder ID="PlaceHolder2" runat="server" />    
+                                      
+           
+               
+
+            </section>            
+            
+            <!-- #include file="footer.inc" -->
+
+        </form>
+    </body>
+</html>

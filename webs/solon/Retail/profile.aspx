@@ -44,21 +44,19 @@
                                  ControlToValidate="Address_Address4" ErrorMessage="Missing"></asp:RequiredFieldValidator>
  </td></tr>
 <tr><td valign="top" style="text-align: right">Post Code:</td><td align="left" valign="top">
- <asp:TextBox ID="Address_Postcode" runat="server"></asp:TextBox>
+ <asp:TextBox ID="Address_Postcode" MaxLength="10" runat="server"></asp:TextBox>
                              <span style="color: #FF0000">* </span>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                 ControlToValidate="Address_Postcode" ErrorMessage="Not a valid postcode." 
-                                 ValidationExpression="^((([aA-pPrR-uUwWyYzZ])([0-9][0-9aA-hHjJkKsS-uUwW]?))|(([aA-pPrR-uUwWyYzZ][aA-hHkK-yY])([0-9][0-9aAbBeEhHmMnNpPrRvV-yY]?))\s{0,2}(([0-9])([aAbBdD-hHjJlLnNpP-uUwW-zZ])([aAbBdD-hHjJlLnNpP-uUwW-zZ])))|(((GI)(R))\s{0,2}((0)(A)(A)))$"></asp:RegularExpressionValidator>
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
                                  ControlToValidate="Address_Postcode" ErrorMessage="Missing"></asp:RequiredFieldValidator>
  </td></tr>
+<tr><td valign="top" style="text-align: right">Country:</td><td align="left" valign="top">
+                            <asp:TextBox ID="TextBox1" runat="server" ReadOnly="True">United Kingdom</asp:TextBox>
+                            </td></tr>
 <tr><td valign="top" style="text-align: right">&nbsp;</td><td align="left" valign="top">
-    &nbsp;</td></tr>
+                             &nbsp;</td></tr>
 <tr><td valign="top" style="text-align: right">&nbsp;</td><td align="left" valign="top">
                              <asp:Button ID="btnSaveProfile" runat="server" Text="Save Changes"/>
- </td></tr>
-<tr><td valign="top" style="text-align: right">&nbsp;</td><td align="left" valign="top">
-    &nbsp;</td></tr>
+    </td></tr>
 <tr><td valign="top" style="text-align: right">&nbsp;</td><td align="left" valign="top">
     <span style="color: #FF0000">* Required field.</span></td></tr>
 </table>

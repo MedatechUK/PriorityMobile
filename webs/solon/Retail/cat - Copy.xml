@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <cat id="4321567890" name="Home" showonmenu="True" img="my_documents/images/Bigstock1">
-  <cat id="ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e" name=" Products" img="" showonmenu="True">
+  <cat id="products-by-category" name=" Products" img="" showonmenu="True">
     <cat id="b0795cc7-6387-49b8-bfec-ac51c234e0fd" name="Window Locks" img="my_documents/images/WindowLocks.jpg" showonmenu="True">
       <cat id="be29ea0b-fd88-4b58-b102-6e6d90cdfc90" name="Security Jammer" img="" showonmenu="True">
       </cat>

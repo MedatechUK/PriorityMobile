@@ -11,9 +11,12 @@ Partial Class Vouchers
         Dim vgData As New System.Data.DataSet
 
         vgData.ReadXml(Server.MapPath("~/offers.xml"))
-        VoucherGrid.DataSource = vgData.Tables(0).DefaultView
-        VoucherGrid.DataBind()
-
+        Try
+            VoucherGrid.DataSource = vgData.Tables(0).DefaultView
+            VoucherGrid.DataBind()
+        Catch
+            Response.Redirect("voucherscreate.aspx")
+        End Try
 
     End Sub
 

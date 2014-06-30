@@ -222,7 +222,7 @@ Partial Class members
                 lb.Font.Name = "Verdana"
 
                 tx = New TextBox
-                tx.ID = "NewPassword"                
+                tx.ID = "NewPassword"
                 tx.Text = ""
 
                 addRow(lb, tx)
@@ -338,7 +338,7 @@ Partial Class members
         Else
             Dim un() As String = {Request("User")}
             Roles.AddUsersToRole(un, ch.ID)
-        End If        
+        End If
     End Sub
 
     Protected Sub hApprovedChange(ByVal sender As Object, ByVal e As System.EventArgs)
@@ -356,7 +356,7 @@ Partial Class members
     End Sub
 
     Protected Sub hSetPassword(ByVal sender As Object, ByVal e As System.EventArgs)
-        Dim NewPassword As TextBox = FindControl("NewPassword")        
+        Dim NewPassword As TextBox = FindControl("NewPassword")
         Dim mu As MembershipUser = Membership.GetUser(Request("User"))
         mu.ChangePassword(mu.GetPassword, NewPassword.Text)
         Membership.UpdateUser(mu)

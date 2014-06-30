@@ -15,7 +15,8 @@
     <page menutitle="Change Password" loc="~/chpass.aspx" pagetitle="Change Password" description="" />
     <page menutitle="Log out" loc="~/logoff.aspx" pagetitle="Log out" description="" />
   </page>
-  <page menutitle="webmaster" loc="" pagetitle="" description="">    
+  <page menutitle="webmaster" loc="" pagetitle="" description="">
+    <page menutitle="Manage Vouchers" loc="~/Vouchers.aspx" pagetitle="Voucher Management" description="" />
     <page menutitle="Refresh Feed Data" loc="~/cmsData.aspx" pagetitle="Refresh Feed Data" description="" />
     <page menutitle="Refresh Feed Images" loc="~/cmsImg.aspx" pagetitle="Refresh Feed Images" description="" />
     <page menutitle="Profile" loc="~/profile.aspx" pagetitle="Profile" description="" />
@@ -24,7 +25,7 @@
   </page>
   <page menutitle="Subsites" loc="" pagetitle="" description="">
     <page menutitle="Home Security Store" loc="http://www.home-security-store.co.uk" pagetitle="Home Security Store »" description="Home Security Store" image="my_documents/images/links/HomeSecurityStore2.jpg" cssClass="windows-direct" />
-    <page menutitle="Redline Security" loc="http://soloncopy.test/" pagetitle="Go to Redline Security »" description="Redline Security" image="my_documents/images/links/Redline.jpg" cssClass="fraud-reduction" />
+    <page menutitle="Redline Security" loc="http://www.redlinesecurity.co.uk/" pagetitle="Go to Redline Security »" description="Redline Security" image="my_documents/images/links/Redline.jpg" cssClass="fraud-reduction" />
     <page menutitle="Personal Attack Alarms" loc="http://personal-attack-alarms.net/" pagetitle="Go to Personal Attack Alarms »" description="Personal Attack Alarms" image="my_documents/images/links/PAA.jpg" cssClass="personal-attack" />
     <page menutitle="Met Police Burglary Advice" loc="http://content.met.police.uk/Site/crimepreventionbumblebee" pagetitle="Go to Met Police Burglary Advice »" description="Met Police Burglary Advice" image="my_documents/images/links/MetPolice.jpg" cssClass="security-manager" />
     <page menutitle="Age UK Burglary Prevention" loc="http://www.ageuk.org.uk/home-and-care/home-safety-and-security/crime-prevention/burglary-prevention/" pagetitle="Go to Age UK Burglary Prevention »" description="Age UK Burglary Prevention" image="my_documents/images/links/AgeUK.jpg" cssClass="home-security-p" />

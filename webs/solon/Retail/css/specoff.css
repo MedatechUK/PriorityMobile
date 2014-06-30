@@ -1,6 +1,4 @@
-﻿       
-       /*CSS for the special offer overlay. This is disabled on spawning CKEditor */
-        body.product_detail.layout4 .hproduct.main figure:before,
+﻿  body.product_detail.layout4 .hproduct.main figure:before,
         body.product_detail.offers .hproduct.main figure:before {
                 content: '';
                 position: absolute;

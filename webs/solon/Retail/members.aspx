@@ -43,8 +43,8 @@
             </asp:Table>
             </span>
         <asp:Table ID="tbl_Links" runat="server" Width="100%">
-            <asp:TableRow ID="TableRow1" runat="server">
-                <asp:TableCell ID="TableCell1" runat="server"></asp:TableCell>
+            <asp:TableRow runat="server">
+                <asp:TableCell runat="server"></asp:TableCell>
             </asp:TableRow>
             </asp:Table>
             <hr width="400" align="left"/>
@@ -59,7 +59,7 @@
             <asp:CreateUserWizard ID="CreateUserWizard1" runat="server" 
                 RequireEmail="False">
                 <WizardSteps>
-                    <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
+                    <asp:CreateUserWizardStep runat="server">
                         <ContentTemplate>
                             <table border="0" style="font-family: Verdana">
                                 <tr>
@@ -95,10 +95,10 @@
                                         <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
                                     </td>
                                 </tr>
-                            </table>f
+                            </table>
                         </ContentTemplate>
                     </asp:CreateUserWizardStep>
-                    <asp:CompleteWizardStep ID="CompleteWizardStep1" runat="server" />
+                    <asp:CompleteWizardStep runat="server" />
                 </WizardSteps>
             </asp:CreateUserWizard>
         </asp:View>

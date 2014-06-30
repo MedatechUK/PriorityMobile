@@ -33,7 +33,7 @@
             ID="Category" 
             runat="server" 
             DataFile="~/cat.xml" 
-            XPath="//cat/cat[@id='ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e']/cat[@showonmenu='True']">
+            XPath="//cat/cat[@id='products-by-category']/cat[@showonmenu='True']">
         </asp:XmlDataSource> 
 
 	</section>

@@ -8,8 +8,8 @@ Public Class topmenu : Implements IHttpHandler
         Dim mnu As New cmSi.cmsMenu(context)
         With mnu
             .Add()
-            .Add(New cmsMenuItem("~/ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e", "Products", ""))
-            .Add(New cmsMenuItem("~/e0aadc83-7484-46a0-8730-397e4c609e79", "Special Offers", ""))
+            .Add(New cmsMenuItem("~/products-by-category", "Products", ""))
+            .Add(New cmsMenuItem("~/special-offers", "Special Offers", ""))
             .Add("//cat/cat[@name='topmenu']/cat")
             .ProcessRequest()
         End With

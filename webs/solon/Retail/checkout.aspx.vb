@@ -12,7 +12,7 @@ Partial Class checkout
     End Function
 
     Public Overrides Sub PageLoaded(ByVal sender As Object, ByVal e As System.EventArgs)
-       
+
     End Sub
 
     Private Function ValidAddress() As Boolean
@@ -53,7 +53,14 @@ Partial Class checkout
                 .Address_Postcode = prf.GetProfileGroup("Address").Item("Postcode")
                 .Phone = prf.GetProfileGroup("Address").Item("Phone")
                 .eMail = User.Identity.Name
+
             End With
+
+            If prf.GetProfileGroup("etc").Item("subscribed") = "on" Then
+                .Subscribed = "Y"
+            Else
+                .Subscribed = "N"
+            End If
 
             realAuth = New MerchantRedirect.realAuth( _
                 cmSi.cmsData.Settings.Get("MerchantName"), _
@@ -77,7 +84,32 @@ Partial Class checkout
     End Sub
 
     Protected Sub btnSaveProfile_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSaveProfile.Click
+        With HttpContext.Current
+            For Each k As String In .Request.Form.Keys
+                Try
+                    Dim KeyVal As String = k.Split("$").Last
+                    If InStr(KeyVal, "_") > 0 Then
+                        If KeyVal = "Address_Postcode" Then
+                            .Profile.GetProfileGroup(KeyVal.Split("_")(0)).Item(KeyVal.Split("_")(1)) = P.FormDictionary(KeyVal).ToUpper
+                        Else
+                            .Profile.GetProfileGroup(KeyVal.Split("_")(0)).Item(KeyVal.Split("_")(1)) = P.FormDictionary(KeyVal)
+                        End If
+                    Else
+                        .Profile(k) = P.FormDictionary(KeyVal)
+                    End If
+                Catch
+                End Try
+            Next
+            If P.FormDictionary("etc_subscribed") = Nothing Then
+                .Profile.GetProfileGroup("etc").Item("subscribed") = "off"
+            End If
+            
+        End With
+
+
+
         If ValidAddress() Then
+
             Redirect()
         End If
     End Sub

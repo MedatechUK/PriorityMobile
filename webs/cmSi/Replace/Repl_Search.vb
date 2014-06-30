@@ -1,4 +1,4 @@
-Imports System.Web.UI.WebControls
+﻿Imports System.Web.UI.WebControls
 Imports System.Xml
 Imports System.Web
 
@@ -145,6 +145,7 @@ Friend Class Repl_Search
 #Region "Private Methods"
 
     Private Function isVisible(ByVal pageID As String) As Boolean
+        'TODO: SORT THIS ARGGHGHH
         Try
 
             If CBool(cmsData.cat.SelectSingleNode( _

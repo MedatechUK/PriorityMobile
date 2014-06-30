@@ -2,14 +2,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-    <link rel="stylesheet" href="http://soloncopy.test/css/normalize.min.css" />
-    <link rel="stylesheet" href="http://soloncopy.test/css/main.css" />
-    <link rel="stylesheet" href="http://soloncopy.test/css/html5reset.css" />
-    <link rel="stylesheet" href="http://soloncopy.test/css/pxtoem.css" />
-    <link rel="stylesheet" href="http://soloncopy.test/css/970_5_10_10.css" />
-    <link rel="stylesheet" href="http://soloncopy.test/css/solon.css" />
-    <link rel="stylesheet" href="http://soloncopy.test/css/sites.css" />
-      <link rel="stylesheet" id ="remove" href="http://soloncopy.test/css/specoff.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/normalize.min.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/main.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/html5reset.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/pxtoem.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/970_5_10_10.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/solon.css" />
+    <link rel="stylesheet" href="http://redlinesecurity.co.uk/css/sites.css" />
+      <link rel="stylesheet" id="remove" href="http://redlinesecurity.co.uk/css/specoff.css" />
     <!--[if IE 7]>
     <link rel="stylesheet" href="~/css/ie7.css">
     <![endif]-->
@@ -32,5 +32,12 @@
       <link rel="stylesheet" href="css/nivo-slider-theme/solon-below/solon-below.css" />
 
 <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41697380-5', 'redlinesecurity.co.uk');
+  ga('send', 'pageview');
 
 </script>

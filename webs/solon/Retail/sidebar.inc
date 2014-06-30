@@ -73,7 +73,7 @@
             ID="Category" 
             runat="server" 
             DataFile="~/cat.xml" 
-            XPath="//cat/cat[@id='ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e']/cat[@showonmenu='True']">
+            XPath="//cat/cat[@id='products-by-category']/cat[@showonmenu='True']">
         </asp:XmlDataSource> 
 
 	</section>
@@ -141,37 +141,6 @@
     </asp:XmlDataSource>
 
   </section>-->
-  <section>
-    <h3>Useful Links</h3>
 
-    <asp:ListView ID="SubSites" runat="server" DataSourceID="SubSitesData">
-      <LayoutTemplate>
-        <ul>
-          <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
-        </ul>
-      </LayoutTemplate>
-
-      <ItemTemplate>
-        <li>
-          <asp:HyperLink
-              ID="SubSites"
-              runat="server"
-              NavigateUrl='<%# Eval("loc") %>'
-              Text='<%# Eval("menutitle") %>' 
-              ToolTip='<%# Eval("pagetitle") %>'
-              />
-        </li>
-      </ItemTemplate>
-
-    </asp:ListView>
-
-    <asp:XmlDataSource
-       ID="SubSitesData"
-       runat="server"
-       DataFile="~/links.xml"
-       XPath="//page[@menutitle='Subsites']/page">
-    </asp:XmlDataSource>
-
-  </section>
 </aside>
                 <!-- EOF sidebar -->

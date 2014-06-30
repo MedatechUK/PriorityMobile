@@ -29,7 +29,7 @@
             <!-- #include file="sidebar.inc" -->			
 
             <!-- CATEGORY LINKS -->
-            <asp:ListView ID="ChildPage" runat="server" parentNode="ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e">
+            <asp:ListView ID="ChildPage" runat="server" parentNode="products-by-category">
                  <LayoutTemplate>
                      <aside class="category_link group">
 			            <asp:PlaceHolder runat="server" ID="itemPlaceholder" />

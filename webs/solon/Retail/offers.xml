@@ -1,97 +1,161 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <offers>
-  <!--
-       percentage part
-       voucher type allows discounts off specified parts. No buy requirements 
-       (eg, 50% off all widgets)
-       - parts list for which voucher applies 
-       - percentage discount amount to be applied.
-       -->
-  <!--
-       part
-       voucher type allows discounts off specified parts. No buy requirements 
-       (eg, 1 quid off all widgets)
-       - parts list for which voucher applies 
-       - fixed discount amount to be applied.
-       - enforce no discount amount greater than the minimum part price. 
-       -->
-  <!-- 
-       percentage pool
-       type allows for buy any of these, get any of these w/percent discount (eg mix & match
-       bogof) 
-       -'pool' of parts - any in pool applicable for offer.
-       - will iterate through cart to find cheapest applicable part (not line) not yet discounted by
-         this voucher. Disallows any parts already discounted to free. 
-       - percentage discount
-       - buy get qty
-       -->
-  <!-- 
-       linksave
-       -->
-  <!-- 
-       multibuy
-       type allows for buy x get x - quantity & discounts (eg, buy 1, get 5 quid off second)
-       -same part bought/got
-       -fixed sum discount 
-       -buy/get qty
-       -multiple parts per voucher
-       -->
-  <!-- 
-       percentage multibuy
-       type allows for buy x get x - quantity and discounts (eg, buy 2 get 1 half price)
-       -same part bought/got
-       -percent discount 
-       -buy/get qty
-       - multiple parts per voucher
-       -->
-  <!--
-      percentage spend
-      type allows percentage off any order with this voucher (eg, 20% off all orders)
-      -no parts requirements
-      -spend parameter - set to zero for all orders, anything else enforces minimum spend
-      -percentage discount
-      -->
-  <!-- 
-      spend
-      type allows fixed price off any order with this voucher (eg, 20 quid off all orders)
-      -no parts requirements
-      -spend parameter - set to zero for all orders, anything else enforces minimum spend
-      -->
-  <offer code="testinggroup" type="groupPartVoucher" des="testing grouppart" expiry="20/02/2014">
+  <offer code="HW0214" type="pcSpendVoucher" des="10% Off" expiry="31/12/2014">
     <get>
-      <discount amount="3" />
+      <discount amount="10" />
     </get>
     <buy>
-      <spend />
-      <part name="AL00001" />
-      <part name="AL00002" />
-      <part name="AL00003" />
+      <spend amount="0" />
     </buy>
   </offer>
-  <offer code="testingspend" type="spendVoucher" des="Testing the SpendVoucher" expiry="21/02/2014">
+  <offer code="CW1013" type="pcSpendVoucher" des="10% Off" expiry="31/12/2014">
     <get>
-      <discount amount="2" />
+      <discount amount="10" />
     </get>
     <buy>
-      <spend amount="5" />
+      <spend amount="0" />
     </buy>
   </offer>
-  <offer code="testingpart" type="partVoucher" des="testing part voucher" expiry="20/02/2014">
+  <offer code="TR1011" type="pcSpendVoucher" des="10% Off" expiry="31/12/2014">
     <get>
-      <discount amount="2" />
+      <discount amount="10" />
     </get>
     <buy>
-      <spend amount="10" />
-      <part name="AL00001" />
+      <spend amount="0" />
     </buy>
   </offer>
-  <offer code="testingmulti" type="multiBuyVoucher" des="testing multibuy vouchers " expiry="20/02/2014">
-    <get qty="1">
-      <discount amount="1" />
+  <offer code="Hg624J5" type="pcSpendVoucher" des="10% Off - Subscription" expiry="31/12/2014">
+    <get>
+      <discount amount="10" />
     </get>
-    <buy qty="1">
-      <spend />
-      <part name="AL00001" />
+    <buy>
+      <spend amount="0" />
+    </buy>
+  </offer>
+  <offer code="10RURALCR1ME" type="pcPartVoucher" des="10% Off Rural Crime Products" expiry="31/12/2014">
+    <get>
+      <discount amount="10" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="CC00260" />
+      <part name="CC00330" />
+      <part name="CC00242" />
+      <part name="CC00266" />
+      <part name="CC00267" />
+      <part name="CC00268" />
+      <part name="CC00269" />
+      <part name="CC00270" />
+      <part name="CC00286" />
+      <part name="CC00312" />
+      <part name="EL00005" />
+      <part name="EL00030" />
+      <part name="EL00101" />
+      <part name="EL00113" />
+      <part name="EL00126" />
+      <part name="HA00022" />
+      <part name="OT00171" />
+      <part name="OT00563" />
+      <part name="OT00807" />
+      <part name="OT00809" />
+      <part name="OT00810" />
+      <part name="OT00535" />
+      <part name="OT00558" />
+      <part name="OT00797" />
+    </buy>
+  </offer>
+  <offer code="SH3D15" type="pcPartVoucher" des="15% Garden &amp; Outdoor Security" expiry="01/04/2014">
+    <get>
+      <discount amount="15" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="EL00023" />
+      <part name="EL00030" />
+      <part name="EL00113" />
+      <part name="EL00121" />
+      <part name="EL00126" />
+      <part name="HA00110" />
+      <part name="HA00449" />
+      <part name="OT00411" />
+      <part name="OT00176" />
+      <part name="OT00178" />
+      <part name="OT00181" />
+      <part name="OT00192" />
+      <part name="OT00308" />
+      <part name="OT00309" />
+      <part name="OT00876" />
+      <part name="OT00879" />
+    </buy>
+  </offer>
+  <offer code="H7UJ65" type="partVoucher" des="£5 off Holiday Security Pack" expiry="31/12/2014">
+    <get>
+      <discount amount="5" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="OT00891" />
+    </buy>
+  </offer>
+  <offer code="PADLOCK10" type="partVoucher" des="Third off Padlock Alarm" expiry="31/12/2014">
+    <get>
+      <discount amount="5.31" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="EL00030" />
+    </buy>
+  </offer>
+  <offer code="RURAL10RS" type="pcSpendVoucher" des="10% off everything" expiry="01/06/2015">
+    <get>
+      <discount amount="10" />
+    </get>
+    <buy>
+      <spend amount="0" />
+    </buy>
+  </offer>
+  <offer code="TAKE10HS" type="pcSpendVoucher" des="10% off everything" expiry="01/06/2015">
+    <get>
+      <discount amount="10" />
+    </get>
+    <buy>
+      <spend amount="0" />
+    </buy>
+  </offer>
+  <offer code="UPADLOCK20" type="pcPartVoucher" des="20% Off Padlock U-Bar Bike Lock" expiry="31/12/2014">
+    <get>
+      <discount amount="20" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="EL00113" />
+    </buy>
+  </offer>
+  <offer code="FTV0914" type="partVoucher" des="£5 Off Fake TV" expiry="30/09/2014">
+    <get>
+      <discount amount="5" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="OT00329" />
+    </buy>
+  </offer>
+  <offer code="PREV3NT25" type="pcPartVoucher" des="25% off Specified Items" expiry="31/07/2014">
+    <get>
+      <discount amount="25" />
+    </get>
+    <buy>
+      <spend amount="0" />
+      <part name="AL00015" />
+      <part name="EL00002" />
+      <part name="EL00007" />
+      <part name="EL00015" />
+      <part name="HA00602" />
+      <part name="OT00247" />
+      <part name="OT00256" />
+      <part name="OT00652" />
+      <part name="OT00769" />
+      <part name="OT00813" />
     </buy>
   </offer>
 </offers>

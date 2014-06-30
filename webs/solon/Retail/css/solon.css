@@ -1,58 +1,4 @@
 ﻿/*CMS CORRECTIONS*/
-
-/* Vouchers ui */
-.submitType  
-{
-	float:right; 
-	clear:both;
-}
-.voucherDetail1 
-{
-	display: block;
-	clear: both;
-	padding-top: 20px;
-}
-#vouchertypeselect  
-{
-	float: left;
-}
-#voucherlongdes
-{
-	padding-left: 20px;
-	display: inline;
-	float: left;
-	width: 385px;
-}
-.vouchermain
-{
-	padding-left:5px;
-}
-.buypartsLeft
-{
-	display: inline; 
-	float: left;
-	padding-right: 10px;
-	}
-.buypartsright
-{
-	display: inline; 
-	float: right;
-	padding-left: 10px
-	} 
-
-.endVoucher 
-{
-	display: block;
-	clear: both;
-	bottom: 0px;
-}
-
-select:focus
-{	
-	box-shadow:0 0px 5px #A61916;
-	border: 1px solid #A61916;
-}
-
 .adminbar{
     position: absolute;
     top: 0;
@@ -115,11 +61,10 @@ div.description{margin-left:10px; width:755px;}
 .header{position: absolute; top: 0;z-index:2; left: 50%;width: 970px; height: 120px; margin-top: 0px;margin-left: -485px; /* Half the width */}
 .header .logo {height:60px;margin-bottom:14px;margin-top:20px}
 .header .navigation{height:18px;margin-bottom:7px;margin-top:1px;}
-.header .logo h1{margin:0}
-.header .logo h1 a {display:block;width:756px;height:60px;line-height:60px;}
-.header .logo h1 a img{display:block;position:absolute;border:0px solid transparent;border:0px solid transparent;font-size:0}
-
-h3,h4,h5{color:#3C3C3B}
+.header .logo  a {display:block;width:756px;height:60px;line-height:60px; font-size:2em;z-index:11; font-weight:bold;}
+.header .logo  a img{display:block;position:absolute;border:0px solid transparent;border:0px solid transparent;font-size:0}
+.header .logo a:hover{color: #FFF !important;}
+h2,h3,h4,h5{color:#3C3C3B} 
 
 /*main content */
 
@@ -205,7 +150,6 @@ html.details .products article details summary::details-marker{display:none}
 .product_detail .hproduct header{margin:0;overflow:visible;}
 .product_detail .hproduct header .category{display:none}
 .product_detail .hproduct h1{width:756px;margin-bottom:21px;}
-.product_detail .hproduct h2{margin:0 10px 10px 10px;}
 .product_detail .hproduct .price:before{content:"£"}
 .product_detail .hproduct figure{height:560px;margin-top:60px;float:right;}
 .product_detail .hproduct.main figure{border:1px solid #B2B2B1}
@@ -286,8 +230,8 @@ html.details .product_detail .hproduct details summary::details-marker{display:n
 
 /* SHIFT THESE PAGES DOWN A COUPLE OF PIXELS TO MATCH THE RIGHT HAND SIDE */
 
-*[class^='cke'] { z-index: 999;}
-.cke_skin_kama { z-index: 999;}
+
+
 .basket-summery .content h1,
 .pagelist .content h1,
 .offers .content h1,
@@ -314,8 +258,6 @@ body.offers .products article a.url.with-overlay:before{
 	background-position:100% 1px;
 	background-repeat: no-repeat;
 }
-
-
 
 .product_detail .hproduct h2 mark.price{background-color:transparent;font-style:normal}
 
@@ -474,8 +416,8 @@ body.offers .products article a.url.with-overlay:before{
 .header .icons{height:60px;margin-top:20px;padding-top:13px;margin-bottom:0px}
 
 .header .icons .social{list-style-type:none;float:left;margin:0;padding:0}
-.header .icons .social li{list-style-type:none;float:left; margin: 0;padding:0}
-.header .icons .social li a{display:block;text-indent:-9999px; overflow: hidden; height:30px;background:transparent url(../images/sprite.png) no-repeat 0px 0px;}
+.header .icons .social li{list-style-type:none;float:left;margint0;padding:0}
+.header .icons .social li a{display:block;text-indent:-9999px;overflow-hidden;height:30px;background:transparent url(../images/sprite.png) no-repeat 0px 0px;}
 .header .icons .social li a{-webkit-transition: all 0.2s;  -moz-transition: all 0.2s;  -ms-transition: all 0.2s;  -o-transition: all 0.2s;  transition: all 0.2s;}
 .header .icons .social .twitter a{background-position: -78px 0px;width:20px;margin-right:17px}
 .header .icons .social .facebook a{background-position:-115px 0px;width:10px;margin-right:17px}
@@ -503,6 +445,9 @@ button:active, .content a:active{font-weight:bold}
 	background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 50%,rgba(0,0,0,0) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000000', endColorstr='#00000000000',GradientType=0 ); /* IE6-8 */
 }
+
+.products_intro {width: 790px;}
+
 
 .navigation ul {margin:0;padding:0;list-style-type:none;float:left;width:100%}
 .navigation ul li{margin:0;padding:0;list-style-type:none;float:left;width:93px;height:18px}
@@ -681,7 +626,7 @@ body{font:100%/1.125em Arial, sans-serif}
 
 /*page intros*/
 .content h1{line-height: 40px;font-size: 1.0625em;font-family: "Arial Narrow", "Arial Condensed", Arial, sans-serif;}
-.content h2,
+.category h2,
 .form_intro h2,
 .products_intro article h4{
 font-size: .875em;font-family: "Arial Narrow Bold", "Arial Condensed", "Arial Narrow",Arial, sans-serif;font-stretch: condensed;font-weight: 700;}
@@ -841,21 +786,30 @@ might want to make another header bar that is shorter*/
 
 
 /* SITE COLOURS */
-.windows-direct{background-color:#A61916}
-.fraud-reduction{background-color:#A61916}
+.windows-direct{background-color:#43266A}
+/*.fraud-reduction{background-color:#43266A}*/
 .personal-attack{background-color:#A61448}
 .security-manager{background-color:#2C2F77}
 .home-security-p{background-color:#E48415}
-.door-security{background-color:#A61916}
+.door-security{background-color:#43266A}
 .home-security-s{background-color:#E35210}
-.key-safe{background-color:#A61916}
+.key-safe{background-color:#43266A}
 .crime-prevention{background-color:#5E247C}
-.redline-security{background-color:#A61916}
+.redline-security{background-color:#43266A}
 
 /* Polyfills */
 .no-meter meter{display:none}
 
-
+.sidebar h3{color:#ffffff }
+.content .category a h2{color:#ffffff }
+.links ul li a{color:#ffffff }
+h2 span{color:#3C3C3B !important} 
+h3 span{color:#3C3C3B !important;
+font-size: 1.5em !important;} 
+h4 span{color:#3C3C3B !important} 
 
 
 .links ul li a{color:#ffffff) !important;}
+
+.category_link{width: 790px;}
+.category_link{width: 790px;}

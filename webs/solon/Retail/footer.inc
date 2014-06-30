@@ -6,36 +6,7 @@
 
 		<div class="page">
             <footer class="footer group row">
-                <nav class="column grid_1 links">
-					<h4>Navigation</h4>
-                          <asp:ListView ID="listview2" runat="server" DataSourceID="Navigation">
-                             <LayoutTemplate>
-                                 <ul>
-									<asp:PlaceHolder runat="server" ID="itemPlaceholder" />
-                                 </ul>
-                             </LayoutTemplate>
-                             
-                             <ItemTemplate>
-                                 <li>
-									 <asp:HyperLink 
-										 ID="HyperLink2" 
-										 runat="server" 
-										 NavigateUrl='<%# Eval("id") %>'
-										 Text='<%# Eval("name") %>' 
-										 ToolTip='<%# Eval("name") %>'/>
-                                 </li>
-                             </ItemTemplate>
-                             
-                            </asp:ListView>
-
-                         <asp:XmlDataSource 
-                            ID="Navigation" 
-                            runat="server" 
-                            DataFile="~/cat.xml" 
-                            XPath="//cat/cat[@name='topmenu']/cat[@showonmenu='True']">
-                        </asp:XmlDataSource>    
-                         
-				</nav>
+             
 				
                 <nav class="column grid_1 links">
 					<h4>Information</h4>
@@ -178,7 +149,7 @@
 					</AnonymousTemplate>
 				</asp:LoginView>
 				
-                <div class="column grid_1 copyright">
+                <div class="column grid_1 copyright" style="float:right;">
 					<!-- #include file="~/my_documents/include/copyright.inc" -->
 				</div>
 			</footer><!--EOF footer -->

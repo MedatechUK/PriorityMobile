@@ -63,12 +63,11 @@ Partial Class basket
         Dim v As XmlNode = cmSi.cmsData.offers.SelectSingleNode(String.Format("//offer[@code = ""{0}""]", code))
         If ts.Basket.vouchers.Count > 0 Then
             lblVoucher.Text = "One voucher per order."
-            lblVoucher.Visible = True
             Exit Sub
         End If
         If IsNothing(v) Then
             lblVoucher.Text = "Invalid voucher code."
-            lblVoucher.Visible = True
+
             Exit Sub
         End If
 
@@ -83,13 +82,9 @@ Partial Class basket
                                                                Nothing, _
                                                                Nothing, _
                                                                Nothing).Unwrap
-            If vr.Expiry < DateTime.Now Then
-                lblVoucher.Visible = True
-                lblVoucher.Text = "Voucher expired!"
-            Else
-                ts.Basket.vouchers.Add(vr)
-                lblEnter.Visible = False
-            End If
+
+            ts.Basket.vouchers.Add(vr)
+            lblEnter.Visible = False
 
             Try
                 ts.Basket.BindBasket(Master.FindControl("Main").FindControl("BasketGrid"))

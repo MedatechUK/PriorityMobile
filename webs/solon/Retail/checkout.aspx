@@ -1,7 +1,10 @@
-﻿<%@ Page Language="VB" MasterPageFile="~/membership.master" AutoEventWireup="false" CodeFile="checkout.aspx.vb" Inherits="checkout" title="Delivery Information" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/membership.master" AutoEventWireup="false" CodeFile="checkout.aspx.vb" Inherits="checkout" title="Delivery Information" ValidateRequest="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Main" Runat="Server">
-    <TABLE>
+
+ 
+
+    <table>
 <tr><td align="left" valign="top" style="height: 89px">Name:</td><td align="left" 
         valign="top" style="height: 89px">
  <asp:TextBox ID="Name_First" runat="server" Width="50%"></asp:TextBox>
@@ -30,19 +33,20 @@
                              <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" 
                                  ControlToValidate="Address_Address4" ErrorMessage="Missing"></asp:RequiredFieldValidator>
  <br />
- <asp:TextBox ID="Address_Postcode" runat="server"></asp:TextBox>
-                             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" 
-                                 ControlToValidate="Address_Postcode" ErrorMessage="Not a valid postcode." 
-                                 ValidationExpression="^((([A-PR-UWYZ])([0-9][0-9A-HJKS-UW]?))|(([A-PR-UWYZ][A-HK-Y])([0-9][0-9ABEHMNPRV-Y]?))\s{0,2}(([0-9])([ABD-HJLNP-UW-Z])([ABD-HJLNP-UW-Z])))|(((GI)(R))\s{0,2}((0)(A)(A)))$"></asp:RegularExpressionValidator>
-                             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" 
-                                 ControlToValidate="Address_Postcode" ErrorMessage="Missing"></asp:RequiredFieldValidator>
+ <asp:TextBox ID="Address_Postcode" MaxLength="10" runat="server"></asp:TextBox>
+                             
                              <br />
                              <br />
-                             <asp:Button ID="btnSaveProfile" runat="server" 
-        Text="Proceed"/>
+                 
+                                 <asp:Button ID="btnSaveProfile" runat="server" Text="Proceed"/>
+                
+                             
+                             
  </td></tr>
 </table>
 <BR/>
 
 </asp:Content>
+
+
 

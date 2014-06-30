@@ -42,7 +42,7 @@
 	<aside class="products_intro">
 		<h3 class="column grid_4">Featured Products:</h3>
 		
-		    <asp:ListView ID="ChildPage" runat="server" parentNode="ce1d8dcd-2011-4d6f-b8fc-f83948ecaf9e">
+		    <asp:ListView ID="ChildPage" runat="server" parentNode="products-by-category">
                  <LayoutTemplate>
                      
 			            <asp:PlaceHolder runat="server" ID="itemPlaceholder" />
@@ -57,7 +57,7 @@
 				            <img class="category-image" src="<%# Eval("image") %>" alt="<%# Eval("description") %> <%# Eval("keywords") %>">
 				            <h4><%#Eval("pagetitle")%></h4>
 			            </a>
-			            <p><%# Eval("description") %></p>
+			           
 		            </article>
 		
 	
