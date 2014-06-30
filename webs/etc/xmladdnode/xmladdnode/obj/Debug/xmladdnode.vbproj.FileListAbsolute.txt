@@ -1,0 +1,9 @@
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\bin\Debug\xmladdnode.exe.config
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\bin\Debug\xmladdnode.exe
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\bin\Debug\xmladdnode.pdb
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\bin\Debug\xmladdnode.xml
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\obj\Debug\ConsoleApplication1.Resources.resources
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\obj\Debug\xmladdnode.vbproj.GenerateResource.Cache
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\obj\Debug\xmladdnode.exe
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\obj\Debug\xmladdnode.xml
+C:\Users\thomasm\Documents\Visual Studio 2012\Projects\xmladdnode\xmladdnode\obj\Debug\xmladdnode.pdb

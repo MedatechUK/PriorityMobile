@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cat id="home" name="Home" showonmenu="False" img="my_documents/images/Bigstock1">
+  <cat id="sidemenus" name="sidemenus" img="" showonmenu="False">
+    <cat id="products" name=" Products" img="" showonmenu="True">
+      <cat id="window-locks" name="Window Locks" img="my_documents/images/WindowLocks.jpg" showonmenu="True">
+        <cat id="security-jammer" name="Security Jammer" img="" showonmenu="True">
+        </cat>
+        <cat id="packer-for--ha00115" name="Packer for  HA00115" img="" showonmenu="True" />
+        <cat id="locking-security-jammer" name="Locking Security Jammer" img="" showonmenu="True" />
+        <cat id="packer-for-ha00016" name="Packer for HA00016 " img="" showonmenu="True" />
+        <cat id="sash-jammer-white" name="Sash Jammer White" img="" showonmenu="True" />
+        <cat id="sash-jammer-brown" name="Sash Jammer Brown" img="" showonmenu="True" />
+        <cat id="sash-jammer-kit-and-fixings" name="Sash Jammer Kit and Fixings" img="" showonmenu="True" />
+        <cat id="era-pvcu-snaplock-white" name="ERA PVCu Snaplock White" img="" showonmenu="True" />
+        <cat id="era-pvcu-snaplock-brown" name="ERA PVCu Snaplock Brown" img="" showonmenu="True" />
+        <cat id="era-locking-pvcu-snaplock-brown" name="ERA Locking PVCu Snaplock Brown" img="" showonmenu="True" />
+        <cat id="era-locking-pvcu-snaplock-white" name="ERA Locking PVCu Snaplock White" img="" showonmenu="True" />
+        <cat id="era-snaplock-wood-white" name="ERA Snaplock Wood White" img="" showonmenu="True" />
+        <cat id="era-snaplock-wood-brown" name="ERA Snaplock Wood Brown" img="" showonmenu="True" />
+        <cat id="era-snaplock-wood---spare-key" name="ERA Snaplock Wood - Spare Key " img="" showonmenu="True" />
+        <cat id="era-snaplock-wood---packer" name="ERA Snaplock Wood - Packer" img="" showonmenu="False" />
+        <cat id="era-snaplock-metal-brown" name="ERA Snaplock Metal Brown" img="" showonmenu="True" />
+        <cat id="era-window-bolts" name="ERA Window Bolts" img="" showonmenu="True" />
+        <cat id="era-sash-lock-brass" name="ERA Sash Lock Brass" img="" showonmenu="True" />
+        <cat id="era-sash-lock-satin" name="ERA Sash Lock Satin" img="" showonmenu="True" />
+        <cat id="yale-8k101-window-locks-brass" name="Yale 8K101 Window Locks Brass" img="" showonmenu="True" />
+        <cat id="yale-8k101-window-locks-white" name="Yale 8K101 Window Locks White" img="" showonmenu="True" />
+        <cat id="yale-8k101-window-locks-brown" name="Yale 8K101 Window Locks Brown" img="" showonmenu="True" />
+        <cat id="yale-8k101-window-locks-metal-white" name="Yale 8K101 Window Locks Metal White" img="" showonmenu="True" />
+        <cat id="yale-8k101-window-locks-pvcu-white" name="Yale 8K101 Window Locks PVCu White" img="" showonmenu="True" />
+        <cat id="yale-8k101-window-locks-window-lock-key" name="Yale 8K101 Window Locks Window Lock Key" img="" showonmenu="True" />
+        <cat id="era-swing-locks-wood-white" name="ERA Swing Locks Wood White" img="" showonmenu="True" />
+        <cat id="era-swing-locks-wood-brown" name="ERA Swing Locks Wood Brown" img="" showonmenu="True" />
+        <cat id="era-swing-locks-metal-pair" name="ERA Swing Locks Metal Pair" img="" showonmenu="True" />
+        <cat id="era-metal-window-lock" name="ERA Metal Window Lock" img="" showonmenu="True" />
+        <cat id="era-flush-pivot-lock" name="ERA Flush Pivot Lock " img="" showonmenu="True" />
+        <cat id="era-locking-window-catch" name="ERA Locking Window Catch" img="my_documents/PriImg/HA00054.jpg" showonmenu="True" />
+        <cat id="era-staylock" name="ERA Staylock" img="" showonmenu="True" />
+        <cat id="era-metlock-white" name="ERA Metlock White" img="" showonmenu="True" />
+        <cat id="era-transom-lock" name="ERA Transom Lock" img="" showonmenu="True" />
+        <cat id="era-dual-screw" name="ERA Dual Screw" img="" showonmenu="True" />
+        <cat id="locking-handle-white" name="Locking Handle White" img="" showonmenu="True" />
+      </cat>
+      <cat id="window-alarms" name="Window Alarms" img="my_documents/images/WindowAlarms.jpg" showonmenu="True">
+        <cat id="window-alert-alarm" name="Window Alert Alarm" img="" showonmenu="True" />
+        <cat id="window-shock-alarm" name="Window Shock Alarm" img="" showonmenu="True" />
+        <cat id="windowsill-pir-chime-%26-alarm" name="Windowsill PIR Chime &amp; Alarm" img="" showonmenu="True" />
+        <cat id="mini-window-chime-%26-alarm" name="Mini Window Chime &amp; Alarm" img="" showonmenu="True" />
+      </cat>
+      <cat id="windows-stickers" name="Windows Stickers" img="http://www.windowsecuritydirect.co.uk/my_documents/images/Window_Sticker.jpg" showonmenu="True">
+        <cat id="all-tools-removed-window-cling" name="All Tools Removed Window Cling" img="" showonmenu="True" />
+        <cat id="don%60t-bother-warning-window-cling" name="Don`t Bother Warning Window Cling" img="" showonmenu="True" />
+        <cat id="all-property-marked-window-cling" name="All Property Marked Window Cling" img="" showonmenu="True" />
+        <cat id="burglars-beware-window-cling" name="Burglars Beware Window Cling" img="" showonmenu="True" />
+        <cat id="doorstep-sellers-beware-window-cling" name="Doorstep Sellers Beware Window Cling" img="" showonmenu="True" />
+        <cat id="if-in-doubt-keep-them-out-window-cling" name="If In Doubt Keep Them Out Window Cling" img="" showonmenu="True" />
+        <cat id="cctv-warning-window-cling" name="CCTV Warning Window Cling" img="" showonmenu="True" />
+      </cat>
+      <cat id="special-offers" name="Special Offers" img="my_documents/images/SpecialOffer.jpg" showonmenu="True">
+        <cat id="window-sill-alarm" name="Window Sill Alarm" img="" showonmenu="True" />
+        <cat id="era-window-restrictor-for-wooden-windows" name="ERA Window Restrictor for Wooden Windows" img="" showonmenu="True" />
+        <cat id="era-window-restrictor-for-metal-windows" name="ERA Window Restrictor for Metal Windows" img="" showonmenu="True" />
+      </cat>
+      <cat id="window-restrictors" name="Window Restrictors" img="my_documents/images/WindowRestrictors.jpg " showonmenu="True">
+        <cat id="window-restrictor-white" name="Window Restrictor White" img="" showonmenu="True" />
+        <cat id="test" name="test" img="" showonmenu="True" />
+        <cat id="penkid-flexible-window-restrictor-white" name="Penkid Flexible Window Restrictor White" img="" showonmenu="False" />
+        <cat id="penkid-flexible-window-restrictor-brown" name="Penkid Flexible Window Restrictor Brown" img="" showonmenu="False" />
+        <cat id="jacklock-restrictor" name="Jacklock Restrictor" img="" showonmenu="True" />
+        <cat id="era-window-restrictor-wood-white" name="ERA Window Restrictor Wood White" img="" showonmenu="True" />
+        <cat id="era-window-restrictor-wood-brown" name="ERA Window Restrictor Wood Brown" img="" showonmenu="True" />
+        <cat id="era-window-restrictor-metal-white" name="ERA Window Restrictor Metal White" img="" showonmenu="True" />
+        <cat id="era-window-restrictor-for-wooden-windows---white" name="ERA Window Restrictor for Wooden Windows - White" img="my_documents/PriImg/HA00440.jpg" showonmenu="True" />
+        <cat id="era-window-restrictor-metal-brown" name="ERA Window Restrictor Metal Brown" img="" showonmenu="True" />
+      </cat>
+    </cat>
+  </cat>
+  <cat id="topmenu" name="topmenu" img="" showonmenu="True">
+    <cat id="reviews" name="Reviews" img="" showonmenu="True" />
+    <cat id="about-us" name="About Us" img="my_documents/images/WindowLocks.jpg " showonmenu="True" />
+    <cat id="faq" name="FAQ" img="" showonmenu="True">
+      <cat id="delivery-option" name="Delivery Option" img="" showonmenu="True" />
+      <cat id="products_1" name="Products" img="" showonmenu="True" />
+      <cat id="telephone-orders" name="Telephone Orders" img="" showonmenu="True" />
+    </cat>
+    <cat id="contact" name="Contact" img="" showonmenu="True" />
+    <cat id="security-advice" name="Security Advice" img="" showonmenu="True">
+      <cat id="insurance-guidance" name="Insurance Guidance" img="" showonmenu="True" />
+      <cat id="police-recommendations" name="Police Recommendations" img="" showonmenu="True" />
+      <cat id="home-office-advice" name="Home Office Advice" img="" showonmenu="True" />
+      <cat id="subscribe-to-newsletter" name="Subscribe to Newsletter" img="" showonmenu="True" />
+      <cat id="police-youtube-advice" name="Police YouTube Advice" img="" showonmenu="True" />
+      <cat id="window-security-guidance" name="Window Security Guidance" img="" showonmenu="True">
+        <cat id="top-10-tips" name="Top 10 Tips" img="" showonmenu="True" />
+        <cat id="home-security-advice" name="Home Security Advice" img="" showonmenu="True" />
+        <cat id="news-%26-facts" name="News &amp; Facts" img="" showonmenu="True" />
+      </cat>
+    </cat>
+  </cat>
+  <cat id="information" name="Information" img="" showonmenu="True">
+    <cat id="terms-%26amp%3B-conditions" name="Terms &amp;amp; Conditions" img="" showonmenu="True" />
+    <cat id="quality-assurance" name="Quality Assurance" img="" showonmenu="True" />
+    <cat id="delivery-%26-returns" name="Delivery &amp; Returns" img="" showonmenu="True" />
+    <cat id="environmental" name="Environmental" img="" showonmenu="True" />
+    <cat id="site-map" name="Site Map" img="" showonmenu="True" />
+    <cat id="privacy-policy" name="Privacy Policy" img="" showonmenu="True" />
+  </cat>
+  <cat id="hidden-pages" name="Hidden Pages" img="" showonmenu="False">
+    <cat id="customer-registration" name="Customer Registration" img="" showonmenu="True" />
+    <cat id="payment-details" name="Payment Details" img="" showonmenu="False" />
+    <cat id="success!" name="Success!" img="" showonmenu="True" />
+    <cat id="transaction-error" name="Transaction Error" img="" showonmenu="True" />
+  </cat>
+</cat>
