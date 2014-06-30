@@ -25,7 +25,7 @@ Public Class cmsPage
                     CachedValue = arui.Split("/").Last.ToLower.Split("?").First
                 End If
             End If
-            Return CachedValue
+            Return HttpContext.Current.Server.UrlEncode(CachedValue)
         End Get
     End Property
 
@@ -252,6 +252,7 @@ Public Class cmsPage
                     .Add(Meta("Description", _PageNode.Attributes("description").Value))
                     .Add(Meta("revisit-after", "7 days"))
                     .Add(Meta("robots", "follow"))
+                    .Add(Meta("title", _PageNode.Attributes("meta_title").Value))
                     .Add(Meta("author", "eMerge-IT"))
                 End With
             End If
@@ -273,6 +274,7 @@ Public Class cmsPage
             Select Case FormDictionary("ph").ToLower
                 Case "page"
                     SavePage()
+                    HttpContext.Current.Response.Redirect("~/" & PageNode.Attributes("id").Value)
                 Case Else
                     SaveSection()
             End Select
@@ -287,6 +289,8 @@ Public Class cmsPage
             .Attributes("title").Value = FormDictionary("title")
             .Attributes("description").Value = FormDictionary("description")
             .Attributes("keywords").Value = FormDictionary("keywords")
+            .Attributes("meta_title").Value = FormDictionary("meta_title")
+
 
             If Not FormDictionary("part") = "NOPART" Then
                 Try
@@ -317,6 +321,17 @@ Public Class cmsPage
                 End Try
             End If
 
+            If Not cmsData.URLify(FormDictionary("page_url")) = .Attributes("id").Value Then
+                Dim c As XmlNode = cmsData.cat.SelectSingleNode(String.Format("//cat[@id={0}{1}{0}]", _
+                                                                              Chr(34), _
+                                                                              .Attributes("id").Value))
+                Dim tmpID As String = cmsData.generateID(FormDictionary("page_url"))
+                c.Attributes("id").Value = tmpID
+                .Attributes("id").Value = tmpID
+                cmsData.cat.Save(cmsData.CatPath)
+
+            End If
+
             cmsData.doc.Save(cmsData.DocPath)
 
         End With
@@ -344,6 +359,7 @@ Public Class cmsPage
             Ch.SetAttribute("title", Title)
             Ch.SetAttribute("description", "")
             Ch.SetAttribute("keywords", "")
+            Ch.SetAttribute("meta_title", Title)
         End With
         Return Ch
     End Function
@@ -562,6 +578,21 @@ Public Class cmsPage
             .Width = 400
         End With
 
+        Dim URL As New TextBox
+        With URL
+            .ID = "page_url"
+            .Text = _PageNode.Attributes("id").Value
+            .Width = 400
+        End With
+
+        Dim metaTitle As New TextBox
+        With metaTitle
+            .ID = "meta_title"
+            .Text = _PageNode.Attributes("meta_title").Value
+            .Width = 400
+        End With
+
+
         Dim part As New DropDownList
         With part
             .ID = "part"
@@ -686,11 +717,13 @@ Public Class cmsPage
 
             Dim T As New Table
             With T
+                .Controls.Add(LabelRow("Page URL", URL))
+                .Controls.Add(LabelRow("Meta Title", metaTitle))
                 .Controls.Add(LabelRow("Title", Title))
                 .Controls.Add(LabelRow("Master Page", ddl))
                 .Controls.Add(LabelRow("Part", part))
                 .Controls.Add(LabelRow("Box Count", BoxCount))
-                .Controls.Add(LabelRow("Description", Description))
+                .Controls.Add(LabelRow("Meta Description", Description))
                 .Controls.Add(LabelRow("Keywords", Keywords))
             End With
             .Add(T)

@@ -12,6 +12,8 @@ Public Class Cart
     Public CartItems As New Dictionary(Of String, CartItem)
     Public DeliveryAddress As New Address
     Public Payment As New CardPayment
+    Public Vouchers As New List(Of String)
+
 
 #End Region
 
@@ -25,6 +27,15 @@ Public Class Cart
 
 #Region "Public Properties"
 
+    Private _subscribed As String = "N"
+    Public Property Subscribed() As String
+        Get
+            Return _subscribed
+        End Get
+        Set(ByVal value As String)
+            _subscribed = value
+        End Set
+    End Property
     Private _PostGuid As String = Nothing
     Public Property PostGuid() As String
         Get
@@ -210,6 +221,15 @@ Public Class Cart
                     .Phone = deladd.SelectSingleNode("phone").InnerText
                 End If
             End With
+            .Subscribed = order_post.SelectSingleNode("subscribed").InnerText
+            Try
+                Dim discounts As XmlNode = order_post.SelectSingleNode("discounts")
+                .Discount = discounts.SelectSingleNode("total_discount").InnerText
+                For Each Voucher As XmlNode In discounts.SelectNodes("voucher")
+                    .Vouchers.Add(Voucher.InnerText)
+                Next
+            Catch
+            End Try
 
             For Each line As XmlNode In order_post.SelectNodes("lines/line")
                 Dim uPrice As String = ""
@@ -263,13 +283,35 @@ Public Class Cart
 
             If Not IsNothing(ts.Basket.vouchers) Then
                 .WriteStartElement("discounts")
-                For Each v As Voucher In ts.Basket.vouchers
-                    .WriteElementString("voucher", v.Code)
+                If Not Vouchers.Count = 0 Then
+                    For Each v As String In Vouchers
+                        Dim voucher As XmlNode = cmsData.offers.SelectSingleNode( _
+                                              "//*[@code=" & Chr(34) & v & Chr(34) & "]" _
+                                              )
+                        .WriteStartElement("voucher")
+                        .WriteAttributeString("voucherdes", _
+                                              voucher.Attributes("des").Value)
+                        .WriteAttributeString("expiry", _
+                                              voucher.Attributes("expiry").Value)
+                        .WriteString(v)
+                        .WriteEndElement()
+
+
+                    Next
+                Else
+                    For Each v As Voucher In ts.Basket.vouchers
+                        .WriteElementString("voucher", v.Code)
+                    Next
+                End If
+               
+                Dim disc As Double = ts.cart.Discount
+                For Each i As CartItem In CartItems.Values
+                    disc += i.Discount
                 Next
-                .WriteElementString("total_discount", Discount)
+                .WriteElementString("total_discount", disc)
                 .WriteEndElement()
             End If
-
+            .WriteElementString("subscribed", ts.cart.Subscribed)
             .WriteElementString("customer_id", ts.cart.CustomerID)
             .WriteElementString("ORDERSOURCE", cmsData.Settings("WebName"))
 

@@ -16,6 +16,30 @@ Public Class cmsData
     Public Shared offersPath As String
     Public Shared offers As New XmlDocument
 
+    Public Shared Function URLify(ByVal title As String) As String
+        Dim ret As String = ""
+        ret = RTrim(title)
+        ret = LTrim(ret)
+        ret = ret.ToLower
+        ret = ret.Replace(" ", "-")
+        ret = HttpContext.Current.Server.UrlEncode(ret)
+        Return ret
+    End Function
+
+    Public Shared Function generateID(ByVal title As String) As String
+        Dim id As String = URLify(title)
+        Dim suffix As Integer = 1
+        Dim tmpID As String = id
+        While True
+            If cat.SelectSingleNode(String.Format("//cat[@id={0}{1}{0}]", Chr(34), tmpID)) Is Nothing Then
+                Return tmpID
+            Else
+                tmpID = String.Format("{0}_{1}", id, suffix)
+                suffix += 1
+            End If
+        End While
+    End Function
+
     Public Sub Load(ByRef thisServer As HttpServerUtility, ByRef AppSettings As System.Collections.Specialized.NameValueCollection)
 
         With thisServer
