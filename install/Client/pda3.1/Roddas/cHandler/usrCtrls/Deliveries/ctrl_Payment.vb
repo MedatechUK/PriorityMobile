@@ -1,4 +1,4 @@
-﻿Imports System.Xml
+Imports System.Xml
 Imports CPCL
 Imports PriorityMobile
 
@@ -148,8 +148,8 @@ Public Class ctrl_Payment
 
 
             Dim headerFont As New PrinterFont(50, 5, 2) 'variable width. 
-            Dim largeFont As New PrinterFont(30, 0, 3)
-            Dim smallFont As New PrinterFont(35, 0, 2)
+            Dim largeFont As New PrinterFont(30, 0, 4)
+            Dim smallFont As New PrinterFont(35, 0, 3)
 
             Using lblReceipt As New Label(thisForm.Printer, eLabelStyle.receipt)
 
@@ -162,11 +162,11 @@ Public Class ctrl_Payment
                 Dim rcTime As String = Now.ToString("HH:mm")
 
 
-                Dim docHead As New ReceiptFormatter(64, _
+                Dim docHead As New ReceiptFormatter(80, _
                                                     New FormattedColumn(16, 0, eAlignment.Center), _
-                                                    New FormattedColumn(16, 16, eAlignment.Center), _
-                                                    New FormattedColumn(16, 32, eAlignment.Center), _
-                                                    New FormattedColumn(16, 48, eAlignment.Center))
+                                                    New FormattedColumn(10, 18, eAlignment.Center), _
+                                                    New FormattedColumn(7, 30, eAlignment.Center), _
+                                                    New FormattedColumn(10, 39, eAlignment.Center))
 
 
 
@@ -197,17 +197,20 @@ Public Class ctrl_Payment
 
 
                 Dim paymentDetails As New ReceiptFormatter(63, _
-                                            New FormattedColumn(21, 0, eAlignment.Center), _
-                                            New FormattedColumn(21, 21, eAlignment.Center), _
-                                            New FormattedColumn(21, 42, eAlignment.Right))
+                                            New FormattedColumn(16, 0, eAlignment.Center), _
+                                            New FormattedColumn(3, 21, eAlignment.Center), _
+                                            New FormattedColumn(21, 25, eAlignment.Right))
+
                 paymentDetails.AddRow("Cheque:", "", rcCheque.ToString("c").Replace("£", "#"))
+
                 paymentDetails.AddRow("Cash:", "", rcCash.ToString("c").Replace("£", "#"))
 
 
 
                 With lblReceipt
+                    .CharSet(eCountry.UK)
                     'logo
-                    .AddImage("roddas.pcx", New Point(186, thisForm.Printer.Dimensions.Height + 10), 147)
+                    .AddImage("roddas.pcx", New Point(10, thisForm.Printer.Dimensions.Height + 10), 147)
 
                     'line
                     .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
@@ -246,7 +249,7 @@ Public Class ctrl_Payment
                              New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 2)
 
                     For Each StrVal In paymentDetails.FormattedText
-                        .AddText(StrVal, New Point(44, thisForm.Printer.Dimensions.Height), largeFont)
+                        .AddText(StrVal, New Point(44, thisForm.Printer.Dimensions.Height), smallFont)
                     Next
 
                     'line
@@ -255,23 +258,23 @@ Public Class ctrl_Payment
 
                     'vat number 
                     Dim vat As String = "V.A.T. No.  131 7759 63"
-                    .AddText(vat, New Point((thisForm.Printer.Dimensions.Width / 2 - (vat.Length / 2) * 16), _
+                    .AddText(vat, New Point((thisForm.Printer.Dimensions.Width + 20), _
                                                thisForm.Printer.Dimensions.Height + 10), largeFont)
 
                     .AddMultiLine("For any remittance queries please contact" & vbCrLf & "accounts@roddas.co.uk".PadLeft(32, " "), _
-                                  New Point(thisForm.Printer.Dimensions.Width / 2 - 168, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
+                                  New Point(thisForm.Printer.Dimensions.Width + 50, thisForm.Printer.Dimensions.Height + 10), smallFont, 30)
 
                     'line
                     .AddLine(New Point(10, thisForm.Printer.Dimensions.Height + 10), _
                              New Point(thisForm.Printer.Dimensions.Width - 10, thisForm.Printer.Dimensions.Height + 10), 10)
 
                     'please quote
-                    .AddText("Please quote account number in all correspondence.", New Point(thisForm.Printer.Dimensions.Width / 2 - 200, _
+                    .AddText("Please quote account number in all correspondence.", New Point(thisForm.Printer.Dimensions.Width + 10, _
                                                                                              thisForm.Printer.Dimensions.Height + 10), _
                              smallFont)
 
                     'tear 'n' print!
-                    .AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
+                    '.AddTearArea(New Point(0, thisForm.Printer.Dimensions.Height))
                     thisForm.Printer.Print(.toByte)
 
 
