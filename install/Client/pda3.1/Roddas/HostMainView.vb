@@ -1,4 +1,4 @@
-﻿Imports PrioritySFDC
+Imports PrioritySFDC
 Imports PriorityMobile
 Imports System.IO
 Imports System.Runtime.InteropServices
@@ -61,7 +61,7 @@ Public Class HostMainView
                 )
                 .xf.Printer = New btZebra.LabelPrinter( _
                     New Point(300, 300), _
-                    New Size(576, 0), _
+                    New Size(832, 0), _
                     .ue.AppPath & "\prnimg\" _
                 )
                 .LoadViews()
