@@ -1,4 +1,4 @@
-﻿Imports System.Xml
+Imports System.Xml
 Imports CPCL
 Imports PriorityMobile
 
@@ -181,11 +181,11 @@ Public Class ctrl_Invoices
 
 
                 Dim total As String = iv.SelectSingleNode("total").InnerText
-                Dim docHead As New ReceiptFormatter(64, _
-                                                    New FormattedColumn(16, 0, eAlignment.Center), _
-                                                    New FormattedColumn(16, 16, eAlignment.Center), _
-                                                    New FormattedColumn(16, 32, eAlignment.Center), _
-                                                    New FormattedColumn(16, 48, eAlignment.Center))
+                Dim docHead As New ReceiptFormatter(80, _
+                                                New FormattedColumn(16, 0, eAlignment.Center), _
+                                                New FormattedColumn(10, 18, eAlignment.Center), _
+                                                New FormattedColumn(7, 30, eAlignment.Center), _
+                                                New FormattedColumn(10, 39, eAlignment.Center))
                 docHead.AddRow("Number:", "Date:", "Time:", "Van:")
                 docHead.AddRow(ivnum.ToUpper(), ivdate, ivtime, van)
 
@@ -204,12 +204,14 @@ Public Class ctrl_Invoices
                 '####parts list#####
 
 
+
                 Dim invoicePartsList As New ReceiptFormatter(64, _
-                                                  New FormattedColumn(7, 0, eAlignment.Right), _
-                                                  New FormattedColumn(34, 8, eAlignment.Left), _
-                                                  New FormattedColumn(7, 43, eAlignment.Right), _
-                                                  New FormattedColumn(7, 55, eAlignment.Right), _
-                                                  New FormattedColumn(1, 63, eAlignment.Right))
+                                                       New FormattedColumn(7, 0, eAlignment.Left), _
+                                                       New FormattedColumn(25, 8, eAlignment.Left), _
+                                                       New FormattedColumn(6, 34, eAlignment.Right), _
+                                                       New FormattedColumn(6, 45, eAlignment.Right), _
+                                                       New FormattedColumn(1, 53, eAlignment.Right) _
+                                                       )
                 invoicePartsList.AddRow("No:", "Description:", "Price:", "Total:", "")
                 Dim lines As Integer = 0
                 Dim units As Integer = 0
