@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<forms>
+  
+  <form name="Home" xpath="pdadata">
+    <views>
+      <view control="ctrl_Home.vb"/>
+    </views>
+
+    <form name="Deliveries" xpath="pdadata/deliveries/delivery" key="ordinal">
+      <views>
+        <view control="ctrl_Deliveries.vb"/>
+        <view control="ctrl_Deliveries.vb"/>
+      </views>
+
+      <form name="DeliveryItems" xpath="/parts/part" key="ordi">
+        <views>
+          <view control="ctrl_DeliveryItems.vb"/>
+        </views>
+      </form>
+
+      <form name="Sign" xpath="/customersignature">
+        <views>
+          <view control="ctrl_Signature.vb"/>
+        </views>
+      </form>
+
+      <form name="Customers" xpath="/customer">
+        <views>
+          <view control="ctrl_Customer.vb"/>
+        </views>
+
+        <form name="Balances" xpath="/balances">
+          <views>
+            <view control="ctrl_Balances.vb"/>
+          </views>
+        </form>
+
+        <form name="Invoices" xpath="/invoices" key="ivnum">
+          <views>
+            <view control="ctrl_Invoices.vb"/>
+          </views>
+          <form name="Invoice Items" xpath="/parts/part" key="name">
+            <views>
+              <view control="ctrl_InvoiceItems.vb"/>
+            </views>
+          </form>
+        </form>
+
+        <form name="Credit Note" xpath="/creditnote">
+          <views>
+            <view control="ctrl_Credit.vb"/>
+          </views>
+        </form>
+
+        <form name="Orders" xpath="/orders/order" key="deliverydate">
+          <views>
+            <view control="ctrl_Orders.vb"/>
+          </views>
+          <form name="Order Items" xpath="/parts/part" key="name">
+            <views>
+              <view control="ctrl_OrderItems.vb"/>
+            </views>
+          </form>
+        </form>
+
+        <form name="Account Info" xpath="/creditnote/parts/part" key="ordi">
+          <views>
+            <view control="ctrl_AccInfo.vb"/>
+          </views>
+        </form>
+
+        <form name="Customer Remarks" xpath="/creditnote/parts/part" key="ordi">
+          <views>
+            <view control="ctrl_Remarks.vb"/>
+          </views>
+        </form>
+
+        <form name="Add Remark" xpath="/creditnote/parts/part" key="ivnum,ordi">
+          <views>
+            <view control="ctrl_AddRemark.vb"/>
+          </views>
+        </form>
+
+      </form>
+
+      <form name="Payment" xpath="/payment">
+        <views>
+          <view control="ctrl_Payment.vb"/>
+        </views>
+      </form>
+
+    </form>
+
+  </form>
+  
+  <form name="Maintaniance" xpath="pdadata/maintaniance">
+    <views>
+      <view control="ctrl_Maintainance.vb"/>
+    </views>
+
+    <form name="Vehichle Checks" xpath="checks">
+      <views>
+        <view control="ctrl_Checks.vb"/>
+      </views>
+    </form>
+
+    <form name="Cleanliness" xpath="cleanliness">
+      <views>
+        <view control="ctrl_Clean.vb"/>
+      </views>
+    </form>
+
+    <form name="Damage" xpath="damage" >
+      <views>
+        <view control="ctrl_Damage.vb"/>
+      </views>
+    </form>
+
+    <form name="Milage" xpath="mileage" >
+      <views>
+        <view control="ctrl_Mileage.vb"/>
+      </views>
+    </form>
+
+  </form>
+
+  <form name="Price List" xpath="pdadata/stdpricelist/families" key="familyname">
+    <views>
+      <view control="ctrl_Families.vb"/>
+    </views>
+
+    <form name="PartFamily" xpath="parts" key="name">
+      <views>
+        <view control="ctrl_FamilyItems.vb"/>
+      </views>
+    </form>
+
+  </form>
+  
+</forms>

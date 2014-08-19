@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pdadata>
+  <calls>
+    <servicecall>
+      <calldate>12848671</calldate>
+      <callnumber>SC1200001</callnumber>
+      <callstatus>Issued</callstatus>
+      <name>Customer A</name>
+      <phone>01999 999 999</phone>
+      <serial>123</serial>
+      <customer>
+        <contact>I. M. Nobody</contact>
+        <address1>123, Fake Street</address1>
+        <address2>The Fakes Estate</address2>
+        <address3>Fake Town</address3>
+        <address4>Fake County</address4>
+        <address5>Fake Country</address5>
+        <PostCode>ABC 123</PostCode>
+      </customer>
+      <detail>
+        <line>A description of the call.</line>
+      </detail>
+      <parts>
+        <part>
+          <name>PART123</name>
+          <des>A Part</des>
+          <serial>123</serial>
+          <qty>1</qty>
+          <fromstock>Y</fromstock>
+          <planned>Y</planned>
+        </part>
+      </parts>
+      <report>
+        <malfunction></malfunction>
+        <resolution></resolution>
+        <repair></repair>
+      </report>
+      <signature>
+        <image></image>
+        <print></print>
+      </signature>
+    </servicecall>
+    <servicecall>
+      <calldate>12848671</calldate>
+      <callnumber>SC1200002</callnumber>
+      <callstatus>Issued</callstatus>
+      <name>Customer B</name>
+      <phone>01999 123 456</phone>
+      <serial>456</serial>
+      <customer>
+        <contact>A. Person</contact>
+        <address1>1, Imaginary Way</address1>
+        <address2></address2>
+        <address3>Imaginary Town</address3>
+        <address4>Imaginary County</address4>
+        <address5>Imaginary Land</address5>
+        <PostCode>I3 ABC</PostCode>
+      </customer>
+      <detail>
+        <line>A description of the call.</line>
+      </detail>
+      <parts>
+        <part>
+          <name>PART456</name>
+          <des>A Part</des>
+          <serial>123</serial>
+          <qty>1</qty>
+          <fromstock>Y</fromstock>
+          <planned>Y</planned>
+        </part>
+      </parts>
+      <report>
+        <malfunction></malfunction>
+        <resolution></resolution>
+        <repair></repair>
+      </report>
+      <signature>
+        <image></image>
+        <print></print>
+      </signature>
+    </servicecall>
+  </calls>
+  <warehouse>
+    <part>
+      <name>PARTWH1</name>
+      <des>A Part</des>
+      <serial>111</serial>
+      <qty>10</qty>
+    </part>
+    <part>
+      <name>PARTWH2</name>
+      <des>A Part</des>
+      <serial>222</serial>
+      <qty>10</qty>
+    </part>
+    <part>
+      <name>PARTWH3</name>
+      <des>A Part</des>
+      <serial>333</serial>
+      <qty>10</qty>
+    </part>
+  </warehouse>
+</pdadata>

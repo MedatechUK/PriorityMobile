@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{38A5E3FE-2B37-45DD-9307-623B73482BD6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>pdaHandler</RootNamespace>
+    <AssemblyName>pdaHandler</AssemblyName>
+    <ProjectTypeGuids>{68B1623D-7FB9-47D8-8664-7ECEA3297D4F};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <PlatformFamilyName>WindowsCE</PlatformFamilyName>
+    <PlatformID>E2BECB1F-8C8C-41ba-B736-9BE7D946A398</PlatformID>
+    <OSVersion>5.00</OSVersion>
+    <MyType>Windows</MyType>
+    <DeployDirSuffix>
+    </DeployDirSuffix>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionStrict>Off</OptionStrict>
+    <OptionInfer>On</OptionInfer>
+    <NativePlatformName>Windows CE</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+    <DeployDirPrefix>\</DeployDirPrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>..\bin\</OutputPath>
+    <DocumentationFile>pdaHandler.xml</DocumentationFile>
+    <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>C:\inetpub\mobile\</OutputPath>
+    <DocumentationFile>pdaHandler.xml</DocumentationFile>
+    <DefineConstants>_MYFORMS=True,$(PlatformFamilyName)=TRUE</DefineConstants>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="btZebra, Version=1.0.5038.39387, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\btZebra.dll</HintPath>
+    </Reference>
+    <Reference Include="CPCL, Version=1.0.5038.39399, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\CPCL.dll</HintPath>
+    </Reference>
+    <Reference Include="frmControls, Version=1.0.5038.39172, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\frmControls.dll</HintPath>
+    </Reference>
+    <Reference Include="InTheHand.Net.Personal, Version=2.3.0.0, Culture=neutral, PublicKeyToken=ea38caa273134499, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\InTheHand.Net.Personal.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsMobile.Telephony, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\Microsoft.WindowsMobile.Telephony.dll</HintPath>
+    </Reference>
+    <Reference Include="mnuControls, Version=1.0.5038.39189, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\mnuControls.dll</HintPath>
+    </Reference>
+    <Reference Include="provision, Version=1.0.5038.39367, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\provision.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.SR, Version=3.5.0.0, Culture=neutral, PublicKeyToken=969db8053d3322ac, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\System.SR.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ViewControl2, Version=1.0.5038.39238, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bin\ViewControl2.dll</HintPath>
+    </Reference>
+    <Reference Include="ZebraBluetoothAdapter, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\ZebraBluetoothAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="ZSDK_API, Version=1.0.121.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\bin\ZSDK_API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dialogs\dlgAddPlanned.Designer.vb">
+      <DependentUpon>dlgAddPlanned.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\dlgAddPlanned.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dialogs\dlgBarcode.Designer.vb">
+      <DependentUpon>dlgBarcode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\dlgBarcode.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="dialogs\dlgOnCall.Designer.vb">
+      <DependentUpon>dlgOnCall.vb</DependentUpon>
+    </Compile>
+    <Compile Include="dialogs\dlgOnCall.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Address.Designer.vb">
+      <DependentUpon>ctrl_Address.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Address.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_CallDetail.Designer.vb">
+      <DependentUpon>ctrl_CallDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_CallDetail.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Parts_Actual.Designer.vb">
+      <DependentUpon>ctrl_Parts_Actual.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Parts_Actual.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Parts_Planned.Designer.vb">
+      <DependentUpon>ctrl_Parts_Planned.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Parts_Planned.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Repair.Designer.vb">
+      <DependentUpon>ctrl_Repair.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Repair.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Sign.Designer.vb">
+      <DependentUpon>ctrl_Sign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Sign.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_StatusPane.Designer.vb">
+      <DependentUpon>ctrl_StatusPane.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_StatusPane.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Summary.Designer.vb">
+      <DependentUpon>ctrl_Summary.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Summary.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Warehouse.Designer.vb">
+      <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="usrCtrls\ctrl_Warehouse.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="dialogs\dlgAddPlanned.resx">
+      <DependentUpon>dlgAddPlanned.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\dlgBarcode.resx">
+      <DependentUpon>dlgBarcode.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="dialogs\dlgOnCall.resx">
+      <DependentUpon>dlgOnCall.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Address.resx">
+      <DependentUpon>ctrl_Address.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_CallDetail.resx">
+      <DependentUpon>ctrl_CallDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Parts_Actual.resx">
+      <DependentUpon>ctrl_Parts_Actual.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Parts_Planned.resx">
+      <DependentUpon>ctrl_Parts_Planned.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Repair.resx">
+      <DependentUpon>ctrl_Repair.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Sign.resx">
+      <DependentUpon>ctrl_Sign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_StatusPane.resx">
+      <DependentUpon>ctrl_StatusPane.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Summary.resx">
+      <DependentUpon>ctrl_Summary.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usrCtrls\ctrl_Warehouse.resx">
+      <DependentUpon>ctrl_Warehouse.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.VisualBasic.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{F184B08F-C81C-45F6-A57F-5ABD9991F28F}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+      <UserProperties BuildVersion_BuildVersioningStyle="None.None.None.Increment" BuildVersion_UpdateAssemblyVersion="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

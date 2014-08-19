@@ -1,0 +1,7 @@
+<Modules>
+  <Module PersistentId="38A5E3FE-2B37-45DD-9307-623B73482BD6" ModuleId="pdaHandler" />
+  <Module PersistentId="5A0389F9-AF9A-40A4-947B-CE0773959815" ModuleId="ViewControl" />
+  <Module PersistentId="51160138-3081-4533-8697-3C7778A42F5A" ModuleId="frmControls" />
+  <Module PersistentId="BB0BE30E-005F-440A-81C3-B6B349B44D17" ModuleId="mnuControls" />
+  <Module PersistentId="C81127CE-7435-4555-961F-D43C4ADC6797" ModuleId="Provision" />
+</Modules>

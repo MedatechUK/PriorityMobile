@@ -1,0 +1,14 @@
+2014/08/07-12:42:03.480 3dbc Recovering log #154
+2014/08/07-12:42:03.480 3dbc Level-0 table #156: started
+2014/08/07-12:42:03.507 3dbc Level-0 table #156: 1383 bytes OK
+2014/08/07-12:42:03.530 3dbc Delete type=0 #154
+2014/08/07-12:42:03.539 3dbc Delete type=3 #152
+2014/08/07-12:42:03.550 3bb0 Compacting 4@0 + 1@1 files
+2014/08/07-12:42:03.589 3bb0 Generated table #158: 716 keys, 115459 bytes
+2014/08/07-12:42:03.589 3bb0 Compacted 4@0 + 1@1 files => 115459 bytes
+2014/08/07-12:42:03.595 3bb0 Delete type=2 #142
+2014/08/07-12:42:03.598 3bb0 Delete type=2 #144
+2014/08/07-12:42:03.602 3bb0 Delete type=2 #147
+2014/08/07-12:42:03.605 3bb0 Delete type=2 #153
+2014/08/07-12:42:03.609 3bb0 Delete type=2 #156
+2014/08/07-12:42:03.612 3bb0 compacted to: files[ 0 1 0 0 0 0 0 ]

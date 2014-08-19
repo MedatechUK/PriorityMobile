@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("RoddasPDA")> 
-<Assembly: AssemblyDescription("Van Sales PDA")> 
+<Assembly: AssemblyTitle("PDA Client")> 
+<Assembly: AssemblyDescription("Service Engineer PDA")> 
 <Assembly: AssemblyCompany("eMerge-IT")> 
-<Assembly: AssemblyProduct("RoddasPDA")> 
+<Assembly: AssemblyProduct("PDA")> 
 <Assembly: AssemblyCopyright("Copyright eMerge-IT©  2013")> 
 <Assembly: AssemblyTrademark("Future Proof Your Business")> 
 

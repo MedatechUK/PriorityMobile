@@ -16,7 +16,9 @@ Public Class ctrl_address
         End With
         With thisForm
             Gtext.AddNamePair("Contact Name", .CurrentRow("contact"))
+            Gtext.AddNamePair("Contact Phone", .CurrentRow("contphone"))
             Gtext.AddNamePair("Address", _
+                              CRLFifData(.CurrentRow("sitedes")) & _
                 CRLFifData(.CurrentRow("address1")) & _
                 CRLFifData(.CurrentRow("address2")) & _
                 CRLFifData(.CurrentRow("address3")) & _

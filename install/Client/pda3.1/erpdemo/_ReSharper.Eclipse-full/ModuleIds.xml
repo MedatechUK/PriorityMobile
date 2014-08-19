@@ -1,0 +1,9 @@
+<Modules>
+  <Module PersistentId="5A0389F9-AF9A-40A4-947B-CE0773959815" ModuleId="ViewControl" />
+  <Module PersistentId="C81127CE-7435-4555-961F-D43C4ADC6797" ModuleId="Provision" />
+  <Module PersistentId="7D72660F-2A24-4F96-AFA6-30568842DB92" ModuleId="erpdemoPDA" />
+  <Module PersistentId="ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513" ModuleId="btZebra" />
+  <Module PersistentId="BB0BE30E-005F-440A-81C3-B6B349B44D17" ModuleId="mnuControls" />
+  <Module PersistentId="51160138-3081-4533-8697-3C7778A42F5A" ModuleId="frmControls" />
+  <Module PersistentId="02BE755C-1DC9-47CE-9931-58DD9164C988" ModuleId="CPCL" />
+</Modules>

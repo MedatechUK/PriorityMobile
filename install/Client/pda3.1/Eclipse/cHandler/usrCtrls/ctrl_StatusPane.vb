@@ -57,30 +57,30 @@ Public Class ctrl_StatusPane
                 Dim dr() As DataRow = Nothing
                 dr = thisForm.Datasource.Select(String.Format("callnumber <> '{0}' and callstatus in ({1})", Me.TextBox1.Text, query))
 
-                If dr.Count > 0 Then 'Already on call
+                If dr.Count >= 0 Then 'Already on call
 
-                    dlg = New dlgOnCall
-                    dlg.Name = "ONCALL"
-                    Dim l As Label = dlg.FindControl("lblOnCall")
-                    Dim t As TextBox = dlg.FindControl("txtcallnumber")
-                    l.Text = String.Format( _
-                                "Call [{1}] is already in status [{0}]. Do you wish to open call [{1}] now?", _
-                                dr(0).Item("callstatus"), _
-                                dr(0).Item("callnumber") _
-                            )
-                    t.Text = dr(0).Item("callnumber")
-                    thisForm.Dialog(dlg)
+                    '    dlg = New dlgOnCall
+                    '    dlg.Name = "ONCALL"
+                    '    Dim l As Label = dlg.FindControl("lblOnCall")
+                    '    Dim t As TextBox = dlg.FindControl("txtcallnumber")
+                    '    l.Text = String.Format( _
+                    '                "Call [{1}] is already in status [{0}]. Do you wish to open call [{1}] now?", _
+                    '                dr(0).Item("callstatus"), _
+                    '                dr(0).Item("callnumber") _
+                    '            )
+                    '    t.Text = dr(0).Item("callnumber")
+                    '    thisForm.Dialog(dlg)
 
-                    'dlgTimer = New System.Windows.Forms.Timer
-                    'With dlgTimer
-                    '    .Interval = 1000
-                    '    AddHandler .Tick, AddressOf hdlgTimer
-                    '    .Enabled = True
-                    'End With
+                    '    'dlgTimer = New System.Windows.Forms.Timer
+                    '    'With dlgTimer
+                    '    '    .Interval = 1000
+                    '    '    AddHandler .Tick, AddressOf hdlgTimer
+                    '    '    .Enabled = True
+                    '    'End With
 
-                    Return False
+                    '    Return False
 
-                Else
+                    'Else
 
                     If xmlForms.StatusRule(ProposedValue, eStatusRule.post) Then
                         Dim ret As Boolean = True
@@ -118,7 +118,8 @@ Public Class ctrl_StatusPane
                         Return True
                     End If
 
-                    End If
+                End If
+
 
             Case Else
                 Return MyBase.ValidColumn(ColumnName, ProposedValue)
@@ -170,16 +171,23 @@ Public Class ctrl_StatusPane
                             n.LastChild.InnerText = funcDate.TimeToMin()
 
                             n = thisForm.FormData.SelectSingleNode(thisForm.thisxPath)
-
-                            ' Append a timestamp to the repair detail
-                            n.SelectSingleNode("report/detail/repair").InnerText = _
-                                Split(n.SelectSingleNode("detail").InnerText, ":[!--lastreport--]:")(1) & _
-                                ":[hr]:" & _
-                                n.SelectSingleNode("report/detail/repair").InnerText & _
-                                String.Format( _
+                            Dim appendstring As String
+                            'appendstring = n.SelectSingleNode("detail").InnerText
+                            appendstring &= ":[!--lastreport--]:" & n.SelectSingleNode("report/detail/repair").InnerText & ":[hr]:"
+                            appendstring &= String.Format( _
                                     ":[br]:TIME STAMP: {0}", _
                                      Now.ToString _
                                 )
+                            n.SelectSingleNode("report/detail/repair").InnerText = appendstring
+                            ' Append a timestamp to the repair detail
+                            'n.SelectSingleNode("report/detail/repair").InnerText = _
+                            '    Split(n.SelectSingleNode("detail").InnerText, ":[!--lastreport--]:")(1) & _
+                            '    ":[hr]:" & _
+                            '    n.SelectSingleNode("report/detail/repair").InnerText & _
+                            '    String.Format( _
+                            '        ":[br]:TIME STAMP: {0}", _
+                            '         Now.ToString _
+                            '    )
 
                             n.Attributes.Append(xmlForms.postAttribute)
                             thisForm.Save()

@@ -43,7 +43,7 @@ Module StartUp
 #End Region
 
     Public Sub Main(ByVal args As String())
-
+        args = Nothing
         Dim hm As New HostMainView
         Dim arg As New clArg(args)
 

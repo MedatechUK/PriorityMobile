@@ -1,0 +1,484 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<lookup>
+
+  <Status>
+    <current value="Issued">
+      <option>
+        <name>Issued</name>
+        <value>Issued</value>
+      </option>
+      <option>
+        <name>En-Route</name>
+        <value>En-Route</value>
+      </option>
+    </current>
+    <current value="En-Route">
+      <option>
+        <name>En-Route</name>
+        <value>En-Route</value>
+      </option>
+      <option>
+        <name>On-Site</name>
+        <value>On-Site</value>
+      </option>
+    </current>
+    <current value="On-Site">
+      <option>
+        <name>On-Site</name>
+        <value>On-Site</value>
+      </option>
+      <option>
+        <name>Complete</name>
+        <value>Complete</value>
+      </option>
+      <option>
+        <name>Incomplete</name>
+        <value>Incomplete</value>
+      </option>
+    </current>
+    <current value="Incomplete">
+      <option>
+        <name>Incomplete</name>
+        <value>Incomplete</value>
+      </option>
+    </current>
+    <current value="Complete">
+      <option>
+        <name>Complete</name>
+        <value>Complete</value>
+      </option>
+    </current>
+  </Status>
+
+  <malfunction>
+    <current value="*">
+      <option>
+        <name>401</name>
+        <value>Bad taste from cold water</value>
+      </option>
+      <option>
+        <name>403</name>
+        <value>Bad taste from hot water</value>
+      </option>
+      <option>
+        <name>402</name>
+        <value>Bits in water</value>
+      </option>
+      <option>
+        <name>4</name>
+        <value>Blown Fuse</value>
+      </option>
+      <option>
+        <name>504</name>
+        <value>Child protection Active</value>
+      </option>
+      <option>
+        <name>606</name>
+        <value>Child protection Sleep Mode</value>
+      </option>
+      <option>
+        <name>205</name>
+        <value>Cold temperature calibration</value>
+      </option>
+      <option>
+        <name>207</name>
+        <value>Cooling repair (lab only)</value>
+      </option>
+      <option>
+        <name>302</name>
+        <value>Damaged Filter Housing</value>
+      </option>
+      <option>
+        <name>703</name>
+        <value>Damaged fold down tray</value>
+      </option>
+      <option>
+        <name>702</name>
+        <value>Damaged panel (included feet)</value>
+      </option>
+      <option>
+        <name>5</name>
+        <value>Damaged plait </value>
+      </option>
+      <option>
+        <name>204</name>
+        <value>Damaged sensor </value>
+      </option>
+      <option>
+        <name>321</name>
+        <value>Displaced BioTube</value>
+      </option>
+      <option>
+        <name>509</name>
+        <value>Exchange</value>
+      </option>
+      <option>
+        <name>304</name>
+        <value>External Leak</value>
+      </option>
+      <option>
+        <name>1</name>
+        <value>Faulty Display</value>
+      </option>
+      <option>
+        <name>7</name>
+        <value>Faulty Power Board</value>
+      </option>
+      <option>
+        <name>6</name>
+        <value>Faulty Solenoid</value>
+      </option>
+      <option>
+        <name>701</name>
+        <value>Faulty T2 magnetic faucet</value>
+      </option>
+      <option>
+        <name>3</name>
+        <value>Faulty T2 magnetic faucet</value>
+      </option>
+      <option>
+        <name>8</name>
+        <value>Faulty UV lamp</value>
+      </option>
+      <option>
+        <name>202</name>
+        <value>Faulty air release valve</value>
+      </option>
+      <option>
+        <name>2</name>
+        <value>Faulty button</value>
+      </option>
+      <option>
+        <name>206</name>
+        <value>Faulty fan motor</value>
+      </option>
+      <option>
+        <name>101</name>
+        <value>Faulty heating element</value>
+      </option>
+      <option>
+        <name>102</name>
+        <value>Faulty hot sensor </value>
+      </option>
+      <option>
+        <name>301</name>
+        <value>Filter blocked</value>
+      </option>
+      <option>
+        <name>501</name>
+        <value>General</value>
+      </option>
+      <option>
+        <name>103</name>
+        <value>Hot temperature calibration</value>
+      </option>
+      <option>
+        <name>507</name>
+        <value>Installation</value>
+      </option>
+      <option>
+        <name>303</name>
+        <value>Internal Leak</value>
+      </option>
+      <option>
+        <name>201</name>
+        <value>Leaking Cold tank</value>
+      </option>
+      <option>
+        <name>104</name>
+        <value>Leaking Hot Tank</value>
+      </option>
+      <option>
+        <name>503</name>
+        <value>Maintenance</value>
+      </option>
+      <option>
+        <name>502</name>
+        <value>No Fault Found</value>
+      </option>
+      <option>
+        <name>604</name>
+        <value>No customer electricity</value>
+      </option>
+      <option>
+        <name>203</name>
+        <value>Not chilling</value>
+      </option>
+      <option>
+        <name>605</name>
+        <value>Rear Hetaing switch is on OFF</value>
+      </option>
+      <option>
+        <name>601</name>
+        <value>Rear Shut off tap closed</value>
+      </option>
+      <option>
+        <name>506</name>
+        <value>Relocation</value>
+      </option>
+      <option>
+        <name>508</name>
+        <value>Removal</value>
+      </option>
+      <option>
+        <name>105</name>
+        <value>Scaled Hot Tank</value>
+      </option>
+      <option>
+        <name>505</name>
+        <value>Sleep Mode Active</value>
+      </option>
+      <option>
+        <name>704</name>
+        <value>Transit damage</value>
+      </option>
+      <option>
+        <name>608</name>
+        <value>Unit infested</value>
+      </option>
+      <option>
+        <name>603</name>
+        <value>Unit unplugged from socket</value>
+      </option>
+      <option>
+        <name>607</name>
+        <value>Water Block active</value>
+      </option>
+      <option>
+        <name>305</name>
+        <value>Water pressure High </value>
+      </option>
+      <option>
+        <name>602</name>
+        <value>Water supply switched off</value>
+      </option>
+    </current>
+  </malfunction>
+
+  <resolution>
+    <current value="*">
+      <option>
+        <name>40</name>
+        <value>Air build up released</value>
+      </option>
+      <option>
+        <name>37</name>
+        <value>Arrange re-call (Exchange)</value>
+      </option>
+      <option>
+        <name>18</name>
+        <value>Board Reset</value>
+      </option>
+      <option>
+        <name>48</name>
+        <value>Booster Pump Fitted</value>
+      </option>
+      <option>
+        <name>46</name>
+        <value>Booster Pump Required</value>
+      </option>
+      <option>
+        <name>33</name>
+        <value>Breather Hole added</value>
+      </option>
+      <option>
+        <name>52</name>
+        <value>Charged for NFF</value>
+      </option>
+      <option>
+        <name>17</name>
+        <value>Child Lock On</value>
+      </option>
+      <option>
+        <name>10</name>
+        <value>Cleared Blockage</value>
+      </option>
+      <option>
+        <name>60</name>
+        <value>DOA</value>
+      </option>
+      <option>
+        <name>12</name>
+        <value>Descaled</value>
+      </option>
+      <option>
+        <name>31</name>
+        <value>Fitted New Part</value>
+      </option>
+      <option>
+        <name>29</name>
+        <value>Flushed Through</value>
+      </option>
+      <option>
+        <name>58</name>
+        <value>Install completed</value>
+      </option>
+      <option>
+        <name>22</name>
+        <value>Low Water Pressure</value>
+      </option>
+      <option>
+        <name>59</name>
+        <value>Maintenance</value>
+      </option>
+      <option>
+        <name>26</name>
+        <value>No Action</value>
+      </option>
+      <option>
+        <name>7</name>
+        <value>No Action Required</value>
+      </option>
+      <option>
+        <name>55</name>
+        <value>Passed to Sales</value>
+      </option>
+      <option>
+        <name>2</name>
+        <value>Pipe Replaced</value>
+      </option>
+      <option>
+        <name>38</name>
+        <value>Re visit required</value>
+      </option>
+      <option>
+        <name>43</name>
+        <value>Re-set Waterblock</value>
+      </option>
+      <option>
+        <name>57</name>
+        <value>Reduced Temperature</value>
+      </option>
+      <option>
+        <name>24</name>
+        <value>Regassed</value>
+      </option>
+      <option>
+        <name>41</name>
+        <value>Released Restriction</value>
+      </option>
+      <option>
+        <name>27</name>
+        <value>Relocation</value>
+      </option>
+      <option>
+        <name>56</name>
+        <value>Removed part</value>
+      </option>
+      <option>
+        <name>45</name>
+        <value>Repaired Drainage</value>
+      </option>
+      <option>
+        <name>39</name>
+        <value>Repaired part</value>
+      </option>
+      <option>
+        <name>13</name>
+        <value>Replaced Air Valve</value>
+      </option>
+      <option>
+        <name>20</name>
+        <value>Replaced Breather</value>
+      </option>
+      <option>
+        <name>53</name>
+        <value>Replaced Drainage Pipe</value>
+      </option>
+      <option>
+        <name>16</name>
+        <value>Replaced Filter</value>
+      </option>
+      <option>
+        <name>6</name>
+        <value>Replaced Flter Housing</value>
+      </option>
+      <option>
+        <name>9</name>
+        <value>Replaced Fuse</value>
+      </option>
+      <option>
+        <name>28</name>
+        <value>Replaced Fuse</value>
+      </option>
+      <option>
+        <name>4</name>
+        <value>Replaced Hot Tank</value>
+      </option>
+      <option>
+        <name>21</name>
+        <value>Replaced Install Valve</value>
+      </option>
+      <option>
+        <name>19</name>
+        <value>Replaced Main Board</value>
+      </option>
+      <option>
+        <name>23</name>
+        <value>Replaced Part</value>
+      </option>
+      <option>
+        <name>3</name>
+        <value>Replaced Sensor</value>
+      </option>
+      <option>
+        <name>14</name>
+        <value>Replaced Solenoid</value>
+      </option>
+      <option>
+        <name>11</name>
+        <value>Replaced Switch</value>
+      </option>
+      <option>
+        <name>8</name>
+        <value>Replaced UV Lamp</value>
+      </option>
+      <option>
+        <name>51</name>
+        <value>Reset T6 Temp Settings</value>
+      </option>
+      <option>
+        <name>34</name>
+        <value>Reset with IPAQ</value>
+      </option>
+      <option>
+        <name>50</name>
+        <value>Resolved Query Over Phone</value>
+      </option>
+      <option>
+        <name>47</name>
+        <value>Scale reducing filter fitted</value>
+      </option>
+      <option>
+        <name>44</name>
+        <value>Serviced Unit</value>
+      </option>
+      <option>
+        <name>42</name>
+        <value>Tightened connection</value>
+      </option>
+      <option>
+        <name>25</name>
+        <value>Transformer Replaced</value>
+      </option>
+      <option>
+        <name>1</name>
+        <value>Unit Exchanged</value>
+      </option>
+      <option>
+        <name>49</name>
+        <value>Unit Not Removed</value>
+      </option>
+      <option>
+        <name>30</name>
+        <value>Unit Removed</value>
+      </option>
+      <option>
+        <name>54</name>
+        <value>Unit taken back to repair lab</value>
+      </option>
+    </current>
+  </resolution>
+
+</lookup>
+
