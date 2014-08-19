@@ -11,12 +11,15 @@ Public Class InterfaceWHTX
         iBarcode = 0
         iLoc = 1
         iPart = 2
+        iStatus = 3
     End Enum
     Private Prt As String = ""
     Private Lt As String = ""
     Private Cnt As String = ""
     Private mInvoke As tInvoke = tInvoke.iBarcode
     Private TBar As String = ""
+    Private UNQList As New List(Of Integer)
+    Dim unq As Integer = 0
 #Region "Initialisation"
 
     Public Sub New(Optional ByRef App As Form = Nothing)
@@ -35,6 +38,8 @@ Public Class InterfaceWHTX
         Argument("MANUAL") = "N"
     End Sub
     Public Overrides Sub FormLoaded()
+        UNQList.add(0)
+
         Select Case Argument("TXTYPE")
             Case "PUTAWAY"
                 With CtrlForm
@@ -44,7 +49,7 @@ Public Class InterfaceWHTX
                     .el(1).ProcessEntry()
                 End With
         End Select
-
+        CtrlTable.Focus()
     End Sub
 #End Region
 
@@ -70,12 +75,12 @@ Public Class InterfaceWHTX
                 With field
                     .Name = "LOCNAME"
                     .Title = "From Loc"
-                    .ValidExp = ValidStr(tRegExValidation.tLocname)
+                    .ValidExp = ValidStr(tRegExValidation.tString)
                     .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE WARHSNAME = '%WARHS%' AND INACTIVE <> 'Y'"
-                    .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '%ME%' AND WARHSNAME = '%WARHS%'"
+                    .SQLValidation = "SELECT '%ME%'"
                     .Data = ""      '******** Barcoded field '*******
                     .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctNone 'ctKeyb 
-                    .ctrlEnabled = False
+                    .ctrlEnabled = True
                 End With
                 CtrlForm.AddField(field)
 
@@ -120,9 +125,9 @@ Public Class InterfaceWHTX
                 With field
                     .Name = "TOLOCNAME"
                     .Title = "To Loc"
-                    .ValidExp = ValidStr(tRegExValidation.tLocname)
+                    .ValidExp = ValidStr(tRegExValidation.tString)
                     .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE upper(WARHSNAME) = upper('%WARHS%') AND INACTIVE <> 'Y'"
-                    .SQLValidation = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE upper(WARHSNAME) = upper('%WARHS%') AND INACTIVE <> 'Y'"
+                    .SQLValidation = "SELECT '%ME%'"
                     .Data = ""      '******** Barcoded field '*******
                     .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
                     .ctrlEnabled = False
@@ -149,7 +154,7 @@ Public Class InterfaceWHTX
                 With field
                     .Name = "LOCNAME"
                     .Title = "From Loc"
-                    .ValidExp = ValidStr(tRegExValidation.tLocname)
+                    .ValidExp = ValidStr(tRegExValidation.tString)
                     '.SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE WARHSNAME = '%WARHS%' AND WAREHOUSES.INACTIVE <> 'Y'"
                     .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '%ME%' AND WARHSNAME = '%WARHS%' AND WAREHOUSES.INACTIVE <> 'Y'"
                     .Data = ""      '******** Barcoded field '*******
@@ -175,7 +180,7 @@ Public Class InterfaceWHTX
                 With field
                     .Name = "TOLOCNAME"
                     .Title = "To Loc"
-                    .ValidExp = ValidStr(tRegExValidation.tLocname)
+                    .ValidExp = ValidStr(tRegExValidation.tString)
                     .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE WARHSNAME = '%TOWARHS%' AND WAREHOUSES.INACTIVE <> 'Y'"
                     .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '%ME%' AND WARHSNAME = '%TOWARHS%' AND WAREHOUSES.INACTIVE <> 'Y'"
                     .Data = ""      '******** Barcoded field '*******
@@ -331,7 +336,7 @@ Public Class InterfaceWHTX
                     .initWidth = 30
                     .TextAlign = HorizontalAlignment.Left
                     .ValidExp = ValidStr(tRegExValidation.tWarehouse)
-                    .SQLList = "SELECT DISTINCT WARHSNAME FROM WAREHOUSES AND INACTIVE <> 'Y'"
+                    .SQLList = "SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE <> 'Y'"
                     .SQLValidation = "SELECT WARHSNAME FROM WAREHOUSES WHERE WARHSNAME = '%ME%' AND INACTIVE <> 'Y'"
                     .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
                     .DefaultFromCtrl = CtrlForm.el(3)
@@ -348,10 +353,26 @@ Public Class InterfaceWHTX
                     .initWidth = 30
                     .TextAlign = HorizontalAlignment.Left
                     .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
-                    .ValidExp = ValidStr(tRegExValidation.tLocname)
+                    .ValidExp = ValidStr(tRegExValidation.tString)
                     .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE WARHSNAME = '%TOWARHS%' AND INACTIVE <> 'Y'"
-                    .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '%ME%' AND WARHSNAME = '%TOWARHS%'"
+                    .SQLValidation = "SELECT '%ME%'"
                     .DefaultFromCtrl = CtrlForm.el(4)  '******* Barcoded Field - default from Type1 TOLOCATION '*******
+                    .ctrlEnabled = True
+                    .Mandatory = False
+                    .MandatoryOnPost = True
+                End With
+                CtrlTable.AddCol(col)
+
+                'Lot
+                With col
+                    .Name = "_LOT"
+                    .Title = "Lot"
+                    .initWidth = 30
+                    .TextAlign = HorizontalAlignment.Left
+                    .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
+                    .ValidExp = ValidStr(tRegExValidation.tString)
+                    .SQLValidation = "SELECT '%ME%'"
+                    .DefaultFromCtrl = Nothing  '******* Barcoded Field - default from Type1 TOLOCATION '*******
                     .ctrlEnabled = True
                     .Mandatory = False
                     .MandatoryOnPost = True
@@ -406,7 +427,7 @@ Public Class InterfaceWHTX
 
                 ' Transfer
                 With col
-                    .Name = "_TRANSFER"
+                    .Name = "_TQUANT"
                     .Title = "Transfer"
                     .initWidth = 30
                     .TextAlign = HorizontalAlignment.Left
@@ -452,7 +473,7 @@ Public Class InterfaceWHTX
                     .initWidth = 30
                     .TextAlign = HorizontalAlignment.Left
                     .AltEntry = ctrlText.tAltCtrlStyle.ctList 'ctKeyb 
-                    .ValidExp = ValidStr(tRegExValidation.tLocname)
+                    .ValidExp = ValidStr(tRegExValidation.tString)
                     .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE WARHSNAME = '%TOWARHS%' AND INACTIVE <> 'Y'"
                     .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '%ME%' AND WARHSNAME = '%TOWARHS%'"
                     .DefaultFromCtrl = Nothing  '******* Barcoded Field - default from Type1 TOLOCATION '*******
@@ -589,7 +610,7 @@ Public Class InterfaceWHTX
                 End With
             Next
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
 
     End Sub
@@ -782,7 +803,7 @@ Public Class InterfaceWHTX
                 End Try
 
         End Select
-
+        CtrlTable.Focus()
     End Sub
 
     Public Overrides Function verifyForm() As Boolean
@@ -802,7 +823,7 @@ Public Class InterfaceWHTX
 
             Select Case Argument("TXTYPE")
 
-                Case "INTERWHTX"
+                Case "INTERWHTX", "PUTAWAY"
 
                     Try
                         With p
@@ -810,12 +831,12 @@ Public Class InterfaceWHTX
                             .Procedure = "ZSFDCP_LOAD_WHTX"
                             .Table = "ZSFDC_LOAD_WHTX"
                             .RecordType1 = "OWNERLOGIN,WARHSNAME,LOCNAME,TOWARHSNAME,TOLOCATION,MANUAL"
-                            .RecordType2 = "PARTNAME,TQUANT,TOWARHSNAME2,TOLOCNAME,STATUS1,TOSTATUS,SERIAL"
+                            .RecordType2 = "PARTNAME,TQUANT,TOWARHSNAME2,TOLOCNAME,STATUS1,TOSTATUS,SERIALNAME"
                             .RecordTypes = "TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,TEXT,,TEXT,TEXT,TEXT,TEXT,TEXT"
                         End With
 
                     Catch e As Exception
-                        MsgBox(e.Message)
+                        OverControl.msgboxa(e.Message)
                     End Try
 
                     ' Type 1 records
@@ -830,19 +851,28 @@ Public Class InterfaceWHTX
                     p.AddRecord(1) = t1
 
                     For y As Integer = 0 To CtrlTable.RowCount
+                        Dim amt As Integer
+                        Dim a As String = CtrlTable.ItemValue("_TQUANT", y)
+                        Dim pt, tw, tl, lot, stat As String
+                        pt = CtrlTable.ItemValue("_PARTNAME", y)
+                        amt = 1000 * CInt(CtrlTable.ItemValue("_TQUANT", y))
+                        tw = CtrlTable.ItemValue("_TOWARHS", y)
+                        tl = CtrlTable.ItemValue("_TOLOCNAME", y)
+                        lot = CtrlTable.ItemValue("_LOT", y)
+                        stat = CtrlForm.ItemValue("STATUS")
                         Dim t2() As String = { _
-                                    CtrlTable.ItemValue("_PARTNAME", y), _
-                                    CStr(CInt(1000 * CtrlTable.ItemValue("_TQUANT", y))), _
-                                    CtrlTable.ItemValue("_TOWARHS", y), _
-                                    CtrlTable.ItemValue("_TOLOCNAME", y), _
-                                    CtrlForm.ItemValue("STATUS"), _
-                                    CtrlForm.ItemValue("STATUS"), _
-                                    CtrlTable.ItemValue("_LOT", y) _
+                                    pt, _
+                                    amt, _
+                                    tw, _
+                                    tl, _
+                                    stat, _
+                                    stat, _
+                                    lot _
                                             }
                         p.AddRecord(2) = t2
                     Next
 
-                Case "PUTAWAY"
+                Case "PUTAWAYzzz"
 
                     Try
                         With p
@@ -855,15 +885,15 @@ Public Class InterfaceWHTX
                         End With
 
                     Catch e As Exception
-                        MsgBox(e.Message)
+                        OverControl.msgboxa(e.Message)
                     End Try
 
                     ' Type 1 records
                     Dim t1() As String = { _
                                         UserName, _
-                                        Warehouse, _
+                                        CtrlForm.ItemValue("WARHS"), _
                                         CtrlForm.ItemValue("LOCNAME"), _
-                                        Warehouse, _
+                                        CtrlForm.ItemValue("TOWARHS"), _
                                         Argument("MANUAL") _
                                         }
                     p.AddRecord(1) = t1
@@ -872,7 +902,7 @@ Public Class InterfaceWHTX
                         Dim t2() As String = { _
                                     CtrlTable.ItemValue("_PARTNAME", y), _
                                     CStr(CInt(1000 * CtrlTable.ItemValue("_TRANSFER", y))), _
-                                    Warehouse, _
+                                    CtrlTable.ItemValue("_TOWARHS", y), _
                                     CtrlTable.ItemValue("_TOLOCNAME", y), _
                                     "Goods" _
                                             }
@@ -892,7 +922,7 @@ Public Class InterfaceWHTX
                         End With
 
                     Catch e As Exception
-                        MsgBox(e.Message)
+                        OverControl.msgboxa(e.Message)
                     End Try
 
                     ' Type 1 records
@@ -919,7 +949,7 @@ Public Class InterfaceWHTX
             End Select
 
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
 
     End Sub
@@ -1012,6 +1042,10 @@ Public Class InterfaceWHTX
     Public Overrides Sub TableScan(ByVal Value As String)
         If Value = "" Then Exit Sub
         Dim v2 As String = ""
+        Cnt = 0
+        Prt = ""
+        Dim shown As Boolean = False
+        Dim rej As Boolean = False
         Dim doc As New Xml.XmlDocument
         doc.LoadXml(Value)
         For Each nd As XmlNode In doc.SelectNodes("in/i")
@@ -1019,20 +1053,41 @@ Public Class InterfaceWHTX
             Select Case DataType
                 Case "PART"
                     Prt = nd.Attributes("v").Value
-                Case "LOT"
+                Case "LOT", "SERIAL"
                     Lt = nd.Attributes("v").Value
+                    If Lt = "" Then
+                        Lt = "0"
+                    End If
                 Case "QTY"
                     Cnt = nd.Attributes("v").Value
-                Case "CUST", "ACT", "UNQ", "SERIAL"
 
+                Case "UNQ"
+                    unq = nd.Attributes("v").Value
+
+                Case "CUST", "ACT"
+                    If DataType = "CUST" Then
+                        If nd.Attributes("v").Value.ToString = "Reject" And Argument("TXTYPE") = "PUTAWAY" Then
+                            rej = True
+                        End If
+                    End If
                 Case "WARHS"
                     Select Case Argument("TXTYPE")
                         '**************************************************************************
                         Case "INTERWHTX"
                             With CtrlForm
-                                .el(3).Data = nd.Attributes("v").Value
-                                .el(3).DataEntry.Text = nd.Attributes("v").Value
-                                .el(3).ProcessEntry()
+                                Select Case .el(0).Enabled
+                                    Case True
+                                        .el(0).Data = nd.Attributes("v").Value
+                                        .el(0).DataEntry.Text = nd.Attributes("v").Value
+                                        .el(0).ProcessEntry()
+
+                                    Case False
+                                        .el(3).Data = nd.Attributes("v").Value
+                                        .el(3).DataEntry.Text = nd.Attributes("v").Value
+                                        .el(3).ProcessEntry()
+                                        .el(3).Enabled = False
+                                End Select
+
                             End With
                         Case "PUTAWAY"
                             With CtrlForm
@@ -1047,9 +1102,28 @@ Public Class InterfaceWHTX
                         '**************************************************************************
                         Case "INTERWHTX"
                             With CtrlForm
-                                .el(4).Data = nd.Attributes("v").Value
-                                .el(4).DataEntry.Text = nd.Attributes("v").Value
-                                .el(4).ProcessEntry()
+                                Select Case .el(0).Enabled
+                                    Case True
+                                        .el(1).Data = nd.Attributes("v").Value
+                                        .el(1).DataEntry.Text = nd.Attributes("v").Value
+                                        .el(1).ProcessEntry()
+                                        .el(0).Enabled = False
+                                        .el(1).Enabled = False
+                                        mInvoke = tInvoke.iStatus
+                                        Dim q As String = "select top 1 CUSTOMERS.CUSTNAME " & _
+                                    "from WARHSBAL, WAREHOUSES, CUSTOMERS " & _
+                                    "WHERE WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
+                                    "AND CUSTOMERS.CUST = WARHSBAL.CUST " & _
+                                    "AND WAREHOUSES.WARHSNAME = '%WARHS%' " & _
+                                    "AND WAREHOUSES.LOCNAME = '%LOCNAME%' "
+                                        InvokeData(q)
+                                    Case False
+                                        .el(4).Data = nd.Attributes("v").Value
+                                        .el(4).DataEntry.Text = nd.Attributes("v").Value
+                                        .el(4).ProcessEntry()
+                                        .el(4).Enabled = False
+                                End Select
+
                             End With
                         Case "PUTAWAY"
                             With CtrlForm
@@ -1057,20 +1131,53 @@ Public Class InterfaceWHTX
                                 .el(3).DataEntry.Text = nd.Attributes("v").Value
                                 .el(3).ProcessEntry()
                             End With
+                            CtrlTable.Focus()
                     End Select
-
+                Case "PROCESS"
+                    ProcessForm()
+                Case "CLOSE"
+                    Me.CloseMe()
 
                 Case Else
-                    MsgBox("Invalid data found, please ensure that you are scanning a part")
+                    OverControl.msgboxa("Invalid data found, please ensure that you are scanning a part")
                     Exit Sub
 
             End Select
 
         Next
+        If rej = True Then
+            Prt = ""
+            MsgBox("Rejected Part scanned")
+        End If
+        If Prt <> "" Then
+            Dim fnd As Boolean = False
+
+            For Each i As Integer In UNQList
+                If i = unq And shown = False Then
+                    'Dim f As New frmMsgBox
+                    'f.Label1.Text = "You have already scanned this label"
+                    'f.ShowDialog()
+                    'If f.ShowDialog = DialogResult.OK Then
+                    '    f.Dispose()
+                    'End If
+                    Beep()
+
+                    Prt = ""
+                    fnd = True
+                End If
+            Next
+            If fnd = False Then
+                UNQList.Add(unq)
+            Else
+                fnd = False
+            End If
+
+        End If
+
         If Prt = "" Then Exit Sub
 
         mInvoke = tInvoke.iPart
-        InvokeData("SELECT PART.BARCODE FROM PART WHERE PART.PARTNAME = '" & Prt & "'")
+        InvokeData("SELECT PART.BARCODE FROM PART WHERE PART.BARCODE = '" & Prt & "'")
         v2 = TBar
 
         If v2 <> "" Then
@@ -1078,17 +1185,23 @@ Public Class InterfaceWHTX
 
             Select Case Argument("TXTYPE")
                 Case "INTERWHTX", "CHSTATUS"
-                    mInvoke = tInvoke.iBarcode
-                    InvokeData("SELECT PARTNAME, BARCODE " & _
-                                                "FROM PART, WARHSBAL, WAREHOUSES, CUSTOMERS " & _
-                                                "WHERE PART.PART = WARHSBAL.PART  " & _
-                                                "AND WARHSBAL.WARHS = WAREHOUSES.WARHS  " & _
-                                                "AND WARHSBAL.CUST = CUSTOMERS.CUST " & _
-                                                "AND WAREHOUSES.WARHSNAME = '%WARHS%'  " & _
-                                                "AND WAREHOUSES.LOCNAME = '%LOCNAME%'  " & _
-                                                "AND WARHSBAL.BALANCE > 0 " & _
-                                                "AND CUSTNAME = '%STATUS%' " & _
-                                                "AND BARCODE = '" & v2 & "'")
+                    If Regex.IsMatch(v2, ValidStr(tRegExValidation.tBarcode)) Then
+                        mInvoke = tInvoke.iBarcode
+                        InvokeData("SELECT PARTNAME, BARCODE " & _
+                                                    "FROM PART, WARHSBAL, WAREHOUSES, CUSTOMERS " & _
+                                                    "WHERE PART.PART = WARHSBAL.PART  " & _
+                                                    "AND WARHSBAL.WARHS = WAREHOUSES.WARHS  " & _
+                                                    "AND WARHSBAL.CUST = CUSTOMERS.CUST " & _
+                                                    "AND WAREHOUSES.WARHSNAME = '%WARHS%'  " & _
+                                                    "AND WAREHOUSES.LOCNAME = '%LOCNAME%'  " & _
+                                                    "AND WARHSBAL.BALANCE > 0 " & _
+                                                    "AND CUSTNAME = '%STATUS%' " & _
+                                                    "AND BARCODE = '" & v2 & "'")
+                    ElseIf Regex.IsMatch(v2, ValidStr(tRegExValidation.tLocname)) Then
+                        mInvoke = tInvoke.iLoc
+                        InvokeData("SELECT LOCNAME FROM WAREHOUSES WHERE LOCNAME = '" & v2 & "' AND WARHSNAME = " & _
+                            "'%WARHS%' AND LOCNAME <> '%LOCNAME%'")
+                    End If
 
                 Case "PUTAWAY"
                     If Regex.IsMatch(v2, ValidStr(tRegExValidation.tBarcode)) Then
@@ -1111,6 +1224,7 @@ Public Class InterfaceWHTX
 
             End Select
         End If
+        CtrlTable.Focus()
     End Sub
 
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
@@ -1125,7 +1239,7 @@ Public Class InterfaceWHTX
 
             Case tInvoke.iBarcode
                 If IsNothing(Data) Then
-                    MsgBox("Part does not exist in this location.")
+                    OverControl.msgboxa("Part does not exist in this location.")
                     Exit Sub
                 End If
 
@@ -1137,14 +1251,22 @@ Public Class InterfaceWHTX
                             Case "INTERWHTX"
                                 CtrlTable.Table.Items(i).Selected = True
                                 'CtrlTable.SetEdit()
-                                Dim num As New frmNumber
-                                With num
-                                    .Text = "Box quantity."
-                                    .ShowDialog()
-                                    CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + .number)
-                                    If .Manual Then Argument("MANUAL") = "Y"
-                                    .Dispose()
-                                End With
+                                If Cnt <> 0 Then
+                                    CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + Cnt)
+                                Else
+                                    Dim num As New frmNumber
+                                    With num
+                                        .Text = "Box quantity."
+                                        .number = Cnt
+                                        .ShowDialog()
+                                        CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + .number)
+                                        If Lt <> "" Then
+                                            CtrlTable.Table.Items(i).SubItems(5).Text = CStr(Lt)
+                                        End If
+                                        If .Manual Then Argument("MANUAL") = "Y"
+                                        .Dispose()
+                                    End With
+                                End If
                                 'CtrlTable.SetTable()
 
                             Case "PUTAWAY"
@@ -1152,14 +1274,26 @@ Public Class InterfaceWHTX
 
 
                                 'CtrlTable.SetEdit()
-                                Dim num As New frmNumber
-                                With num
-                                    .Text = "Box quantity."
-                                    .ShowDialog()
-                                    CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + .number)
-                                    If .Manual Then Argument("MANUAL") = "Y"
-                                    .Dispose()
-                                End With
+                                If Cnt <> 0 Then
+                                    CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + Cnt)
+                                Else
+                                    Dim num As New frmNumber
+                                    With num
+                                        .Text = "Box quantity."
+                                        .number = Cnt
+                                        .ShowDialog()
+                                        CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CInt(CtrlTable.Table.Items(i).SubItems(2).Text) + .number)
+                                        If Lt <> "" Then
+                                            CtrlTable.Table.Items(i).SubItems(5).Text = CStr(Lt)
+                                        End If
+                                        If .Manual Then Argument("MANUAL") = "Y"
+                                        .Dispose()
+                                    End With
+                                End If
+
+
+
+
                                 'CtrlTable.SetTable()
 
 
@@ -1170,6 +1304,7 @@ Public Class InterfaceWHTX
                                 Dim num As New frmNumber
                                 With num
                                     .Text = "Box quantity."
+                                    .number = Cnt
                                     .ShowDialog()
                                     CtrlTable.Table.Items(i).SubItems(2).Text = CStr(CtrlTable.Table.Items(i).SubItems(2).Text + .number)
                                     If .Manual Then Argument("MANUAL") = "Y"
@@ -1192,16 +1327,22 @@ Public Class InterfaceWHTX
                             Dim it As ListViewItem
                             'CtrlTable.Table.Items.Add(New{Data(0, 0), "0", "0", CtrlForm.el(2).Data, CtrlForm.el(3).Data})
                             Dim str(6) As String
-                            Dim num As New frmNumber
-                            With num
-                                .Text = "Box quantity."
-                                .ShowDialog()
-                                str(2) = .number
-                                If .Manual Then Argument("MANUAL") = "Y"
-                                .Dispose()
-                            End With
+                            If Cnt <> 0 Then
+                                str(2) = Cnt
+                            Else
+                                Dim num As New frmNumber
+                                With num
+                                    .Text = "Box quantity."
+                                    .number = Cnt
+                                    .ShowDialog()
+                                    str(2) = .number
+                                    If .Manual Then Argument("MANUAL") = "Y"
+                                    .Dispose()
+                                End With
+                            End If
+
                             If Convert.ToDecimal(str(2)) > Convert.ToDecimal(Cnt) Then
-                                MsgBox("You have picked too many of this item, please rescan and try again")
+                                OverControl.msgboxa("You have picked too many of this item, please rescan and try again")
                                 Exit Sub
 
                             End If
@@ -1209,30 +1350,35 @@ Public Class InterfaceWHTX
                             str(0) = Data(0, 0)
                             str(1) = Cnt
                             'str(2) = "0"
-                            str(3) = CtrlForm.el(2).Data
-                            str(4) = CtrlForm.el(3).Data
+                            str(3) = CtrlForm.el(3).Data
+                            str(4) = CtrlForm.el(4).Data
                             str(5) = Lt
                             it = New ListViewItem(str)
                             CtrlTable.Table.Items.Add(it)
 
                         Catch ex As Exception
-                            MsgBox(ex.ToString)
+                            OverControl.msgboxa(ex.ToString)
                         End Try
                     Case "PUTAWAY"
                         Try
                             Dim it As ListViewItem
                             'CtrlTable.Table.Items.Add(New{Data(0, 0), "0", "0", CtrlForm.el(2).Data, CtrlForm.el(3).Data})
                             Dim str(6) As String
-                            Dim num As New frmNumber
-                            With num
-                                .Text = "Box quantity."
-                                .ShowDialog()
-                                str(2) = .number
-                                If .Manual Then Argument("MANUAL") = "Y"
-                                .Dispose()
-                            End With
+                            If Cnt <> 0 Then
+                                str(2) = Cnt
+                            Else
+                                Dim num As New frmNumber
+                                With num
+                                    .Text = "Box quantity."
+                                    .number = Cnt
+                                    .ShowDialog()
+                                    str(2) = .number
+                                    If .Manual Then Argument("MANUAL") = "Y"
+                                    .Dispose()
+                                End With
+                            End If
                             If Convert.ToDecimal(str(2)) > Convert.ToDecimal(Cnt) Then
-                                MsgBox("You have picked too many of this item, please rescan and try again")
+                                OverControl.msgboxa("You have picked too many of this item, please rescan and try again")
                                 Exit Sub
 
                             End If
@@ -1247,7 +1393,7 @@ Public Class InterfaceWHTX
                             CtrlTable.Table.Items.Add(it)
 
                         Catch ex As Exception
-                            MsgBox(ex.ToString)
+                            OverControl.msgboxa(ex.ToString)
                         End Try
 
 
@@ -1290,8 +1436,17 @@ Public Class InterfaceWHTX
                     End With
                 End With
 
-        End Select
+            Case tInvoke.iStatus
+                With CtrlForm
+                    With .el(2)
+                        .DataEntry.Text = Data(0, 0)
+                        .ProcessEntry()
+                        CtrlTable.Table.Focus()
+                    End With
+                End With
 
+        End Select
+        CtrlTable.Focus()
     End Sub
 
 End Class

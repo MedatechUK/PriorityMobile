@@ -35,19 +35,23 @@ Partial Public Class frmMetreLen
         '
         'Button1
         '
+        Me.Button1.BackColor = System.Drawing.Color.Aqua
         Me.Button1.DialogResult = System.Windows.Forms.DialogResult.No
-        Me.Button1.Location = New System.Drawing.Point(12, 72)
+        Me.Button1.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.Button1.Location = New System.Drawing.Point(4, 53)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(72, 20)
+        Me.Button1.Size = New System.Drawing.Size(90, 71)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Length"
         '
         'Button2
         '
+        Me.Button2.BackColor = System.Drawing.Color.Lime
         Me.Button2.DialogResult = System.Windows.Forms.DialogResult.Yes
-        Me.Button2.Location = New System.Drawing.Point(150, 72)
+        Me.Button2.Font = New System.Drawing.Font("Arial", 16.0!, System.Drawing.FontStyle.Bold)
+        Me.Button2.Location = New System.Drawing.Point(142, 53)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(72, 20)
+        Me.Button2.Size = New System.Drawing.Size(90, 71)
         Me.Button2.TabIndex = 2
         Me.Button2.Text = "Area"
         '
@@ -56,7 +60,7 @@ Partial Public Class frmMetreLen
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(238, 107)
+        Me.ClientSize = New System.Drawing.Size(238, 133)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)

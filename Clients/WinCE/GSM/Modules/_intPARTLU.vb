@@ -9,6 +9,8 @@ Public Class InterfacePARTLU
         NewArgument("BARCODE", "")
         CtrlTable.DisableButtons(True, False, True, True, False)
         CtrlTable.EnableToolbar(False, False, False, False, False)
+        CtrlTable.Focus()
+
 
     End Sub
     Private TBar As String = ""
@@ -26,6 +28,8 @@ Public Class InterfacePARTLU
                 .ProcessEntry()
             End With
         End If
+        CtrlTable.Focus()
+
     End Sub
 
     Public Overrides Sub FormSettings()
@@ -237,7 +241,7 @@ Public Class InterfacePARTLU
                 Next
             End If
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
 
     End Sub
@@ -282,7 +286,7 @@ Public Class InterfacePARTLU
                             "from PARTPARAM, PART, WAREHOUSES " & _
                             "where PARTPARAM.PART = PART.PART  " & _
                             "and PARTPARAM.WARHS = WAREHOUSES.WARHS " & _
-                            "and upper(PART.PARTNAME)=upper('%PARTNAME%')")
+                            "and upper(PART.BARCODE)=upper('%PARTNAME%')")
                         CtrlTable.Table.Items.Clear()
                         CtrlTable.BeginLoadRS()
 
@@ -325,7 +329,7 @@ Public Class InterfacePARTLU
             Next
 
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
 
     End Sub
@@ -339,8 +343,12 @@ Public Class InterfacePARTLU
             Select Case DataType
                 Case "PART"
                     mInvoke = tInvoke.iPart
-                    InvokeData("SELECT PART.PARTNAME FROM PART WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                    InvokeData("SELECT PART.PARTNAME FROM PART WHERE PART.BARCODE = '" & nd.Attributes("v").Value & "'")
                     v2 = TBar
+                Case "PROCESS"
+                    ProcessForm()
+                Case "CLOSE"
+                    Me.CloseMe()
             End Select
 
         Next
@@ -358,7 +366,7 @@ Public Class InterfacePARTLU
             Case tInvoke.iBarcode
                 If Not IsNothing(Data) Then
                     Clipboard.SetDataObject(Data(0, 0))
-                    MsgBox("Part barcode stored in memory. Use '.' to recall.")
+                    OverControl.msgboxa("Part barcode stored in memory. Use '.' to recall.")
                     With CtrlForm
                         With .el(.ColNo("PARTDES"))
                             .Data = Data(1, 0)

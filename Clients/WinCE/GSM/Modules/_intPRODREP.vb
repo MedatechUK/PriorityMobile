@@ -2,8 +2,16 @@
 Imports System.Data
 Imports System.Text.RegularExpressions
 Imports System.Xml
+Imports OpenNETCF.Net.Mail
+Imports System.Windows.Forms
+Imports System
+
+
+
+
 Public Class interfacePRODREP
     Inherits SFDCData.iForm
+
 #Region "Initialisation"
 
     Private gr As Boolean = False
@@ -11,12 +19,18 @@ Public Class interfacePRODREP
     Private defect As String = ""
     Private userid As String = ""
     Private starttime As Integer
+    Private FOATIME As Integer = 0
     Private CurrentWO As String = ""
     Private curdate As Integer = 0
     Private pid As Integer = 0
     Private SystemTime As String = ""
     Private wono As String = ""
     Private PartsList As New List(Of Parts)
+    Private newact As Boolean = True
+    Private ACT As Integer = 0
+    Private custname As String = ""
+
+
     Public Sub New(Optional ByRef App As Form = Nothing)
 
         'InitializeComponent()
@@ -30,13 +44,13 @@ Public Class interfacePRODREP
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
         Argument("CurrentWO") = ""
-        SendType = tSendType.GetCurrentJob
-        InvokeData("select SERIALNAME, ACTDES from ZSFDC_LOAD_STARTTIME, ACT " & _
-                   "where ZSFDC_LOAD_STARTTIME.ACTNAME = ACT.ACTNAME " & _
-                   "AND USERID = (SELECT USERSB.USERID  " & _
-                    "FROM system.dbo.USERS, system.dbo.USERSB  " & _
-                    "WHERE USERS.T$USER = USERSB.T$USER  " & _
-                    "AND UPPER(USERS.USERLOGIN) = UPPER('" & UserName & "'))")
+        'SendType = tSendType.GetCurrentJob
+        'InvokeData("select SERIALNAME, ACTDES from ZSFDC_LOAD_STARTTIME, ACT " & _
+        '           "where ZSFDC_LOAD_STARTTIME.ACTNAME = ACT.ACTNAME " & _
+        '           "AND USERID = (SELECT USERSB.USERID  " & _
+        '            "FROM system.dbo.USERS, system.dbo.USERSB  " & _
+        '            "WHERE USERS.T$USER = USERSB.T$USER  " & _
+        '            "AND UPPER(USERS.USERLOGIN) = UPPER('" & UserName & "'))")
         Dim dhold As DateTime = FormatDateTime("1/1/1988")
         curdate = DateDiff(DateInterval.Minute, dhold, Now)
         CtrlTable.Focus()
@@ -62,6 +76,10 @@ Public Class interfacePRODREP
         Part = 10
         PartUpdate = 11
         GetFlag = 12
+        GetFOATime = 13
+        GetUpdate = 14
+        getAct = 15
+        GetDefect2 = 16
     End Enum
     Dim SendType As tSendType = tSendType.PopulateForm
     Private GetPass As Boolean = False
@@ -75,7 +93,7 @@ Public Class interfacePRODREP
             .ValidExp = ValidStr(tRegExValidation.tWO)
             .SQLValidation = "SELECT SERIALNAME " & _
                             "FROM SERIAL " & _
-                            "WHERE SERIALNAME = '%ME%' AND CLOSED <> 'C' AND RELEASE='Y'"
+                            "WHERE SERIALNAME = '%ME%' AND CLOSED <> 'C' AND RELEASE = 'Y'"
             .Data = ""      '******** Barcoded field '*******
             .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctNone 'ctNone 'ctKeyb 
             .ctrlEnabled = True
@@ -155,6 +173,20 @@ Public Class interfacePRODREP
         End With
         CtrlForm.AddField(field)
 
+        'Stop Field
+        With field
+            .Name = "FOA"
+            .Title = "FOA / Run"
+            .ValidExp = ".+"
+            .SQLList = "SELECT 'Yes','No' as YesNo"
+            .SQLValidation = "SELECT '%ME%'"
+            .Data = ""      '******** Barcoded field '*******
+            .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctList 'ctNone 'ctKeyb 
+            .ctrlEnabled = True
+            .MandatoryOnPost = False
+        End With
+        CtrlForm.AddField(field)
+
     End Sub
 
     Public Overrides Sub TableSettings()
@@ -195,8 +227,14 @@ Public Class interfacePRODREP
             .Title = "Reason"
             .initWidth = 58
             .TextAlign = HorizontalAlignment.Left
-            .ValidExp = ValidStr(tRegExValidation.tString)
-            .SQLList = "SELECT DISTINCT(DEFECTDESC) FROM DEFECTCODES"
+            .ValidExp = ".*"
+            .SQLList = "SELECT DISTINCT(DEFECTCODES.DEFECTDESC)" & _
+            " FROM DEFECTCODES, ZGSM_OPDEFECTCODES, ACT" & _
+            " WHERE ZGSM_OPDEFECTCODES.ACT = ACT.ACT AND" & _
+            " DEFECTCODES.DEFECT = ZGSM_OPDEFECTCODES.DEFECT" & _
+            " AND DEFECTCODES.INACTIVE <> 'Y'" & _
+            " AND ACT.ACTDES = '%ACTDES%'"
+
             .SQLValidation = "SELECT '%ME%' FROM DEFECTCODES"
             .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctList
             .DefaultFromCtrl = Nothing
@@ -213,9 +251,10 @@ Public Class interfacePRODREP
 
         CtrlTable.RecordsSQL = "Select 'Approved' AS STATUS ,0 as QTY ,'' as REASON " & _
                                 "union all " & _
-                                "select 'MRB' AS STATUS ,0 as QTY ,'' as REASON " & _
-                                "union all " & _
                                 "select 'Reject' AS STATUS ,0 as QTY ,'' as REASON "
+
+        '                                "select 'MRB' AS STATUS ,0 as QTY ,'' as REASON " & _
+        '"union all " & _
 
     End Sub
 
@@ -231,7 +270,7 @@ Public Class interfacePRODREP
                 End With
             Next
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
         CtrlTable.Focus()
     End Sub
@@ -271,7 +310,7 @@ Public Class interfacePRODREP
 
         If CtrlForm.el(3).Data.Length = 0 Then
             CtrlTable.CancelEdit = True
-            MsgBox("Please select the operation")
+            OverControl.msgboxa("Please select the operation")
             Exit Sub
         End If
 
@@ -300,9 +339,10 @@ Public Class interfacePRODREP
                 CtrlForm.el(0).Data = Data(0, 0)
                 CtrlForm.el(1).Data = Data(1, 0)
                 CtrlForm.el(2).Data = Data(2, 0)
+                custname = Data(3, 0)
                 CtrlTable.Focus()
                 CtrlForm.el(2).Focus()
-                CtrlForm.el(3).Data = ""
+                'CtrlForm.el(3).Data = ""
             Case tSendType.GetRouting
                 Try
                     route = Data(0, 0)
@@ -319,17 +359,47 @@ Public Class interfacePRODREP
                     gr = True
                 End Try
 
+            Case tSendType.GetDefect2
+                If Data Is Nothing = False Then
+                    Dim q As Integer
+
+                    Dim amt As New frmNumber
+
+
+                    amt.ShowDialog()
+                    If amt.DialogResult = Windows.Forms.DialogResult.Cancel Then
+                        q = amt.number
+                        Dim lvi As New ListViewItem
+                        With CtrlTable.Table
+                            .Items.Add(lvi)
+                            .Items(.Items.Count - 1).Text = "Reject"
+                            .Items(.Items.Count - 1).SubItems.Add(q)
+                            .Items(.Items.Count - 1).SubItems.Add(Data(0, 0))
+                        End With
+                    End If
+                   
+
+                End If
+
+
+
             Case tSendType.GetCurrentJob
                 If Not IsNothing(Data) Then
                     For y As Integer = 0 To UBound(Data, 2)
-                        If MsgBox("Activate job [" & Data(0, y) & " " & Data(1, y) & "]?", MsgBoxStyle.YesNo) = MsgBoxResult.Yes Then
+                        Dim f As New frmYesNo
+                        f.Text = Data(0, y) & " in progress "
+                        f.Label1.Text = "Continue working on job " & Data(0, y) & " " & Data(1, y) & "?"
+                        f.ShowDialog()
+
+                        If f.DialogResult = DialogResult.Yes Then
                             Argument("CurrentWO") = Data(0, y)
                             wono = Data(0, y)
                             With CtrlForm
-                                With .el(.ColNo("SERIALNAME"))
-                                    .DataEntry.Text = Data(0, y)
-                                    .ProcessEntry()
-                                End With
+                                'With .el(.ColNo("SERIALNAME"))
+                                '    .DataEntry.Text = Data(0, y)
+                                '    .ProcessEntry()
+                                'End With
+                                newact = False
                                 With .el(.ColNo("ACTDES"))
                                     .DataEntry.Text = Data(1, y)
                                     .ProcessEntry()
@@ -352,8 +422,10 @@ Public Class interfacePRODREP
             Case tSendType.GetStartTime
                 Try
                     starttime = Data(0, 0)
+                    FOATIME = Data(1, 0)
                 Catch
                     starttime = "0"
+                    FOATIME = 0
                 Finally
                     ' Delete start time from ZSFDC_LOAD_STARTTIME
                     SendType = tSendType.ClearStartTime
@@ -371,6 +443,15 @@ Public Class interfacePRODREP
                     SystemTime = 0
                 Finally
                     gr = True
+                End Try
+
+            Case tSendType.GetFOATime
+                Try
+                    FOATIME = Data(0, 0)
+                Catch
+                    FOATIME = 0
+                Finally
+
                 End Try
 
             Case tSendType.ClearStartTime, tSendType.SetStartTime
@@ -452,7 +533,7 @@ Public Class interfacePRODREP
                     f.pars.Columns.Add(p7)
 
                 Catch ex As Exception
-                    MsgBox(ex.ToString)
+                    OverControl.msgboxa(ex.ToString)
 
                 End Try
                 'Now we iterate through the list and take all the parts for the currently chosen operation
@@ -477,7 +558,7 @@ Public Class interfacePRODREP
 
                 'then we fill the datafrid with the parts
                 f.DataGrid1.DataSource = f.pars
-                
+
                 f.ShowDialog()
                 If f.DialogResult = Windows.Forms.DialogResult.OK Then
                     SendType = tSendType.GetUserID
@@ -491,14 +572,22 @@ Public Class interfacePRODREP
                         pid = p.pID
                         InvokeData("Select SERIAL from SERIAL where SERIALNAME = '" & wono & "'")
                     Next
+                    PartsList.Clear()
 
+                End If
+                f.Dispose()
 
+            Case tSendType.getAct
+                If Data Is Nothing Then
+                    OverControl.msgboxa("No defect codes found for this operation")
+                Else
+                    ACT = Data(0, 0)
                 End If
             Case tSendType.PartUpdate
 
 
                 If Data Is Nothing Then
-                    ' MsgBox("!")
+                    ' OverControl.msgboxa("!")
                 Else
                     InvokeData("update KITITEMS set ZGSM_UDATE = '" & curdate & "', ZGSM_CHECKED = 'Y', ZGSM_USER = " & userid & " where SERIAL = '" & Data(0, 0) & "' and PART = " & pid)
                 End If
@@ -534,6 +623,8 @@ Public Class interfacePRODREP
                     End If
 
                     If ctrl.Name = "ACTDES" Then
+                        SendType = tSendType.getAct
+                        InvokeData("SELECT ACT FROM ACT WHERE ACTDES = '%ACTDES%'")
                         ctrl.Enabled = False
                         CtrlTable.Focus()
                     End If
@@ -541,13 +632,21 @@ Public Class interfacePRODREP
                     If ctrl.Name = "SERIALNAME" Then
                         ctrl.Enabled = CBool(ctrl.Data.Length = 0)
                         CtrlTable.Focus()
+                        SendType = tSendType.GetCurrentJob
+                        InvokeData("select SERIALNAME, ACTDES from ZSFDC_LOAD_STARTTIME, ACT " & _
+                                   "where ZSFDC_LOAD_STARTTIME.ACTNAME = ACT.ACTNAME " & _
+                                   "and ZSFDC_LOAD_STARTTIME.SERIALNAME = '%SERIALNAME%' " & _
+                                   "AND USERID = (SELECT USERSB.USERID  " & _
+                                    "FROM system.dbo.USERS, system.dbo.USERSB  " & _
+                                    "WHERE USERS.T$USER = USERSB.T$USER  " & _
+                                    "AND UPPER(USERS.USERLOGIN) = UPPER('" & UserName & "'))")
                     End If
 
                     If ctrl.Name = "SERIALNAME" Then
                         SendType = tSendType.PopulateForm
-                        InvokeData("select SERIAL.SERIALNAME, PARTNAME, SBALANCE / 1000 " & _
-                                   "from PART, SERIAL " & _
-                                   "where PART.PART = SERIAL.PART " & _
+                        InvokeData("select SERIAL.SERIALNAME, PARTNAME, (SBALANCE / 1000), CUSTOMERS.CUSTDES " & _
+                                   "from PART, SERIAL,ORDERITEMS,ORDERS,CUSTOMERS " & _
+                                   "where PART.PART = SERIAL.PART AND SERIAL.ORDI = ORDERITEMS.ORDI and ORDERITEMS.ORD = ORDERS.ORD AND ORDERS.CUST = CUSTOMERS.CUST " & _
                                    "and SERIALNAME =  " & _
                                 "(select SERIALNAME from SERIAL where SERIALNAME = '" & CtrlForm.el(0).Data & "')")
                         wono = CtrlForm.el(0).Data
@@ -555,11 +654,114 @@ Public Class interfacePRODREP
                         CtrlTable.BeginLoadRS()
                     End If
 
+                    If ctrl.Name = "FOA" Then
+
+
+
+                        SendType = tSendType.GetFlag
+                        InvokeData("SELECT ACT.ACTNAME, PROCACT.ZGSM_STOP" & _
+            " FROM ACT, SERACT, SERIAL, PROCESS, PROCACT" & _
+            " WHERE SERIAL.SERIAL = SERACT.SERIAL" & _
+            " AND SERACT.ACT = ACT.ACT" & _
+            " AND SERIAL.PRODSERIAL = PROCESS.T$PROC" & _
+            " AND PROCESS.T$PROC = PROCACT.T$PROC" & _
+            " AND ACT.ACT = PROCACT.ACT" & _
+            " AND SERIALNAME =  '%SERIALNAME%'" & _
+            " AND ACTDES = '%ACTDES%'")
+                        Select Case GetPass
+                            Case False
+                                If ctrl.Data = "Yes" And CtrlForm.el(3).Data <> "" Then
+                                    GetVars()
+
+                                    SendType = tSendType.GetFOATime
+                                    ' query to retreive start time
+                                    InvokeData("select (datepart(hh, getdate()) * 60) + datepart(mi, getdate())")
+                                    SendType = tSendType.GetFOATime
+                                    ' query to retreive start time
+                                    InvokeData(" UPDATE ZSFDC_LOAD_STARTTIME " & _
+                                               "SET FOATIME = " & FOATIME & _
+                                   " WHERE SERIALNAME = '%SERIALNAME%' " & _
+                                    " AND ACTNAME = '" & route & "' " & _
+                                    " AND USERID = " & userid & " ")
+                                    'OverControl.msgboxa("Updated the FOA Time")
+                                    Me.FormClose()
+
+                                End If
+                            Case True
+                                Try
+                                    Dim msg As New MailMessage
+                                    Dim client As New SmtpClient
+
+                                    Dim smtp As String = "MRMCHENRY.gsmgroup.gsm" '"mobile-b.gsmautomotive.net"
+                                    Dim from As String = "DoNotReply@gsmautomotive.co.uk"
+                                    Dim sto As String = "quality@gsmautomotive.co.uk"
+
+                                    Dim FroAddy As New MailAddress(from)
+
+                                    msg.From = FroAddy
+                                    msg.To.Add(sto)
+                                    msg.Subject = "Attention Needed"
+
+                                    Dim bd As String = "Production user - " & UserName & " has hit a stop sequence on W/O - " & CtrlForm.el(0).Data & ", operation - " & CtrlForm.el(3).Data & ". Producing " & CtrlForm.el(1).Data & " for " & custname & ""
+                                    msg.Body = bd
+
+                                    client.Host = smtp
+                                    client.Port = 25
+
+                                    client.Credentials = New SmtpCredential("", "", "GSM") ' New SmtpCredential("emerge.priority", "1amBatman", "")
+
+
+                                    client.Send(msg)
+
+                                Catch ex As Exception
+                                    Dim snd As New Sound("Chord.wav")
+                                    snd.Play()
+
+                                    OverControl.msgboxa("Error sending email, please contact quality!")
+
+                                End Try
+                                Dim f As New frmPassCode
+                                f.ShowDialog()
+                                If f.DialogResult = Windows.Forms.DialogResult.OK Then
+
+                                    If ctrl.Data = "Yes" And CtrlForm.el(3).Data <> "" Then
+                                        GetVars()
+
+                                        SendType = tSendType.GetFOATime
+                                        ' query to retreive start time
+                                        InvokeData("select (datepart(hh, getdate()) * 60) + datepart(mi, getdate())")
+                                        SendType = tSendType.GetFOATime
+                                        ' query to retreive start time
+                                        InvokeData(" UPDATE ZSFDC_LOAD_STARTTIME " & _
+                                                   "SET FOATIME = " & FOATIME & _
+                                       " WHERE SERIALNAME = '%SERIALNAME%' " & _
+                                        " AND ACTNAME = '" & route & "' " & _
+                                        " AND USERID = " & userid & " ")
+                                        'OverControl.msgboxa("Updated the FOA Time")
+                                        Me.FormClose()
+
+                                    End If
+                                Else
+
+                                End If
+                        End Select
+
+                        'If OverControl.msgboxa("This will record the job start time", OverControl.msgboxaStyle.OkCancel) = OverControl.msgboxaResult.Ok Then
+
+                        'Else
+                        'Return False
+                        'End If
+
+
+
+
+
+                    End If
                 Catch
                 End Try
 
         End Select
-
+        CtrlTable.Focus()
     End Sub
 
     Private Sub GetVars()
@@ -613,7 +815,7 @@ Public Class interfacePRODREP
             gr = False
             SendType = tSendType.GetStartTime
             ' query to retreive start time
-            InvokeData(" SELECT EMPSTIME FROM ZSFDC_LOAD_STARTTIME " & _
+            InvokeData(" SELECT EMPSTIME,FOATIME FROM ZSFDC_LOAD_STARTTIME " & _
                        " WHERE SERIALNAME = '%SERIALNAME%' " & _
                         " AND ACTNAME = '" & route & "' " & _
                         " AND USERID = " & userid & " ")
@@ -662,7 +864,8 @@ Public Class interfacePRODREP
                                 "TSQUANT," & _
                                 "USERID," & _
                                 "WARHSNAME," & _
-                                "WORKCNAME"
+                                "WORKCNAME," & _
+                                "FOATIME"
 
                 .RecordTypes = _
                                 "," & _
@@ -700,7 +903,8 @@ Public Class interfacePRODREP
                                 "," & _
                                 "," & _
                                 "TEXT," & _
-                                "TEXT"
+                                "TEXT" & _
+                                ",TEXT"
             End With
 
 
@@ -745,7 +949,8 @@ Public Class interfacePRODREP
                     String.Format("0", "INT,17,Rejected (Buy/Sell)"), _
                     String.Format(userid, "INT,8,0,Employee ID"), _
                     String.Format("", "CHAR,4,To Warehouse"), _
-                    String.Format("", "CHAR,6,Work Cell") _
+                    String.Format("", "CHAR,6,Work Cell"), _
+                    String.Format("0", "TIME,5,FOA Time") _
             }
             ' Type 2 records
 
@@ -811,7 +1016,8 @@ Public Class interfacePRODREP
                         String.Format((CStr(rj) * 1000), "INT,17,Rejected (Buy/Sell)"), _
                         String.Format(userid, "INT,8,0,Employee ID"), _
                         String.Format("", "CHAR,4,To Warehouse"), _
-                        String.Format("", "CHAR,6,Work Cell") _
+                        String.Format("", "CHAR,6,Work Cell"), _
+                        String.Format("0", "TIME,5,FOA Time") _
                                 }
                     ' Type 2 records
 
@@ -821,7 +1027,7 @@ Public Class interfacePRODREP
             Next
 
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
 
         End Try
     End Sub
@@ -834,7 +1040,7 @@ Public Class interfacePRODREP
             Value = Value.Replace(":", "")
             doc.LoadXml(Value)
             If Regex.IsMatch(Value, "^<") = False Then
-                MsgBox("This doesnt appear to be a valid barcode")
+                OverControl.msgboxa("This doesnt appear to be a valid barcode")
             Else
 
 
@@ -859,12 +1065,62 @@ Public Class interfacePRODREP
                                 .el(3).ProcessEntry()
                             End With
 
+                        Case "FOA"
+
+                            With CtrlForm
+                                .el(4).Data = nd.Attributes("v").Value
+                                .el(4).DataEntry.Text = nd.Attributes("v").Value
+                                .el(4).ProcessEntry()
+                            End With
                             'Case "ACT"
                             '    With CtrlForm
                             '        .el(3).Data = nd.Attributes("v").Value
                             '        .el(3).DataEntry.Text = nd.Attributes("v").Value
                             '        .el(3).ProcessEntry()
                             'End With
+                        Case "PROCESS"
+                            'Dim i As Control
+                            'For Each i In Me.Controls
+                            '    If TypeOf i Is SFDCData.CtrlTable Then
+                            '        Dim fff As Rectangle
+                            '        fff = i.Bounds
+                            '        Dim mopos As Point
+                            '        mopos.X = (fff.Width - 5)
+                            '        mopos.Y = (fff.Top + 5)
+                            '        MoveMouse(mopos.Y, mopos.X)
+                            '        LeftClick(mopos.Y, mopos.X)
+
+                            '    End If
+
+                            'Next
+                            'todo:  ghdfg 
+
+                            ProcessForm()
+
+
+                        Case "CLOSE"
+                            Me.CloseMe()
+
+                        Case "DEF"
+                            With CtrlForm
+                                If .el(0).Data <> "" And .el(3).Data <> "" Then
+                                    SendType = tSendType.GetDefect2
+                                    InvokeData("SELECT DISTINCT(DEFECTCODES.DEFECTDESC)" & _
+                " FROM DEFECTCODES, ZGSM_OPDEFECTCODES, ACT" & _
+                " WHERE ZGSM_OPDEFECTCODES.ACT = ACT.ACT AND" & _
+                " DEFECTCODES.DEFECT = ZGSM_OPDEFECTCODES.DEFECT" & _
+                " AND DEFECTCODES.INACTIVE <> 'Y'" & _
+                " AND ACT.ACTDES = '%ACTDES%' and DEFECTCODES.DEFECTCODE = '" & nd.Attributes("v").Value & "'")
+                                    
+                                Else
+                                    Beep()
+
+                                End If
+
+                            End With
+
+
+
                     End Select
 
                 Next
@@ -872,10 +1128,11 @@ Public Class interfacePRODREP
                 Dim add As Integer = 0
             End If
         Catch ex As XmlException
-            MsgBox("There is an error within the xml of this code which has made it unable to be translated")
+            OverControl.msgboxa("There is an error within the xml of this code which has made it unable to be translated")
 
         End Try
 
+        CtrlTable.Focus()
 
     End Sub
 
@@ -886,7 +1143,7 @@ Public Class interfacePRODREP
     Public Overrides Function VerifyForm() As Boolean
 
         If CtrlForm.el(CtrlForm.ColNo("ACTDES")).Data.Length = 0 Then
-            MsgBox("Please enter an operation.")
+            OverControl.msgboxa("Please enter an operation.")
             Return False
         End If
 
@@ -904,53 +1161,101 @@ Public Class interfacePRODREP
         Next
 
         If count = 0 Then
-            If Argument("CurrentWO").Length = 0 Then
+            '        If Argument("CurrentWO").Length = 0 Then
+            '            SendType = tSendType.GetFlag
+            '            InvokeData("SELECT ACT.ACTNAME, PROCACT.ZGSM_STOP" & _
+            '" FROM ACT, SERACT, SERIAL, PROCESS, PROCACT" & _
+            '" WHERE SERIAL.SERIAL = SERACT.SERIAL" & _
+            '" AND SERACT.ACT = ACT.ACT" & _
+            '" AND SERIAL.PRODSERIAL = PROCESS.T$PROC" & _
+            '" AND PROCESS.T$PROC = PROCACT.T$PROC" & _
+            '" AND ACT.ACT = PROCACT.ACT" & _
+            '" AND SERIALNAME =  '%SERIALNAME%'" & _
+            '" AND ACTDES = '%ACTDES%'")
+            '            Select Case GetPass
+            '                Case False
+            GetVars()
+            getparts()
 
-                If MsgBox("This will record the job start time", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok Then
-                    Try
-                        GetVars()
-                        getparts()
+            InvokeData( _
+                "INSERT INTO ZSFDC_LOAD_STARTTIME" & _
+                "(LINE, SERIALNAME, ACTNAME, USERID, EMPSTIME,RECORDTYPE) " & _
+                "select (SELECT MAX(LINE) + 1 FROM ZSFDC_LOAD_STARTTIME), " & _
+                "'%SERIALNAME%', " & _
+                "'" & route & "', " & _
+                userid & ", " & _
+                SystemTime & _
+                 ",'1'")
+            Me.FormClose()
+            Return True
+            '                Case True
+            '                    Try
+            '                        Dim msg As New MailMessage
+            '                        Dim client As New SmtpClient
 
-                        InvokeData( _
-                            "INSERT INTO ZSFDC_LOAD_STARTTIME" & _
-                            "(LINE, SERIALNAME, ACTNAME, USERID, EMPSTIME) " & _
-                            "select (SELECT MAX(LINE) + 1 FROM ZSFDC_LOAD_STARTTIME), " & _
-                            "'%SERIALNAME%', " & _
-                            "'" & route & "', " & _
-                            userid & ", " & _
-                            SystemTime _
-                            )
-                        Me.FormClose()
-                        Return False
-                    Catch ex As Exception
-                        MsgBox(ex.Message)
-                    End Try
-                Else
-                    Return False
-                End If
-            
-            End If
+            '                        Dim smtp As String = "MRMCHENRY.gsmgroup.gsm" '"mobile-b.gsmautomotive.net"
+            '                        Dim from As String = "DoNotReply@gsmautomotive.co.uk"
+            '                        Dim sto As String = "quality@gsmautomotive.co.uk"
+
+            '                        Dim FroAddy As New MailAddress(from)
+
+            '                        msg.From = FroAddy
+            '                        msg.To.Add(sto)
+            '                        msg.Subject = "Attention Needed"
+
+            '                        Dim bd As String = "Production user - " & UserName & " has hit a stop sequence on W/O - " & CtrlForm.el(0).Data & ", operation - " & CtrlForm.el(3).Data & ". Producing " & CtrlForm.el(1).Data & " for " & custname & ""
+            '                        msg.Body = bd
+
+            '                        client.Host = smtp
+            '                        client.Port = 25
+
+            '                        client.Credentials = New SmtpCredential("", "", "GSM") ' New SmtpCredential("emerge.priority", "1amBatman", "")
+
+
+            '                        client.Send(msg)
+
+            '                    Catch ex As Exception
+            '                        Dim snd As New Sound("Chord.wav")
+            '                        snd.Play()
+
+            '                        OverControl.msgboxa("Error sending email, please contact quality!")
+
+            '                    End Try
+            '                    Dim f As New frmPassCode
+            '                    f.ShowDialog()
+            '                    If f.DialogResult = Windows.Forms.DialogResult.OK Then
+            '                        Try
+            '                            GetVars()
+            '                            getparts()
+
+            '                            InvokeData( _
+            '                                "INSERT INTO ZSFDC_LOAD_STARTTIME" & _
+            '                                "(LINE, SERIALNAME, ACTNAME, USERID, EMPSTIME,RECORDTYPE) " & _
+            '                                "select (SELECT MAX(LINE) + 1 FROM ZSFDC_LOAD_STARTTIME), " & _
+            '                                "'%SERIALNAME%', " & _
+            '                                "'" & route & "', " & _
+            '                                userid & ", " & _
+            '                                SystemTime & _
+            '                                 ",'1'")
+            '                            Me.FormClose()
+            '                            Return False
+            '                        Catch ex As Exception
+            '                            OverControl.msgboxa(ex.Message)
+            '                        End Try
+            '                    Else
+            '                        Return False
+            '                    End If
+            '            End Select
+
+            '            'If OverControl.msgboxa("This will record the job start time", OverControl.msgboxaStyle.OkCancel) = OverControl.msgboxaResult.Ok Then
+
+            '            'Else
+            '            'Return False
+            '            'End If
+
+            '        End If
         Else
-            SendType = tSendType.GetFlag
-            InvokeData("SELECT ACT.ACTNAME,ZGSM_STOP " & _
-            "FROM ACT, SERACT, SERIAL " & _
-            "WHERE SERIAL.SERIAL = SERACT.SERIAL " & _
-            "AND SERACT.ACT = ACT.ACT " & _
-            "and SERIALNAME =  '%SERIALNAME%' " & _
-            "and ACTDES = '%ACTDES%'")
-            Select Case GetPass
-                Case False
-                    Return MsgBox("This will record the job end time", MsgBoxStyle.OkCancel) = MsgBoxResult.Ok
-                Case True
-                    Dim f As New frmPassCode
-                    f.ShowDialog()
-                    If f.DialogResult = Windows.Forms.DialogResult.OK Then
-                        Return True
-                    Else
-                        Return False
-                    End If
-            End Select
-
+           
         End If
         Return True
     End Function

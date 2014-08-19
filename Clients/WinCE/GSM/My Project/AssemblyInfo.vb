@@ -12,7 +12,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Shop Floor Data Collection")> 
 <Assembly: AssemblyCompany("eMerge-IT")> 
 <Assembly: AssemblyProduct("SFDC (WinCEClient)")> 
-<Assembly: AssemblyCopyright("Simon Barnett")> 
+<Assembly: AssemblyCopyright("EmergeIT")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: CLSCompliant(True)> 
@@ -33,4 +33,4 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.0.1.2919")> 
+<Assembly: AssemblyVersion("1.0.0.4")> 

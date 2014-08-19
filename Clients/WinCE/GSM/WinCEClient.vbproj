@@ -40,9 +40,10 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>Full</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
@@ -54,6 +55,8 @@
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
+    <DebugSymbols>true</DebugSymbols>
+    <WarningLevel>1</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ceLoadData, Version=1.0.3688.20548, Culture=neutral, processorArchitecture=MSIL">
@@ -64,19 +67,38 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\WinCE\ceMyCls.dll</HintPath>
     </Reference>
+    <Reference Include="OpenNETCF.Net.Mail, Version=2.3.12004.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\andymackintosh\Downloads\SDF_2.3.12004\OpenNETCF.Net.Mail.dll</HintPath>
+    </Reference>
     <Reference Include="SFDCData, Version=1.0.3665.24013, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\WinCE\SFDCData.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Services" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataGrid" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataGrid">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Import Include="ceLoadData" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -134,6 +156,12 @@
     <Compile Include="frmEdit.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmMsgBox.Designer.vb">
+      <DependentUpon>frmMsgBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMsgBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPassCode.Designer.vb">
       <DependentUpon>frmPassCode.vb</DependentUpon>
     </Compile>
@@ -159,8 +187,19 @@
     <Compile Include="Modules\frmMetreLen.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Modules\frmYesNo.Designer.vb">
+      <DependentUpon>frmYesNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\frmYesNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\intOdy2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\OverControl.vb" />
     <Compile Include="Modules\Parts.vb" />
     <Compile Include="Modules\Rejects.vb" />
+    <Compile Include="Modules\Sound.vb" />
     <Compile Include="Modules\Users.vb" />
     <Compile Include="Modules\_intGRV.vb">
       <SubType>Form</SubType>
@@ -231,6 +270,9 @@
     <EmbeddedResource Include="frmEdit.resx">
       <DependentUpon>frmEdit.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmMsgBox.resx">
+      <DependentUpon>frmMsgBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPassCode.resx">
       <DependentUpon>frmPassCode.vb</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +285,9 @@
     <EmbeddedResource Include="Modules\frmMetreLen.resx">
       <DependentUpon>frmMetreLen.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\frmYesNo.resx">
+      <DependentUpon>frmYesNo.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -254,6 +299,9 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chord.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="emerge.ico" />
     <Content Include="LOGO.bmp">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -1,7 +1,10 @@
 Imports System.Threading
-
+Imports System.Windows.Forms
 
 Module main
+#Region "Variable and Enums"
+
+
 
     Public Const KEYEVENTF_KEYUP As Integer = &H2
     Public Const KEYEVENTF_KEYDOWN As Integer = &H0
@@ -184,6 +187,7 @@ Module main
         PREP = 21
         PAWHTX2 = 22
         ODETTE = 23
+        ODETTE2 = 24
     End Enum
 
     Public Enum tRegExValidation
@@ -210,19 +214,19 @@ Module main
                 Case tRegExValidation.tUser
                     ret = "^[A-Za-z]+$"
                 Case tRegExValidation.tWO
-                    ret = "^[0-9A-Za-z]{7}"
+                    ret = "^WO"
                 Case tRegExValidation.tOperation
                     ret = "^S[0-9]{2,5}"
                 Case tRegExValidation.tBarcode
                     ret = "^[A-Z0-9]{13}$"
                 Case tRegExValidation.tString
-                    ret = "^[0-9A-Z]+$"
+                    ret = "^[0-9A-Za-z -]+$"
                 Case tRegExValidation.tQR
                     ret = "^WNO" 'TODO change back to WON
                 Case tRegExValidation.tWarehouse
                     ret = "^[a-zA-Z0-9]{1}[a-zA-Z0-9]?[a-zA-Z0-9]?[a-zA-Z0-9]?$"
                 Case tRegExValidation.tLocname
-                    ret = "^[A-Z0-9-.]+$"
+                    ret = "^[0-9]{1,2}[-]{1}[0-9]{2}[a-z ]{1,5}"
                 Case tRegExValidation.tStatus
                     ret = "^[a-zA-Z]+$"
                 Case tRegExValidation.tNumeric
@@ -233,133 +237,127 @@ Module main
             Return ret
         End Get
     End Property
+#End Region
+    Private Sub echandler()
 
+    End Sub
     Sub MAIN()
+        'AddHandler System.Threading.ThreadStateException, AddressOf echandler
+        'AddHandler Application.threadexception, AddressOf echandler
+        Dim currentDomain As AppDomain = AppDomain.CurrentDomain
+        AddHandler currentDomain.UnhandledException, AddressOf echandler
+        Try
+            Dim frmMenu As New frmMenu
+            With frmMenu
+                ' Set the menu item to add modules
+                .ModuleMenu = .MenuItem1
 
-        Dim frmMenu As New frmMenu
-        With frmMenu
-            ' Set the menu item to add modules
-            .ModuleMenu = .MenuItem1
 
-            ' Create the required Modules
-            '.AddRSS(o.ISSUEKIT, New interfaceKITISSUE(frmMenu))
-            'With rss(o.ISSUEKIT)
-            '    .ModuleName = "Issue Kit"
-            '    .SubMenu = "Work Orders"
-            '    .ShowOnMenu = True
-            '    .SetBaseForm(frmMenu)
-            'End With
+                .AddRSS(o.GRVITEM, New InterfaceGRV(frmMenu))
+                With rss(o.GRVITEM)
+                    .Argument("MANUAL") = "N"
+                    .Argument("SCANACTION") = "OPENFORM"
+                    .ModuleName = "Receive Goods"
+                    '.SubMenu = "Goods Receipt"
+                    .SetBaseForm(frmMenu)
+                End With
 
-            '.AddRSS(o.PREP, New interfacePRep(frmMenu))
-            'With rss(o.PREP)
-            '    '    .Argument("CNTNO") = ""
-            '    .ModuleName = "Report Production"
-            '    .SubMenu = "Work Orders"
-            '    .ShowOnMenu = True
-            '    .SetBaseForm(frmMenu)
-            'End With
 
-            .AddRSS(o.GRVITEM, New InterfaceGRV(frmMenu))
-            With rss(o.GRVITEM)
-                .Argument("MANUAL") = "N"
-                .Argument("SCANACTION") = "OPENFORM"
-                .ModuleName = "Receive Boxes"
-                .SubMenu = "Goods Receipt"
-                .SetBaseForm(frmMenu)
+                .AddRSS(o.IWHTX, New InterfaceWHTX(frmMenu))
+                With rss(o.IWHTX)
+                    .Argument("MANUAL") = "N"
+                    .Argument("TXTYPE") = "INTERWHTX"
+                    .ModuleName = "Standard Transfer"
+                    .SubMenu = "Stock Transfer"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.PAWHTX2, New InterfaceWHTX(frmMenu))
+                With rss(o.PAWHTX2)
+                    .Argument("MANUAL") = "N"
+                    .Argument("TXTYPE") = "PUTAWAY"
+                    .Argument("WHouse") = "GRVR"
+                    .ModuleName = "STOCK Put Away"
+                    .SubMenu = "Stock Transfer"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.PAWHTX, New InterfaceWHTX(frmMenu))
+                With rss(o.PAWHTX)
+                    .Argument("MANUAL") = "N"
+                    .Argument("TXTYPE") = "PUTAWAY"
+                    .Argument("WHouse") = "PROR"
+                    .ModuleName = "PRODUCTION Put Away"
+                    .SubMenu = "Stock Transfer"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.PRODREP, New interfacePRODREP(frmMenu))
+                With rss(o.PRODREP)
+                    .Argument("CNTNO") = ""
+                    .ModuleName = "Report Production"
+                    '.SubMenu = "Work Orders"
+                    .ShowOnMenu = True
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.PARTLU, New InterfacePARTLU(frmMenu))
+                With rss(o.PARTLU)
+                    .ModuleName = "Part Lookup"
+                    .Argument("BARCODE") = ""
+                    .SubMenu = "Inventory Count"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.ODETTE, New interfaceOdette(frmMenu))
+                With rss(o.ODETTE)
+                    .Argument("BACODE") = "0"
+                    .ModuleName = "Odette Lookup"
+                    .SubMenu = "Inventory Count"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.ODETTE2, New interfaceOdette2(frmMenu))
+                With rss(o.ODETTE2)
+                    .ModuleName = "Odette Lookup (M)"
+                    '.Argument("BCODE") = ""
+                    .SubMenu = "Inventory Count"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.STKCNT, New InterfaceSTKCNT(frmMenu))
+                With rss(o.STKCNT)
+                    .Argument("SHOWBAL") = "FALSE"
+                    .Argument("SCANACTION") = "OPENFORM"
+                    .Argument("MANUAL") = "N"
+                    .ModuleName = "Box Count"
+                    .SubMenu = "Inventory Count"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                .AddRSS(o.PSLIP, New interfacePSLIP(frmMenu))
+                With rss(o.PSLIP)
+                    .ModuleName = "Start Pick"
+                    '.SubMenu = "Picking"
+                    .SetBaseForm(frmMenu)
+                End With
+
+                ' Run the program
+                .MainLoop()
+
+                ' Clean up
+                For i As Integer = 0 To UBound(rss)
+                    If Not IsNothing(rss(i)) Then
+                        rss(i).Close()
+                        rss(i) = Nothing
+                    End If
+                Next
+                .Close()
             End With
+        Catch ex As Exception
 
-            '.AddRSS(o.GRVITEM, New InterfaceGRV(frmMenu))
-            'With rss(o.GRVITEM)
-            '    .Argument("MANUAL") = "N"
-            '    .Argument("SCANACTION") = "INCREMENT"
-            '    .ModuleName = "Receive Items"
-            '    .SubMenu = "Goods Receipt"
-            '    .SetBaseForm(frmMenu)
-            'End With
+        End Try
 
-
-            .AddRSS(o.IWHTX, New InterfaceWHTX(frmMenu))
-            With rss(o.IWHTX)
-                .Argument("MANUAL") = "N"
-                .Argument("TXTYPE") = "INTERWHTX"
-                .ModuleName = "Standard Transfer"
-                .SubMenu = "Stock Transfer"
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.PAWHTX2, New InterfaceWHTX(frmMenu))
-            With rss(o.PAWHTX2)
-                .Argument("MANUAL") = "N"
-                .Argument("TXTYPE") = "PUTAWAY"
-                .Argument("WHouse") = "GRVR"
-                .ModuleName = "STOCK Put Away"
-                .SubMenu = "Stock Transfer"
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.PAWHTX, New InterfaceWHTX(frmMenu))
-            With rss(o.PAWHTX)
-                .Argument("MANUAL") = "N"
-                .Argument("TXTYPE") = "PUTAWAY"
-                .Argument("WHouse") = "PROR"
-                .ModuleName = "PRODUCTION Put Away"
-                .SubMenu = "Stock Transfer"
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.PRODREP, New interfacePRODREP(frmMenu))
-            With rss(o.PRODREP)
-                '    .Argument("CNTNO") = ""
-                .ModuleName = "Report Production"
-                .SubMenu = "Work Orders"
-                .ShowOnMenu = True
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.PARTLU, New InterfacePARTLU(frmMenu))
-            With rss(o.PARTLU)
-                .ModuleName = "Part Lookup"
-                .Argument("BARCODE") = ""
-                .SubMenu = "Inventory Count"
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.ODETTE, New interfaceOdette(frmMenu))
-            With rss(o.ODETTE)
-                .ModuleName = "Odette Lookup"
-                .SubMenu = "Inventory Count"
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.STKCNT, New InterfaceSTKCNT(frmMenu))
-            With rss(o.STKCNT)
-                .Argument("SHOWBAL") = "FALSE"
-                .Argument("SCANACTION") = "OPENFORM"
-                .Argument("MANUAL") = "N"
-                .ModuleName = "Box Count"
-                .SubMenu = "Inventory Count"
-                .SetBaseForm(frmMenu)
-            End With
-
-            .AddRSS(o.PSLIP, New interfacePSLIP(frmMenu))
-            With rss(o.PSLIP)
-                .ModuleName = "Start Pick"
-                .SubMenu = "Picking"
-                .SetBaseForm(frmMenu)
-            End With
-
-            ' Run the program
-            .MainLoop()
-
-            ' Clean up
-            For i As Integer = 0 To UBound(rss)
-                If Not IsNothing(rss(i)) Then
-                    rss(i).Close()
-                    rss(i) = Nothing
-                End If
-            Next
-            .Close()
-        End With
 
     End Sub
 

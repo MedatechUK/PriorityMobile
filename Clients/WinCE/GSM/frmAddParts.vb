@@ -48,7 +48,7 @@ Public Class frmAddParts
                 Dim pr As DataRow
                 pr = pars.NewRow
                 For Each pr In pars.Rows
-                    If pr("Name") = bcode Then
+                    If pr("Barcode") = bcode Then
                         'remove the row
                         pr.Delete()
                         'reset the barcode handler textbox
@@ -57,10 +57,14 @@ Public Class frmAddParts
                         TextBox1.Focus()
                         'refresh the datagrid
                         DataGrid1.DataSource = pars
+                        If pars.Rows.Count = 0 Then
+                            Me.DialogResult = Windows.Forms.DialogResult.OK
+                        End If
                         'break out of the checking
                         Exit Sub
                     End If
                 Next
+
                 TextBox1.Text = ""
             Case Else
                 Exit Sub

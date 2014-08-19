@@ -13,14 +13,12 @@ Partial Public Class frmPassCode
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
-    Private mainMenu1 As System.Windows.Forms.MainMenu
 
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.mainMenu1 = New System.Windows.Forms.MainMenu
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
@@ -61,7 +59,6 @@ Partial Public Class frmPassCode
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TextBox1)
-        Me.Menu = Me.mainMenu1
         Me.Name = "frmPassCode"
         Me.Text = "Quality Control Passcode"
         Me.ResumeLayout(False)

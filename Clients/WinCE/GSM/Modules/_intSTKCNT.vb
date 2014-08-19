@@ -46,6 +46,13 @@ Public Class InterfaceSTKCNT
         iVendor = 1
         iPart = 2
     End Enum
+    Private ScanQuan As Integer = 0
+    Private ScanCust As String = ""
+    Private ScanLot As String = ""
+    Private UNQList As New List(Of Integer)
+    Dim unq As Integer = 0
+    Dim unqhold As Integer = 0
+
     Private mInvoke As tInvoke = tInvoke.iBarcode
     Public Sub New(Optional ByRef App As Form = Nothing)
 
@@ -61,10 +68,12 @@ Public Class InterfaceSTKCNT
 
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
-        With CtrlForm.el(0)
-            .DataEntry.Text = "Main"
-            .ProcessEntry()
-        End With
+        'With CtrlForm.el(0)
+        '    .DataEntry.Text = "Main"
+        '    .ProcessEntry()
+        'End With
+        CtrlTable.Focus()
+        UNQList.Add(0)
     End Sub
 
 #End Region
@@ -87,7 +96,7 @@ Public Class InterfaceSTKCNT
         With field
             .Name = "LOCNAME"
             .Title = "To Bin"
-            .ValidExp = ValidStr(tRegExValidation.tLocname)
+            .ValidExp = ValidStr(tRegExValidation.tString)
             .SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE upper(WARHSNAME) = upper('%WARHS%') AND INACTIVE <> 'Y'"
             .SQLValidation = "SELECT top 1 LOCNAME FROM WAREHOUSES WHERE upper(LOCNAME) = upper('%ME%') AND upper(WARHSNAME) = upper('%WARHS%') AND INACTIVE <> 'Y'"
             .Data = ""      '******** Barcoded field '*******
@@ -254,7 +263,7 @@ Public Class InterfaceSTKCNT
 
         If Argument("SHOWBAL") = "TRUE" Then
             ' Set the query to load recordtype 2s
-            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME " & _
+            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, ACT.ACTNAME,SERIAL.SERIALNAME  " & _
                                     "dbo.REALQUANT(BALANCE) as BALANCE, '' AS CQUANT " & _
                                     "from WARHSBAL, WAREHOUSES, CUSTOMERS, PART, SERIAL, ACT " & _
                                     "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
@@ -268,7 +277,7 @@ Public Class InterfaceSTKCNT
                                     "ORDER BY PART.PARTNAME"
         Else
             ' Set the query to load recordtype 2s
-            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, SERIAL.SERIALNAME, ACT.ACTNAME, " & _
+            CtrlTable.RecordsSQL = "select PART.PARTNAME, PART.PARTDES, CUSTOMERS.CUSTNAME, ACT.ACTNAME,SERIAL.SERIALNAME , " & _
                                     "'0' AS CQUANT " & _
                                     "from WARHSBAL, WAREHOUSES, CUSTOMERS, PART, SERIAL, ACT " & _
                                     "where WARHSBAL.WARHS = WAREHOUSES.WARHS " & _
@@ -313,7 +322,7 @@ Public Class InterfaceSTKCNT
                 Next
             End If
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
     End Sub
 
@@ -525,7 +534,7 @@ Public Class InterfaceSTKCNT
             End With
 
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
     End Sub
 
@@ -537,17 +546,25 @@ Public Class InterfaceSTKCNT
         Dim doc As New Xml.XmlDocument
         doc.LoadXml(Value)
         If regex.ismatch(Value, "^<") = False Then
-            MsgBox("This doesnt appear to be a valid barcode")
+            OverControl.msgboxa("This doesnt appear to be a valid barcode")
         Else
 
+            ScanCust = "Goods"
+            ScanLot = "0"
+            ScanQuan = 0
+            Dim unqscan As Boolean = False
 
 
             For Each nd As XmlNode In doc.SelectNodes("in/i")
                 Dim DataType As String = nd.Attributes("n").Value
                 Select Case DataType
+                    Case "BCODE"
+                        mInvoke = tInvoke.iPart
+                        InvokeData("SELECT PART.BARCODE FROM PART WHERE PART.BARCODE = '" & nd.Attributes("v").Value & "'")
+                        v2 = TBar
                     Case "PART"
                         mInvoke = tInvoke.iPart
-                        InvokeData("SELECT PART.BARCODE FROM PART WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                        InvokeData("SELECT PART.BARCODE FROM PART WHERE PART.BARCODE = '" & nd.Attributes("v").Value & "'")
                         v2 = TBar
                     Case "WARHS"
                         With CtrlForm
@@ -561,50 +578,100 @@ Public Class InterfaceSTKCNT
                             .el(1).DataEntry.Text = nd.Attributes("v").Value
                             .el(1).ProcessEntry()
                         End With
+                    Case "QTY"
+                        ScanQuan = nd.Attributes("v").Value
+
+
+                    Case "QUANTITY"
+                        ScanQuan = nd.Attributes("v").Value
+                    Case "PROCESS"
+                        ProcessForm()
+                    Case "CLOSE"
+                        Me.CloseMe()
+                    Case "CUST"
+                        ScanCust = nd.Attributes("v").Value
+                    Case "UNQ"
+                        unq = nd.Attributes("v").Value
+                        unqscan = True
+                    Case "LOT"
+                        ScanLot = nd.Attributes("v").Value
                 End Select
 
             Next
             Dim f As Boolean = False
             Dim add As Integer = 0
-            If v2 <> "" Then
+            Dim fnd As Boolean = False
+            If unq = unqhold Then
+                unqhold += 1
+            End If
+            If unqscan = False Then
+                unq = unqhold
+            Else
+                unqscan = False
 
+            End If
 
-                If CtrlForm.el(0).Enabled Or CtrlForm.el(1).Enabled Then
-                    MsgBox("Please select a warehouse and location first.")
-                    Exit Sub
+            For Each i As Integer In UNQList
+                If i = unq Then
+                    'Dim f As New frmMsgBox
+                    'f.Label1.Text = "You have already scanned this label"
+                    'f.ShowDialog()
+                    'If f.ShowDialog = DialogResult.OK Then
+                    '    f.Dispose()
+                    'End If
+                    Beep()
+
+                    v2 = ""
+                    fnd = True
                 End If
+            Next
+            If fnd = False Then
+                UNQList.Add(unq)
+            Else
+                fnd = False
+            End If
 
-                For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
-                    If CtrlTable.ItemValue("_BARCODE", i) = v2 Then
-                        f = True
-                        Select Case Argument("SCANACTION")
+        End If
+        If v2 <> "" Then
+            Dim add As Integer = 0
+            Dim f As Boolean = False
+            If CtrlForm.el(0).Enabled Or CtrlForm.el(1).Enabled Then
+                OverControl.msgboxa("Please select a warehouse and location first.")
+                Exit Sub
+            End If
 
-                            Case "OPENFORM"
+            For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
+                If CtrlTable.ItemValue("_BARCODE", i) = v2 Then
+                    f = True
+                    Select Case Argument("SCANACTION")
 
-                                Dim num As New frmNumber
-                                With num
-                                    .Text = "Box quantity."
-                                    .ShowDialog()
-                                    add = .number
-                                    If .Manual Then Argument("MANUAL") = "Y"
-                                    .Dispose()
-                                End With
+                        Case "OPENFORM"
 
-                            Case "INCREMENT"
-                                add = 1
+                            Dim num As New frmNumber
+                            With num
+                                .Text = "Box quantity."
+                                .number = ScanQuan
+                                .ShowDialog()
+                                add = .number
+                                If .Manual Then Argument("MANUAL") = "Y"
+                                .Dispose()
+                            End With
 
-                        End Select
-                        CtrlTable.Table.Items(i).SubItems(3).Text = CInt(CtrlTable.ItemValue("_CQUANT", i)) + add
-                        Exit For
-                    End If
-                Next
+                        Case "INCREMENT"
+                            add = 1
 
-                If Not f Then
-                    mInvoke = tInvoke.iBarcode
-                    InvokeData("SELECT PARTNAME, BARCODE, PARTDES FROM PART WHERE BARCODE = '" & v2 & "'")
+                    End Select
+                    CtrlTable.Table.Items(i).SubItems(5).Text = CInt(CtrlTable.ItemValue("_CQUANT", i)) + add
+                    Exit For
                 End If
+            Next
+
+            If Not f Then
+                mInvoke = tInvoke.iBarcode
+                InvokeData("SELECT PARTNAME, BARCODE, PARTDES FROM PART WHERE BARCODE = '" & v2 & "'")
             End If
         End If
+
     End Sub
 
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
@@ -629,14 +696,14 @@ Public Class InterfaceSTKCNT
                 With lvi
                     .SubItems(0).Text = Data(0, 0)
                     .SubItems.Add(Data(2, 0))
+                    .SubItems.Add(CStr(ScanCust))
                     .SubItems.Add("")
-                    .SubItems.Add("")
-                    .SubItems.Add("")
+                    .SubItems.Add(CStr(ScanLot))
 
                     If Argument("SHOWBAL") = "TRUE" Then
                         .SubItems.Add("")
                     End If
-                    .SubItems.Add(CStr(0))
+                    .SubItems.Add(CStr(ScanQuan))
                     .SubItems.Add(CStr(Data(1, 0)))
                     .Selected = True
                 End With
@@ -657,6 +724,7 @@ Public Class InterfaceSTKCNT
 
         End Select
 
+        CtrlTable.Focus()
 
     End Sub
 

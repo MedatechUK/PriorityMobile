@@ -27,12 +27,19 @@ Public Class interfacePSLIP
     End Enum
     Dim SendType As tSendType = tSendType.NextPS
     Private TBar As String = ""
+    Private am As Decimal = 0.0
+    Private UNQList As New List(Of Integer)
+    Dim unq As Integer = 0
+    Private ScannedAm As Integer
+
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
         If CtrlForm.el(0).Data.Length = 0 Then
             SendType = tSendType.NextPS
             InvokeData("SELECT dbo.ZSFDC_NEXTPICK('" & UserName & "')")
         End If
+        CtrlTable.Focus()
+
     End Sub
 
     Public Overrides Sub FormSettings()
@@ -137,20 +144,6 @@ Public Class interfacePSLIP
         End With
         CtrlTable.AddCol(col)
 
-        With col
-            .Name = "_PARTDES"
-            .Title = "Part Desc"
-            .initWidth = 95
-            .TextAlign = HorizontalAlignment.Left
-            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
-            .ValidExp = ValidStr(tRegExValidation.tBarcode)
-            .SQLValidation = "SELECT '%ME%'"
-            .DefaultFromCtrl = Nothing '
-            .ctrlEnabled = False
-            .Mandatory = False
-        End With
-        CtrlTable.AddCol(col)
-
         ' BARCODE
         With col
             .Name = "_PARTNAME"
@@ -166,6 +159,20 @@ Public Class interfacePSLIP
             .ctrlEnabled = True
             .Mandatory = True
             .ctrlEnabled = False
+        End With
+        CtrlTable.AddCol(col)
+
+        With col
+            .Name = "_PARTDES"
+            .Title = "Part Desc"
+            .initWidth = 95
+            .TextAlign = HorizontalAlignment.Left
+            .AltEntry = ctrlText.tAltCtrlStyle.ctNone 'ctKeyb 
+            .ValidExp = ValidStr(tRegExValidation.tBarcode)
+            .SQLValidation = "SELECT '%ME%'"
+            .DefaultFromCtrl = Nothing '
+            .ctrlEnabled = False
+            .Mandatory = False
         End With
         CtrlTable.AddCol(col)
 
@@ -251,7 +258,7 @@ Public Class interfacePSLIP
         'CtrlTable.AddCol(col)
 
         ' Set the query to load recordtype 2s
-        CtrlTable.RecordsSQL = "SELECT     TOP (100) PERCENT dbo.WAREHOUSES.LOCNAME, dbo.PART.PARTDES, dbo.PART.PARTNAME, dbo.ZTRX_GROUPPICK.QTY " & _
+        CtrlTable.RecordsSQL = "SELECT     TOP (100) PERCENT dbo.WAREHOUSES.LOCNAME, dbo.PART.PARTNAME,dbo.PART.PARTDES,  dbo.ZTRX_GROUPPICK.QTY " & _
                                 "FROM         dbo.ZTRX_PICKMONITOR INNER JOIN " & _
                                 "                      dbo.ZTRX_GROUPPICK ON dbo.ZTRX_PICKMONITOR.PICKREF = dbo.ZTRX_GROUPPICK.PICKREF INNER JOIN " & _
                                 "                      dbo.PART ON dbo.ZTRX_GROUPPICK.PART = dbo.PART.PART INNER JOIN " & _
@@ -272,7 +279,7 @@ Public Class interfacePSLIP
                     .Items(.Items.Count - 1).SubItems.Add(Data(1, y))
                     .Items(.Items.Count - 1).SubItems.Add(Data(2, y))
                     .Items(.Items.Count - 1).SubItems.Add(Data(3, y))
-                    .Items(.Items.Count - 1).SubItems.Add("")
+                    .Items(.Items.Count - 1).SubItems.Add(0)
                 End With
             Next
         Catch e As Exception
@@ -349,6 +356,8 @@ Public Class interfacePSLIP
                 End Try
 
         End Select
+        CtrlTable.Focus()
+
     End Sub
 
     Public Overrides Function VerifyForm() As Boolean
@@ -389,7 +398,7 @@ Public Class interfacePSLIP
                 Dim t2() As String = { _
                             CtrlForm.ItemValue("PSNO"), _
                             CtrlTable.ItemValue("_PARTNAME", y), _
-                            "CL", _
+                            "FIN", _
                             CtrlTable.ItemValue("_TOLOC", y), _
                             CStr(CInt(1000 * CtrlTable.ItemValue("_QUANT", y))), _
                             CStr(CInt(1000 * CtrlTable.ItemValue("_PACKED", y))) _
@@ -418,17 +427,41 @@ Public Class interfacePSLIP
                     Case "PART"
                         SendType = tSendType.Part
 
-                        InvokeData("SELECT PART.BARCODE FROM PARTS WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                        InvokeData("SELECT PART.BARCODE FROM PART WHERE PART.BARCODE = '" & nd.Attributes("v").Value & "'")
                         v2 = TBar
+                    Case "QTY"
+                        ScannedAm = nd.Attributes("v").Value
+                    Case "UNQ"
+                        unq = nd.Attributes("v").Value
                 End Select
 
             Next
             Dim f As Boolean = False
             Dim add As Integer = 0
+            Dim fnd As Boolean = False
+            For Each i As Integer In UNQList
+                If i = unq Then
+                    'Dim f As New frmMsgBox
+                    'f.Label1.Text = "You have already scanned this label"
+                    'f.ShowDialog()
+                    'If f.ShowDialog = DialogResult.OK Then
+                    '    f.Dispose()
+                    'End If
+                    Beep()
+
+                    v2 = ""
+                    fnd = True
+                End If
+            Next
+            If fnd = False Then
+                UNQList.Add(unq)
+            Else
+                fnd = False
+            End If
             If v2 <> "" Then
-                If System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tBarcode)) Then
+                If System.Text.RegularExpressions.Regex.IsMatch(v2, ValidStr(tRegExValidation.tBarcode)) Then
                     SendType = tSendType.TableScan
-                    InvokeData("SELECT PARTNAME, BARCODE FROM PART WHERE BARCODE = '" & Value & "'")
+                    InvokeData("SELECT PARTNAME, BARCODE FROM PART WHERE BARCODE = '" & v2 & "'")
 
                 ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, "^[A-Z]+[0-9]+$") Or Value = "ZZZ" Then
                     With CtrlForm.el(1)
@@ -437,10 +470,10 @@ Public Class interfacePSLIP
                         .ProcessEntry()
                     End With
 
-                ElseIf System.Text.RegularExpressions.Regex.IsMatch(Value, ValidStr(tRegExValidation.tNumeric)) Then
+                ElseIf System.Text.RegularExpressions.Regex.IsMatch(v2, ValidStr(tRegExValidation.tNumeric)) Then
                     For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
                         With CtrlTable
-                            If .Table.Items(i).SubItems(2).Text = CtrlForm.ItemValue("PARTNAME") And .Table.Items(i).SubItems(0).Text = CtrlForm.ItemValue("TOLOC") Then
+                            If .Table.Items(i).SubItems(1).Text = CtrlForm.ItemValue("PARTNAME") And .Table.Items(i).SubItems(0).Text = CtrlForm.ItemValue("TOLOC") Then
                                 If CInt(.Table.Items(i).SubItems(4).Text) + CInt(Value) > CInt(.Table.Items(i).SubItems(3).Text) Then
                                     MsgBox("To many items scanned.")
                                 Else
@@ -459,6 +492,13 @@ Public Class interfacePSLIP
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
 
         Select Case SendType
+            Case tSendType.Part
+                If Data Is Nothing Then
+                    TBar = ""
+                Else
+                    TBar = Data(0, 0)
+                End If
+
             Case tSendType.NextPS
                 If Data(0, 0).Length = 0 Then
                     MsgBox("No more packing slips.")
@@ -479,6 +519,7 @@ Public Class interfacePSLIP
                 'do nothing
 
             Case tSendType.TableScan
+                Dim add As Decimal = 0.0
                 With CtrlForm.el(2)
                     If Not .Value.Text = Data(0, 0) Then
                         .Value.Text = Data(0, 0)
@@ -489,14 +530,23 @@ Public Class interfacePSLIP
 
                 For i As Integer = 0 To CtrlTable.Table.Items.Count - 1
                     With CtrlTable
-                        If .Table.Items(i).SubItems(2).Text = CtrlForm.ItemValue("PARTNAME") And .Table.Items(i).SubItems(0).Text = CtrlForm.ItemValue("TOLOC") Then
+                        If .Table.Items(i).SubItems(1).Text = Data(0, 0) Then 'CtrlForm.ItemValue("PARTNAME") And .Table.Items(i).SubItems(0).Text = CtrlForm.ItemValue("TOLOC") Then
                             .Table.Items(i).Selected = True
+                            'Dim num As New frmNumber
+                            'With num
+                            '    .Text = "Box quantity."
+                            '    .ShowDialog()
+                            '    add = .number
+                            '    .Dispose()
+                            'End With
+                            add = ScannedAm
+
                             If .Table.Items(i).SubItems(4).Text.Length > 0 Then
-                                If CInt(.Table.Items(i).SubItems(4).Text) + 1 > CInt(.Table.Items(i).SubItems(3).Text) Then
+                                If CInt(.Table.Items(i).SubItems(4).Text) + add > CInt(.Table.Items(i).SubItems(3).Text) Then
                                     MsgBox("To many items scanned.")
                                     Exit Sub
                                 Else
-                                    .Table.Items(i).SubItems(4).Text = CStr(CInt(.Table.Items(i).SubItems(4).Text) + 1)
+                                    .Table.Items(i).SubItems(4).Text = CStr(CInt(.Table.Items(i).SubItems(4).Text) + add)
                                 End If
                             Else
                                 .Table.Items(i).SubItems(4).Text = "0"
@@ -511,6 +561,7 @@ Public Class interfacePSLIP
 
 
         End Select
+        CtrlTable.Focus()
 
     End Sub
 

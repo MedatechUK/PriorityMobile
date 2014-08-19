@@ -30,8 +30,10 @@ End Class
 
 Public Class InterfaceGRV
     Inherits SFDCData.iForm
-    Private Typer As String = "M"
+    Private Typer As String = "L"
     Private Family As Integer = 0
+    Dim unqs() As Integer = {0}
+    Dim unq As Integer
     Private Enum tInvoke
         iBarcode = 0
         iVendor = 1
@@ -99,7 +101,7 @@ Public Class InterfaceGRV
         With field
             .Name = "WARHS"
             .Title = "W/H"
-            .ValidExp = ValidStr(tRegExValidation.tWarehouse)
+            .ValidExp = ValidStr(tRegExValidation.tString)
             '.SQLList = "SELECT DISTINCT WARHSNAME FROM WAREHOUSES WHERE INACTIVE <> 'Y'"
             .SQLValidation = "SELECT top 1 WARHSNAME FROM WAREHOUSES WHERE UPPER(WARHSNAME) = UPPER('%ME%')"
             .Data = ""      '******** Barcoded field '*******
@@ -112,7 +114,7 @@ Public Class InterfaceGRV
         With field
             .Name = "TOLOC"
             .Title = "Bin"
-            .ValidExp = ValidStr(tRegExValidation.tLocname)
+            .ValidExp = ValidStr(tRegExValidation.tString)
             '.SQLList = "SELECT DISTINCT LOCNAME FROM WAREHOUSES WHERE UPPER(WARHSNAME) = UPPER('%WARHS%') AND WAREHOUSES.INACTIVE <> 'Y'"
             .SQLValidation = "SELECT LOCNAME FROM WAREHOUSES WHERE UPPER(LOCNAME) = UPPER('%ME%') AND UPPER(WARHSNAME) = UPPER('%WARHS%') AND WAREHOUSES.INACTIVE <> 'Y'"
             .Data = ""
@@ -377,7 +379,7 @@ Public Class InterfaceGRV
                 End With
             Next
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
 
     End Sub
@@ -488,7 +490,7 @@ Public Class InterfaceGRV
             Next
 
         Catch e As Exception
-            MsgBox(e.Message)
+            OverControl.msgboxa(e.Message)
         End Try
 
     End Sub
@@ -521,21 +523,43 @@ Public Class InterfaceGRV
 
     Public Overrides Sub TableScan(ByVal Value As String)
         Dim v2 As String = ""
+        Dim lot As String = ""
+        Dim qty As Integer = 0
+
+
         Value = Value.Replace(":", "")
         Dim doc As New Xml.XmlDocument
         doc.LoadXml(Value)
-        If regex.ismatch(Value, "^<") = False Then
-            MsgBox("This doesnt appear to be a valid 2d barcode")
-        Else
+        If Regex.IsMatch(Value, "^<in><i") = True Then
             For Each nd As XmlNode In doc.SelectNodes("in/i")
+                Dim DataType As String = nd.Attributes("n").Value
+                Select Case DataType
+                    Case "PROCESS"
+                        ProcessForm()
+                    Case "CLOSE"
+                        Me.CloseMe()
+                End Select
+
+            Next
+        ElseIf Regex.IsMatch(Value, "^<") = False Then
+            OverControl.msgboxa("This doesnt appear to be a valid 2d barcode")
+        Else
+
+            For Each nd As XmlNode In doc.SelectNodes("in/g")
                 Dim DataType As String = nd.Attributes("n").Value
                 Select Case DataType
                     Case "ORDNAME"
                         v2 = nd.Attributes("v").Value
                     Case "PART"
                         mInvoke = tInvoke.iPart
-                        InvokeData("SELECT PART.BARCODE,PART.FAMILY FROM PART WHERE PART.PARTNAME = '" & nd.Attributes("v").Value & "'")
+                        InvokeData("SELECT PART.BARCODE,PART.FAMILY FROM PART WHERE PART.BARCODE = '" & nd.Attributes("v").Value & "'")
                         v2 = TBar
+                    Case "UNQ"
+                        unq = Convert.ToInt32(nd.Attributes("n").Value)
+                    Case "PROCESS"
+                        ProcessForm()
+                    Case "CLOSE"
+                        Me.CloseMe()
                 End Select
 
             Next
@@ -554,6 +578,7 @@ Public Class InterfaceGRV
                         End If
                         If Not PORD(CtrlForm.el(CtrlForm.ColNo("PONAME")).Data).ORDERITEMS.ContainsKey(v2) Then
                             Beep()
+                            OverControl.msgboxa("Scanned item not found in this purchase order")
                             Exit Sub
                         End If
 
@@ -571,12 +596,13 @@ Public Class InterfaceGRV
 
                                             Dim num As New frmNumber
                                             With num
-                                                .Text = "Box quantity."
+                                                .Text = v2
                                                 .ShowDialog()
                                                 add = .number
                                                 If .Manual Then Argument("MANUAL") = "Y"
                                                 .Dispose()
                                             End With
+
                                             If CtrlTable.Table.Items(i).SubItems(4).Text = "33" Then
                                                 Dim g As New frmMetreLen
                                                 g.ShowDialog()
@@ -642,8 +668,8 @@ Public Class InterfaceGRV
 
                         End If
 
-                        CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = ""
-                        CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data = ""
+                        'CtrlForm.el(CtrlForm.ColNo("PONAME")).Data = ""
+                        'CtrlForm.el(CtrlForm.ColNo("VENDOR")).Data = ""
 
                     End If
 
@@ -664,9 +690,10 @@ Public Class InterfaceGRV
                     End If
                 End If
             Else
-                MsgBox("Code not recognised")
+                OverControl.msgboxa("Code not recognised")
             End If
         End If
+        CtrlTable.Focus()
 
 
     End Sub
@@ -769,7 +796,7 @@ Public Class InterfaceGRV
                     Family = Data(1, 0)
                 End If
         End Select
-
+        CtrlTable.Focus()
     End Sub
 
 End Class
