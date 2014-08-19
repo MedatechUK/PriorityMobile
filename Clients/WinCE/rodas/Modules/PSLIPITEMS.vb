@@ -3,7 +3,7 @@
     Private mROUTE As String
     Private mPSlipNo As String
     Private mPart As String
-    Private mQuant As Integer
+    Private mQuant As Decimal
     Private mDesc As String
     Private mLot As String
     Private mWARHS As String
@@ -14,6 +14,7 @@
     Private mAmount As Integer
     Private mConv As Decimal
     Private pCust As String
+    Private _temp As Decimal
     Public Property ORDI() As Integer
         Get
             Return mORDI
@@ -46,11 +47,11 @@
             mPart = value
         End Set
     End Property
-    Public Property Quant() As Integer
+    Public Property Quant() As Decimal
         Get
             Return mQuant
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As Decimal)
             mQuant = value
         End Set
     End Property
@@ -120,7 +121,13 @@
     End Property
     Public Property Con() As Decimal
         Get
-            Return mConv
+            Select Case mConv
+                Case 1
+                    Return 0
+                Case Else
+                    Return mConv
+            End Select
+
         End Get
         Set(ByVal value As Decimal)
             mConv = value
@@ -134,7 +141,15 @@
             pCust = value
         End Set
     End Property
-    Public Sub New(ByVal ord As Integer, ByVal ro As String, ByVal pslip As String, ByVal par As String, ByVal qua As Integer, ByVal des As String, ByVal lt As String, ByVal wrh As String, ByVal bi As String, ByVal ty As String, ByVal ona As String, ByVal ol As String, ByVal am As Integer, ByVal cnv As Decimal, ByVal cst As String)
+    Public Property Temp() As Decimal
+        Get
+            Return _temp
+        End Get
+        Set(ByVal value As Decimal)
+            _temp = value
+        End Set
+    End Property
+    Public Sub New(ByVal ord As Integer, ByVal ro As String, ByVal pslip As String, ByVal par As String, ByVal qua As Integer, ByVal des As String, ByVal lt As String, ByVal wrh As String, ByVal bi As String, ByVal ty As String, ByVal ona As String, ByVal ol As String, ByVal am As Integer, ByVal cnv As Decimal, ByVal cst As String, ByVal t As Decimal)
         ORDI = ord
         ROUTE = ro
         PSlipNo = pslip
@@ -150,5 +165,6 @@
         Amount = am
         Con = cnv
         Cust = cst
+        Temp = t
     End Sub
 End Class

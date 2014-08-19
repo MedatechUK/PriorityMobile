@@ -89,3 +89,4 @@ C:\Users\Public\Documents\Library\WinMobile\PriorityMobile\Clients\WinCE\rodas\o
 C:\Users\Public\Documents\Library\WinMobile\PriorityMobile\Clients\WinCE\rodas\obj\Debug\WinCEClient.exe
 C:\Users\Public\Documents\Library\WinMobile\PriorityMobile\Clients\WinCE\rodas\obj\Debug\WinCEClient.xml
 C:\Users\Public\Documents\Library\WinMobile\PriorityMobile\Clients\WinCE\rodas\obj\Debug\WinCEClient.pdb
+C:\Users\Public\Documents\Library\WinMobile\PriorityMobile\Clients\WinCE\rodas\obj\Debug\WinCEClient.frmGetTemp.resources

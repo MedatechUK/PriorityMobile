@@ -1,7 +1,45 @@
 ﻿<RecentFiles>
   <RecentFiles>
-    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmMenu.vb/l:..?shared?frmMenu.vb" caret="0" fromTop="0" />
-    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intChoRoute.vb" caret="52025" fromTop="30" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:PickedItems.vb" caret="0" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmDisplay.vb" caret="0" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmDrop.Designer.vb" caret="1420" fromTop="18" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmDrop.vb" caret="232" fromTop="6" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Web References/d:PriWebSVC/f:Reference.vb" caret="1855" fromTop="20" />
+    <File id="E84A89F7-AC60-45A2-AD47-F456C0F84AE5/f:SerialData.vb" caret="157" fromTop="6" />
+    <File id="E84A89F7-AC60-45A2-AD47-F456C0F84AE5/f:LoadingData.vb" caret="2368" fromTop="30" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intUNCNT.vb" caret="1690" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intSTKCNT.vb" caret="15793" fromTop="18" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:PSLIPITEMS.vb" caret="3223" fromTop="30" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:WHSTRAN.vb" caret="1710" fromTop="30" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmMenu.vb/l:..?shared?frmMenu.vb" caret="17301" fromTop="29" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmLogin.vb/l:..?shared?frmLogin.vb" caret="2636" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:LotS.vb" caret="0" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:ErrorLog.vb" caret="576" fromTop="20" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intCYC.vb" caret="0" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intPSLIP.vb" caret="0" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intPARTLU.vb" caret="13728" fromTop="30" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:FroSetts.vb" caret="4977" fromTop="72" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmGetTemp.vb" caret="515" fromTop="11" />
+    <File id="5D33ABAE-C47D-47A1-BD6B-F905A6980A27/f:iForm.vb" caret="0" fromTop="0" />
+    <File id="5D33ABAE-C47D-47A1-BD6B-F905A6980A27/f:ctrlForm.vb" caret="0" fromTop="0" />
+    <File id="5D33ABAE-C47D-47A1-BD6B-F905A6980A27/f:CtrlText.vb" caret="11317" fromTop="1" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:main.vb" caret="6577" fromTop="10" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intCheckByCustomer.vb" caret="35736" fromTop="18" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intCheckRoute.vb" caret="34470" fromTop="27" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intChoRoute.vb" caret="90355" fromTop="24" />
   </RecentFiles>
-  <RecentEdits />
+  <RecentEdits>
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Web References/d:PriWebSVC/f:Reference.vb" caret="4902" fromTop="19" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:FroSetts.vb" caret="5918" fromTop="41" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:PSLIPITEMS.vb" caret="3266" fromTop="25" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intPARTLU.vb" caret="14062" fromTop="29" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmLogin.vb/l:..?shared?frmLogin.vb" caret="6301" fromTop="0" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmMenu.vb/l:..?shared?frmMenu.vb" caret="16664" fromTop="18" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:frmGetTemp.vb" caret="514" fromTop="11" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/f:main.vb" caret="6540" fromTop="9" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intCheckRoute.vb" caret="21185" fromTop="15" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intCheckByCustomer.vb" caret="34986" fromTop="10" />
+    <File id="5D33ABAE-C47D-47A1-BD6B-F905A6980A27/f:CtrlText.vb" caret="11159" fromTop="10" />
+    <File id="8AE784AD-6848-40B7-9841-B4402ABA6F01/d:Modules/f:_intChoRoute.vb" caret="89089" fromTop="3" />
+  </RecentEdits>
 </RecentFiles>

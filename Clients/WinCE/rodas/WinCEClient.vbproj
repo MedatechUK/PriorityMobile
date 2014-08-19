@@ -65,6 +65,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\WinCE\ceMyCls.dll</HintPath>
     </Reference>
+    <Reference Include="OpenNETCF.Net.Mail, Version=2.3.12004.0, Culture=neutral, PublicKeyToken=e60dbea84bb431b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\andymackintosh\Downloads\SDF_2.3.12004\OpenNETCF.Net.Mail.dll</HintPath>
+    </Reference>
     <Reference Include="SFDCData, Version=1.0.3715.26192, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\bin\WinCE\SFDCData.dll</HintPath>
@@ -129,8 +133,15 @@
     <Compile Include="frmDrop.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmGetTemp.Designer.vb">
+      <DependentUpon>frmGetTemp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmGetTemp.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="main.vb" />
     <Compile Include="Modules\ErrorLog.vb" />
+    <Compile Include="Modules\FroSetts.vb" />
     <Compile Include="Modules\LotS.vb" />
     <Compile Include="Modules\PickedItems.vb" />
     <Compile Include="Modules\PSLIPITEMS.vb" />
@@ -239,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDrop.resx">
       <DependentUpon>frmDrop.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGetTemp.resx">
+      <DependentUpon>frmGetTemp.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -202,6 +202,7 @@ Module main
         tMANDS = 14
         tRod1 = 15
         tRod2 = 16
+        tRod3 = 17
 
     End Enum
 
@@ -228,7 +229,7 @@ Module main
                 Case tRegExValidation.tNumeric
                     ret = "^[0-9.]+$"
                 Case tRegExValidation.tString
-                    ret = "^[0-9A-Za-z]+$"
+                    ret = "^[0-9A-Za-z]"
                 Case tRegExValidation.tSerial
                     ret = "^[A-Z]+[0-9]+$"
                 Case tRegExValidation.tPackingSlip
@@ -243,6 +244,8 @@ Module main
                     ret = "^[a-zA-Z]{2}[0-9]{7}(J)[0-9]{3}"
                 Case tRegExValidation.tRod2
                     ret = "^[a-zA-Z]{3}[0-9]{9}"
+                Case tRegExValidation.tRod3
+                    ret = "^[a-zA-Z]{2}[0-9]{5}(J)[0-9]{5}"
             End Select
             Return ret
         End Get

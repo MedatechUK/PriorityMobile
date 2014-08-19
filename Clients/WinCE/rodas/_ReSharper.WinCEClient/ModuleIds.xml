@@ -1,3 +1,6 @@
 <Modules>
   <Module PersistentId="8AE784AD-6848-40B7-9841-B4402ABA6F01" ModuleId="WinCEClient" />
+  <Module PersistentId="5D33ABAE-C47D-47A1-BD6B-F905A6980A27" ModuleId="SFDCData" />
+  <Module PersistentId="E84A89F7-AC60-45A2-AD47-F456C0F84AE5" ModuleId="ceLoadData" />
+  <Module PersistentId="B8C1BCCA-A84F-4023-B0FE-A8B509CE9DF8" ModuleId="ceMyCls" />
 </Modules>
