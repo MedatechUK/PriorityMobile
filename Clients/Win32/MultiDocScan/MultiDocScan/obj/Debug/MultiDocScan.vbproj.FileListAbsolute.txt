@@ -29,3 +29,4 @@ C:\Users\andymackintosh\Desktop\MultiDocScan\MultiDocScan\obj\Debug\MultiDocScan
 C:\Users\andymackintosh\Desktop\MultiDocScan\MultiDocScan\obj\Debug\MultiDocScan.frmSettings.resources
 C:\Users\andymackintosh\Desktop\MultiDocScan\MultiDocScan\obj\Debug\MultiDocScan.Resources.resources
 C:\Users\andymackintosh\Desktop\MultiDocScan\MultiDocScan\obj\Debug\MultiDocScan.vbproj.GenerateResource.Cache
+C:\Users\andymackintosh\Desktop\MultiDocScan\MultiDocScan\obj\Debug\MultiDocScan.exe.licenses

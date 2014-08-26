@@ -252,6 +252,7 @@ Public Class ScanControl
         Dim imgs As New ArrayList
         'The arraylist will hold all the pages scanned in as bitmap images. I have used arraylist as I dont have to specify any bounds as I dont know them
         Dim tw As New DTI.ImageMan.Twain.TwainControl
+        tw.SelectScanner()
         Using tw
 
 
@@ -286,7 +287,7 @@ Public Class ScanControl
             Try
                 img = tw.ScanPage()
             Catch ex As Exception
-                write_error(ex.ToString, 1)
+                write_error(ex.ToString, 1, D.ConStr)
                 Return False
             End Try
 
@@ -350,11 +351,11 @@ Public Class ScanControl
         Return True
 
     End Function
-    Public Shared Sub write_error(ByVal errmsg As String, ByVal usr As Integer)
+    Public Shared Sub write_error(ByVal errmsg As String, ByVal usr As Integer, ByVal cn As String)
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
         With con
-            .ConnectionString = My.Settings.PriorityDB.ToString 'GetConnectionString("PriorityDB")
+            .ConnectionString = cn
 
         End With
         Dim sdate As DateTime
@@ -386,7 +387,7 @@ Public Class ScanControl
             cmd.Parameters.AddWithValue("SDCO", SDC)
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            write_error(ex.ToString, 1)
+            write_error(ex.ToString, 1, cn)
             Console.WriteLine("Write Failed: " & ex.ToString)
         End Try
 

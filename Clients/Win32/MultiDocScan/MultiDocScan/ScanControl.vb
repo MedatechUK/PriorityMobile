@@ -34,6 +34,11 @@ Public Class ScanControl
         Private mpAG As Integer
         Private ui As DTI.ImageMan.Twain.UserInterfaces
         Private resol As Integer
+        Private ConnString As String
+        Private Server As String
+        Private DataBase As String
+        Private UName As String
+        Private PassWord As String
         Public Property PagType() As DTI.ImageMan.Twain.PixelTypes
             Get
                 Return ptype
@@ -66,24 +71,94 @@ Public Class ScanControl
                 resol = value
             End Set
         End Property
-        Public Sub New(ByVal pt As DTI.ImageMan.Twain.PixelTypes, ByVal pgs As Integer, ByVal uids As DTI.ImageMan.Twain.UserInterfaces, ByVal res As Integer)
+        Public Property DBServ() As String
+            Get
+                Return Server
+            End Get
+            Set(ByVal value As String)
+                Server = value
+            End Set
+        End Property
+        Public Property DBName() As String
+            Get
+                Return DataBase
+            End Get
+            Set(ByVal value As String)
+                DataBase = value
+            End Set
+        End Property
+        Public Property DBUname() As String
+            Get
+                Return UName
+            End Get
+            Set(ByVal value As String)
+                UName = value
+            End Set
+        End Property
+        Public Property DBPassword() As String
+            Get
+                Return PassWord
+            End Get
+            Set(ByVal value As String)
+                PassWord = value
+            End Set
+        End Property
+        Public ReadOnly Property ConStr() As String
+            Get
+                Return String.Format("Data Source={0} ;Uid={1};Pwd={2};Initial Catalog={3}", DBServ, DBUname, DBPassword, DBName)
+            End Get
+        End Property
+        Public ReadOnly Property dir() As String
+            Get
+                Return My.Application.Info.DirectoryPath
+            End Get
+        End Property
+        Public ReadOnly Property SettingsFile()
+            Get
+                Return String.Format("{0}\{1}", dir, "settings.xml")
+            End Get
+        End Property
+        Public Sub New(ByVal pt As DTI.ImageMan.Twain.PixelTypes, ByVal pgs As Integer, ByVal uids As DTI.ImageMan.Twain.UserInterfaces, ByVal res As Integer, ByVal serv As String, ByVal una As String, ByVal pas As String, ByVal dbn As String)
             PagType = pt
             mpg = pgs
             uid = uids
             resol = res
+            DBServ = serv
+            DBUname = una
+            DBPassword = pas
+            DBName = dbn
+        End Sub
+        Public Sub New()
+            If File.Exists(SettingsFile) = False Then
+                Console.WriteLine("Application Failed to read the settings file")
+            Else
+                Dim doc As New XDocument
+                doc = XDocument.Load(SettingsFile)
+                PagType = doc.<Settings>.<PixType>.Value
+                mpg = doc.<Settings>.<MaxPage>.Value
+                uid = doc.<Settings>.<UsrIntFc>.Value
+                resol = doc.<Settings>.<Res>.Value
+                DBServ = doc.<Settings>.<DBServ>.Value
+                DBUname = doc.<Settings>.<DBUname>.Value
+                DBPassword = doc.<Settings>.<DBPass>.Value
+                DBName = doc.<Settings>.<DBName>.Value
+
+            End If
+
+
         End Sub
 
         Public Shared Function writesettings(ByVal PixType As Integer, ByVal MaxPage As Integer, ByVal UsrIntFc As Integer, ByVal Res As Integer) As Boolean
-            Try
-                My.Settings.PixType = PixType
-                My.Settings.MaxPage = MaxPage
-                My.Settings.UserIntface = UsrIntFc
-                My.Settings.Resolut = Res
-                My.Settings.Save()
-                Return True
-            Catch ex As Exception
-                Return False
-            End Try
+            'Try
+            '    My.Settings.PixType = PixType
+            '    My.Settings.MaxPage = MaxPage
+            '    My.Settings.UserIntface = UsrIntFc
+            '    My.Settings.Resolut = Res
+            '    My.Settings.Save()
+            '    Return True
+            'Catch ex As Exception
+            '    Return False
+            'End Try
         End Function
     End Class
     Public Class ScanDocument
@@ -91,12 +166,21 @@ Public Class ScanControl
         Private SCAN_DATE As Integer
         Private SCAN_PROCESSED As Char
         Private SCAN_BATCH_NO As Integer
+        Private SCAN_FILE_NAME As String
         Public Property doc_dir() As String
             Get
                 Return SCAN_DOC_DIR
             End Get
             Set(ByVal value As String)
                 SCAN_DOC_DIR = value
+            End Set
+        End Property
+        Public Property file_name() As String
+            Get
+                Return SCAN_FILE_NAME
+            End Get
+            Set(ByVal value As String)
+                SCAN_FILE_NAME = value
             End Set
         End Property
         Public Property doc_date() As Integer
@@ -123,23 +207,35 @@ Public Class ScanControl
                 SCAN_BATCH_NO = value
             End Set
         End Property
-
         Public Sub New(ByVal dir As String, ByVal sdate As Integer, ByVal proc As Char, ByVal bno As Integer)
-
+            'Company = S_Company
             doc_dir = dir
+
             doc_date = sdate
             processed = proc
             batch_no = bno
-
+            'type_code = tcode
+            'user = usr
         End Sub
     End Class
     Public Shared Function scannall(ByVal f As ScanDocument)
         Dim D As ScanControl.ScanSettings
-        D = New ScanControl.ScanSettings(My.Settings("pixtype"), My.Settings("maxpage"), My.Settings("userintface"), My.Settings("resolut"))
+        D = New ScanControl.ScanSettings()
 
         'The arraylist will hold all the pages scanned in as bitmap images. I have used arraylist as I dont have to specify any bounds as I dont know them
         Dim tw As New DTI.ImageMan.Twain.TwainControl
+        tw.SelectScanner()
+        'Dim capabilityValue As Object
+        'Dim dataType As DTI.ImageMan.Twain.DataType
 
+        'Dim retVal As Boolean = tw.GetCapability(DTI.ImageMan.Twain.Capabilities.PaperDetectable, capabilityValue, dataType)
+        'Dim ret As Boolean
+        'If retVal AndAlso CInt(capabilityValue) <> 0 Then
+        '    ret = tw.GetCapability(DTI.ImageMan.Twain.Capabilities.FeederLoaded, capabilityValue, dataType)
+        '    If ret AndAlso CInt(capabilityValue) <> 0 Then
+
+        '    End If
+        'End If
         Try
             Using tw
                 With tw
@@ -173,7 +269,7 @@ Public Class ScanControl
                 Try
                     img = tw.ScanPage()
                 Catch ex As Exception
-                    write_error(ex.ToString, 1)
+                    write_error(ex.ToString, 1, D.ConStr)
                     Return False
                 End Try
 
@@ -195,17 +291,18 @@ Public Class ScanControl
             Return True
         Catch ex As Exception
             MsgBox(ex.ToString)
+            Return False
         End Try
-        Return True
+
 
 
 
     End Function
-    Public Shared Sub write_error(ByVal errmsg As String, ByVal usr As Integer)
+    Public Shared Sub write_error(ByVal errmsg As String, ByVal usr As Integer, ByVal cn As String)
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
         With con
-            .ConnectionString = My.Settings.PriorityDB.ToString 'GetConnectionString("PriorityDB")
+            .ConnectionString = cn
 
         End With
         Dim sdate As DateTime
@@ -218,14 +315,12 @@ Public Class ScanControl
         cmd.Parameters.AddWithValue("user", usr)
         cmd.ExecuteNonQuery()
     End Sub
-    Public Shared Sub write_log(ByVal DOC_DIR As String, ByVal File_Name As String, ByVal S_Date As Integer, ByVal sc_ty_co As String, ByVal SDC As String, ByVal S_Batch_NO As Integer)
+    Public Shared Sub write_log(ByVal DOC_DIR As String, ByVal File_Name As String, ByVal S_Date As Integer, ByVal sc_ty_co As String, ByVal SDC As String, ByVal S_Batch_NO As Integer, ByVal cn As String)
         Try
             Dim con As New SqlConnection
             Dim cmd As New SqlCommand
-            Dim cs As String
-            cs = My.Settings("PriorityDB")
             With con
-                .ConnectionString = My.Settings.PriorityDB.ToString 'GetConnectionString("PriorityDB")
+                .ConnectionString = cn 'GetConnectionString("PriorityDB")
             End With
             con.Open()
             cmd.Connection = con
@@ -239,82 +334,82 @@ Public Class ScanControl
             cmd.Parameters.AddWithValue("SDCO", SDC)
             cmd.ExecuteNonQuery()
         Catch ex As Exception
-            write_error(ex.ToString, 1)
+            write_error(ex.ToString, 1, cn)
             Console.WriteLine("Write Failed: " & ex.ToString)
         End Try
 
     End Sub
-    Public Shared Function GetConnectionString(ByVal connectionS As String) As String
-        'this function will check on the existence of the app settings connection string named priority db, if it cant find it it will write an error and quit. The function will also scheck the company used in the connection string, if it is different it will update the string.
-        'variable to hold our connection string for returning it (Data Source=POTTER\PRI;Initial Catalog=demo;Integrated Security=True)
+    'Public Shared Function GetConnectionString(ByVal connectionS As String) As String
+    '    'this function will check on the existence of the app settings connection string named priority db, if it cant find it it will write an error and quit. The function will also scheck the company used in the connection string, if it is different it will update the string.
+    '    'variable to hold our connection string for returning it (Data Source=POTTER\PRI;Initial Catalog=demo;Integrated Security=True)
 
-        Dim strReturn As New String("")
+    '    Dim strReturn As New String("")
 
-        'check to see if the user provided a company name  
-
-
-        If Not String.IsNullOrEmpty(connectionS) Then
-
-            strReturn = ConfigurationManager.ConnectionStrings(connectionS).ConnectionString
-
-            'Next we check the existing connection strinbg to see if the company names match
-
-        Else
-            'no connection string name was provided  
-            'get the default connection string  
-            strReturn = ConfigurationManager.ConnectionStrings("YourConnectionName").ConnectionString
-        End If
-        'return the connection string to the caller 
-        Return strReturn
-
-    End Function
-    Public Shared Sub ChecktConnectionString(ByVal company As String)
-        'this function will check on the existence of the app settings connection string named priority db, if it cant find it it will write an error and quit. The function will also scheck the company used in the connection string, if it is different it will update the string.
-        'variable to hold our connection string for returning it (Data Source=POTTER\PRI;Initial Catalog=demo;Integrated Security=True)
-
-        Dim strReturn As New String("")
-
-        'check to see if the user provided a company name  
+    '    'check to see if the user provided a company name  
 
 
-        If Not String.IsNullOrEmpty(company) Then
-            'a company name was provided  
-            'get the connection string by the name provided  
-            Try
-                strReturn = ConfigurationManager.ConnectionStrings("prioritydb").ConnectionString
-            Catch ex As Exception
-                Console.WriteLine("Database connection string not set in the settings file")
-                write_error("Database connection not found in the settings file.", 1)
+    '    If Not String.IsNullOrEmpty(connectionS) Then
 
-            End Try
+    '        strReturn = ConfigurationManager.ConnectionStrings(connectionS).ConnectionString
 
+    '        'Next we check the existing connection strinbg to see if the company names match
 
-            'Next we check the existing connection strinbg to see if the company names match
-            Dim connectionparts() As String = strReturn.Split(";")
-            Dim initcat() As String = connectionparts(1).Split("=")
-            Dim cat As String = initcat(1)
-            Dim constr As String = ""
-            If cat <> company Then
-                Try
-                    Dim config As System.Configuration.Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
-                    strReturn = connectionparts(0) & ";" & "Initial Catalog=" & company & ";" & connectionparts(2)
-                    config.ConnectionStrings.ConnectionStrings("PriorityDB").ConnectionString = strReturn
-                    config.Save()
-                Catch ex As Exception
+    '    Else
+    '        'no connection string name was provided  
+    '        'get the default connection string  
+    '        strReturn = ConfigurationManager.ConnectionStrings("YourConnectionName").ConnectionString
+    '    End If
+    '    'return the connection string to the caller 
+    '    Return strReturn
 
-                End Try
+    'End Function
+    'Public Shared Sub ChecktConnectionString(ByVal company As String)
+    '    'this function will check on the existence of the app settings connection string named priority db, if it cant find it it will write an error and quit. The function will also scheck the company used in the connection string, if it is different it will update the string.
+    '    'variable to hold our connection string for returning it (Data Source=POTTER\PRI;Initial Catalog=demo;Integrated Security=True)
+
+    '    Dim strReturn As New String("")
+
+    '    'check to see if the user provided a company name  
 
 
-            End If
-        Else
-            'no connection string name was provided  
-            'get the default connection string  
-            strReturn = ConfigurationManager.ConnectionStrings("YourConnectionName").ConnectionString
-        End If
-        'return the connection string to the caller 
+    '    If Not String.IsNullOrEmpty(company) Then
+    '        'a company name was provided  
+    '        'get the connection string by the name provided  
+    '        Try
+    '            strReturn = ConfigurationManager.ConnectionStrings("prioritydb").ConnectionString
+    '        Catch ex As Exception
+    '            Console.WriteLine("Database connection string not set in the settings file")
+    '            write_error("Database connection not found in the settings file.", 1)
+
+    '        End Try
 
 
-    End Sub
+    '        'Next we check the existing connection strinbg to see if the company names match
+    '        Dim connectionparts() As String = strReturn.Split(";")
+    '        Dim initcat() As String = connectionparts(1).Split("=")
+    '        Dim cat As String = initcat(1)
+    '        Dim constr As String = ""
+    '        If cat <> company Then
+    '            Try
+    '                Dim config As System.Configuration.Configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None)
+    '                strReturn = connectionparts(0) & ";" & "Initial Catalog=" & company & ";" & connectionparts(2)
+    '                config.ConnectionStrings.ConnectionStrings("PriorityDB").ConnectionString = strReturn
+    '                config.Save()
+    '            Catch ex As Exception
+
+    '            End Try
+
+
+    '        End If
+    '    Else
+    '        'no connection string name was provided  
+    '        'get the default connection string  
+    '        strReturn = ConfigurationManager.ConnectionStrings("YourConnectionName").ConnectionString
+    '    End If
+    '    'return the connection string to the caller 
+
+
+    'End Sub
     'Public Shared Function scannall_fake(ByVal f As ScanDocument)
     '    Dim D As ScanControl.ScanSettings
     '    D = New ScanControl.ScanSettings(My.Settings("pixtype"), My.Settings("maxpage"), My.Settings("userintface"), My.Settings("resolut"))
@@ -427,13 +522,15 @@ Public Class ScanControl
         Dim img As Image
         Dim count As Integer = 0
         Dim imgind As Integer = 0
+        Dim totinmg As Integer = 0
         Dim start As Integer = 0
         Dim decoder As New DTI.ImageMan.Barcode.BarcodeDecoder
         Dim filename As String = ""
         Dim scan_type_code As String = ""
         Dim scan_doc_code As String = ""
-
-
+        Dim D As ScanControl.ScanSettings
+        D = New ScanControl.ScanSettings()
+        totinmg = imgs.Count - 1
         Dim yyyy, mm, dd As Integer
         yyyy = DatePart(DateInterval.Year, Today)
         mm = DatePart(DateInterval.Month, Today)
@@ -447,7 +544,7 @@ Public Class ScanControl
         bformats.Add(BarcodeFormat.Code39)
         Dim decodedBarcode As Result
         Dim doc As New PdfDocument
-        doc.Pages.Add(New PdfPage)
+        'doc.Pages.Add(New PdfPage)
         For Each img In imgs
             imgind = imgs.IndexOf(img)
             Console.WriteLine("Checking Page - " & (imgind + 1))
@@ -458,6 +555,23 @@ Public Class ScanControl
                 'End If
 
                 If decodedBarcode IsNot Nothing Then
+                    If imgind <> 0 Then
+
+
+
+                        doc.Save(filename)
+                        doc = Nothing
+                        doc = New PdfDocument
+                        'doc.Pages.Add(New PdfPage)
+                        start = imgind + 1
+                        count = 0
+
+                        write_log(f.doc_dir, fname, f.doc_date, scan_type_code, SCAN_D_CODE, f.batch_no, D.ConStr)
+                        ScanControl.write_error("File written SUCESFULLY to " & filename, 1, D.ConStr)
+
+
+
+                    End If
                     Console.WriteLine("Barcode found on page - " & (imgind + 1))
                     Dim hold As String
                     hold = decodedBarcode.Text
@@ -470,44 +584,26 @@ Public Class ScanControl
                         Directory.CreateDirectory(direc)
                     End If
 
+                    filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & ".pdf"
+
+                    fname = scan_doc_code & yyyy & mm & dd & ".pdf"
+
+                    SCAN_D_CODE = scan_doc_code
+
+                    If File.Exists(filename) = True Then
 
 
-                    If imgind <> 0 Then
-
-                        filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & ".pdf"
-
-                        fname = scan_doc_code & yyyy & mm & dd & ".pdf"
-
-                        SCAN_D_CODE = scan_doc_code
-
-                        If File.Exists(filename) = True Then
-
-
-                            filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
-                            fname = scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
-                            Dim x As Integer = 2
-                            Do While File.Exists(filename) = True
-                                'This will keep adding to the ending number until it gets to one that it can use
-                                filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
-                                fname = scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
-                                x += 1
-                            Loop
-                            ScanControl.write_error("File exists - Renaming to " & filename, 1)
-                        Else
-
-                        End If
-
-
-
-                        doc.Save(filename)
-                        doc = Nothing
-                        doc = New PdfDocument
-                        doc.Pages.Add(New PdfPage)
-                        start = imgind + 1
-                        count = 0
-                        'write_log(ByVal DOC_DIR As String, ByVal File_Name As String, ByVal S_Date As Integer, ByVal S_Batch_NO As Integer)
-                        write_log(f.doc_dir, fname, f.doc_date, scan_type_code, SCAN_D_CODE, f.batch_no)
-
+                        filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
+                        fname = scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
+                        Dim x As Integer = 2
+                        Do While File.Exists(filename) = True
+                            'This will keep adding to the ending number until it gets to one that it can use
+                            filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
+                            fname = scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
+                            x += 1
+                        Loop
+                        ScanControl.write_error("File exists - Renaming to " & filename, 1, D.ConStr)
+                    Else
 
                     End If
                     doc.AddPage()
@@ -519,6 +615,8 @@ Public Class ScanControl
                     xgr.DrawImage(imgx, 0, 0)
                 End If
 
+                
+
             Catch e1 As DTI.ImageMan.Barcode.NotFoundException
                 doc.AddPage()
                 Dim xgr As XGraphics
@@ -528,35 +626,42 @@ Public Class ScanControl
 
                 xgr.DrawImage(imgx, 0, 0)
             Catch ex As Exception
-                MsgBox(ex.Message)
+                ScanControl.write_error("Cannot Save " & filename, 1, D.ConStr)
             End Try
             count += 1
 
         Next
+        If imgind = totinmg Then
+            filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & ".pdf"
 
-        filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & ".pdf"
+            fname = scan_doc_code & yyyy & mm & dd & ".pdf"
 
-        fname = scan_doc_code & yyyy & mm & dd & ".pdf"
+            SCAN_D_CODE = scan_doc_code
 
-        SCAN_D_CODE = scan_doc_code
+            If File.Exists(filename) = True Then
+                'Console.WriteLine("This filename already exists please check the name provided")
+                filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
+                fname = scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
+                Dim x As Integer = 2
+                Do While File.Exists(filename) = True
+                    'This will keep adding to the ending number until it gets to one that it can use
+                    filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
+                    fname = scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
+                    x += 1
+                Loop
+                ScanControl.write_error("File exists - Renaming to " & filename, 1, D.ConStr)
+            End If
+            Try
+                doc.Save(filename)
+                write_log(f.doc_dir, fname, f.doc_date, scan_type_code, SCAN_D_CODE, f.batch_no, D.ConStr)
+                ScanControl.write_error("File written SUCESFULLY to " & filename, 1, D.ConStr)
+                doc = Nothing
+            Catch ex As Exception
+                ScanControl.write_error("Cannot Save " & filename, 1, D.ConStr)
+            End Try
 
-        If File.Exists(filename) = True Then
-            'Console.WriteLine("This filename already exists please check the name provided")
-            filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
-            fname = scan_doc_code & yyyy & mm & dd & "_" & 1 & ".pdf"
-            Dim x As Integer = 2
-            Do While File.Exists(filename) = True
-                'This will keep adding to the ending number until it gets to one that it can use
-                filename = f.doc_dir & "\" & scan_type_code & "\" & scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
-                fname = scan_doc_code & yyyy & mm & dd & "_" & x & ".pdf"
-                x += 1
-            Loop
-            ScanControl.write_error("File exists - Renaming to " & filename, 1)
         End If
 
-        doc.Save(filename)
-        write_log(f.doc_dir, fname, f.doc_date, scan_type_code, SCAN_D_CODE, f.batch_no)
-        doc = Nothing
 
     End Sub
 End Class

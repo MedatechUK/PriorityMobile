@@ -44,7 +44,9 @@ Module Module1
                             .doWelcome(Assembly.GetExecutingAssembly())
                     End Select
                 Catch ex As Exception
+                    Console.WriteLine(Command)
                     Console.WriteLine(ex.Message)
+                    Console.ReadLine()
                     .Quit = True
                 End Try
 
@@ -70,19 +72,30 @@ Module Module1
                     'End Select
 
 
-
-                    
+                    'Dim tw As New DTI.ImageMan.Twain.TwainControl
+                    'Dim capabilityValue As Object
+                    'Dim dataType As DTI.ImageMan.Twain.DataType
+                    'Dim d As Boolean
+                    'Dim retVal As Boolean = tw.GetCapability(DTI.ImageMan.Twain.Capabilities.PaperDetectable, capabilityValue, dataType)
+                    'Dim t As Integer = 0
+                    't = CInt(capabilityValue)
+                    ''If retVal AndAlso CInt(capabilityValue) <> 0 Then
+                    'd = tw.GetCapability(DTI.ImageMan.Twain.Capabilities.PaperDetectable, capabilityValue, dataType)
+                    'If d AndAlso CInt(capabilityValue) <> 0 Then
+                    '    MessageBox.Show("Feeder is loaded with paper")
+                    'End If
+                    'End If
 
 
                     Dim y As Boolean
                     'y = ScanControl.scannall_fake(sd)
                     y = ScanControl.scannall(sd)
                     If y = True Then
-
+                        .Quit = True
                     End If
 
 
-                    .Quit = True
+
 
 
                 End If

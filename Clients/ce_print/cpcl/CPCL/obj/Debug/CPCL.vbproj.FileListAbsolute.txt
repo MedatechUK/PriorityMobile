@@ -10,3 +10,12 @@ M:\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.pdb
 M:\install\Client\bin\CPCL.dll
 M:\install\Client\bin\CPCL.pdb
 M:\install\Client\bin\CPCL.xml
+C:\PriMob\install\Client\bin\CPCL.dll
+C:\PriMob\install\Client\bin\CPCL.pdb
+C:\PriMob\install\Client\bin\CPCL.xml
+C:\PriMob\Clients\ce_print\cpcl\CPCL\obj\Debug\ResolveAssemblyReference.cache
+C:\PriMob\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.Resources.resources
+C:\PriMob\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.vbproj.GenerateResource.Cache
+C:\PriMob\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.dll
+C:\PriMob\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.xml
+C:\PriMob\Clients\ce_print\cpcl\CPCL\obj\Debug\CPCL.pdb
