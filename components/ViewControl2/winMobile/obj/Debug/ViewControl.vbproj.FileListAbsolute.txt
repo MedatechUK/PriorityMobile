@@ -71,3 +71,14 @@ M:\PriorityMobile\components\ViewControl2\winMobile\obj\Debug\ViewControl.vbproj
 M:\PriorityMobile\components\ViewControl2\winMobile\obj\Debug\ViewControl2.dll
 M:\PriorityMobile\components\ViewControl2\winMobile\obj\Debug\ViewControl2.xml
 M:\PriorityMobile\components\ViewControl2\winMobile\obj\Debug\ViewControl2.pdb
+C:\PriMob\install\Client\pda3.1\bin\ViewControl2.dll
+C:\PriMob\install\Client\pda3.1\bin\ViewControl2.pdb
+C:\PriMob\install\Client\pda3.1\bin\ViewControl2.xml
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\ResolveAssemblyReference.cache
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\PriorityMobile.MainView.resources
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\PriorityMobile.Resources.resources
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\PriorityMobile.UserDialog.resources
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\ViewControl.vbproj.GenerateResource.Cache
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\ViewControl2.dll
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\ViewControl2.xml
+C:\PriMob\components\ViewControl2\winMobile\obj\Debug\ViewControl2.pdb

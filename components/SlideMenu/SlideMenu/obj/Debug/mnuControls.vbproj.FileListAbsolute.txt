@@ -28,3 +28,14 @@ M:\PriorityMobile\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.vbproj.Ge
 M:\PriorityMobile\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.dll
 M:\PriorityMobile\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.xml
 M:\PriorityMobile\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.pdb
+C:\PriMob\install\Client\pda3.1\bin\mnuControls.dll
+C:\PriMob\install\Client\pda3.1\bin\mnuControls.pdb
+C:\PriMob\install\Client\pda3.1\bin\mnuControls.xml
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\ResolveAssemblyReference.cache
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.daToolbar.resources
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.Resources.resources
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\PriorityMobile.SlideMenu.resources
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.vbproj.GenerateResource.Cache
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.dll
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.xml
+C:\PriMob\components\SlideMenu\SlideMenu\obj\Debug\mnuControls.pdb

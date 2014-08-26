@@ -21,3 +21,13 @@ M:\PriorityMobile\components\provision\provision\obj\Debug\Provision.vbproj.Gene
 M:\PriorityMobile\components\provision\provision\obj\Debug\provision.dll
 M:\PriorityMobile\components\provision\provision\obj\Debug\provision.xml
 M:\PriorityMobile\components\provision\provision\obj\Debug\provision.pdb
+C:\PriMob\install\Client\bin\provision.dll
+C:\PriMob\install\Client\bin\provision.pdb
+C:\PriMob\install\Client\bin\provision.xml
+C:\PriMob\components\provision\provision\obj\Debug\ResolveAssemblyReference.cache
+C:\PriMob\components\provision\provision\obj\Debug\PrioritySFDC.frmProvisionDialog.resources
+C:\PriMob\components\provision\provision\obj\Debug\PrioritySFDC.Resources.resources
+C:\PriMob\components\provision\provision\obj\Debug\Provision.vbproj.GenerateResource.Cache
+C:\PriMob\components\provision\provision\obj\Debug\provision.dll
+C:\PriMob\components\provision\provision\obj\Debug\provision.xml
+C:\PriMob\components\provision\provision\obj\Debug\provision.pdb
