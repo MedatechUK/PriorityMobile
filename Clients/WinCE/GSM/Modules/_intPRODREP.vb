@@ -37,20 +37,16 @@ Public Class interfacePRODREP
         CallerApp = App
         CtrlTable.DisableButtons(True, False, True, True, False)
         CtrlTable.EnableToolbar(False, False, False, False, True)
+        'Create the CurrentWO argument
         NewArgument("CurrentWO", "")
 
     End Sub
 
     Public Overrides Sub FormLoaded()
         MyBase.FormLoaded()
+        'set the value of the argument to ""
         Argument("CurrentWO") = ""
-        'SendType = tSendType.GetCurrentJob
-        'InvokeData("select SERIALNAME, ACTDES from ZSFDC_LOAD_STARTTIME, ACT " & _
-        '           "where ZSFDC_LOAD_STARTTIME.ACTNAME = ACT.ACTNAME " & _
-        '           "AND USERID = (SELECT USERSB.USERID  " & _
-        '            "FROM system.dbo.USERS, system.dbo.USERSB  " & _
-        '            "WHERE USERS.T$USER = USERSB.T$USER  " & _
-        '            "AND UPPER(USERS.USERLOGIN) = UPPER('" & UserName & "'))")
+        'get the current date and set the variable curdate
         Dim dhold As DateTime = FormatDateTime("1/1/1988")
         curdate = DateDiff(DateInterval.Minute, dhold, Now)
         CtrlTable.Focus()
@@ -58,6 +54,7 @@ Public Class interfacePRODREP
 
     Public Overrides Sub FormClose()
         MyBase.FormClose()
+        'clear the argument on closing
         Argument("CurrentWO") = ""
     End Sub
 
@@ -131,23 +128,6 @@ Public Class interfacePRODREP
             .MandatoryOnPost = False
         End With
         CtrlForm.AddField(field)
-
-        ''Routing
-        'With field
-        '    .Name = "ACTNAME"
-        '    .Title = "Routing"
-        '    .ValidExp = ".+"
-        '    .SQLList = "SELECT DISTINCT(ACTNAME) FROM ACT, SERACT, SERIAL " & _
-        '               " WHERE SERIAL.SERIAL = SERACT.SERIAL " & _
-        '               " AND SERACT.ACT = ACT.ACT " & _
-        '               " AND SERIALNAME = '%SERIALNAME%'"
-        '    .SQLValidation = "SELECT '%ME%' "
-        '    .Data = ""      '******** Barcoded field '*******
-        '    .AltEntry = SFDCData.ctrlText.tAltCtrlStyle.ctList 'ctNone 'ctKeyb 
-        '    .ctrlEnabled = True
-        '    .MandatoryOnPost = False
-        'End With
-        'CtrlForm.AddField(field)
 
         'Routing Description
         With field
@@ -243,18 +223,11 @@ Public Class interfacePRODREP
             .MandatoryOnPost = False
         End With
         CtrlTable.AddCol(col)
-
-        ' this bit should load 3 predefined rows
-        ' these sould be approved, reject or MRB.
-        ' Each row is added with 0 balance and the 
-        ' status should be .ctrlEnabled = false
+        'We need to get the table ready so we add 2 rows approved and defect
 
         CtrlTable.RecordsSQL = "Select 'Approved' AS STATUS ,0 as QTY ,'' as REASON " & _
                                 "union all " & _
                                 "select 'Reject' AS STATUS ,0 as QTY ,'' as REASON "
-
-        '                                "select 'MRB' AS STATUS ,0 as QTY ,'' as REASON " & _
-        '"union all " & _
 
     End Sub
 
@@ -284,6 +257,7 @@ Public Class interfacePRODREP
     End Sub
 
     Public Overrides Sub AfterEdit(ByVal TableIndex As Integer)
+        'we need to handle the Reject rows being changed and add a new blank row for the next reject reason
         With CtrlTable.Table
             Select Case .Items(TableIndex).Text
                 Case "Reject"
@@ -299,9 +273,6 @@ Public Class interfacePRODREP
         End With
     End Sub
 
-    Public Overrides Sub BeginAdd()
-
-    End Sub
 
     Public Overrides Sub BeginEdit()
         CtrlTable.mCol(0).ctrlEnabled = True

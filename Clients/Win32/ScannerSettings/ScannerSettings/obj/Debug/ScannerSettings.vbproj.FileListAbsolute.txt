@@ -1,0 +1,10 @@
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\bin\Debug\ScannerSettings.exe
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\bin\Debug\ScannerSettings.pdb
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\bin\Debug\ScannerSettings.xml
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ScannerSettings.Form1.resources
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ScannerSettings.Resources.resources
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ScannerSettings.vbproj.GenerateResource.Cache
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ScannerSettings.exe
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ScannerSettings.xml
+C:\Users\andymackintosh\Documents\Visual Studio 2008\Projects\ScannerSettings\ScannerSettings\obj\Debug\ScannerSettings.pdb
