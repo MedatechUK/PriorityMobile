@@ -1,6 +1,7 @@
 ﻿Imports System.Data
 Imports System.Xml
 Public Class frmAddParts
+    'This form is the parts checking modal form. This forces the user to check that the requisite parts are present before starting work on the WO. It si called from 
     Public pars As New DataTable
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.DialogResult = Windows.Forms.DialogResult.OK
@@ -70,7 +71,7 @@ Public Class frmAddParts
                 Exit Sub
         End Select
     End Sub
-
+    'a lot of the below subs are to ensure that the scanning textbox always maintains focus as its invisible and cant be clicked on!
     Private Sub TextBox1_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles TextBox1.LostFocus
         If Button1.Focused = True Then
 
@@ -78,11 +79,6 @@ Public Class frmAddParts
 
             TextBox1.Focus()
         End If
-    End Sub
-
-    Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.TextChanged
-
-
     End Sub
 
     Private Sub DataGrid1_CurrentCellChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DataGrid1.CurrentCellChanged

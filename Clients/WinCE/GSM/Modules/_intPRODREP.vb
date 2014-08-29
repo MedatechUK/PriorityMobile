@@ -6,7 +6,8 @@ Imports OpenNETCF.Net.Mail
 Imports System.Windows.Forms
 Imports System
 
-
+'This is the Production Reporting form. For full instructions on how to use it please see the user manual.
+'In brief the users open the form and scan a works order to start.
 
 
 Public Class interfacePRODREP
@@ -275,6 +276,8 @@ Public Class interfacePRODREP
 
 
     Public Overrides Sub BeginEdit()
+        'this provides the functionality to allow inplace editing of the table row
+
         CtrlTable.mCol(0).ctrlEnabled = True
         CtrlTable.mCol(1).ctrlEnabled = False
         CtrlTable.mCol(2).ctrlEnabled = True
@@ -306,6 +309,7 @@ Public Class interfacePRODREP
 
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
         Select Case SendType
+
             Case tSendType.PopulateForm
                 CtrlForm.el(0).Data = Data(0, 0)
                 CtrlForm.el(1).Data = Data(1, 0)
@@ -314,6 +318,7 @@ Public Class interfacePRODREP
                 CtrlTable.Focus()
                 CtrlForm.el(2).Focus()
                 'CtrlForm.el(3).Data = ""
+
             Case tSendType.GetRouting
                 Try
                     route = Data(0, 0)
@@ -348,7 +353,7 @@ Public Class interfacePRODREP
                             .Items(.Items.Count - 1).SubItems.Add(Data(0, 0))
                         End With
                     End If
-                   
+
 
                 End If
 
@@ -356,6 +361,7 @@ Public Class interfacePRODREP
 
             Case tSendType.GetCurrentJob
                 If Not IsNothing(Data) Then
+                    'for each returned line of data we need to see if the user wants to work on it
                     For y As Integer = 0 To UBound(Data, 2)
                         Dim f As New frmYesNo
                         f.Text = Data(0, y) & " in progress "
@@ -363,6 +369,7 @@ Public Class interfacePRODREP
                         f.ShowDialog()
 
                         If f.DialogResult = DialogResult.Yes Then
+                            'If they do we log them onto the required operation by filling in the textbox
                             Argument("CurrentWO") = Data(0, y)
                             wono = Data(0, y)
                             With CtrlForm
@@ -601,6 +608,7 @@ Public Class interfacePRODREP
                     End If
 
                     If ctrl.Name = "SERIALNAME" Then
+                        'we now chck to see if this is a brand new WO or one we are already working on
                         ctrl.Enabled = CBool(ctrl.Data.Length = 0)
                         CtrlTable.Focus()
                         SendType = tSendType.GetCurrentJob
@@ -612,7 +620,7 @@ Public Class interfacePRODREP
                                     "WHERE USERS.T$USER = USERSB.T$USER  " & _
                                     "AND UPPER(USERS.USERLOGIN) = UPPER('" & UserName & "'))")
                     End If
-
+                    'once we have finished the processing above we 
                     If ctrl.Name = "SERIALNAME" Then
                         SendType = tSendType.PopulateForm
                         InvokeData("select SERIAL.SERIALNAME, PARTNAME, (SBALANCE / 1000), CUSTOMERS.CUSTDES " & _
@@ -1004,22 +1012,25 @@ Public Class interfacePRODREP
     End Sub
 
     Public Overrides Sub TableScan(ByVal Value As String)
+        'to allow for QR codes to be scanned  we need to read XML from the scan
         Dim v2 As String = ""
         Dim doc As New Xml.XmlDocument
 
         Try
+            'first up we need to remove and errant :'s as they can cause issues
             Value = Value.Replace(":", "")
-            doc.LoadXml(Value)
+            'next we need to ensure that we actually have a valid barcode
             If Regex.IsMatch(Value, "^<") = False Then
                 OverControl.msgboxa("This doesnt appear to be a valid barcode")
             Else
+                doc.LoadXml(Value)
 
-
-
+                'after that we need to identify the contents of the barcode
                 For Each nd As XmlNode In doc.SelectNodes("in/i")
                     Dim DataType As String = nd.Attributes("n").Value
                     Select Case DataType
                         Case "SERIAL"
+                            'They have scanned a wo so we fill in the textbox and process it
                             With CtrlForm
                                 If .el(0).Data = "" Then
                                     .el(0).Data = nd.Attributes("v").Value
@@ -1030,6 +1041,7 @@ Public Class interfacePRODREP
                             End With
 
                         Case "POS"
+                            'they have scanned an operation so we need to fill in th etextbox and process it
                             With CtrlForm
                                 .el(3).Data = nd.Attributes("v").Value
                                 .el(3).DataEntry.Text = nd.Attributes("v").Value
@@ -1037,42 +1049,24 @@ Public Class interfacePRODREP
                             End With
 
                         Case "FOA"
-
+                            'they have scanned a stop sequence so we fill in the textbox and process it
                             With CtrlForm
                                 .el(4).Data = nd.Attributes("v").Value
                                 .el(4).DataEntry.Text = nd.Attributes("v").Value
                                 .el(4).ProcessEntry()
                             End With
-                            'Case "ACT"
-                            '    With CtrlForm
-                            '        .el(3).Data = nd.Attributes("v").Value
-                            '        .el(3).DataEntry.Text = nd.Attributes("v").Value
-                            '        .el(3).ProcessEntry()
-                            'End With
+                           
                         Case "PROCESS"
-                            'Dim i As Control
-                            'For Each i In Me.Controls
-                            '    If TypeOf i Is SFDCData.CtrlTable Then
-                            '        Dim fff As Rectangle
-                            '        fff = i.Bounds
-                            '        Dim mopos As Point
-                            '        mopos.X = (fff.Width - 5)
-                            '        mopos.Y = (fff.Top + 5)
-                            '        MoveMouse(mopos.Y, mopos.X)
-                            '        LeftClick(mopos.Y, mopos.X)
-
-                            '    End If
-
-                            'Next
-                            'todo:  ghdfg 
-
+                            'they have scanned the process form barcode so we call the process form procedure
                             ProcessForm()
 
 
                         Case "CLOSE"
+                            'They have scanned the close form barcode so we call the form closing procedure
                             Me.CloseMe()
 
                         Case "DEF"
+                            'they have scanned a defect but we need to get the defect description so we utilse the code in the query
                             With CtrlForm
                                 If .el(0).Data <> "" And .el(3).Data <> "" Then
                                     SendType = tSendType.GetDefect2
@@ -1082,7 +1076,7 @@ Public Class interfacePRODREP
                 " DEFECTCODES.DEFECT = ZGSM_OPDEFECTCODES.DEFECT" & _
                 " AND DEFECTCODES.INACTIVE <> 'Y'" & _
                 " AND ACT.ACTDES = '%ACTDES%' and DEFECTCODES.DEFECTCODE = '" & nd.Attributes("v").Value & "'")
-                                    
+
                                 Else
                                     Beep()
 

@@ -213,9 +213,6 @@
     <Compile Include="Modules\_intPARTLU.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modules\_intPRep.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Modules\_intPRODREP.vb">
       <SubType>Form</SubType>
     </Compile>
