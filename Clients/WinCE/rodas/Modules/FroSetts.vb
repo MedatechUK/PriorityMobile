@@ -159,6 +159,7 @@ Public Class SendError
         DatRow = d
     End Sub
     Public Shared Sub ProcError(ByVal tdate As Integer, ByVal pn As String, ByVal pd As String, ByVal serial As String, ByVal un As String, ByVal tem As Decimal, ByVal fr As String, ByVal fa As String, ByVal ft As String)
+        'supplemental loading to send back temperature data
         Dim ws As New PriWebSVC.Service
         Dim sd As New ceLoadData.SerialData
         Dim test As New ceLoadData.Load
@@ -168,7 +169,7 @@ Public Class SendError
            
         End With
         Try
-            'INSERT INTO [dbo].[ZEMG_TEMPCHECK] ([TDATE],[PARTNAME],[PARTDES],[SERIAL] ,[USERNAME],[TEMP],[FROZEN])
+
             With test
                 .DebugFlag = False
                 .Procedure = "ZEMG_TEMPCHECK"

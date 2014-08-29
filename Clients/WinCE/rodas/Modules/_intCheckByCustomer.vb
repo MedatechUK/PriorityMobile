@@ -154,19 +154,6 @@ Public Class interfaceCheckByCustomer
         End With
         CtrlForm.AddField(field)
 
-        'With field 'using the tfield structure from the ctrlForm
-        '    .Name = "AMOUNTREQ"
-        '    .Title = "Amount"
-        '    .ValidExp = ValidStr(tRegExValidation.tNumeric)
-        '    .SQLValidation = "SELECT '%ME%'"
-        '    .Data = ""
-        '    .AltEntry = ctrlText.tAltCtrlStyle.ctNone
-        '    'ctKeyb 
-        '    .ctrlEnabled = False
-        '    .MandatoryOnPost = False
-        'End With
-        'CtrlForm.AddField(field)
-
     End Sub
     Public Overrides Sub TableSettings()
         '0 - part
@@ -776,15 +763,6 @@ Public Class interfaceCheckByCustomer
                                 MsgBox("error in process f0r date -- " & ex.Message)
 
                             End Try
-
-                        Case "PICKID"
-                            Try
-                                SendType = tSendType.PickID
-                                InvokeData("SELECT FORDATE,PACKSLIP FROM ZROD_PICKS WHERE PICK = '%PICKID%'")
-                            Catch ex As Exception
-                                MsgBox("error in process pick id -- " & ex.Message)
-                            End Try
-
 
                         Case "PART"
                             Try

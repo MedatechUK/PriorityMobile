@@ -454,14 +454,12 @@
             Case tSendType.Warhs
 
                 Try
-                    'select ZROD_PICKLINE.PARTNAME,PART.PARTDES,dbo.REALQUANT(ZROD_PICKLINE.AMOUNTPICKED) as amount,serialname
+
                     trList.Clear()
 
                     If IsNothing(Data) = False Then
 
                         For y As Integer = 0 To UBound(Data, 2)
-                            'SendType = tSendType.AmountCheck
-                            'InvokeData("UPDATE ZROD_PICKS SET ISCHECKED = 'Y' WHERE PICK = " & Data(4, y))
                             Dim pics As New WHSTRAN(Data(0, y), Data(2, y), Data(3, y), Data(4, y), Data(5, y), Data(6, y), Data(7, y))
                             trList.Add(pics)
                         Next
@@ -594,13 +592,7 @@
                                             FINALLIST.Add(finlist)
                                             Dim err As New ErrorLog("TAKE", it.SubItems(1).Text, amount)
                                             changelist.Add(err)
-                                            'Dim msg As String
-                                            'msg = "Take " & amount & " of " & it.SubItems(1).Text & " from stock"
-                                            'Try
-                                            '    changelist.Add(msg)
-                                            'Catch ex As Exception
-                                            '    MsgBox(ex.ToString)
-                                            'End Try
+                                           
 
                                             With CtrlTable
                                                 .Table.Items.Remove(it)

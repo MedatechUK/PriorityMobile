@@ -708,6 +708,7 @@ Public Class interfaceChoRoute
         'we will be using the edit and the posting button
         CtrlTable.DisableButtons(True, False, True, True, False)
         CtrlTable.EnableToolbar(True, True, True, True, True)
+        'Adds the handler o take the clicking option
         AddHandler CtrlTable.Table.ItemActivate, AddressOf meclick
         PickedItems.Clear()
         OrderList.Clear()
@@ -730,23 +731,26 @@ Public Class interfaceChoRoute
 #End Region
 
 #Region "Table selection - non barcode"
+    'The users required that they be able to select without scanning barcodes so this procedure allows for that
+
     Private Sub meclick()
         Try
+            'checks to see that there is a line selected
             If CtrlTable.Table.SelectedIndices.Count = 0 Then
                 Exit Sub
 
             End If
-
+            'checks again to see if its not a barcode scan
             If LotScan = False Then
                 With CtrlForm
+                    'if no route selected error then exit
                     If Not (.el(.ColNo("ROUTE")).Data.Length > 0) Then MsgBox("Please select a route.")
                     'If Not (.el(.ColNo("PART")).Data.Length > 0) Then MsgBox("Please select a PART.")
 
                     'If Not (.el(.ColNo("WHS")).Data.Length > 0) Then MsgBox("Please select a warehouse.")
                 End With
 
-                Dim m As Integer
-                m = 1
+                'set the NOSCAN flag
                 NOSCAN = True
 
                 Dim h As Integer
@@ -754,10 +758,13 @@ Public Class interfaceChoRoute
                 If h >= 0 Then 'check to see if there are any rows to select
                     Dim it As ListViewItem
                     For Each it In CtrlTable.Table.Items
+                        'find the selected and thus clicked on row
                         If it.Selected = True Then
+                            'check the tock level
                             If it.SubItems(10).Text = "N" Then
                                 MsgBox("Out of Stock, check the shelves (" & CtrlForm.el(6).Data & ")")
                             Else
+                                'if it has stock then update the form and process as you would a scanned item
                                 Dim g As String
                                 g = it.SubItems(0).Text
                                 CtrlForm.el(3).DataEntry.Text = g
@@ -835,6 +842,7 @@ Public Class interfaceChoRoute
     Private EmailTo As New List(Of String)
 
     Public Sub sendmail(ByVal lt As ListViewItem, ByVal t As String)
+        'Not used currently but left in place just in case
         Dim msg As New MailMessage
         Dim client As New SmtpClient
         SendType = tSendType.GetEmails
@@ -882,27 +890,30 @@ Public Class interfaceChoRoute
         End Try
 
     End Sub
+
     Public Overrides Sub EndInvokeData(ByVal Data(,) As String)
         Select Case SendType
             Case tSendType.GetTemp
+
                 Try
                     If Data Is Nothing Then
+                        'there are no relevant temp checks in the table so......
+                        'first up we need to ask the user for the temperature
                         Dim h As String = ""
                         Dim gh As New frmGetTemp
                         gh.ShowDialog()
                         If gh.DialogResult = DialogResult.OK Then
                             h = gh.TextBox1.Text
                         End If
-                        'Dim h As String = InputBox("Plese take the temperature reading")
-                        'While IsNumeric(h) = False
-                        '    h = InputBox("Plese take the temperature reading")
-                        'End While
+
                         Temp = Convert.ToDecimal(h)
+                        'now that we have the temp we need to work out the time of next check (in minutes from 1988)
                         Dim d As DateTime = FormatDateTime("1/1/1988")
                         Dim tim As Integer = DateDiff(DateInterval.Minute, d, Now())
+                        'if they have set a time period in the settings then we need to add this on to give us the earliest time that the next check can take place from
                         tim += picksetts.overmins
-                        SendType = tSendType.None
-                        Dim sql As String
+
+                        'next up we grab the name, description, lot and frozen flag from the table
                         Dim pname, pdes, serial, frozen As String
                         pname = ""
                         pdes = ""
@@ -919,16 +930,21 @@ Public Class interfaceChoRoute
                                 frozen = getrow.SubItems(21).Text
                             End If
                         Next
+                        'making sure that we have a part
                         If pname <> "" Then
                             Dim fro, st, tt, th As Decimal
                             Dim fail As Boolean = False
                             Dim failtype As String = ""
+                            'we check the parts type as read from the table (t)
+                            'then we compare the given temp against the settings (from the form in Priority)
                             Select Case t
                                 Case "P"
-                                    fro = picksetts.ftemg
-                                    th = picksetts.ptemg
-                                    st = picksetts.wrangepf
-                                    tt = picksetts.wrangept
+
+                                    fro = picksetts.ftemg 'frozen temp check
+                                    th = picksetts.ptemg 'no frozen temp check
+                                    st = picksetts.wrangepf 'non frozen temp range minimum
+                                    tt = picksetts.wrangept 'non frozen temp range max
+
                                     If frozen <> " " And Temp >= picksetts.ftemg Then
                                         fail = True
                                         failtype = "Frozen - Over Temp"
@@ -943,10 +959,10 @@ Public Class interfaceChoRoute
                                     End If
 
                                 Case "R"
-                                    fro = picksetts.ftemg
-                                    th = picksetts.rtempg
-                                    st = picksetts.wrangerf
-                                    tt = picksetts.wrangert
+                                    fro = picksetts.ftemg 'frozen temp check
+                                    th = picksetts.rtempg ''no frozen temp check
+                                    st = picksetts.wrangerf 'non frozen temp range minimum
+                                    tt = picksetts.wrangert 'non frozen temp range max
                                     If frozen <> " " And Temp >= picksetts.ftemg Then
                                         fail = True
                                         failtype = "Frozen - Over Temp"
@@ -961,15 +977,17 @@ Public Class interfaceChoRoute
                                     End If
 
                             End Select
+
                             Dim fstring As String = ""
+                            'if we have failed then we fill the fstring and pass it to the error processor
                             If fail = True Then
                                 fstring = "Y"
                             Else
                                 fstring = ""
                                 failtype = ""
-
                             End If
                             SendError.ProcError(tim, pname, pdes, serial, UserName, Temp, frozen, fstring, failtype)
+                            'then we reset the variables
                             fstring = ""
                             fail = False
                             'sql = String.Format("INSERT INTO [dbo].[ZEMG_TEMPCHECK] ([TDATE],[PARTNAME],[PARTDES],[SERIAL] ,[USERNAME],[TEMP],[FROZEN]) VALUES({0},'{1}','{2}','{3}','{4}',{5},'{6}')", tim, pname, pdes, serial, UserName, Temp, frozen)
@@ -978,11 +996,15 @@ Public Class interfaceChoRoute
 
 
                     Else
+                        'we have a check within the time range so we will use that temperature
+                        'unless its failed of course. this works the same as the above section
                         Dim pname, pdes, serial, frozen As String
                         pname = ""
                         pdes = ""
                         serial = ""
                         frozen = ""
+
+                        'apart from getting the temp from the recieved data
                         Temp = Data(0, 0)
                         Dim t As String
                         Dim getrow As ListViewItem
@@ -1039,26 +1061,22 @@ Public Class interfaceChoRoute
                                 End If
 
                         End Select
+                        'we now have to check if the recieved data is a failue
                         If fail = True Then
                             If pname <> "" Then
+                                'if it is we need to get another temp - this wont be checked until the next time a part from the same lot is used
                                 Dim h As String = ""
                                 Dim gh As New frmGetTemp
                                 gh.ShowDialog()
                                 If gh.DialogResult = DialogResult.OK Then
                                     h = gh.TextBox1.Text
                                 End If
-                                'Dim h As String = InputBox("Plese take the temperature reading")
-                                'While IsNumeric(h) = False
-                                '    h = InputBox("Plese take the temperature reading")
-                                'End While
+
                                 Temp = Convert.ToDecimal(h)
                                 Dim d As DateTime = FormatDateTime("1/1/1988")
                                 Dim tim As Integer = DateDiff(DateInterval.Minute, d, Now())
                                 tim += picksetts.overmins
-                                'SendType = tSendType.None
-                                'Dim sql As String
-                                'sql = String.Format("INSERT INTO [dbo].[ZEMG_TEMPCHECK] ([TDATE],[PARTNAME],[PARTDES],[SERIAL] ,[USERNAME],[TEMP],[FROZEN]) VALUES({0},'{1}','{2}','{3}','{4}',{5},'{6}')", tim, pname, pdes, serial, UserName, Temp, frozen)
-                                'InvokeData(sql)
+
                                 SendError.ProcError(tim, pname, pdes, serial, UserName, Temp, frozen, "Y", failtype)
                                 failtype = ""
                             Else
@@ -1074,6 +1092,7 @@ Public Class interfaceChoRoute
 
 
             Case tSendType.GetSettings
+                'this area creates a new settings object for the temperature checking development
                 Try
                     If Data(2, 0) = "Y" Then
                         Data(2, 0) = True
@@ -1101,35 +1120,14 @@ Public Class interfaceChoRoute
                 End Try
 
 
-
-
-            Case tSendType.None
-                Try
-                    If Data Is Nothing Then
-
-                    Else
-                        Dim m As String
-                        m = Data(0, 0)
-                    End If
-                Catch ex As Exception
-                    MsgBox("Error in sendtype none -- " & ex.ToString())
-                End Try
-
-
-
             Case tSendType.GetParts
+                'this is used to hold the orderlines which have been condensed to make the picking lines the data is stored in the PSLIPITEMS structure
                 Try
                     If Data Is Nothing Then
 
                     Else
                         Try
                             For y As Integer = 0 To UBound(Data, 2)
-                                'Dim Dd As Decimal
-                                'If Data(5, y) <> 1 Then
-
-                                '    Dd = Data(2, y) * Data(5, y)
-                                '    Data(2, y) = Convert.ToInt32(Dd)
-                                'End If
                                 Dim d As New PSLIPITEMS(Data(0, y), "", "", Data(1, y), Data(2, y), "", "", "", "", "", Data(3, y), Data(4, y), 0, Data(5, y), CtrlForm.el(5).Data, 0.0)
                                 OrderList.Add(d)
                             Next
@@ -1143,6 +1141,7 @@ Public Class interfaceChoRoute
 
 
             Case tSendType.PickDate
+                'this area sets the pickdate and route id variables
                 Try
                     Me.Argument("PickDate") = Data(0, 0)
                     RouteID = Data(1, 0)
@@ -1157,6 +1156,7 @@ Public Class interfaceChoRoute
                 CtrlForm.el(1).Enabled = False
 
             Case tSendType.getPickType
+                'this sets the type of picking (which controls the data displayed and the loading used) and the grouping type of the form
                 Try
                     Pick_Type = Data(0, 0)
                     CtrlForm.el(12).Data = Data(1, 0)
@@ -1169,6 +1169,7 @@ Public Class interfaceChoRoute
                 'this fires after a route has been chosen and validated
                 Try
                     Dim f As Boolean = False
+                    'sets the WHS to Main
                     With CtrlForm
                         With .el(.ColNo("WHS"))
                             .DataEntry.Text = "Main"
@@ -1176,7 +1177,9 @@ Public Class interfaceChoRoute
                         End With
                     End With
                     Do
+                        'we need to check the type of picking and set the form up accordingly
                         If IsNothing(Data) Then
+                            'there is no customer so it is a bulk route
                             Me.Text = "Picking"
                             With CtrlForm.el(5)
 
@@ -1188,6 +1191,7 @@ Public Class interfaceChoRoute
                             End With
 
                         Else
+                            'there is a customer so we will put the customer name at the top and setup some other variables
                             PickedItems.Clear()
                             With CtrlForm.el(5)
                                 .DataEntry.Text = Data(1, 0)
@@ -1201,6 +1205,7 @@ Public Class interfaceChoRoute
                             custid = Data(0, 0)
                             CtrlTable.Focus()
                             CtrlForm.el(13).Data = Data(3, 0)
+                            'if there are any cashco groupings associated we need to display the relevant address parts
                             If CtrlForm.el(12).Data = "Y" Or CtrlForm.el(13).Data = "Y" Then
                                 CtrlForm.el(14).Data = Data(4, 0)
                                 CtrlForm.el(15).Data = Data(5, 0)
@@ -1209,7 +1214,7 @@ Public Class interfaceChoRoute
 
                         Dim dd As Integer = Convert.ToInt32(Argument("pickdate"))
                         ' Set the query to load recordtype 2s
-                        'this checks the family selected
+                        'this checks the family selected and against the CASHCO grouping types
                         Select Case CtrlForm.el(2).Data
                             Case "All"
                                 Select Case CtrlForm.el(12).Data
@@ -1240,16 +1245,9 @@ Public Class interfaceChoRoute
                                         End Select
 
                                 End Select
-                                '        CtrlTable.RecordsSQL = _
-                                '    "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED, TYPE, '0' as ORDI,  '' as ORDNAME, '' as  OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE,CONV,PACKING,NOTFIXEDCONV,ZEMG_FROZEN " & _
-                                '    "from V_PICK_MONITOR " & _
-                                '    "WHERE ROUTENAME = '" & CtrlForm.el(0).Data & "'" & _
-                                '    " AND CUSTNAME = '" & cust & "' AND DUEDATE = " & Argument("PickDate") & _
-                                '   " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV,ZEMG_FROZEN" & _
-                                '" ORDER by ZROD_PICKORDER"
 
-                                '********************
                                 Select Case CtrlForm.el(12).Data
+                                    'we also need to get the orders for the picking again now dependant on cashco
                                     Case "Y"
                                         SendType = tSendType.GetParts
                                         InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
@@ -1269,9 +1267,10 @@ Public Class interfaceChoRoute
                                                     "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'")
                                         End Select
                                 End Select
-                               
-                                'InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate"))
+
+
                             Case Else
+                                'this is a mirror of the above but with a family selected
                                 Select Case CtrlForm.el(12).Data
                                     Case "Y"
                                         CtrlTable.RecordsSQL = _
@@ -1307,22 +1306,11 @@ Public Class interfaceChoRoute
                                 InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
                                     "from V_PICK_MONITOR " & _
                                     "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'  and FTNAME = '%FAMILY%'")
-                                'InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate") & " AND FTNAME = '%FAMILY%'")
+
                         End Select
 
-                        'CtrlTable.RecordsSQL = _
-                        '    "select PARTNAME,PARTDES,SUM(ZROD_TOBEPICKED) as Quant, '' as WARHS, '' as BIN, '0' as PICKED, '' as TYPE, '0' as ORDI,  '' as ORDNAME, '' as  OLINE,CASE when PARTNAME in (SELECT PARTNAME FROM V_PICKLIST_PARTS) THEN 'A' else 'N' end as AVAILABLE,0 AS balance,'' AS SERIALNAME, 0 AS EXPIRYDATE,CONV,PACKING,NOTFIXEDCONV " & _
-                        '    "from V_PICK_MONITOR " & _
-                        '    "WHERE ROUTENAME = '" & CtrlForm.el(0).Data & "'" & _
-                        '    " AND CUSTNAME = '" & cust & "' AND DUEDATE = " & Argument("PickDate") & _
-                        '   " GROUP BY PARTNAME,PARTDES,TYPE,CONV,ZROD_PICKORDER,PACKING,NOTFIXEDCONV" & _
-                        '" ORDER by ZROD_PICKORDER"
                         Dim S As String = Argument("PickDate")
-                        '*************************************************************************************************
-                        'SendType = tSendType.GetParts
-                        'InvokeData("select ORDI,PARTNAME,QUANT,ORDNAME,LINE,CONV " & _
-                        '    "from V_PICK_MONITOR " & _
-                        '    "WHERE ROUTENAME = '%ROUTE%' AND DUEDATE = " & Argument("PickDate") & " AND CUSTNAME = '" & cust & "'")
+
                         f = True
                         ' 
                     Loop Until True
@@ -1385,8 +1373,7 @@ Public Class interfaceChoRoute
                     'check for previous picks for this route/date combo. If they exist we will need to alter the downloaded data to reflect this
                     'if the route is fully picked then we will error. TO FACILITATE THIS WE WILL CREATE A LIST OF ALREADY PICKED ITEMS AND
                     'use it to alter the counts stored in the table
-                    'SendType = tSendType.TableFill
-                    'InvokeData("SELECT * FROM V_PICKEDITEMS WHERE FORROUTE = '%ROUTE%'")
+
                     'this will fill the DATA structure with the results of the query. The view this is taken from utilises the same PickDate as the Route View
 
 
@@ -1401,9 +1388,7 @@ Public Class interfaceChoRoute
                     CtrlTable.Table.Focus()
 
 
-                    'Case tSendType.PartW
 
-                    '    LotScan = False
 
                 Catch ex As Exception
                     MsgBox("error on table filling -- " & ex.ToString())
@@ -1411,6 +1396,7 @@ Public Class interfaceChoRoute
 
 
             Case tSendType.getminpick
+                'this checks on a customers minimum picking days
                 Try
                     If Data Is Nothing Then
                         CUSTMINPICK = 0
@@ -1430,6 +1416,7 @@ Public Class interfaceChoRoute
 
 
             Case tSendType.Part
+
                 Try
                     If Data Is Nothing And NOSCAN = False Then
                         MsgBox("No stock on this expiry date, move to the next expiry date for this product (" & CtrlForm.el(6).Data & ")")
@@ -1445,31 +1432,24 @@ Public Class interfaceChoRoute
 
                     X = 0
                     Z = 0
-                    'Z = UBound(Data, 2)
-                    'If Z <> 0 Then
-                    '    For t As Integer = 1 To Z
-                    '        Dim fa As New LotS(Data(4, t), Data(0, t), Data(6, t), Data(1, t), Data(2, t), Data(6, t), Data(4, t))
-                    '        LotHold.Add((fa))
-                    '    Next
-
-
-                    'End If
 
                     If Data(7, 0) = 0 Then
 
                     Else
-
+                        'noscan indicates that the item has been clicked and not scanned
                         If NOSCAN = False Then
                             If CtrlForm.el(4).Data <> "" Then
+                                'we need to checck wether there is a minimum pick days against this item
                                 SendType = tSendType.getminpick
                                 InvokeData("select ZROD_MINSHELF from CUSTMINPICKDAYS where CUSTNAME = '" & CtrlForm.el(5).Data & "' AND PARTNAME = '" & Data(4, 0) & "'")
                             End If
                             If CUSTMINPICK <> 0 Then
+                                'if there is a minimum pick against the item if there is it will attempt to select a viable lot in the returned data
                                 Dim fn As Integer = 0
                                 For gg As Integer = 0 To UBound(Data, 2)
                                     Data(7, gg) = CUSTMINPICK
                                     If ((Data(7, gg) * 1440) + y) > Data(3, gg) Then
-
+                                        fn = 0
                                     Else
                                         fn = 1
                                         Data(0, 0) = Data(0, gg)
@@ -1483,6 +1463,7 @@ Public Class interfaceChoRoute
                                         Exit For
                                     End If
                                 Next
+                                'if it hasnt found a viable lot it will error out
                                 If fn = 0 Then
                                     MsgBox("Not enough minimum life days for this customer, move to the next available expiry date for this product (" & CtrlForm.el(6).Data & ")")
                                     For Each t As ListViewItem In CtrlTable.Table.Items
@@ -1496,9 +1477,7 @@ Public Class interfaceChoRoute
                         End If
 
                     End If
-                    'For y As Integer = 0 To UBound(Data, 2)
-
-                    'AND EXPIRYDATE >=( " & y & " + (ZSFDC_MINPICKDAYS * 1440)
+                    'then we update the form with the chosen part details
                     With CtrlForm
                         If NOSCAN = False Then
                             'Part
@@ -1630,7 +1609,8 @@ Public Class interfaceChoRoute
 
 
 
-
+                            'this section is for the Temperature control module
+                            'we check to see if the part type is flagged for temp control and whteher the lines is flagged to be checked
                             If picksetts.incp = True And type = "P" And c = 1 Then
 
 
@@ -1642,13 +1622,7 @@ Public Class interfaceChoRoute
                                         If gh.DialogResult = DialogResult.OK Then
                                             h = gh.TextBox1.Text
                                         End If
-
-
-
                                         Temp = Convert.ToDecimal(h)
-
-
-
 
                                     Case True
                                         'FIRST UP I NEED TO GET THE CURRENT DATETIME AS A PRIORITY DATE
@@ -1670,12 +1644,6 @@ Public Class interfaceChoRoute
                                 Select Case picksetts.over
                                     Case False
 
-                                        'Dim h As String = InputBox("Please provide a temperature reading for this lot.", "", "0.00", 100)
-                                        'While IsNumeric(h) = False
-                                        '    h = InputBox("Please provide a temperature reading for this lot.")
-                                        'End While
-
-                                        'temp = Convert.ToDecimal(h)
                                         Dim h As String = ""
                                         Dim gh As New frmGetTemp
                                         gh.ShowDialog()
@@ -1835,7 +1803,7 @@ Public Class interfaceChoRoute
                 Try
                     LotList.Clear()
                     For y As Integer = 0 To UBound(Data, 2)
-                        Dim lots As New LotS(Data(0, y), Data(1, y), Data(2, y), Data(3, y), Data(4, y), Data(5, y), Data(6, y))
+                        Dim LotS As New LotS(Data(0, y), Data(1, y), Data(2, y), Data(3, y), Data(4, y), Data(5, y), Data(6, y))
                         LotList.Add(lots)
                     Next
                 Catch ex As Exception
@@ -1909,6 +1877,7 @@ Public Class interfaceChoRoute
                                 CtrlForm.el(1).Focus()
                                 SendType = tSendType.getPickType
                                 InvokeData("Select ZROD_PICKTYPE,GROUPFLAG from ZROD_ROUTES where ROUTENAME ='%ROUTE%'")
+                                'cashco mod - we need to update the customer dropdown for cashco customers
                                 Select Case CtrlForm.el(12).Data
                                     Case "Y"
                                         CtrlForm.el(5).ListExp = "select Distinct CUSTDES1 + ',' + ORDNAME AS CUSTORD FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND PICKDATE = '%PDATE%'"
@@ -1949,12 +1918,7 @@ Public Class interfaceChoRoute
                                 Else
                                     CtrlForm.el(5).Focus()
                                 End If
-                                'Select Case CtrlForm.el(2).Data
-                                '    Case "All"
-                                '        InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate"))
-                                '    Case Else
-                                '        InvokeData("select CUST,CUSTNAME,CUSTDES FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND DUEDATE =" & Argument("PickDate") & " AND FTNAME = '%FAMILY%'")
-                                'End Select
+                              
                             Catch ex As Exception
                                 MsgBox("Error in processtype family -- " & ex.ToString())
                             End Try
@@ -1975,7 +1939,7 @@ Public Class interfaceChoRoute
                                             Dim hold() As String
                                             hold = CtrlForm.el(5).Data.Split(",")
                                             SO = hold(1)
-                                            InvokeData("select CUST,CUSTNAME,CUSTDES1,ZEMG_GROUPFLAG,TADDRESS,TZIP,ORDNAME FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND REPLACE(CUSTDES1,'''','') = '" & hold(0) & ")' and ORDNAME = '" & SO & "' ORDER BY ORDNAME")
+                                            InvokeData("select CUST,CUSTNAME,CUSTDES1,ZEMG_GROUPFLAG,TADDRESS,TZIP,ORDNAME FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND REPLACE(CUSTDES1,'''','') = '" & hold(0) & "' and ORDNAME = '" & SO & "' ORDER BY ORDNAME")
                                         Case Else
                                             InvokeData("select CUST,CUSTNAME,CUSTDES,ZEMG_GROUPFLAG,TADDRESS,TZIP FROM V_CUSTFORROUTE WHERE ROUTENAME = '%ROUTE%' AND REPLACE(CUSTDES,'''','') = '%PACKING_SLIP%'")
                                     End Select
@@ -2000,8 +1964,7 @@ Public Class interfaceChoRoute
                         Case "AMOUNT"
 
 
-                            'Dim Temp As String
-                            'Dim tflag As Boolean = False
+                     
                             Try
                                 If pick_amount = 0 Then Exit Sub
                                 Dim AMOUNT_IN_LOT As Integer = CtrlForm.el(7).Data
@@ -2011,10 +1974,7 @@ Public Class interfaceChoRoute
                                     If pick_row.SubItems(0).Text = CtrlForm.el(3).Data Then
                                         'select the line
                                         pick_row.Selected = True
-                                        'If pick_row.SubItems(19).Text = 1 Then
-                                        '    'Temp = InputBox("Please check the temperature and enter it here")
-                                        '    tflag = True
-                                        'End If
+                                       
                                         'check to see if there were too many items picked
                                         If pick_amount > Convert.ToInt32(pick_row.SubItems(2).Text) Then
                                             MsgBox("Too many items picked!")
@@ -2389,7 +2349,7 @@ Public Class interfaceChoRoute
                                         InvokeData("Select DISTINCT SERIALNAME,WARHSNAME,LOCNAME,EXPIRYDATE,PARTNAME,TYPE,balance,ZSFDC_MINPICKDAYS from dbo.picklistparts(" & Me.Argument("PickDate") & ") WHERE PARTNAME = '%PART%' AND TYPE = 'R' and EXPIRYDATE >= ((SELECT VALUE FROM LASTS WHERE NAME = 'PICK_DATE') + (ZSFDC_MINPICKDAYS * 1440)) order by EXPIRYDATE ASC,SERIALNAME DESC")
 
                                     End If
-                                    'NOSCAN = False
+
                                     CUSTMINPICK = 0
                                     CtrlTable.Focus()
                                 End If
@@ -2504,14 +2464,7 @@ Public Class interfaceChoRoute
 
                             p.AddRecord(1) = t3
                         End If
-                        'If PickedItems(y).Con <> 1 Then
-                        '    Dim D As Decimal
-                        '    D = PickedItems(y).Quant / PickedItems(y).Con
-                        '    D = Decimal.Round(D, 3)
-
-                        '    PickedItems(y).Quant = D
-
-                        'End If
+                      
                         Dim t2() As String = { _
                                     PickedItems(y).ORDI, _
                                     PickedItems(y).PART, _
@@ -2525,8 +2478,7 @@ Public Class interfaceChoRoute
                                     PickedItems(y).Con _
                                                                           }
                         p.AddRecord(2) = t2
-                        SendType = tSendType.None
-
+                       
                     Next
                     PickedItems.Clear()
 
@@ -2565,14 +2517,7 @@ Public Class interfaceChoRoute
                     p.AddRecord(1) = t1
 
                     For Each PickLine As PSLIPITEMS In PickedItems
-                        'If PickLine.Con <> 1 Then
-                        '    Dim D As Decimal
-                        '    D = PickLine.Quant / PickLine.Con
-                        '    D = Decimal.Round(D, 3)
-
-                        '    PickLine.Quant = D
-                        'End If
-
+                      
                         Dim t2() As String = {PickLine.PART, _
                                                 (PickLine).Quant * 1000, _
                                                 PickLine.WARHS, _
@@ -2629,10 +2574,7 @@ Public Class interfaceChoRoute
                     Dim Q As Decimal
                     Dim i As Integer
                     Q = Data(2, y)
-                    'If Data(14, y) <> 1 Then
-                    '    Q = Q * Data(14, y)
-
-                    'End If
+                  
                     i = Convert.ToInt32(Q)
                     Dim pack, singl, tot As Integer
                     pack = 0
@@ -2679,7 +2621,7 @@ Public Class interfaceChoRoute
         InvokeData("SELECT PTYPE, RTYPE, INCP, INCR, PTEMPG, FTEMPG, WRANGEPF, WRANGEPT, RTEMPG, WRANGERF, WRANGERT,OVERRIDET,OTTIMER FROM ZEMG_PICKSETTS WHERE PICK_TYPE LIKE '" & Pick_Type & "%'")
         Dim lv As ListViewItem
         Try
-            SendType = tSendType.None
+
             Dim pd As Integer = Me.Argument("PickDate")
 
             If picksetts.incp = True Then
