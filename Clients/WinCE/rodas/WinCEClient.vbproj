@@ -139,11 +139,12 @@
     <Compile Include="frmGetTemp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LotS.vb" />
     <Compile Include="main.vb" />
     <Compile Include="Modules\ErrorLog.vb" />
     <Compile Include="Modules\FroSetts.vb" />
-    <Compile Include="Modules\LotS.vb" />
-    <Compile Include="Modules\PickedItems.vb" />
+    <Compile Include="Modules\LotSBAK.vb" />
+    <Compile Include="Modules\PickedItems_bak.vb" />
     <Compile Include="Modules\PSLIPITEMS.vb" />
     <Compile Include="Modules\WHSTRAN.vb" />
     <Compile Include="Modules\_intCheckRoute.vb">

@@ -1,15 +1,24 @@
 ﻿<RecentFiles>
   <RecentFiles>
     <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/d:cpControls/f:cp_image.vb" caret="311" fromTop="7" />
-    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/d:MustOverride/f:LabelPrinter.vb" caret="2691" fromTop="26" />
-    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/f:Label.vb" caret="3863" fromTop="17" />
-    <File id="ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513/f:LabelPrinter.vb" caret="2115" fromTop="30" />
-    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:dialogs/f:dlgScanDeliver.vb" caret="0" fromTop="0" />
-    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:usrCtrls/f:ctrl_Home.vb" caret="4585" fromTop="23" />
     <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:dialogs/f:dlgPrnSetup.vb" caret="0" fromTop="0" />
-    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:usrCtrls/d:Deliveries/f:ctrl_Payment.vb" caret="7416" fromTop="18" />
-    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/f:ReceiptFormatter.vb" caret="1374" fromTop="27" />
-    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/f:SharedXMLFunc.vb" caret="12160" fromTop="9" />
+    <File id="5A0389F9-AF9A-40A4-947B-CE0773959815/d:Classes/f:cePrinter.vb" caret="0" fromTop="0" />
+    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/f:ReceiptFormatter.vb" caret="2494" fromTop="49" />
+    <File id="BB0BE30E-005F-440A-81C3-B6B349B44D17/f:SharedGraphics.vb" caret="1253" fromTop="29" />
+    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/f:enumer.vb" caret="0" fromTop="0" />
+    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/f:SharedXMLFunc.vb" caret="12986" fromTop="51" />
+    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:usrCtrls/f:ctrl_Home.vb" caret="4585" fromTop="23" />
+    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:dialogs/f:dlgScanDeliver.vb" caret="0" fromTop="0" />
+    <File id="ACDDCBF0-8DDF-4F58-BD67-3B1AEEA9E513/f:LabelPrinter.vb" caret="2115" fromTop="30" />
+    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/d:MustOverride/f:LabelPrinter.vb" caret="3459" fromTop="121" />
+    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/d:cpControls/f:cp_Line.vb" caret="0" fromTop="0" />
+    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/f:Label.vb" caret="3836" fromTop="89" />
+    <File id="02BE755C-1DC9-47CE-9931-58DD9164C988/d:MustOverride/f:CPCommand.vb" caret="704" fromTop="20" />
+    <File id="38A5E3FE-2B37-45DD-9307-623B73482BD6/d:usrCtrls/d:Deliveries/f:ctrl_Payment.vb" caret="10343" fromTop="0" />
+    <File id="7D72660F-2A24-4F96-AFA6-30568842DB92/f:scan_Reg.vb" caret="0" fromTop="0" />
+    <File id="7D72660F-2A24-4F96-AFA6-30568842DB92/f:StartUp.vb" caret="1409" fromTop="0" />
+    <File id="7D72660F-2A24-4F96-AFA6-30568842DB92/f:HostMainView.vb" caret="2021" fromTop="24" />
+    <File id="C81127CE-7435-4555-961F-D43C4ADC6797/f:UserEnv.vb" caret="4572" fromTop="15" />
   </RecentFiles>
   <RecentEdits />
 </RecentFiles>

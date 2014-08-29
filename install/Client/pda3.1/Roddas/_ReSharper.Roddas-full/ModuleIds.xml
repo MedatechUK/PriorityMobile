@@ -5,4 +5,5 @@
   <Module PersistentId="7D72660F-2A24-4F96-AFA6-30568842DB92" ModuleId="Roddas" />
   <Module PersistentId="C81127CE-7435-4555-961F-D43C4ADC6797" ModuleId="Provision" />
   <Module PersistentId="5A0389F9-AF9A-40A4-947B-CE0773959815" ModuleId="ViewControl" />
+  <Module PersistentId="BB0BE30E-005F-440A-81C3-B6B349B44D17" ModuleId="mnuControls" />
 </Modules>
